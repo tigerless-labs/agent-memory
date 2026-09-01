@@ -133,14 +133,21 @@ class Store:
         if valid_from is not None:
             current.valid_from = valid_from
         current.updated = self.clock.today()
-        record_module.validate(current, self.config)
         with store_lock(self.layout):
             for excerpt in provenance or []:
                 stored = self.archive.append_provenance(current.name, excerpt, source=self.agent)
                 current.provenance.append(str(stored.relative_to(self.root)))
-            current.path.write_text(current.to_text(), encoding="utf-8")
+        return self.write(current)
+
+    def write(self, record: MemoryRecord) -> MemoryRecord:
+        """Validate, persist, reproject. Agent writes and Manage rewrites share this path."""
+        if record.path is None:
+            raise NotFoundError(f"{record.name} has no location on disk")
+        record_module.validate(record, self.config)
+        with store_lock(self.layout):
+            record.path.write_text(record.to_text(), encoding="utf-8")
             self._project()
-        return current
+        return record
 
     def feedback(self, name: str, delta: float) -> MemoryRecord:
         current = self.find(name)
@@ -149,11 +156,7 @@ class Store:
         current.weight = min(
             self.config.weight.ceiling, max(self.config.weight.floor, current.weight + delta)
         )
-        record_module.validate(current, self.config)
-        with store_lock(self.layout):
-            current.path.write_text(current.to_text(), encoding="utf-8")
-            self._project()
-        return current
+        return self.write(current)
 
     def retire(self, name: str) -> MemoryRecord:
         """Demotion into archive/. Reversible, non-destructive, and never automatic (T2)."""

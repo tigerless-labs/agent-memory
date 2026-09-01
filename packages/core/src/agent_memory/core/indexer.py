@@ -6,8 +6,10 @@ import dataclasses
 import pathlib
 
 from . import chunking
+from . import record as record_module
 from .clock import Clock
 from .database import Database
+from .errors import ValidationError
 from .manifest import Manifest, content_hash
 from .paths import StoreLayout
 from .record import MemoryRecord
@@ -86,7 +88,11 @@ class Indexer:
         if domain is None:
             return None
         record = MemoryRecord.from_text(path.read_text(encoding="utf-8"), domain, path)
-        return record if record.name else None
+        try:
+            record_module.validate(record, self._config)
+        except ValidationError:
+            return None
+        return record
 
     def _dangling_links(self, index: SearchIndex) -> tuple[tuple[str, str], ...]:
         rows = index.rows()

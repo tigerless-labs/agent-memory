@@ -11,6 +11,7 @@ from collections.abc import Sequence
 
 from agent_memory.core import portability
 from agent_memory.core.errors import MemoryStoreError, ValidationError
+from agent_memory.core.manage import Manage
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_FULL, LEVELS, Store
 
@@ -106,6 +107,15 @@ def _parser() -> argparse.ArgumentParser:
     importer = subparsers.add_parser("import", help="import an export into this store")
     importer.add_argument("source")
     importer.set_defaults(handler=_import)
+
+    sleeper = subparsers.add_parser("sleep", help="run the sleep-time Manage pass")
+    sleeper.add_argument("--sessions-since", type=int, default=None)
+    sleeper.set_defaults(handler=_sleep)
+
+    installer = subparsers.add_parser("setup", help="install host hooks")
+    installer.add_argument("--host", default=None)
+    installer.add_argument("--settings", default=None)
+    installer.set_defaults(handler=_setup)
 
     return parser
 
@@ -212,6 +222,24 @@ def _export(store: Store, args: argparse.Namespace) -> dict[str, object]:
 def _import(store: Store, args: argparse.Namespace) -> dict[str, object]:
     written = portability.read_import(store, pathlib.Path(args.source))
     return {"imported": written}
+
+
+def _sleep(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    manage = Manage(store)
+    if args.sessions_since is not None and not manage.due(args.sessions_since):
+        return {"slept": False, "reason": "trigger conditions not met"}
+    return {"slept": True, **manage.sleep().as_dict()}
+
+
+def _setup(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    from agent_memory.adapters import setup as setup_module
+
+    hosts = [args.host] if args.host else setup_module.detect()
+    settings = pathlib.Path(args.settings) if args.settings else None
+    return {
+        "installed": {host: str(setup_module.install(host, settings)) for host in hosts},
+        "store": str(store.root),
+    }
 
 
 def _body(inline: str, from_file: str | None) -> str:

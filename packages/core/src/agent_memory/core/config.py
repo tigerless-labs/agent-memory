@@ -77,8 +77,10 @@ class ManageConfig:
     cluster_min_files: int = 5
     cluster_min_shared_tokens: int = 2
     stale_after_days: float = 365.0
-    duplicate_similarity: float = 0.92
     merge_proposal_similarity: float = 0.75
+    link_cooccurrence_min: int = 2
+    abstract_min_words: int = 3
+    max_boosts_per_sleep: int = 3
     dream_report_dirname: str = "dream-reports"
 
 
