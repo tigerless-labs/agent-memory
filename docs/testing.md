@@ -18,4 +18,12 @@
 
 ## Per-file test map
 
-(实现阶段逐文件补充)
+| 实现模块 | 测试 |
+|---|---|
+| `core/config` | `tests/unit/test_config.py`(默认值、往返、未知 knob 拒收、魔数扫描) |
+| 包结构 / 依赖纪律 | `tests/unit/test_packaging.py`(core 零依赖、无模型客户端、导入冒烟) |
+| `core/record`·`core/frontmatter`·`core/slug`·`core/archive`·`core/store` | `tests/unit/test_storage.py` |
+| `core/indexer`·`core/manifest`·`core/search_index`·`core/memory_md` | `tests/unit/test_indexer.py` |
+| `core/locking` | `tests/system/test_concurrency.py` |
+| `core/recall`·`core/chunking`·`core/access_log` | `tests/unit/test_recall.py` |
+| `cli/main`·`core/portability` | `tests/system/test_cli.py` |
