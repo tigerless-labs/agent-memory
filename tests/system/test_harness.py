@@ -1,5 +1,6 @@
 """M7 — the replay driver, exercised against a stub host. Fixtures never hit a live service."""
 
+import dataclasses
 import json
 
 import pytest
@@ -56,7 +57,8 @@ class StubHost(Host):
         self.fail_on = fail_on
         self.prompts = record_prompts if record_prompts is not None else []
 
-    def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="", max_turns=8):
+    def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="",
+            max_turns=8, workdir=None):
         self.prompts.append(prompt)
         if self.fail_on and self.fail_on in prompt:
             return HostResult("", False, 0.1, "stub failure")
@@ -107,11 +109,36 @@ def test_the_exam_prompt_never_carries_experience_content(suite):
     assert episode.question in prompt
 
 
+def test_a_one_word_turn_does_not_trip_the_isolation_gate(tmp_path, suite):
+    episodes = dataset.load(suite)
+    episode = episodes[0]
+    noisy = dataclasses.replace(
+        episode,
+        sessions=(
+            dataclasses.replace(
+                episode.sessions[0],
+                turns=(dataset.Turn(role="user", content="?"),) + episode.sessions[0].turns,
+            ),
+        )
+        + episode.sessions[1:],
+    )
+    assert _driver(tmp_path, StubHost(), episodes).run(noisy, arms.W1).status == STATUS_OK
+
+
 def test_the_driver_refuses_to_score_a_run_whose_isolation_broke(tmp_path, suite, monkeypatch):
     episodes = dataset.load(suite)
     monkeypatch.setattr(framing, "exam", lambda episode, with_memory: SECRET + episode.question)
     with pytest.raises(IsolationBreach):
         _driver(tmp_path, StubHost(), episodes).run(episodes[0], arms.W1)
+
+
+def test_each_run_gets_its_own_clean_working_directory(tmp_path, suite):
+    episodes = dataset.load(suite)
+    driver = _driver(tmp_path, StubHost(), episodes)
+    driver.run(episodes[0], arms.W1)
+    workdir = tmp_path / "stores" / arms.W1.name / episodes[0].id / "cwd"
+    assert workdir.is_dir()
+    assert list(workdir.iterdir()) == []
 
 
 def test_a_write_arm_beats_the_no_memory_control_on_the_same_episode(tmp_path, suite):

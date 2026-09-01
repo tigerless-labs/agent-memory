@@ -1,4 +1,9 @@
-"""Headless host drivers. The harness shells out; it never speaks a model API itself."""
+"""Headless host drivers. The harness shells out; it never speaks a model API itself.
+
+The system prompt is replaced rather than appended: a host that ships its own memory layer
+would otherwise write there instead of into the store under test, and two memory systems in
+one run make the score unattributable.
+"""
 
 from __future__ import annotations
 
@@ -12,6 +17,10 @@ HOST_CLAUDE_CODE = "claude-code"
 HOST_CODEX = "codex"
 DEFAULT_MODEL = "claude-haiku-4-5-20251001"
 MEM_TOOL_PATTERN = "Bash(mem:*)"
+HOST_NATIVE_TOOLS = "Write,Edit,NotebookEdit,WebSearch,WebFetch,Task"
+BARE_SYSTEM_PROMPT = (
+    "You are a helpful assistant. Answer the user directly and concisely."
+)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -49,17 +58,24 @@ class Host:
         tools_enabled: bool = False,
         system_prompt: str = "",
         max_turns: int = 8,
+        workdir: pathlib.Path | None = None,
     ) -> HostResult:
         command = self._command(tools_enabled, system_prompt, max_turns)
         environment = self._environment(store_root)
         last = HostResult(text="", ok=False, seconds=0.0, error="not attempted")
         for _ in range(self.spec.attempts):
-            last = self._invoke(command, prompt, environment)
+            last = self._invoke(command, prompt, environment, workdir)
             if last.ok:
                 return last
         return last
 
-    def _invoke(self, command: list[str], prompt: str, environment: dict[str, str]) -> HostResult:
+    def _invoke(
+        self,
+        command: list[str],
+        prompt: str,
+        environment: dict[str, str],
+        workdir: pathlib.Path | None = None,
+    ) -> HostResult:
         started = time.monotonic()
         try:
             completed = subprocess.run(
@@ -69,6 +85,7 @@ class Host:
                 text=True,
                 timeout=self.spec.timeout_seconds,
                 env=environment,
+                cwd=str(workdir) if workdir else None,
                 check=False,
             )
         except subprocess.TimeoutExpired:
@@ -83,9 +100,10 @@ class Host:
     def _command(self, tools_enabled: bool, system_prompt: str, max_turns: int) -> list[str]:
         if self.spec.name == HOST_CLAUDE_CODE:
             command = [self.spec.binary, "-p", "--model", self.spec.model,
-                       "--max-turns", str(max_turns)]
+                       "--max-turns", str(max_turns),
+                       "--disallowedTools", HOST_NATIVE_TOOLS]
             command += ["--allowedTools", MEM_TOOL_PATTERN] if tools_enabled else []
-            command += ["--append-system-prompt", system_prompt] if system_prompt else []
+            command += ["--system-prompt", system_prompt or BARE_SYSTEM_PROMPT]
             return command
         command = [self.spec.binary, "exec", "--model", self.spec.model, "--skip-git-repo-check"]
         return command + (["--full-auto"] if tools_enabled else ["--sandbox", "read-only"])

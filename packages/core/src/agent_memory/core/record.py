@@ -114,8 +114,12 @@ def validate(record: MemoryRecord, config: Config) -> None:
     if record.domain not in config.storage.domains:
         errors.append(FieldError("domain", f"unknown domain: {record.domain}"))
     elif record.type and record.type not in config.storage.domain_types[record.domain]:
+        allowed = ", ".join(config.storage.domain_types[record.domain])
         errors.append(
-            FieldError("type", f"type {record.type} is not allowed in domain {record.domain}")
+            FieldError(
+                "type",
+                f"domain {record.domain} takes one of: {allowed} (got {record.type})",
+            )
         )
 
     for field in ("created", "updated", "valid_from"):

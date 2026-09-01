@@ -10,6 +10,7 @@ import concurrent.futures
 import dataclasses
 import pathlib
 
+from agent_memory.core import prompts
 from agent_memory.core.store import Store
 
 from . import framing
@@ -49,7 +50,8 @@ class Driver:
 
     def run(self, episode: Episode, arm: Arm) -> RunRecord:
         store = self._store_for(episode, arm)
-        phase = self._experience(store, episode, arm)
+        workdir = self._workdir_for(episode, arm)
+        phase = self._experience(store, episode, arm, workdir)
         exam_prompt = framing.exam(episode, with_memory=arm.memory)
         self._assert_isolated(exam_prompt, episode)
 
@@ -57,6 +59,9 @@ class Driver:
             exam_prompt,
             store_root=store.root if arm.memory else None,
             tools_enabled=arm.memory,
+            system_prompt=prompts.MEMORY_KEEPER if arm.memory else "",
+            max_turns=EXAM_MAX_TURNS,
+            workdir=workdir,
         )
         verdict = self._judge.grade(episode.question, episode.answer, answer.text)
         status = STATUS_OK if answer.ok and verdict.ok else STATUS_FAILED
@@ -87,7 +92,15 @@ class Driver:
         store.init()
         return store
 
-    def _experience(self, store: Store, episode: Episode, arm: Arm) -> ExperiencePhase:
+    def _workdir_for(self, episode: Episode, arm: Arm) -> pathlib.Path:
+        """A clean room per run: no repository instructions reach the host by accident."""
+        workdir = self._workspace / arm.name / episode.id / WORKDIR_NAME
+        workdir.mkdir(parents=True, exist_ok=True)
+        return workdir
+
+    def _experience(
+        self, store: Store, episode: Episode, arm: Arm, workdir: pathlib.Path
+    ) -> ExperiencePhase:
         if arm.mode == MODE_NONE:
             return ExperiencePhase(calls=0, seconds=0.0, blocking_seconds=0.0, failures=0)
 
@@ -96,14 +109,19 @@ class Driver:
             for index, batch in enumerate(batches):
                 store.archive.append_session(f"{episode.id}-{index}", _render(batch))
 
-        prompts = [framing.experience(arm.mode, _render(batch)) for batch in batches]
-        with concurrent.futures.ThreadPoolExecutor(max_workers=len(prompts) or 1) as pool:
+        instructions = [framing.experience(arm.mode, _render(batch)) for batch in batches]
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(instructions) or 1) as pool:
             results = list(
                 pool.map(
                     lambda prompt: self._host.run(
-                        prompt, store_root=store.root, tools_enabled=True
+                        prompt,
+                        store_root=store.root,
+                        tools_enabled=True,
+                        system_prompt=prompts.MEMORY_KEEPER,
+                        max_turns=WRITE_MAX_TURNS,
+                        workdir=workdir,
                     ),
-                    prompts,
+                    instructions,
                 )
             )
         seconds = sum(result.seconds for result in results)
@@ -117,8 +135,10 @@ class Driver:
     def _assert_isolated(self, prompt: str, episode: Episode) -> None:
         for session in episode.sessions:
             for turn in session.turns:
-                excerpt = turn.content.strip()[:ISOLATION_EXCERPT]
-                if excerpt and excerpt in prompt:
+                content = turn.content.strip()
+                if len(content) < ISOLATION_MIN_CHARS:
+                    continue
+                if content[:ISOLATION_EXCERPT] in prompt:
                     raise IsolationBreach(f"{episode.id}: exam prompt carries session content")
 
 
@@ -136,5 +156,9 @@ def _batched(items: list, size: int):
 
 
 ANSWER_EXCERPT = 600
+EXAM_MAX_TURNS = 12
+WORKDIR_NAME = "cwd"
+WRITE_MAX_TURNS = 30
 ISOLATION_EXCERPT = 60
+ISOLATION_MIN_CHARS = 24
 SECONDS_PRECISION = 2
