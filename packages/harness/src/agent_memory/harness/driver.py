@@ -14,7 +14,7 @@ from agent_memory.core import injection, prompts
 from agent_memory.core.store import Store
 
 from . import framing
-from .arms import MODE_COLD, MODE_NONE, Arm
+from .arms import MODE_NONE, Arm
 from .dataset import Episode, Session
 from .hosts import Host
 from .judge import Judge
@@ -113,9 +113,8 @@ class Driver:
             return ExperiencePhase(calls=0, seconds=0.0, blocking_seconds=0.0, failures=0)
 
         batches = list(_batched(list(episode.sessions), self._batch))
-        if arm.mode == MODE_COLD:
-            for index, batch in enumerate(batches):
-                store.archive.append_session(f"{episode.id}-{index}", _render(batch))
+        for index, batch in enumerate(batches):
+            store.archive.append_session(f"{episode.id}-{index}", _render(batch))
 
         instructions = [framing.experience(arm.mode, _render(batch)) for batch in batches]
         workers = min(self._experience_workers, len(instructions)) or 1

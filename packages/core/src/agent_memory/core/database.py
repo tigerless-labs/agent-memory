@@ -45,6 +45,14 @@ SCHEMA = (
     )
     """,
     """
+    CREATE VIRTUAL TABLE IF NOT EXISTS raw_chunks USING fts5(
+        name UNINDEXED,
+        path UNINDEXED,
+        anchor UNINDEXED,
+        text
+    )
+    """,
+    """
     CREATE TABLE IF NOT EXISTS access_log (
         at TEXT NOT NULL,
         name TEXT NOT NULL,

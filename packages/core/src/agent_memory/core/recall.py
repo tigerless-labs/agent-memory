@@ -9,6 +9,7 @@ import sqlite3
 from .access_log import KIND_RECALL, AccessEntry, AccessLog
 from .config import Config
 from .database import Database
+from .raw_index import SOURCE_MEMORY, SOURCE_RAW, RawIndex
 from .record import STATUS_RETIRED
 from .search_index import SearchIndex
 from .store import Store
@@ -29,6 +30,7 @@ class Hit:
     relevance: float
     recency: float
     score: float
+    source: str = SOURCE_MEMORY
 
     def as_dict(self) -> dict[str, object]:
         return dataclasses.asdict(self)
@@ -49,12 +51,18 @@ class Recall:
         limit: int | None = None,
     ) -> list[Hit]:
         limit = limit or self._config.recall.default_limit
+        if deep:
+            limit *= self._config.recall.deep_limit_multiplier
         pool = limit * self._config.recall.candidate_pool_multiplier
         with self._database.connect() as connection:
             index = SearchIndex(connection)
             candidates = index.match(query, pool)
             eligible = self._eligible(index.rows(), scope=scope, as_of=as_of, deep=deep)
-            hits = self._rank(candidates, eligible, as_of=as_of)[:limit]
+            hits = self._rank(candidates, eligible, as_of=as_of)
+            if deep:
+                hits = hits + self._raw_hits(RawIndex(connection), query, pool)
+                hits.sort(key=lambda hit: (-hit.score, hit.name))
+            hits = hits[:limit]
             AccessLog(connection).append(
                 [
                     AccessEntry(
@@ -148,6 +156,32 @@ class Recall:
             )
         hits.sort(key=lambda hit: (-hit.score, hit.name))
         return hits
+
+    def _raw_hits(self, raw: RawIndex, query: str, pool: int) -> list[Hit]:
+        """Evidence, not knowledge: no weight, no recency, and deliberately outranked."""
+        factor = self._config.recall.raw_relevance_factor
+        found: list[Hit] = []
+        for candidate in raw.match(query, pool):
+            excerpt = candidate.text.strip().replace("\n", " ")
+            found.append(
+                Hit(
+                    name=candidate.name,
+                    path=str(self._store.root / candidate.path),
+                    abstract=excerpt[: self._config.recall.snippet_max_chars],
+                    anchor=candidate.anchor,
+                    heading="",
+                    domain="",
+                    type=SOURCE_RAW,
+                    updated="",
+                    status="",
+                    weight=0.0,
+                    relevance=candidate.relevance,
+                    recency=0.0,
+                    score=candidate.relevance * factor,
+                    source=SOURCE_RAW,
+                )
+            )
+        return found
 
     def _kind_weight(self, kind: str) -> float:
         from .chunking import KIND_ABSTRACT

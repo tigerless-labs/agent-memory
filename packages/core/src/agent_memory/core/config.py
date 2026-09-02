@@ -35,6 +35,7 @@ class StorageConfig:
 class IndexConfig:
     hash_prefix_length: int = 16
     chunk_min_chars: int = 200
+    raw_chunk_chars: int = 1200
     bm25_abstract_weight: float = 2.0
     bm25_body_weight: float = 1.0
 
@@ -61,11 +62,13 @@ class WeightConfig:
 class RecallConfig:
     default_limit: int = 8
     candidate_pool_multiplier: int = 10
+    deep_limit_multiplier: int = 2
     recency_half_life_days: float = 180.0
     recency_decay_base: float = 0.5
     recency_floor: float = 0.25
     retrieval_weight_floor: float = 0.15
     memory_md_weight_floor: float = 0.75
+    raw_relevance_factor: float = 0.4
     injection_enabled: bool = True
     injection_budget_bytes: int = 8192
     anchor_context_chars: int = 160
