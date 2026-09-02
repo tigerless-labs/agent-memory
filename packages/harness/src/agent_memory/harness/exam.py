@@ -24,6 +24,7 @@ MODES = (MODE_AGENTIC, MODE_FIXED)
 ENTRY_SEPARATOR = "\n\n"
 CONTEXT_HEADER = "Entries from your memory store, most relevant first:"
 NOTHING_FOUND = "Your memory store returned nothing for this question."
+CONTEXT_PLACEHOLDER = "<<retrieved-context>>"
 
 
 @dataclasses.dataclass(frozen=True)
@@ -62,3 +63,7 @@ def _full_text(store: Store, name: str) -> str:
         return store.read(name, level=LEVEL_FULL).text
     except Exception:
         return ""
+
+
+def fill_context(prompt: str, context: str) -> str:
+    return prompt.replace(CONTEXT_PLACEHOLDER, context)

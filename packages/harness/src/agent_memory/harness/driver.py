@@ -72,14 +72,16 @@ class Driver:
         )
         fixed = self._exam_mode == exam_module.MODE_FIXED and arm.memory
         if fixed:
-            context = exam_module.build_context(
-                store, episode.question, store.config.recall.fixed_exam_full_text_entries
-            )
-            exam_prompt = framing.fixed_exam(episode, context.text)
+            exam_prompt = framing.fixed_exam(episode, exam_module.CONTEXT_PLACEHOLDER)
         else:
             exam_prompt = framing.exam(episode, with_memory=arm.memory, config=store.config)
         self._assert_isolated(exam_prompt, episode)
-        if arm.memory and not fixed:
+        if fixed:
+            context = exam_module.build_context(
+                store, episode.question, store.config.recall.fixed_exam_full_text_entries
+            )
+            exam_prompt = exam_module.fill_context(exam_prompt, context.text)
+        elif arm.memory:
             exam_prompt = framing.with_injected_index(exam_prompt, injection.payload(store))
 
         answer = self._host.run(
@@ -166,8 +168,9 @@ class Driver:
         )
 
     def _assert_isolated(self, prompt: str, episode: Episode) -> None:
-        """Checked before injection: what the store injects is memory the run itself wrote,
-        which is the designed read track, not the transcript leaking into the exam."""
+        """Checked on the harness-built shell, before anything the store returns is placed in
+        it. What the store returns came back through retrieval, which is the read track under
+        test; what the harness writes must never carry the transcript."""
         for session in episode.sessions:
             for turn in session.turns:
                 content = turn.content.strip()

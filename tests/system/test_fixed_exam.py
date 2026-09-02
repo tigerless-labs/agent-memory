@@ -78,6 +78,25 @@ def test_the_fixed_prompt_carries_the_context_and_the_question(stocked, seeded):
     assert context.text in prompt
 
 
+def test_the_isolation_gate_sees_the_shell_and_the_store_fills_it_afterwards(stocked):
+    from agent_memory.harness import dataset
+
+    episode = dataset.Episode(
+        id="q1", question="What must the drain window exceed?", answer="the lease TTL",
+        question_type="single-session-user", question_date="2026/02/01",
+        sessions=(), evidence_session_ids=(),
+    )
+    shell = fixed_exam(episode, exam.CONTEXT_PLACEHOLDER)
+    assert exam.CONTEXT_PLACEHOLDER in shell
+    assert "42 dollars" not in shell
+
+    stocked.config.recall.raw_enabled = True
+    context = exam.build_context(stocked, "aquarium ticket 42 dollars", full_text_entries=0)
+    filled = exam.fill_context(shell, context.text)
+    assert exam.CONTEXT_PLACEHOLDER not in filled
+    assert "42 dollars" in filled
+
+
 def test_recall_still_never_mutates_truth_when_the_harness_drives_it(stocked):
     import hashlib
 
