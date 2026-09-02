@@ -28,6 +28,9 @@
 - [x] supersede 在实写中从未触发(3744 条记忆 0 条边)——根因是 API 形状而非纪律,
       已加 `mem record --supersedes`,机制恢复(120 store / 25 条边);
       但对得分无影响(触发的 15 个 episode 上 9/15 = 9/15)
-- [ ] single-session-preference 类始终 5–15%:问的是「按我的偏好给建议」,
-      需要的是把多条偏好合成一个回答,而非取回单条事实——现有评测面覆盖不到,先记着
+- [x] single-session-preference 类的低分一半是判分问题:gold 是「好答案该满足什么」的细则
+      而非答案本身,judge 需要第三条分支(已加,标定 23/25)
+- [ ] **实验设计下限**:考试阶段独立重放同一批 store 同一配置,120 题上摆动 ±7。
+      任何读侧/写侧结论都必须建立在「重复重放 + 配对」之上,单轮对比无论 n 多大都不可信
+      (evidence: experiments/results/p2-optimisation.md,P5 两次重放 71 vs 57)
 

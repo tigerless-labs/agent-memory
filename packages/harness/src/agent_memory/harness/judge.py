@@ -16,33 +16,29 @@ Question: {question}
 Reference answer: {expected}
 Candidate answer: {candidate}
 
-Work in two steps.
+First read the REFERENCE alone and decide which of three kinds it is. Exactly one applies.
 
-Step 1. Look only at the REFERENCE answer, and ignore the candidate for now. Does the reference
-itself say that the information was never provided — that the question asks about something the
-person never mentioned? References of that kind say so outright, in wording such as "you did not
-mention this" or "the information provided is not enough". Settle this before reading on.
+ABSENCE — the reference says the information was never provided ("you did not mention this",
+"the information provided is not enough"). It may add what the person did mention instead;
+that is context, not something the candidate has to repeat.
+  correct: the candidate reports having no record of what was asked, in any wording.
+  incorrect: the candidate names an answer, including a hedged or most-likely one.
 
-Step 2a. If the reference DOES say the information was never provided, then reporting that the
-information is absent IS the right answer, and the candidate agrees with the reference by
-saying so. Judge it correct whenever it reports having no record of the thing asked about, in any
-wording.
-Such a reference often adds what the person did mention instead; that addition is context, not
-part of what the candidate has to say, so a candidate that omits it is still correct.
-Judge it incorrect only when it names a specific answer, including a hedged or most-likely one.
+STANDARD — the reference does not answer, it describes what a good answer must satisfy ("the
+user would prefer suggestions that ...", often with "they may not prefer ..."). The question
+asked for suggestions.
+  correct: what the candidate proposes is the kind of thing the reference says this person
+    wants, and avoids what it says they do not. The candidate will not restate the preference
+    and is not expected to — judge its suggestions.
+  incorrect: the suggestions ignore the standard, or the candidate makes no suggestions at all.
 
-Step 2b. If the reference DOES give a substantive answer: judge the candidate correct when it
-conveys that same information, and incorrect when it contradicts the reference, omits the part
-the question asks for, or reports that it does not have the information — in this branch, not
-having the information is a wrong answer.
-
-Judging whether the same information is conveyed is a question about the answer, not about how
-it is written. The candidate is still correct when it writes a quantity the other way round
-("9" for "nine", "five tops" for "5"), restates the unit or the noun ("Five issues of National
-Geographic" for "Five"), reformats a date, hedges with a word like "approximately" while
-landing on the same value, or adds supporting detail that agrees with the reference. It becomes
-incorrect when the value itself differs, when it gives a range or floor where the reference
-gives a figure ("at least 4" for "six"), or when it swaps the terms of a comparison.
+FACT — the reference states an answer.
+  correct: the candidate conveys the same answer. Form does not matter: "9" for "nine", "five
+    tops" for "5", "Five issues of National Geographic" for "Five", a reformatted date,
+    "approximately" in front of the same value, or extra detail that agrees.
+  incorrect: a different value, a range or floor where the reference gives a figure ("at least
+    4" for "six"), swapped terms of a comparison, the part asked for missing, or the candidate
+    saying it does not have the information — under FACT, not knowing is wrong.
 
 Reply with exactly one word: yes or no."""
 

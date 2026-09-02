@@ -138,5 +138,40 @@
     "expected": "$42",
     "candidate": "42 dollars",
     "label": true
+  },
+  {
+    "case": "preference-satisfied",
+    "question": "Can you suggest some activities I can do during my commute to work?",
+    "expected": "The user would prefer suggestions related to listening to new podcasts or audiobooks, especially genres beyond true crime or self-improvement, such as history. They may not be interested in activities that require visual attention.",
+    "candidate": "For your 40-minute commute: history and science podcasts such as Hardcore History and Lore, and history audiobooks.",
+    "label": true
+  },
+  {
+    "case": "preference-satisfied-brand",
+    "question": "Can you suggest some accessories that would complement my current photography setup?",
+    "expected": "The user would prefer suggestions of Sony-compatible accessories or high-quality photography gear. They may not prefer other brands' equipment or low-quality gear.",
+    "candidate": "For your Sony A7R IV and 24-70mm f/2.8: a Godox V1 flash, a Peak Design carbon tripod, and Sony NP-FZ100 spare batteries.",
+    "label": true
+  },
+  {
+    "case": "preference-violated",
+    "question": "What should I serve for dinner this weekend with my homegrown ingredients?",
+    "expected": "The user would prefer dinner suggestions that incorporate their homegrown cherry tomatoes and herbs like basil and mint. They might not prefer suggestions that do not use their garden produce.",
+    "candidate": "Grilled peppers with garlic and onions, paired with kimchi and pickles.",
+    "label": false
+  },
+  {
+    "case": "preference-not-answered",
+    "question": "Can you suggest some accessories that would complement my current photography setup?",
+    "expected": "The user would prefer suggestions of Sony-compatible accessories or high-quality photography gear.",
+    "candidate": "You own a Sony A7III with a 100-400mm telephoto lens and are interested in a 50mm f/1.8 prime.",
+    "label": false
+  },
+  {
+    "case": "preference-declined",
+    "question": "What should I serve for dinner this weekend with my homegrown ingredients?",
+    "expected": "The user would prefer dinner suggestions that incorporate their homegrown cherry tomatoes and herbs like basil and mint.",
+    "candidate": "The store doesn't have details about which homegrown ingredients you have available.",
+    "label": false
   }
 ]

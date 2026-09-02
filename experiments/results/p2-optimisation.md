@@ -176,7 +176,43 @@ the 15 episodes where supersede actually fired, p4 scored 9/15 and p3 scored 9/1
 The entire +8 came from episodes where the mechanism never engaged, which is another way of
 saying it came from run-to-run variance.
 
-## Five routes, five negatives
+## P5: read discipline — and the measurement that ends the search
+
+The P3 diagnostic put the remaining loss at the answering step, which had been treated as the
+host's business. It is not: the exam preamble, the recall list width, and whether the agent is
+told to work across entries are the memory system's read-side surface, and none had been
+varied. The category saying so loudest was single-session-preference, stuck at 5–15% in every
+run — those questions ask what would suit this person, answered from the pattern a set of
+entries makes together, not by retrieving the one entry that mentions the topic.
+
+Both knobs became config (`recall.synthesis_hint`, `recall.default_limit`), and both arms
+replayed **the same stores** from P4, so the write side was identical by construction.
+
+The first replay pair looked like the result the whole round had been chasing:
+
+| replay 1 | correct | accuracy |
+|---|---|---|
+| baseline (hint off, list 8) | 60/120 | 50.0% |
+| wide read (hint on, list 20) | 71/120 | 59.2% |
+
+Paired: +21 / −10, p=0.071. Five of six categories up, temporal-reasoning +7/−1.
+
+Then both arms were replayed a second time, against the same stores, with the same config:
+
+| | replay 1 | replay 2 | pooled |
+|---|---|---|---|
+| baseline | 60/120 | 66/120 | 126/240 (52.5%) |
+| wide read | 71/120 | **57/120** | 128/240 (53.3%) |
+
+Pooled paired: +30 / −28, p=0.90. Scoring each episode by its majority across both replays:
+wide better on 25, worse on 24, p=1.00.
+
+**The exam phase alone swings ±7 per 120 episodes with the stores frozen, the config frozen,
+and one judge.** That is what the p=0.071 was. A single replay pair cannot measure a read-side
+change at all, and by extension neither could any of the single-run comparisons earlier in this
+document — which is why every one of them needed the paired, repeated design to be believed.
+
+## Six routes, six negatives
 
 | route | result |
 |---|---|
@@ -185,6 +221,7 @@ saying it came from run-to-run variance.
 | per-session distillation, 3.5× write volume | no effect |
 | raw-material fallback | n=120, p=1.000 — powered negative |
 | supersede-on-write | n=120, p=0.27; identical where the mechanism fired |
+| read discipline (synthesis hint + wider list) | n=240 paired over two replays, p=0.90 |
 
 Best measured configuration: **62/120 (51.7%)** against a no-memory control of 4/24 (16.7%).
 The memory system's contribution is large and certain; the differences between its
