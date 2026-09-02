@@ -280,3 +280,52 @@ and that remains the largest untested claim in the project.
 A caveat that cuts the other way: an agent that knows what it is looking for should keep the
 ladder. `recall` was not replaced, and both surfaces stay.
 
+
+## P7: sleep-time Manage — a scoped null, and why the suite cannot see it
+
+The artifact listed the staleness net-value curve as the one measurement that could falsify the
+Manage layer, and it had never been run. It has now, in the cheapest form the harness allows:
+the 120 frozen stores were copied, slept, and re-examined under the fixed exam, so the only
+difference between arms is one Manage pass.
+
+| | correct | accuracy |
+|---|---|---|
+| control, not slept (replay 1) | 79/120 | 65.8% |
+| control, not slept (replay 2) | 76/120 | 63.3% |
+| slept | 77/120 | 64.2% |
+
+Paired: +6/−8 against replay 1 (p=0.79), +8/−7 against replay 2 (p=1.00). The treatment lands
+inside the control's own replay spread. **M is neutral on this suite.**
+
+### What Manage actually did
+
+| | before | after |
+|---|---|---|
+| memories | 3577 | 3577 |
+| supersede edges | 25 | 25 |
+| stale marks | — | 0 |
+
+Applied: 3156 links added, 574 weights settled from real access statistics. Proposed and not
+executed: 37 clusterings, 34 links, 8 abstract reviews, 1 merge.
+
+So the T0 pass fired, and fired on genuine usage evidence — 574 of 3577 memories had their
+weight moved. It changed nothing a score could see, and the reason is structural rather than a
+defect: links are data the reader follows, not an index recall consults (ADR-004); weight is a
+ranking multiplier, and the fixed exam already hands over the top sixteen; nothing was stale
+because the stores were written the same day; nothing was an exact duplicate.
+
+### Why this is a scoped null and not a verdict
+
+The loss profile leaves M almost nothing to act on. Of 110 answerable episodes, 57 fail because
+the answer was never distilled into any memory at all — no amount of tidying a store changes an
+entry that does not exist. M's claims are about a store that has accumulated: entries that went
+stale, values that were superseded, topics that grew dense enough to want a directory. A
+single-pass write-then-exam suite produces none of that history.
+
+Measuring M as specified needs a longitudinal protocol — sessions interleaved with recalls and
+sleeps over simulated time, which is what MemGym was in the design for and what this harness
+does not yet drive. Until that exists, the honest position is that **M's net value is untested,
+and this run does not change that**: it shows only that one T0 pass over a same-day store is
+neither a gain nor a cost.
+
+The falsifiability clause stands unresolved, which is worse than it failing.

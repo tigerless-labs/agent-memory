@@ -30,5 +30,9 @@ T1 提案由下次 session 呈用户确认。M 改文件走同一条写入管线
    已部分吸收(写时 supersede 在 W 纪律里);纯写时无法做价值化遗忘与跨条目整理。
 6. **Cross-cutting** — M 是 memory poisoning 的主防线:无人链路 append-only 语义 +
    全量审计,回应 second-brain(人在环)与 Auto Dream(无人删)两派之争的取中。
-7. **Risks** — M 干预净价值未测(benchmark 的 CR/时序子集部分覆盖);
+7. **Risks** — M 干预净价值未测,且**现有回放协议测不出**:单轮写入-单轮考试的套件不产生
+   陈旧、不产生被取代的值、不产生足够密的话题,T0 能触发的只有补边与 weight 结算,对得分中性
+   (evidence: experiments/results/p2-optimisation.md#p7)。需要纵向协议(session/recall/sleep
+   交替推进模拟时间)才谈得上度量。**可证伪声明**(源 artifact):若 staleness 净值曲线为负或
+   趋零,本层应被砍掉——该判据至今无法执行,这比它失败更值得优先解决。
    错合并率需在 dream-report 上人工抽查积累数据。
