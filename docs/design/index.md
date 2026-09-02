@@ -1,6 +1,10 @@
 # 设计树索引
 
-来源:两份已评审 artifact——「五层参考架构」与「实验系统设计」(2026-09-01,Ryan 审定)。
+来源:两份已评审 artifact(2026-09-01,Ryan 审定)——
+[五层参考架构](https://claude.ai/code/artifact/338e19f7-5733-4b8a-8409-ba58eecc92f3)与
+[实验系统设计](https://claude.ai/code/artifact/d4c0d335-2a0a-47f0-b8e4-e182b998ad36)。
+两者是本树的上游,改设计前先回读;覆盖核对见
+[artifact-conformance.md](artifact-conformance.md)。
 全部文档状态 `accepted`,除标注 `proposed` 者。
 
 ## requirements/

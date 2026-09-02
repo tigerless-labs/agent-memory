@@ -58,3 +58,16 @@
 - [ ] fx1/fx2(fixed-exam 两轮)无效:宿主调用非零退出且无 stderr,手工重放同样 prompt 正常,
       判定为环境性失败(疑似长时间连跑后的限流)。结论未取得,需重跑。
 
+## Artifact 覆盖缺口(2026-09-02,见 docs/design/artifact-conformance.md)
+
+- [ ] **staleness 净值曲线未测**:有 M vs 无 M 跑 N session,腐烂率 − M 代价。
+      这是 artifact 里唯一能证伪 M 层的度量,而 M 是本项目的差异化主战场
+- [ ] **可证伪声明未进设计树**:artifact 明写「曲线为负 → 第 3 层应被砍掉」,
+      manage.md 需补上这条,否则 M 是不可反驳的
+- [ ] **闭环矩阵未进设计树**:13 组件 × 谁建/谁养/谁用的自检表,
+      artifact 用它修过一次断链;现在新增组件(原料 FTS、.state)无处登记
+- [ ] **写入率对照实验**:关/开钩子层数漏记条目,目前只有随跑遥测
+- [ ] `feedback` 类型域:artifact 列了五类,设计树与实现只有四域
+- [ ] UserPromptSubmit 自动查询注入:检索轨升级为确定性的那条可选路径
+- [ ] 文件边界公理推论⑤软配额 / ⑥append 只属 archive / ⑦整页 topic file 反面教材
+
