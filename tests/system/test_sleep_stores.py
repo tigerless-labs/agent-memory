@@ -1,6 +1,7 @@
 """Sleeping a store tree is an experiment step: it must copy, not consume, the control."""
 
 import json
+import re
 
 from agent_memory.core.store import Store
 from agent_memory.harness.main import main as exp_main
@@ -73,3 +74,71 @@ def test_advancing_the_clock_is_what_lets_forgetting_happen_at_all(tmp_path, cap
     ]) == 0
     capsys.readouterr()
     assert [r for r in Store(much_later / "q1").records() if r.status == STATUS_STALE]
+
+
+def _twins(root):
+    store = Store(root, agent="seed")
+    store.init()
+    store.record(
+        abstract="The drain window closes before the worker lease expires",
+        type="experience",
+        domain="experience",
+        body="Short.",
+        name="drain-window-first",
+    )
+    store.record(
+        abstract="The drain window closes before the worker lease expires again",
+        type="experience",
+        domain="experience",
+        body="Longer body carrying the lease TTL and the fix that worked.",
+        name="drain-window-second",
+    )
+    return store
+
+
+def test_a_sleep_without_a_reasoner_decides_nothing(tmp_path, capsys):
+    _twins(tmp_path / "stores" / "W2" / "q1")
+    target = tmp_path / "slept" / "W2"
+    assert (
+        exp_main(["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"),
+                  "--target", str(target)]) == 0
+    )
+    assert json.loads(capsys.readouterr().out)["decisions"] == 0
+
+
+def test_a_reasoned_sleep_records_what_it_decided(tmp_path, capsys, monkeypatch):
+    _twins(tmp_path / "stores" / "W2" / "q1")
+    monkeypatch.setattr(
+        "agent_memory.executor.reasoners.HostReasoner.__call__",
+        lambda self, prompt: "\n".join(
+            json.dumps({"proposal": found, "verdict": "reject"})
+            for found in re.findall(r"^- ([0-9a-f]{12}) \(", prompt, flags=re.MULTILINE)
+        ),
+    )
+    target = tmp_path / "slept" / "W2"
+    assert (
+        exp_main(["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"),
+                  "--target", str(target), "--reason", "host"]) == 0
+    )
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["decisions"] > 0
+    assert payload["proposals"] == 0
+
+
+def test_authority_is_a_knob_the_step_can_raise(tmp_path, capsys, monkeypatch):
+    _twins(tmp_path / "stores" / "W2" / "q1")
+    monkeypatch.setattr(
+        "agent_memory.executor.reasoners.HostReasoner.__call__",
+        lambda self, prompt: "\n".join(
+            json.dumps({"proposal": found, "verdict": "accept"})
+            for found in re.findall(r"^- ([0-9a-f]{12}) \(", prompt, flags=re.MULTILINE)
+        ),
+    )
+    target = tmp_path / "slept" / "W2"
+    assert (
+        exp_main(["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"),
+                  "--target", str(target), "--reason", "host",
+                  "--set", "manage.authority=T1"]) == 0
+    )
+    slept = Store(target / "q1", agent="check")
+    assert slept.find("drain-window-first").superseded_by == "drain-window-second"

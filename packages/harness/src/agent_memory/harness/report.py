@@ -1,4 +1,9 @@
-"""Aggregation. Attribution is licensed only when every arm shares one recall fingerprint."""
+"""Aggregation. Attribution is licensed only when every arm shares one recall fingerprint.
+
+A row is one write option under one sleep. Two runs that replayed the same stores through
+different Manage settings are the same W arm and different rows, which is what asking what a
+sleep was worth requires.
+"""
 
 from __future__ import annotations
 
@@ -33,11 +38,16 @@ class Report:
         return len(self.recall_fingerprints) == 1 and len(self.episode_fingerprints) == 1
 
 
+def label(record: dict[str, object]) -> str:
+    managed = str(record.get("manage") or "")
+    return f"{record['arm']}+{managed}" if managed else str(record["arm"])
+
+
 def summarise(records: list[dict[str, object]]) -> Report:
-    arms = sorted({str(record["arm"]) for record in records})
+    arms = sorted({label(record) for record in records})
     summaries: list[ArmSummary] = []
     for arm in arms:
-        rows = [record for record in records if record["arm"] == arm]
+        rows = [record for record in records if label(record) == arm]
         graded = [row for row in rows if row["status"] == STATUS_OK]
         correct = [row for row in graded if row["correct"]]
         summaries.append(
@@ -62,7 +72,7 @@ def summarise(records: list[dict[str, object]]) -> Report:
                     [
                         record
                         for record in records
-                        if record["arm"] == arm
+                        if label(record) == arm
                         and record["question_type"] == question_type
                         and record["status"] == STATUS_OK
                         and record["correct"]
@@ -72,7 +82,7 @@ def summarise(records: list[dict[str, object]]) -> Report:
                     [
                         record
                         for record in records
-                        if record["arm"] == arm
+                        if label(record) == arm
                         and record["question_type"] == question_type
                         and record["status"] == STATUS_OK
                     ]

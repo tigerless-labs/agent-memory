@@ -15,7 +15,9 @@ from collections.abc import Sequence
 from agent_memory.core.clock import Clock, FrozenClock
 from agent_memory.core.config import Config
 from agent_memory.core.manage import Manage
+from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.store import Store
+from agent_memory.executor import reasoners
 from agent_memory.executor.hosts import DEFAULT_MODEL, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 
 from . import arms as arms_module
@@ -29,6 +31,8 @@ from .driver import Driver
 from .judge import Judge
 from .metrics import MetricsSink
 
+REASON_HOST = "host"
+REASON_ENDPOINT = "endpoint"
 EXIT_OK = 0
 EXIT_ERROR = 1
 DEFAULT_ARMS = "W0,W1,W2,W3,W4"
@@ -102,6 +106,10 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--judge-model", default=JUDGE_MODEL)
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
+    runner.add_argument(
+        "--manage", default="",
+        help="label the sleep these stores went through, so the report can compare sleeps",
+    )
     runner.set_defaults(handler=_run)
 
     regrader = subparsers.add_parser(
@@ -143,6 +151,13 @@ def _parser() -> argparse.ArgumentParser:
     sleeper.add_argument(
         "--days-later", type=float, default=0.0,
         help="sleep as if this many days have passed, so decay and staleness can fire",
+    )
+    sleeper.add_argument("--reason", choices=(REASON_HOST, REASON_ENDPOINT), default=None)
+    sleeper.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
+    sleeper.add_argument("--reason-model", default="")
+    sleeper.add_argument(
+        "--set", action="append", default=[], metavar="SECTION.KNOB=VALUE",
+        help="override one config knob for every store this step sleeps",
     )
     sleeper.set_defaults(handler=_sleep_stores)
 
@@ -198,6 +213,7 @@ def _run(args: argparse.Namespace) -> int:
         config=_configured(args.set),
         reuse_stores=pathlib.Path(args.reuse_stores) if args.reuse_stores else None,
         run_id=args.run_id,
+        manage=args.manage,
         episode_fingerprint=sampling.fingerprint(episodes),
     )
     jobs = [(episode, arm) for arm in selected for episode in episodes]
@@ -398,22 +414,28 @@ def _sleep_stores(args: argparse.Namespace) -> int:
     shutil.copytree(source, target)
 
     clock = _clock_at(args.days_later)
-    slept = 0
-    actions = 0
-    proposals = 0
+    reasoner = _reasoner(args)
+    tally = {"stores": 0, "actions": 0, "proposals": 0, "decisions": 0, "withheld": 0}
     for root in sorted(path for path in target.rglob("MEMORY.md")):
-        store = Store(root.parent, config=Config.default(), clock=clock, agent="sleep")
-        report = Manage(store, clock).sleep()
-        slept += 1
-        actions += len(report.actions)
-        proposals += len(report.proposals)
-    print(
-        json.dumps(
-            {"stores": slept, "actions": actions, "proposals": proposals, "target": str(target)},
-            sort_keys=True,
-        )
-    )
+        store = Store(root.parent, config=_configured(args.set), clock=clock, agent="sleep")
+        report = Manage(store, clock).sleep(reasoner=reasoner)
+        tally["stores"] += 1
+        tally["actions"] += len(report.actions)
+        tally["proposals"] += len(report.proposals)
+        tally["decisions"] += len(report.decisions)
+        tally["withheld"] += len(report.withheld)
+    print(json.dumps({**tally, "target": str(target)}, sort_keys=True))
     return EXIT_OK
+
+
+def _reasoner(args: argparse.Namespace) -> Reasoner | None:
+    """The experiment's own borrowed intelligence, spoken to exactly as the CLI speaks to it."""
+    if args.reason == REASON_HOST:
+        return reasoners.HostReasoner.for_binary(args.reason_host, model=args.reason_model)
+    if args.reason == REASON_ENDPOINT:
+        model = args.reason_model or reasoners.DEFAULT_ENDPOINT_MODEL
+        return reasoners.EndpointReasoner(model=model)
+    return None
 
 
 def _clock_at(days_later: float):

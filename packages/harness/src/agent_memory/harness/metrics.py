@@ -31,6 +31,7 @@ class RunRecord:
     recall_fingerprint: str
     episode_fingerprint: str
     error: str = ""
+    manage: str = ""
 
     def as_dict(self) -> dict[str, object]:
         return dataclasses.asdict(self)

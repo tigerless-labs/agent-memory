@@ -434,3 +434,37 @@ def test_the_cli_refuses_a_worktree_target_without_a_traceback(tmp_path, capsys)
 
     assert code == 1
     assert "worktree" in capsys.readouterr().err
+
+
+def _record(**overrides):
+    fields = dict(
+        run_id="r", arm="W2", host="stub", episode_id="q1", question_type="t",
+        status=STATUS_OK, correct=True, answer="a", expected="a", memories_written=1,
+        experience_calls=1, experience_seconds=1.0, blocking_seconds=1.0, exam_seconds=1.0,
+        judge_seconds=1.0, recall_fingerprint="f", episode_fingerprint="e",
+    )
+    fields.update(overrides)
+    return RunRecord(**fields)
+
+
+def test_two_sleeps_of_the_same_arm_are_two_rows_in_the_report(tmp_path):
+    sink = MetricsSink(tmp_path)
+    sink.append(_record(episode_id="q1", manage="off", correct=True))
+    sink.append(_record(episode_id="q1", manage="reasoned", correct=False))
+    summary = report.summarise(sink.records())
+    assert {arm.arm for arm in summary.arms} == {"W2+off", "W2+reasoned"}
+    assert summary.attribution_is_licensed()
+
+
+def test_a_run_that_never_slept_still_summarises_under_its_arm_alone(tmp_path):
+    sink = MetricsSink(tmp_path)
+    sink.append(_record())
+    assert [arm.arm for arm in report.summarise(sink.records()).arms] == ["W2"]
+
+
+def test_records_written_before_the_manage_dimension_existed_still_summarise(tmp_path):
+    sink = MetricsSink(tmp_path)
+    sink.append(_record())
+    older = sink.records()
+    older[0].pop("manage")
+    assert [arm.arm for arm in report.summarise(older).arms] == ["W2"]

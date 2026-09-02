@@ -49,6 +49,7 @@ class Driver:
         config: Config | None = None,
         reuse_stores: pathlib.Path | None = None,
         exam_mode: str = exam_module.MODE_AGENTIC,
+        manage: str = "",
     ):
         self._host = host
         self._judge = judge
@@ -61,6 +62,7 @@ class Driver:
         self._config = config
         self._reuse_stores = reuse_stores
         self._exam_mode = exam_mode
+        self._manage = manage
 
     def run(self, episode: Episode, arm: Arm) -> RunRecord:
         store = self._store_for(episode, arm)
@@ -113,6 +115,7 @@ class Driver:
             recall_fingerprint=store.config.recall_fingerprint(),
             episode_fingerprint=self._episode_fingerprint,
             error=answer.error,
+            manage=self._manage,
         )
 
     def _store_for(self, episode: Episode, arm: Arm) -> Store:
