@@ -32,6 +32,7 @@
 | `core/reasoning`·`core/prompts`(M 复核) | `tests/unit/test_manage_reasoning.py` |
 | `mcp/server`·`mcp/tools`(三入口一致性) | `tests/system/test_entry_equivalence.py` |
 | 红队(poisoning / 恶意 frontmatter / 越界写) | `tests/redteam/test_poisoning.py` |
+| `executor/*`(宿主方言、凭据、两种推理者) | `tests/unit/test_host_dialects.py`·`tests/unit/test_credentials.py`·`tests/unit/test_reasoners.py` |
 | `harness/*`(回放驱动器、隔离闸、写入路径闸、指标、报表) | `tests/system/test_harness.py` |
 
 ## 判分器是仪器,仪器要标定

@@ -13,12 +13,12 @@ import pathlib
 from agent_memory.core import injection, prompts
 from agent_memory.core.config import Config
 from agent_memory.core.store import Store
+from agent_memory.executor.hosts import Host
 
 from . import exam as exam_module
 from . import framing
 from .arms import MODE_NONE, Arm
 from .dataset import Episode, Session
-from .hosts import Host
 from .judge import Judge
 from .metrics import STATUS_FAILED, STATUS_OK, RunRecord
 

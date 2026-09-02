@@ -214,3 +214,21 @@ def test_a_verdict_is_required(cli):
     proposal = cli("proposals")["proposals"][0]
     with pytest.raises(SystemExit):
         main(["--store", str(cli.root), "--json", "decide", proposal["id"]])
+
+
+def test_a_plain_sleep_decides_nothing(cli):
+    _near_duplicates(cli)
+    assert not cli("sleep")["decisions"]
+
+
+def test_sleep_can_be_handed_a_reasoner_whose_verdicts_reach_the_store(cli, monkeypatch):
+    _near_duplicates(cli)
+    proposal = cli("proposals")["proposals"][0]
+    reply = json.dumps({"proposal": proposal["id"], "verdict": "reject"})
+    monkeypatch.setattr(
+        "agent_memory.executor.reasoners.HostReasoner.__call__",
+        lambda self, prompt: reply,
+    )
+    report = cli("sleep", "--reason", "host")
+    assert [decision["proposal"] for decision in report["decisions"]] == [proposal["id"]]
+    assert proposal["id"] not in {open_one["id"] for open_one in cli("proposals")["proposals"]}

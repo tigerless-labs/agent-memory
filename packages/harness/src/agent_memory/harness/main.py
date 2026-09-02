@@ -16,6 +16,7 @@ from agent_memory.core.clock import Clock, FrozenClock
 from agent_memory.core.config import Config
 from agent_memory.core.manage import Manage
 from agent_memory.core.store import Store
+from agent_memory.executor.hosts import DEFAULT_MODEL, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 
 from . import arms as arms_module
 from . import dataset, sampling
@@ -25,7 +26,6 @@ from . import judge as judge_module
 from . import report as report_module
 from . import workspace as workspace_module
 from .driver import Driver
-from .hosts import DEFAULT_MODEL, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 from .judge import Judge
 from .metrics import MetricsSink
 

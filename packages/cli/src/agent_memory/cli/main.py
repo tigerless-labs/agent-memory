@@ -13,9 +13,14 @@ from agent_memory.core import context as context_module
 from agent_memory.core import portability
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
+from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_FULL, LEVELS, Store
+from agent_memory.executor import reasoners
+from agent_memory.executor.hosts import HOST_CLAUDE_CODE
 
+REASON_HOST = "host"
+REASON_ENDPOINT = "endpoint"
 EMIT_INDENT = 2
 EXIT_OK = 0
 EXIT_ERROR = 1
@@ -126,6 +131,14 @@ def _parser() -> argparse.ArgumentParser:
 
     sleeper = subparsers.add_parser("sleep", help="run the sleep-time Manage pass")
     sleeper.add_argument("--sessions-since", type=int, default=None)
+    sleeper.add_argument(
+        "--reason",
+        choices=(REASON_HOST, REASON_ENDPOINT),
+        default=None,
+        help="have an agent CLI, or a model endpoint, rule on the open proposals",
+    )
+    sleeper.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
+    sleeper.add_argument("--reason-model", default="")
     sleeper.set_defaults(handler=_sleep)
 
     proposer = subparsers.add_parser("proposals", help="list proposals awaiting confirmation")
@@ -296,7 +309,16 @@ def _sleep(store: Store, args: argparse.Namespace) -> dict[str, object]:
     manage = Manage(store)
     if args.sessions_since is not None and not manage.due(args.sessions_since):
         return {"slept": False, "reason": "trigger conditions not met"}
-    return {"slept": True, **manage.sleep().as_dict()}
+    return {"slept": True, **manage.sleep(reasoner=_reasoner(args)).as_dict()}
+
+
+def _reasoner(args: argparse.Namespace) -> Reasoner | None:
+    if args.reason == REASON_HOST:
+        return reasoners.HostReasoner.for_binary(args.reason_host, model=args.reason_model)
+    if args.reason == REASON_ENDPOINT:
+        model = args.reason_model or reasoners.DEFAULT_ENDPOINT_MODEL
+        return reasoners.EndpointReasoner(model=model)
+    return None
 
 
 def _proposals(store: Store, args: argparse.Namespace) -> dict[str, object]:

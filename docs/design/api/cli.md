@@ -15,7 +15,9 @@ CLI 是 universal fallback(能跑 shell 的 agent 皆可用)与 operator/admin �
 | 时序 | `recall --as-of <date>` | 时间点查询(沿 supersede 链) | agent | 同 recall |
 | | `recall --deep` | 检索面扩到 archive | agent | 同 recall |
 | admin | `rebuild` | 删索引后全量重建 | 人/CI | 重写 .index/ |
-| | `sleep` | 手动触发睡眠 M | 人/cron | T0 直改;T1 出 dream-report |
+| | `sleep` | 手动触发睡眠 M(`--reason` 附带推理者) | 人/cron | T0 直改;T1 出提案 |
+| | `proposals` | 列出待确认提案 | agent/人 | 无 |
+| | `decide <id>` | 确认或否决一条提案 | agent/人 | 记入账本;确认时写真源 |
 | | `inspect` / `gc` / `export` | 体检 / 清理提案 / 全量导出 | 人 | export 无副作用 |
 | 安装 | `setup` | agent 读 setup 文档自接线(探测宿主→装钩子→验证) | agent | 写宿主配置 |
 

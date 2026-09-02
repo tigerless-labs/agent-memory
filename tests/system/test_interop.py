@@ -1,8 +1,8 @@
 """P1 — the interop matrix itself, exercised against stub hosts."""
 
 from agent_memory.core.store import Store
+from agent_memory.executor.hosts import Host, HostResult, HostSpec
 from agent_memory.harness import interop
-from agent_memory.harness.hosts import Host, HostResult, HostSpec
 
 FACT = interop.Fact(
     subject="the drain window",

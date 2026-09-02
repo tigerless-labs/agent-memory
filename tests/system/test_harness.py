@@ -6,9 +6,9 @@ import json
 import pytest
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import Store
+from agent_memory.executor.hosts import Host, HostResult, HostSpec
 from agent_memory.harness import arms, dataset, framing, report, sampling
 from agent_memory.harness.driver import Driver, IsolationBreach
-from agent_memory.harness.hosts import Host, HostResult, HostSpec
 from agent_memory.harness.judge import Judge
 from agent_memory.harness.metrics import STATUS_FAILED, STATUS_OK, MetricsSink, RunRecord
 

@@ -1,7 +1,7 @@
 """P1 — a host is a dialect, not a branch. Adding one must not touch the driver."""
 
 import pytest
-from agent_memory.harness import hosts
+from agent_memory.executor import hosts
 
 
 def _spec(name):

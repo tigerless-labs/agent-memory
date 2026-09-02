@@ -1,12 +1,9 @@
 [project]
-name = "agent-memory-cli"
+name = "agent-memory-executor"
 version = "0.1.0"
-description = "agent-memory CLI adapter"
+description = "agent-memory executors: how the library borrows intelligence from outside itself"
 requires-python = ">=3.12"
-dependencies = ["agent-memory-core", "agent-memory-executor"]
-
-[project.scripts]
-mem = "agent_memory.cli.main:main"
+dependencies = ["agent-memory-core"]
 
 [build-system]
 requires = ["hatchling"]
