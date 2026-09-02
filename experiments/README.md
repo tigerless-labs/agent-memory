@@ -127,6 +127,8 @@ anchored to.**
 | `p4sup/stores` | 101 MB, 120 stores | Every read-side result — P5 through P9 — is a replay against exactly these. A new write pass produces different stores, so a future read-side number measured elsewhere is not comparable to any of them. |
 | `p7slept/stores` | 96 MB, 120 stores | The same corpus after one Manage sleep. The before/after pair is the only evidence about M's net effect that exists; regenerating the "after" needs the "before" intact. |
 
+| `p11llm/stores` | 120 stores | `p4sup` after a reasoned sleep. Rebuilding it costs 120 host calls, and the accept/reject ledger inside it is the only record of what a reasoner actually did with a widened candidate band. Its sibling `p11det/stores` is deterministic and can be regenerated in a minute. |
+
 **Disposable.** The n=24 optimisation rounds (`p2`, `p2v2`, `p2v3`, `p2v4`, `p2v5*`), the smoke
 runs, the discarded `fx1`/`fx2`, and the per-host slices. Their conclusions are recorded and
 nothing replays against them. `p3on/stores` (90 MB) sits between the two: P3 is settled and no
