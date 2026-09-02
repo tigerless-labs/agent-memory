@@ -94,10 +94,67 @@ the raw material, which is what Invariant 4 always said.
 - **Arms are config, not code.** `mem-exp run --set section.knob=value` makes a W option a knob
   (ADR-006), and the recall fingerprint changes with it so the attribution guard sees it.
 
-## What it would take to resolve the rest
+## P3: the certification run, n=120
 
-Discordant pairs run ~33% of episodes. Detecting a 15-point difference at 80% power needs on
-the order of 250 episodes per arm — roughly ten times the compute used here per arm.
-LongMemEval-S has 500, so this is affordable; it is simply not something n=24 can be argued
-into. Until then, configuration-level claims should be reported as unresolved rather than
-ranked.
+The n=24 comparisons above could not resolve anything, so the one change with a real mechanism
+behind it — the raw-material fallback — was run properly. 120 stratified episodes, W2, the
+raw-on arm building the stores and the raw-off arm **replaying those same stores** with only
+the read flag flipped, so the write side is identical by construction rather than by luck.
+
+| | correct | accuracy | 95% CI |
+|---|---|---|---|
+| raw fallback on | 53/120 | 44.2% | 35.6–53.1 |
+| raw fallback off | 54/120 | 45.0% | 36.4–53.9 |
+
+Paired McNemar: gained 13, lost 14, 27 discordant pairs, **p=1.000**. At this n a real effect
+would have shown as roughly an 18/27 split. This is a well-powered negative, not an unresolved
+comparison.
+
+### Why it is negative, measured
+
+The fallback is not broken — it does exactly what it was built to do:
+
+| on the 110 answerable episodes | count | share |
+|---|---|---|
+| gold answer surfaced by plain recall | 22 | 20% |
+| gold answer surfaced by `--deep` | 41 | 37% |
+| answered correctly | 46 | 42% |
+
+Deep search nearly doubles the rate at which the gold answer is retrievable, and the score does
+not move. Splitting the outcomes says where it goes:
+
+| | count |
+|---|---|
+| gold retrievable and answered right | 26 |
+| gold retrievable and answered wrong | 15 |
+| gold not retrievable and answered right | 20 |
+| gold not retrievable and answered wrong | 49 |
+
+**The memory system has stopped being the limiting factor at this scale.** Fifteen episodes had
+the answer sitting in the returned list and were still answered wrong; twenty were answered
+right without the gold being lexically retrievable at all. Both columns are about what the host
+does with what it is handed, not about what the store holds or returns.
+
+(The "surfaced" test is lexical — 60% content-word overlap between the gold answer and a
+returned entry — so it errs in both directions. The direction and size of the gap survive that.)
+
+### What this settles
+
+Four routes to a higher score were tried and measured: capture-fidelity prompting, the
+injection track, per-session distillation at 3.5× the write volume, and raw-material fallback.
+None produced an effect distinguishable from noise, and the last one was ruled out with power.
+Together with the earlier negatives — write volume flat against coverage, retrieval already at
+100% of what is stored — the remaining loss on this benchmark sits downstream of memory.
+
+Optimising the memory system further against LongMemEval would be measuring the host.
+
+## Where a further gain would have to come from
+
+Not from the memory system. The measured ceiling on this suite is the host's use of what it is
+given, so the levers that remain are the answering step — how many searches it runs before it
+settles, whether it reads entries or stops at abstracts, how it aggregates across entries for
+counting questions — and the host model itself. Those are worth studying, but they are not
+claims about memory, and a memory benchmark cannot be used to make them.
+
+Read-side experiments are now cheap: `--reuse-stores` replays another run's stores, so a read
+variant costs one exam per episode instead of a full experience phase.
