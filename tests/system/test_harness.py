@@ -468,3 +468,58 @@ def test_records_written_before_the_manage_dimension_existed_still_summarise(tmp
     older = sink.records()
     older[0].pop("manage")
     assert [arm.arm for arm in report.summarise(older).arms] == ["W2"]
+
+
+def _graded(arm, manage, outcomes):
+    return [
+        _record(
+            arm=arm, manage=manage, episode_id=f"q{index}", correct=correct,
+        ).as_dict()
+        for index, correct in enumerate(outcomes)
+    ]
+
+
+def test_two_arms_that_answered_alike_are_not_distinguishable(tmp_path):
+    records = _graded("W2", "off", [True, False, True]) + _graded("W2", "det", [True, False, True])
+    comparison = report.pairwise(records)[0]
+    assert comparison.discordant == 0
+    assert comparison.p_value == 1.0
+
+
+def test_only_episodes_both_arms_answered_are_compared(tmp_path):
+    records = _graded("W2", "off", [True, True]) + _graded("W2", "det", [True])
+    comparison = report.pairwise(records)[0]
+    assert comparison.shared == 1
+
+
+def test_a_wider_one_sided_split_is_harder_to_explain_by_chance(tmp_path):
+    narrow = report.pairwise(
+        _graded("W2", "off", [False, False, True, True])
+        + _graded("W2", "det", [True] * 4)
+    )[0]
+    wide = report.pairwise(
+        _graded("W2", "off", [False] * 8 + [True]) + _graded("W2", "det", [True] * 9)
+    )[0]
+    assert wide.p_value < narrow.p_value
+    assert 0.0 <= wide.p_value <= 1.0
+
+
+def test_the_direction_of_a_difference_is_reported_not_just_its_size(tmp_path):
+    comparison = report.pairwise(
+        _graded("W2", "off", [False, False]) + _graded("W2", "det", [True, True])
+    )[0]
+    credited = comparison.left if comparison.left_only else comparison.right
+    assert credited.endswith("det")
+    assert comparison.discordant == 2
+    assert min(comparison.left_only, comparison.right_only) == 0
+
+
+def test_every_pair_of_labels_is_compared_once(tmp_path):
+    records = (
+        _graded("W2", "off", [True])
+        + _graded("W2", "det", [True])
+        + _graded("W2", "llm", [True])
+    )
+    pairs = {(comparison.left, comparison.right) for comparison in report.pairwise(records)}
+    assert len(pairs) == 3
+    assert ("W2+det", "W2+off") not in pairs or ("W2+off", "W2+det") not in pairs

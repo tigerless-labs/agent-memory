@@ -163,6 +163,13 @@ def _parser() -> argparse.ArgumentParser:
     )
     sleeper.set_defaults(handler=_sleep_stores)
 
+    comparer = subparsers.add_parser(
+        "compare", help="pair up finished runs and say which differences survive a paired test"
+    )
+    comparer.add_argument("--workspaces", required=True, help="comma-separated run workspaces")
+    comparer.add_argument("--json", action="store_true")
+    comparer.set_defaults(handler=_compare)
+
     reporter = subparsers.add_parser("report", help="summarise a finished run")
     reporter.add_argument("--workspace", required=True)
     reporter.add_argument("--json", action="store_true")
@@ -453,6 +460,35 @@ def _clock_at(days_later: float):
     if days_later <= 0:
         return None
     return FrozenClock(Clock().now() + datetime.timedelta(days=days_later))
+
+
+def _compare(args: argparse.Namespace) -> int:
+    """Arms of one experiment often live in separate workspaces, because they were run on
+    separate days; the paired test needs them side by side."""
+    records = [
+        record
+        for folder in args.workspaces.split(",")
+        if folder.strip()
+        for record in MetricsSink(pathlib.Path(folder.strip())).records()
+    ]
+    summary = report_module.summarise(records)
+    comparisons = report_module.pairwise(records)
+    if args.json:
+        print(
+            json.dumps(
+                {
+                    "arms": [arm.__dict__ for arm in summary.arms],
+                    "comparisons": [comparison.__dict__ for comparison in comparisons],
+                    "attribution_licensed": summary.attribution_is_licensed(),
+                },
+                sort_keys=True,
+            )
+        )
+        return EXIT_OK
+    print(report_module.render(summary))
+    print()
+    print(report_module.render_comparisons(comparisons))
+    return EXIT_OK
 
 
 def _report(args: argparse.Namespace) -> int:
