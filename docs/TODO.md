@@ -33,4 +33,8 @@
 - [ ] **实验设计下限**:考试阶段独立重放同一批 store 同一配置,120 题上摆动 ±7。
       任何读侧/写侧结论都必须建立在「重复重放 + 配对」之上,单轮对比无论 n 多大都不可信
       (evidence: experiments/results/p2-optimisation.md,P5 两次重放 71 vs 57)
+- [ ] 宿主失败原因被吞掉:`claude -p` 撞额度时把提示打到 stdout 并以 exit 1 退出,
+      harness 只留 stderr,于是 runs.jsonl 里 error 为空、只剩 status=failed
+      (fx1 110/120、fx2 120/120 即此因)——非零退出时应保留 stdout 尾部,
+      并对「额度/限流」类失败停跑而不是把整轮跑成 failed
 
