@@ -62,6 +62,7 @@ def _parser() -> argparse.ArgumentParser:
     writer.add_argument("--link", action="append", default=[])
     writer.add_argument("--provenance", action="append", default=[])
     writer.add_argument("--valid-from", default=None)
+    writer.add_argument("--supersedes", default=None)
     writer.set_defaults(handler=_record)
 
     reader = subparsers.add_parser("recall", help="retrieve an L0 list")
@@ -136,8 +137,14 @@ def _record(store: Store, args: argparse.Namespace) -> dict[str, object]:
         topic=args.topic,
         valid_from=args.valid_from,
         provenance=args.provenance,
+        supersedes=args.supersedes,
     )
-    return {"name": written.name, "path": str(written.path), "updated": written.updated}
+    return {
+        "name": written.name,
+        "path": str(written.path),
+        "updated": written.updated,
+        "supersedes": args.supersedes,
+    }
 
 
 def _recall(store: Store, args: argparse.Namespace) -> dict[str, object]:

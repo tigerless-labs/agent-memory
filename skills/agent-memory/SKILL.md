@@ -40,9 +40,14 @@ mem record --domain project --type decision \
 
 Recall first to see whether the atom already exists.
 
-- It exists and the old value will still be asked about → `mem correct <old> --supersede-with <new>`
+- It exists and the old value will still be asked about → write the new entry with
+  `mem record ... --supersedes <old-name>`; both stay on disk, the old one marked as replaced
 - It exists and the old value is simply wrong → `mem record` under the same name (an update)
 - It is a new atom → a new file
+
+Values that move — a count, a goal, a price, a schedule, a status — almost always already have
+an entry. Search before writing, then supersede: the current value is the one left standing,
+and `--as-of` can still reach the old one.
 
 One file holds one thing that expires as a whole. Two things that can stop being true
 separately belong in separate files — each incident, each decision, each release is its own

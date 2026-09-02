@@ -45,6 +45,7 @@ SCHEMAS: dict[str, dict[str, object]] = {
             "topic": {"type": "string"},
             "links": {"type": "array", "items": {"type": "string"}},
             "provenance": {"type": "array", "items": {"type": "string"}},
+            "supersedes": {"type": "string"},
         },
         "required": ["abstract", "type", "domain"],
     },
@@ -147,6 +148,7 @@ def _record(store: Store, arguments: dict[str, object]) -> dict[str, object]:
         topic=_optional(arguments, "topic"),
         links=_string_list(arguments.get("links")),
         provenance=_string_list(arguments.get("provenance")),
+        supersedes=_optional(arguments, "supersedes"),
     )
     return {"name": written.name, "path": str(written.path), "updated": written.updated}
 

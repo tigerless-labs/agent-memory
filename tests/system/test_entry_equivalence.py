@@ -60,6 +60,27 @@ def test_the_two_entries_agree_on_the_recall_fingerprint(tmp_path, capsys):
     assert cli["recall_fingerprint"] == mcp["recall_fingerprint"]
 
 
+def test_supersede_on_write_behaves_the_same_through_both_entries(tmp_path, capsys):
+    root = tmp_path / "store"
+    store = Store(root, agent="mcp")
+    store.init()
+
+    store.record(abstract="Goal was level 100", type="fact", domain="user", name="goal-old")
+    tools.dispatch(store, tools.TOOL_RECORD, {
+        "abstract": "Goal is now level 150", "type": "fact", "domain": "user",
+        "name": "goal-new", "supersedes": "goal-old",
+    })
+    assert Store(root).find("goal-old").superseded_by == "goal-new"
+
+    main(["--store", str(root), "--json", "record", "--abstract", "Price was 42 dollars",
+          "--type", "fact", "--domain", "user", "--name", "price-old"])
+    main(["--store", str(root), "--json", "record", "--abstract", "Price is now 58 dollars",
+          "--type", "fact", "--domain", "user", "--name", "price-new",
+          "--supersedes", "price-old"])
+    capsys.readouterr()
+    assert Store(root).find("price-old").superseded_by == "price-new"
+
+
 def test_tool_schemas_are_advertised_and_enforced(tmp_path):
     store = Store(tmp_path / "store")
     store.init()

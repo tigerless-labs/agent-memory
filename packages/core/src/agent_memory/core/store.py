@@ -72,6 +72,7 @@ class Store:
         valid_from: str | None = None,
         provenance: list[str] | None = None,
         weight: float | None = None,
+        supersedes: str | None = None,
     ) -> MemoryRecord:
         self.layout.ensure()
         slug = name or slugify(abstract, self.config.storage.slug_max_length)
@@ -95,6 +96,7 @@ class Store:
         candidate.path = target
         record_module.validate(candidate, self.config)
         self._reject_depth(target)
+        predecessor = self._predecessor(candidate, supersedes)
         with store_lock(self.layout):
             for excerpt in provenance or []:
                 stored = self.archive.append_provenance(candidate.name, excerpt, source=self.agent)
@@ -103,6 +105,10 @@ class Store:
             target.write_text(candidate.to_text(), encoding="utf-8")
             if existing and existing.path and existing.path != target:
                 existing.path.unlink(missing_ok=True)
+            if predecessor is not None and predecessor.path is not None:
+                predecessor.superseded_by = candidate.name
+                predecessor.updated = today
+                predecessor.path.write_text(predecessor.to_text(), encoding="utf-8")
             self._project()
         return candidate
 
@@ -138,6 +144,19 @@ class Store:
                 stored = self.archive.append_provenance(current.name, excerpt, source=self.agent)
                 current.provenance.append(str(stored.relative_to(self.root)))
         return self.write(current)
+
+    def _predecessor(self, candidate: MemoryRecord, supersedes: str | None) -> MemoryRecord | None:
+        if not supersedes:
+            return None
+        if supersedes == candidate.name:
+            raise ValidationError([FieldError("supersedes", "cannot supersede itself")])
+        found = self.find(supersedes)
+        if found is None:
+            raise NotFoundError(f"no memory named {supersedes}")
+        record_module.validate(
+            dataclasses.replace(found, superseded_by=candidate.name), self.config
+        )
+        return found
 
     def write(self, record: MemoryRecord) -> MemoryRecord:
         """Validate, persist, reproject. Agent writes and Manage rewrites share this path."""

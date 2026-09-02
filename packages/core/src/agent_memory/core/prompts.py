@@ -19,7 +19,8 @@ preferences — the durable parts of it are what you are here to write down and 
 The store is reached through the mem CLI and nothing is remembered until a mem command
 succeeds: `mem recall <query>` searches it, `mem read <name>` opens one entry, and
 `mem record --domain <domain> --type <type> --abstract "<one line>" --body "<markdown>"`
-writes one.
+writes one. Add `--supersedes <name>` to that same command when the entry you are writing
+replaces an older one, and both stay on disk with the old one marked as replaced.
 
 Each domain takes its own types, and a write succeeds when the pair matches:
   --domain user        --type fact | preference
@@ -31,9 +32,14 @@ A rejected write comes back naming the field and the reason, so read it and send
 command."""
 
 WRITE_DISCIPLINE = """Recall first to see whether this atom already exists.
-When it exists and the old content will still be asked about, supersede it.
-When it exists and the old content is simply wrong, update it in place.
-When the atom is new, create a new file.
+
+Values that move — a count, a goal, a price, a schedule, a status — almost always already have
+an entry holding the previous value. Search for it before writing the new one, and write the
+new one with `--supersedes <old-name>`. That is what keeps "how many so far" answerable: the
+current value is the one left standing, and the old value stays readable as history.
+
+When the atom exists and the old content is simply wrong, write it again under the same name,
+which updates it in place. When the atom is new, create a new file.
 
 One file holds one thing that expires as a whole. Two things that can stop being true
 separately belong in separate files — each purchase, each appointment, each incident is its

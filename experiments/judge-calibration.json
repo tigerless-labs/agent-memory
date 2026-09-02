@@ -82,5 +82,61 @@
     "expected": "The information provided is not enough. You did not mention presenting a poster for your undergrad course research project.",
     "candidate": "The store contains a reference to you presenting at a Harvard conference in summer 2023, so it was most likely Harvard.",
     "label": false
+  },
+  {
+    "case": "answerable-number-word-restated",
+    "question": "How many issues of National Geographic have I finished reading?",
+    "expected": "Five",
+    "candidate": "Five issues of National Geographic.",
+    "label": true
+  },
+  {
+    "case": "answerable-numeral-for-word",
+    "question": "How long have my parents been staying with me in the US?",
+    "expected": "nine months",
+    "candidate": "Approximately 9 months (arrived January 2023, overstayed their B-2 visa).",
+    "label": true
+  },
+  {
+    "case": "answerable-word-for-numeral",
+    "question": "How many tops have I bought from H&M so far?",
+    "expected": "5",
+    "candidate": "five tops",
+    "label": true
+  },
+  {
+    "case": "answerable-number-wrong",
+    "question": "How many tops have I bought from H&M so far?",
+    "expected": "five",
+    "candidate": "3",
+    "label": false
+  },
+  {
+    "case": "answerable-undercount-hedged",
+    "question": "How many times have I worn my new black Converse sneakers?",
+    "expected": "six",
+    "candidate": "As of May 2023 you had worn them at least 4 times. There is no updated count after that.",
+    "label": false
+  },
+  {
+    "case": "answerable-reversed-relation",
+    "question": "How often did I play tennis previously, and how often now?",
+    "expected": "Previously every week on Sunday; currently every other week.",
+    "candidate": "Previously you played every other week on Sundays. Now you play weekly.",
+    "label": false
+  },
+  {
+    "case": "answerable-date-restated",
+    "question": "When did I start my journaling habit?",
+    "expected": "January 15, 2023",
+    "candidate": "2023-01-15",
+    "label": true
+  },
+  {
+    "case": "answerable-price-with-currency",
+    "question": "How much did the aquarium talk ticket cost?",
+    "expected": "$42",
+    "candidate": "42 dollars",
+    "label": true
   }
 ]

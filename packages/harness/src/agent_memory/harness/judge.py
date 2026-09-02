@@ -32,15 +32,22 @@ part of what the candidate has to say, so a candidate that omits it is still cor
 Judge it incorrect only when it names a specific answer, including a hedged or most-likely one.
 
 Step 2b. If the reference DOES give a substantive answer: judge the candidate correct when it
-conveys that same information, allowing different wording, extra detail, or different
-precision that stays consistent with the reference. Judge it incorrect when it contradicts the
-reference, omits the part the question asks for, or reports that it does not have the
-information — in this branch, not having the information is a wrong answer.
+conveys that same information, and incorrect when it contradicts the reference, omits the part
+the question asks for, or reports that it does not have the information — in this branch, not
+having the information is a wrong answer.
+
+Judging whether the same information is conveyed is a question about the answer, not about how
+it is written. The candidate is still correct when it writes a quantity the other way round
+("9" for "nine", "five tops" for "5"), restates the unit or the noun ("Five issues of National
+Geographic" for "Five"), reformats a date, hedges with a word like "approximately" while
+landing on the same value, or adds supporting detail that agrees with the reference. It becomes
+incorrect when the value itself differs, when it gives a range or floor where the reference
+gives a figure ("at least 4" for "six"), or when it swaps the terms of a comparison.
 
 Reply with exactly one word: yes or no."""
 
 _WORD = re.compile(r"[a-z]+")
-DEFAULT_VOTES = 3
+DEFAULT_VOTES = 5
 MAJORITY = 2
 RAW_EXCERPT = 120
 VOTE_EXCERPT = 20
