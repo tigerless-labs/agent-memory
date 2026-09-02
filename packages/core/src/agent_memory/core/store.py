@@ -135,18 +135,18 @@ class Store:
         weight = spec.get("weight")
 
         slug = str(name) if name else slugify(abstract, self.config.storage.slug_max_length)
-        today = self.clock.today()
+        now = self.clock.timestamp()
         existing = self.find(slug)
         candidate = MemoryRecord(
             name=slug,
             abstract=abstract.strip(),
             type=str(spec.get("type") or ""),
             author=str(spec.get("author") or self.agent),
-            created=existing.created if existing else today,
-            updated=today,
+            created=existing.created if existing else now,
+            updated=now,
             body=str(spec.get("body") or ""),
             valid_from=str(spec.get("valid_from") or "")
-            or (existing.valid_from if existing else today),
+            or (existing.valid_from if existing else now),
             weight=float(str(weight)) if weight is not None else self.config.weight.initial,
             links=[str(link) for link in _as_sequence(spec.get("links"))],
             provenance=list(existing.provenance) if existing else [],
@@ -155,6 +155,7 @@ class Store:
         target = self._target_path(candidate, str(topic) if topic else None, existing)
         candidate.path = target
         record_module.validate(candidate, self.config)
+        record_module.canonicalise_dates(candidate)
         self._reject_depth(target)
         predecessor = self._predecessor(candidate, str(supersedes) if supersedes else None)
 
@@ -169,7 +170,7 @@ class Store:
             existing.path.unlink(missing_ok=True)
         if predecessor is not None and predecessor.path is not None:
             predecessor.superseded_by = candidate.name
-            predecessor.updated = today
+            predecessor.updated = now
             predecessor.path.write_text(predecessor.to_text(), encoding="utf-8")
         return candidate
 
@@ -199,7 +200,7 @@ class Store:
             current.links = list(links)
         if valid_from is not None:
             current.valid_from = valid_from
-        current.updated = self.clock.today()
+        current.updated = self.clock.timestamp()
         with store_lock(self.layout):
             for excerpt in provenance or []:
                 stored = self.archive.append_provenance(current.name, excerpt, source=self.agent)
@@ -224,6 +225,7 @@ class Store:
         if record.path is None:
             raise NotFoundError(f"{record.name} has no location on disk")
         record_module.validate(record, self.config)
+        record_module.canonicalise_dates(record)
         with store_lock(self.layout):
             record.path.write_text(record.to_text(), encoding="utf-8")
             self._project()
@@ -244,7 +246,7 @@ class Store:
         if current is None or current.path is None:
             raise NotFoundError(f"no memory named {name}")
         current.status = STATUS_RETIRED
-        current.updated = self.clock.today()
+        current.updated = self.clock.timestamp()
         with store_lock(self.layout):
             current.path.write_text(current.to_text(), encoding="utf-8")
             current.path = self.archive.retire(current.path, current.domain)

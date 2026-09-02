@@ -11,10 +11,11 @@ import dataclasses
 import datetime as dt
 import re
 
+from . import timestamp
 from .access_log import KIND_READ, AccessLog
 from .clock import Clock
 from .database import Database
-from .record import STATUS_ACTIVE, STATUS_STALE, MemoryRecord
+from .record import DATE_FIELDS, STATUS_ACTIVE, STATUS_STALE, MemoryRecord
 from .store import Store
 
 TIER_UNATTENDED = "T0"
@@ -148,7 +149,7 @@ class Manage:
     def _normalise_dates(self, records: list[MemoryRecord]) -> list[Action]:
         actions: list[Action] = []
         for record in records:
-            wanted = {field: _as_date_string(getattr(record, field)) for field in DATE_FIELDS}
+            wanted = {field: _as_instant(getattr(record, field)) for field in DATE_FIELDS}
             changed = {
                 field: value
                 for field, value in wanted.items()
@@ -168,13 +169,13 @@ class Manage:
         self, records: list[MemoryRecord], reads: dict[str, int], last_access: dict[str, str]
     ) -> list[Action]:
         actions: list[Action] = []
-        today = self._clock.now().date()
+        now = self._clock.now()
         for record in records:
             before = record.weight
             after = before + self._config.weight.boost_step * min(
                 reads.get(record.name, 0), self._config.manage.max_boosts_per_sleep
             )
-            if self._idle_days(record, last_access, today) >= self._config.weight.decay_after_days:
+            if self._idle_days(record, last_access, now) >= self._config.weight.decay_after_days:
                 after -= self._config.weight.decay_step
             after = min(self._config.weight.ceiling, max(self._config.weight.floor, after))
             if after == before:
@@ -190,11 +191,11 @@ class Manage:
         self, records: list[MemoryRecord], last_access: dict[str, str]
     ) -> list[Action]:
         actions: list[Action] = []
-        today = self._clock.now().date()
+        now = self._clock.now()
         for record in records:
             if record.status != STATUS_ACTIVE:
                 continue
-            if self._idle_days(record, last_access, today) < self._config.manage.stale_after_days:
+            if self._idle_days(record, last_access, now) < self._config.manage.stale_after_days:
                 continue
             record.status = STATUS_STALE
             self._rewrite(record)
@@ -327,14 +328,14 @@ class Manage:
         return proposals
 
     def _idle_days(
-        self, record: MemoryRecord, last_access: dict[str, str], today: dt.date
+        self, record: MemoryRecord, last_access: dict[str, str], now: dt.datetime
     ) -> float:
         stamp = last_access.get(record.name) or record.updated
         try:
-            seen = dt.datetime.fromisoformat(stamp).date()
+            seen = timestamp.parse(stamp)
         except ValueError:
-            seen = dt.date.fromisoformat(record.updated)
-        return float((today - seen).days)
+            seen = timestamp.parse(record.updated)
+        return timestamp.days_between(now, seen)
 
     def _rewrite(self, record: MemoryRecord) -> None:
         self._store.write(record)
@@ -391,19 +392,14 @@ def _fingerprint(record: MemoryRecord) -> str:
     return " ".join(sorted(_tokens(record.abstract))) + "|" + " ".join(sorted(_tokens(record.body)))
 
 
-def _as_date_string(value: str | None) -> str:
+def _as_instant(value: str | None) -> str:
     if not value:
         return ""
     try:
-        return dt.date.fromisoformat(value).isoformat()
-    except ValueError:
-        pass
-    try:
-        return dt.datetime.fromisoformat(value).date().isoformat()
+        return timestamp.canonical(value)
     except ValueError:
         return ""
 
 
-DATE_FIELDS = ("created", "updated", "valid_from")
 SECONDS_PER_HOUR = 3600.0
 STAMP_FORMAT = "%Y%m%dT%H%M%S%f"

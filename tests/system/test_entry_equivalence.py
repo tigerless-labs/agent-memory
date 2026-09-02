@@ -8,11 +8,12 @@ from agent_memory.core.store import Store
 from agent_memory.mcp import server, tools
 
 VOLATILE = ("path", "recall_fingerprint")
+PER_CALL = ("score", "relevance", "recency")
 
 
 def _stable(hits):
     return [
-        {key: value for key, value in hit.items() if key not in VOLATILE + ("score", "relevance")}
+        {key: value for key, value in hit.items() if key not in VOLATILE + PER_CALL}
         for hit in hits
     ]
 

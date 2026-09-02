@@ -3,10 +3,9 @@
 from __future__ import annotations
 
 import dataclasses
-import datetime as dt
 import pathlib
 
-from . import frontmatter, slug
+from . import frontmatter, slug, timestamp
 from .config import Config
 from .errors import FieldError, ValidationError
 
@@ -30,6 +29,7 @@ FIELD_ORDER = (
     "provenance",
 )
 REQUIRED_FIELDS = ("name", "abstract", "type", "created", "updated", "author")
+DATE_FIELDS = ("created", "updated", "valid_from")
 
 
 @dataclasses.dataclass
@@ -122,10 +122,10 @@ def validate(record: MemoryRecord, config: Config) -> None:
             )
         )
 
-    for field in ("created", "updated", "valid_from"):
+    for field in DATE_FIELDS:
         value = fields.get(field)
-        if value and not _is_iso_date(str(value)):
-            errors.append(FieldError(field, "must be an ISO date"))
+        if value and not timestamp.is_valid(str(value)):
+            errors.append(FieldError(field, "must be an ISO 8601 day or zone-aware instant"))
 
     if record.status not in STATUSES:
         errors.append(FieldError("status", f"must be one of {', '.join(STATUSES)}"))
@@ -143,17 +143,11 @@ def validate(record: MemoryRecord, config: Config) -> None:
         raise ValidationError(errors)
 
 
-def _is_iso_date(value: str) -> bool:
-    try:
-        dt.date.fromisoformat(value)
-        return True
-    except ValueError:
-        pass
-    try:
-        dt.datetime.fromisoformat(value)
-        return True
-    except ValueError:
-        return False
+def canonicalise_dates(record: MemoryRecord) -> None:
+    for field in DATE_FIELDS:
+        value = getattr(record, field)
+        if value:
+            setattr(record, field, timestamp.canonical(str(value)))
 
 
 def _optional_str(value: object) -> str | None:
