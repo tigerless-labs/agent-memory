@@ -49,6 +49,12 @@ class MetricsSink:
         with self._path.open("a", encoding="utf-8") as handle:
             handle.write(json.dumps(record.as_dict(), sort_keys=True) + "\n")
 
+    def replace(self, records: list[dict[str, object]]) -> None:
+        self._path.write_text(
+            "".join(json.dumps(record, sort_keys=True) + "\n" for record in records),
+            encoding="utf-8",
+        )
+
     def records(self) -> list[dict[str, object]]:
         if not self._path.exists():
             return []

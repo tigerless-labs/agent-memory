@@ -11,6 +11,7 @@ from collections.abc import Sequence
 
 from . import arms as arms_module
 from . import dataset, sampling
+from . import judge as judge_module
 from . import report as report_module
 from .driver import Driver
 from .hosts import DEFAULT_MODEL, HOST_CLAUDE_CODE, Host, HostSpec
@@ -22,6 +23,7 @@ EXIT_ERROR = 1
 DEFAULT_ARMS = "W0,W1,W2,W3,W4"
 DEFAULT_SEED = 20260901
 JUDGE_MODEL = "claude-sonnet-5"
+QUESTIONS_FILENAME = "questions.json"
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -49,12 +51,30 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--arms", default=DEFAULT_ARMS)
     runner.add_argument("--per-type", type=int, default=4)
     runner.add_argument("--seed", type=int, default=DEFAULT_SEED)
-    runner.add_argument("--sessions-per-call", type=int, default=4)
+    runner.add_argument("--sessions-per-call", type=int, default=1)
+    runner.add_argument("--experience-workers", type=int, default=4)
+    runner.add_argument("--exam-max-turns", type=int, default=20)
     runner.add_argument("--model", default=DEFAULT_MODEL)
     runner.add_argument("--judge-model", default=JUDGE_MODEL)
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
     runner.set_defaults(handler=_run)
+
+    regrader = subparsers.add_parser(
+        "regrade", help="re-judge stored answers without re-running the hosts"
+    )
+    regrader.add_argument("--workspace", required=True)
+    regrader.add_argument("--judge-model", default=JUDGE_MODEL)
+    regrader.add_argument("--concurrency", type=int, default=8)
+    regrader.set_defaults(handler=_regrade)
+
+    calibrator = subparsers.add_parser(
+        "calibrate", help="check the judge against hand-labelled cases"
+    )
+    calibrator.add_argument("--cases", required=True)
+    calibrator.add_argument("--judge-model", default=JUDGE_MODEL)
+    calibrator.add_argument("--concurrency", type=int, default=8)
+    calibrator.set_defaults(handler=_calibrate)
 
     reporter = subparsers.add_parser("report", help="summarise a finished run")
     reporter.add_argument("--workspace", required=True)
@@ -79,6 +99,11 @@ def _run(args: argparse.Namespace) -> int:
     selected = arms_module.parse(args.arms)
     workspace = pathlib.Path(args.workspace)
     sink = MetricsSink(workspace)
+    workspace.mkdir(parents=True, exist_ok=True)
+    (workspace / QUESTIONS_FILENAME).write_text(
+        json.dumps({episode.id: episode.question for episode in episodes}, sort_keys=True),
+        encoding="utf-8",
+    )
     host = Host(HostSpec(name=HOST_CLAUDE_CODE, binary="claude", model=args.model))
     judge = Judge(Host(HostSpec(name=HOST_CLAUDE_CODE, binary="claude", model=args.judge_model)))
     if not host.spec.available():
@@ -90,6 +115,8 @@ def _run(args: argparse.Namespace) -> int:
         judge=judge,
         workspace=workspace / "stores",
         sessions_per_call=args.sessions_per_call,
+        experience_workers=args.experience_workers,
+        exam_max_turns=args.exam_max_turns,
         run_id=args.run_id,
         episode_fingerprint=sampling.fingerprint(episodes),
     )
@@ -111,6 +138,49 @@ def _run(args: argparse.Namespace) -> int:
 
     print(report_module.render(report_module.summarise(sink.records())))
     return EXIT_OK
+
+
+def _regrade(args: argparse.Namespace) -> int:
+    workspace = pathlib.Path(args.workspace)
+    sink = MetricsSink(workspace)
+    records = sink.records()
+    judge = Judge(Host(HostSpec(name=HOST_CLAUDE_CODE, binary="claude", model=args.judge_model)))
+    regraded = judge_module.regrade(records, judge, _questions(workspace), args.concurrency)
+    changed = sum(1 for old, new in zip(records, regraded, strict=True) if old != new)
+    sink.replace(regraded)
+    print(f"regraded {len(regraded)} records, {changed} changed", file=sys.stderr)
+    print(report_module.render(report_module.summarise(regraded)))
+    return EXIT_OK
+
+
+def _questions(workspace: pathlib.Path) -> dict[str, str]:
+    manifest = workspace / QUESTIONS_FILENAME
+    if not manifest.exists():
+        raise FileNotFoundError(f"no question manifest at {manifest}")
+    return json.loads(manifest.read_text(encoding="utf-8"))
+
+
+def _calibrate(args: argparse.Namespace) -> int:
+    """An instrument that has not been checked against known answers is not a measurement."""
+    cases = json.loads(pathlib.Path(args.cases).read_text(encoding="utf-8"))
+    judge = Judge(Host(HostSpec(name=HOST_CLAUDE_CODE, binary="claude", model=args.judge_model)))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.concurrency) as pool:
+        verdicts = list(
+            pool.map(
+                lambda case: judge.grade(case["question"], case["expected"], case["candidate"]),
+                cases,
+            )
+        )
+    wrong = [
+        case["case"]
+        for case, verdict in zip(cases, verdicts, strict=True)
+        if verdict.correct != case["label"]
+    ]
+    agreed = len(cases) - len(wrong)
+    print(f"judge {args.judge_model}: {agreed}/{len(cases)} agree with the labels")
+    for name in wrong:
+        print(f"  disagrees: {name}")
+    return EXIT_OK if not wrong else EXIT_ERROR
 
 
 def _report(args: argparse.Namespace) -> int:

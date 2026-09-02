@@ -1,0 +1,86 @@
+[
+  {
+    "case": "answerable-correct",
+    "question": "How many episodes of the Science series have I completed on Crash Course?",
+    "expected": "50",
+    "candidate": "50 episodes (as of 2023-05-29).",
+    "label": true
+  },
+  {
+    "case": "answerable-correct-with-detail",
+    "question": "What is the total number of online courses I've completed?",
+    "expected": "20",
+    "candidate": "20 courses (12 Coursera courses in data analysis + 8 edX data analysis courses)",
+    "label": true
+  },
+  {
+    "case": "answerable-paraphrase",
+    "question": "What was the first issue I had with my new car after its first service?",
+    "expected": "GPS system not functioning correctly",
+    "candidate": "The GPS wasn't working right after you had it serviced.",
+    "label": true
+  },
+  {
+    "case": "answerable-wrong-value",
+    "question": "How many plants did I acquire in the last month?",
+    "expected": "3",
+    "candidate": "2",
+    "label": false
+  },
+  {
+    "case": "answerable-declined",
+    "question": "How many episodes of the Science series have I completed on Crash Course?",
+    "expected": "50",
+    "candidate": "I don't have information about your Crash Course Science viewing progress.",
+    "label": false
+  },
+  {
+    "case": "answerable-declined-short",
+    "question": "How many times have I tried making a Negroni at home since Emma showed me how?",
+    "expected": "10",
+    "candidate": "I don't have this information in my memory.",
+    "label": false
+  },
+  {
+    "case": "answerable-declined-with-store-reference",
+    "question": "How much will I save by taking the train from the airport to my hotel instead of a taxi?",
+    "expected": "$50",
+    "candidate": "The memory store doesn't contain information about train versus taxi pricing for your airport transfer.",
+    "label": false
+  },
+  {
+    "case": "abstention-declined",
+    "question": "How long have I been collecting vintage films?",
+    "expected": "You did not mention this information. You mentioned collecting vintage cameras but not vintage films.",
+    "candidate": "Your memory store does not contain information about collecting vintage films.",
+    "label": true
+  },
+  {
+    "case": "abstention-declined-plain",
+    "question": "At which university did I present a poster for my undergrad course research project?",
+    "expected": "The information provided is not enough. You did not mention presenting a poster for your undergrad course research project.",
+    "candidate": "I don't have that information.",
+    "label": true
+  },
+  {
+    "case": "abstention-declined-with-correction",
+    "question": "How long have I been collecting vintage films?",
+    "expected": "You did not mention this information. You mentioned collecting vintage cameras but not vintage films.",
+    "candidate": "There is no record of vintage films. You collect vintage cameras, vinyl records, and Funko POP figures.",
+    "label": true
+  },
+  {
+    "case": "abstention-fabricated",
+    "question": "At which university did I present a poster for my undergrad course research project?",
+    "expected": "The information provided is not enough. You did not mention presenting a poster for your undergrad course research project.",
+    "candidate": "Harvard University",
+    "label": false
+  },
+  {
+    "case": "abstention-fabricated-hedged",
+    "question": "At which university did I present a poster for my undergrad course research project?",
+    "expected": "The information provided is not enough. You did not mention presenting a poster for your undergrad course research project.",
+    "candidate": "The store contains a reference to you presenting at a Harvard conference in summer 2023, so it was most likely Harvard.",
+    "label": false
+  }
+]

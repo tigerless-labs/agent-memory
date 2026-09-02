@@ -44,5 +44,16 @@ Recall first to see whether the atom already exists.
 - It exists and the old value is simply wrong → `mem record` under the same name (an update)
 - It is a new atom → a new file
 
-One file holds one thing that expires as a whole. Turn relative dates into absolute ones.
-Put the memory in the domain that owns it: `user`, `project`, `reference`, `experience`.
+One file holds one thing that expires as a whole. Two things that can stop being true
+separately belong in separate files — each incident, each decision, each release is its own
+file with its own date, not a line inside a standing topic file.
+
+The abstract states the fact, in the words someone would search for. `Deploy aborts at the
+drain step when the worker lease outlives the drain window` is an abstract; `Deploy issues` is
+a topic label, and a topic label cannot be recognised, dated, or superseded.
+
+Carry the specifics across verbatim — error codes, versions, paths, numbers, dates. A memory
+that keeps the topic and loses the error code answers nothing later.
+
+Turn relative dates into absolute ones and pass `--valid-from <date>`. Put the memory in the
+domain that owns it: `user`, `project`, `reference`, `experience`.

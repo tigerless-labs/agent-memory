@@ -14,10 +14,11 @@ import traceback
 from collections.abc import Sequence
 from types import FrameType
 
+from agent_memory.core import injection
 from agent_memory.core.store import Store
 
 from . import capture as capture_module
-from . import injection, moments, transcript
+from . import moments, transcript
 
 EXIT_OK = 0
 LOG_FILENAME = "hooks.log"

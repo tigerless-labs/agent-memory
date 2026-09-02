@@ -14,3 +14,6 @@
       (evidence: experiments/results/p2-longmemeval.md)——冷读缺少现场 context 的
       代价需定位后再作为 cron 兜底档
 - [ ] P2 需扩大 n:W1/W2/W4 在 n=24 下不可分(两两 p ≥ 0.6),写入默认档暂按成本定为 W2
+- [ ] config knob 改名/迁位会让旧 store 直接加载失败(严格拒收未知 knob 是故意的,
+      但缺迁移路径)——需要 config 版本号 + 迁移,或 `mem inspect` 给出可执行的修复建议
+

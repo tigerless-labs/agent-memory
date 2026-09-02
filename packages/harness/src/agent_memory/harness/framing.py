@@ -32,6 +32,8 @@ Question: {question}
 
 Reply with the answer itself and nothing else."""
 
+INJECTION_SEPARATOR = "\n\n"
+
 EXAM_WITHOUT_MEMORY = """Today is {date}.
 
 Answer from what you know. Say plainly when you do not have the information.
@@ -53,3 +55,10 @@ def exam(episode: Episode, with_memory: bool) -> str:
         preamble=prompts.exam(RECALL_HINT),
         question=episode.question,
     )
+
+
+def with_injected_index(exam_prompt: str, index: str) -> str:
+    """The injection track, appended after the isolation gate has cleared the question."""
+    if not index.strip():
+        return exam_prompt
+    return prompts.injected_index(index) + INJECTION_SEPARATOR + exam_prompt

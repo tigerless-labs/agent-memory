@@ -66,6 +66,8 @@ class RecallConfig:
     recency_floor: float = 0.25
     retrieval_weight_floor: float = 0.15
     memory_md_weight_floor: float = 0.75
+    injection_enabled: bool = True
+    injection_budget_bytes: int = 8192
     anchor_context_chars: int = 160
     snippet_max_chars: int = 400
 
@@ -89,7 +91,6 @@ class WriteConfig:
     watermark_dirname: str = "watermarks"
     session_archive_enabled: bool = True
     hook_timeout_seconds: float = 20.0
-    injection_budget_bytes: int = 8192
 
 
 @dataclasses.dataclass

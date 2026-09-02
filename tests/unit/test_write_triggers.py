@@ -5,7 +5,8 @@ import json
 
 import pytest
 from agent_memory.adapters import capture as capture_module
-from agent_memory.adapters import hook_entry, injection, moments, setup, transcript
+from agent_memory.adapters import hook_entry, moments, setup, transcript
+from agent_memory.core import injection
 from agent_memory.core.watermark import Watermark
 
 SEGMENTS = ["user: we moved the deploy to Fridays", "assistant: noted", "user: and E4021 is fixed"]
@@ -60,11 +61,11 @@ def test_injection_is_a_byte_prefix_of_memory_md(seeded):
     payload = injection.payload(seeded)
     raw = seeded.layout.memory_index.read_bytes()
     assert raw.startswith(payload.encode("utf-8"))
-    assert len(payload.encode("utf-8")) <= seeded.config.write.injection_budget_bytes
+    assert len(payload.encode("utf-8")) <= seeded.config.recall.injection_budget_bytes
 
 
 def test_injection_is_truncated_at_a_line_boundary_when_it_exceeds_the_budget(seeded):
-    seeded.config.write.injection_budget_bytes = len(seeded.config.memory_md.header) + len("\n\n")
+    seeded.config.recall.injection_budget_bytes = len(seeded.config.memory_md.header) + len("\n\n")
     payload = injection.payload(seeded)
     assert seeded.layout.memory_index.read_bytes().startswith(payload.encode("utf-8"))
     assert "\n- " not in payload

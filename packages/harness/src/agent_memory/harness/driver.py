@@ -10,7 +10,7 @@ import concurrent.futures
 import dataclasses
 import pathlib
 
-from agent_memory.core import prompts
+from agent_memory.core import injection, prompts
 from agent_memory.core.store import Store
 
 from . import framing
@@ -21,6 +21,8 @@ from .judge import Judge
 from .metrics import STATUS_FAILED, STATUS_OK, RunRecord
 
 SESSION_SEPARATOR = "\n\n"
+EXPERIENCE_WORKERS = 4
+EXAM_MAX_TURNS = 20
 
 
 @dataclasses.dataclass(frozen=True)
@@ -40,6 +42,8 @@ class Driver:
         sessions_per_call: int,
         run_id: str,
         episode_fingerprint: str,
+        experience_workers: int = EXPERIENCE_WORKERS,
+        exam_max_turns: int = EXAM_MAX_TURNS,
     ):
         self._host = host
         self._judge = judge
@@ -47,6 +51,8 @@ class Driver:
         self._batch = sessions_per_call
         self._run_id = run_id
         self._episode_fingerprint = episode_fingerprint
+        self._experience_workers = experience_workers
+        self._exam_max_turns = exam_max_turns
 
     def run(self, episode: Episode, arm: Arm) -> RunRecord:
         store = self._store_for(episode, arm)
@@ -54,13 +60,15 @@ class Driver:
         phase = self._experience(store, episode, arm, workdir)
         exam_prompt = framing.exam(episode, with_memory=arm.memory)
         self._assert_isolated(exam_prompt, episode)
+        if arm.memory:
+            exam_prompt = framing.with_injected_index(exam_prompt, injection.payload(store))
 
         answer = self._host.run(
             exam_prompt,
             store_root=store.root if arm.memory else None,
             tools_enabled=arm.memory,
             system_prompt=prompts.MEMORY_KEEPER if arm.memory else "",
-            max_turns=EXAM_MAX_TURNS,
+            max_turns=self._exam_max_turns,
             workdir=workdir,
         )
         verdict = self._judge.grade(episode.question, episode.answer, answer.text)
@@ -110,7 +118,8 @@ class Driver:
                 store.archive.append_session(f"{episode.id}-{index}", _render(batch))
 
         instructions = [framing.experience(arm.mode, _render(batch)) for batch in batches]
-        with concurrent.futures.ThreadPoolExecutor(max_workers=len(instructions) or 1) as pool:
+        workers = min(self._experience_workers, len(instructions)) or 1
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
             results = list(
                 pool.map(
                     lambda prompt: self._host.run(
@@ -133,6 +142,8 @@ class Driver:
         )
 
     def _assert_isolated(self, prompt: str, episode: Episode) -> None:
+        """Checked before injection: what the store injects is memory the run itself wrote,
+        which is the designed read track, not the transcript leaking into the exam."""
         for session in episode.sessions:
             for turn in session.turns:
                 content = turn.content.strip()
@@ -156,7 +167,6 @@ def _batched(items: list, size: int):
 
 
 ANSWER_EXCERPT = 600
-EXAM_MAX_TURNS = 12
 WORKDIR_NAME = "cwd"
 WRITE_MAX_TURNS = 30
 ISOLATION_EXCERPT = 60
