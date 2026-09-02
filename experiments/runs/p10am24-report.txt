@@ -1,0 +1,15 @@
+| system | arm | graded | correct | accuracy | blocking s | exam s | memories |
+|---|---|---|---|---|---|---|---|
+| agent-memory | W0 | 24 | 2 | 8.3% | 0.0 | 7.5 | 0.0 |
+| agent-memory | W2 | 24 | 10 | 41.7% | 0.0 | 16.9 | 29.2 |
+
+| question type | W0 | W2 |
+|---|---|---|
+| knowledge-update | 0.0% | 25.0% |
+| multi-session | 25.0% | 25.0% |
+| single-session-assistant | 0.0% | 50.0% |
+| single-session-preference | 0.0% | 0.0% |
+| single-session-user | 25.0% | 75.0% |
+| temporal-reasoning | 0.0% | 75.0% |
+
+attribution licensed: True (recall fingerprints=['d231843a7c9f0255'], episodes=['a39325b0a9a1d536'])
