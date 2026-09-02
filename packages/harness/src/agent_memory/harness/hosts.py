@@ -20,6 +20,8 @@ import subprocess
 import tempfile
 import time
 
+from .credentials import VertexCredentials
+
 HOST_CLAUDE_CODE = "claude-code"
 HOST_CODEX = "codex"
 HOST_HERMES = "hermes"
@@ -170,6 +172,7 @@ class Host:
     def __init__(self, spec: HostSpec):
         self.spec = spec
         self.dialect = DIALECTS.get(spec.name, DIALECTS[HOST_CLAUDE_CODE])
+        self.credentials = VertexCredentials() if spec.name == HOST_HERMES else None
 
     @property
     def name(self) -> str:
@@ -260,4 +263,6 @@ class Host:
             found = shutil.which(binary)
             if found:
                 environment["PATH"] = f"{pathlib.Path(found).parent}:{environment.get('PATH', '')}"
+        if self.credentials is not None:
+            environment.update(self.credentials.environment())
         return environment

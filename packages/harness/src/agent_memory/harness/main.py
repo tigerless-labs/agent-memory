@@ -33,9 +33,9 @@ TRUTHY = ("1", "true", "yes", "on")
 HOST_BINARIES = {
     "claude-code": ("claude", DEFAULT_MODEL),
     "codex": ("codex", "gpt-5.6-sol"),
-    "hermes": ("hermes", "google/gemini-3.7-flash"),
+    "hermes": ("hermes", "google/google/gemini-3.7-flash"),
 }
-HOST_PROVIDERS = {"hermes": "custom"}
+HOST_PROVIDERS = {"hermes": "gemini"}
 PROBE_PROMPT = "Reply with exactly: OK"
 PROBE_TOKEN = "OK"
 PROBE_TURNS = 3

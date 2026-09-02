@@ -237,3 +237,46 @@ claims about memory, and a memory benchmark cannot be used to make them.
 
 Read-side experiments are now cheap: `--reuse-stores` replays another run's stores, so a read
 variant costs one exam per episode instead of a full experience phase.
+
+## P6: who climbs the disclosure ladder — the one change that replicated
+
+Every earlier comparison in this document failed for the same reason: a single run per
+configuration, against a pipeline whose noise floor is larger than the effect. So this one was
+run the way the earlier ones should have been — **replicated on both sides**, against the same
+120 frozen stores from P4, with the write side identical by construction.
+
+| exam mode | replays | within-arm spread |
+|---|---|---|
+| agent drives its own retrieval | 62, 60, 66 | 6 |
+| store builds the context | 79, 76 | 3 |
+
+**The distributions do not overlap: the worst fixed run beats the best agentic run by 10.**
+Five of the six cross-arm pairings are significant (p from 0.0013 to 0.035; the sixth, p=0.11).
+Scoring each episode by its majority across replays: +24 / −5, p=0.00055. Every within-arm
+pairing is non-significant (p 0.33–0.86), which is the noise floor measured rather than assumed.
+
+Pooled: 188/360 (52.2%) against 155/240 (64.6%). The exam also got cheaper — 9.0s against 14.8s.
+
+### What changed, precisely
+
+Not retrieval. Same recall, same scoring, same eligibility, same fingerprint. What moved is who
+decides when to stop climbing the ladder: `recall` returns the L0 list and leaves that to the
+caller; `mem context` runs the recall, opens the top entries to full text, and returns a block
+ready to be reasoned over. The host does strictly less than before, not something new.
+
+Progressive disclosure is an R-layer responsibility in the design. Delegating it to the host was
+an implementation choice, and it was the expensive one.
+
+### What this does and does not claim
+
+It claims: on this suite, with writes frozen, the read surface deciding disclosure is worth
+about twelve points, replicated, non-overlapping. It is a change to the memory system, lives in
+the core as `mem context`, and reaches every host through the same CLI and MCP surface.
+
+It does not claim: that the W options are ranked — they remain unresolved and the default stays
+W2 on cost. That this generalises past LongMemEval. That M's net value is measured; it is not,
+and that remains the largest untested claim in the project.
+
+A caveat that cuts the other way: an agent that knows what it is looking for should keep the
+ladder. `recall` was not replaced, and both surfaces stay.
+
