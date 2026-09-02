@@ -54,6 +54,65 @@ uv run mem-exp report --workspace runs/p2
 Results: **[results/index.md](results/index.md)** is the ledger of every measured
 configuration; the individual write-ups carry the reasoning.
 
+## P11 — what a sleep is worth
+
+**Question.** Holding the write side and retrieval fixed, does a sleep change end-to-end
+accuracy — and does a sleep that can reason change it more than one that cannot?
+
+**Why this licenses attribution.** Every arm replays one byte-identical store tree under one
+recall config; the only thing that differs is what happened to the copy between writing and
+being asked. The run stamps the same fingerprints P2 does, and additionally labels the sleep,
+so the report can put three sleeps of one write option on three lines.
+
+### Arms
+
+| label | what the copy went through |
+|---|---|
+| `off` | nothing — the frozen tree as written |
+| `det` | the shipped unattended sleep: dates, weight, staleness, links, exact duplicates |
+| `llm` | the same, plus a reasoner ruling on proposals at confirmed authority, with the merge candidate band widened so there is something to rule on |
+
+The widened band is part of the arm, not a bug in it. At the shipped threshold the drafter
+found **1 merge proposal across 120 stores** — a reasoner has nothing to decide, so an arm
+holding the band fixed would measure the drafter's filter rather than the reasoning.
+
+### Protocol
+
+| | |
+|---|---|
+| Source stores | a finished W2 run's tree, copied once per arm |
+| Suite | the same episodes the source tree was built from, same seed |
+| Host / judge | as P2 — the comparison is only valid against the same instrument |
+| Sleep clock | not advanced, so consolidation is isolated from forgetting |
+
+### What this protocol still cannot see
+
+One write pass produces no staleness, no superseded values and no topic density, so `det` can
+only move the score through weight and links. The longitudinal protocol — session batch,
+sleep, session batch, sleep, exam, with the clock advancing between batches — is what makes
+the falsifiable claim in `docs/design/domains/manage.md` executable, and it does not exist yet.
+P11 is the cheap half of the question, run first because it is cheap.
+
+### Reproducing
+
+```bash
+uv run mem-exp sleep-stores --stores runs/p4sup/stores --target runs/p11det/stores
+uv run mem-exp sleep-stores --stores runs/p4sup/stores --target runs/p11llm/stores --reason host --set manage.authority=T1 --set manage.merge_proposal_similarity=0.35
+uv run mem-exp run --suite data/longmemeval_s12.json --workspace runs/p11/off --reuse-stores runs/p4sup/stores --arms W2 --per-type 4 --manage off
+uv run mem-exp report --workspace runs/p11/off
+```
+
+## LoCoMo as a second suite
+
+LoCoMo converts into the same episode shape rather than being adapted for, so the driver, the
+isolation gate and the report never learn there are two suites. Its unanswerable category
+carries the abstention marker the harness already reads, which is the part LongMemEval covers
+thinnest. The release is not in this repo — convert it in from wherever it was downloaded:
+
+```bash
+uv run mem-exp convert-locomo --source /path/to/locomo10.json --target data/locomo.json
+```
+
 ## What in `experiments/runs/` may be deleted, and what may not
 
 `experiments/runs/*/stores/` holds the memory stores a run built. They are gitignored — 464 MB

@@ -21,7 +21,7 @@ from agent_memory.executor import reasoners
 from agent_memory.executor.hosts import BINARIES, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 
 from . import arms as arms_module
-from . import dataset, sampling
+from . import dataset, locomo, sampling
 from . import exam as exam_module
 from . import interop as interop_module
 from . import judge as judge_module
@@ -77,6 +77,13 @@ def _parser() -> argparse.ArgumentParser:
     preparer.add_argument("--target", required=True)
     preparer.add_argument("--sessions", type=int, required=True)
     preparer.set_defaults(handler=_prepare)
+
+    converter = subparsers.add_parser(
+        "convert-locomo", help="convert a LoCoMo release into a suite the driver replays"
+    )
+    converter.add_argument("--source", required=True)
+    converter.add_argument("--target", required=True)
+    converter.set_defaults(handler=_convert_locomo)
 
     runner = subparsers.add_parser("run", help="run the W matrix")
     runner.add_argument("--suite", required=True)
@@ -169,6 +176,13 @@ def _prepare(args: argparse.Namespace) -> int:
         pathlib.Path(args.source), workspace_module.for_writing(args.target), args.sessions
     )
     print(json.dumps({"episodes": count, "target": args.target, "sessions": args.sessions}))
+    return EXIT_OK
+
+
+def _convert_locomo(args: argparse.Namespace) -> int:
+    target = workspace_module.for_writing(args.target)
+    count = locomo.convert(pathlib.Path(args.source), target)
+    print(json.dumps({"episodes": count, "target": str(target)}))
     return EXIT_OK
 
 
