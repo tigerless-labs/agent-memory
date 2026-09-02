@@ -222,19 +222,22 @@ class Manage:
         return DecisionLedger(self._store.layout.dream_reports / LEDGER_FILENAME)
 
     def _usage(self) -> tuple[dict[str, int], dict[str, int], dict[str, str]]:
+        """Lifetime counts decide what was never useful; only new reads earn weight, so one
+        read is settled once however many sleeps follow it."""
+        since = self._last_sleep()
         with self._database.connect() as connection:
             log = AccessLog(connection)
             hits = log.counts()
             last_access = log.last_access()
+            query = "SELECT name, COUNT(*) AS hits FROM access_log WHERE kind = ?"
+            parameters: tuple[object, ...] = (KIND_READ,)
+            if since is not None:
+                query += " AND at > ?"
+                parameters += (since.isoformat(),)
             reads = {
-                str(row["name"]): 0
-                for row in connection.execute("SELECT DISTINCT name FROM access_log")
+                str(row["name"]): int(row["hits"])
+                for row in connection.execute(query + " GROUP BY name", parameters)
             }
-            for row in connection.execute(
-                "SELECT name, COUNT(*) AS hits FROM access_log WHERE kind = ? GROUP BY name",
-                (KIND_READ,),
-            ):
-                reads[str(row["name"])] = int(row["hits"])
         return hits, reads, last_access
 
     def _normalise_dates(self, records: list[MemoryRecord]) -> list[Action]:
@@ -401,19 +404,24 @@ class Manage:
                 and record.path is not None
                 and record.path.parent == self._store.layout.domain_dir(domain)
             ]
-            buckets: dict[str, list[str]] = {}
+            buckets: dict[str, set[str]] = {}
             for record in flat:
                 for token in _tokens(f"{record.name} {record.abstract}"):
-                    buckets.setdefault(token, []).append(record.name)
-            for token, names in sorted(buckets.items()):
+                    buckets.setdefault(token, set()).add(record.name)
+            groups: dict[frozenset[str], set[str]] = {}
+            for token, names in buckets.items():
                 if len(names) < self._config.manage.cluster_min_files:
+                    continue
+                groups.setdefault(frozenset(names), set()).add(token)
+            for names, shared in sorted(groups.items(), key=lambda group: sorted(group[0])):
+                if len(shared) < self._config.manage.cluster_min_shared_tokens:
                     continue
                 proposals.append(
                     Proposal(
                         kind=PROPOSAL_CLUSTER,
                         targets=tuple(sorted(names)),
                         reason=f"{domain} root holds a topic worth its own directory",
-                        evidence=f"shared token '{token}' across {len(names)} files",
+                        evidence=f"shared {', '.join(sorted(shared))} across {len(names)} files",
                     )
                 )
         return proposals

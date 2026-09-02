@@ -242,3 +242,63 @@ def test_the_decision_ledger_survives_an_index_rebuild(seeded):
     shutil.rmtree(seeded.layout.index_dir)
     seeded.rebuild_index()
     assert proposal.id not in {open_one.id for open_one in Manage(seeded).proposals()}
+
+
+def test_one_read_is_settled_once_however_many_sleeps_follow(seeded):
+    seeded.read("staging-deploy-e4021")
+    Manage(seeded).sleep()
+    settled = seeded.find("staging-deploy-e4021").weight
+    Manage(seeded).sleep()
+    Manage(seeded).sleep()
+    assert seeded.find("staging-deploy-e4021").weight == settled
+
+
+def test_a_read_between_two_sleeps_raises_the_weight_again(seeded, clock):
+    seeded.read("staging-deploy-e4021")
+    Manage(seeded).sleep()
+    settled = seeded.find("staging-deploy-e4021").weight
+    clock.advance(hours=1)
+    seeded.read("staging-deploy-e4021")
+    Manage(seeded).sleep()
+    assert seeded.find("staging-deploy-e4021").weight > settled
+
+
+def test_a_sleep_with_no_new_reads_settles_no_weight(seeded):
+    seeded.read("staging-deploy-e4021")
+    Manage(seeded).sleep()
+    assert ACTION_WEIGHT_SETTLED not in _kinds(Manage(seeded).sleep())
+
+
+def _flat_topic(store, count, abstract):
+    for index in range(count):
+        store.record(
+            abstract=abstract.format(index=index),
+            type="reference",
+            domain="reference",
+            body="Body.",
+            name=f"topic-note-{index}",
+        )
+
+
+def test_one_group_proposes_one_cluster_however_many_tokens_it_shares(seeded):
+    _flat_topic(
+        seeded,
+        seeded.config.manage.cluster_min_files,
+        "Kubernetes control plane upgrade note {index}",
+    )
+    clusters = [
+        proposal for proposal in Manage(seeded).proposals() if proposal.kind == PROPOSAL_CLUSTER
+    ]
+    assert len(clusters) == 1
+
+
+def test_a_group_sharing_too_few_tokens_is_not_a_topic(seeded):
+    seeded.config.manage.cluster_min_shared_tokens = 99
+    _flat_topic(
+        seeded,
+        seeded.config.manage.cluster_min_files,
+        "Kubernetes control plane upgrade note {index}",
+    )
+    assert not [
+        proposal for proposal in Manage(seeded).proposals() if proposal.kind == PROPOSAL_CLUSTER
+    ]

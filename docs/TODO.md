@@ -107,13 +107,6 @@
       「markdown 真源 + Claude Code 钩子」一族,写入决策同样落在消费端。前者有读侧 eval
       (300 篇合成语料 / 48 问 / recall@k + MRR,单跑无重放),其 BASELINE.md 自陈不测写入覆盖;
       后者无任何评测。若做系统对照,覆盖率探针是唯一能分离两系统的量
-- [ ] **weight 结算用的是终身累计 read 次数,每次睡眠重复加**:`_settle_weights` 从 access_log
-      取全量 reads,不按上次睡眠切窗,于是同一批历史阅读每睡一次就再加一次(0.5/步,每睡最多 3 步)。
-      initial 1.0 → ceiling 5.0,任何被读过 ≥3 次的条目三次睡眠内顶到天花板并停在那里
-      (decay 每 30 天才 -0.1)。weight 失去区分度 = 价值化遗忘失去输入。
-      应改为「自上次睡眠以来的新增阅读」
-- [ ] `manage.cluster_min_shared_tokens = 2` 是死旋钮:全仓库无人读取,`_propose_clusters`
-      只用 `cluster_min_files`。要么接上(单 token 共现提案噪声大),要么删掉
 - [ ] `_propose_merges` 是 O(n²) 两两 Jaccard,全量每睡一次。小库无感,需要给出规模上界
       或加分桶预筛(共享 token 倒排)后再谈大库
 - [ ] `_propose_merges` 的 kind 判定看着是反的:同 type → supersede,异 type → merge。
