@@ -46,6 +46,8 @@ PROBE_TOKEN = "OK"
 PROBE_TURNS = 3
 PROBE_EXCERPT = 120
 REACHABILITY = {True: "yes", False: "NO"}
+COSTLY_MODEL_MARKERS = ("opus",)
+ALLOW_COSTLY_ENV = "MEM_EXP_ALLOW_COSTLY_MODEL"
 INTEROP_FACT = interop_module.Fact(
     subject="the drain window",
     sentence="The queue drain window must exceed the worker lease TTL by 90 seconds.",
@@ -168,7 +170,14 @@ def _run(args: argparse.Namespace) -> int:
         encoding="utf-8",
     )
     host = _host(args.host, args.model)
-    judge = Judge(Host(HostSpec(name=HOST_CLAUDE_CODE, binary="claude", model=args.judge_model)))
+    judge = Judge(
+        Host(
+            HostSpec(
+                name=HOST_CLAUDE_CODE, binary="claude",
+                model=_affordable(args.judge_model, "judge"),
+            )
+        )
+    )
     if not host.spec.available():
         print(json.dumps({"error": f"host binary not found: {host.spec.binary}"}), file=sys.stderr)
         return EXIT_ERROR
@@ -233,7 +242,14 @@ def _regrade(args: argparse.Namespace) -> int:
     workspace = pathlib.Path(args.workspace)
     sink = MetricsSink(workspace)
     records = sink.records()
-    judge = Judge(Host(HostSpec(name=HOST_CLAUDE_CODE, binary="claude", model=args.judge_model)))
+    judge = Judge(
+        Host(
+            HostSpec(
+                name=HOST_CLAUDE_CODE, binary="claude",
+                model=_affordable(args.judge_model, "judge"),
+            )
+        )
+    )
     regraded = judge_module.regrade(records, judge, _questions(workspace), args.concurrency)
     changed = sum(1 for old, new in zip(records, regraded, strict=True) if old != new)
     sink.replace(regraded)
@@ -252,7 +268,14 @@ def _questions(workspace: pathlib.Path) -> dict[str, str]:
 def _calibrate(args: argparse.Namespace) -> int:
     """An instrument that has not been checked against known answers is not a measurement."""
     cases = json.loads(pathlib.Path(args.cases).read_text(encoding="utf-8"))
-    judge = Judge(Host(HostSpec(name=HOST_CLAUDE_CODE, binary="claude", model=args.judge_model)))
+    judge = Judge(
+        Host(
+            HostSpec(
+                name=HOST_CLAUDE_CODE, binary="claude",
+                model=_affordable(args.judge_model, "judge"),
+            )
+        )
+    )
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.concurrency) as pool:
         verdicts = list(
             pool.map(
@@ -325,6 +348,18 @@ def _interop(args: argparse.Namespace) -> int:
     return EXIT_OK if all(result.passed for result in results) else EXIT_ERROR
 
 
+def _affordable(model: str, role: str) -> str:
+    """A matrix is hundreds of calls, so the expensive tier has to be asked for out loud."""
+    lowered = model.lower()
+    hit = [marker for marker in COSTLY_MODEL_MARKERS if marker in lowered]
+    if hit and not os.environ.get(ALLOW_COSTLY_ENV):
+        raise ValueError(
+            f"{role} model {model!r} is the expensive tier; "
+            f"set {ALLOW_COSTLY_ENV}=1 to run it deliberately"
+        )
+    return model
+
+
 def _host(name: str, model: str = "", attempts: int = 1) -> Host:
     """Model and provider come from the environment so a host is added without a code change."""
     binary, default_model = HOST_BINARIES[name]
@@ -332,7 +367,7 @@ def _host(name: str, model: str = "", attempts: int = 1) -> Host:
         HostSpec(
             name=name,
             binary=binary,
-            model=model or os.environ.get(_model_env(name)) or default_model,
+            model=_affordable(model or os.environ.get(_model_env(name)) or default_model, name),
             provider=os.environ.get(_provider_env(name), HOST_PROVIDERS.get(name, "")),
             attempts=attempts,
         )

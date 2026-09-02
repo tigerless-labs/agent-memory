@@ -65,3 +65,61 @@ distinction the design anticipated does not apply at this layer.
 Hermes answers a no-memory question slowly (118s mean) and a with-memory question faster
 (60s), the opposite of the other two hosts, and it failed 3 of 24 runs. Its slice is the
 least reliable of the three; the numbers above exclude failed runs from the denominator.
+
+## Batch write — the seventh negative, and a conflation worth naming
+
+The 13× capture spread suggested a testable cause: a host pays a turn per tool call, so a
+one-memory-per-call write API taxes exactly the hosts with the tightest turn budgets.
+`mem record --batch -` removes that tax. Whether the host is told about it is a config knob,
+so this is an A/B against the same episodes rather than a before-and-after.
+
+| host | memories/episode | answer in store | correct |
+|---|---|---|---|
+| claude-code | 6.2 → **14.5** | 1/10 → 1/10 | 3/12 → 3/12 |
+| codex | 36.8 → 34.6 | 6/10 → 5/10 | 7/12 → 9/12 |
+| hermes | 2.8 → **6.5** | 0/10 → 1/10 | 3/12 → 2/12 |
+| **pooled** | | | **13/36 → 14/36** |
+
+Paired: gained 6, lost 5, **p=1.000**.
+
+**The mechanism works and buys nothing.** Both hosts with headroom wrote 2.3× more; Codex,
+already writing 35 a run, was unchanged — exactly the prediction. And the score did not move.
+
+### The conflation
+
+Capture *volume* and write *coverage* are different quantities, and only the second one can
+affect a score:
+
+- **volume** — how many memories get written
+- **coverage** — whether the fact the question asks about is among them
+
+Claude Code doubled its volume and its coverage stayed at 1/10. The eight extra memories were
+not the one that was asked about. This was already visible in earlier data — volume ran 8→31
+across v1/v2/v3 while coverage stayed flat near a third — and that evidence should have been
+weighed before this run rather than after it. The cross-host correlation that motivated it
+(Codex writes most and scores best) is a property of the hosts, not of the volume.
+
+Coverage is a targeting problem: the distiller decides what matters without knowing what will
+be asked. No unsupervised policy covers arbitrary specifics at any budget, which is why the
+design's answer is keeping the raw material rather than writing more of the distilled kind.
+
+### What the batch API is actually for
+
+Cost, not accuracy. Twenty memories become one lock and one reindex instead of twenty of each,
+and one host turn instead of twenty — a real improvement for the hosts with the tightest
+budgets, and the reason it stays. It is not a score lever and is not recorded as one.
+
+## Seven routes, seven negatives
+
+| route | result |
+|---|---|
+| capture-fidelity prompting | no effect |
+| injection track in the exam | no effect |
+| per-session distillation, 3.5× write volume | no effect |
+| raw-material fallback | n=120, p=1.000 — powered negative |
+| supersede-on-write | n=120, p=0.27; identical where the mechanism fired |
+| read discipline (synthesis hint + wider list) | n=240 paired over two replays, p=0.90 |
+| batch write (interface friction) | volume 2.3× on constrained hosts, p=1.000 |
+
+Write-side and read-side are both exhausted on this suite. The measured ceiling remains the
+host's use of what it is handed.
