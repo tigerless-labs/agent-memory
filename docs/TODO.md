@@ -48,7 +48,8 @@
 - [ ] Docker 镜像(roadmap M5):未实现,MCP/CLI 同体分发缺一块
 - [ ] `sessions/` 实际存明文 .txt,storage.md 原写「压缩副本」——已按实现改文档,
       压缩本身仍是待办(千条规模下体积是真成本)
-- [ ] Hermes 跑不起来:唯一缺口是推理凭证。两条路择一——
+- [x] Hermes 已跑通:Vertex OpenAI 兼容端点 + gcloud token(harness 按需签发、到期前续),
+      provider 用 `gemini` 并把它将要剥掉的 `<provider>/` 前缀补回去。原方案记录如下——
       (a) `gcloud auth login`(账号 server@tigerless.com,需 aiplatform.endpoints.predict 权限),
           再走 Vertex 的 OpenAI 兼容端点;注意 hermes 的 custom provider 只从 config.yaml 读
           api_key,不读环境变量,而 gcloud token 一小时过期——这条路要么给 hermes 加 env 支持,
@@ -72,3 +73,13 @@
 - [ ] `feedback` 类型域:artifact 列了五类,设计树与实现只有四域
 - [ ] UserPromptSubmit 自动查询注入:检索轨升级为确定性的那条可选路径
 - [ ] 文件边界公理推论⑤软配额 / ⑥append 只属 archive / ⑦整页 topic file 反面教材
+- [ ] 跨宿主写入量差 13×(hermes 2.8 / claude 6.2 / codex 36.8 条每 episode,
+      指令与题目完全相同;evidence: experiments/results/p1-generality.md)——
+      这是对「agent-agnostic」前提的直接威胁。先分清是服从度、turn 预算还是接口摩擦
+      (每条 `mem record` 占一个 turn),三者的解法分别是 prompt、配置、批量写入 API。
+- [ ] `HERMES_MODEL` 走 Vertex 时必须是 publisher 限定的(`google/gemini-3.7-flash`);
+      项目 .env 里现存的裸 id 会被端点拒。
+- [ ] `recall.default_limit` 已按证据从 8 改为 24(+6.7 点,p=0.043,每臂两次重放;
+      evidence: experiments/results/p6-list-width.md)。**16 与 32 未跑**——24 是证据最强的值,
+      不是调优过的最优值。
+

@@ -65,7 +65,7 @@ def check(writer: Host, reader: Host, fact: Fact, workspace: pathlib.Path) -> In
         WRITE_TASK.format(fact=fact.sentence),
         store_root=store.root,
         tools_enabled=True,
-        system_prompt=prompts.MEMORY_KEEPER,
+        system_prompt=prompts.memory_keeper(),
         max_turns=WRITE_TURNS,
         workdir=workdir,
     )
@@ -81,7 +81,7 @@ def check(writer: Host, reader: Host, fact: Fact, workspace: pathlib.Path) -> In
         READ_TASK.format(subject=fact.subject),
         store_root=store.root,
         tools_enabled=True,
-        system_prompt=prompts.MEMORY_KEEPER,
+        system_prompt=prompts.memory_keeper(),
         max_turns=READ_TURNS,
         workdir=workdir,
     )

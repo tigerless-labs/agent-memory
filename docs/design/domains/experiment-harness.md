@@ -27,8 +27,10 @@ flowchart TB
 有效性条件;**宿主自带记忆必须关停**(否则两套记忆并存,得分不可归因);
 W3 异步需保证蒸馏完成或将时滞计入;MemGym 逐 episode 交替(写与读滚动,无一次性考试)。
 
-**宿主 × W 可用性**:Claude Code 全选项 W0–W4;Codex W0/W1/W3/W4;Hermes W0/W3/W4。
-可用性本身即通用性数据。
+**宿主 × W 可用性**:实测三宿主(Claude Code / Codex / Hermes)均可跑 W0 与 W2——
+蒸馏由 harness 以子进程发起,「边界 fork」对宿主的要求仅是可被启动,原先预估的可用性差异
+在这一层不成立(evidence: experiments/results/p1-generality.md)。
+**宿主自带记忆必须逐个关停并事后核验为空**,否则宿主写进自己的库、回报成功,测的是空气。
 
 **三期执行**:
 - P1 通用性冒烟:3 宿主 × W1(Hermes 用 W4)× 1 小套件 + 互通(A 写 B 读、

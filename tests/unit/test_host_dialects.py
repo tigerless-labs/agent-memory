@@ -130,3 +130,56 @@ def test_stdout_hosts_return_stdout(tmp_path):
 def test_an_unavailable_host_is_reported_rather_than_silently_skipped():
     spec = hosts.HostSpec(name="nope", binary="definitely-not-installed", model="m")
     assert not spec.available()
+
+
+def test_hermes_re_adds_the_prefix_it_is_about_to_strip(tmp_path):
+    """It consumes one provider prefix as routing; a publisher-qualified backend needs it back."""
+    spec = hosts.HostSpec(
+        name=hosts.HOST_HERMES, binary="hermes", model="google/gemini-3.7-flash",
+        provider="gemini",
+    )
+    command = hosts.DIALECTS[hosts.HOST_HERMES].command(
+        spec, tools_enabled=True, system_prompt="k", max_turns=7,
+        store_root=tmp_path / "store", answer_file=tmp_path / "a.txt",
+    )
+    assert command[command.index("--model") + 1] == "gemini/google/gemini-3.7-flash"
+
+
+def test_hermes_leaves_the_model_alone_when_no_provider_is_pinned(tmp_path):
+    spec = hosts.HostSpec(name=hosts.HOST_HERMES, binary="hermes", model="some-model")
+    command = hosts.DIALECTS[hosts.HOST_HERMES].command(
+        spec, tools_enabled=True, system_prompt="k", max_turns=7,
+        store_root=None, answer_file=tmp_path / "a.txt",
+    )
+    assert command[command.index("--model") + 1] == "some-model"
+
+
+def test_the_expensive_tier_has_to_be_asked_for_out_loud(monkeypatch):
+    """A matrix is hundreds of calls; the costly model must not arrive by default or typo."""
+    from agent_memory.harness.main import ALLOW_COSTLY_ENV, _affordable
+
+    monkeypatch.delenv(ALLOW_COSTLY_ENV, raising=False)
+    with pytest.raises(ValueError, match="expensive tier"):
+        _affordable("claude-opus-5", "judge")
+    with pytest.raises(ValueError):
+        _affordable("CLAUDE-OPUS-4-8", "claude-code")
+
+    assert _affordable("claude-haiku-4-5-20251001", "claude-code")
+    assert _affordable("claude-sonnet-5", "judge")
+
+    monkeypatch.setenv(ALLOW_COSTLY_ENV, "1")
+    assert _affordable("claude-opus-5", "judge") == "claude-opus-5"
+
+
+def test_the_shipped_defaults_are_all_affordable(monkeypatch):
+    from agent_memory.harness.main import (
+        ALLOW_COSTLY_ENV,
+        HOST_BINARIES,
+        JUDGE_MODEL,
+        _affordable,
+    )
+
+    monkeypatch.delenv(ALLOW_COSTLY_ENV, raising=False)
+    _affordable(JUDGE_MODEL, "judge")
+    for name, (_, model) in HOST_BINARIES.items():
+        _affordable(model, name)

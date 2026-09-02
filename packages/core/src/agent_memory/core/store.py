@@ -27,6 +27,38 @@ LEVELS = (LEVEL_ABSTRACT, LEVEL_OUTLINE, LEVEL_FULL)
 UNKNOWN_AGENT = "unknown"
 
 
+RECORD_FIELDS = frozenset(
+    {
+        "abstract", "type", "domain", "body", "name", "author", "links",
+        "topic", "valid_from", "provenance", "weight", "supersedes",
+    }
+)
+
+
+@dataclasses.dataclass(frozen=True)
+class Rejected:
+    index: int
+    errors: list[FieldError]
+
+    def as_dict(self) -> dict[str, object]:
+        return {"index": self.index, "errors": [error.as_dict() for error in self.errors]}
+
+
+@dataclasses.dataclass(frozen=True)
+class BatchResult:
+    written: list[MemoryRecord]
+    rejected: list[Rejected]
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "written": [
+                {"name": record.name, "path": str(record.path), "updated": record.updated}
+                for record in self.written
+            ],
+            "rejected": [item.as_dict() for item in self.rejected],
+        }
+
+
 @dataclasses.dataclass(frozen=True)
 class ReadResult:
     record: MemoryRecord
@@ -59,57 +91,86 @@ class Store:
         self._indexer.sync()
         return self.layout
 
-    def record(
-        self,
-        abstract: str,
-        type: str,
-        domain: str,
-        body: str = "",
-        name: str | None = None,
-        author: str | None = None,
-        links: list[str] | None = None,
-        topic: str | None = None,
-        valid_from: str | None = None,
-        provenance: list[str] | None = None,
-        weight: float | None = None,
-        supersedes: str | None = None,
-    ) -> MemoryRecord:
+    def record(self, **spec: object) -> MemoryRecord:
+        """One memory. A batch of one, so there is exactly one way into the store."""
+        result = self.record_many([spec])
+        if result.rejected:
+            raise ValidationError(result.rejected[0].errors)
+        return result.written[0]
+
+    def record_many(self, specs: list[dict[str, object]]) -> BatchResult:
+        """Many memories, one lock and one projection.
+
+        A host pays a turn per tool call, so writing one memory per call taxes exactly the
+        hosts with the tightest turn budgets. Batching removes that tax and costs the store
+        nothing: each record is prepared and persisted exactly as a single write would be,
+        and only the projection is shared.
+        """
         self.layout.ensure()
-        slug = name or slugify(abstract, self.config.storage.slug_max_length)
+        written: list[MemoryRecord] = []
+        rejected: list[Rejected] = []
+        for spec in specs:
+            unknown = set(spec) - RECORD_FIELDS
+            if unknown:
+                raise ValidationError(
+                    [FieldError("spec", f"unknown field: {', '.join(sorted(unknown))}")]
+                )
+        if not specs:
+            return BatchResult(written=written, rejected=rejected)
+        with store_lock(self.layout):
+            for index, spec in enumerate(specs):
+                try:
+                    written.append(self._write_one(spec))
+                except ValidationError as error:
+                    rejected.append(Rejected(index=index, errors=list(error.errors)))
+            self._project()
+        return BatchResult(written=written, rejected=rejected)
+
+    def _write_one(self, spec: dict[str, object]) -> MemoryRecord:
+        abstract = str(spec.get("abstract") or "")
+        name = spec.get("name")
+        topic = spec.get("topic")
+        supersedes = spec.get("supersedes")
+        provenance = _as_sequence(spec.get("provenance"))
+        weight = spec.get("weight")
+
+        slug = str(name) if name else slugify(abstract, self.config.storage.slug_max_length)
         today = self.clock.today()
         existing = self.find(slug)
         candidate = MemoryRecord(
             name=slug,
             abstract=abstract.strip(),
-            type=type,
-            author=author or self.agent,
+            type=str(spec.get("type") or ""),
+            author=str(spec.get("author") or self.agent),
             created=existing.created if existing else today,
             updated=today,
-            body=body,
-            valid_from=valid_from or (existing.valid_from if existing else today),
-            weight=weight if weight is not None else self.config.weight.initial,
-            links=list(links or []),
+            body=str(spec.get("body") or ""),
+            valid_from=str(spec.get("valid_from") or "")
+            or (existing.valid_from if existing else today),
+            weight=float(str(weight)) if weight is not None else self.config.weight.initial,
+            links=[str(link) for link in _as_sequence(spec.get("links"))],
             provenance=list(existing.provenance) if existing else [],
-            domain=domain,
+            domain=str(spec.get("domain") or ""),
         )
-        target = self._target_path(candidate, topic, existing)
+        target = self._target_path(candidate, str(topic) if topic else None, existing)
         candidate.path = target
         record_module.validate(candidate, self.config)
         self._reject_depth(target)
-        predecessor = self._predecessor(candidate, supersedes)
-        with store_lock(self.layout):
-            for excerpt in provenance or []:
-                stored = self.archive.append_provenance(candidate.name, excerpt, source=self.agent)
-                candidate.provenance.append(str(stored.relative_to(self.root)))
-            target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text(candidate.to_text(), encoding="utf-8")
-            if existing and existing.path and existing.path != target:
-                existing.path.unlink(missing_ok=True)
-            if predecessor is not None and predecessor.path is not None:
-                predecessor.superseded_by = candidate.name
-                predecessor.updated = today
-                predecessor.path.write_text(predecessor.to_text(), encoding="utf-8")
-            self._project()
+        predecessor = self._predecessor(candidate, str(supersedes) if supersedes else None)
+
+        for excerpt in provenance:
+            stored = self.archive.append_provenance(
+                candidate.name, str(excerpt), source=self.agent
+            )
+            candidate.provenance.append(str(stored.relative_to(self.root)))
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(candidate.to_text(), encoding="utf-8")
+        if existing and existing.path and existing.path != target:
+            existing.path.unlink(missing_ok=True)
+        if predecessor is not None and predecessor.path is not None:
+            predecessor.superseded_by = candidate.name
+            predecessor.updated = today
+            predecessor.path.write_text(predecessor.to_text(), encoding="utf-8")
         return candidate
 
     def correct(
@@ -276,3 +337,7 @@ class Store:
             raise ValidationError(
                 [FieldError("path", "exceeds max_depth_below_domain")]
             )
+
+
+def _as_sequence(value: object) -> list[object]:
+    return list(value) if isinstance(value, (list, tuple)) else []

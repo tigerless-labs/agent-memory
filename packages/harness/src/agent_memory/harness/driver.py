@@ -153,7 +153,7 @@ class Driver:
                         prompt,
                         store_root=store.root,
                         tools_enabled=True,
-                        system_prompt=prompts.MEMORY_KEEPER,
+                        system_prompt=prompts.memory_keeper(store.config.write.batch_hint),
                         max_turns=WRITE_MAX_TURNS,
                         workdir=workdir,
                     ),
