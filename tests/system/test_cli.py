@@ -127,3 +127,41 @@ def test_rebuild_from_the_command_line_is_lossless(cli):
     (cli.root / ".index" / "index.db").unlink()
     cli("rebuild")
     assert {hit["name"] for hit in cli("recall", "keeping rebuild")["hits"]} == before
+
+
+def test_a_batch_of_memories_is_written_in_one_call(cli, tmp_path):
+    batch = tmp_path / "batch.jsonl"
+    batch.write_text(
+        "\n".join(
+            [
+                json.dumps({"domain": "user", "type": "fact", "abstract": "Owns a 2019 Subaru"}),
+                json.dumps(
+                    {"domain": "user", "type": "preference", "abstract": "Prefers oat milk"}
+                ),
+                json.dumps({"domain": "user", "type": "reference", "abstract": "wrong type here"}),
+            ]
+        ),
+        encoding="utf-8",
+    )
+    payload = cli("record", "--batch", str(batch))
+
+    assert len(payload["written"]) == 2
+    assert len(payload["rejected"]) == 1
+    assert payload["rejected"][0]["index"] == 2
+    assert payload["rejected"][0]["errors"][0]["field"] == "type"
+
+    names = {hit["name"] for hit in cli("recall", "subaru oat milk")["hits"]}
+    assert len(names) == 2
+
+
+def test_record_without_a_batch_still_demands_its_fields(cli):
+    payload = cli("record", "--abstract", "only an abstract", expect=EXIT_INVALID)
+    assert payload["code"] == "validation_error"
+    assert {error["field"] for error in payload["errors"]} == {"type", "domain"}
+
+
+def test_a_malformed_batch_line_names_the_line(cli, tmp_path):
+    batch = tmp_path / "bad.jsonl"
+    batch.write_text('{"domain": "user"\n', encoding="utf-8")
+    payload = cli("record", "--batch", str(batch), expect=EXIT_INVALID)
+    assert "line 1" in payload["errors"][0]["field"]

@@ -97,6 +97,7 @@ class WriteConfig:
     watermark_dirname: str = "watermarks"
     session_archive_enabled: bool = True
     hook_timeout_seconds: float = 20.0
+    batch_hint: bool = True
 
 
 @dataclasses.dataclass

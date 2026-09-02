@@ -11,7 +11,7 @@ from collections.abc import Sequence
 
 from agent_memory.core import context as context_module
 from agent_memory.core import portability
-from agent_memory.core.errors import MemoryStoreError, ValidationError
+from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_FULL, LEVELS, Store
@@ -53,9 +53,9 @@ def _parser() -> argparse.ArgumentParser:
     initializer.set_defaults(handler=_init)
 
     writer = subparsers.add_parser("record", help="write one memory")
-    writer.add_argument("--abstract", required=True)
-    writer.add_argument("--type", required=True)
-    writer.add_argument("--domain", required=True)
+    writer.add_argument("--abstract", default=None)
+    writer.add_argument("--type", default=None)
+    writer.add_argument("--domain", default=None)
     writer.add_argument("--name", default=None)
     writer.add_argument("--body", default="")
     writer.add_argument("--body-file", default=None)
@@ -63,6 +63,10 @@ def _parser() -> argparse.ArgumentParser:
     writer.add_argument("--link", action="append", default=[])
     writer.add_argument("--provenance", action="append", default=[])
     writer.add_argument("--valid-from", default=None)
+    writer.add_argument(
+        "--batch", default=None, metavar="FILE|-",
+        help="write many memories in one call: one JSON object per line",
+    )
     writer.add_argument("--supersedes", default=None)
     writer.set_defaults(handler=_record)
 
@@ -138,6 +142,13 @@ def _init(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 
 def _record(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    if args.batch:
+        return _record_batch(store, args.batch)
+    missing = [
+        field for field in ("abstract", "type", "domain") if not getattr(args, field, None)
+    ]
+    if missing:
+        raise ValidationError([FieldError(field, "required") for field in missing])
     written = store.record(
         abstract=args.abstract,
         type=args.type,
@@ -156,6 +167,21 @@ def _record(store: Store, args: argparse.Namespace) -> dict[str, object]:
         "updated": written.updated,
         "supersedes": args.supersedes,
     }
+
+
+def _record_batch(store: Store, source: str) -> dict[str, object]:
+    text = sys.stdin.read() if source == STDIN_MARKER else pathlib.Path(source).read_text("utf-8")
+    specs: list[dict[str, object]] = []
+    for number, line in enumerate(text.splitlines(), start=1):
+        if not line.strip():
+            continue
+        try:
+            specs.append(json.loads(line))
+        except json.JSONDecodeError as error:
+            raise ValidationError(
+                [FieldError(f"line {number}", f"not valid JSON: {error.msg}")]
+            ) from error
+    return store.record_many(specs).as_dict()
 
 
 def _recall(store: Store, args: argparse.Namespace) -> dict[str, object]:

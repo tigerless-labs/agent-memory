@@ -20,7 +20,20 @@ The store is reached through the mem CLI and nothing is remembered until a mem c
 succeeds: `mem recall <query>` searches it, `mem read <name>` opens one entry, and
 `mem record --domain <domain> --type <type> --abstract "<one line>" --body "<markdown>"`
 writes one. Add `--supersedes <name>` to that same command when the entry you are writing
-replaces an older one, and both stay on disk with the old one marked as replaced.
+replaces an older one, and both stay on disk with the old one marked as replaced."""
+
+BATCH_HINT = """To write several at once, pipe one JSON object per line into
+`mem record --batch -`, using the same field names as the flags above.
+Every memory you have decided on goes in a single call,
+which is how a set of them gets written without spending a turn on each:
+
+  printf '%s\n' \
+    '{"domain":"user","type":"fact","abstract":"Sister gave a snake plant on 2023-03-04"}' \
+    '{"domain":"user","type":"preference","abstract":"Prefers oat milk"}' \
+    | mem record --batch -
+
+The reply lists what was written and, for anything rejected, which line and which field, so a
+correction is one more batch rather than a fresh start.
 
 Each domain takes its own types, and a write succeeds when the pair matches:
   --domain user        --type fact | preference
@@ -110,6 +123,11 @@ def distill(segment: str, command_hint: str) -> str:
     return DISTILL_INSTRUCTION.format(
         discipline=WRITE_DISCIPLINE, command_hint=command_hint, segment=segment
     )
+
+
+def memory_keeper(batch: bool = True) -> str:
+    """Batching is a write option (ADR-006), so whether the host is told about it is a knob."""
+    return MEMORY_KEEPER + ("\n\n" + BATCH_HINT if batch else "")
 
 
 def exam(recall_hint: str, synthesis: bool = True) -> str:
