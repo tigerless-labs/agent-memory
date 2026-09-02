@@ -148,6 +148,48 @@ Together with the earlier negatives — write volume flat against coverage, retr
 
 Optimising the memory system further against LongMemEval would be measuring the host.
 
+## P4: supersede-on-write — a latent defect, and a fifth negative
+
+The P3 diagnostic left one thread: fifteen episodes had the answer in the returned list and
+were answered wrong anyway, several of them counting questions where the store held two
+entries claiming different values, both current. So the supersede chain was checked directly.
+
+**Across 3,744 memories written in 120 stores, the supersede edge count was zero.** The
+mechanism the "nothing is destroyed" guarantee rests on, and that `--as-of` reads, had never
+fired once.
+
+The cause was the shape of the API rather than the discipline. Superseding cost three calls —
+recall the old name, record the new entry, correct the old one to point at it — so an agent
+working through a session with a turn budget wrote the new value and left the old one standing
+beside it. `mem record --supersedes <name>` makes it one call.
+
+The mechanism came alive: 25 edges across 120 stores, 15 episodes with at least one.
+
+| | correct | accuracy | 95% CI |
+|---|---|---|---|
+| p3 raw-on (no supersede) | 54/120 | 45.0% | 36.4–53.9 |
+| p3 raw-off (no supersede) | 59/120 | 49.2% | 40.4–58.0 |
+| p4 supersede-on-write | 62/120 | 51.7% | 42.8–60.4 |
+
+Paired against p3 raw-on: gained 24, lost 16, p=0.27. And the internal check settles it — on
+the 15 episodes where supersede actually fired, p4 scored 9/15 and p3 scored 9/15, *identical*.
+The entire +8 came from episodes where the mechanism never engaged, which is another way of
+saying it came from run-to-run variance.
+
+## Five routes, five negatives
+
+| route | result |
+|---|---|
+| capture-fidelity prompting | no effect |
+| injection track in the exam | no effect |
+| per-session distillation, 3.5× write volume | no effect |
+| raw-material fallback | n=120, p=1.000 — powered negative |
+| supersede-on-write | n=120, p=0.27; identical where the mechanism fired |
+
+Best measured configuration: **62/120 (51.7%)** against a no-memory control of 4/24 (16.7%).
+The memory system's contribution is large and certain; the differences between its
+configurations are not.
+
 ## Where a further gain would have to come from
 
 Not from the memory system. The measured ceiling on this suite is the host's use of what it is
