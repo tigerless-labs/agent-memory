@@ -13,6 +13,7 @@ from agent_memory.core.config import Config
 
 from . import arms as arms_module
 from . import dataset, sampling
+from . import exam as exam_module
 from . import judge as judge_module
 from . import report as report_module
 from .driver import Driver
@@ -57,6 +58,7 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--sessions-per-call", type=int, default=1)
     runner.add_argument("--experience-workers", type=int, default=4)
     runner.add_argument("--exam-max-turns", type=int, default=20)
+    runner.add_argument("--exam-mode", choices=exam_module.MODES, default=exam_module.MODE_AGENTIC)
     runner.add_argument(
         "--reuse-stores", default=None,
         help="replay against another run's stores; skips the experience phase entirely",
@@ -128,6 +130,7 @@ def _run(args: argparse.Namespace) -> int:
         sessions_per_call=args.sessions_per_call,
         experience_workers=args.experience_workers,
         exam_max_turns=args.exam_max_turns,
+        exam_mode=args.exam_mode,
         config=_configured(args.set),
         reuse_stores=pathlib.Path(args.reuse_stores) if args.reuse_stores else None,
         run_id=args.run_id,

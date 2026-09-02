@@ -14,6 +14,7 @@ from agent_memory.core import injection, prompts
 from agent_memory.core.config import Config
 from agent_memory.core.store import Store
 
+from . import exam as exam_module
 from . import framing
 from .arms import MODE_NONE, Arm
 from .dataset import Episode, Session
@@ -47,6 +48,7 @@ class Driver:
         exam_max_turns: int = EXAM_MAX_TURNS,
         config: Config | None = None,
         reuse_stores: pathlib.Path | None = None,
+        exam_mode: str = exam_module.MODE_AGENTIC,
     ):
         self._host = host
         self._judge = judge
@@ -58,6 +60,7 @@ class Driver:
         self._exam_max_turns = exam_max_turns
         self._config = config
         self._reuse_stores = reuse_stores
+        self._exam_mode = exam_mode
 
     def run(self, episode: Episode, arm: Arm) -> RunRecord:
         store = self._store_for(episode, arm)
@@ -67,16 +70,23 @@ class Driver:
             if self._reuse_stores
             else self._experience(store, episode, arm, workdir)
         )
-        exam_prompt = framing.exam(episode, with_memory=arm.memory, config=store.config)
+        fixed = self._exam_mode == exam_module.MODE_FIXED and arm.memory
+        if fixed:
+            context = exam_module.build_context(
+                store, episode.question, store.config.recall.fixed_exam_full_text_entries
+            )
+            exam_prompt = framing.fixed_exam(episode, context.text)
+        else:
+            exam_prompt = framing.exam(episode, with_memory=arm.memory, config=store.config)
         self._assert_isolated(exam_prompt, episode)
-        if arm.memory:
+        if arm.memory and not fixed:
             exam_prompt = framing.with_injected_index(exam_prompt, injection.payload(store))
 
         answer = self._host.run(
             exam_prompt,
             store_root=store.root if arm.memory else None,
-            tools_enabled=arm.memory,
-            system_prompt=prompts.MEMORY_KEEPER if arm.memory else "",
+            tools_enabled=arm.memory and not fixed,
+            system_prompt="" if fixed else (prompts.MEMORY_KEEPER if arm.memory else ""),
             max_turns=self._exam_max_turns,
             workdir=workdir,
         )
