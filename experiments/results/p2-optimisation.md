@@ -377,3 +377,41 @@ more writing does not find it, more slots do not find it, and better-ranked slot
 because the material was never written in a findable form. Every remaining lever on this suite
 is upstream of retrieval and downstream of nothing this system controls — the distiller has to
 choose what matters without knowing what will be asked.
+
+## P9: the capability, not the constraint
+
+P6 raised the score by having the store build the exam context instead of letting the host drive
+its own retrieval, which leaves a fair question open: was the gain the new read surface, or was
+it simply taking the host's freedom away? Those have opposite implications — one is a capability
+worth shipping, the other is a benchmark artefact.
+
+So `mem context` was put in the agent's own hands. Same frozen stores, agentic exam, full tool
+loop, twenty turns, the agent free to search however it likes — with the one call added to its
+surface and named first in the skill.
+
+| | replays | spread | exam s |
+|---|---|---|---|
+| agentic, no `mem context` | 62, 60, 66 | 6 | 14.8 |
+| agentic with `mem context`, agency kept | 71, 73 | 2 | 15.5 |
+| store builds the context | 79, 76 | 3 | 8.9 |
+
+Majority across replays, paired on 119 episodes graded in every run:
+
+| | | |
+|---|---|---|
+| no call → call | +23 / −4 | **p=0.00031** |
+| call → store-built | +13 / −13 | **p=1.000** |
+| no call → store-built | +24 / −5 | p=0.00055 |
+
+**An agent that keeps all of its freedom and is given the call captures the whole gain.** It is
+statistically indistinguishable from the fixed exam, and both sit well above the same agent
+without the call. The P6 result was the read surface, not the constraint.
+
+Two things follow. The gain ships as a capability rather than as a harness mode: `mem context`
+is a core CLI and MCP call, so every host reaches it, and nothing about the host's autonomy has
+to be given up to collect it. And the fixed path keeps one advantage that is operational rather
+than about accuracy — it answers in 8.9s against 15.5s, because it spends no turns deciding.
+
+The agent also became more consistent: replay spread 2, against 6 without the call. Handing the
+retrieval decision to the store removes a source of run-to-run variance even when the host is
+still free to ignore it.

@@ -11,12 +11,14 @@ A shared memory store on disk. Markdown files are the truth; `mem` is the way in
 ## Before a task
 
 ```bash
-mem recall "<what you are about to do>" --json
+mem context "<what you are about to do>" --deep
 ```
 
-Read the entries that look relevant:
+One call: it searches, opens the entries worth opening, and hands back what it found. When you
+want to drive the search yourself instead:
 
 ```bash
+mem recall "<query>" --json
 mem read <name> --level outline
 mem read <name>
 ```
