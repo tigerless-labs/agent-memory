@@ -11,9 +11,11 @@
 - [ ] 重要性阈值触发(session 内中间档)——v0.2,P2 数据证明边界蒸馏漏隐式教训再上
 - [ ] 实习生方案文献补进调研 atlas(TEPA/MemGate/BASM/AgeMem/M★/MemHarness 等 10 篇)
 - [ ] Graphiti 引用 URL 勘误(getzep/graphiti,非 Agentopia)——通知实习生
-- [ ] W3 冷读蒸馏在 P2 上写得最多、分最低,且是唯一在弃权题上倒退的臂
-      (evidence: experiments/results/p2-longmemeval.md)——冷读缺少现场 context 的
-      代价需定位后再作为 cron 兜底档
+- [ ] **W3 的负面结论已被自己的记录推翻,两处文档待改**:标定后重判的 runs.jsonl 给出
+      W3 = 8/24(p2)与 8/24(p2v2),弃权题 2/2;与 W1/W2/W4 两两配对 p=0.51–0.73,全部不可分。
+      「写最多分最低、唯一在弃权题上倒退」出自标定前的旧 rubric(旧 rubric 把拒答一律判错,
+      本就分不出此事)。p2-longmemeval.md 的 headline 表与本行原文均需按记录订正;
+      W3 现有证据只支持「写得最多」,不支持分数更差
 - [ ] P2 需扩大 n:W1/W2/W4 在 n=24 下不可分(两两 p ≥ 0.6),写入默认档暂按成本定为 W2
 - [ ] config knob 改名/迁位会让旧 store 直接加载失败(严格拒收未知 knob 是故意的,
       但缺迁移路径)——需要 config 版本号 + 迁移,或 `mem inspect` 给出可执行的修复建议
@@ -31,9 +33,8 @@
       但对得分无影响(触发的 15 个 episode 上 9/15 = 9/15)
 - [x] single-session-preference 类的低分一半是判分问题:gold 是「好答案该满足什么」的细则
       而非答案本身,judge 需要第三条分支(已加,标定 23/25)
-- [ ] **实验设计下限**:考试阶段独立重放同一批 store 同一配置,120 题上摆动 ±7。
-      任何读侧/写侧结论都必须建立在「重复重放 + 配对」之上,单轮对比无论 n 多大都不可信
-      (evidence: experiments/results/p2-optimisation.md,P5 两次重放 71 vs 57)
+- [x] **实验设计下限已成文**:重复重放 + 逐对配对、n≥120、禁止跨重放取多数,
+      连同实验分类、归因条件、run 必留项、失败处理,落在 docs/experiments.md,CLAUDE.md 已引用
 - [ ] 宿主失败原因被吞掉:`claude -p` 撞额度时把提示打到 stdout 并以 exit 1 退出,
       harness 只留 stderr,于是 runs.jsonl 里 error 为空、只剩 status=failed
       (fx1 110/120、fx2 120/120 即此因)——非零退出时应保留 stdout 尾部,
@@ -89,3 +90,16 @@
       旧运行的配置无法用当前 config 空间搜回来(`1c553b61`、`361ded7e` 即如此)。
       守卫仍能拒绝错误归因,但不能当作「那一臂当时是什么」的记录——配置要写进 write-up。
 
+## 今日核对新增(2026-09-02)
+
+- [ ] **MCP 缺 `memory_context`**:P9 的 write-up 称收益「CLI + MCP 同体,每个宿主都够得着」,
+      实际 mcp/tools 只暴露 recall/read/record/correct/feedback。`--batch` 同样只在 CLI。
+      唯一复现成功的读侧结果,走 MCP 进来的宿主拿不到——直接违反不变量 8(异入口同结果)
+- [ ] `recall.context_full_text_entries = 4` 从未被任何 run 变过(只有一个单元测试设成 1)。
+      它决定 context 里几条展开全文,是纯读侧、可用重放廉价测:4 / 8 / 全摘要三档 × 两次重放
+- [ ] **覆盖率探针未进 harness**:「答案是否被写进库」目前只有临时脚本。做成离线子命令后,
+      任何写侧改动都能先看覆盖率而不必先烧一轮考试。实测(p4sup 冻结语料,110 可答题):
+      答案落进某条记忆的仅 36/110 = 33%;而在这 36 条里 recall top-8 捞回 34(94.4%),
+      top-24 捞回 36(100%)——检索不是瓶颈,写入覆盖是
+- [ ] 与 MemCLI 的对照实验(同宿主 Claude Code,先 n=24 冒烟再上 120,带 W0 对照):
+      待 MemCLI 仓库地址;需新增记忆系统维度的臂与系统无关覆盖率探针

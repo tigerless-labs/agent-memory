@@ -35,12 +35,5 @@
 
 ## 判分器是仪器,仪器要标定
 
-benchmark 的 LLM judge 与被测系统同为变量:rubric 写歪会把正确行为判成错误
-(实测:弃权题的正确答案是「拒答」,而初版 rubric 写着「拒答判错」)。因此:
-
-- 手工标注用例集 `experiments/judge-calibration.json`(答对/答错/该拒答/不该拒答四类);
-  `mem-exp calibrate` 跑一致率,rubric 或 judge 模型改动前后必跑。
-- judge 单次调用有噪声,取多票多数;当前设置下一致率 ≈ 97%,即每 24 题约 ±1 的判分噪声,
-  报表里的差值小于此即为噪声。
-- `mem-exp regrade` 用存下来的答案离线重判——换 rubric 不需要重跑宿主。
-
+benchmark 的 LLM judge 与被测系统同为变量,标定规程与判分噪声见
+[实验规范](experiments.md#八判分器是仪器仪器要标定)。
