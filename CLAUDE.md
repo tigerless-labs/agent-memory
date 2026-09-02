@@ -61,7 +61,9 @@ out of order is *incomplete*.
    updates the relevant `docs/design/` doc; every unit places tests before code.
 2. **Branch, isolate, sync.** One explicit task per branch, developed in its own worktree
    (Claude Code's built-in worktree tooling, which puts it at `.claude/worktrees/<branch>` —
-   keep that path gitignored, and remove the worktree once its branch lands). Never develop on
+   keep that path gitignored, and remove the worktree once its branch lands). **Experiment
+   artefacts never land inside a worktree** — they go to the main working tree, because
+   `git worktree remove` takes gitignored data with it without a word. Never develop on
    `main`. Rebase onto latest `main` before developing; land via feature branch + PR, no direct
    pushes to `main`.
 3. **Docs first.** Read, then update, the relevant `docs/design/` doc(s) before any test or

@@ -59,6 +59,11 @@
 
 - 入 git 的白名单:逐题记录、题目集、报表,以及 `experiments/results/` 下的 write-up。
   其余(store、工作目录、进度日志)不入。
+- **实验产物只落主工作区,绝不落在 worktree 内。** worktree 是代码的隔离区,不是数据的:
+  worktree 路径与 run 产物都被 gitignore,而 `git worktree remove` **不因忽略文件而拒绝**
+  (status 为空,不加 force 即删),再叠上「分支落地即删 worktree」的规矩,语料会随分支蒸发。
+  在 worktree 里跑实验时,写入路径用绝对路径指回主工作区;harness 对落在 worktree 下的
+  写入型路径拒绝启动。
 - **冻结语料不可删**:被任何读侧结果锚定的 store 树。清单与理由见
   [experiments/README.md](../experiments/README.md)。删掉它丢的不是结论,
   是「再跑一条臂来比」的能力。

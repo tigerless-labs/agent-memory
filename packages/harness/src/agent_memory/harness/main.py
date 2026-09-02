@@ -23,6 +23,7 @@ from . import exam as exam_module
 from . import interop as interop_module
 from . import judge as judge_module
 from . import report as report_module
+from . import workspace as workspace_module
 from .driver import Driver
 from .hosts import DEFAULT_MODEL, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 from .judge import Judge
@@ -61,7 +62,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     if not getattr(args, "handler", None):
         parser.print_help()
         return EXIT_OK
-    return args.handler(args)
+    try:
+        return args.handler(args)
+    except workspace_module.DisposableWorkspace as refusal:
+        print(json.dumps({"error": str(refusal)}), file=sys.stderr)
+        return EXIT_ERROR
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -151,7 +156,7 @@ def _parser() -> argparse.ArgumentParser:
 
 def _prepare(args: argparse.Namespace) -> int:
     count = dataset.trim(
-        pathlib.Path(args.source), pathlib.Path(args.target), args.sessions
+        pathlib.Path(args.source), workspace_module.for_writing(args.target), args.sessions
     )
     print(json.dumps({"episodes": count, "target": args.target, "sessions": args.sessions}))
     return EXIT_OK
@@ -162,7 +167,7 @@ def _run(args: argparse.Namespace) -> int:
         dataset.load(pathlib.Path(args.suite)), args.per_type, args.seed
     )
     selected = arms_module.parse(args.arms)
-    workspace = pathlib.Path(args.workspace)
+    workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
     workspace.mkdir(parents=True, exist_ok=True)
     (workspace / QUESTIONS_FILENAME).write_text(
@@ -239,7 +244,7 @@ def _coerce(current: object, raw: str) -> object:
 
 
 def _regrade(args: argparse.Namespace) -> int:
-    workspace = pathlib.Path(args.workspace)
+    workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
     records = sink.records()
     judge = Judge(
@@ -340,7 +345,9 @@ def _interop(args: argparse.Namespace) -> int:
     if missing:
         print(json.dumps({"error": "host binaries not found", "hosts": missing}), file=sys.stderr)
         return EXIT_ERROR
-    results = interop_module.matrix(hosts, INTEROP_FACT, pathlib.Path(args.workspace))
+    results = interop_module.matrix(
+        hosts, INTEROP_FACT, workspace_module.for_writing(args.workspace)
+    )
     if args.json:
         print(json.dumps([result.as_dict() for result in results], indent=REPORT_INDENT))
     else:
@@ -385,7 +392,7 @@ def _provider_env(name: str) -> str:
 def _sleep_stores(args: argparse.Namespace) -> int:
     """Copy first: the un-slept arm has to survive as the control."""
     source = pathlib.Path(args.stores)
-    target = pathlib.Path(args.target)
+    target = workspace_module.for_writing(args.target)
     if target.exists():
         raise FileExistsError(f"{target} already exists")
     shutil.copytree(source, target)

@@ -384,3 +384,53 @@ def test_metrics_records_round_trip_through_the_sink(tmp_path):
     sink.append(record)
     assert sink.records()[0]["episode_id"] == "q1"
     assert set(sink.records()[0]) == set(record.as_dict())
+
+
+def test_a_write_path_inside_a_worktree_is_refused(tmp_path):
+    from agent_memory.harness.workspace import DisposableWorkspace, for_writing
+
+    inside = tmp_path / ".claude" / "worktrees" / "feat-x" / "experiments" / "runs" / "p1"
+    with pytest.raises(DisposableWorkspace) as refusal:
+        for_writing(inside)
+    assert "worktree" in str(refusal.value)
+
+
+def test_a_write_path_in_the_main_tree_is_accepted_and_absolute(tmp_path):
+    from agent_memory.harness.workspace import for_writing
+
+    resolved = for_writing(tmp_path / "experiments" / "runs" / "p1")
+
+    assert resolved.is_absolute()
+    assert resolved == (tmp_path / "experiments" / "runs" / "p1").resolve()
+
+
+def test_a_directory_merely_named_worktrees_is_not_a_worktree(tmp_path):
+    from agent_memory.harness.workspace import for_writing
+
+    assert for_writing(tmp_path / "worktrees" / "runs")
+
+
+def test_every_writing_subcommand_guards_its_path():
+    import inspect
+
+    from agent_memory.harness import main as main_module
+
+    source = inspect.getsource(main_module)
+    for handler in ("_run", "_regrade", "_interop", "_sleep_stores", "_prepare"):
+        body = source.split(f"def {handler}(")[1].split("\ndef ")[0]
+        assert "for_writing(" in body, f"{handler} writes without guarding its path"
+
+
+def test_the_cli_refuses_a_worktree_target_without_a_traceback(tmp_path, capsys):
+    from agent_memory.harness.main import main
+
+    code = main(
+        [
+            "sleep-stores",
+            "--stores", str(tmp_path / "src"),
+            "--target", str(tmp_path / ".claude" / "worktrees" / "b" / "stores"),
+        ]
+    )
+
+    assert code == 1
+    assert "worktree" in capsys.readouterr().err
