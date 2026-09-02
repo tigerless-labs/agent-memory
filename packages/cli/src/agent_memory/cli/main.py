@@ -314,7 +314,7 @@ def _sleep(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 def _reasoner(args: argparse.Namespace) -> Reasoner | None:
     if args.reason == REASON_HOST:
-        return reasoners.HostReasoner.for_binary(args.reason_host, model=args.reason_model)
+        return reasoners.HostReasoner.for_host(args.reason_host, model=args.reason_model)
     if args.reason == REASON_ENDPOINT:
         model = args.reason_model or reasoners.DEFAULT_ENDPOINT_MODEL
         return reasoners.EndpointReasoner(model=model)

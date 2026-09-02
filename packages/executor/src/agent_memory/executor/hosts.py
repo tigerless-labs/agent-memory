@@ -27,6 +27,11 @@ HOST_CODEX = "codex"
 HOST_HERMES = "hermes"
 
 DEFAULT_MODEL = "claude-haiku-4-5-20251001"
+BINARIES = {
+    HOST_CLAUDE_CODE: ("claude", DEFAULT_MODEL),
+    HOST_CODEX: ("codex", "gpt-5.6-sol"),
+    HOST_HERMES: ("hermes", "google/gemini-3.7-flash"),
+}
 MEM_TOOL_PATTERN = "Bash(mem:*)"
 CLAUDE_NATIVE_TOOLS = "Write,Edit,NotebookEdit,WebSearch,WebFetch,Task"
 HERMES_TOOLSETS = "terminal"

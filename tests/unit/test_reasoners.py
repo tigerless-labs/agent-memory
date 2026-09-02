@@ -81,3 +81,13 @@ def test_an_endpoint_that_refuses_the_connection_is_survivable(monkeypatch):
 
     monkeypatch.setattr("urllib.request.urlopen", explode)
     assert EndpointReasoner()("review this") == ""
+
+
+def test_a_host_reasoner_is_named_by_dialect_and_runs_that_dialect_s_binary():
+    from agent_memory.executor.hosts import BINARIES, HOST_CLAUDE_CODE
+    from agent_memory.executor.reasoners import HostReasoner
+
+    reasoner = HostReasoner.for_host(HOST_CLAUDE_CODE)
+    assert reasoner.host.spec.binary == BINARIES[HOST_CLAUDE_CODE][0]
+    assert reasoner.host.spec.binary != HOST_CLAUDE_CODE
+    assert reasoner.host.spec.model == BINARIES[HOST_CLAUDE_CODE][1]

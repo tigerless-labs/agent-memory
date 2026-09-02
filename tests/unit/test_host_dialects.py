@@ -172,14 +172,10 @@ def test_the_expensive_tier_has_to_be_asked_for_out_loud(monkeypatch):
 
 
 def test_the_shipped_defaults_are_all_affordable(monkeypatch):
-    from agent_memory.harness.main import (
-        ALLOW_COSTLY_ENV,
-        HOST_BINARIES,
-        JUDGE_MODEL,
-        _affordable,
-    )
+    from agent_memory.executor.hosts import BINARIES
+    from agent_memory.harness.main import ALLOW_COSTLY_ENV, JUDGE_MODEL, _affordable
 
     monkeypatch.delenv(ALLOW_COSTLY_ENV, raising=False)
     _affordable(JUDGE_MODEL, "judge")
-    for name, (_, model) in HOST_BINARIES.items():
+    for name, (_, model) in BINARIES.items():
         _affordable(model, name)

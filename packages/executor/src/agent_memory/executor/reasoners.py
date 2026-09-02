@@ -18,7 +18,7 @@ import urllib.error
 import urllib.request
 
 from .credentials import API_KEY_ENV, BASE_URL_ENV, VertexCredentials
-from .hosts import Host, HostSpec
+from .hosts import BINARIES, Host, HostSpec
 
 CHAT_COMPLETIONS = "/chat/completions"
 DEFAULT_ENDPOINT_MODEL = "google/gemini-2.5-flash"
@@ -39,9 +39,10 @@ class HostReasoner:
         return result.text if result.ok else EMPTY
 
     @classmethod
-    def for_binary(cls, name: str, binary: str = EMPTY, model: str = EMPTY) -> HostReasoner:
-        spec = HostSpec(name=name, binary=binary or name)
-        return cls(host=Host(dataclasses.replace(spec, model=model) if model else spec))
+    def for_host(cls, name: str, model: str = EMPTY) -> HostReasoner:
+        """A host is named by its dialect, not by its binary — `claude-code` runs `claude`."""
+        binary, default_model = BINARIES.get(name, (name, EMPTY))
+        return cls(host=Host(HostSpec(name=name, binary=binary, model=model or default_model)))
 
 
 @dataclasses.dataclass

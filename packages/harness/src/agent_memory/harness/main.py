@@ -18,7 +18,7 @@ from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.store import Store
 from agent_memory.executor import reasoners
-from agent_memory.executor.hosts import DEFAULT_MODEL, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
+from agent_memory.executor.hosts import BINARIES, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 
 from . import arms as arms_module
 from . import dataset, sampling
@@ -40,11 +40,6 @@ DEFAULT_SEED = 20260901
 JUDGE_MODEL = "claude-sonnet-5"
 QUESTIONS_FILENAME = "questions.json"
 TRUTHY = ("1", "true", "yes", "on")
-HOST_BINARIES = {
-    "claude-code": ("claude", DEFAULT_MODEL),
-    "codex": ("codex", "gpt-5.6-sol"),
-    "hermes": ("hermes", "google/gemini-3.7-flash"),
-}
 HOST_PROVIDERS = {"hermes": "gemini"}
 PROBE_PROMPT = "Reply with exactly: OK"
 PROBE_TOKEN = "OK"
@@ -385,7 +380,7 @@ def _affordable(model: str, role: str) -> str:
 
 def _host(name: str, model: str = "", attempts: int = 1) -> Host:
     """Model and provider come from the environment so a host is added without a code change."""
-    binary, default_model = HOST_BINARIES[name]
+    binary, default_model = BINARIES[name]
     return Host(
         HostSpec(
             name=name,
@@ -431,7 +426,7 @@ def _sleep_stores(args: argparse.Namespace) -> int:
 def _reasoner(args: argparse.Namespace) -> Reasoner | None:
     """The experiment's own borrowed intelligence, spoken to exactly as the CLI speaks to it."""
     if args.reason == REASON_HOST:
-        return reasoners.HostReasoner.for_binary(args.reason_host, model=args.reason_model)
+        return reasoners.HostReasoner(host=_host(args.reason_host, args.reason_model))
     if args.reason == REASON_ENDPOINT:
         model = args.reason_model or reasoners.DEFAULT_ENDPOINT_MODEL
         return reasoners.EndpointReasoner(model=model)
