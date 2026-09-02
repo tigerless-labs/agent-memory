@@ -23,8 +23,10 @@
 显式 boost/penalize。淘汰 = 三级缓冲逐级降(退出 MEMORY.md → 退出默认检索面 → 归档),
 每级可逆。weight 是低频结算值,由 M 批量写回 frontmatter(读永不改真源,Invariant 3)。
 
-**审计**:每次睡眠产出 dream-report(动了什么、为什么、证据指针),git 一睡眠一 commit;
-T1 提案由下次 session 呈用户确认。M 改文件走同一条写入管线(Invariant 2)。
+**审计与确认**:每次睡眠产出 dream-report(动了什么、为什么、证据指针),git 一睡眠一 commit。
+提案带稳定标识,确认与否决记入提案账本——与记忆文件同为真源,不可由索引重建;已决定的提案不再
+重复提出,未决定的每次睡眠重新呈现。确认经 CLI 与 MCP 同一入口(Invariant 8),应用走同一条写入
+管线(Invariant 2)。确认只把 T1 提案变成已批准的 T1 操作,不把 T2 操作降级——目录重组仍需人发起。
 
 5. **Alternatives Considered** — change-scoped 写时维护(实习生/TEPA 路线):
    已部分吸收(写时 supersede 在 W 纪律里);纯写时无法做价值化遗忘与跨条目整理。

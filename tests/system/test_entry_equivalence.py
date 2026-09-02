@@ -133,3 +133,39 @@ def test_notifications_get_no_response(tmp_path):
     store = Store(tmp_path / "store")
     store.init()
     assert server.handle(store, {"jsonrpc": "2.0", "method": "notifications/initialized"}) is None
+
+
+def _twin(store, name, extra, body):
+    store.record(
+        abstract="The drain window closes before the worker lease expires" + extra,
+        type="experience",
+        domain="experience",
+        name=name,
+        body=body,
+    )
+
+
+def test_both_entries_see_the_same_proposals_and_one_decision_closes_it_for_both(
+    tmp_path, capsys
+):
+    root = tmp_path / "store"
+    store = Store(root, agent="mcp")
+    store.init()
+    _twin(store, "drain-window-first", "", "Short.")
+    _twin(store, "drain-window-second", " again", "Longer body carrying the lease TTL.")
+
+    assert main(["--store", str(root), "--json", "proposals"]) == EXIT_OK
+    cli_open = json.loads(capsys.readouterr().out)["proposals"]
+    mcp_open = tools.dispatch(Store(root, agent="mcp"), tools.TOOL_PROPOSALS, {})["proposals"]
+    assert cli_open == mcp_open
+    assert cli_open
+
+    tools.dispatch(
+        Store(root, agent="mcp"),
+        tools.TOOL_DECIDE,
+        {"proposal": cli_open[0]["id"], "verdict": "reject"},
+    )
+
+    assert main(["--store", str(root), "--json", "proposals"]) == EXIT_OK
+    after = json.loads(capsys.readouterr().out)["proposals"]
+    assert cli_open[0]["id"] not in {proposal["id"] for proposal in after}

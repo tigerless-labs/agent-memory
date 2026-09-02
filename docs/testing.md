@@ -28,7 +28,7 @@
 | `core/recall`·`core/chunking`·`core/access_log` | `tests/unit/test_recall.py` |
 | `cli/main`·`core/portability` | `tests/system/test_cli.py` |
 | `core/watermark`·`adapters/*` | `tests/unit/test_write_triggers.py` |
-| `core/manage` | `tests/unit/test_manage.py` |
+| `core/manage`·`core/ledger` | `tests/unit/test_manage.py` |
 | `mcp/server`·`mcp/tools`(三入口一致性) | `tests/system/test_entry_equivalence.py` |
 | 红队(poisoning / 恶意 frontmatter / 越界写) | `tests/redteam/test_poisoning.py` |
 | `harness/*`(回放驱动器、隔离闸、写入路径闸、指标、报表) | `tests/system/test_harness.py` |

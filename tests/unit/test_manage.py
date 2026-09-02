@@ -1,7 +1,11 @@
 """M6 — unattended Manage adds and amends; anything that loses a distinction is a proposal."""
 
 import datetime as dt
+import shutil
 
+import pytest
+
+from agent_memory.core.errors import AuthorityError, NotFoundError
 from agent_memory.core.manage import (
     ACTION_DUPLICATE_MERGED,
     ACTION_LINK_ADDED,
@@ -149,3 +153,92 @@ def test_dates_are_normalised_to_calendar_days(seeded):
     seeded.sync_index()
     Manage(seeded).sleep()
     assert seeded.find("file-truth-invariant").updated == "2026-01-15"
+
+
+def _twins(store):
+    store.record(
+        abstract="The nightly export job times out against the reporting replica",
+        type="experience",
+        domain="experience",
+        body="Short note.",
+        name="nightly-export-timeout",
+    )
+    store.record(
+        abstract="The nightly export job times out against the reporting replica again",
+        type="experience",
+        domain="experience",
+        body="Longer note with the drain window, the lease TTL, and the fix that worked.",
+        name="nightly-export-timeout-followup",
+    )
+    return "nightly-export-timeout", "nightly-export-timeout-followup"
+
+
+def _find(proposals, kind):
+    return next(proposal for proposal in proposals if proposal.kind == kind)
+
+
+def test_a_proposal_keeps_the_same_identity_across_sleeps(seeded):
+    _twins(seeded)
+    first = _find(Manage(seeded).sleep().proposals, PROPOSAL_SUPERSEDE)
+    second = _find(Manage(seeded).sleep().proposals, PROPOSAL_SUPERSEDE)
+    assert first.id == second.id
+
+
+def test_a_decided_proposal_is_never_proposed_again(seeded):
+    _twins(seeded)
+    proposal = _find(Manage(seeded).proposals(), PROPOSAL_SUPERSEDE)
+    Manage(seeded).decide(proposal.id, accept=False)
+    assert proposal.id not in {open_one.id for open_one in Manage(seeded).proposals()}
+    assert proposal.id not in {open_one.id for open_one in Manage(seeded).sleep().proposals}
+
+
+def test_accepting_a_supersede_keeps_the_richer_entry(seeded):
+    thin, rich = _twins(seeded)
+    proposal = _find(Manage(seeded).proposals(), PROPOSAL_SUPERSEDE)
+    Manage(seeded).decide(proposal.id, accept=True)
+    assert seeded.find(rich).is_active()
+    assert seeded.find(thin).superseded_by == rich
+
+
+def test_accepting_a_supersede_loses_no_file(seeded):
+    _twins(seeded)
+    before = len(seeded.records(include_archived=True))
+    proposal = _find(Manage(seeded).proposals(), PROPOSAL_SUPERSEDE)
+    Manage(seeded).decide(proposal.id, accept=True)
+    assert len(seeded.records(include_archived=True)) == before
+
+
+def test_rejecting_a_proposal_changes_no_memory_file(seeded):
+    _twins(seeded)
+    before = {record.name: record.to_text() for record in seeded.records()}
+    proposal = _find(Manage(seeded).proposals(), PROPOSAL_SUPERSEDE)
+    Manage(seeded).decide(proposal.id, accept=False)
+    assert {record.name: record.to_text() for record in seeded.records()} == before
+
+
+def test_a_cluster_proposal_cannot_be_accepted_below_human_authority(seeded):
+    for index in range(seeded.config.manage.cluster_min_files):
+        seeded.record(
+            abstract=f"Kubernetes upgrade note {index} about the kubernetes control plane",
+            type="reference",
+            domain="reference",
+            body="Body.",
+            name=f"kubernetes-upgrade-note-{index}",
+        )
+    proposal = _find(Manage(seeded).proposals(), PROPOSAL_CLUSTER)
+    with pytest.raises(AuthorityError):
+        Manage(seeded).decide(proposal.id, accept=True)
+
+
+def test_deciding_an_unknown_proposal_is_refused(seeded):
+    with pytest.raises(NotFoundError):
+        Manage(seeded).decide("not-a-proposal", accept=True)
+
+
+def test_the_decision_ledger_survives_an_index_rebuild(seeded):
+    _twins(seeded)
+    proposal = _find(Manage(seeded).proposals(), PROPOSAL_SUPERSEDE)
+    Manage(seeded).decide(proposal.id, accept=False)
+    shutil.rmtree(seeded.layout.index_dir)
+    seeded.rebuild_index()
+    assert proposal.id not in {open_one.id for open_one in Manage(seeded).proposals()}

@@ -1,8 +1,9 @@
-"""The five MCP tools. Each one collapses onto the same core call the CLI makes."""
+"""The MCP tools. Each one collapses onto the same core call the CLI makes."""
 
 from __future__ import annotations
 
 from agent_memory.core.errors import FieldError, ValidationError
+from agent_memory.core.manage import Manage
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_FULL, LEVELS, Store
 
@@ -11,8 +12,11 @@ TOOL_READ = "memory_read"
 TOOL_RECORD = "memory_record"
 TOOL_CORRECT = "memory_correct"
 TOOL_FEEDBACK = "memory_feedback"
+TOOL_PROPOSALS = "memory_proposals"
+TOOL_DECIDE = "memory_decide"
 
 DOMAINS = ("user", "project", "reference", "experience")
+VERDICT_ACCEPT = "accept"
 
 SCHEMAS: dict[str, dict[str, object]] = {
     TOOL_RECALL: {
@@ -67,6 +71,16 @@ SCHEMAS: dict[str, dict[str, object]] = {
         },
         "required": ["name", "direction"],
     },
+    TOOL_PROPOSALS: {"type": "object", "properties": {}},
+    TOOL_DECIDE: {
+        "type": "object",
+        "properties": {
+            "proposal": {"type": "string"},
+            "verdict": {"type": "string", "enum": ["accept", "reject"]},
+            "text": {"type": "string"},
+        },
+        "required": ["proposal", "verdict"],
+    },
 }
 
 DESCRIPTIONS = {
@@ -75,6 +89,8 @@ DESCRIPTIONS = {
     TOOL_RECORD: "Write one memory into the store.",
     TOOL_CORRECT: "Update a memory in place, or supersede it with a newer one.",
     TOOL_FEEDBACK: "Raise or lower a memory's weight explicitly.",
+    TOOL_PROPOSALS: "List the Manage proposals awaiting confirmation.",
+    TOOL_DECIDE: "Confirm or refuse one Manage proposal.",
 }
 
 
@@ -183,10 +199,25 @@ def _string_list(value: object) -> list[str]:
     return [str(item) for item in value] if isinstance(value, list) else []
 
 
+def _proposals(store: Store, arguments: dict[str, object]) -> dict[str, object]:
+    return {"proposals": [proposal.as_dict() for proposal in Manage(store).proposals()]}
+
+
+def _decide(store: Store, arguments: dict[str, object]) -> dict[str, object]:
+    decision = Manage(store).decide(
+        str(arguments["proposal"]),
+        accept=str(arguments["verdict"]) == VERDICT_ACCEPT,
+        text=str(arguments.get("text") or ""),
+    )
+    return decision.as_dict()
+
+
 _HANDLERS = {
     TOOL_RECALL: _recall,
     TOOL_READ: _read,
     TOOL_RECORD: _record,
     TOOL_CORRECT: _correct,
     TOOL_FEEDBACK: _feedback,
+    TOOL_PROPOSALS: _proposals,
+    TOOL_DECIDE: _decide,
 }

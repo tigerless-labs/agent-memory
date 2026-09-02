@@ -3,7 +3,7 @@
 import json
 
 import pytest
-from agent_memory.cli.main import EXIT_INVALID, EXIT_OK, main
+from agent_memory.cli.main import EXIT_ERROR, EXIT_INVALID, EXIT_OK, main
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import Store
 
@@ -165,3 +165,52 @@ def test_a_malformed_batch_line_names_the_line(cli, tmp_path):
     batch.write_text('{"domain": "user"\n', encoding="utf-8")
     payload = cli("record", "--batch", str(batch), expect=EXIT_INVALID)
     assert "line 1" in payload["errors"][0]["field"]
+
+
+def _near_duplicates(cli):
+    for name, extra, body in (
+        ("drain-window-first", "", "Short."),
+        ("drain-window-second", " again", "Longer body carrying the lease TTL and the fix."),
+    ):
+        cli(
+            "record",
+            "--abstract",
+            "The drain window closes before the worker lease expires" + extra,
+            "--type",
+            "experience",
+            "--domain",
+            "experience",
+            "--name",
+            name,
+            "--body",
+            body,
+        )
+
+
+def test_proposals_are_listed_with_a_stable_identity(cli):
+    _near_duplicates(cli)
+    first = cli("proposals")["proposals"]
+    second = cli("proposals")["proposals"]
+    assert first
+    assert [proposal["id"] for proposal in first] == [proposal["id"] for proposal in second]
+
+
+def test_accepting_a_proposal_applies_it_and_closes_it(cli):
+    _near_duplicates(cli)
+    proposal = cli("proposals")["proposals"][0]
+    decision = cli("decide", proposal["id"], "--accept")
+    assert decision["verdict"] == "accepted"
+    assert proposal["id"] not in {open_one["id"] for open_one in cli("proposals")["proposals"]}
+    kept = cli("read", "drain-window-second")
+    assert kept["name"] == "drain-window-second"
+
+
+def test_deciding_an_unknown_proposal_reports_an_error(cli):
+    cli("decide", "0123456789ab", "--accept", expect=EXIT_ERROR)
+
+
+def test_a_verdict_is_required(cli):
+    _near_duplicates(cli)
+    proposal = cli("proposals")["proposals"][0]
+    with pytest.raises(SystemExit):
+        main(["--store", str(cli.root), "--json", "decide", proposal["id"]])

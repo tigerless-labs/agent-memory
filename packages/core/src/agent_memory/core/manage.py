@@ -9,11 +9,14 @@ from __future__ import annotations
 
 import dataclasses
 import datetime as dt
+import hashlib
 import re
 
 from .access_log import KIND_READ, AccessLog
 from .clock import Clock
 from .database import Database
+from .errors import AuthorityError, FieldError, NotFoundError, ValidationError
+from .ledger import LEDGER_FILENAME, VERDICT_ACCEPTED, VERDICT_REJECTED, Decision, DecisionLedger
 from .record import STATUS_ACTIVE, STATUS_STALE, MemoryRecord
 from .store import Store
 
@@ -33,6 +36,9 @@ ACTION_STALENESS_MARKED = "staleness-marked"
 ACTION_LINK_ADDED = "link-added"
 ACTION_WEIGHT_SETTLED = "weight-settled"
 
+PROPOSALS_HUMAN_ONLY = frozenset({PROPOSAL_CLUSTER})
+PROPOSALS_SUPERSEDING = frozenset({PROPOSAL_MERGE, PROPOSAL_SUPERSEDE})
+PROPOSAL_ID_LENGTH = 12
 REPORT_SUFFIX = ".md"
 _WORDS = re.compile(r"[0-9a-z]+")
 _STOPWORDS = frozenset(
@@ -47,8 +53,14 @@ class Proposal:
     reason: str
     evidence: str = ""
 
+    @property
+    def id(self) -> str:
+        material = self.kind + "|" + "|".join(sorted(self.targets))
+        return hashlib.sha256(material.encode("utf-8")).hexdigest()[:PROPOSAL_ID_LENGTH]
+
     def as_dict(self) -> dict[str, object]:
         return {
+            "id": self.id,
             "kind": self.kind,
             "targets": list(self.targets),
             "reason": self.reason,
@@ -114,11 +126,7 @@ class Manage:
         actions.extend(self._add_cooccurrence_links(records))
         actions.extend(self._merge_exact_duplicates(records))
 
-        proposals: list[Proposal] = []
-        proposals.extend(self._propose_merges(records))
-        proposals.extend(self._propose_abstract_review(records))
-        proposals.extend(self._propose_demotions(records, hits))
-        proposals.extend(self._propose_clusters(records))
+        proposals = self.proposals(records=records, hits=hits)
 
         report = DreamReport(
             at=self._clock.now().isoformat(),
@@ -128,6 +136,90 @@ class Manage:
             inspected=len(records),
         )
         return dataclasses.replace(report, path=str(self._write_report(report)))
+
+    def proposals(
+        self, records: list[MemoryRecord] | None = None, hits: dict[str, int] | None = None
+    ) -> list[Proposal]:
+        """Everything worth confirming that nobody has ruled on yet. Pure: nothing is written."""
+        inspected = self._store.records() if records is None else records
+        counts = self._usage()[0] if hits is None else hits
+        decided = self._ledger().decided()
+        drafted: list[Proposal] = []
+        drafted.extend(self._propose_merges(inspected))
+        drafted.extend(self._propose_abstract_review(inspected))
+        drafted.extend(self._propose_demotions(inspected, counts))
+        drafted.extend(self._propose_clusters(inspected))
+        return [proposal for proposal in drafted if proposal.id not in decided]
+
+    def decide(self, proposal_id: str, accept: bool, text: str = "") -> Decision:
+        """Confirm or refuse one proposal. Acceptance applies it through the write path."""
+        proposal = self._open(proposal_id)
+        detail = ""
+        if accept:
+            detail = self._apply(proposal, text)
+        return self._ledger().append(
+            Decision(
+                proposal_id=proposal.id,
+                verdict=VERDICT_ACCEPTED if accept else VERDICT_REJECTED,
+                at=self._clock.now().isoformat(),
+                detail=detail,
+            )
+        )
+
+    def _open(self, proposal_id: str) -> Proposal:
+        for proposal in self.proposals():
+            if proposal.id == proposal_id:
+                return proposal
+        raise NotFoundError(f"no open proposal {proposal_id}")
+
+    def _apply(self, proposal: Proposal, text: str) -> str:
+        if proposal.kind in PROPOSALS_HUMAN_ONLY:
+            raise AuthorityError(
+                f"{proposal.kind} moves files between directories and stays {TIER_HUMAN}"
+            )
+        if proposal.kind in PROPOSALS_SUPERSEDING:
+            return self._supersede(proposal)
+        if proposal.kind == PROPOSAL_DEMOTE:
+            return self._demote(proposal)
+        return self._rewrite_abstract(proposal, text)
+
+    def _supersede(self, proposal: Proposal) -> str:
+        entries = [self._entry(name) for name in proposal.targets]
+        keeper = max(entries, key=lambda record: (len(record.body), record.created, record.name))
+        for record in entries:
+            if record.name == keeper.name:
+                continue
+            record.superseded_by = keeper.name
+            self._rewrite(record)
+        return f"kept {keeper.name}"
+
+    def _demote(self, proposal: Proposal) -> str:
+        record = self._entry(proposal.targets[0])
+        before = record.weight
+        record.weight = max(
+            self._config.weight.floor, before - self._config.weight.demote_penalty
+        )
+        self._rewrite(record)
+        return f"{before:.2f} -> {record.weight:.2f}"
+
+    def _rewrite_abstract(self, proposal: Proposal, text: str) -> str:
+        if not text.strip():
+            raise ValidationError(
+                [FieldError("text", "accepting an abstract review needs the replacement abstract")]
+            )
+        record = self._entry(proposal.targets[0])
+        record.abstract = text.strip()
+        self._rewrite(record)
+        return f"rewrote the abstract of {record.name}"
+
+    def _entry(self, name: str) -> MemoryRecord:
+        record = self._store.find(name)
+        if record is None:
+            raise NotFoundError(f"no memory named {name}")
+        return record
+
+    def _ledger(self) -> DecisionLedger:
+        return DecisionLedger(self._store.layout.dream_reports / LEDGER_FILENAME)
 
     def _usage(self) -> tuple[dict[str, int], dict[str, int], dict[str, str]]:
         with self._database.connect() as connection:
