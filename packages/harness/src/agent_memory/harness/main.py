@@ -9,6 +9,8 @@ import pathlib
 import sys
 from collections.abc import Sequence
 
+from agent_memory.core.config import Config
+
 from . import arms as arms_module
 from . import dataset, sampling
 from . import judge as judge_module
@@ -24,6 +26,7 @@ DEFAULT_ARMS = "W0,W1,W2,W3,W4"
 DEFAULT_SEED = 20260901
 JUDGE_MODEL = "claude-sonnet-5"
 QUESTIONS_FILENAME = "questions.json"
+TRUTHY = ("1", "true", "yes", "on")
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -54,6 +57,10 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--sessions-per-call", type=int, default=1)
     runner.add_argument("--experience-workers", type=int, default=4)
     runner.add_argument("--exam-max-turns", type=int, default=20)
+    runner.add_argument(
+        "--set", action="append", default=[], metavar="SECTION.KNOB=VALUE",
+        help="override one config knob for every run in this matrix",
+    )
     runner.add_argument("--model", default=DEFAULT_MODEL)
     runner.add_argument("--judge-model", default=JUDGE_MODEL)
     runner.add_argument("--concurrency", type=int, default=4)
@@ -117,6 +124,7 @@ def _run(args: argparse.Namespace) -> int:
         sessions_per_call=args.sessions_per_call,
         experience_workers=args.experience_workers,
         exam_max_turns=args.exam_max_turns,
+        config=_configured(args.set),
         run_id=args.run_id,
         episode_fingerprint=sampling.fingerprint(episodes),
     )
@@ -138,6 +146,29 @@ def _run(args: argparse.Namespace) -> int:
 
     print(report_module.render(report_module.summarise(sink.records())))
     return EXIT_OK
+
+
+def _configured(overrides: list[str]) -> Config:
+    """W options are config (ADR-006), so an experiment arm is a knob, never a code branch."""
+    config = Config.default()
+    for override in overrides:
+        path, _, raw = override.partition("=")
+        section_name, _, knob = path.partition(".")
+        section = getattr(config, section_name, None)
+        if section is None or not hasattr(section, knob):
+            raise ValueError(f"unknown config knob: {path}")
+        setattr(section, knob, _coerce(getattr(section, knob), raw))
+    return config
+
+
+def _coerce(current: object, raw: str) -> object:
+    if isinstance(current, bool):
+        return raw.strip().lower() in TRUTHY
+    if isinstance(current, int):
+        return int(raw)
+    if isinstance(current, float):
+        return float(raw)
+    return raw
 
 
 def _regrade(args: argparse.Namespace) -> int:

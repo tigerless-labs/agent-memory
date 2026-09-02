@@ -81,3 +81,10 @@ def test_deep_widens_the_list_so_raw_material_is_not_crowded_out(with_raw):
     assert len(shallow) == with_raw.config.recall.default_limit
     assert len(deep) > len(shallow)
     assert [hit for hit in deep if hit.source == "raw"]
+
+
+def test_the_raw_fallback_is_a_config_flag_not_a_code_path(with_raw):
+    query = "My Octopus Teacher follow-up recommendation"
+    assert [hit for hit in Recall(with_raw).recall(query, deep=True) if hit.source == "raw"]
+    with_raw.config.recall.raw_enabled = False
+    assert not [hit for hit in Recall(with_raw).recall(query, deep=True) if hit.source == "raw"]

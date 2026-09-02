@@ -294,6 +294,18 @@ def test_a_failed_run_is_never_regraded_into_a_correct_one(tmp_path, suite):
     assert not regrade(failed, Generous(), {}, workers=1)[0]["correct"]
 
 
+def test_an_arm_can_be_expressed_as_a_config_override(tmp_path):
+    from agent_memory.harness.main import _configured
+
+    config = _configured(["recall.raw_enabled=false", "recall.default_limit=5"])
+    assert config.recall.raw_enabled is False
+    assert config.recall.default_limit == 5
+    assert config.recall_fingerprint() != _configured([]).recall_fingerprint()
+
+    with pytest.raises(ValueError):
+        _configured(["recall.not_a_knob=1"])
+
+
 def test_metrics_records_round_trip_through_the_sink(tmp_path):
     sink = MetricsSink(tmp_path)
     record = RunRecord(

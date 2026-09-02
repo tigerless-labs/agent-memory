@@ -59,7 +59,7 @@ class Recall:
             candidates = index.match(query, pool)
             eligible = self._eligible(index.rows(), scope=scope, as_of=as_of, deep=deep)
             hits = self._rank(candidates, eligible, as_of=as_of)
-            if deep:
+            if deep and self._config.recall.raw_enabled:
                 hits = hits + self._raw_hits(RawIndex(connection), query, pool)
                 hits.sort(key=lambda hit: (-hit.score, hit.name))
             hits = hits[:limit]

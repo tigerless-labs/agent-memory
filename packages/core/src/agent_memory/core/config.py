@@ -68,6 +68,7 @@ class RecallConfig:
     recency_floor: float = 0.25
     retrieval_weight_floor: float = 0.15
     memory_md_weight_floor: float = 0.75
+    raw_enabled: bool = True
     raw_relevance_factor: float = 0.4
     injection_enabled: bool = True
     injection_budget_bytes: int = 8192

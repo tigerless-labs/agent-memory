@@ -11,6 +11,7 @@ import dataclasses
 import pathlib
 
 from agent_memory.core import injection, prompts
+from agent_memory.core.config import Config
 from agent_memory.core.store import Store
 
 from . import framing
@@ -44,6 +45,7 @@ class Driver:
         episode_fingerprint: str,
         experience_workers: int = EXPERIENCE_WORKERS,
         exam_max_turns: int = EXAM_MAX_TURNS,
+        config: Config | None = None,
     ):
         self._host = host
         self._judge = judge
@@ -53,6 +55,7 @@ class Driver:
         self._episode_fingerprint = episode_fingerprint
         self._experience_workers = experience_workers
         self._exam_max_turns = exam_max_turns
+        self._config = config
 
     def run(self, episode: Episode, arm: Arm) -> RunRecord:
         store = self._store_for(episode, arm)
@@ -96,7 +99,8 @@ class Driver:
 
     def _store_for(self, episode: Episode, arm: Arm) -> Store:
         root = self._workspace / arm.name / episode.id
-        store = Store(root, agent=f"harness-{arm.name}")
+        config = dataclasses.replace(self._config) if self._config else None
+        store = Store(root, config=config, agent=f"harness-{arm.name}")
         store.init()
         return store
 
