@@ -57,9 +57,11 @@ out of order is *incomplete*.
 
 1. **Plan.** Non-trivial changes start with a plan in `docs/plans/`. The plan's first unit
    updates the relevant `docs/design/` doc; every unit places tests before code.
-2. **Branch, isolate, sync.** One explicit task per branch, developed in its own worktree;
-   never develop on `main`. Rebase onto latest `main` before developing; land via feature
-   branch + PR, no direct pushes to `main`.
+2. **Branch, isolate, sync.** One explicit task per branch, developed in its own worktree
+   (Claude Code's built-in worktree tooling, which puts it at `.claude/worktrees/<branch>` —
+   keep that path gitignored, and remove the worktree once its branch lands). Never develop on
+   `main`. Rebase onto latest `main` before developing; land via feature branch + PR, no direct
+   pushes to `main`.
 3. **Docs first.** Read, then update, the relevant `docs/design/` doc(s) before any test or
    code — pin down behavior boundaries, interface contracts, and acceptance criteria.
 4. **Tests next (TDD).** Failing unit test(s) first, then system test(s), then implementation.

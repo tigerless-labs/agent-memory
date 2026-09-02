@@ -1,4 +1,5 @@
 benchmarks/
+.claude/worktrees/
 .index/
 .state/
 .env
