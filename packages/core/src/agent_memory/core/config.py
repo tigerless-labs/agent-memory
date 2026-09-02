@@ -70,6 +70,7 @@ class RecallConfig:
     memory_md_weight_floor: float = 0.75
     raw_enabled: bool = True
     raw_relevance_factor: float = 0.4
+    synthesis_hint: bool = True
     injection_enabled: bool = True
     injection_budget_bytes: int = 8192
     anchor_context_chars: int = 160

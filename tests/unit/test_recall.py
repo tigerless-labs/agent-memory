@@ -126,3 +126,18 @@ def test_a_hit_in_a_long_body_carries_the_section_anchor(seeded):
     hits = Recall(seeded).recall("lease TTL drain timeout infra queue yaml")
     hit = next(hit for hit in hits if hit.name == "staging-deploy-e4021")
     assert hit.anchor == "fix"
+
+
+def test_the_recall_list_length_is_a_knob(seeded):
+    for index in range(seeded.config.recall.default_limit * 2):
+        seeded.record(
+            abstract=f"Evening habit number {index}: reading, tea, and an early night",
+            type="preference",
+            domain="user",
+            name=f"evening-habit-{index}",
+        )
+    narrow = Recall(seeded).recall("evening habits reading tea")
+    seeded.config.recall.default_limit *= 2
+    wide = Recall(seeded).recall("evening habits reading tea")
+    assert len(wide) > len(narrow)
+    assert {hit.name for hit in narrow} <= {hit.name for hit in wide}

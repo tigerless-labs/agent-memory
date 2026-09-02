@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from agent_memory.core import prompts
+from agent_memory.core.config import Config
 
 from .arms import MODE_BOUNDARY, MODE_COLD, MODE_INLINE
 from .dataset import Episode
@@ -47,12 +48,13 @@ def experience(mode: str, segment: str) -> str:
     return FRAMINGS[mode] + "\n\n" + prompts.distill(segment, RECORD_HINT)
 
 
-def exam(episode: Episode, with_memory: bool) -> str:
+def exam(episode: Episode, with_memory: bool, config: Config | None = None) -> str:
     if not with_memory:
         return EXAM_WITHOUT_MEMORY.format(date=episode.question_date, question=episode.question)
+    synthesis = config.recall.synthesis_hint if config else True
     return EXAM_WITH_MEMORY.format(
         date=episode.question_date,
-        preamble=prompts.exam(RECALL_HINT),
+        preamble=prompts.exam(RECALL_HINT, synthesis=synthesis),
         question=episode.question,
     )
 

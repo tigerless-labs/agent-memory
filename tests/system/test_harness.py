@@ -158,7 +158,9 @@ def test_injection_is_disabled_by_config_rather_than_by_code(tmp_path, suite):
 
 def test_the_driver_refuses_to_score_a_run_whose_isolation_broke(tmp_path, suite, monkeypatch):
     episodes = dataset.load(suite)
-    monkeypatch.setattr(framing, "exam", lambda episode, with_memory: SECRET + episode.question)
+    monkeypatch.setattr(
+        framing, "exam", lambda episode, with_memory, config=None: SECRET + episode.question
+    )
     with pytest.raises(IsolationBreach):
         _driver(tmp_path, StubHost(), episodes).run(episodes[0], arms.W1)
 
@@ -335,6 +337,18 @@ def test_reusing_a_store_that_was_never_written_is_an_error(tmp_path, suite):
     )
     with pytest.raises(FileNotFoundError):
         replay.run(episodes[0], arms.W1)
+
+
+def test_the_synthesis_hint_is_a_config_knob_visible_to_the_fingerprint(suite):
+    from agent_memory.core.config import Config
+
+    episode = dataset.load(suite)[0]
+    on, off = Config.default(), Config.default()
+    off.recall.synthesis_hint = False
+
+    assert len(framing.exam(episode, True, on)) > len(framing.exam(episode, True, off))
+    assert framing.exam(episode, False, on) == framing.exam(episode, False, off)
+    assert on.recall_fingerprint() != off.recall_fingerprint()
 
 
 def test_an_arm_can_be_expressed_as_a_config_override(tmp_path):

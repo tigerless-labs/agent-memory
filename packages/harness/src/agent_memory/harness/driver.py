@@ -67,7 +67,7 @@ class Driver:
             if self._reuse_stores
             else self._experience(store, episode, arm, workdir)
         )
-        exam_prompt = framing.exam(episode, with_memory=arm.memory)
+        exam_prompt = framing.exam(episode, with_memory=arm.memory, config=store.config)
         self._assert_isolated(exam_prompt, episode)
         if arm.memory:
             exam_prompt = framing.with_injected_index(exam_prompt, injection.payload(store))
