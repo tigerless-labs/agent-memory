@@ -329,3 +329,51 @@ and this run does not change that**: it shows only that one T0 pass over a same-
 neither a gain nor a cost.
 
 The falsifiability clause stands unresolved, which is worse than it failing.
+
+## P8: a wider list — the seventh negative, and the one that explains the rest
+
+The P7 diagnostic put 57 of 110 answerable failures on material that never reached the model,
+and an offline sweep (no host calls) showed the material was reachable: widening the recall list
+from 8 to 24 raises the share of episodes whose gold answer lands in the context from 47% to
+64%, and to 71% at 40. Raising the raw-material relevance factor from 0.4 to 1.0 changes nothing
+at any width — raw was not being outranked, it was outside the budget.
+
+So the wide list was run, replicated, against the same frozen stores.
+
+| list width | replays | spread |
+|---|---|---|
+| 8 (16 deep slots) | 79, 76 | 3 |
+| 24 (48 deep slots) | 84, 76 | 8 |
+
+Pooled 155/240 against 160/240; majority across replays +11/−6, p=0.33. Negative. The first
+replay's 84 was the same trap as v4's 58.3%, caught this time by replicating before claiming.
+The wide arm's own spread is larger than the narrow arm's, which is the cost of the extra
+material showing up as variance.
+
+### Why, measured
+
+| | episodes | wide correct | narrow correct |
+|---|---|---|---|
+| gold reaches the model only when wide | 18 | 16/36 (44%) | 12/36 (33%) |
+| gold reaches the model either way | 52 | 90/104 (87%) | 91/104 (88%) |
+
+Two things, and both matter. **There is no dilution**: tripling the context left the episodes
+that already worked at 87% against 88%. The "long context distracts" explanation is wrong here.
+And **the tail is worth less than the head**: newly delivered gold converts at 44% where
+material already ranking in the top sixteen converts at 87%. An entry ranks low because its
+lexical match is weak, and a weak match usually means the entry is peripheral or ambiguous.
+
+Net effect about +2 answers per replay — real, small, and inside a noise floor of 3 to 8.
+
+### What the seven negatives add up to
+
+Capture-fidelity prompting, the injection track, per-session distillation at 3.5× volume,
+raw-material fallback, supersede-on-write, read discipline, and now list width. Seven routes,
+seven results indistinguishable from noise. The one change that replicated was moving the
+disclosure decision from the host into the store (P6), and it moved the ceiling, not the floor.
+
+The floor is capture, and it is a targeting problem rather than a capacity or a ranking one:
+more writing does not find it, more slots do not find it, and better-ranked slots do not exist
+because the material was never written in a findable form. Every remaining lever on this suite
+is upstream of retrieval and downstream of nothing this system controls — the distiller has to
+choose what matters without knowing what will be asked.
