@@ -77,4 +77,7 @@
       (每条 `mem record` 占一个 turn),三者的解法分别是 prompt、配置、批量写入 API。
 - [ ] `HERMES_MODEL` 走 Vertex 时必须是 publisher 限定的(`google/gemini-3.7-flash`);
       项目 .env 里现存的裸 id 会被端点拒。
+- [ ] `recall.default_limit` 已按证据从 8 改为 24(+6.7 点,p=0.043,每臂两次重放;
+      evidence: experiments/results/p6-list-width.md)。**16 与 32 未跑**——24 是证据最强的值,
+      不是调优过的最优值。
 
