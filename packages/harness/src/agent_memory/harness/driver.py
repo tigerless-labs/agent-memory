@@ -78,7 +78,7 @@ class Driver:
         self._assert_isolated(exam_prompt, episode)
         if fixed:
             context = exam_module.build_context(
-                store, episode.question, store.config.recall.fixed_exam_full_text_entries
+                store, episode.question, store.config.recall.context_full_text_entries
             )
             exam_prompt = exam_module.fill_context(exam_prompt, context.text)
         elif arm.memory:

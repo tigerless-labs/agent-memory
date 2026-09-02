@@ -12,10 +12,8 @@ generation instead of an agent loop, which is what makes memory configurations c
 
 from __future__ import annotations
 
-import dataclasses
-
-from agent_memory.core.recall import Recall
-from agent_memory.core.store import LEVEL_FULL, Store
+from agent_memory.core import context as core_context
+from agent_memory.core.store import Store
 
 MODE_AGENTIC = "agentic"
 MODE_FIXED = "fixed"
@@ -27,42 +25,10 @@ NOTHING_FOUND = "Your memory store returned nothing for this question."
 CONTEXT_PLACEHOLDER = "<<retrieved-context>>"
 
 
-@dataclasses.dataclass(frozen=True)
-class FixedContext:
-    text: str
-    entries: int
-
-    def is_empty(self) -> bool:
-        return self.entries == 0
-
-
-def build_context(store: Store, question: str, full_text_entries: int) -> FixedContext:
-    """Deterministic: same store and same question always give the same context."""
-    hits = Recall(store).recall(question, deep=store.config.recall.raw_enabled)
-    if not hits:
-        return FixedContext(text=NOTHING_FOUND, entries=0)
-    rendered: list[str] = []
-    for position, hit in enumerate(hits):
-        body = ""
-        if position < full_text_entries:
-            body = _full_text(store, hit.name)
-        rendered.append(_entry(hit, body))
-    return FixedContext(
-        text=CONTEXT_HEADER + ENTRY_SEPARATOR + ENTRY_SEPARATOR.join(rendered),
-        entries=len(hits),
-    )
-
-
-def _entry(hit, body: str) -> str:
-    head = f"- {hit.abstract}"
-    return f"{head}\n{body}" if body.strip() else head
-
-
-def _full_text(store: Store, name: str) -> str:
-    try:
-        return store.read(name, level=LEVEL_FULL).text
-    except Exception:
-        return ""
+def build_context(store: Store, question: str, full_text_entries: int) -> core_context.Context:
+    """Delegates to the core read surface; the harness holds no retrieval policy of its own."""
+    store.config.recall.context_full_text_entries = full_text_entries
+    return core_context.build(store, question, deep=store.config.recall.raw_enabled)
 
 
 def fill_context(prompt: str, context: str) -> str:

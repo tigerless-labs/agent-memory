@@ -10,6 +10,7 @@ CLI 是 universal fallback(能跑 shell 的 agent 皆可用)与 operator/admin �
 | 记忆 | `record` | 写入一条记忆(经管线校验+重索引) | agent | 写真源+索引+archive |
 | | `recall <query>` | 检索,返回 L0 列表(abstract+路径+锚点+分数) | agent | 写 access log |
 | | `read <name>` | 读单条(全文/`--outline` 大纲) | agent | 写 access log |
+| | `context <query>` | 一次调用:检索 + 打开头部条目,返回可直接推理的上下文 | agent | 写 access log |
 | | `correct` | update 或 supersede 一条 | agent | 写真源+索引 |
 | 时序 | `recall --as-of <date>` | 时间点查询(沿 supersede 链) | agent | 同 recall |
 | | `recall --deep` | 检索面扩到 archive | agent | 同 recall |

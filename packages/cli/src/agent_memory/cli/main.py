@@ -9,6 +9,7 @@ import pathlib
 import sys
 from collections.abc import Sequence
 
+from agent_memory.core import context as context_module
 from agent_memory.core import portability
 from agent_memory.core.errors import MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
@@ -72,6 +73,16 @@ def _parser() -> argparse.ArgumentParser:
     reader.add_argument("--deep", action="store_true")
     reader.add_argument("--limit", type=int, default=None)
     reader.set_defaults(handler=_recall)
+
+    contexter = subparsers.add_parser(
+        "context", help="recall and open the top entries in one call"
+    )
+    contexter.add_argument("query")
+    contexter.add_argument("--scope", default=None)
+    contexter.add_argument("--as-of", default=None)
+    contexter.add_argument("--deep", action="store_true")
+    contexter.add_argument("--limit", type=int, default=None)
+    contexter.set_defaults(handler=_context)
 
     opener = subparsers.add_parser("read", help="read one memory")
     opener.add_argument("name")
@@ -155,6 +166,19 @@ def _recall(store: Store, args: argparse.Namespace) -> dict[str, object]:
         "query": args.query,
         "recall_fingerprint": store.config.recall_fingerprint(),
         "hits": [hit.as_dict() for hit in hits],
+    }
+
+
+def _context(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    built = context_module.build(
+        store, args.query, scope=args.scope, as_of=args.as_of, deep=args.deep, limit=args.limit
+    )
+    return {
+        "query": args.query,
+        "entries": built.entries,
+        "names": list(built.names),
+        "recall_fingerprint": store.config.recall_fingerprint(),
+        "text": built.text,
     }
 
 

@@ -71,7 +71,7 @@ class RecallConfig:
     raw_enabled: bool = True
     raw_relevance_factor: float = 0.4
     synthesis_hint: bool = True
-    fixed_exam_full_text_entries: int = 4
+    context_full_text_entries: int = 4
     injection_enabled: bool = True
     injection_budget_bytes: int = 8192
     anchor_context_chars: int = 160
