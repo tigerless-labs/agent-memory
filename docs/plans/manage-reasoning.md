@@ -73,12 +73,12 @@ Every unit: design-doc delta → failing tests → code → green → commit.
 
 | # | scope | tests that must fail first |
 |---|---|---|
-| 1 | proposal outlet: stable ids, a decision ledger in the dream-report, `mem proposals` / `mem decide` | a proposal survives a sleep and is listed; deciding it applies through the write path; an already-decided proposal is not re-proposed |
-| 2 | `weight` settles on reads since the last sleep; dead knob connected or removed | two sleeps with no new reads leave weight unchanged; a read between sleeps moves it once |
-| 3 | `Reasoner` protocol in core, prompt + response grammar, decisions applied at T0 | a malformed response changes nothing; a decision naming an unknown entry is refused; T0 refuses a supersede decision |
-| 4 | executor package: `hosts.py`/`credentials.py` moved, `HostReasoner`, `VertexReasoner` | harness keeps working off the moved modules; each reasoner is exercised against a fake process/endpoint |
-| 5 | `mem sleep --reason` wiring, MCP parity for whatever the CLI gains | same request through CLI and MCP yields the same result (Invariant 8) |
-| 6 | LoCoMo loader in the harness, `--manage` arm dimension, manage fingerprint in the attribution guard | a LoCoMo episode loads into the same `Episode` shape; a run mixing manage configs refuses to license attribution |
+| 1 ✅ | proposal outlet: stable ids, a decision ledger in the dream-report, `mem proposals` / `mem decide` | a proposal survives a sleep and is listed; deciding it applies through the write path; an already-decided proposal is not re-proposed |
+| 2 ✅ | `weight` settles on reads since the last sleep; dead knob connected or removed | two sleeps with no new reads leave weight unchanged; a read between sleeps moves it once |
+| 3 ✅ | `Reasoner` protocol in core, prompt + response grammar, decisions applied at T0 | a malformed response changes nothing; a decision naming an unknown entry is refused; T0 refuses a supersede decision |
+| 4 ✅ | executor package: `hosts.py`/`credentials.py` moved, `HostReasoner`, `VertexReasoner` | harness keeps working off the moved modules; each reasoner is exercised against a fake process/endpoint |
+| 5 ✅ | `mem sleep --reason` wiring, MCP parity for whatever the CLI gains | same request through CLI and MCP yields the same result (Invariant 8) |
+| 6 ✅ | LoCoMo loader in the harness, `--manage` arm dimension, manage fingerprint in the attribution guard | a LoCoMo episode loads into the same `Episode` shape; a run mixing manage configs refuses to license attribution |
 
 ## Experiment (P11) — two protocols, cheap one first
 
