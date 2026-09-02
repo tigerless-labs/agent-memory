@@ -128,8 +128,9 @@ class Driver:
         return store
 
     def _workdir_for(self, episode: Episode, arm: Arm) -> pathlib.Path:
-        """A clean room per run: no repository instructions reach the host by accident."""
-        workdir = self._workspace / arm.name / episode.id / WORKDIR_NAME
+        """A clean room per run, and a sibling of the store rather than a child of it:
+        the host must not be standing inside the thing being measured."""
+        workdir = self._workspace.parent / WORKDIR_NAME / arm.name / episode.id
         workdir.mkdir(parents=True, exist_ok=True)
         return workdir
 

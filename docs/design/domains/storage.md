@@ -15,13 +15,18 @@ memory/
 ├── archive/             append-only,默认不进检索面
 │   ├── provenance/      蒸馏证据摘录(统一格式)——永久,摘录级零丢
 │   ├── retired/         被淘汰/降级条目
-│   └── sessions/        完整 trace 压缩副本(开关默认开;防宿主清理策略)
-└── .index/              全部可重建:manifest(content-hash)、FTS5、向量插件表、access log
+│   └── sessions/        完整 trace 副本(开关默认开;防宿主清理策略)
+├── dream-reports/       每次睡眠一份:动了什么、提案了什么、证据指针
+├── .index/              全部可重建:manifest(content-hash)、FTS5、原料 FTS、access log
+└── .state/              不可重建的运行态:蒸馏水位线、写路径锁、钩子日志
 ```
 
+`.index/` 与 `.state/` 的分界即「可重建」这条线:删 `.index/` 零知识损失;删 `.state/`
+只损失「蒸馏到哪了」,代价是重复蒸馏,不是丢知识。
+
 **单条记忆文件**:frontmatter 携带 name(kebab slug=稳定 id)、abstract(一句话)、
-type、created/updated、valid_from、superseded_by、links、weight、author(写入方 agent)、
-provenance;正文自由 markdown。
+type、status(active/stale/retired,M 的三级降档面)、created/updated、valid_from、
+superseded_by、links、weight、author(写入方 agent)、provenance;正文自由 markdown。
 
 **文件边界公理:失效原子 = 文件边界**。一个文件装作为整体一起过期的一份知识
 (supersede/weight/召回单位都是文件)。同生共死测试:某部分会单独过期 → 拆;

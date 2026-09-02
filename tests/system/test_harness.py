@@ -169,9 +169,19 @@ def test_each_run_gets_its_own_clean_working_directory(tmp_path, suite):
     episodes = dataset.load(suite)
     driver = _driver(tmp_path, StubHost(), episodes)
     driver.run(episodes[0], arms.W1)
-    workdir = tmp_path / "stores" / arms.W1.name / episodes[0].id / "cwd"
+    workdir = tmp_path / "cwd" / arms.W1.name / episodes[0].id
     assert workdir.is_dir()
     assert list(workdir.iterdir()) == []
+
+
+def test_the_host_never_stands_inside_the_store_it_is_measured_on(tmp_path, suite):
+    episodes = dataset.load(suite)
+    driver = _driver(tmp_path, StubHost(), episodes)
+    driver.run(episodes[0], arms.W1)
+    store_root = tmp_path / "stores" / arms.W1.name / episodes[0].id
+    workdir = tmp_path / "cwd" / arms.W1.name / episodes[0].id
+    assert store_root not in workdir.parents
+    assert not (store_root / "cwd").exists()
 
 
 def test_a_write_arm_beats_the_no_memory_control_on_the_same_episode(tmp_path, suite):

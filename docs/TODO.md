@@ -38,3 +38,13 @@
       (fx1 110/120、fx2 120/120 即此因)——非零退出时应保留 stdout 尾部,
       并对「额度/限流」类失败停跑而不是把整轮跑成 failed
 
+## 设计-实现一致性核对(2026-09-02)欠账
+
+- [ ] 睡眠一次一 git commit:manage.md 明写「git 一睡眠一 commit」,Manage 未实现,
+      dream-report 落盘但不入版本历史——审计链缺一环
+- [ ] T1 提案的呈现路径:提案只进 dream-report,没有「下次 session 呈用户确认」的通道
+- [ ] `mem gc`:cli.md 列了清理提案端点,未实现
+- [ ] Docker 镜像(roadmap M5):未实现,MCP/CLI 同体分发缺一块
+- [ ] `sessions/` 实际存明文 .txt,storage.md 原写「压缩副本」——已按实现改文档,
+      压缩本身仍是待办(千条规模下体积是真成本)
+

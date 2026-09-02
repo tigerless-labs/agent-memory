@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import concurrent.futures
 import json
+import os
 import pathlib
 import sys
 from collections.abc import Sequence
@@ -14,10 +15,11 @@ from agent_memory.core.config import Config
 from . import arms as arms_module
 from . import dataset, sampling
 from . import exam as exam_module
+from . import interop as interop_module
 from . import judge as judge_module
 from . import report as report_module
 from .driver import Driver
-from .hosts import DEFAULT_MODEL, HOST_CLAUDE_CODE, Host, HostSpec
+from .hosts import DEFAULT_MODEL, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 from .judge import Judge
 from .metrics import MetricsSink
 
@@ -28,6 +30,16 @@ DEFAULT_SEED = 20260901
 JUDGE_MODEL = "claude-sonnet-5"
 QUESTIONS_FILENAME = "questions.json"
 TRUTHY = ("1", "true", "yes", "on")
+HOST_BINARIES = {
+    "claude-code": ("claude", DEFAULT_MODEL),
+    "codex": ("codex", "gpt-5.6-sol"),
+    "hermes": ("hermes", "gemini-3.7-flash"),
+}
+INTEROP_FACT = interop_module.Fact(
+    subject="the drain window",
+    sentence="The queue drain window must exceed the worker lease TTL by 90 seconds.",
+    token="90 seconds",
+)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -88,6 +100,14 @@ def _parser() -> argparse.ArgumentParser:
     calibrator.add_argument("--judge-model", default=JUDGE_MODEL)
     calibrator.add_argument("--concurrency", type=int, default=8)
     calibrator.set_defaults(handler=_calibrate)
+
+    interoperator = subparsers.add_parser(
+        "interop", help="one store, several hosts: what A writes, B must read"
+    )
+    interoperator.add_argument("--workspace", required=True)
+    interoperator.add_argument("--hosts", default=",".join(DIALECTS))
+    interoperator.add_argument("--json", action="store_true")
+    interoperator.set_defaults(handler=_interop)
 
     reporter = subparsers.add_parser("report", help="summarise a finished run")
     reporter.add_argument("--workspace", required=True)
@@ -220,6 +240,36 @@ def _calibrate(args: argparse.Namespace) -> int:
     for name in wrong:
         print(f"  disagrees: {name}")
     return EXIT_OK if not wrong else EXIT_ERROR
+
+
+def _interop(args: argparse.Namespace) -> int:
+    hosts = [_host(name) for name in args.hosts.split(",") if name.strip()]
+    missing = [host.name for host in hosts if not host.spec.available()]
+    if missing:
+        print(json.dumps({"error": "host binaries not found", "hosts": missing}), file=sys.stderr)
+        return EXIT_ERROR
+    results = interop_module.matrix(hosts, INTEROP_FACT, pathlib.Path(args.workspace))
+    if args.json:
+        print(json.dumps([result.as_dict() for result in results], indent=REPORT_INDENT))
+    else:
+        print(interop_module.render(results))
+    return EXIT_OK if all(result.passed for result in results) else EXIT_ERROR
+
+
+def _host(name: str) -> Host:
+    binary, model = HOST_BINARIES[name]
+    return Host(
+        HostSpec(name=name, binary=binary, model=os.environ.get(_model_env(name)) or model,
+                 provider=os.environ.get(_provider_env(name), ""), attempts=1)
+    )
+
+
+def _model_env(name: str) -> str:
+    return name.replace("-", "_").upper() + "_MODEL"
+
+
+def _provider_env(name: str) -> str:
+    return name.replace("-", "_").upper() + "_PROVIDER"
 
 
 def _report(args: argparse.Namespace) -> int:
