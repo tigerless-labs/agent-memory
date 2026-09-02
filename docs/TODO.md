@@ -80,4 +80,7 @@
 - [ ] `recall.default_limit` 已按证据从 8 改为 24(+6.7 点,p=0.043,每臂两次重放;
       evidence: experiments/results/p6-list-width.md)。**16 与 32 未跑**——24 是证据最强的值,
       不是调优过的最优值。
+- [ ] recall fingerprint 不能跨 config schema 变更反解:加/移 knob 会改变所有 fingerprint,
+      旧运行的配置无法用当前 config 空间搜回来(`1c553b61`、`361ded7e` 即如此)。
+      守卫仍能拒绝错误归因,但不能当作「那一臂当时是什么」的记录——配置要写进 write-up。
 

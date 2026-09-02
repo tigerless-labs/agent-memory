@@ -1,0 +1,14 @@
+| arm | graded | correct | accuracy | blocking s | exam s | memories |
+|---|---|---|---|---|---|---|
+| W2 | 0 | 0 | 0.0% | 0.0 | 4.6 | 29.8 |
+
+| question type | W2 |
+|---|---|
+| knowledge-update | 0.0% |
+| multi-session | 0.0% |
+| single-session-assistant | 0.0% |
+| single-session-preference | 0.0% |
+| single-session-user | 0.0% |
+| temporal-reasoning | 0.0% |
+
+attribution licensed: True (recall fingerprints=['a122723a89c28f6b'], episodes=['213e6dcab30264e7'])

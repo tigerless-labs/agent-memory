@@ -46,4 +46,9 @@ uv run mem-exp run --suite data/longmemeval_s12.json --workspace runs/p2 --arms 
 uv run mem-exp report --workspace runs/p2
 ```
 
-Results: [results/p2-longmemeval.md](results/p2-longmemeval.md).
+Results: **[results/index.md](results/index.md)** is the ledger of every measured
+configuration; the individual write-ups carry the reasoning.
+
+Run records (`experiments/runs/*/runs.jsonl`) are committed as evidence. The stores they were
+built from are not — 468 MB — so a write-up's claims are checkable from the records while the
+corpora stay reproducible from `mem-exp prepare`.
