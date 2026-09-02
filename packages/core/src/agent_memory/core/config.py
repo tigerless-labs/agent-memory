@@ -78,8 +78,14 @@ class RecallConfig:
     snippet_max_chars: int = 400
 
 
+TIER_UNATTENDED = "T0"
+TIER_PROPOSAL = "T1"
+TIER_HUMAN = "T2"
+
+
 @dataclasses.dataclass
 class ManageConfig:
+    authority: str = TIER_UNATTENDED
     trigger_min_hours: float = 24.0
     trigger_min_sessions: int = 3
     cluster_min_files: int = 5

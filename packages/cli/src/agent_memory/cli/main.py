@@ -305,7 +305,7 @@ def _proposals(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 def _decide(store: Store, args: argparse.Namespace) -> dict[str, object]:
     decision = Manage(store).decide(args.proposal, accept=args.accept, text=args.text)
-    return decision.as_dict()
+    return dict(decision.as_dict())
 
 
 def _setup(store: Store, args: argparse.Namespace) -> dict[str, object]:

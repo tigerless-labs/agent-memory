@@ -12,17 +12,21 @@ import datetime as dt
 import hashlib
 import re
 
+from . import reasoning
 from .access_log import KIND_READ, AccessLog
 from .clock import Clock
+from .config import TIER_HUMAN, TIER_PROPOSAL, TIER_UNATTENDED
 from .database import Database
-from .errors import AuthorityError, FieldError, NotFoundError, ValidationError
+from .errors import (
+    AuthorityError,
+    FieldError,
+    MemoryStoreError,
+    NotFoundError,
+    ValidationError,
+)
 from .ledger import LEDGER_FILENAME, VERDICT_ACCEPTED, VERDICT_REJECTED, Decision, DecisionLedger
 from .record import STATUS_ACTIVE, STATUS_STALE, MemoryRecord
 from .store import Store
-
-TIER_UNATTENDED = "T0"
-TIER_PROPOSAL = "T1"
-TIER_HUMAN = "T2"
 
 PROPOSAL_MERGE = "merge"
 PROPOSAL_SUPERSEDE = "supersede"
@@ -37,7 +41,12 @@ ACTION_LINK_ADDED = "link-added"
 ACTION_WEIGHT_SETTLED = "weight-settled"
 
 PROPOSALS_HUMAN_ONLY = frozenset({PROPOSAL_CLUSTER})
+PROPOSALS_ADDITIVE = frozenset({PROPOSAL_ABSTRACT_REVIEW})
 PROPOSALS_SUPERSEDING = frozenset({PROPOSAL_MERGE, PROPOSAL_SUPERSEDE})
+REASONER_MAY_ACCEPT: dict[str, frozenset[str]] = {
+    TIER_UNATTENDED: PROPOSALS_ADDITIVE,
+    TIER_PROPOSAL: PROPOSALS_ADDITIVE | PROPOSALS_SUPERSEDING | frozenset({PROPOSAL_DEMOTE}),
+}
 PROPOSAL_ID_LENGTH = 12
 REPORT_SUFFIX = ".md"
 _WORDS = re.compile(r"[0-9a-z]+")
@@ -86,6 +95,8 @@ class DreamReport:
     proposals: tuple[Proposal, ...]
     inspected: int
     path: str = ""
+    decisions: tuple[Decision, ...] = ()
+    withheld: tuple[str, ...] = ()
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -94,6 +105,8 @@ class DreamReport:
             "inspected": self.inspected,
             "actions": [action.as_dict() for action in self.actions],
             "proposals": [proposal.as_dict() for proposal in self.proposals],
+            "decisions": [decision.as_dict() for decision in self.decisions],
+            "withheld": list(self.withheld),
             "path": self.path,
         }
 
@@ -115,7 +128,7 @@ class Manage:
             and sessions_since >= self._config.manage.trigger_min_sessions
         )
 
-    def sleep(self) -> DreamReport:
+    def sleep(self, reasoner: reasoning.Reasoner | None = None) -> DreamReport:
         records = self._store.records()
         hits, reads, last_access = self._usage()
 
@@ -127,15 +140,48 @@ class Manage:
         actions.extend(self._merge_exact_duplicates(records))
 
         proposals = self.proposals(records=records, hits=hits)
+        decisions, withheld = self._review(proposals, records, reasoner)
+        settled = {decision.proposal_id for decision in decisions}
 
         report = DreamReport(
             at=self._clock.now().isoformat(),
-            tier=TIER_UNATTENDED,
+            tier=self._config.manage.authority,
             actions=tuple(actions),
-            proposals=tuple(proposals),
+            proposals=tuple(p for p in proposals if p.id not in settled),
             inspected=len(records),
+            decisions=decisions,
+            withheld=withheld,
         )
         return dataclasses.replace(report, path=str(self._write_report(report)))
+
+    def _review(
+        self,
+        proposals: list[Proposal],
+        records: list[MemoryRecord],
+        reasoner: reasoning.Reasoner | None,
+    ) -> tuple[tuple[Decision, ...], tuple[str, ...]]:
+        """A reasoner may refuse anything and may accept only what its tier allows; a verdict
+        on something that is not open, or that an earlier verdict invalidated, is dropped."""
+        if reasoner is None or not proposals:
+            return (), ()
+        allowed = REASONER_MAY_ACCEPT.get(self._config.manage.authority, PROPOSALS_ADDITIVE)
+        open_now = {proposal.id: proposal for proposal in proposals}
+        decisions: list[Decision] = []
+        withheld: list[str] = []
+        for verdict in reasoning.parse(reasoner(reasoning.render(proposals, records))):
+            proposal = open_now.get(verdict.proposal_id)
+            if proposal is None:
+                continue
+            if verdict.accept and proposal.kind not in allowed:
+                withheld.append(proposal.id)
+                continue
+            try:
+                decisions.append(
+                    self.decide(proposal.id, accept=verdict.accept, text=verdict.text)
+                )
+            except MemoryStoreError:
+                withheld.append(proposal.id)
+        return tuple(decisions), tuple(withheld)
 
     def proposals(
         self, records: list[MemoryRecord] | None = None, hits: dict[str, int] | None = None
@@ -413,15 +459,15 @@ class Manage:
                 if len(names) < self._config.manage.cluster_min_files:
                     continue
                 groups.setdefault(frozenset(names), set()).add(token)
-            for names, shared in sorted(groups.items(), key=lambda group: sorted(group[0])):
+            for grouped, shared in sorted(groups.items(), key=lambda group: sorted(group[0])):
                 if len(shared) < self._config.manage.cluster_min_shared_tokens:
                     continue
                 proposals.append(
                     Proposal(
                         kind=PROPOSAL_CLUSTER,
-                        targets=tuple(sorted(names)),
+                        targets=tuple(sorted(grouped)),
                         reason=f"{domain} root holds a topic worth its own directory",
-                        evidence=f"shared {', '.join(sorted(shared))} across {len(names)} files",
+                        evidence=f"shared {', '.join(sorted(shared))} across {len(grouped)} files",
                     )
                 )
         return proposals

@@ -209,7 +209,7 @@ def _decide(store: Store, arguments: dict[str, object]) -> dict[str, object]:
         accept=str(arguments["verdict"]) == VERDICT_ACCEPT,
         text=str(arguments.get("text") or ""),
     )
-    return decision.as_dict()
+    return dict(decision.as_dict())
 
 
 _HANDLERS = {
