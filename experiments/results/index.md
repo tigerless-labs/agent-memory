@@ -8,8 +8,16 @@ them (`experiments/runs/*/runs.jsonl`); the stores they were built from are not,
 
 A single replay of a frozen configuration swings ±7 per 120 episodes
 ([p2-optimisation.md](p2-optimisation.md)). **A row with one replay establishes nothing**, and
-rows differing by less than about seven answers are not distinguishable. Only rows with two or
-more replays, compared per episode by majority, carry weight.
+rows differing by less than about seven answers are not distinguishable.
+
+Two further cautions, both learned the hard way in [p6](p6-list-width.md):
+
+- **A row is a configuration, not a variable.** Rows here differ in the recall fingerprint *and*
+  in exam mode, and exam mode is not in the fingerprint. Comparing two rows measures whatever
+  differs between them, which is not always the knob you had in mind.
+- **"Majority across replays" is a union when an arm has two replays**, so it inflates both arms
+  and flatters the one with the larger spread. Prefer pairwise paired tests between individual
+  replays.
 
 ## Ledger
 
@@ -18,9 +26,9 @@ host, calibrated judge.
 
 | recall fingerprint | pooled | replays | runs | what it was |
 |---|---|---|---|---|
-| `e82efb90` | **160/240 = 66.7%** | 2 | w24a 84, w24b 76 | recall list width 24 — [p6](p6-list-width.md) |
-| `1c553b61` | 155/240 = 64.6% | 2 | fxa 79, fxb 76 | fixed exam: harness retrieves, host answers once |
-| `d231843a` | 221/359 = 61.6% | 3 | ctxa 71, ctxb 73, p7a 77 | list width 8 (previous default) |
+| `e82efb90` | 160/240 = 66.7% | 2 | w24a 84, w24b 76 | list width 24, fixed exam — [p6](p6-list-width.md) **(claim retracted)** |
+| `1c553b61` | 155/240 = 64.6% | 2 | fxa 79, fxb 76 | fixed exam, width 8 — config no longer reconstructible |
+| `d231843a` | 221/359 = 61.6% | 3 | ctxa 71, ctxb 73, p7a 77 | list width 8, **agentic** exam (ctx) / slept store (p7a) |
 | `1cc92424` | 128/240 = 53.3% | 2 | p5read 71, p5read2 57 | synthesis hint + wider list, together — [p5](p2-optimisation.md) |
 | `eb1274cd` | 126/240 = 52.5% | 2 | p5base 60, p5base2 66 | P5 baseline |
 | `b7194819` | 59/120 = 49.2% | 1 | p3off 59 | raw fallback off — [p3](p2-optimisation.md) |

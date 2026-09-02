@@ -60,7 +60,7 @@ class WeightConfig:
 
 @dataclasses.dataclass
 class RecallConfig:
-    default_limit: int = 24
+    default_limit: int = 8
     candidate_pool_multiplier: int = 10
     deep_limit_multiplier: int = 2
     recency_half_life_days: float = 180.0

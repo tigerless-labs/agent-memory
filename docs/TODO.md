@@ -79,9 +79,12 @@
       (每条 `mem record` 占一个 turn),三者的解法分别是 prompt、配置、批量写入 API。
 - [ ] `HERMES_MODEL` 走 Vertex 时必须是 publisher 限定的(`google/gemini-3.7-flash`);
       项目 .env 里现存的裸 id 会被端点拒。
-- [ ] `recall.default_limit` 已按证据从 8 改为 24(+6.7 点,p=0.043,每臂两次重放;
-      evidence: experiments/results/p6-list-width.md)。**16 与 32 未跑**——24 是证据最强的值,
-      不是调优过的最优值。
+- [ ] `recall.default_limit` 已退回 8:改 24 的依据(p6)把列表宽度与考试模式一起变了,
+      清洁对照下四组重放配对 p=0.36/0.12/0.63/1.00 且方向会翻(evidence: p6-list-width.md 已改为撤稿)
+- [ ] **考试模式不在 recall fingerprint 里**——归因守卫看不见这一轮里最大的那个变量。
+      exam 形态(fixed / agentic)应进指纹,否则它拦不住它本该拦的比较
+- [ ] 「跨重放取多数」在两轮臂上实为并集(任一轮答对即算对),会同时抬高两臂并偏袒方差大的那一臂;
+      P6/P8/P9 用过该聚合,结论需按逐对配对检验复核(P6 已复核并撤稿)
 - [ ] recall fingerprint 不能跨 config schema 变更反解:加/移 knob 会改变所有 fingerprint,
       旧运行的配置无法用当前 config 空间搜回来(`1c553b61`、`361ded7e` 即如此)。
       守卫仍能拒绝错误归因,但不能当作「那一臂当时是什么」的记录——配置要写进 write-up。
