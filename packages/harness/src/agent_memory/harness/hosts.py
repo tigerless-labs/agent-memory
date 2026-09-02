@@ -146,11 +146,16 @@ class HermesDialect(Dialect):
     prompt_on_stdin = False
 
     def command(self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file):
-        command = [spec.binary, "-z", PROMPT_PLACEHOLDER, "--model", spec.model]
+        command = [spec.binary, "-z", PROMPT_PLACEHOLDER, "--model", self.routed_model(spec)]
         if spec.provider:
             command += ["--provider", spec.provider]
         command += ["-t", HERMES_TOOLSETS if tools_enabled else ""]
         return command + ["--ignore-user-config", "--ignore-rules", "--yolo"]
+
+    def routed_model(self, spec: HostSpec) -> str:
+        """Hermes eats one `<provider>/` prefix off the model as routing, so a backend that
+        wants a publisher-qualified id — Vertex wants `google/<model>` — needs one added back."""
+        return f"{spec.provider}/{spec.model}" if spec.provider else spec.model
 
     def stdin(self, prompt: str, system_prompt: str) -> str:
         return (system_prompt + PROMPT_SEPARATOR + prompt) if system_prompt else prompt

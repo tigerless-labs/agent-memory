@@ -130,3 +130,25 @@ def test_stdout_hosts_return_stdout(tmp_path):
 def test_an_unavailable_host_is_reported_rather_than_silently_skipped():
     spec = hosts.HostSpec(name="nope", binary="definitely-not-installed", model="m")
     assert not spec.available()
+
+
+def test_hermes_re_adds_the_prefix_it_is_about_to_strip(tmp_path):
+    """It consumes one provider prefix as routing; a publisher-qualified backend needs it back."""
+    spec = hosts.HostSpec(
+        name=hosts.HOST_HERMES, binary="hermes", model="google/gemini-3.7-flash",
+        provider="gemini",
+    )
+    command = hosts.DIALECTS[hosts.HOST_HERMES].command(
+        spec, tools_enabled=True, system_prompt="k", max_turns=7,
+        store_root=tmp_path / "store", answer_file=tmp_path / "a.txt",
+    )
+    assert command[command.index("--model") + 1] == "gemini/google/gemini-3.7-flash"
+
+
+def test_hermes_leaves_the_model_alone_when_no_provider_is_pinned(tmp_path):
+    spec = hosts.HostSpec(name=hosts.HOST_HERMES, binary="hermes", model="some-model")
+    command = hosts.DIALECTS[hosts.HOST_HERMES].command(
+        spec, tools_enabled=True, system_prompt="k", max_turns=7,
+        store_root=None, answer_file=tmp_path / "a.txt",
+    )
+    assert command[command.index("--model") + 1] == "some-model"
