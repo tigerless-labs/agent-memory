@@ -4,13 +4,18 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import datetime
 import json
 import os
 import pathlib
+import shutil
 import sys
 from collections.abc import Sequence
 
+from agent_memory.core.clock import Clock, FrozenClock
 from agent_memory.core.config import Config
+from agent_memory.core.manage import Manage
+from agent_memory.core.store import Store
 
 from . import arms as arms_module
 from . import dataset, sampling
@@ -33,7 +38,7 @@ TRUTHY = ("1", "true", "yes", "on")
 HOST_BINARIES = {
     "claude-code": ("claude", DEFAULT_MODEL),
     "codex": ("codex", "gpt-5.6-sol"),
-    "hermes": ("hermes", "google/google/gemini-3.7-flash"),
+    "hermes": ("hermes", "google/gemini-3.7-flash"),
 }
 HOST_PROVIDERS = {"hermes": "gemini"}
 PROBE_PROMPT = "Reply with exactly: OK"
@@ -122,6 +127,17 @@ def _parser() -> argparse.ArgumentParser:
     interoperator.add_argument("--hosts", default=",".join(DIALECTS))
     interoperator.add_argument("--json", action="store_true")
     interoperator.set_defaults(handler=_interop)
+
+    sleeper = subparsers.add_parser(
+        "sleep-stores", help="copy a store tree and run sleep-time Manage over every store"
+    )
+    sleeper.add_argument("--stores", required=True)
+    sleeper.add_argument("--target", required=True)
+    sleeper.add_argument(
+        "--days-later", type=float, default=0.0,
+        help="sleep as if this many days have passed, so decay and staleness can fire",
+    )
+    sleeper.set_defaults(handler=_sleep_stores)
 
     reporter = subparsers.add_parser("report", help="summarise a finished run")
     reporter.add_argument("--workspace", required=True)
@@ -329,6 +345,41 @@ def _model_env(name: str) -> str:
 
 def _provider_env(name: str) -> str:
     return name.replace("-", "_").upper() + "_PROVIDER"
+
+
+def _sleep_stores(args: argparse.Namespace) -> int:
+    """Copy first: the un-slept arm has to survive as the control."""
+    source = pathlib.Path(args.stores)
+    target = pathlib.Path(args.target)
+    if target.exists():
+        raise FileExistsError(f"{target} already exists")
+    shutil.copytree(source, target)
+
+    clock = _clock_at(args.days_later)
+    slept = 0
+    actions = 0
+    proposals = 0
+    for root in sorted(path for path in target.rglob("MEMORY.md")):
+        store = Store(root.parent, config=Config.default(), clock=clock, agent="sleep")
+        report = Manage(store, clock).sleep()
+        slept += 1
+        actions += len(report.actions)
+        proposals += len(report.proposals)
+    print(
+        json.dumps(
+            {"stores": slept, "actions": actions, "proposals": proposals, "target": str(target)},
+            sort_keys=True,
+        )
+    )
+    return EXIT_OK
+
+
+def _clock_at(days_later: float):
+    """Value-based forgetting is a function of elapsed time; a same-day store has nothing to
+    forget. Advancing the clock is how the staleness curve becomes measurable at all."""
+    if days_later <= 0:
+        return None
+    return FrozenClock(Clock().now() + datetime.timedelta(days=days_later))
 
 
 def _report(args: argparse.Namespace) -> int:
