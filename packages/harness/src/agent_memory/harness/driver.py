@@ -46,6 +46,7 @@ class Driver:
         experience_workers: int = EXPERIENCE_WORKERS,
         exam_max_turns: int = EXAM_MAX_TURNS,
         config: Config | None = None,
+        reuse_stores: pathlib.Path | None = None,
     ):
         self._host = host
         self._judge = judge
@@ -56,11 +57,16 @@ class Driver:
         self._experience_workers = experience_workers
         self._exam_max_turns = exam_max_turns
         self._config = config
+        self._reuse_stores = reuse_stores
 
     def run(self, episode: Episode, arm: Arm) -> RunRecord:
         store = self._store_for(episode, arm)
         workdir = self._workdir_for(episode, arm)
-        phase = self._experience(store, episode, arm, workdir)
+        phase = (
+            ExperiencePhase(calls=0, seconds=0.0, blocking_seconds=0.0, failures=0)
+            if self._reuse_stores
+            else self._experience(store, episode, arm, workdir)
+        )
         exam_prompt = framing.exam(episode, with_memory=arm.memory)
         self._assert_isolated(exam_prompt, episode)
         if arm.memory:
@@ -98,10 +104,15 @@ class Driver:
         )
 
     def _store_for(self, episode: Episode, arm: Arm) -> Store:
-        root = self._workspace / arm.name / episode.id
+        """A read-side experiment varies R over a fixed W, so it replays the same stores
+        rather than rebuilding them — cheaper, and the write side is then provably identical."""
+        root = (self._reuse_stores or self._workspace) / arm.name / episode.id
         config = dataclasses.replace(self._config) if self._config else None
         store = Store(root, config=config, agent=f"harness-{arm.name}")
-        store.init()
+        if self._reuse_stores is None:
+            store.init()
+        elif not root.exists():
+            raise FileNotFoundError(f"no store to reuse at {root}")
         return store
 
     def _workdir_for(self, episode: Episode, arm: Arm) -> pathlib.Path:

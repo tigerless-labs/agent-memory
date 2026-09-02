@@ -58,6 +58,10 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--experience-workers", type=int, default=4)
     runner.add_argument("--exam-max-turns", type=int, default=20)
     runner.add_argument(
+        "--reuse-stores", default=None,
+        help="replay against another run's stores; skips the experience phase entirely",
+    )
+    runner.add_argument(
         "--set", action="append", default=[], metavar="SECTION.KNOB=VALUE",
         help="override one config knob for every run in this matrix",
     )
@@ -125,6 +129,7 @@ def _run(args: argparse.Namespace) -> int:
         experience_workers=args.experience_workers,
         exam_max_turns=args.exam_max_turns,
         config=_configured(args.set),
+        reuse_stores=pathlib.Path(args.reuse_stores) if args.reuse_stores else None,
         run_id=args.run_id,
         episode_fingerprint=sampling.fingerprint(episodes),
     )

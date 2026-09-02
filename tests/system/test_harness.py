@@ -294,6 +294,49 @@ def test_a_failed_run_is_never_regraded_into_a_correct_one(tmp_path, suite):
     assert not regrade(failed, Generous(), {}, workers=1)[0]["correct"]
 
 
+def test_reusing_stores_skips_the_experience_phase_and_keeps_the_written_memories(tmp_path, suite):
+    episodes = dataset.load(suite)
+    host = StubHost()
+    _driver(tmp_path, host, episodes).run(episodes[0], arms.W1)
+    written = sorted(
+        path.name for path in (tmp_path / "stores" / arms.W1.name / episodes[0].id).rglob("*.md")
+    )
+
+    replay_host = StubHost()
+    replay = Driver(
+        host=replay_host,
+        judge=StubJudge(),
+        workspace=tmp_path / "replay",
+        sessions_per_call=2,
+        run_id="replay",
+        episode_fingerprint=sampling.fingerprint(episodes),
+        reuse_stores=tmp_path / "stores",
+    )
+    record = replay.run(episodes[0], arms.W1)
+
+    assert record.experience_calls == 0
+    assert len(replay_host.prompts) == 1
+    assert record.correct
+    assert sorted(
+        path.name for path in (tmp_path / "stores" / arms.W1.name / episodes[0].id).rglob("*.md")
+    ) == written
+
+
+def test_reusing_a_store_that_was_never_written_is_an_error(tmp_path, suite):
+    episodes = dataset.load(suite)
+    replay = Driver(
+        host=StubHost(),
+        judge=StubJudge(),
+        workspace=tmp_path / "replay",
+        sessions_per_call=2,
+        run_id="replay",
+        episode_fingerprint=sampling.fingerprint(episodes),
+        reuse_stores=tmp_path / "nothing-here",
+    )
+    with pytest.raises(FileNotFoundError):
+        replay.run(episodes[0], arms.W1)
+
+
 def test_an_arm_can_be_expressed_as_a_config_override(tmp_path):
     from agent_memory.harness.main import _configured
 
