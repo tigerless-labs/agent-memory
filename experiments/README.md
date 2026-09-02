@@ -49,6 +49,33 @@ uv run mem-exp report --workspace runs/p2
 Results: **[results/index.md](results/index.md)** is the ledger of every measured
 configuration; the individual write-ups carry the reasoning.
 
+## What in `experiments/runs/` may be deleted, and what may not
+
+`experiments/runs/*/stores/` holds the memory stores a run built. They are gitignored — 464 MB
+of them — so git protects none of it, and the most expensive artefact this project has produced
+is the part a routine directory cleanup would take first. Two worktree removals nearly did.
+
+**Keep. A write pass costs hours and these are the frozen corpora every read-side comparison is
+anchored to.**
+
+| corpus | size | why it cannot be rebuilt |
+|---|---|---|
+| `p4sup/stores` | 101 MB, 120 stores | Every read-side result — P5 through P9 — is a replay against exactly these. A new write pass produces different stores, so a future read-side number measured elsewhere is not comparable to any of them. |
+| `p7slept/stores` | 96 MB, 120 stores | The same corpus after one Manage sleep. The before/after pair is the only evidence about M's net effect that exists; regenerating the "after" needs the "before" intact. |
+
+**Disposable.** The n=24 optimisation rounds (`p2`, `p2v2`, `p2v3`, `p2v4`, `p2v5*`), the smoke
+runs, the discarded `fx1`/`fx2`, and the per-host slices. Their conclusions are recorded and
+nothing replays against them. `p3on/stores` (90 MB) sits between the two: P3 is settled and no
+run is anchored to it, so it is archival rather than load-bearing.
+
+**Not corpora at all.** A run started with `--reuse-stores` leaves a `stores/` of about 968 KB —
+scaffolding, not memories. `fxa`, `fxb`, `ctxa`, `ctxb`, `w24a`, `w24b`, `p5*`, `p3off` and `p7a`
+are all of this kind. Size tells them apart: under a megabyte means the run borrowed its corpus.
+
+Deleting a frozen corpus does not lose a *finding* — the records and write-ups are committed.
+It loses the ability to run one more arm against the same write pass, which is the only way a
+read-side change can be measured at all.
+
 Run records (`experiments/runs/*/runs.jsonl`) are committed as evidence. The stores they were
 built from are not — 468 MB — so a write-up's claims are checkable from the records while the
 corpora stay reproducible from `mem-exp prepare`.
