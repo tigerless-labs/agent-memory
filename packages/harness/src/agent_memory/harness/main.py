@@ -33,8 +33,9 @@ TRUTHY = ("1", "true", "yes", "on")
 HOST_BINARIES = {
     "claude-code": ("claude", DEFAULT_MODEL),
     "codex": ("codex", "gpt-5.6-sol"),
-    "hermes": ("hermes", "gemini-3.7-flash"),
+    "hermes": ("hermes", "google/gemini-3.7-flash"),
 }
+HOST_PROVIDERS = {"hermes": "custom"}
 INTEROP_FACT = interop_module.Fact(
     subject="the drain window",
     sentence="The queue drain window must exceed the worker lease TTL by 90 seconds.",
@@ -79,7 +80,8 @@ def _parser() -> argparse.ArgumentParser:
         "--set", action="append", default=[], metavar="SECTION.KNOB=VALUE",
         help="override one config knob for every run in this matrix",
     )
-    runner.add_argument("--model", default=DEFAULT_MODEL)
+    runner.add_argument("--host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
+    runner.add_argument("--model", default="")
     runner.add_argument("--judge-model", default=JUDGE_MODEL)
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
@@ -137,7 +139,7 @@ def _run(args: argparse.Namespace) -> int:
         json.dumps({episode.id: episode.question for episode in episodes}, sort_keys=True),
         encoding="utf-8",
     )
-    host = Host(HostSpec(name=HOST_CLAUDE_CODE, binary="claude", model=args.model))
+    host = _host(args.host, args.model)
     judge = Judge(Host(HostSpec(name=HOST_CLAUDE_CODE, binary="claude", model=args.judge_model)))
     if not host.spec.available():
         print(json.dumps({"error": f"host binary not found: {host.spec.binary}"}), file=sys.stderr)
@@ -256,11 +258,17 @@ def _interop(args: argparse.Namespace) -> int:
     return EXIT_OK if all(result.passed for result in results) else EXIT_ERROR
 
 
-def _host(name: str) -> Host:
-    binary, model = HOST_BINARIES[name]
+def _host(name: str, model: str = "", attempts: int = 1) -> Host:
+    """Model and provider come from the environment so a host is added without a code change."""
+    binary, default_model = HOST_BINARIES[name]
     return Host(
-        HostSpec(name=name, binary=binary, model=os.environ.get(_model_env(name)) or model,
-                 provider=os.environ.get(_provider_env(name), ""), attempts=1)
+        HostSpec(
+            name=name,
+            binary=binary,
+            model=model or os.environ.get(_model_env(name)) or default_model,
+            provider=os.environ.get(_provider_env(name), HOST_PROVIDERS.get(name, "")),
+            attempts=attempts,
+        )
     )
 
 

@@ -1,7 +1,8 @@
 # TODO
 
 - [ ] ADR-007 实现语言待 Ryan 签字(见 decisions/adr-007)
-- [ ] Hermes Agent 接入细节核验:provider 接口、运行日志格式、headless 驱动方式
+- [x] Hermes 接入已核验:`hermes -z` 一次性模式、`-t` 限定 toolset(必须排除内置 memory)、
+      `--provider` + `--model`;驱动已实现,阻塞点仅剩凭证(见下条)
 - [ ] MemGym 任务形态与回放驱动器适配调研(P1 前置)
 - [ ] 跨 agent weight 语义(A 常用对 B 是否噪音)——P3 后凭数据再议
 - [ ] MEMORY.md 注入预算是否按 agent 分——同上
@@ -47,4 +48,13 @@
 - [ ] Docker 镜像(roadmap M5):未实现,MCP/CLI 同体分发缺一块
 - [ ] `sessions/` 实际存明文 .txt,storage.md 原写「压缩副本」——已按实现改文档,
       压缩本身仍是待办(千条规模下体积是真成本)
+- [ ] Hermes 跑不起来:唯一缺口是推理凭证。两条路择一——
+      (a) `gcloud auth login`(账号 server@tigerless.com,需 aiplatform.endpoints.predict 权限),
+          再走 Vertex 的 OpenAI 兼容端点;注意 hermes 的 custom provider 只从 config.yaml 读
+          api_key,不读环境变量,而 gcloud token 一小时过期——这条路要么给 hermes 加 env 支持,
+          要么用服务账号长期密钥;
+      (b) 直接在 ~/.hermes/.env 设 GEMINI_API_KEY(AI Studio),`--provider gemini`,绕开
+          gcloud、Vertex 权限与 token 过期。推荐 (b)。
+- [ ] fx1/fx2(fixed-exam 两轮)无效:宿主调用非零退出且无 stderr,手工重放同样 prompt 正常,
+      判定为环境性失败(疑似长时间连跑后的限流)。结论未取得,需重跑。
 
