@@ -16,6 +16,8 @@ has no M, or buries it in the write path.
 - **[docs/TODO.md](docs/TODO.md)** — tracked follow-ups not yet on the roadmap.
   **Keep this current in real time** (see rule below).
 - **[docs/testing.md](docs/testing.md)** — test conventions and the per-file test map.
+- **[docs/experiments.md](docs/experiments.md)** — experiment protocol: what counts as a result,
+  what licenses attribution, what every run must leave behind. *(Read before running any experiment.)*
 - **[docs/plans/](docs/plans/)** — roadmap and per-change implementation plans (working
   artifacts, exempt from the design-doc style rules).
 
@@ -100,7 +102,8 @@ out of order is *incomplete*.
 - **Real-time TODO.** Discover a follow-up → write it into `docs/TODO.md` immediately;
   finish one → remove it. Never leave it only in chat.
 - **Verify empirical claims by experiment before asserting** — measurements live under
-  `experiments/`, linked back as `evidence:`.
+  `experiments/`, linked back as `evidence:`. The protocol that decides whether a measurement
+  is a result at all is [docs/experiments.md](docs/experiments.md).
 - **Agent prompts are positive-only.** State what the model *should* write — never "don't
   do X"; naming a behavior primes it. Reserve explicit prohibitions for failure modes
   actually observed in traces.

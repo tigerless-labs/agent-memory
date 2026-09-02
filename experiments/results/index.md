@@ -6,18 +6,15 @@ them (`experiments/runs/*/runs.jsonl`); the stores they were built from are not,
 
 ## Read this before reading a number
 
-A single replay of a frozen configuration swings ±7 per 120 episodes
-([p2-optimisation.md](p2-optimisation.md)). **A row with one replay establishes nothing**, and
-rows differing by less than about seven answers are not distinguishable.
+The rules that decide whether a row here is a result — the noise floor, the replay and pairing
+requirements, and what licenses attribution — are in **[docs/experiments.md](../../docs/experiments.md)**.
+Two consequences bite hardest on this page:
 
-Two further cautions, both learned the hard way in [p6](p6-list-width.md):
-
-- **A row is a configuration, not a variable.** Rows here differ in the recall fingerprint *and*
-  in exam mode, and exam mode is not in the fingerprint. Comparing two rows measures whatever
+- **A row is a configuration, not a variable.** Rows differ in the recall fingerprint *and* in
+  exam mode, and exam mode is not in the fingerprint. Comparing two rows measures whatever
   differs between them, which is not always the knob you had in mind.
-- **"Majority across replays" is a union when an arm has two replays**, so it inflates both arms
-  and flatters the one with the larger spread. Prefer pairwise paired tests between individual
-  replays.
+- **A row with one replay establishes nothing**, and rows differing by less than about seven
+  answers are not distinguishable.
 
 ## Ledger
 

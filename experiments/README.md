@@ -3,6 +3,11 @@
 Measurements that back empirical claims. Data and run artifacts stay out of git
 (`experiments/data/`, `experiments/runs/`); protocols and results live here.
 
+The rules every experiment follows — experiment types, what counts as a result, attribution
+conditions, what a run must record, failure handling — are in
+**[docs/experiments.md](../docs/experiments.md)**. This page carries the protocols and the
+retention list; it does not restate the rules.
+
 ## P2 — write-option comparison on LongMemEval
 
 **Question.** With retrieval held fixed, how much does each write strategy (W0–W4) change
