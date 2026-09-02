@@ -36,6 +36,11 @@ HOST_BINARIES = {
     "hermes": ("hermes", "google/gemini-3.7-flash"),
 }
 HOST_PROVIDERS = {"hermes": "custom"}
+PROBE_PROMPT = "Reply with exactly: OK"
+PROBE_TOKEN = "OK"
+PROBE_TURNS = 3
+PROBE_EXCERPT = 120
+REACHABILITY = {True: "yes", False: "NO"}
 INTEROP_FACT = interop_module.Fact(
     subject="the drain window",
     sentence="The queue drain window must exceed the worker lease TTL by 90 seconds.",
@@ -102,6 +107,13 @@ def _parser() -> argparse.ArgumentParser:
     calibrator.add_argument("--judge-model", default=JUDGE_MODEL)
     calibrator.add_argument("--concurrency", type=int, default=8)
     calibrator.set_defaults(handler=_calibrate)
+
+    prober = subparsers.add_parser(
+        "hosts", help="which hosts are installed, and which can actually answer right now"
+    )
+    prober.add_argument("--probe", action="store_true", help="send each host one live prompt")
+    prober.add_argument("--json", action="store_true")
+    prober.set_defaults(handler=_hosts)
 
     interoperator = subparsers.add_parser(
         "interop", help="one store, several hosts: what A writes, B must read"
@@ -242,6 +254,45 @@ def _calibrate(args: argparse.Namespace) -> int:
     for name in wrong:
         print(f"  disagrees: {name}")
     return EXIT_OK if not wrong else EXIT_ERROR
+
+
+def _hosts(args: argparse.Namespace) -> int:
+    """Availability is data, not an assumption: a host that cannot answer is reported, and a
+    run that excludes it says so rather than quietly measuring one host less."""
+    findings: list[dict[str, object]] = []
+    for name in sorted(DIALECTS):
+        host = _host(name)
+        installed = host.spec.available()
+        reachable: bool | None = None
+        detail = ""
+        if args.probe and installed:
+            result = host.run(PROBE_PROMPT, tools_enabled=False, max_turns=PROBE_TURNS)
+            reachable = result.ok and PROBE_TOKEN in result.text.upper()
+            detail = (result.error or result.text)[:PROBE_EXCERPT]
+        findings.append(
+            {
+                "host": name,
+                "binary": host.spec.binary,
+                "model": host.spec.model,
+                "installed": installed,
+                "reachable": reachable,
+                "detail": detail,
+            }
+        )
+    if args.json:
+        print(json.dumps(findings, indent=REPORT_INDENT))
+        return EXIT_OK
+    print("| host | installed | reachable | detail |")
+    print("|---|---|---|---|")
+    for entry in findings:
+        lines = str(entry["detail"]).splitlines()
+        probed = entry["reachable"]
+        cell = "-" if probed is None else REACHABILITY[probed is True]
+        print(
+            f"| {entry['host']} | {'yes' if entry['installed'] else 'NO'} "
+            f"| {cell} | {lines[0] if lines else ''} |"
+        )
+    return EXIT_OK
 
 
 def _interop(args: argparse.Namespace) -> int:
