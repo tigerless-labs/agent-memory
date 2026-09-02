@@ -54,6 +54,57 @@ uv run mem-exp report --workspace runs/p2
 Results: **[results/index.md](results/index.md)** is the ledger of every measured
 configuration; the individual write-ups carry the reasoning.
 
+## P10 — agent-memory vs MemCore on one host
+
+**Question.** Same host, same episodes, same judge: how does agent-memory compare with
+MemCore (`memcli` v0.2.0, its own `skill.md`) on write coverage and on end-to-end accuracy?
+
+**What it can support.** A system-to-system row is end-to-end only — write and read change
+together, so no score difference is attributable to either side. Write coverage is the one
+quantity that separates: it looks only at what reached disk.
+
+### Protocol
+
+| | |
+|---|---|
+| Suite, sampling, host, judge | as P2 |
+| Systems | `agent-memory` (W2, shipped defaults) · `memcore` (boundary replay, its `skill.md` as system prompt) · W0 control |
+| Exam | agentic for both — the harness has no context builder for MemCore's retrieval |
+| Coverage | `mem-exp coverage`: lexical cover of the gold answer over every record text, abstention items excluded, one pass |
+| Score | n=120, two exam replays per system against the frozen stores, paired McNemar per replay |
+
+### Every known difference between the two arms
+
+| | agent-memory | MemCore |
+|---|---|---|
+| write discipline | the harness's discipline text in the experience prompt | its `skill.md` as system prompt; discipline slot empty |
+| record command | `mem record` (single and batch) | `memcore create <name>` with a frontmatter body |
+| exam preamble | the harness's preamble naming `mem context / recall / read` | a parallel preamble naming `memcore recall / search / get` |
+| session-start injection | MEMORY.md byte prefix | output of `memcore recall --top-k 7`, as its hook injects |
+| raw material | transcript archived, reachable with `--deep` | none — MemCore keeps no transcript |
+| retrieval | BM25 + graph | BGE-small embedding + graph + weight |
+
+Shared: boundary framing, the distill task text, host and model, turn budgets, episode list,
+judge, exam prompt shell.
+
+### Environment
+
+MemCore is built from the local checkout with its embedding feature. On glibc 2.39 its
+`__libc_single_threaded` shim is a read-only static that glibc writes at thread start, so the
+unmodified binary segfaults on every command; the binary used here makes that static writable
+(one line, no behaviour change). `MEMCORE_HOME` names the checkout; each per-episode store is
+its own MemCore directory with the model linked in, and the daemon is stopped after each phase.
+
+### Reproducing
+
+```bash
+export MEMCORE_HOME=/path/to/memcli
+uv run mem-exp run --suite data/longmemeval_s12.json --workspace runs/p10am --arms W0,W2 --per-type 20 --run-id p10am
+uv run mem-exp run --suite data/longmemeval_s12.json --workspace runs/p10mc --arms W2 --per-type 20 --system memcore --run-id p10mc
+uv run mem-exp coverage --workspace runs/p10am
+uv run mem-exp coverage --workspace runs/p10mc
+```
+
 ## What in `experiments/runs/` may be deleted, and what may not
 
 `experiments/runs/*/stores/` holds the memory stores a run built. They are gitignored — 464 MB

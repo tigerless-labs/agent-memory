@@ -18,7 +18,8 @@ from agent_memory.core.manage import Manage
 from agent_memory.core.store import Store
 
 from . import arms as arms_module
-from . import dataset, sampling
+from . import coverage as coverage_module
+from . import dataset, sampling, systems
 from . import exam as exam_module
 from . import interop as interop_module
 from . import judge as judge_module
@@ -98,6 +99,10 @@ def _parser() -> argparse.ArgumentParser:
         help="override one config knob for every run in this matrix",
     )
     runner.add_argument("--host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
+    runner.add_argument(
+        "--system", default=systems.NATIVE, choices=systems.NAMES,
+        help="the memory system under test; memcore reads its checkout from MEMCORE_HOME",
+    )
     runner.add_argument("--model", default="")
     runner.add_argument("--judge-model", default=JUDGE_MODEL)
     runner.add_argument("--concurrency", type=int, default=4)
@@ -146,6 +151,19 @@ def _parser() -> argparse.ArgumentParser:
     )
     sleeper.set_defaults(handler=_sleep_stores)
 
+    prober_coverage = subparsers.add_parser(
+        "coverage", help="offline: did the gold answer reach any record a run wrote?"
+    )
+    prober_coverage.add_argument("--workspace", required=True)
+    prober_coverage.add_argument(
+        "--stores", default=None, help="store tree to read; defaults to <workspace>/stores"
+    )
+    prober_coverage.add_argument(
+        "--threshold", type=float, default=coverage_module.DEFAULT_THRESHOLD
+    )
+    prober_coverage.add_argument("--json", action="store_true")
+    prober_coverage.set_defaults(handler=_coverage)
+
     reporter = subparsers.add_parser("report", help="summarise a finished run")
     reporter.add_argument("--workspace", required=True)
     reporter.add_argument("--json", action="store_true")
@@ -187,6 +205,7 @@ def _run(args: argparse.Namespace) -> int:
         print(json.dumps({"error": f"host binary not found: {host.spec.binary}"}), file=sys.stderr)
         return EXIT_ERROR
 
+    config = _configured(args.set)
     driver = Driver(
         host=host,
         judge=judge,
@@ -195,10 +214,11 @@ def _run(args: argparse.Namespace) -> int:
         experience_workers=args.experience_workers,
         exam_max_turns=args.exam_max_turns,
         exam_mode=args.exam_mode,
-        config=_configured(args.set),
+        config=config,
         reuse_stores=pathlib.Path(args.reuse_stores) if args.reuse_stores else None,
         run_id=args.run_id,
         episode_fingerprint=sampling.fingerprint(episodes),
+        system=systems.build(args.system, config),
     )
     jobs = [(episode, arm) for arm in selected for episode in episodes]
     done = 0
@@ -422,6 +442,15 @@ def _clock_at(days_later: float):
     if days_later <= 0:
         return None
     return FrozenClock(Clock().now() + datetime.timedelta(days=days_later))
+
+
+def _coverage(args: argparse.Namespace) -> int:
+    """Deterministic, so one pass is a result; offline, so it costs no host call."""
+    workspace = pathlib.Path(args.workspace)
+    stores = pathlib.Path(args.stores) if args.stores else workspace / "stores"
+    rows = coverage_module.probe(MetricsSink(workspace).records(), stores, args.threshold)
+    print(coverage_module.as_json(rows) if args.json else coverage_module.render(rows))
+    return EXIT_OK
 
 
 def _report(args: argparse.Namespace) -> int:

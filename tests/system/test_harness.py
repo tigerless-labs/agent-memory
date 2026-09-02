@@ -2,11 +2,14 @@
 
 import dataclasses
 import json
+import os
+import subprocess
 
 import pytest
+from agent_memory.core.config import Config
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import Store
-from agent_memory.harness import arms, dataset, framing, report, sampling
+from agent_memory.harness import arms, dataset, framing, report, sampling, systems
 from agent_memory.harness.driver import Driver, IsolationBreach
 from agent_memory.harness.hosts import Host, HostResult, HostSpec
 from agent_memory.harness.judge import Judge
@@ -58,7 +61,7 @@ class StubHost(Host):
         self.prompts = record_prompts if record_prompts is not None else []
 
     def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="",
-            max_turns=8, workdir=None):
+            max_turns=8, workdir=None, **_):
         self.prompts.append(prompt)
         if self.fail_on and self.fail_on in prompt:
             return HostResult("", False, 0.1, "stub failure")
@@ -104,7 +107,7 @@ def _driver(tmp_path, host, episodes):
 
 def test_the_exam_prompt_never_carries_experience_content(suite):
     episode = dataset.load(suite)[0]
-    prompt = framing.exam(episode, with_memory=True)
+    prompt = framing.exam(episode, systems.build(systems.NATIVE, Config.default()).exam_preamble())
     assert SECRET not in prompt
     assert episode.question in prompt
 
@@ -158,9 +161,7 @@ def test_injection_is_disabled_by_config_rather_than_by_code(tmp_path, suite):
 
 def test_the_driver_refuses_to_score_a_run_whose_isolation_broke(tmp_path, suite, monkeypatch):
     episodes = dataset.load(suite)
-    monkeypatch.setattr(
-        framing, "exam", lambda episode, with_memory, config=None: SECRET + episode.question
-    )
+    monkeypatch.setattr(framing, "exam", lambda episode, preamble: SECRET + episode.question)
     with pytest.raises(IsolationBreach):
         _driver(tmp_path, StubHost(), episodes).run(episodes[0], arms.W1)
 
@@ -349,18 +350,6 @@ def test_reusing_a_store_that_was_never_written_is_an_error(tmp_path, suite):
         replay.run(episodes[0], arms.W1)
 
 
-def test_the_synthesis_hint_is_a_config_knob_visible_to_the_fingerprint(suite):
-    from agent_memory.core.config import Config
-
-    episode = dataset.load(suite)[0]
-    on, off = Config.default(), Config.default()
-    off.recall.synthesis_hint = False
-
-    assert len(framing.exam(episode, True, on)) > len(framing.exam(episode, True, off))
-    assert framing.exam(episode, False, on) == framing.exam(episode, False, off)
-    assert on.recall_fingerprint() != off.recall_fingerprint()
-
-
 def test_an_arm_can_be_expressed_as_a_config_override(tmp_path):
     from agent_memory.harness.main import _configured
 
@@ -434,3 +423,115 @@ def test_the_cli_refuses_a_worktree_target_without_a_traceback(tmp_path, capsys)
 
     assert code == 1
     assert "worktree" in capsys.readouterr().err
+
+
+class MemcoreStubHost(StubHost):
+    """Reaches MemCore only through the environment the system hands it, like a real host."""
+
+    def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="",
+            max_turns=8, workdir=None, environment=None, **_):
+        self.prompts.append(prompt)
+        env = dict(os.environ) | (environment or {})
+        if "Question:" in prompt:
+            listed = subprocess.run(
+                ["memcore", "recall", "plant"], env=env, capture_output=True, text=True,
+                check=False,
+            ).stdout.split()
+            if not listed:
+                return HostResult("I do not have that information.", True, 0.2)
+            body = subprocess.run(
+                ["memcore", "get", " ".join(listed)], env=env, capture_output=True,
+                text=True, check=False,
+            ).stdout
+            return HostResult(body.strip().splitlines()[-1], True, 0.2)
+        if SECRET in prompt:
+            subprocess.run(
+                ["memcore", "create", "drain window rule"], env=env, check=True,
+                input="---\nabstract: drain window rule\n---\nthe lease TTL\n", text=True,
+            )
+        return HostResult("recorded", True, 0.3)
+
+
+def _memcore_driver(tmp_path, host, episodes, memcore_home):
+    return Driver(
+        host=host,
+        judge=StubJudge(),
+        workspace=tmp_path / "stores",
+        sessions_per_call=2,
+        run_id="test-run",
+        episode_fingerprint=sampling.fingerprint(episodes),
+        system=systems.build(systems.MEMCORE, Config.default(), memcore_home=memcore_home),
+    )
+
+
+def test_the_driver_runs_an_episode_through_memcore_end_to_end(tmp_path, suite, memcore_home):
+    episodes = dataset.load(suite)
+    host = MemcoreStubHost()
+    record = _memcore_driver(tmp_path, host, episodes, memcore_home).run(episodes[0], arms.W2)
+
+    assert record.system == systems.MEMCORE
+    assert record.correct
+    assert record.memories_written == 1
+    assert record.recall_fingerprint != Config.default().recall_fingerprint()
+
+    root = tmp_path / "stores" / arms.W2.name / episodes[0].id
+    calls = (root / "calls.log").read_text(encoding="utf-8").split("\n")
+    assert calls.count("stop") == 2
+    assert calls.index("stop") < calls.index("recall")
+    assert not (root / "archive").exists()
+    exam_prompt = next(prompt for prompt in host.prompts if "Question:" in prompt)
+    assert "drain window rule" in exam_prompt
+    assert "memcore" in exam_prompt
+
+
+def test_the_native_system_is_the_default(tmp_path, suite):
+    episodes = dataset.load(suite)
+    record = _driver(tmp_path, StubHost(), episodes).run(episodes[0], arms.W1)
+    assert record.system == systems.NATIVE
+
+
+def test_the_fixed_exam_refuses_a_system_it_cannot_build_context_for(tmp_path, suite, memcore_home):
+    from agent_memory.harness import exam as exam_module
+
+    episodes = dataset.load(suite)
+    with pytest.raises(ValueError, match="fixed"):
+        Driver(
+            host=MemcoreStubHost(),
+            judge=StubJudge(),
+            workspace=tmp_path / "stores",
+            sessions_per_call=2,
+            run_id="t",
+            episode_fingerprint=sampling.fingerprint(episodes),
+            system=systems.build(systems.MEMCORE, Config.default(), memcore_home=memcore_home),
+            exam_mode=exam_module.MODE_FIXED,
+        )
+
+
+def test_the_report_groups_by_system_and_refuses_attribution_across_them(
+    tmp_path, suite, memcore_home
+):
+    episodes = dataset.load(suite)
+    sink = MetricsSink(tmp_path / "metrics")
+    sink.append(_driver(tmp_path, StubHost(), episodes).run(episodes[0], arms.W2))
+    sink.append(
+        _memcore_driver(tmp_path / "mc", MemcoreStubHost(), episodes, memcore_home).run(
+            episodes[0], arms.W2
+        )
+    )
+
+    summary = report.summarise(sink.records())
+    assert [(row.system, row.arm) for row in summary.arms] == [
+        (systems.NATIVE, "W2"), (systems.MEMCORE, "W2"),
+    ]
+    assert not summary.attribution_is_licensed()
+    rendered = report.render(summary)
+    assert systems.MEMCORE in rendered and systems.NATIVE in rendered
+
+
+def test_old_records_without_a_system_field_still_report(tmp_path, suite):
+    episodes = dataset.load(suite)
+    sink = MetricsSink(tmp_path / "metrics")
+    sink.append(_driver(tmp_path, StubHost(), episodes).run(episodes[0], arms.W1))
+    records = sink.records()
+    del records[0]["system"]
+    assert report.summarise(records).arms[0].system == systems.NATIVE

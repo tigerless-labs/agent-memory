@@ -1,18 +1,13 @@
-"""Prompt framing per arm. The only thing that differs between write arms is this text."""
+"""Prompt framing per arm. The task text is the harness's and is shared by every memory
+system; what a system brings of its own — record hint, discipline, exam preamble — is
+handed in, never chosen here."""
 
 from __future__ import annotations
 
 from agent_memory.core import prompts
-from agent_memory.core.config import Config
 
 from .arms import MODE_BOUNDARY, MODE_COLD, MODE_INLINE
 from .dataset import Episode
-
-RECORD_HINT = (
-    "mem record --domain <user|project|reference|experience> --type <type> "
-    '--abstract "<one line>" --body "<markdown>"'
-)
-RECALL_HINT = "mem recall <query>"
 
 BOUNDARY = """You have just finished this stretch of conversation with the user.
 Look back over it while it is still fresh and write down what will still matter later."""
@@ -56,18 +51,16 @@ Question: {question}
 Reply with the answer itself and nothing else."""
 
 
-def experience(mode: str, segment: str) -> str:
-    return FRAMINGS[mode] + "\n\n" + prompts.distill(segment, RECORD_HINT)
+def experience(mode: str, segment: str, record_hint: str, discipline: str) -> str:
+    return FRAMINGS[mode] + "\n\n" + prompts.distill(segment, record_hint, discipline)
 
 
-def exam(episode: Episode, with_memory: bool, config: Config | None = None) -> str:
-    if not with_memory:
+def exam(episode: Episode, preamble: str) -> str:
+    """No preamble means no memory: the control arm answers from what it knows."""
+    if not preamble:
         return EXAM_WITHOUT_MEMORY.format(date=episode.question_date, question=episode.question)
-    synthesis = config.recall.synthesis_hint if config else True
     return EXAM_WITH_MEMORY.format(
-        date=episode.question_date,
-        preamble=prompts.exam(RECALL_HINT, synthesis=synthesis),
-        question=episode.question,
+        date=episode.question_date, preamble=preamble, question=episode.question
     )
 
 
@@ -77,8 +70,8 @@ def fixed_exam(episode: Episode, context: str) -> str:
     )
 
 
-def with_injected_index(exam_prompt: str, index: str) -> str:
+def with_injected(exam_prompt: str, block: str) -> str:
     """The injection track, appended after the isolation gate has cleared the question."""
-    if not index.strip():
+    if not block.strip():
         return exam_prompt
-    return prompts.injected_index(index) + INJECTION_SEPARATOR + exam_prompt
+    return block + INJECTION_SEPARATOR + exam_prompt
