@@ -10,3 +10,7 @@
 - [ ] 重要性阈值触发(session 内中间档)——v0.2,P2 数据证明边界蒸馏漏隐式教训再上
 - [ ] 实习生方案文献补进调研 atlas(TEPA/MemGate/BASM/AgeMem/M★/MemHarness 等 10 篇)
 - [ ] Graphiti 引用 URL 勘误(getzep/graphiti,非 Agentopia)——通知实习生
+- [ ] W3 冷读蒸馏在 P2 上写得最多、分最低,且是唯一在弃权题上倒退的臂
+      (evidence: experiments/results/p2-longmemeval.md)——冷读缺少现场 context 的
+      代价需定位后再作为 cron 兜底档
+- [ ] P2 需扩大 n:W1/W2/W4 在 n=24 下不可分(两两 p ≥ 0.6),写入默认档暂按成本定为 W2
