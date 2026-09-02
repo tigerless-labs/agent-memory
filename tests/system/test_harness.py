@@ -535,3 +535,70 @@ def test_old_records_without_a_system_field_still_report(tmp_path, suite):
     records = sink.records()
     del records[0]["system"]
     assert report.summarise(records).arms[0].system == systems.NATIVE
+
+
+class LimitedHost(StubHost):
+    """Fails the way a host does when the account's quota is exhausted."""
+
+    def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="", max_turns=8,
+            workdir=None, **_):
+        self.prompts.append(prompt)
+        return HostResult("", False, 0.1, "You've hit your session limit · resets 9:10pm")
+
+
+def test_a_quota_failure_halts_the_matrix_instead_of_failing_every_episode(tmp_path, suite):
+    from agent_memory.harness.main import _execute
+
+    episodes = dataset.load(suite)
+    driver = _driver(tmp_path, LimitedHost(), episodes)
+    sink = MetricsSink(tmp_path / "ws")
+    jobs = [(episode, arms.W1) for episode in episodes]
+
+    halted = _execute(driver, jobs, sink, concurrency=1)
+
+    assert "limit" in halted
+    assert 0 < len(sink.records()) < len(jobs)
+
+
+def test_an_ordinary_failure_does_not_halt_the_matrix(tmp_path, suite):
+    from agent_memory.harness.main import _execute
+
+    episodes = dataset.load(suite)
+    driver = _driver(tmp_path, StubHost(fail_on="Question:"), episodes)
+    sink = MetricsSink(tmp_path / "ws")
+    jobs = [(episode, arms.W1) for episode in episodes]
+
+    assert _execute(driver, jobs, sink, concurrency=2) == ""
+    assert len(sink.records()) == len(jobs)
+
+
+def test_resume_reruns_only_what_did_not_succeed(tmp_path, suite):
+    from agent_memory.harness.main import _resumable
+
+    episodes = dataset.load(suite)
+    driver = _driver(tmp_path, StubHost(), episodes)
+    sink = MetricsSink(tmp_path / "ws")
+    fingerprint = sampling.fingerprint(episodes)
+    sink.append(driver.run(episodes[0], arms.W1))
+    failing = _driver(tmp_path, StubHost(fail_on="Question:"), episodes)
+    sink.append(failing.run(episodes[1], arms.W1))
+    jobs = [(episode, arms.W1) for episode in episodes]
+
+    remaining = _resumable(sink, jobs, fingerprint, systems.NATIVE)
+
+    assert [episode.id for episode, _ in remaining] == [episodes[1].id, episodes[2].id]
+    assert [record["episode_id"] for record in sink.records()] == [episodes[0].id]
+
+
+def test_resume_refuses_a_workspace_from_another_episode_set_or_system(tmp_path, suite):
+    from agent_memory.harness.main import _resumable
+
+    episodes = dataset.load(suite)
+    sink = MetricsSink(tmp_path / "ws")
+    sink.append(_driver(tmp_path, StubHost(), episodes).run(episodes[0], arms.W1))
+    jobs = [(episode, arms.W1) for episode in episodes]
+
+    with pytest.raises(ValueError, match="episode"):
+        _resumable(sink, jobs, "another-fingerprint", systems.NATIVE)
+    with pytest.raises(ValueError, match="system"):
+        _resumable(sink, jobs, sampling.fingerprint(episodes), systems.MEMCORE)
