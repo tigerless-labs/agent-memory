@@ -1,6 +1,7 @@
 """Red team: memory is a persistent injection surface. Every layer must treat it as data."""
 
 import json
+import re
 
 import pytest
 from agent_memory.adapters import hook_entry, moments
@@ -125,3 +126,41 @@ def test_an_export_of_a_poisoned_store_stays_inert_json(seeded, tmp_path):
 
     payload = portability.export_store(seeded)
     assert json.loads(json.dumps(payload))[portability.KEY_VERSION] == portability.FORMAT_VERSION
+
+
+class Obedient:
+    """A reasoner that has been fully captured: it accepts every proposal it is shown."""
+
+    def __call__(self, prompt: str) -> str:
+        ids = re.findall(r"^- ([0-9a-f]{12}) \(", prompt, flags=re.MULTILINE)
+        return "\n".join(
+            json.dumps({"proposal": found, "verdict": "accept", "text": PAYLOAD})
+            for found in ids
+        )
+
+
+def test_a_captured_reasoner_cannot_reach_past_its_tier(seeded):
+    seeded.record(
+        abstract="The drain window closes before the worker lease expires",
+        type="experience",
+        domain="experience",
+        body=PAYLOAD,
+        name="poisoned-twin-first",
+    )
+    seeded.record(
+        abstract="The drain window closes before the worker lease expires again",
+        type="experience",
+        domain="experience",
+        body="Longer body carrying the lease TTL and the fix that worked.",
+        name="poisoned-twin-second",
+    )
+    before = len(seeded.records(include_archived=True))
+
+    report = Manage(seeded).sleep(reasoner=Obedient())
+
+    assert len(seeded.records(include_archived=True)) == before
+    assert seeded.find("poisoned-twin-first").is_active()
+    assert report.withheld
+    assert all(
+        decision.proposal_id not in report.withheld for decision in report.decisions
+    )

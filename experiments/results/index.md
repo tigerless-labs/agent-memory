@@ -32,7 +32,9 @@ host, calibrated judge.
 | `361ded7e` | 116/240 = 48.3% | 2 | p3on 54, p4sup 62 | raw fallback on; supersede-on-write |
 
 Smaller runs — the n=24 optimisation series and the n=12 per-host slices — are in
-[p2-optimisation.md](p2-optimisation.md) and [p1-generality.md](p1-generality.md).
+[p2-optimisation.md](p2-optimisation.md) and [p1-generality.md](p1-generality.md). The n=24
+sleep comparison, and what it found about the drafter before it got to the exam, is in
+[p11-manage.md](p11-manage.md).
 
 ## System-to-system rows
 

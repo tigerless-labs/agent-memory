@@ -23,9 +23,11 @@ flowchart LR
     A[archive/<br/>provenance / retired / sessions]
     M[睡眠 M<br/>cron · T0-T2 · dream-report]
   end
+  RS[推理执行者<br/>宿主 CLI / 模型端点]
   CC & CX & HM --> HK & MCP & CLI --> P
   P --> T & I & A
   M --> P
+  M <-. "提案出/判决回" .-> RS
   I -. "recall / 注入" .-> hosts
   T -. "地址轨 ls/grep" .-> hosts
 ```
@@ -34,6 +36,8 @@ flowchart LR
 
 - **三个物理组件**:`memory/` 真源、`.index/` 投影(可整删重建)、`archive/` 原料(append-only)。
 - **一条写路径**:agent 写与 M 改全部过同一条管线(Invariant 2)。
+- **智能在外**:核心不含模型客户端;需要判断力处向执行者借,执行者是宿主 CLI 或模型端点,
+  两者可互换、都不含算法(Invariant 5、ADR-002)。
 - **三条读轨**:SessionStart 注入(确定性)、recall 检索(BM25 核心 + 向量插件)、
   目录树地址可达(兜底)。
 - **部署两形态**:本地单可执行物(默认);Docker(容器装 CLI + MCP server,`-v` 挂记忆盘,

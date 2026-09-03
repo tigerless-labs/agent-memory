@@ -6,7 +6,8 @@ import pathlib
 import pytest
 from agent_memory.core import prompts
 from agent_memory.core.config import Config
-from agent_memory.harness import arms, framing, hosts, systems
+from agent_memory.executor import hosts
+from agent_memory.harness import arms, framing, systems
 
 
 @pytest.fixture

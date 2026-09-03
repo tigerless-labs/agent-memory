@@ -1,7 +1,7 @@
 """Short-lived credentials: minted on demand, refreshed before they go stale, never logged."""
 
-from agent_memory.harness import credentials
-from agent_memory.harness.credentials import VertexCredentials
+from agent_memory.executor import credentials
+from agent_memory.executor.credentials import VertexCredentials
 
 
 class Minting(VertexCredentials):
@@ -73,7 +73,13 @@ def test_a_failed_mint_yields_nothing_instead_of_a_half_configured_host(monkeypa
 
 
 def test_only_hermes_carries_credentials(monkeypatch):
-    from agent_memory.harness.hosts import HOST_CLAUDE_CODE, HOST_CODEX, HOST_HERMES, Host, HostSpec
+    from agent_memory.executor.hosts import (
+        HOST_CLAUDE_CODE,
+        HOST_CODEX,
+        HOST_HERMES,
+        Host,
+        HostSpec,
+    )
 
     assert Host(HostSpec(name=HOST_HERMES, binary="hermes")).credentials is not None
     for name in (HOST_CLAUDE_CODE, HOST_CODEX):

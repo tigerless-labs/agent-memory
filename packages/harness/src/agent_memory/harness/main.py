@@ -15,21 +15,25 @@ from collections.abc import Sequence
 from agent_memory.core.clock import Clock, FrozenClock
 from agent_memory.core.config import Config
 from agent_memory.core.manage import Manage
+from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.store import Store
+from agent_memory.executor import reasoners
+from agent_memory.executor.hosts import BINARIES, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 
 from . import arms as arms_module
 from . import coverage as coverage_module
-from . import dataset, sampling, systems
+from . import dataset, locomo, sampling, systems
 from . import exam as exam_module
 from . import interop as interop_module
 from . import judge as judge_module
 from . import report as report_module
 from . import workspace as workspace_module
 from .driver import Driver
-from .hosts import DEFAULT_MODEL, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 from .judge import Judge
 from .metrics import STATUS_OK, MetricsSink
 
+REASON_HOST = "host"
+REASON_ENDPOINT = "endpoint"
 EXIT_OK = 0
 EXIT_ERROR = 1
 DEFAULT_ARMS = "W0,W1,W2,W3,W4"
@@ -37,11 +41,6 @@ DEFAULT_SEED = 20260901
 JUDGE_MODEL = "claude-sonnet-5"
 QUESTIONS_FILENAME = "questions.json"
 TRUTHY = ("1", "true", "yes", "on")
-HOST_BINARIES = {
-    "claude-code": ("claude", DEFAULT_MODEL),
-    "codex": ("codex", "gpt-5.6-sol"),
-    "hermes": ("hermes", "google/gemini-3.7-flash"),
-}
 HOST_PROVIDERS = {"hermes": "gemini"}
 PROBE_PROMPT = "Reply with exactly: OK"
 PROBE_TOKEN = "OK"
@@ -81,6 +80,13 @@ def _parser() -> argparse.ArgumentParser:
     preparer.add_argument("--sessions", type=int, required=True)
     preparer.set_defaults(handler=_prepare)
 
+    converter = subparsers.add_parser(
+        "convert-locomo", help="convert a LoCoMo release into a suite the driver replays"
+    )
+    converter.add_argument("--source", required=True)
+    converter.add_argument("--target", required=True)
+    converter.set_defaults(handler=_convert_locomo)
+
     runner = subparsers.add_parser("run", help="run the W matrix")
     runner.add_argument("--suite", required=True)
     runner.add_argument("--workspace", required=True)
@@ -108,6 +114,10 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--judge-model", default=JUDGE_MODEL)
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
+    runner.add_argument(
+        "--manage", default="",
+        help="label the sleep these stores went through, so the report can compare sleeps",
+    )
     runner.add_argument(
         "--resume", action="store_true",
         help="keep this workspace's successful records and run only the rest",
@@ -154,7 +164,21 @@ def _parser() -> argparse.ArgumentParser:
         "--days-later", type=float, default=0.0,
         help="sleep as if this many days have passed, so decay and staleness can fire",
     )
+    sleeper.add_argument("--reason", choices=(REASON_HOST, REASON_ENDPOINT), default=None)
+    sleeper.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
+    sleeper.add_argument("--reason-model", default="")
+    sleeper.add_argument(
+        "--set", action="append", default=[], metavar="SECTION.KNOB=VALUE",
+        help="override one config knob for every store this step sleeps",
+    )
     sleeper.set_defaults(handler=_sleep_stores)
+
+    comparer = subparsers.add_parser(
+        "compare", help="pair up finished runs and say which differences survive a paired test"
+    )
+    comparer.add_argument("--workspaces", required=True, help="comma-separated run workspaces")
+    comparer.add_argument("--json", action="store_true")
+    comparer.set_defaults(handler=_compare)
 
     prober_coverage = subparsers.add_parser(
         "coverage", help="offline: did the gold answer reach any record a run wrote?"
@@ -182,6 +206,13 @@ def _prepare(args: argparse.Namespace) -> int:
         pathlib.Path(args.source), workspace_module.for_writing(args.target), args.sessions
     )
     print(json.dumps({"episodes": count, "target": args.target, "sessions": args.sessions}))
+    return EXIT_OK
+
+
+def _convert_locomo(args: argparse.Namespace) -> int:
+    target = workspace_module.for_writing(args.target)
+    count = locomo.convert(pathlib.Path(args.source), target)
+    print(json.dumps({"episodes": count, "target": str(target)}))
     return EXIT_OK
 
 
@@ -222,6 +253,7 @@ def _run(args: argparse.Namespace) -> int:
         config=config,
         reuse_stores=pathlib.Path(args.reuse_stores) if args.reuse_stores else None,
         run_id=args.run_id,
+        manage=args.manage,
         episode_fingerprint=sampling.fingerprint(episodes),
         system=systems.build(args.system, config),
     )
@@ -432,7 +464,7 @@ def _affordable(model: str, role: str) -> str:
 
 def _host(name: str, model: str = "", attempts: int = 1) -> Host:
     """Model and provider come from the environment so a host is added without a code change."""
-    binary, default_model = HOST_BINARIES[name]
+    binary, default_model = BINARIES[name]
     return Host(
         HostSpec(
             name=name,
@@ -461,22 +493,28 @@ def _sleep_stores(args: argparse.Namespace) -> int:
     shutil.copytree(source, target)
 
     clock = _clock_at(args.days_later)
-    slept = 0
-    actions = 0
-    proposals = 0
+    reasoner = _reasoner(args)
+    tally = {"stores": 0, "actions": 0, "proposals": 0, "decisions": 0, "withheld": 0}
     for root in sorted(path for path in target.rglob("MEMORY.md")):
-        store = Store(root.parent, config=Config.default(), clock=clock, agent="sleep")
-        report = Manage(store, clock).sleep()
-        slept += 1
-        actions += len(report.actions)
-        proposals += len(report.proposals)
-    print(
-        json.dumps(
-            {"stores": slept, "actions": actions, "proposals": proposals, "target": str(target)},
-            sort_keys=True,
-        )
-    )
+        store = Store(root.parent, config=_configured(args.set), clock=clock, agent="sleep")
+        report = Manage(store, clock).sleep(reasoner=reasoner)
+        tally["stores"] += 1
+        tally["actions"] += len(report.actions)
+        tally["proposals"] += len(report.proposals)
+        tally["decisions"] += len(report.decisions)
+        tally["withheld"] += len(report.withheld)
+    print(json.dumps({**tally, "target": str(target)}, sort_keys=True))
     return EXIT_OK
+
+
+def _reasoner(args: argparse.Namespace) -> Reasoner | None:
+    """The experiment's own borrowed intelligence, spoken to exactly as the CLI speaks to it."""
+    if args.reason == REASON_HOST:
+        return reasoners.HostReasoner(host=_host(args.reason_host, args.reason_model))
+    if args.reason == REASON_ENDPOINT:
+        model = args.reason_model or reasoners.DEFAULT_ENDPOINT_MODEL
+        return reasoners.EndpointReasoner(model=model)
+    return None
 
 
 def _clock_at(days_later: float):
@@ -485,6 +523,35 @@ def _clock_at(days_later: float):
     if days_later <= 0:
         return None
     return FrozenClock(Clock().now() + datetime.timedelta(days=days_later))
+
+
+def _compare(args: argparse.Namespace) -> int:
+    """Arms of one experiment often live in separate workspaces, because they were run on
+    separate days; the paired test needs them side by side."""
+    records = [
+        record
+        for folder in args.workspaces.split(",")
+        if folder.strip()
+        for record in MetricsSink(pathlib.Path(folder.strip())).records()
+    ]
+    summary = report_module.summarise(records)
+    comparisons = report_module.pairwise(records)
+    if args.json:
+        print(
+            json.dumps(
+                {
+                    "arms": [arm.__dict__ for arm in summary.arms],
+                    "comparisons": [comparison.__dict__ for comparison in comparisons],
+                    "attribution_licensed": summary.attribution_is_licensed(),
+                },
+                sort_keys=True,
+            )
+        )
+        return EXIT_OK
+    print(report_module.render(summary))
+    print()
+    print(report_module.render_comparisons(comparisons))
+    return EXIT_OK
 
 
 def _coverage(args: argparse.Namespace) -> int:

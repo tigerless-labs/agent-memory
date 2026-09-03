@@ -11,6 +11,7 @@ dependencies = [
 
 [project.optional-dependencies]
 mcp = ["agent-memory-mcp"]
+executor = ["agent-memory-executor"]
 harness = ["agent-memory-harness"]
 
 [dependency-groups]
@@ -29,6 +30,7 @@ agent-memory-core = { workspace = true }
 agent-memory-cli = { workspace = true }
 agent-memory-mcp = { workspace = true }
 agent-memory-adapters = { workspace = true }
+agent-memory-executor = { workspace = true }
 agent-memory-harness = { workspace = true }
 
 [tool.pytest.ini_options]
@@ -49,6 +51,6 @@ select = ["E", "F", "I", "UP", "B", "SIM"]
 python_version = "3.12"
 namespace_packages = true
 explicit_package_bases = true
-mypy_path = "packages/core/src:packages/cli/src:packages/adapters/src:packages/mcp/src:packages/harness/src"
+mypy_path = "packages/core/src:packages/cli/src:packages/adapters/src:packages/mcp/src:packages/executor/src:packages/harness/src"
 files = ["packages"]
 ignore_missing_imports = true

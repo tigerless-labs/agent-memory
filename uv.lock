@@ -11,6 +11,7 @@ members = [
     "agent-memory-adapters",
     "agent-memory-cli",
     "agent-memory-core",
+    "agent-memory-executor",
     "agent-memory-harness",
     "agent-memory-mcp",
     "agent-memory-workspace",
@@ -33,15 +34,30 @@ version = "0.1.0"
 source = { editable = "packages/cli" }
 dependencies = [
     { name = "agent-memory-core" },
+    { name = "agent-memory-executor" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "agent-memory-core", editable = "packages/core" }]
+requires-dist = [
+    { name = "agent-memory-core", editable = "packages/core" },
+    { name = "agent-memory-executor", editable = "packages/executor" },
+]
 
 [[package]]
 name = "agent-memory-core"
 version = "0.1.0"
 source = { editable = "packages/core" }
+
+[[package]]
+name = "agent-memory-executor"
+version = "0.1.0"
+source = { editable = "packages/executor" }
+dependencies = [
+    { name = "agent-memory-core" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "agent-memory-core", editable = "packages/core" }]
 
 [[package]]
 name = "agent-memory-harness"
@@ -50,12 +66,14 @@ source = { editable = "packages/harness" }
 dependencies = [
     { name = "agent-memory-cli" },
     { name = "agent-memory-core" },
+    { name = "agent-memory-executor" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "agent-memory-cli", editable = "packages/cli" },
     { name = "agent-memory-core", editable = "packages/core" },
+    { name = "agent-memory-executor", editable = "packages/executor" },
 ]
 
 [[package]]
@@ -80,6 +98,9 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
+executor = [
+    { name = "agent-memory-executor" },
+]
 harness = [
     { name = "agent-memory-harness" },
 ]
@@ -100,10 +121,11 @@ requires-dist = [
     { name = "agent-memory-adapters", editable = "packages/adapters" },
     { name = "agent-memory-cli", editable = "packages/cli" },
     { name = "agent-memory-core", editable = "packages/core" },
+    { name = "agent-memory-executor", marker = "extra == 'executor'", editable = "packages/executor" },
     { name = "agent-memory-harness", marker = "extra == 'harness'", editable = "packages/harness" },
     { name = "agent-memory-mcp", marker = "extra == 'mcp'", editable = "packages/mcp" },
 ]
-provides-extras = ["mcp", "harness"]
+provides-extras = ["mcp", "executor", "harness"]
 
 [package.metadata.requires-dev]
 dev = [

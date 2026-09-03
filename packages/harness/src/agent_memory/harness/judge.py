@@ -6,7 +6,8 @@ import concurrent.futures
 import dataclasses
 import re
 
-from .hosts import Host
+from agent_memory.executor.hosts import Host
+
 from .metrics import STATUS_OK
 
 VERDICT_YES = "yes"

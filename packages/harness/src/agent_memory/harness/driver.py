@@ -11,12 +11,12 @@ import dataclasses
 import pathlib
 
 from agent_memory.core.config import Config
+from agent_memory.executor.hosts import Host
 
 from . import exam as exam_module
 from . import framing
 from .arms import MODE_NONE, Arm
 from .dataset import Episode, Session
-from .hosts import Host
 from .judge import Judge
 from .metrics import STATUS_FAILED, STATUS_OK, RunRecord
 from .systems import MemorySystem, NativeSystem
@@ -48,6 +48,7 @@ class Driver:
         config: Config | None = None,
         reuse_stores: pathlib.Path | None = None,
         exam_mode: str = exam_module.MODE_AGENTIC,
+        manage: str = "",
         system: MemorySystem | None = None,
     ):
         self._host = host
@@ -60,6 +61,7 @@ class Driver:
         self._exam_max_turns = exam_max_turns
         self._reuse_stores = reuse_stores
         self._exam_mode = exam_mode
+        self._manage = manage
         self._system = system or NativeSystem(config)
         if exam_mode == exam_module.MODE_FIXED and not self._system.supports_fixed_exam:
             raise ValueError(
@@ -124,6 +126,7 @@ class Driver:
             recall_fingerprint=self._system.fingerprint(),
             episode_fingerprint=self._episode_fingerprint,
             error=answer.error,
+            manage=self._manage,
             system=self._system.name,
         )
 

@@ -33,6 +33,7 @@ class RunRecord:
     recall_fingerprint: str
     episode_fingerprint: str
     error: str = ""
+    manage: str = ""
     system: str = NATIVE_SYSTEM
 
     def as_dict(self) -> dict[str, object]:

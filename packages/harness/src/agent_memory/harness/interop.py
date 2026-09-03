@@ -12,8 +12,7 @@ import pathlib
 
 from agent_memory.core import prompts
 from agent_memory.core.store import Store
-
-from .hosts import Host
+from agent_memory.executor.hosts import Host
 
 WRITE_TASK = """Record this exactly, as one memory in the user domain:
 
