@@ -118,6 +118,7 @@ anchored to.**
 |---|---|---|
 | `p4sup/stores` | 101 MB, 120 stores | Every read-side result — P5 through P9 — is a replay against exactly these. A new write pass produces different stores, so a future read-side number measured elsewhere is not comparable to any of them. |
 | `p7slept/stores` | 96 MB, 120 stores | The same corpus after one Manage sleep. The before/after pair is the only evidence about M's net effect that exists; regenerating the "after" needs the "before" intact. |
+| `p10am/stores`, `p10mc/stores` | 120 stores each | The P10 pair: one agent-memory write pass and one MemCore write pass on the same episodes. Every P10 replay is anchored to exactly these, and the cheap follow-ups (a MemCore replay with a changed preamble) need them intact. |
 
 **Disposable.** The n=24 optimisation rounds (`p2`, `p2v2`, `p2v3`, `p2v4`, `p2v5*`), the smoke
 runs, the discarded `fx1`/`fx2`, and the per-host slices. Their conclusions are recorded and

@@ -1,0 +1,14 @@
+| system | arm | graded | correct | accuracy | blocking s | exam s | memories |
+|---|---|---|---|---|---|---|---|
+| memcore | W2 | 120 | 44 | 36.7% | 0.0 | 15.7 | 17.0 |
+
+| question type | W2 |
+|---|---|
+| knowledge-update | 50.0% |
+| multi-session | 20.0% |
+| single-session-assistant | 50.0% |
+| single-session-preference | 25.0% |
+| single-session-user | 60.0% |
+| temporal-reasoning | 15.0% |
+
+attribution licensed: True (recall fingerprints=['memcore:52e6e1dcc04a61a1'], episodes=['213e6dcab30264e7'])

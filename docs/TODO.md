@@ -98,6 +98,10 @@
 - [x] **覆盖率探针已进 harness**:`mem-exp coverage` 离线按(系统, W)报答案落盘率;
       历史实测(p4sup 冻结语料,110 可答题)答案落进某条记忆的仅 36/110 = 33%,而这 36 条里
       recall top-8 捞回 34(94.4%)——检索不是瓶颈,写入覆盖是
-- [ ] 与 MemCLI 的对照实验(P10,同宿主 Claude Code,带 W0 对照):harness 已有记忆系统维度
-      (`--system memcore`,MEMCORE_HOME 指向 checkout);待跑 n=24 冒烟 → n=120 两次重放,
-      write-up 落 experiments/results/p10-memcore.md
+- [x] 与 MemCLI 的对照实验(P10,同宿主 Claude Code,带 W0 对照)已完成:agent-memory 127/240
+      对 MemCore 86/240,两次重放逐对 +37/−17(p=0.009)与 +35/−14(p=0.004);写入覆盖率
+      32/110 对 37/110,差距不在落盘而在其后(evidence: experiments/results/p10-memcore.md)
+- [ ] P10 后续(读侧,重放 p10mc 冻结库即可):给 MemCore 的考题前言加上 synthesis 段,
+      看 knowledge-update / multi-session / temporal 三类的差距是否由前言驱动
+- [ ] 写前「先 recall / supersede」纪律从未被单独裁决:P4 触发 25 条边、得分 9/15 = 9/15,
+      而每次 mem 调用占一个 turn(P1 的 13× 写入量差);需一轮写侧全跑:W2 去掉该段 vs 保留
