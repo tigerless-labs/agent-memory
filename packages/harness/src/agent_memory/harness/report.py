@@ -8,7 +8,6 @@ sleep was worth requires.
 from __future__ import annotations
 
 import dataclasses
-import math
 
 from .metrics import STATUS_OK
 from .systems import NATIVE
@@ -49,64 +48,6 @@ class Report:
         """Arms are named by W alone until a second system makes that ambiguous."""
         multiple = len({row.system for row in self.arms}) > 1
         return summary.label if multiple else summary.arm
-
-
-@dataclasses.dataclass(frozen=True)
-class Comparison:
-    """One paired test. Two arms answering the same episode differently is the only evidence
-    that separates them; agreeing rows carry no information about which is better."""
-
-    left: str
-    right: str
-    shared: int
-    left_only: int
-    right_only: int
-    p_value: float
-
-    @property
-    def discordant(self) -> int:
-        return self.left_only + self.right_only
-
-
-def pairwise(records: list[dict[str, object]]) -> list[Comparison]:
-    outcomes: dict[str, dict[str, bool]] = {}
-    for record in records:
-        if record["status"] != STATUS_OK:
-            continue
-        name = _system_of(record) + LABEL_SEPARATOR + arm_of(record)
-        outcomes.setdefault(name, {})[str(record["episode_id"])] = bool(record["correct"])
-    labels = sorted(outcomes)
-    return [
-        _compare(left, right, outcomes[left], outcomes[right])
-        for index, left in enumerate(labels)
-        for right in labels[index + 1 :]
-    ]
-
-
-def _compare(
-    left: str, right: str, first: dict[str, bool], second: dict[str, bool]
-) -> Comparison:
-    shared = sorted(set(first) & set(second))
-    left_only = len([episode for episode in shared if first[episode] and not second[episode]])
-    right_only = len([episode for episode in shared if second[episode] and not first[episode]])
-    return Comparison(
-        left=left,
-        right=right,
-        shared=len(shared),
-        left_only=left_only,
-        right_only=right_only,
-        p_value=_exact_mcnemar(left_only, right_only),
-    )
-
-
-def _exact_mcnemar(left_only: int, right_only: int) -> float:
-    """Exact rather than chi-square: these runs are small enough that the approximation is the
-    thing most likely to manufacture a result."""
-    discordant = left_only + right_only
-    if discordant == 0:
-        return 1.0
-    tail = sum(math.comb(discordant, k) for k in range(min(left_only, right_only) + 1))
-    return min(1.0, 2.0 * tail / 2**discordant)
 
 
 def arm_of(record: dict[str, object]) -> str:
@@ -179,20 +120,6 @@ def render(report: Report) -> str:
         f"{report.attribution_is_licensed()} "
         f"(recall fingerprints={list(report.recall_fingerprints)}, "
         f"episodes={list(report.episode_fingerprints)})"
-    )
-    return "\n".join(lines)
-
-
-def render_comparisons(comparisons: list[Comparison]) -> str:
-    lines = [
-        "| pair | shared | left only | right only | discordant | p |",
-        "|---|---|---|---|---|---|",
-    ]
-    lines.extend(
-        f"| {comparison.left} vs {comparison.right} | {comparison.shared} | "
-        f"{comparison.left_only} | {comparison.right_only} | {comparison.discordant} | "
-        f"{comparison.p_value:.3f} |"
-        for comparison in comparisons
     )
     return "\n".join(lines)
 
