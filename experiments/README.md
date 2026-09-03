@@ -79,7 +79,7 @@ quantity that separates: it looks only at what reached disk.
 |---|---|---|
 | write discipline | the harness's discipline text in the experience prompt | its `skill.md` as system prompt; discipline slot empty |
 | record command | `mem record` (single and batch) | `memcore create <name>` with a frontmatter body |
-| exam preamble | the harness's preamble naming `mem context / recall / read` | a parallel preamble naming `memcore recall / search / get` |
+| exam preamble | the harness's preamble naming `mem context / recall / read`, plus the synthesis paragraph (a recall config knob) | a parallel preamble naming `memcore recall / search / get`, no synthesis paragraph |
 | session-start injection | MEMORY.md byte prefix | output of `memcore recall --top-k 7`, as its hook injects |
 | raw material | transcript archived, reachable with `--deep` | none — MemCore keeps no transcript |
 | retrieval | BM25 + graph | BGE-small embedding + graph + weight |

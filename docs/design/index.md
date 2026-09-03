@@ -24,7 +24,7 @@
 - [write.md](domains/write.md) — W:水位线、触发阶梯、写入管线、W 选项(实验变量)
 - [manage.md](domains/manage.md) — M:睡眠期 consolidation、authority 分级、价值化遗忘、树演化
 - [recall.md](domains/recall.md) — R:三轨、检索管线、渐进披露、评分
-- [experiment-harness.md](domains/experiment-harness.md) — 实验系统:三宿主 × benchmark × W 对比
+- [experiment-harness.md](domains/experiment-harness.md) — 实验系统:记忆系统 × 宿主 × W 对比,覆盖率探针
 
 ## decisions/
 - [adr-001-file-truth.md](decisions/adr-001-file-truth.md) — 文件真源,不用 DB 真源
