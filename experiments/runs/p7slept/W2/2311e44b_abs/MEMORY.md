@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [2023-reading-goal-50-books-by-end-of-year-with-12-books-read-by-may-22](user/2023-reading-goal-50-books-by-end-of-year-with-12-books-read-by-may-22.md) — 2023 reading goal: 50 books by end of year, with 12 books read by May 22
+- [2023-reading-goal-aimed-for-50-books-by-year-end-12-completed-by-may-30](experience/2023-reading-goal-aimed-for-50-books-by-year-end-12-completed-by-may-30.md) — 2023 reading goal: aimed for 50 books by year-end; 12 completed by May 30
+- [books-in-progress-may-2023-the-nightingale-440-pages-sapiens](reference/books-in-progress-may-2023-the-nightingale-440-pages-sapiens.md) — Books in progress (May 2023): 'The Nightingale' (440 pages), 'Sapiens'
+- [dense-non-fiction-1020-pages-week-sapiens-overall-2-14-pages-day](user/dense-non-fiction-1020-pages-week-sapiens-overall-2-14-pages-day.md) — Dense non-fiction ~10–20 pages/week (Sapiens); overall ~2.14 pages/day
+- [alternates-dense-non-fiction-with-graphic-novels-manga-to-maintain-reading-momen](user/alternates-dense-non-fiction-with-graphic-novels-manga-to-maintain-reading-momen.md) — Alternates dense non-fiction with graphic novels/manga to maintain reading momentum
+- [appreciates-eclectic-musical-scores-blending-multiple-genres](user/appreciates-eclectic-musical-scores-blending-multiple-genres.md) — Appreciates eclectic musical scores blending multiple genres
+- [attended-rent-production-at-regional-theater-on-2023-04-10-felt-inspired](experience/attended-rent-production-at-regional-theater-on-2023-04-10-felt-inspired.md) — Attended Rent production at regional theater on 2023-04-10, felt inspired
+- [chose-mpix-for-photo-printing-metallic-and-wood-prints](project/chose-mpix-for-photo-printing-metallic-and-wood-prints.md) — Chose Mpix for photo printing - metallic and wood prints
+- [currently-reading-the-nightingale-by-kristin-hannah-page-250-as-of-may-22-2023](experience/currently-reading-the-nightingale-by-kristin-hannah-page-250-as-of-may-22-2023.md) — Currently reading The Nightingale by Kristin Hannah, page 250 as of May 22, 2023
+- [has-10-22mm-wide-angle-lens-for-sony-a6400](user/has-10-22mm-wide-angle-lens-for-sony-a6400.md) — Has 10-22mm wide-angle lens for Sony A6400
+- [has-a-dedicated-charger-for-earbuds](user/has-a-dedicated-charger-for-earbuds.md) — Has a dedicated charger for earbuds
+- [interested-in-atomic-habits-by-james-clear-and-deep-work-by-cal-newport-for-buil](user/interested-in-atomic-habits-by-james-clear-and-deep-work-by-cal-newport-for-buil.md) — Interested in Atomic Habits by James Clear and Deep Work by Cal Newport for building reading habits and improving retention
+- [interested-in-experiencing-traditional-japanese-music-and-dance-performances](user/interested-in-experiencing-traditional-japanese-music-and-dance-performances.md) — Interested in experiencing traditional Japanese music and dance performances
+- [interested-in-lin-manuel-miranda-s-musicals](user/interested-in-lin-manuel-miranda-s-musicals.md) — Interested in Lin-Manuel Miranda's musicals
+- [johnson-account-project-wrap-up-deadline-2023-06-03](project/johnson-account-project-wrap-up-deadline-2023-06-03.md) — Johnson account project - wrap up deadline 2023-06-03
+- [knowledge-management-and-documentation-tools-for-project-handover](reference/knowledge-management-and-documentation-tools-for-project-handover.md) — Knowledge management and documentation tools for project handover
+- [mentoring-alex](project/mentoring-alex.md) — Mentoring Alex
+- [morning-exercise-routine-30-min-yoga-or-20-min-jog-before-work](user/morning-exercise-routine-30-min-yoga-or-20-min-jog-before-work.md) — Morning exercise routine: 30 min yoga or 20-min jog before work
+- [morning-routine-optimization-strategies-timing-exercise-commute-and-early-arriva](reference/morning-routine-optimization-strategies-timing-exercise-commute-and-early-arriva.md) — Morning routine optimization strategies: timing, exercise, commute, and early arrival
+- [musical-recommendations-similar-to-hamilton-and-rent](reference/musical-recommendations-similar-to-hamilton-and-rent.md) — Musical recommendations similar to Hamilton and Rent
+- [non-fiction-book-recommendations-accessible-historical-narratives-and-science-ba](reference/non-fiction-book-recommendations-accessible-historical-narratives-and-science-ba.md) — Non-fiction book recommendations: accessible historical narratives and science-backed self-help titles
+- [onboarding-new-team-members](project/onboarding-new-team-members.md) — Onboarding new team members
+- [online-photo-printing-services-comparison](reference/online-photo-printing-services-comparison.md) — Online photo printing services comparison
+- [organized-charity-bake-sale-at-workplace-for-local-animal-shelter](experience/organized-charity-bake-sale-at-workplace-for-local-animal-shelter.md) — Organized charity bake sale at workplace for local animal shelter
+- [organizing-a-charity-walk-or-run-at-workplace-for-local-animal-shelter](project/organizing-a-charity-walk-or-run-at-workplace-for-local-animal-shelter.md) — Organizing a charity walk or run at workplace for local animal shelter
+- [owns-sony-a6400-camera-with-6-spare-batteries](user/owns-sony-a6400-camera-with-6-spare-batteries.md) — Owns Sony A6400 camera with 6 spare batteries
+- [participated-in-walk-for-hunger-event-last-month-april-2023](experience/participated-in-walk-for-hunger-event-last-month-april-2023.md) — Participated in Walk for Hunger event last month (April 2023)
+- [prefers-musicals-with-strong-community-themes-and-interconnected-characters](user/prefers-musicals-with-strong-community-themes-and-interconnected-characters.md) — Prefers musicals with strong community themes and interconnected characters
+- [prefers-structured-task-management-and-organized-workflows](user/prefers-structured-task-management-and-organized-workflows.md) — Prefers structured task management and organized workflows
+- [recently-started-new-role-still-adjusting](user/recently-started-new-role-still-adjusting.md) — Recently started new role, still adjusting
+- [recommended-task-project-management-tools-trello-asana-todoist-basecamp-wrike-sm](reference/recommended-task-project-management-tools-trello-asana-todoist-basecamp-wrike-sm.md) — Recommended task/project management tools: Trello, Asana, Todoist, Basecamp, Wrike, Smartsheet
+- [sleeps-in-later-on-weekends-prefers-flexible-weekend-morning-routine](user/sleeps-in-later-on-weekends-prefers-flexible-weekend-morning-routine.md) — Sleeps in later on weekends; prefers flexible weekend morning routine
+- [supervisor-is-rachel](user/supervisor-is-rachel.md) — Supervisor is Rachel
+- [supports-local-animal-shelter-through-workplace-fundraising-initiatives](user/supports-local-animal-shelter-through-workplace-fundraising-initiatives.md) — Supports local animal shelter through workplace fundraising initiatives
+- [tokyo-festivals-featuring-traditional-japanese-music-and-dance-performances](reference/tokyo-festivals-featuring-traditional-japanese-music-and-dance-performances.md) — Tokyo festivals featuring traditional Japanese music and dance performances
+- [uses-funny-cat-meowing-ringtone-intentionally-in-meetings-for-entertainment](user/uses-funny-cat-meowing-ringtone-intentionally-in-meetings-for-entertainment.md) — Uses funny cat meowing ringtone intentionally in meetings for entertainment
+- [uses-lightroom-and-photoshop-for-photo-editing](user/uses-lightroom-and-photoshop-for-photo-editing.md) — Uses Lightroom and Photoshop for photo editing
+- [works-in-an-office-with-a-commute-interested-in-optimizing-morning-workflow](user/works-in-an-office-with-a-commute-interested-in-optimizing-morning-workflow.md) — Works in an office with a commute; interested in optimizing morning workflow
+- [zabbix-jmx-monitoring-setup-with-proxy-and-java-gateway](reference/zabbix-jmx-monitoring-setup-with-proxy-and-java-gateway.md) — Zabbix JMX monitoring setup with Proxy and Java Gateway

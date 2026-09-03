@@ -1,0 +1,11 @@
+## Session sharegpt_bly4eLu_0 — 2023/05/30 (Tue) 23:42
+user: How to enable Thrive on Higher Logic?
+assistant: Thrive is a feature available on the Higher Logic platform that enables organizations to create and manage online communities. Enabling Thrive on Higher Logic involves a few steps, which are outlined below:
+
+1. Log in to your Higher Logic account and navigate to the Admin interface.
+2. From the Admin interface, click on the "Features" tab.
+3. In the Features tab, search for "Thrive" and click on the "Activate" button next to it.
+4. Follow the prompts to complete the activation process, which may include agreeing to terms of service, setting up billing information, and configuring Thrive settings.
+5. Once Thrive is activated, you can start setting up your community by creating groups, adding members, and configuring settings to meet your organization's needs.
+
+It's worth noting that Thrive may not be available to all Higher Logic customers, as it may be restricted to certain pricing tiers or require additional fees. If you're not sure whether Thrive is available to you or need help activating it, you can contact Higher Logic support for assistance.

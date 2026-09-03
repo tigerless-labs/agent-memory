@@ -1,0 +1,23 @@
+# MEMORY.md
+
+- [considering-career-transition-to-non-profit-sector](user/considering-career-transition-to-non-profit-sector.md) — Considering career transition to non-profit sector
+- [planning-to-consult-immigration-attorney-for-green-card-application-and-parents](project/planning-to-consult-immigration-attorney-for-green-card-application-and-parents.md) — Planning to consult immigration attorney for green card application and parents' 9-month overstay issue
+- [waiver-of-inadmissibility-form-i-601-for-us-visa-overstay](reference/waiver-of-inadmissibility-form-i-601-for-us-visa-overstay.md) — Waiver of inadmissibility (Form I-601) for US visa overstay
+- [previously-lived-in-west-village-nyc](user/previously-lived-in-west-village-nyc.md) — Previously lived in West Village, NYC
+- [barcelona-public-art-and-heritage-sagrada-familia-park-guell-street-art-neighbor](reference/barcelona-public-art-and-heritage-sagrada-familia-park-guell-street-art-neighbor.md) — Barcelona public art and heritage: Sagrada Familia, Park Güell, street art neighborhoods, historic plazas
+- [delta-seat-selection-and-special-meal-request-process](reference/delta-seat-selection-and-special-meal-request-process.md) — Delta seat selection and special meal request process
+- [github-codespaces-workflow-browser-based-vs-code-development](project/github-codespaces-workflow-browser-based-vs-code-development.md) — GitHub Codespaces workflow: browser-based VS Code development
+- [github-workflow-for-smc-local-setup-clone-add-files-commit-push](project/github-workflow-for-smc-local-setup-clone-add-files-commit-push.md) — GitHub workflow for SMC: local setup, clone, add files, commit, push
+- [green-card-application-7-step-process-eligibility-categories-form-i-864-requirem](reference/green-card-application-7-step-process-eligibility-categories-form-i-864-requirem.md) — Green card application: 7-step process, eligibility categories, Form I-864 requirements, common mistakes
+- [identifying-suspected-infection-in-mimic-3-v1-4-dataset-using-icd-9-codes-and-an](reference/identifying-suspected-infection-in-mimic-3-v1-4-dataset-using-icd-9-codes-and-an.md) — Identifying suspected infection in MIMIC-3 v1.4 dataset using ICD-9 codes and antibiotics
+- [immigration-attorney-directory-resources-and-recommendations](reference/immigration-attorney-directory-resources-and-recommendations.md) — Immigration attorney directory resources and recommendations
+- [interested-in-traveling-to-thailand](user/interested-in-traveling-to-thailand.md) — Interested in traveling to Thailand
+- [marketing-specialist-for-9-months](user/marketing-specialist-for-9-months.md) — Marketing specialist for 9 months
+- [prefers-delta-comfort-seats-for-extra-legroom-on-flights](user/prefers-delta-comfort-seats-for-extra-legroom-on-flights.md) — Prefers Delta Comfort+ seats for extra legroom on flights
+- [smc-public-website-structure-and-content-strategy](project/smc-public-website-structure-and-content-strategy.md) — SMC public website structure and content strategy
+- [smc-tech-stack-python-django-backend-react-frontend-azure-cloud-deployment](project/smc-tech-stack-python-django-backend-react-frontend-azure-cloud-deployment.md) — SMC tech stack: Python/Django backend, React frontend, Azure cloud deployment
+- [snow-mountain-capital-smc-venture-capital-software-platform-addressing-lp-disadv](project/snow-mountain-capital-smc-venture-capital-software-platform-addressing-lp-disadv.md) — Snow Mountain Capital (SMC) — venture capital software platform addressing LP disadvantages
+- [sofa-score-calculation-methodology-and-components](reference/sofa-score-calculation-methodology-and-components.md) — SOFA score calculation methodology and components
+- [systematic-approach-to-professional-networking-and-follow-up](user/systematic-approach-to-professional-networking-and-follow-up.md) — Systematic approach to professional networking and follow-up
+- [thailand-travel-scams-to-avoid-tuk-tuks-street-vendors-gemstones-jet-skis-curren](reference/thailand-travel-scams-to-avoid-tuk-tuks-street-vendors-gemstones-jet-skis-curren.md) — Thailand travel scams to avoid: tuk-tuks, street vendors, gemstones, jet-skis, currency
+- [uses-delta-skymiles-for-flight-redemptions-boston-departure-airport](user/uses-delta-skymiles-for-flight-redemptions-boston-departure-airport.md) — Uses Delta SkyMiles for flight redemptions; Boston departure airport

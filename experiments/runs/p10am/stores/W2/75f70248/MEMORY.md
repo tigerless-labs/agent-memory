@@ -1,0 +1,35 @@
+# MEMORY.md
+
+- [13-book-recommendations-from-may-2023](reference/13-book-recommendations-from-may-2023.md) — 13 book recommendations from May 2023
+- [acquire-spider-plant-or-snake-plant-with-drainage-planter-and-potting-mix](project/acquire-spider-plant-or-snake-plant-with-drainage-planter-and-potting-mix.md) — Acquire spider plant or snake plant with drainage planter and potting mix
+- [active-member-of-book-lovers-unite-facebook-group](user/active-member-of-book-lovers-unite-facebook-group.md) — Active member of Book Lovers Unite Facebook group
+- [air-purifying-indoor-plants-for-beginners-with-care-instructions](reference/air-purifying-indoor-plants-for-beginners-with-care-instructions.md) — Air-purifying indoor plants for beginners with care instructions
+- [artists-with-consumerism-critique-ai-wei-wei-banksy-yoko-ono](reference/artists-with-consumerism-critique-ai-wei-wei-banksy-yoko-ono.md) — Artists-with-consumerism-critique-Ai-Wei-Wei-Banksy-Yoko-Ono
+- [brown-fjallraven-cross-body-bag-carries-phone-wallet-water-bottle-primary-festiv](user/brown-fjallraven-cross-body-bag-carries-phone-wallet-water-bottle-primary-festiv.md) — Brown Fjallraven cross-body bag; carries phone, wallet, water bottle; primary festival and daily bag
+- [chicago-guitar-lessons-and-music-instruction-for-indie-folk](reference/chicago-guitar-lessons-and-music-instruction-for-indie-folk.md) — Chicago guitar lessons and music instruction for indie folk
+- [chicago-indie-folk-music-venues-and-festivals](reference/chicago-indie-folk-music-venues-and-festivals.md) — Chicago indie folk music venues and festivals
+- [chicago-vinyl-record-stores-with-indie-folk-selection](reference/chicago-vinyl-record-stores-with-indie-folk-selection.md) — Chicago vinyl record stores with indie folk selection
+- [creative-project-meeting-scheduled-for-9-00-am-may-20-2023](project/creative-project-meeting-scheduled-for-9-00-am-may-20-2023.md) — Creative project meeting scheduled for 9:00 am (May 20, 2023)
+- [daily-9-00-am-task-review-ritual-in-todoist](project/daily-9-00-am-task-review-ritual-in-todoist.md) — Daily 9:00 am task review ritual in Todoist
+- [diy-luggage-tag-project-making-custom-tag-with-fabric-or-washi-tape](project/diy-luggage-tag-project-making-custom-tag-with-fabric-or-washi-tape.md) — DIY luggage tag project: making custom tag with fabric or washi tape
+- [endgame-cryptocurrency-platform-treasury-7-year-referral-airdrops-tax-system-may](project/endgame-cryptocurrency-platform-treasury-7-year-referral-airdrops-tax-system-may.md) — #Endgame cryptocurrency platform: treasury, 7-year referral, airdrops, tax system (May 2023)
+- [enjoys-indie-folk-music-bon-iver-and-fleet-foxes](user/enjoys-indie-folk-music-bon-iver-and-fleet-foxes.md) — Enjoys indie folk music: Bon Iver and Fleet Foxes
+- [family-reunion-summer-2024-with-nephew-s-high-school-graduation-celebrationbacky](project/family-reunion-summer-2024-with-nephew-s-high-school-graduation-celebrationbacky.md) — Family reunion summer 2024 with nephew's high school graduation celebration—backyard BBQ and slideshow
+- [indie-folk-artist-recommendations-similar-to-bon-iver](reference/indie-folk-artist-recommendations-similar-to-bon-iver.md) — Indie folk artist recommendations similar to Bon Iver
+- [indie-folk-artist-recommendations-similar-to-fleet-foxes](reference/indie-folk-artist-recommendations-similar-to-fleet-foxes.md) — Indie folk artist recommendations similar to Fleet Foxes
+- [indoor-plant-care-drainage-potting-mix-and-fertilizing-guidelines](reference/indoor-plant-care-drainage-potting-mix-and-fertilizing-guidelines.md) — Indoor plant care: drainage, potting mix, and fertilizing guidelines
+- [lives-in-chicago](user/lives-in-chicago.md) — Lives in Chicago
+- [lost-luggage-tag-recently-used-temporary-replacement-with-business-card](experience/lost-luggage-tag-recently-used-temporary-replacement-with-business-card.md) — Lost luggage tag recently, used temporary replacement with business card
+- [merda-rug-artwork](project/merda-rug-artwork.md) — MERDA-rug-artwork
+- [most-productive-between-9-00-am-and-11-00-am](user/most-productive-between-9-00-am-and-11-00-am.md) — Most productive between 9:00 am and 11:00 am
+- [organize-fjallraven-bag-use-small-pouches-for-items-assign-home-for-each-item-cl](project/organize-fjallraven-bag-use-small-pouches-for-items-assign-home-for-each-item-cl.md) — Organize Fjallraven bag: use small pouches for items, assign home for each item, clean regularly
+- [pack-for-music-festival-sunscreen-hat-portable-charger-in-fjallraven-bag](project/pack-for-music-festival-sunscreen-hat-portable-charger-in-fjallraven-bag.md) — Pack for music festival: sunscreen, hat, portable charger in Fjallraven bag
+- [plan-to-buy-canvas-tote-bag-from-local-brand-for-daily-errands-and-grocery-shopp](project/plan-to-buy-canvas-tote-bag-from-local-brand-for-daily-errands-and-grocery-shopp.md) — Plan to buy canvas tote bag from local brand for daily errands and grocery shopping
+- [prefers-sustainable-eco-friendly-materials-and-supports-local-brands](user/prefers-sustainable-eco-friendly-materials-and-supports-local-brands.md) — Prefers sustainable, eco-friendly materials and supports local brands
+- [takes-lunch-break-around-12-30-pm](user/takes-lunch-break-around-12-30-pm.md) — Takes lunch break around 12:30 pm
+- [test-entry](user/test-entry.md) — Test entry
+- [the-plastic-wasteland-exhibition](project/the-plastic-wasteland-exhibition.md) — The-Plastic-Wasteland-exhibition
+- [todoist-task-management-and-priority-tool](reference/todoist-task-management-and-priority-tool.md) — Todoist: task management and priority tool
+- [uses-goodreads-to-manage-reading-list-and-track-books](user/uses-goodreads-to-manage-reading-list-and-track-books.md) — Uses Goodreads to manage reading list and track books
+- [vacuum-cleaners-recommended-for-pet-owners-with-heavy-shedding-cats](reference/vacuum-cleaners-recommended-for-pet-owners-with-heavy-shedding-cats.md) — Vacuum cleaners recommended for pet owners with heavy shedding cats
+- [wants-low-maintenance-air-purifying-plants-for-living-room](user/wants-low-maintenance-air-purifying-plants-for-living-room.md) — Wants low-maintenance air-purifying plants for living room

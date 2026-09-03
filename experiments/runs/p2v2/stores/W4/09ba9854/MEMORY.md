@@ -1,0 +1,17 @@
+# MEMORY.md
+
+- [blueberry-muffin-recipe-recommendation-with-whole-wheat-flour-option](reference/blueberry-muffin-recipe-recommendation-with-whole-wheat-flour-option.md) — Blueberry muffin recipe recommendation with whole wheat flour option
+- [character-development-resources-and-templates-for-fiction-writing](reference/character-development-resources-and-templates-for-fiction-writing.md) — Character development resources and templates for fiction writing
+- [healthy-oatmeal-cookies-recipe-with-almond-meal-and-honey](reference/healthy-oatmeal-cookies-recipe-with-almond-meal-and-honey.md) — Healthy oatmeal cookies recipe with almond meal and honey
+- [loves-blueberries-and-interested-in-healthy-sweet-treat-recipes](user/loves-blueberries-and-interested-in-healthy-sweet-treat-recipes.md) — Loves blueberries and interested in healthy sweet treat recipes
+- [networking-approach-for-seminars-respectful-value-focused-feedback-solicitation](experience/networking-approach-for-seminars-respectful-value-focused-feedback-solicitation.md) — Networking approach for seminars: respectful, value-focused feedback solicitation
+- [owns-canon-ef-24-70mm-f-2-8l-ii-usm-lens-and-lowepro-protactic-450-aw-camera-bag](user/owns-canon-ef-24-70mm-f-2-8l-ii-usm-lens-and-lowepro-protactic-450-aw-camera-bag.md) — Owns Canon EF 24-70mm f/2.8L II USM lens and Lowepro ProTactic 450 AW camera bag
+- [owns-manfrotto-befree-tripod-arrived-2023-02-05](user/owns-manfrotto-befree-tripod-arrived-2023-02-05.md) — Owns Manfrotto BeFree tripod (arrived 2023-02-05)
+- [owns-sandisk-extreme-pro-memory-cards-64gb-and-two-128gb-cards-arrived-2023-02-1](user/owns-sandisk-extreme-pro-memory-cards-64gb-and-two-128gb-cards-arrived-2023-02-1.md) — Owns SanDisk Extreme Pro memory cards: 64GB and two 128GB cards (arrived 2023-02-12)
+- [planned-trip-to-japan-in-may-2023-tokyo-hotel-in-shinjuku-arriving-at-narita-wit](experience/planned-trip-to-japan-in-may-2023-tokyo-hotel-in-shinjuku-arriving-at-narita-wit.md) — Planned trip to Japan in May 2023: Tokyo hotel in Shinjuku, arriving at Narita with significant luggage
+- [science-fiction-novel-in-development-with-protagonist-maya-facing-alien-invasion](project/science-fiction-novel-in-development-with-protagonist-maya-facing-alien-invasion.md) — Science fiction novel in development with protagonist Maya facing alien invasion
+- [social-media-strategy-instagram-ads-for-project-promotion-using-awareness-object](project/social-media-strategy-instagram-ads-for-project-promotion-using-awareness-object.md) — Social media strategy: Instagram ads for project promotion using Awareness objective
+- [viowear-clothing-line-instagram-promotion-with-motivational-outdoor-content](project/viowear-clothing-line-instagram-promotion-with-motivational-outdoor-content.md) — Viowear clothing line: Instagram promotion with motivational outdoor content
+- [writing-interests-sci-fi-romance-with-themes-of-identity-and-self-discovery](user/writing-interests-sci-fi-romance-with-themes-of-identity-and-self-discovery.md) — Writing interests: sci-fi romance with themes of identity and self-discovery
+- [writing-project-the-memory-thief-story-with-protagonist-lyra](project/writing-project-the-memory-thief-story-with-protagonist-lyra.md) — Writing project: 'The Memory Thief' story with protagonist Lyra
+- [writing-schedule-2-hours-every-weekday-morning](user/writing-schedule-2-hours-every-weekday-morning.md) — Writing schedule: 2 hours every weekday morning

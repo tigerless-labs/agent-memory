@@ -1,0 +1,114 @@
+## Session sharegpt_Caxpnd3_12 — 2023/05/21 (Sun) 05:21
+user: monastery or courts were one resided, there were some generalities. The arithmetica consisted
+of performing calculations on a counting board and with help of roman numerals, the theory of
+ratios (as an introduction to musica), biblical numerology and the computus rules. Many Christian
+thinkers tended to agree upon the date of June 12, 5012 BC at noon, as the time for Creation. In a
+time that the Bible was considered the most important text, one can imagine that these kind of
+calculations were of the utmost importance. Musica consisted of the theory of chords in connection
+to ratios of string length, and the ways to indicate notes. The art of geometria was mostly
+restricted to knowledge of the names of various geometrical objects. Triangles, cones, spheres
+and the regular solids were interesting for their connection to the world order. The equilateral
+triangle, for example, was viewed in connection to the Holy Trinity. Mostly the objects themselves
+were considered fascinating: proofs were not considered important, although use of the
+Pythagorean theorem was known. Finally, astronomia consisted of knowledge about movement
+of the stars and planets on the basis of the Ptolemaic system. The connection with astrology was
+not always popular, since it seemed to deny the possibility of a free choice of will. At courts,
+however, trust in or need for predictions was in cases considered more important than religious
+piety. So in practice, the knowledge of astrology was still valued and this implied interest in geometria
+as well.
+Mathematical worlds 37
+Illustration I.9: God as a philosopher doing geometria in the act of Creation. Frontispiece of a Bible, codex Vindobonensis
+2554, France ca. 1250, Österreichische Nationalbibliothek Wien. The discovery of ancient Greek manuscripts
+had these kind of consequences for Christian iconography.
+Euclid seemed to be forgotten. The few manuscripts kept in the libraries of monasteries were
+hardly consulted until the 10th century. Boethius, on the contrary, was kept alive. The interest of
+Christian thinkers for knowledge of the quadrivium was mostly for its mystical aspects and for
+the rules it had to offer. The fact that it was framed in four subjects that were fundamental and
+essential in the education of every free man, and that were not considered to be trivial (contrary
+to the subjects within the trivium), does illustrate the fact that knowledge of geometria and
+arithmetica was valued, albeit for completely different reasons than we might recognise. Number
+and geometrical objects, through the ideas in musica and astronomia offered the possibility to
+make the human mind rise to reach spiritual truths that were considered valuable. As such, it
+was only natural that this knowledge would play a role in churches, monasteries and objects of
+art, visible and audible in the positioning of buildings, musical masses and christian iconography.
+In a way, this implied a Christian version of the Platonic ideas about geometria, God had created
+the world either with help of knowledge of geometria, or had hidden its purities in His Creation.
+That made the field of knowledge worthy of study, if only because one wanted to be able to
+recognise these elements in Creation.
+Rise of the universitas
+The life of Gerbert of Aurillac (946-1003) may be considered important to the rise of mathematical
+thinking in Europe. In three ways, his life illustrates that a new kind of purpose for the fields of
+geometria and arithmetica was growing in importance. One could say, Gerbert illustrates how
+mathematics was cashing in on the possibilities it held for Christian philosophy. First of all, Gerbert
+studied. He traveled extensively to find and read manuscripts and also studied texts from
+non- and pre-Christian origin. His interest for Euclidean manuscripts gave impetus to his work De
+Geometria: a compilation of what he understood from The Elements, that became widespread
+through his extensive network of correspondence. It is easy to be dismissive of his grasp of Euclids
+work, of which indeed, his knowledge would remain superficial, the correspondence giving
+evidence to shear endless confusion about the question what Euclid could have meant with the
+exterior angle in a triangle. But the level of understanding is not as important as the fact that he
+did make these fields relevant, and open to study. To summarize: Gerbert set a new ideal of studying.
+Trying to understand something new, either by studying different sources or by thinking
+for oneself, and testing knowledge by discussing it with others — in correspondence or life —
+was normalised.
+Second, not only did he set a new standard to studying, he also managed to popularise it because
+he was an influential Christian thinker. Perhaps it was exactly his newly acquired knowledge
+that made him stand out at the court of emperor Otto II, perhaps he was already well connected
+and the emperor stimulated him in his studies. Whatever was the case, Gerbert was an important
+man at the imperial court. In those days it was only too easy to be dismissive of someone who
+had studied geometria and arithmetica, certainly when his knowledge came from dubious and
+Mathematical worlds 38
+even heretic sources. A pact with the devil was easily suggested, and that made it impossible to
+rise in the ranks of the court or the church. Political and papal opponents of Gerbert indeed did
+try to blacken him, but the fact that they didn’t succeed in blocking his rising star, first as the tutor
+of the later Otto III at the imperial court, and his eventual election to be the pope under the
+name of Sylvester II, illustrates that indeed his way of studying became a new example. If only
+accessible to the privileged, study would become a prerequisite for many positions — an idea
+that would soon be copied by those who wanted to mimic the (papal) aristocracy.
+Third, and this might have been most significant, Gerbert took non Christian knowledge serious.
+Of course he was a very pious man, but by studying Arab and Greek manuscripts and taking
+them at face value, and by the influential man he was (or became) by his position, he greatly enhanced
+the possibilities of study. Most notably, Gerbert visited the Muselmen libraries of the Iberian
+peninsula. That is where he learned about Roman surveying techniques, use of the abacus
+and Arab numerals. With his impact on the political and cultural ways of his time, this made
+knowledge of the ancient arts of geometria and arithmetica open to a more fundamental role in
+European society.
+Knowledge, in the shape of books and scrolls, was in the possession of monasteries. Libraries in
+such enormous monastery cities such as Cluny, set an example to the orders. Most notably in the
+wealthy cities, where the monasteries with help of local wealth would create enormous cathedrals
+that helped to spread the splendour, grandeur and superiority of Christianity and its God
+far beyond the city limits, knowledge was also considered as wealth. Either the court or local
+Mathematical worlds 39
+Illustration I.10: Manuscript of De Geometria by
+Gerbert of Aurillac. The discovery of geometria,
+most notably Euclidean manuscripts, in the
+Christian world was connected to the idea that
+God would have created the world with ruler
+and compass. Interest in the language of
+geometria was therefor more precious than the
+proofs that had been the core to the Greek.
+Nevertheless the language of the old manuscripts
+also had as a consequence that the
+manuscripts themselves became of interest.
+The correspondence by Gerbert and the
+knowledge he obtained in Arabian occupied
+territory, was to spread that knowledge
+throughout the western world.
+merchants, valued knowledge of Law, medicine and Theology, and accumulation of manuscripts
+was considered part of that. The presence of manuscripts, attracting scholars who wanted to
+study these, in combination with eager students who wanted a part of that knowledge, made
+that exactly at these kind of places, the first cathedral schools were founded: Bologna (1088), the
+Sorbonne (1150) and Oxford (1164) all started a universitas, as it was called. A universitas was a
+group of scholars, mostly monks, that debated among each other and who took pupils to educate
+on any subject they wanted to be taught in. The universitas was greatly valued by city or court
+officials, who could benefit from the knowledge that dwelled in these places, and so it became
+customary that these places were funded and granted certain privileges. For example, students
+and professors at the universitas were exempted from paying taxes on the consumption of alcohol,
+in many places members of the universitas were allowed to carry weapons, and were subject
+to their own courts and internal laws. Thereby, the universitas developed into an own cultural
+center, a subculture with its own rules and habits, within society. And in that new subculture, the
+use and purpose of knowledge of geometria and arithmetica could develop in a direction different
+from that outside its walls. And so it did.
+
+end
+assistant: In the early middle ages, the study of mathematics was seen as an important aspect of the education of a free man. The mathematical fields of arithmetica, musica, geometria, and astronomia were considered to be part of the quadrivium, and were valued for their mystical and spiritual aspects. These fields were used to understand and recognize the connections to the world order, the Holy Trinity, and even the creation of the world itself. Gerbert of Aurillac, who lived from 946-1003, was an influential Christian thinker who helped popularize the study of mathematics by studying and spreading knowledge of Euclidean manuscripts, and setting a new standard for studying and understanding. Despite political opposition, Gerbert's knowledge of mathematics made him an important figure at the imperial court.

@@ -1,0 +1,12 @@
+# MEMORY.md
+
+- [5x8-ft-bathroom-renovation-spa-inspired-design-with-freestanding-tub-and-glazed](project/5x8-ft-bathroom-renovation-spa-inspired-design-with-freestanding-tub-and-glazed.md) — 5x8 ft bathroom renovation: spa-inspired design with freestanding tub and glazed porcelain walk-in shower
+- [comfortable-with-diy-home-improvement-projects-recent-experience-with-plumbing-a](user/comfortable-with-diy-home-improvement-projects-recent-experience-with-plumbing-a.md) — Comfortable with DIY home improvement projects; recent experience with plumbing and tile work
+- [considering-writing-a-book-values-authenticity-and-personal-ownership-over-ghost](user/considering-writing-a-book-values-authenticity-and-personal-ownership-over-ghost.md) — Considering writing a book; values authenticity and personal ownership over ghostwriting or AI generation
+- [cycling-hobby-20-mile-rides-garmin-bike-computer-recent-bike-upgrades](user/cycling-hobby-20-mile-rides-garmin-bike-computer-recent-bike-upgrades.md) — Cycling hobby: 20-mile rides, Garmin bike computer, recent bike upgrades
+- [friend-amanda-van-west-enjoys-1920s-gangster-and-prohibition-era-humor](user/friend-amanda-van-west-enjoys-1920s-gangster-and-prohibition-era-humor.md) — Friend Amanda Van West; enjoys 1920s gangster and Prohibition-era humor
+- [interest-in-prohibition-era-language-slang-and-culture-1920s-gangster-vocabulary](user/interest-in-prohibition-era-language-slang-and-culture-1920s-gangster-vocabulary.md) — Interest in Prohibition Era language, slang, and culture (1920s gangster vocabulary)
+- [interested-in-building-a-vr-gaming-pc-exploring-component-options-and-assembly-p](user/interested-in-building-a-vr-gaming-pc-exploring-component-options-and-assembly-p.md) — Interested in building a VR gaming PC; exploring component options and assembly process
+- [natural-wine-bar-161-in-sydenham-south-east-london](project/natural-wine-bar-161-in-sydenham-south-east-london.md) — Natural wine bar 161 in Sydenham, South East London
+- [screen-time-challenges-evening-phone-usage-work-related-late-nights](user/screen-time-challenges-evening-phone-usage-work-related-late-nights.md) — Screen time challenges: evening phone usage; work-related late nights
+- [sleep-routine-melatonin-calming-music-white-noise-no-caffeine-after-3-pm](user/sleep-routine-melatonin-calming-music-white-noise-no-caffeine-after-3-pm.md) — Sleep routine: melatonin, calming music, white noise, no caffeine after 3 PM

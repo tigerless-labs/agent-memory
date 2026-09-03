@@ -1,0 +1,19 @@
+# MEMORY.md
+
+- [content-outline-project-homeowner-focused-pre-construction-checklist-articles-wi](project/content-outline-project-homeowner-focused-pre-construction-checklist-articles-wi.md) — Content outline project: homeowner-focused pre-construction checklist articles with SEO targeting
+- [developing-habit-of-drinking-more-water-uses-refillable-water-bottle-on-bathroom](user/developing-habit-of-drinking-more-water-uses-refillable-water-bottle-on-bathroom.md) — Developing habit of drinking more water; uses refillable water bottle on bathroom counter
+- [grandmother-s-antique-pearl-necklace-appraised-february-2023-plans-to-sell-to-fu](user/grandmother-s-antique-pearl-necklace-appraised-february-2023-plans-to-sell-to-fu.md) — Grandmother's antique pearl necklace appraised February 2023, plans to sell to fund Europe trip
+- [guild-xyz-tokenized-community-management-platform](reference/guild-xyz-tokenized-community-management-platform.md) — Guild.xyz: tokenized community management platform
+- [hip-hop-routine-for-studio-showcase-with-10-person-group](project/hip-hop-routine-for-studio-showcase-with-10-person-group.md) — Hip hop routine for studio showcase with ~10-person group
+- [interested-in-web3-community-management-platforms](user/interested-in-web3-community-management-platforms.md) — Interested in Web3 community management platforms
+- [laxmi-worship-practices-rituals-and-their-significance-in-hindu-culture](reference/laxmi-worship-practices-rituals-and-their-significance-in-hindu-culture.md) — Laxmi worship practices, rituals, and their significance in Hindu culture
+- [looking-for-contemporary-dance-classes-in-their-area](user/looking-for-contemporary-dance-classes-in-their-area.md) — Looking for contemporary dance classes in their area
+- [monkey-king-fan-fiction-mk-helps-macaque-reclaim-the-mountain-from-sun-wukong](project/monkey-king-fan-fiction-mk-helps-macaque-reclaim-the-mountain-from-sun-wukong.md) — Monkey King fan fiction: MK helps Macaque reclaim the mountain from Sun Wukong
+- [owns-silver-cuff-recently-acquired-requires-tarnish-prevention-storage](user/owns-silver-cuff-recently-acquired-requires-tarnish-prevention-storage.md) — Owns silver cuff recently acquired, requires tarnish prevention storage
+- [popular-digital-nomad-destinations-2023](reference/popular-digital-nomad-destinations-2023.md) — Popular digital nomad destinations (2023)
+- [prefers-jewelry-organizer-with-universal-slots-for-earrings-small-collection](user/prefers-jewelry-organizer-with-universal-slots-for-earrings-small-collection.md) — Prefers jewelry organizer with universal slots for earrings, small collection
+- [started-salsa-lessons-progressing-on-cross-body-lead-step](experience/started-salsa-lessons-progressing-on-cross-body-lead-step.md) — Started salsa lessons, progressing on cross-body lead step
+- [upcoming-trip-to-europe-being-funded-by-selling-grandmother-s-pearl-necklace](project/upcoming-trip-to-europe-being-funded-by-selling-grandmother-s-pearl-necklace.md) — Upcoming trip to Europe, being funded by selling grandmother's pearl necklace
+- [uses-habitica-for-gamifying-household-cleaning-and-task-management](user/uses-habitica-for-gamifying-household-cleaning-and-task-management.md) — Uses Habitica for gamifying household cleaning and task management
+- [uses-lavender-scented-shampoo-from-trader-joe-s-works-well-for-their-hair](user/uses-lavender-scented-shampoo-from-trader-joe-s-works-well-for-their-hair.md) — Uses lavender scented shampoo from Trader Joe's; works well for their hair
+- [writing-session-preferences-emphasize-dialogue-and-character-details-over-exposi](user/writing-session-preferences-emphasize-dialogue-and-character-details-over-exposi.md) — Writing session preferences: emphasize dialogue and character details over exposition

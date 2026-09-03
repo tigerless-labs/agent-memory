@@ -1,0 +1,23 @@
+# MEMORY.md
+
+- [audiobook-platform-libro-fm-with-daily-commute-listening-2-hours-day](user/audiobook-platform-libro-fm-with-daily-commute-listening-2-hours-day.md) — Audiobook platform: Libro.fm with daily commute listening (~2 hours/day)
+- [enjoys-film-analysis-and-exploring-symbolism-in-cinema](user/enjoys-film-analysis-and-exploring-symbolism-in-cinema.md) — Enjoys film analysis and exploring symbolism in cinema
+- [films-with-notable-use-of-symbolism-the-shining-blade-runner-get-out-the-matrix](reference/films-with-notable-use-of-symbolism-the-shining-blade-runner-get-out-the-matrix.md) — Films with notable use of symbolism: The Shining, Blade Runner, Get Out, The Matrix
+- [interview-preparation-for-manager-of-information-desk-position-at-small-private](experience/interview-preparation-for-manager-of-information-desk-position-at-small-private.md) — Interview preparation for manager of information desk position at small private college
+- [lda-topic-modeling-setup-for-twitter-data-using-gensim-3-topics-filter-extremes](project/lda-topic-modeling-setup-for-twitter-data-using-gensim-3-topics-filter-extremes.md) — LDA topic modeling setup for Twitter data using Gensim: 3 topics, filter extremes no_below=100 no_above=0.7
+- [owns-1920s-vintage-pearl-necklace-found-in-attic](user/owns-1920s-vintage-pearl-necklace-found-in-attic.md) — Owns 1920s vintage pearl necklace found in attic
+- [owns-1960s-leica-camera](user/owns-1960s-leica-camera.md) — Owns 1960s Leica camera
+- [owns-rare-coin-collection](user/owns-rare-coin-collection.md) — Owns rare coin collection
+- [owns-rare-first-edition-book](user/owns-rare-first-edition-book.md) — Owns rare first edition book
+- [owns-vintage-typewriter](user/owns-vintage-typewriter.md) — Owns vintage typewriter
+- [owns-vintage-vinyl-records-collection](user/owns-vintage-vinyl-records-collection.md) — Owns vintage vinyl records collection
+- [prefers-balanced-symbolism-in-films-dislikes-heavy-handed-or-excessive-symbolic](user/prefers-balanced-symbolism-in-films-dislikes-heavy-handed-or-excessive-symbolic.md) — Prefers balanced symbolism in films; dislikes heavy-handed or excessive symbolic messaging
+- [prefers-spreadsheet-tracking-phone-reminders-and-habit-building-for-organizing-l](user/prefers-spreadsheet-tracking-phone-reminders-and-habit-building-for-organizing-l.md) — Prefers spreadsheet tracking, phone reminders, and habit-building for organizing loyalty programs
+- [reading-genres-romance-mystery-sci-fi-fantasy-self-improvement-non-fiction](user/reading-genres-romance-mystery-sci-fi-fantasy-self-improvement-non-fiction.md) — Reading genres: romance, mystery, sci-fi, fantasy, self-improvement non-fiction
+- [real-estate-agent-persona-for-saas-susan-green-55f-suburban-61k-income](reference/real-estate-agent-persona-for-saas-susan-green-55f-suburban-61k-income.md) — Real estate agent persona for SaaS: Susan Green (55F, suburban, 61k income)
+- [recommended-online-marketplaces-and-specialists-for-selling-collectibles](reference/recommended-online-marketplaces-and-specialists-for-selling-collectibles.md) — Recommended online marketplaces and specialists for selling collectibles
+- [the-7-habits-of-highly-effective-people-by-stephen-covey-planning-to-start](reference/the-7-habits-of-highly-effective-people-by-stephen-covey-planning-to-start.md) — The 7 Habits of Highly Effective People by Stephen Covey — planning to start
+- [the-long-way-to-a-small-angry-planet-by-becky-chambers-narrated-by-rachel-dulude](reference/the-long-way-to-a-small-angry-planet-by-becky-chambers-narrated-by-rachel-dulude.md) — The Long Way to a Small, Angry Planet by Becky Chambers (narrated by Rachel Dulude) — next planned listen
+- [the-three-body-problem-by-liu-cixin-listened-to-highly-enjoyed](reference/the-three-body-problem-by-liu-cixin-listened-to-highly-enjoyed.md) — The Three-Body Problem by Liu Cixin — listened to, highly enjoyed
+- [twitter-dataset-of-4800-tweets-on-academic-writing-anxiety-for-topic-modeling-re](project/twitter-dataset-of-4800-tweets-on-academic-writing-anxiety-for-topic-modeling-re.md) — Twitter dataset of 4800 tweets on 'academic writing anxiety' for topic modeling research
+- [user-interested-in-understanding-federal-reserve-policy-and-how-interest-rates-a](user/user-interested-in-understanding-federal-reserve-policy-and-how-interest-rates-a.md) — User interested in understanding Federal Reserve policy and how interest rates affect personal finances

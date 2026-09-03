@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [1979-dracula-film-john-badham-frank-langella-recommended-as-most-accurate-to-sto](reference/1979-dracula-film-john-badham-frank-langella-recommended-as-most-accurate-to-sto.md) — 1979 Dracula film (John Badham, Frank Langella) recommended as most accurate to Stoker's novel
+- [3-day-lisbon-itinerary-from-may-2023-for-early-april-travel](reference/3-day-lisbon-itinerary-from-may-2023-for-early-april-travel.md) — 3-day Lisbon itinerary from May 2023 for early April travel
+- [attended-music-festival-with-friends-in-april-2023-saw-the-lumineers-and-the-197](experience/attended-music-festival-with-friends-in-april-2023-saw-the-lumineers-and-the-197.md) — Attended music festival with friends in April 2023; saw The Lumineers and The 1975
+- [brand-positioning-hire-human-beings-first-great-technologists-second](project/brand-positioning-hire-human-beings-first-great-technologists-second.md) — Brand positioning: hire human beings first, great technologists second
+- [changed-legal-name-to-emily-rose-thompson-following-divorce](user/changed-legal-name-to-emily-rose-thompson-following-divorce.md) — Changed legal name to Emily Rose Thompson following divorce
+- [content-niches-for-team-building-and-remote-work-brand](project/content-niches-for-team-building-and-remote-work-brand.md) — Content niches for team-building and remote work brand
+- [content-strategy-for-team-building-and-hiring-brand](project/content-strategy-for-team-building-and-hiring-brand.md) — Content strategy for team-building and hiring brand
+- [gambian-visual-art-forms-for-cultural-preservation-and-contemporary-developments](reference/gambian-visual-art-forms-for-cultural-preservation-and-contemporary-developments.md) — Gambian visual art forms for cultural preservation and contemporary developments
+- [gave-silver-necklace-to-best-friend-for-birthday-in-april-2023-friend-loved-it](experience/gave-silver-necklace-to-best-friend-for-birthday-in-april-2023-friend-loved-it.md) — Gave silver necklace to best friend for birthday in April 2023; friend loved it
+- [getting-back-into-guitar-playing-researching-online-learning-resources](user/getting-back-into-guitar-playing-researching-online-learning-resources.md) — Getting back into guitar playing; researching online learning resources
+- [interest-in-cultural-preservation-through-visual-arts-and-gambian-heritage](user/interest-in-cultural-preservation-through-visual-arts-and-gambian-heritage.md) — Interest in cultural preservation through visual arts and Gambian heritage
+- [interest-in-dracula-adaptations-and-vampire-media-across-different-portrayals](user/interest-in-dracula-adaptations-and-vampire-media-across-different-portrayals.md) — Interest in Dracula adaptations and vampire media across different portrayals
+- [interested-in-entrepreneurial-stories-and-business-related-podcasts](user/interested-in-entrepreneurial-stories-and-business-related-podcasts.md) — Interested in entrepreneurial stories and business-related podcasts
+- [music-taste-ambient-lo-fi-chill-genres-active-music-listener](user/music-taste-ambient-lo-fi-chill-genres-active-music-listener.md) — Music taste: ambient, lo-fi, chill genres; active music listener
+- [received-positive-feedback-from-thesis-advisor-on-proposal](experience/received-positive-feedback-from-thesis-advisor-on-proposal.md) — Received positive feedback from thesis advisor on proposal
+- [spotify-playlist-summer-vibes-chill-tracks-for-relaxing-and-working-out](user/spotify-playlist-summer-vibes-chill-tracks-for-relaxing-and-working-out.md) — Spotify playlist 'Summer Vibes' - chill tracks for relaxing and working out
+- [thesis-social-media-usage-and-mental-health-in-young-adults](project/thesis-social-media-usage-and-mental-health-in-young-adults.md) — Thesis: social media usage and mental health in young adults
+- [vampire-movies-and-tv-shows-recommendations-list](reference/vampire-movies-and-tv-shows-recommendations-list.md) — Vampire movies and TV shows recommendations list
+- [wedding-gift-for-smith-couple-medium-bamboo-cutting-board-engraved-the-smith-kit](user/wedding-gift-for-smith-couple-medium-bamboo-cutting-board-engraved-the-smith-kit.md) — Wedding gift for Smith couple: medium bamboo cutting board, engraved The Smith Kitchen

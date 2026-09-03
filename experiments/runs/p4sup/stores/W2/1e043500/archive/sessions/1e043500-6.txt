@@ -1,0 +1,25 @@
+## Session sharegpt_DWaO0BY_0 — 2023/05/20 (Sat) 11:07
+user: Does “I just saw a tweet expressing that the TV show was interesting.” contain any grammatical errors?
+assistant: No, the sentence "I just saw a tweet expressing that the TV show was interesting." does not contain any grammatical errors. The sentence is grammatically correct and conveys a clear meaning.
+user: Is it natural enough? If not, make the sentence sounds natural to native speakers.
+assistant: The sentence is grammatically correct, but it may not sound very natural to native speakers. Here's a revised version that may sound more natural:
+
+"I just saw a tweet that said the TV show was interesting."
+user: I have never seen “that said” being put in the middle of the sentence. Can you give explanation and some examples on that usage?
+assistant: "That said" is often used to introduce a statement that contrasts or qualifies what was said previously. When used in the middle of a sentence, "that said" can indicate a shift in the speaker's perspective, tone, or emphasis. Here are some examples:
+
+* I love going to the park, but that said, I don't like when it's crowded.
+* I know we agreed to meet at 5 PM, but that said, I think we should push it back an hour.
+* The new movie was terrible, that said, the special effects were really impressive.
+
+In each of these examples, "that said" signals a change in the speaker's thoughts or feelings about the topic being discussed. It can be seen as a way to soften the impact of a criticism or to qualify a statement.
+user: But the examples you just gave are different from the meaning of “that said” in “I just saw a tweet that said the TV show was interesting.”
+assistant: I apologize for any confusion. You are correct, the use of "that said" in the sentence "I just saw a tweet that said the TV show was interesting" has a different meaning than the usage I previously described. In this sentence, "that said" is used to refer to the content of the tweet. It is similar to saying "according to the tweet" or "as stated in the tweet." Here's another example to clarify the usage:
+
+* I heard that the concert was amazing, but that said, I haven't seen any reviews yet.
+
+In this sentence, "that said" is used to refer to the information the speaker heard, and it signals a cautionary or qualifying tone.
+user: Can you explain why you used “that said” instead of “said that” in the sentence?
+assistant: Yes, of course. "That said" is a set phrase commonly used to introduce a contrasting or qualifying statement, while "said that" simply indicates that someone made a statement. "That said" is used to emphasize the contrast or qualification, whereas "said that" is more straightforward and neutral in tone.
+
+In the sentence "I just saw a tweet that said the TV show was interesting," "that said" is used to emphasize the source of the information being referred to, which is the tweet. It signals to the reader or listener that the information comes from an external source and not the speaker's own observation. Using "said that" in this sentence would not convey the same emphasis on the source of the information.

@@ -1,0 +1,151 @@
+## Session sharegpt_hUAh1Tu_23 — 2023/05/20 (Sat) 04:48
+assistant: Sure! Here's a revised version of the trust that designates all three sons as the successor trustees:
+
+Declaration of Trust of Rosalynn McClenagan
+
+I, Rosalynn McClenagan, declare this to be my Declaration of Trust:
+
+1. Trustees. I designate my three sons, Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, to serve as the initial co-trustees of this trust.
+2. Property. I transfer and assign to the trust all of my property, both real and personal, wherever located, including but not limited to the following:
+* My annuity
+* My home located at 401 Main St., Gruver, TX, which is currently valued at approximately $120,000 and is paid for
+* One-third (1/3) of the Ayres farmland, which I own
+* My life insurance policy
+* My car, which is currently valued at approximately $11,000
+3. Trust Administration. I direct the trustees to hold, manage, and distribute the trust property as follows:
+* During my lifetime, I shall have the right to receive all income from the trust and to use and enjoy the trust property as I see fit.
+* Upon my death, the trustees shall distribute the trust property to themselves, in equal shares as co-trustees.
+* If any of my sons predecease me or die before the distribution of the trust property, then that son's share shall pass to his surviving children, if any, in equal shares.
+* The trustees may make distributions of trust property to themselves or their descendants in such amounts and at such times as they deem necessary or advisable for their health, education, maintenance, or support.
+* In the event that any of my sons is under the age of 18 at the time of my death, then the trustees shall hold his share of the trust property in trust for his benefit until he reaches the age of 18.
+4. Powers of Trustees. The trustees shall have the following powers, in addition to any other powers granted by law or by this Declaration of Trust:
+* To invest and reinvest the trust property in such investments as they deem advisable, without regard to whether such investments are of the type that a trustee is otherwise permitted to make.
+* To pay from the trust any taxes, expenses, or debts incurred in the administration of the trust or my estate.
+* To sell, exchange, or otherwise dispose of any trust property for cash or on credit, with or without security, at public or private sale, and upon such terms and conditions as they deem advisable.
+* To borrow money and pledge trust property as security for the loan.
+* To employ attorneys, accountants, and other professionals to advise or assist the trustees in the administration of the trust, and to pay their reasonable fees and expenses from the trust.
+5. Successor Trustees. If any of my sons is unable or unwilling to serve as trustee, or if any of them cease to serve for any reason, then the remaining co-trustees shall appoint a successor trustee who is a descendant of mine or a sibling of one of my sons. If no such person is available or willing to serve as trustee, then the remaining co-trustees shall continue to serve as trustees, and the trust shall not terminate or be subject to court supervision.
+6. Governing Law. This trust shall be governed by the laws of the State of Texas.
+7. Revocation. I reserve the right to revoke or amend this Declaration of Trust at any time by a written instrument executed by me and delivered to the trustees.
+
+In witness whereof, I have executed this Declaration of Trust on this [insert date] day of [insert month], [insert year].
+
+[Signature of Rosal
+user: Change the initial trustee back to Rosalynn McClenagan
+assistant: Sure! Here is the updated will with Rosalynn McClenagan as the initial trustee:
+
+LAST WILL AND TESTAMENT OF ROSALYNN MCCLENAGAN
+
+I, Rosalynn McClenagan, being of sound mind and body, do hereby make, publish and declare this to be my Last Will and Testament, hereby revoking all prior wills and codicils made by me at any time heretofore.
+
+ARTICLE I
+
+I appoint myself, Rosalynn McClenagan, as the initial trustee of this trust.
+
+ARTICLE II
+
+Upon my death, I direct my trustee to pay all of my just debts, funeral expenses, and expenses of administering my estate, as soon after my death as is reasonably practical.
+
+ARTICLE III
+
+I give, devise, and bequeath all of my tangible personal property, including household items, keepsakes, photo albums, and any pets that may be in my care at the time of my death to my sons Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, in equal shares, to be divided among them as they shall agree.
+
+ARTICLE IV
+
+I give, devise, and bequeath all of my right, title, and interest in the following property to my trustee to hold, manage, and distribute according to the terms of this trust:
+
+(A) My annuity;
+
+(B) My home located at 305 Chase Ave, Gruver, TX 79040, worth approximately $120,000 and owned outright;
+
+(C) My life insurance policy;
+
+(D) My car, worth approximately $11,000;
+
+(E) My one-third (1/3) interest in the Ayres farmland.
+
+ARTICLE V
+
+Upon my death, I direct my trustee to distribute the property listed in Article IV as follows:
+
+(A) My trustee shall transfer my annuity, life insurance policy, and car to my sons Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, in equal shares, to be divided among them as they shall agree.
+
+(B) My trustee shall distribute my one-third (1/3) interest in the Ayres farmland to my sons Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, in equal shares, to be divided among them as they shall agree.
+
+(C) My trustee shall hold, manage, and distribute my home located at 305 Chase Ave, Gruver, TX 79040, in accordance with the terms of this trust.
+
+ARTICLE VI
+
+In the event that any of my sons predecease me, his share shall pass to his surviving children, in equal shares, to be divided among them as they shall agree.
+
+ARTICLE VII
+
+Upon the death of the last surviving son of mine, the trust shall terminate and the remaining assets of the trust shall be distributed equally to the then-living issue of my sons, per stirpes.
+
+ARTICLE VIII
+
+I hereby nominate, constitute, and appoint my sons Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, to serve as successor trustee(s) of this trust upon my death or incapacity.
+
+IN WITNESS WHEREOF, I have hereunto set my hand this \_\_\_\_ day of \_\_\_\_\_\_***, 20***.
+
+---
+
+Rosalynn McClenagan
+user: No, go back to the last will you showed before those changes were made.
+assistant: Sure, here's the will as it was before any of the changes were made:
+
+LAST WILL AND TESTAMENT OF ROSALYNN MCCLENAGAN
+
+I, Rosalynn McClenagan, being of sound mind and body, do hereby make, publish and declare this to be my Last Will and Testament, hereby revoking all prior wills and codicils made by me at any time heretofore.
+
+ARTICLE I
+
+I appoint Warren McClenagan as the executor of this will. If Warren McClenagan does not survive me, I appoint Brian McClenagan as the alternate executor.
+
+ARTICLE II
+
+I direct my executor to pay all of my just debts, funeral expenses, and expenses of administering my estate, as soon after my death as is reasonably practical.
+
+ARTICLE III
+
+I give, devise, and bequeath all of my tangible personal property, including household items, keepsakes, photo albums, and any pets that may be in my care at the time of my death to my sons Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, in equal shares, to be divided among them as they shall agree.
+
+ARTICLE IV
+
+I give, devise, and bequeath all of my right, title, and interest in the following property to my sons Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, in equal shares, to be divided among them as they shall agree:
+
+(A) My annuity;
+
+(B) My home, worth approximately $120,000 and owned outright;
+
+(C) My life insurance policy;
+
+(D) My car, worth approximately $11,000;
+
+(E) One-third (1/3) of my section of farmland.
+
+ARTICLE V
+
+In the event that any of my sons predecease me, his share shall pass to his surviving children, in equal shares, to be divided among them as they shall agree.
+
+ARTICLE VI
+
+If any beneficiary named in this will contests this will, any share or interest in my estate given to that person by this will shall be forfeited and shall become part of my residuary estate.
+
+ARTICLE VII
+
+I direct that any taxes levied against my estate shall be paid from my residuary estate.
+
+ARTICLE VIII
+
+All the rest, residue, and remainder of my property of every kind and description, wheresoever situated, including any property over which I may have a power of appointment at the time of my death, and which I have not otherwise effectively disposed of by this will or by any other means during my lifetime, I give, devise, and bequeath to my sons Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, in equal shares, to be divided among them as they shall agree.
+
+ARTICLE IX
+
+I nominate, constitute, and appoint my sons Warren McClenagan, Brian McClenagan, and Benjamen McClenagan as the guardians of any minor children I may have at the time of my death.
+
+IN WITNESS WHEREOF, I have hereunto set my hand this \_\_\_\_ day of \_\_\_\_\_\_***, 20***.
+
+---
+
+Rosalynn McClenagan

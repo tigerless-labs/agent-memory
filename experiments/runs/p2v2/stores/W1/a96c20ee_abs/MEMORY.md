@@ -1,0 +1,14 @@
+# MEMORY.md
+
+- [active-interest-in-drifting-as-a-hobby-practices-at-local-parking-lot](user/active-interest-in-drifting-as-a-hobby-practices-at-local-parking-lot.md) — Active interest in drifting as a hobby, practices at local parking lot
+- [enjoys-cooking-with-ground-beef-and-chicken-breasts-shops-at-publix](user/enjoys-cooking-with-ground-beef-and-chicken-breasts-shops-at-publix.md) — Enjoys cooking with ground beef and chicken breasts; shops at Publix
+- [interest-in-education-technology-particularly-ai-powered-adaptive-learning-and-p](user/interest-in-education-technology-particularly-ai-powered-adaptive-learning-and-p.md) — Interest in education technology, particularly AI-powered adaptive learning and personalized learning
+- [interested-in-learning-djing-as-a-music-hobby](user/interested-in-learning-djing-as-a-music-hobby.md) — Interested in learning DJing as a music hobby
+- [key-research-initiatives-and-organizations-in-education-technology-and-ai](reference/key-research-initiatives-and-organizations-in-education-technology-and-ai.md) — Key research initiatives and organizations in education technology and AI
+- [met-alex-at-parking-lot-received-drifting-tips-on-speed-and-angle-control](experience/met-alex-at-parking-lot-received-drifting-tips-on-speed-and-angle-control.md) — Met Alex at parking lot, received drifting tips on speed and angle control
+- [meticulous-about-phone-screen-maintenance-keeps-device-in-pristine-condition](user/meticulous-about-phone-screen-maintenance-keeps-device-in-pristine-condition.md) — Meticulous about phone screen maintenance; keeps device in pristine condition
+- [owns-nissan-gt-r-with-coilovers-staggered-wheels-and-upgraded-exhaust-system](project/owns-nissan-gt-r-with-coilovers-staggered-wheels-and-upgraded-exhaust-system.md) — Owns Nissan GT-R with coilovers, staggered wheels, and upgraded exhaust system
+- [phone-battery-draining-faster-than-normal-with-social-media-and-video-use-explor](experience/phone-battery-draining-faster-than-normal-with-social-media-and-video-use-explor.md) — Phone battery draining faster than normal with social media and video use; explored troubleshooting options
+- [presented-research-on-ai-powered-adaptive-learning-systems-at-first-research-con](project/presented-research-on-ai-powered-adaptive-learning-systems-at-first-research-con.md) — Presented research on AI-powered adaptive learning systems at first research conference at Harvard University
+- [real-time-feedback-mechanisms-in-ai-powered-adaptive-learning-systems](reference/real-time-feedback-mechanisms-in-ai-powered-adaptive-learning-systems.md) — Real-time feedback mechanisms in AI-powered adaptive learning systems
+- [research-findings-on-ai-powered-adaptive-learning-systems-in-math-and-reading](project/research-findings-on-ai-powered-adaptive-learning-systems-in-math-and-reading.md) — Research findings on AI-powered adaptive learning systems in math and reading

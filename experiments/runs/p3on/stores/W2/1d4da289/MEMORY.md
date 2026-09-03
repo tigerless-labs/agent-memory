@@ -1,0 +1,28 @@
+# MEMORY.md
+
+- [beginner-yogi-follows-adriene-s-youtube-yoga-videos](user/beginner-yogi-follows-adriene-s-youtube-yoga-videos.md) — Beginner yogi; follows Adriene's YouTube yoga videos
+- [completed-20-mile-coastal-cycling-event](experience/completed-20-mile-coastal-cycling-event.md) — Completed 20-mile coastal cycling event
+- [display-choices-for-f-16-model-show-light-gray-beige-background-custom-wooden-pe](project/display-choices-for-f-16-model-show-light-gray-beige-background-custom-wooden-pe.md) — Display choices for F-16 model show: light gray/beige background, custom wooden pedestal with rounded base
+- [educational-model-for-non-major-robot-education-incorporating-sdgs-and-sustainab](project/educational-model-for-non-major-robot-education-incorporating-sdgs-and-sustainab.md) — Educational model for non-major robot education incorporating SDGs and sustainability (2023)
+- [enjoys-repurposing-leftover-chicken-in-various-dishes](user/enjoys-repurposing-leftover-chicken-in-various-dishes.md) — Enjoys repurposing leftover chicken in various dishes
+- [enjoys-watching-lakers-games-with-friends-at-sports-bars](user/enjoys-watching-lakers-games-with-friends-at-sports-bars.md) — Enjoys watching Lakers games with friends at sports bars
+- [f-16-scale-model-completed-march-12-2023-took-3-weeks-entering-local-model-show](project/f-16-scale-model-completed-march-12-2023-took-3-weeks-entering-local-model-show.md) — F-16 scale model completed March 12, 2023, took ~3 weeks; entering local model show June 2023
+- [finished-charity-5k-run-with-personal-best-of-24-minutes-12-seconds](experience/finished-charity-5k-run-with-personal-best-of-24-minutes-12-seconds.md) — Finished charity 5K run with personal best of 24 minutes 12 seconds
+- [gulf-arabic-term-habtain-hubtain-two-pieces-or-affectionate-slang](reference/gulf-arabic-term-habtain-hubtain-two-pieces-or-affectionate-slang.md) — Gulf Arabic term حبتين (habtain/hubtain): two pieces or affectionate slang
+- [interested-in-arabic-language-particularly-gulf-dialect](user/interested-in-arabic-language-particularly-gulf-dialect.md) — Interested in Arabic language, particularly Gulf dialect
+- [interested-in-space-exploration-and-interstellar-travel](user/interested-in-space-exploration-and-interstellar-travel.md) — Interested in space exploration and interstellar travel
+- [interested-in-yoga-specific-trackers-with-pose-recognition-and-real-time-form-fe](user/interested-in-yoga-specific-trackers-with-pose-recognition-and-real-time-form-fe.md) — Interested in yoga-specific trackers with pose recognition and real-time form feedback
+- [owns-fitbit-charge-3-uses-it-to-track-daily-steps-and-exercise](user/owns-fitbit-charge-3-uses-it-to-track-daily-steps-and-exercise.md) — Owns Fitbit Charge 3; uses it to track daily steps and exercise
+- [philippine-vat-12-rate-php-3-million-registration-threshold](reference/philippine-vat-12-rate-php-3-million-registration-threshold.md) — Philippine VAT: 12% rate, PHP 3 million registration threshold
+- [prefers-citrus-herb-vinaigrette-as-a-salad-dressing](user/prefers-citrus-herb-vinaigrette-as-a-salad-dressing.md) — Prefers Citrus-Herb Vinaigrette as a salad dressing
+- [prefers-convenience-over-security-complexity-finds-multiple-passwords-and-2fa-in](user/prefers-convenience-over-security-complexity-finds-multiple-passwords-and-2fa-in.md) — Prefers convenience over security complexity; finds multiple passwords and 2FA inconvenient
+- [proxima-centauri-closest-star-to-solar-system-4-24-light-years-away-interstellar](reference/proxima-centauri-closest-star-to-solar-system-4-24-light-years-away-interstellar.md) — Proxima Centauri: closest star to Solar System, 4.24 light-years away; interstellar travel technical challenges and proposed concepts
+- [purchased-new-yoga-mat-online](user/purchased-new-yoga-mat-online.md) — Purchased new yoga mat online
+- [starting-a-sunday-meal-prep-habit](user/starting-a-sunday-meal-prep-habit.md) — Starting a Sunday meal prep habit
+- [starting-woodworking-as-a-hobby-beginner-level-with-f-16-pedestal-as-first-proje](user/starting-woodworking-as-a-hobby-beginner-level-with-f-16-pedestal-as-first-proje.md) — Starting woodworking as a hobby; beginner level with F-16 pedestal as first project
+- [successful-dinner-party-around-2026-08-19-with-convenient-leftover-usage](experience/successful-dinner-party-around-2026-08-19-with-convenient-leftover-usage.md) — Successful dinner party around 2026-08-19 with convenient leftover usage
+- [thesis-on-social-media-use-and-mental-health-methodology-and-analysis-approach](project/thesis-on-social-media-use-and-mental-health-methodology-and-analysis-approach.md) — Thesis on social media use and mental health: methodology and analysis approach
+- [uses-cycling-and-cardio-training-to-build-tennis-endurance](user/uses-cycling-and-cardio-training-to-build-tennis-endurance.md) — Uses cycling and cardio training to build tennis endurance
+- [woodworking-and-display-case-resources-youtube-channels-websites-materials](reference/woodworking-and-display-case-resources-youtube-channels-websites-materials.md) — Woodworking and display case resources: YouTube channels, websites, materials
+- [working-on-backhand-slice-technique-in-tennis](project/working-on-backhand-slice-technique-in-tennis.md) — Working on backhand slice technique in tennis
+- [yoga-apps-and-online-resources-recommended-for-beginners](reference/yoga-apps-and-online-resources-recommended-for-beginners.md) — Yoga apps and online resources recommended for beginners

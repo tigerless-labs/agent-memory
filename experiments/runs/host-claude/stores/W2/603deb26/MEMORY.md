@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [caught-3-pound-trout-at-lake-tahoe-using-silver-lure](experience/caught-3-pound-trout-at-lake-tahoe-using-silver-lure.md) — Caught 3-pound trout at Lake Tahoe using silver lure
+- [cocktail-recipe-lavender-gin-fizz](reference/cocktail-recipe-lavender-gin-fizz.md) — Cocktail recipe: Lavender Gin Fizz
+- [cousin-available-to-help-with-farm-work](user/cousin-available-to-help-with-farm-work.md) — Cousin available to help with farm work
+- [dinner-party-timing-and-pacing-tips](reference/dinner-party-timing-and-pacing-tips.md) — Dinner party timing and pacing tips
+- [dinner-party-with-cranberry-sparkler-cocktail-guests-loved-it](experience/dinner-party-with-cranberry-sparkler-cocktail-guests-loved-it.md) — Dinner party with Cranberry Sparkler cocktail - guests loved it
+- [enter-fishing-tournament-at-joe-s-tackle-on-main-st](project/enter-fishing-tournament-at-joe-s-tackle-on-main-st.md) — Enter fishing tournament at Joe's Tackle on Main St.
+- [expand-farm-online-presence-with-social-media](project/expand-farm-online-presence-with-social-media.md) — Expand farm online presence with social media
+- [expand-pigpen-using-empty-plot-near-barn](project/expand-pigpen-using-empty-plot-near-barn.md) — Expand pigpen using empty plot near barn
+- [fly-fishing-rod-recommendations-for-trout-fishing](reference/fly-fishing-rod-recommendations-for-trout-fishing.md) — Fly fishing rod recommendations for trout fishing
+- [has-vegetarian-and-gluten-free-friends-or-family-members](user/has-vegetarian-and-gluten-free-friends-or-family-members.md) — Has vegetarian and gluten-free friends or family members
+- [host-dinner-party-for-8-10-guests-with-multi-cuisine-menu](project/host-dinner-party-for-8-10-guests-with-multi-cuisine-menu.md) — Host dinner party for 8-10 guests with multi-cuisine menu
+- [interested-in-fly-fishing-beginner-level](user/interested-in-fly-fishing-beginner-level.md) — Interested in fly fishing, beginner level
+- [learning-to-infuse-spirits-and-craft-cocktails](project/learning-to-infuse-spirits-and-craft-cocktails.md) — Learning to infuse spirits and craft cocktails
+- [operates-a-farm-with-chickens-and-pigs](user/operates-a-farm-with-chickens-and-pigs.md) — Operates a farm with chickens and pigs
+- [practicing-negroni-making-10-attempts-since-emma-taught-the-recipe](experience/practicing-negroni-making-10-attempts-since-emma-taught-the-recipe.md) — Practicing Negroni making - 10 attempts since Emma taught the recipe
+- [purchase-farm-equipment-submersible-pump-and-tools](project/purchase-farm-equipment-submersible-pump-and-tools.md) — Purchase farm equipment: submersible pump and tools
+- [sold-excess-roosters-to-neighbor](experience/sold-excess-roosters-to-neighbor.md) — Sold excess roosters to neighbor
+- [taking-cooking-classes-and-experimenting-with-lemon-based-recipes](user/taking-cooking-classes-and-experimenting-with-lemon-based-recipes.md) — Taking cooking classes and experimenting with lemon-based recipes
+- [transitioning-to-senior-marketing-role-content-marketing-strategist-or-digital-m](project/transitioning-to-senior-marketing-role-content-marketing-strategist-or-digital-m.md) — Transitioning to senior marketing role: Content Marketing Strategist or Digital Marketing Consultant
+- [vegetarian-sushi-filling-ideas-portobello-tempura-tofu-mushrooms](reference/vegetarian-sushi-filling-ideas-portobello-tempura-tofu-mushrooms.md) — Vegetarian sushi filling ideas: portobello, tempura, tofu, mushrooms

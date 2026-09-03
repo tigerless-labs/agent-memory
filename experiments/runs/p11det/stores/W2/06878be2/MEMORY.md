@@ -1,0 +1,36 @@
+# MEMORY.md
+
+- [can-lift-10-pounds-per-hand-during-bicep-curls](user/can-lift-10-pounds-per-hand-during-bicep-curls.md) — Can lift 10 pounds per hand during bicep curls
+- [interested-in-gitzo-gt3543ls-tripod-for-sony-camera](user/interested-in-gitzo-gt3543ls-tripod-for-sony-camera.md) — Interested in Gitzo GT3543LS tripod for Sony camera
+- [looking-for-camera-bag-for-sony-a7r-iv-and-lenses](project/looking-for-camera-bag-for-sony-a7r-iv-and-lenses.md) — Looking for camera bag for Sony A7R IV and lenses
+- [owns-sony-a7r-iv-camera](user/owns-sony-a7r-iv-camera.md) — Owns Sony A7R IV camera
+- [product-photography-tips-for-eco-friendly-candles](reference/product-photography-tips-for-eco-friendly-candles.md) — Product photography tips for eco-friendly candles
+- [starting-hatha-yoga-classes-on-sundays-at-9-am](project/starting-hatha-yoga-classes-on-sundays-at-9-am.md) — Starting Hatha Yoga classes on Sundays at 9 am
+- [decided-to-purchase-godox-v1-flash-for-sony-a7r-iv](project/decided-to-purchase-godox-v1-flash-for-sony-a7r-iv.md) — Decided to purchase Godox V1 flash for Sony A7R IV
+- [owns-sony-24-70mm-f-2-8-lens](user/owns-sony-24-70mm-f-2-8-lens.md) — Owns Sony 24-70mm f/2.8 lens
+- [alps-2-ocean-cycle-trail-301km-new-zealand-south-island-trail](reference/alps-2-ocean-cycle-trail-301km-new-zealand-south-island-trail.md) — Alps 2 Ocean Cycle Trail - 301km New Zealand South Island trail
+- [attended-artisan-market-at-local-library-on-april-10-2023-with-positive-candle-f](experience/attended-artisan-market-at-local-library-on-april-10-2023-with-positive-candle-f.md) — Attended Artisan Market at local library on April 10, 2023 with positive candle feedback
+- [attended-family-gathering-to-celebrate-cousin-s-new-baby-boy](experience/attended-family-gathering-to-celebrate-cousin-s-new-baby-boy.md) — Attended family gathering to celebrate cousin's new baby boy
+- [aulani-disney-resort-recommendations-for-large-family-groups-in-hawaii](reference/aulani-disney-resort-recommendations-for-large-family-groups-in-hawaii.md) — Aulani Disney Resort recommendations for large family groups in Hawaii
+- [budgeting-apps-comparison-mint-vs-ynab-vs-personal-capital](reference/budgeting-apps-comparison-mint-vs-ynab-vs-personal-capital.md) — Budgeting apps comparison: Mint vs YNAB vs Personal Capital
+- [candle-business-creating-eco-friendly-handcrafted-candles](project/candle-business-creating-eco-friendly-handcrafted-candles.md) — Candle business creating eco-friendly handcrafted candles
+- [completed-customer-sentiment-analysis-project-using-nlp](project/completed-customer-sentiment-analysis-project-using-nlp.md) — Completed customer sentiment analysis project using NLP
+- [does-zumba-classes-for-high-intensity-workouts](user/does-zumba-classes-for-high-intensity-workouts.md) — Does Zumba classes for high-intensity workouts
+- [excessive-online-shopping-1-3-purchases-weekly-and-commitment-to-track-and-contr](user/excessive-online-shopping-1-3-purchases-weekly-and-commitment-to-track-and-contr.md) — Excessive online shopping (1-3 purchases weekly) and commitment to track and control spending
+- [has-a-large-extended-family-of-15-20-people-including-children-aged-5-15](user/has-a-large-extended-family-of-15-20-people-including-children-aged-5-15.md) — Has a large extended family of 15-20+ people, including children aged 5-15
+- [interested-in-applying-for-summer-solstice-fair-in-june-2023](project/interested-in-applying-for-summer-solstice-fair-in-june-2023.md) — Interested in applying for Summer Solstice Fair in June 2023
+- [interested-in-biking-the-alps-2-ocean-cycle-trail-in-new-zealand-s-south-island](user/interested-in-biking-the-alps-2-ocean-cycle-trail-in-new-zealand-s-south-island.md) — Interested in biking the Alps 2 Ocean Cycle Trail in New Zealand's South Island
+- [interested-in-deep-learning-and-nlp-with-focus-on-practical-applications](user/interested-in-deep-learning-and-nlp-with-focus-on-practical-applications.md) — Interested in deep learning and NLP with focus on practical applications
+- [interested-in-healthcare-policy-favors-equitable-universal-systems-over-market-b](user/interested-in-healthcare-policy-favors-equitable-universal-systems-over-market-b.md) — Interested in healthcare policy; favors equitable/universal systems over market-based approaches
+- [machine-learning-and-deep-learning-books-recommended-for-learning](reference/machine-learning-and-deep-learning-books-recommended-for-learning.md) — Machine learning and deep learning books recommended for learning
+- [mobile-rpg-shop-page-user-journey-and-design-pain-points](reference/mobile-rpg-shop-page-user-journey-and-design-pain-points.md) — Mobile RPG shop page user journey and design pain points
+- [plan-hawaii-family-vacation-for-15-20-people-to-oahu-and-maui](project/plan-hawaii-family-vacation-for-15-20-people-to-oahu-and-maui.md) — Plan Hawaii family vacation for 15-20 people to Oahu and Maui
+- [planned-stock-price-prediction-model-combining-historical-data-with-nlp-sentimen](project/planned-stock-price-prediction-model-combining-historical-data-with-nlp-sentimen.md) — Planned: stock price prediction model combining historical data with NLP sentiment analysis
+- [planning-to-create-summer-seasonal-candle-line-with-lavender-and-lemon-scents](project/planning-to-create-summer-seasonal-candle-line-with-lavender-and-lemon-scents.md) — Planning to create summer seasonal candle line with lavender and lemon scents
+- [posture-has-improved-since-starting-weightlifting](user/posture-has-improved-since-starting-weightlifting.md) — Posture has improved since starting weightlifting
+- [prefers-relaxing-yoga-styles-to-balance-high-intensity-workouts](user/prefers-relaxing-yoga-styles-to-balance-high-intensity-workouts.md) — Prefers relaxing yoga styles to balance high-intensity workouts
+- [set-up-mint-budgeting-app-to-track-online-spending-and-reduce-impulse-purchases](project/set-up-mint-budgeting-app-to-track-online-spending-and-reduce-impulse-purchases.md) — Set up Mint budgeting app to track online spending and reduce impulse purchases
+- [uses-or-considers-todoist-for-task-management-and-quick-capture](user/uses-or-considers-todoist-for-task-management-and-quick-capture.md) — Uses or considers Todoist for task management and quick capture
+- [wants-to-establish-clear-boundaries-between-work-and-personal-life](user/wants-to-establish-clear-boundaries-between-work-and-personal-life.md) — Wants to establish clear boundaries between work and personal life
+- [wants-to-establish-daily-reading-and-note-taking-routine](user/wants-to-establish-daily-reading-and-note-taking-routine.md) — Wants to establish daily reading and note-taking routine
+- [year-long-decluttering-plan-for-physical-and-digital-spaces-started-may-2023](project/year-long-decluttering-plan-for-physical-and-digital-spaces-started-may-2023.md) — Year-long decluttering plan for physical and digital spaces (started May 2023)

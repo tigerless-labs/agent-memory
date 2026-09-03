@@ -1,0 +1,54 @@
+## Session sharegpt_R1F4uqN_32 — 2023/05/21 (Sun) 00:54
+user: Write an application for he following position on behalf of Liam: Are you an experienced Senior Advisor looking for a new and fresh opportunity?
+
+We have a great opportunity in Te Puni Kōkiri (Ministry of Māori Development) for an experienced Senior Advisor to join our Te Tai Tokerau Rohe in our Regional Partnerships and Operations Puni.
+
+Te Whiwhinga Mahi | The opportunity
+
+The Senior Advisor is responsible for assisting whānau, hapū, iwi, Māori organisations and Māori communities to develop and implement initiatives that will enable them to achieve long-term economic and social development The Advisor will work with agencies, organisations and providers to assist them to improve their outcomes for Māori. The Senior Advisor will:
+
+Lead work with agencies, organisations and providers to assist them to improve their outcomes for Māori
+Act as an effective conduit for information both into and out of Māori communities to support Māori initiatives
+Manage and analyses information at a local level on Māori views, aspirations and experiences, to contribute to Te Puni Kōkiri policy thinking
+Assist whānau, hapū, iwi, Māori organisation's and communities to develop and implement initiatives that will enable them to achieve long-term economic and social development
+Manage local level contractual arrangements and is a leader in the relationships held with stakeholders
+Provide mentoring and coaching to Advisors in their region.
+Inform investment decisions in partnership with the Investment and Policy colleagues.
+This position reports to the Manukura - Team Leader, Te Tai Tokerau.
+
+Ko wai koe | About you
+
+If you possess the following, then we want to hear from you:
+
+Experience in working with whānau, hapū, iwi, Māori organisations and Māori communities
+
+Proven effective use of project management disciplines to support work
+Understanding of the government and the public service and public sector processes - understanding the rationale and mechanisms of government intervention i.e. reasons for government intervention, the available intervention mechanisms and alternatives to government interventions
+Understanding of the relevance of the Treaty of Waitangi to the work being undertaken
+Excellent communication skills including a conversational level of te Reo Māori
+Ability to identify, build and actively manage significant relationships, valuing diverse perspectives and experiences
+A clean full motor vehicle driver's licence
+Ngā uara ka whiwhi koe ki Te Puni Kōkiri | Working at Te Puni Kōkiri
+
+We are guided by our values of excellence, valuing people and relationships, working collectively and being creative and innovative. We invest in our people - you'll be encouraged to develop and contribute to your fullest potential. We believe strongly in work/life balance and understand that your Whānau is just as important as you. And we're committed to your wellbeing and learning and development.
+
+If you are looking for a challenge and a positive work environment with a fantastic organisation, then this is the role for you. 
+
+If this opportunity appeals to you, apply now!
+
+We are actively reviewing talent and an appointment will be made once a suitable candidate is identified. We encourage you to make your application today or get in touch to discuss more about how this great opportunity will fit with your career goals.
+assistant: Dear Hiring Manager,
+
+I am excited to apply for the position of Senior Advisor in Te Puni Kōkiri's Te Tai Tokerau Rohe. I am confident that my extensive experience and skills will allow me to excel in this role.
+
+As a Senior Advisor, I will assist whānau, hapū, iwi, Māori organisations, and Māori communities in developing initiatives to achieve long-term economic and social development. I will lead work with agencies, organisations, and providers to improve outcomes for Māori and act as an effective conduit for information into and out of Māori communities. In addition, I will manage local-level contractual arrangements and provide mentoring and coaching to Advisors in my region.
+
+I possess strong skills in project management and understanding of government and public sector processes, and I am familiar with the relevance of the Treaty of Waitangi to the work being undertaken. I have excellent communication skills, including proficiency in conversational te Reo Māori, and the ability to build and manage relationships with diverse perspectives and experiences. I have a full, clean motor vehicle driver's licence.
+
+I am motivated by Te Puni Kōkiri's values of excellence, valuing people and relationships, working collectively, and being creative and innovative. I believe in a work/life balance and the importance of my Whānau. I am committed to my wellbeing and learning and development.
+
+I am excited about this opportunity and am eager to contribute my skills and experience to this fantastic organization. Thank you for considering my application.
+
+Sincerely,
+
+Liam

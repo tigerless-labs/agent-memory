@@ -1,0 +1,69 @@
+## Session sharegpt_Lk4UN8n_181 — 2023/05/21 (Sun) 18:07
+assistant: Darryl L. Badley
+(774) 415-6265 Spencer, MA [dtbadley0325@gmail.com](mailto:dtbadley0325@gmail.com)
+
+SKILLS
+Biomedical Engineering
+Signal Processing
+Proficient in 3D Modeling Softwares (Autocad/ SolidWorks)
+COMSOL analysis
+Proficient in SQL  
+Proficient in Microsoft office and Google Drive
+Machine Learning
+Excellent communication and active listening skills
+Customer Engagement and Relationships
+Data Entry
+Java
+Python
+MATLAB
+Data Analysis
+Leadership and Management
+Excellent writing and comprehension skills
+Excellent mathematical capabilities
+
+EXPERIENCE
+Lumere/GHX - Research Analyst
+Current
+
+* Providing subject matter expertise to evaluate various FDA approved medical devices to provide doctors, nurses, and health system executives life-saving data for them to make the best purchasing decisions.
+* Utilizing medical product spend data provided by partners to provide evidence-based savings strategies and spend utilization insights.
+* Interacting directly with customers to ensure their happiness by listening and understanding exactly what their problem is to best address it.
+* Collecting product specific data from the FDA, peer-reviewed journals, and device manufacturers to allow clients to fully understand product functionality and adverse events.
+* Communicating and networking with device manufacturers to gain key insider knowledge about their products that may not otherwise be able to be available.
+
+ABBVIE - Signal Processing Scientist
+March 2022 - November 2022
+
+* Designed a novel algorithm aimed to diagnose and categorize Parkinson’s Disease in patients from the comfort of their home by using wearable Inertial measurement units (IMU).
+* Utilized Machine Learning to predict with high confidence the progression of patient disease progression.
+* Worked with Clinical Research Coordinators and Principal Investigators to effectively obtain and analyze clinical trial data.
+* Presented my findings weekly to my department and lead discussions to lead us forward.
+
+Worcester Polytechnic Institute - Research Assistant
+August 2020 - January 2022
+
+* Management - Led a team where we used C. elegans to investigate the optimization of deep brain stimulation dosing in FDA approved diseases.
+* Created a microfluidic electrical stimulation apparatus capable of serial control via a single board computer.
+* Used COMSOL to create detailed simulations of the electronic and fluidic properties of the device.
+* Used industry standard microfabrication techniques to design and assemble microfluidic devices.
+* Used industry standard laboratory techniques to maintain laboratory equipment and handle living animals.
+* Programmed algorithms using MATLAB, Python, and Java to automate the experiment process and standardize results.
+
+Center for the Neural Basis of Cognition - Research Intern
+May 2020 - August 2020
+
+* Communication - Coordinated with industry leading, multi-disciplinary teams as a liaison to ensure project progress.
+* Used Python and MATLAB to design novel neural decoders.
+* Investigated the effects of neuron dropping on the performance of the neural decoders that were designed.
+* Analyzed the literature to get the necessary information in order to push the project further.
+
+Worcester Polytechnic Institute - Safety Shuttle Supervisor
+September 2019 - May 2020
+
+* Management - Managed a department by handling human resources and pay, creating schedules for each employee, and working with school staff to ensure the continued success of the department.
+* Provided transportation to students to ensure that they made it to and from their destinations safely.
+* Wrote a program using Python and Excel that automatically tracked employee hours.
+* Ensured employee wages were properly distributed by using Workday.
+
+MISSION
+My mission is to contribute my knowledge and skills in biomedical engineering, software engineering, and product development to create innovative solutions that improve people's lives. I strive to develop cutting-edge technologies that can bridge the gap between human beings and machines, ultimately leading to a better

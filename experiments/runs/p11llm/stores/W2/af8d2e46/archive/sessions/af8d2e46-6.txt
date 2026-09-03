@@ -1,0 +1,175 @@
+## Session sharegpt_8lprfdF_0 — 2023/05/21 (Sun) 09:54
+user: immplementing on press in react native for google maps navigation
+assistant: To implement "on press" functionality for Google Maps navigation in React Native, you can use the following steps:
+
+1. First, you need to install the "react-native-maps" package. You can do this by running the following command in your terminal:
+```java
+npm install react-native-maps
+```
+2. After installing the package, you need to import the MapView component from "react-native-maps" in your code. You can do this by adding the following line at the top of your file:
+```python
+import MapView from 'react-native-maps';
+```
+3. Next, you can create a MapView component in your render method and add a Marker component to it. The Marker component will represent the location that the user wants to navigate to. Here's an example:
+```php
+<MapView
+  style={{ flex: 1 }}
+  region={{
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  }}
+>
+  <Marker
+    coordinate={{
+      latitude: 37.78825,
+      longitude: -122.4324,
+    }}
+    onPress={() => {
+      // Your navigation logic goes here
+    }}
+  />
+</MapView>
+```
+4. In the onPress function of the Marker component, you can implement your navigation logic using a library like "react-native-navigation" or "react-navigation". You can use the latitude and longitude values of the Marker component's coordinate prop to determine the destination of the navigation.
+
+Here's an example using the "react-native-navigation" library:
+```javascript
+import { Navigation } from 'react-native-navigation';
+
+// ...
+
+<Marker
+  coordinate={{
+    latitude: 37.78825,
+    longitude: -122.4324,
+  }}
+  onPress={() => {
+    Navigation.navigate('NavigationScreen', {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    });
+  }}
+/>
+```
+In this example, the onPress function calls the "Navigation.navigate" method with the name of the screen that you want to navigate to (in this case, "NavigationScreen") and an object containing the latitude and longitude values of the destination.
+
+You can then use these values in the destination screen to set the region of a MapView component or to call the Google Maps API to get directions to the destination.
+user: import MapView from 'react-native-maps';
+assistant: The `import MapView from 'react-native-maps'` statement is used to import the MapView component from the `react-native-maps` package in a React Native application. The MapView component allows you
+user: import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native';
+import tw from 'tailwind-react-native-classnames';
+import { Icon } from 'react-native-elements';
+import { useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import { setDestination } from '../slices/navSlice';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import {GOOGLE\_MAPS\_APIKEY} from "@env";
+
+// import Icon from 'react-native-ionicons';
+//react redux which is a hook
+const data = [ 
+ {
+ id:"123",
+ icon:"home",
+ location: "Home",
+ destination: "Sector G-9/1, Street 49, Islamabad",
+ },
+ {
+ id:"456",
+ icon:"briefcase",
+ location: "Work",
+ destination: "Sector I-9, STP, Islamabad",
+ },
+ {
+ id:"789",
+ icon:"business",
+ location: "Business",
+ destination: "Olympus, F-11, Islamabad",
+ },
+ {
+ id:"101",
+ icon:"football",
+ location: "Game",
+ destination: "Total, F-6, Islamabad",
+ },
+
+];
+const NavFavourites = () => {
+ return (
+  item.id}
+ ItemSeparatorComponent = {() => (
+ 
+ )}
+ renderItem = {({ item: {location, destination, icon } }) => (
+ 
+{location}
+{destination}
+ 
+ )}
+ />
+ );
+
+};
+export default NavFavourites;
+
+const styles = StyleSheet.create({})
+assistant: This is a functional component in a React Native application that renders a FlatList component showing a list of navigation favourites. It imports several modules such as React, StyleSheet, Text, TouchableOpacity, View, Icon, useDispatch, useNavigation, setDestination, GooglePlacesAutocomplete, and a custom tailwind style module "tw".
+
+The "data" array contains a list of favourite locations with their respective destinations, and each item has an icon associated with it. The FlatList component iterates over the items in the "data" array and renders a TouchableOpacity for each item. The TouchableOpacity has an icon, location and destination information that are extracted from the item in the array using destructuring.
+
+The TouchableOpacity also has a background color and padding to make it look like a button. The FlatList component also has a separator component to separate each item in the list.
+
+This component does not have any business logic and is purely focused on rendering the UI based on the data. It can be used in a larger application that requires a list of navigation favourites.
+user: So all in all the code is working good, I just need to link the const data with google places navigation so that when the user presses on the home then the app should navigate it to that location
+assistant: To link the data in `NavFavourites` component with Google Places navigation, you need to use the `useDispatch` hook from `react-redux` to dispatch the `setDestination` action creator when a favourite location is pressed.
+
+To do this, you can modify the `TouchableOpacity` component to dispatch the `setDestination` action when it is pressed, passing the destination location as an argument to the action creator. Here's an example of how you can modify the `TouchableOpacity` component:
+```scss
+<TouchableOpacity
+  style={tw`flex-row items-center p-5`}
+  onPress={() => {
+    dispatch(setDestination(destination));
+    navigation.navigate('RideOptionsCard');
+  }}
+>
+```
+In this example, `dispatch` is a function returned by the `useDispatch` hook, and `navigation` is a reference to the navigation object provided by the `useNavigation` hook.
+
+When the user presses a favourite location, the `setDestination` action is dispatched with the destination as an argument, and the app navigates to the `RideOptionsCard` screen.
+
+To get the destination value for each favourite location, you can modify the `data` array to include the latitude and longitude coordinates of the destination, and pass them as props to the `GooglePlacesAutocomplete` component. You can then extract the destination value from the selected result in the `GooglePlacesAutocomplete` component and use it as the argument for the `setDestination` action creator.
+
+Here's an example of how you can modify the `GooglePlacesAutocomplete` component to include the destination coordinates:
+```php
+<GooglePlacesAutocomplete
+  placeholder="Where to?"
+  fetchDetails={true}
+  enablePoweredByContainer={false}
+  minLength={2}
+  returnKeyType={"search"}
+  styles={toInputBoxStyles}
+  query={{
+    key: GOOGLE_MAPS_APIKEY,
+    language: 'en',
+  }}
+  onPress={(data, details = null) => {
+    dispatch(
+      setDestination({
+        location: details.geometry.location,
+        description: data.description,
+      })
+    );
+    navigation.navigate('RideOptionsCard');
+  }}
+/>
+```
+In this example, the `setDestination` action creator is dispatched with an object that includes the location (i.e., the latitude and longitude coordinates of the destination) and the description (i.e., the user-friendly name of the destination).
+
+Note that you need to set up the `GooglePlacesAutocomplete` component to use the `GOOGLE_MAPS_APIKEY` environment variable, which you can get from the `.env` file in your project. You can import the `GOOGLE_MAPS_APIKEY` variable like this:
+```python
+import {GOOGLE_MAPS_APIKEY} from "@env";
+```
+Finally, you need to make sure that the `RideOptionsCard` screen is set up to receive the destination value and use it to display the ride options. You can do this by using the `useSelector` hook from `react-redux` to get the destination value from the Redux store, and pass it as a prop to the `RideOptionsCard` component.

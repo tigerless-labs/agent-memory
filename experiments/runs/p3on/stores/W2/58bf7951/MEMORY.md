@@ -1,0 +1,10 @@
+# MEMORY.md
+
+- [appreciates-nature-and-environmental-themes-in-literaturevalues-its-dual-beauty](user/appreciates-nature-and-environmental-themes-in-literaturevalues-its-dual-beauty.md) — Appreciates nature and environmental themes in literature—values its dual beauty and terror, and its use as escape and metaphor
+- [believes-individual-consumer-choices-drive-industry-sustainability-and-environme](user/believes-individual-consumer-choices-drive-industry-sustainability-and-environme.md) — Believes individual consumer choices drive industry sustainability and environmental responsibility
+- [chiang-mai-4-day-itinerary-with-attractions-google-ratings-and-drive-times](reference/chiang-mai-4-day-itinerary-with-attractions-google-ratings-and-drive-times.md) — Chiang Mai 4-day itinerary with attractions, Google ratings, and drive times
+- [completed-the-last-of-us-part-ii-main-storyline-on-ps4-20-hours](experience/completed-the-last-of-us-part-ii-main-storyline-on-ps4-20-hours.md) — Completed The Last of Us Part II main storyline on PS4 (20 hours)
+- [hopper-global-ad-creation-projectprocess-to-create-high-quality-content-across-a](project/hopper-global-ad-creation-projectprocess-to-create-high-quality-content-across-a.md) — Hopper global ad creation project—process to create high-quality content across APAC, LatAM+Canada, Europe
+- [recently-built-gaming-pc-capable-of-running-demanding-aaa-titles](user/recently-built-gaming-pc-capable-of-running-demanding-aaa-titles.md) — Recently built gaming PC capable of running demanding AAA titles
+- [starting-gaming-youtube-channel-for-walkthroughs-and-reviews](project/starting-gaming-youtube-channel-for-walkthroughs-and-reviews.md) — Starting gaming YouTube channel for walkthroughs and reviews
+- [toulouse-aerospace-industry-developments-hydrogen-aircraft-plan-aero-investment](reference/toulouse-aerospace-industry-developments-hydrogen-aircraft-plan-aero-investment.md) — Toulouse aerospace industry developments: hydrogen aircraft, Plan Aéro investment, sustainability initiatives

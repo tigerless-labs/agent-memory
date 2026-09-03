@@ -1,0 +1,24 @@
+# MEMORY.md
+
+- [decluttering-apartment-and-selling-family-heirlooms](project/decluttering-apartment-and-selling-family-heirlooms.md) — Decluttering apartment and selling family heirlooms
+- [how-to-find-reliable-solar-panel-installation-companies](reference/how-to-find-reliable-solar-panel-installation-companies.md) — How to find reliable solar panel installation companies
+- [inherited-grandmother-s-vintage-diamond-necklace-great-aunt-s-antique-music-box](user/inherited-grandmother-s-vintage-diamond-necklace-great-aunt-s-antique-music-box.md) — Inherited grandmother's vintage diamond necklace, great-aunt's antique music box, and mother's depression-era glassware
+- [owns-antique-tea-set-inherited-from-cousin-rachel](user/owns-antique-tea-set-inherited-from-cousin-rachel.md) — Owns antique tea set inherited from cousin Rachel
+- [owns-vintage-typewriter-inherited-from-dad](user/owns-vintage-typewriter-inherited-from-dad.md) — Owns vintage typewriter inherited from dad
+- [antique-and-collectible-appraisal-organizations-aaa-isa-naca](reference/antique-and-collectible-appraisal-organizations-aaa-isa-naca.md) — Antique and collectible appraisal organizations: AAA, ISA, NACA
+- [breakfast-preference-scrambled-eggs-with-spinach-and-feta](user/breakfast-preference-scrambled-eggs-with-spinach-and-feta.md) — Breakfast preference: scrambled eggs with spinach and feta
+- [carries-portable-power-bank-to-address-phone-battery-draining-during-long-days](user/carries-portable-power-bank-to-address-phone-battery-draining-during-long-days.md) — Carries portable power bank to address phone battery draining during long days
+- [considering-a-career-in-medicine](user/considering-a-career-in-medicine.md) — Considering a career in medicine
+- [considering-solar-panel-installation-on-roof](user/considering-solar-panel-installation-on-roof.md) — Considering solar panel installation on roof
+- [enjoys-watching-and-supporting-squirrels-in-backyard](user/enjoys-watching-and-supporting-squirrels-in-backyard.md) — Enjoys watching and supporting squirrels in backyard
+- [jewelry-appraisal-organizations-and-certifications-naja-agta-asa](reference/jewelry-appraisal-organizations-and-certifications-naja-agta-asa.md) — Jewelry appraisal organizations and certifications: NAJA, AGTA, ASA
+- [lives-in-busy-urban-area-with-active-squirrel-population-in-backyard](user/lives-in-busy-urban-area-with-active-squirrel-population-in-backyard.md) — Lives in busy urban area with active squirrel population in backyard
+- [morning-routine-7-00-am-wake-up-with-30-minute-exercise-10-15-minute-breakfast-p](user/morning-routine-7-00-am-wake-up-with-30-minute-exercise-10-15-minute-breakfast-p.md) — Morning routine: 7:00 AM wake-up with 30-minute exercise, 10-15 minute breakfast prep, shower, and 10-15 minutes for meditation/journaling before 8:30 AM work prep
+- [muffin-tin-frittatas-recipe-6-8-eggs-with-bell-peppers-onions-cheese-and-vegetab](reference/muffin-tin-frittatas-recipe-6-8-eggs-with-bell-peppers-onions-cheese-and-vegetab.md) — Muffin tin frittatas recipe: 6-8 eggs with bell peppers, onions, cheese, and vegetables
+- [owns-black-fjallraven-kanken-backpack-purchased-may-2023](user/owns-black-fjallraven-kanken-backpack-purchased-may-2023.md) — Owns black Fjallraven Kanken backpack purchased May 2023
+- [plans-to-install-squirrel-feeder-in-backyard](user/plans-to-install-squirrel-feeder-in-backyard.md) — Plans to install squirrel feeder in backyard
+- [plans-to-plant-more-trees-in-backyard-for-wildlife-habitat](user/plans-to-plant-more-trees-in-backyard-for-wildlife-habitat.md) — Plans to plant more trees in backyard for wildlife habitat
+- [prefers-travel-options-without-long-drives](user/prefers-travel-options-without-long-drives.md) — Prefers travel options without long drives
+- [process-for-appraising-and-insuring-inherited-heirlooms-prioritize-diamond-neckl](project/process-for-appraising-and-insuring-inherited-heirlooms-prioritize-diamond-neckl.md) — Process for appraising and insuring inherited heirlooms: prioritize diamond necklace, then music box and glassware
+- [rocky-mountain-national-park-sunrise-viewpoints-recommendations](reference/rocky-mountain-national-park-sunrise-viewpoints-recommendations.md) — Rocky Mountain National Park sunrise viewpoints recommendations
+- [visited-family-in-april-2023-returned-with-souvenirs-and-mementos](experience/visited-family-in-april-2023-returned-with-souvenirs-and-mementos.md) — Visited family in April 2023, returned with souvenirs and mementos

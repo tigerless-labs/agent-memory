@@ -1,0 +1,32 @@
+# MEMORY.md
+
+- [attended-street-photography-workshop-on-may-1-2-2023](project/attended-street-photography-workshop-on-may-1-2-2023.md) — Attended street photography workshop on May 1-2, 2023
+- [brown-leather-boots-with-loose-heel-needing-professional-repair](user/brown-leather-boots-with-loose-heel-needing-professional-repair.md) — Brown leather boots with loose heel needing professional repair
+- [captured-sunset-photos-at-red-rock-canyon-on-april-12-2023](experience/captured-sunset-photos-at-red-rock-canyon-on-april-12-2023.md) — Captured sunset photos at Red Rock Canyon on April 12, 2023
+- [considering-saris-bones-2-bike-trunk-rack-for-honda-civic](user/considering-saris-bones-2-bike-trunk-rack-for-honda-civic.md) — Considering Saris Bones 2-Bike Trunk Rack for Honda Civic
+- [dad-s-bbq-sauce-with-smoked-paprika-was-a-hit-at-family-camping-trip](experience/dad-s-bbq-sauce-with-smoked-paprika-was-a-hit-at-family-camping-trip.md) — Dad's BBQ sauce with smoked paprika was a hit at family camping trip
+- [handbag-recommendations-for-classic-elegant-style-within-200-300-usd-budget](reference/handbag-recommendations-for-classic-elegant-style-within-200-300-usd-budget.md) — Handbag recommendations for classic elegant style within 200-300 USD budget
+- [incorporating-street-photography-into-daily-morning-commute-routine](project/incorporating-street-photography-into-daily-morning-commute-routine.md) — Incorporating street photography into daily morning commute routine
+- [interested-in-bbq-marinades-sauces-charring-techniques-flavor-balance](user/interested-in-bbq-marinades-sauces-charring-techniques-flavor-balance.md) — Interested in BBQ: marinades, sauces, charring techniques, flavor balance
+- [interested-in-endangered-languages-and-language-preservation](user/interested-in-endangered-languages-and-language-preservation.md) — Interested in endangered languages and language preservation
+- [interested-in-street-photography-and-candid-portraiture](user/interested-in-street-photography-and-candid-portraiture.md) — Interested in street photography and candid portraiture
+- [introverted-prefers-own-company-becomes-overwhelmed-at-large-social-gatherings](user/introverted-prefers-own-company-becomes-overwhelmed-at-large-social-gatherings.md) — Introverted; prefers own company; becomes overwhelmed at large social gatherings
+- [lent-cannondale-synapse-to-neighbor-rachel-returned-with-flat-tire](experience/lent-cannondale-synapse-to-neighbor-rachel-returned-with-flat-tire.md) — Lent Cannondale Synapse to neighbor Rachel; returned with flat tire
+- [mom-makes-homemade-marshmallows](user/mom-makes-homemade-marshmallows.md) — Mom makes homemade marshmallows
+- [owns-a-canon-eos-80d-camera](user/owns-a-canon-eos-80d-camera.md) — Owns a Canon EOS 80D camera
+- [owns-black-converse-chuck-taylor-all-star-sneakers](user/owns-black-converse-chuck-taylor-all-star-sneakers.md) — Owns black Converse Chuck Taylor All Star sneakers
+- [owns-cannondale-synapse-road-bike](user/owns-cannondale-synapse-road-bike.md) — Owns Cannondale Synapse road bike
+- [owns-honda-civic-car](user/owns-honda-civic-car.md) — Owns Honda Civic (car)
+- [owns-trek-fx-2-hybrid-bike-newly-acquired](user/owns-trek-fx-2-hybrid-bike-newly-acquired.md) — Owns Trek FX 2 hybrid bike (newly acquired)
+- [owns-white-adidas-superstars-first-cleaning-attempt-with-toothbrush-and-soap](user/owns-white-adidas-superstars-first-cleaning-attempt-with-toothbrush-and-soap.md) — Owns white Adidas Superstars; first cleaning attempt with toothbrush and soap
+- [prefers-adobe-lightroom-for-photo-organization-and-editing](user/prefers-adobe-lightroom-for-photo-organization-and-editing.md) — Prefers Adobe Lightroom for photo organization and editing
+- [prefers-classic-and-elegant-style-neutral-colors-like-beige-and-black](user/prefers-classic-and-elegant-style-neutral-colors-like-beige-and-black.md) — Prefers classic and elegant style, neutral colors like beige and black
+- [purchased-50mm-f-1-8-prime-lens-on-april-10-2023](user/purchased-50mm-f-1-8-prime-lens-on-april-10-2023.md) — Purchased 50mm f/1.8 prime lens on April 10, 2023
+- [purchased-coach-handbag-at-tj-maxx-on-april-29-2023-with-60-percent-discount](user/purchased-coach-handbag-at-tj-maxx-on-april-29-2023-with-60-percent-discount.md) — Purchased Coach handbag at TJ Maxx on April 29 2023 with 60 percent discount
+- [shoe-care-routine-planning-cedar-shoe-tree-leather-cleaning-kit-waterproofing-sp](user/shoe-care-routine-planning-cedar-shoe-tree-leather-cleaning-kit-waterproofing-sp.md) — Shoe care routine: planning cedar shoe tree, leather cleaning kit, waterproofing spray
+- [shoe-care-tips-cleaning-sneakers-leather-conditioning-waterproofing](reference/shoe-care-tips-cleaning-sneakers-leather-conditioning-waterproofing.md) — Shoe care tips: cleaning sneakers, leather conditioning, waterproofing
+- [shoe-cleaning-and-protection-product-recommendations](reference/shoe-cleaning-and-protection-product-recommendations.md) — Shoe cleaning and protection product recommendations
+- [shoe-closet-organization-sorts-by-type-and-color](user/shoe-closet-organization-sorts-by-type-and-color.md) — Shoe closet organization: sorts by type and color
+- [sister-s-birthday-coming-soon-in-late-april-or-may-2023-gift-decided-on-coach-pa](user/sister-s-birthday-coming-soon-in-late-april-or-may-2023-gift-decided-on-coach-pa.md) — Sister's birthday coming soon in late April or May 2023, gift decided on Coach Parker handbag
+- [took-200-photos-on-wildlife-and-scenery-outing-organized-into-collections](experience/took-200-photos-on-wildlife-and-scenery-outing-organized-into-collections.md) — Took 200+ photos on wildlife and scenery outing, organized into collections
+- [took-beach-vacation-photos-and-organized-them-in-lightroom](experience/took-beach-vacation-photos-and-organized-them-in-lightroom.md) — Took beach vacation photos and organized them in Lightroom

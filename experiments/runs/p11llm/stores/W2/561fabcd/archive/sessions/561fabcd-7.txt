@@ -1,0 +1,12 @@
+## Session sharegpt_ANgqPqN_0 — 2023/05/21 (Sun) 19:41
+user: I want to make a personal Kanban
+assistant: Great! Making a personal Kanban can be a helpful way to organize your tasks and visualize your workflow. Here are the steps to make a personal Kanban:
+
+1. Determine the scope: Decide on the tasks and projects that you want to manage with your personal Kanban. You may want to focus on work tasks, personal tasks, or a combination of both.
+2. Choose a board: You can use a physical board, such as a whiteboard or a corkboard, or a digital board, such as Trello or Asana. Choose a board that works best for you and your workflow.
+3. Define the columns: The columns represent the stages of your workflow. Common columns are "To-Do," "In Progress," and "Done," but you can customize your columns to fit your needs.
+4. Create tasks: Write down each task on a sticky note or a card, and place it in the "To-Do" column.
+5. Move tasks across the board: As you work on a task, move it to the "In Progress" column. When you complete a task, move it to the "Done" column.
+6. Review your board: Regularly review your board to ensure that it accurately reflects your current tasks and priorities. You may need to adjust your columns or move tasks around as your priorities shift.
+
+Remember to keep your Kanban board simple and easy to use. The goal is to help you manage your tasks and workflow, not to create more work for yourself. Good luck with your personal Kanban!

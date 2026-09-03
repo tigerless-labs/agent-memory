@@ -1,0 +1,124 @@
+## Session sharegpt_e77Ei51_22 — 2023/05/21 (Sun) 16:44
+user: Summarize this text:
+
+SEC. 13. RELATIONSHIP TO OTHER LAWS.
+
+ (a) In General.--Except as expressly provided herein, nothing in 
+this Act shall be construed to alter or affect any other authority, 
+process, regulation, investigation, enforcement measure, or review 
+provided by or established under any other provision of Federal law, 
+including the Federal Acquisition Regulation or the International 
+Emergency Economic Powers Act (50 U.S.C. 1701 et seq.), or any other 
+authority of the President or Congress under the Constitution of the 
+United States.
+ (b) Relationship to Section 721 of the Defense Production Act of 
+1950.--
+ (1) In general.--Notwithstanding section 721(d)(4)(B) of 
+ the Defense Production Act of 1950 (50 U.S.C. 4565(d)(4)(B)), 
+ nothing in this Act shall prevent or preclude the President or 
+ the Committee on Foreign Investment in the United States from 
+ exercising any authority under section 721 of the Defense 
+ Production Act of 1950 (50 U.S.C. 4565 et seq.), as would be 
+ available in the absence of this Act.
+ (2) Authority of the president.--The President may not 
+ exercise any authority under section 4 with respect to a 
+ covered holding that directly resulted from a transaction if--
+ (A) the Committee on Foreign Investment in the 
+ United States reviewed the transaction (or a broader 
+ transaction that included the transaction) as a covered 
+ transaction (as defined in section 721(a)(4) of the 
+ Defense Production Act of 1950 (50 U.S.C. 4565(a)(4)) 
+ and its implementing regulations; and
+ (B) under section 721 of the Defense Production Act 
+ of 1950 (50 U.S.C. 4565)--
+ (i) the Committee on Foreign Investment in 
+ the United States cleared the transaction and 
+ notified the parties to the transaction (or a 
+ broader transaction that included the 
+ transaction) that the Committee on Foreign 
+ Investment in the United States completed all 
+ action with respect to the transaction (or a 
+ broader transaction that included the 
+ transaction); or
+ (ii) the President announced a decision 
+ declining to take action with respect to the 
+ transaction (or a broader transaction that 
+ included the transaction).
+ (3) Coordination.--The Secretary shall address coordination 
+ with respect to review by the Committee on Foreign Investment 
+ in the United States in implementing the procedures under this 
+ Act.
+ (c) Limitation of Authority of the Secretary.--The Secretary may 
+not initiate a review of any transaction that involves the acquisition 
+of an information and communications technology product or service by a 
+United States person as a party to a transaction--
+ (1) authorized under a United States government-industrial 
+ security program; or
+ (2) to meet an articulable national security or law 
+ enforcement requirement.1 / 1
+assistant: Section 13 of the text outlines the relationship of the current Act to other laws. It specifies that nothing in the Act is meant to affect other laws, regulations, or authorities, except as expressly provided. The Act also provides that the President or the Committee on Foreign Investment in the United States (CFIUS) can still exercise any authority under the Defense Production Act of 1950, and that the Secretary cannot review a transaction involving the acquisition of an information and communications technology product or service by a United States person if it is authorized under a United States government-industrial security program or for meeting a national security or law enforcement requirement.
+user: Summarize this text:
+
+SEC. 14. TRANSITION.
+
+ All delegations, rules, regulations, orders, determinations, 
+licenses, or other forms of administrative action taken by the 
+Secretary made, issued, conducted, or allowed to become effective under 
+Executive Order 13873 of May 19, 2019 and the International Emergency 
+Economic Powers Act (50 U.S.C. 1701 et seq.), including regulations 
+issued under part 7 of subtitle A of title 15, Code of Federal 
+Regulations, and are in effect as of the date of enactment of this Act, 
+shall continue in effect according to their terms and as if made, 
+issued, conducted, or allowed to become effective pursuant to the 
+authority of this Act, until modified, superseded, set aside, or 
+revoked under the authority of this Act, without regard to any 
+restriction or limitation under the International Emergency Economic 
+Powers Act (50 U.S.C. 1701 et seq.).1 / 1
+assistant: Section 14 of the act states that all administrative actions, including delegations, rules, regulations, orders, determinations, licenses made by the Secretary under Executive Order 13873 and the International Emergency Economic Powers Act shall continue in effect according to their terms as if made under the authority of this Act until modified, superseded, set aside, or revoked under the authority of this Act, without regard to any restrictions or limitations under the International Emergency Economic Powers Act.
+user: Summarize this text:
+
+SEC. 15. MISCELLANEOUS.
+
+ (a) Paperwork Reduction Act.--The requirements of chapter 35 of 
+title 44, United States Code (commonly referred to as the ``Paperwork 
+Reduction Act''), shall not apply to any action by the Secretary to 
+implement this Act.
+ (b) Appointment of Candidates.--To expedite the ability of the 
+Secretary to implement this Act, the Secretary may appoint, without 
+regard to the provisions of sections 3309 through 3318 of title 5, 
+United States Code, candidates directly to positions in the competitive 
+service (as defined in section 212 of that title).
+ (c) Administrative Procedures.--Except with respect to a civil 
+penalty imposed pursuant to section 9(b) of this Act, the functions 
+exercised under this Act shall not be subject to sections 551, 553 
+through 559, and 701 through 706 of title 5, United States Code.
+ (d) Protected Information in Civil Actions.--If a civil action 
+challenging an action or finding under this Act is brought, and the 
+court determines that protected information in the administrative 
+record, including classified or other information subject to privilege 
+or protections under any provision of law, is necessary to resolve the 
+action, that information shall be submitted ex parte and in camera to 
+the court and the court shall maintain that information under seal. 
+This subsection does not confer or imply any right to judicial review.
+ (e) Applicability of Use of Information Provisions.--The use of 
+information provisions of sections 106, 305, 405, and 706 of the 
+Foreign Intelligence Surveillance Act of 1978 (50 U.S.C. 1806, 1825, 
+1845, and 1881e) shall not apply in a civil action brought under this 
+Act.
+ (f) No Right of Access.--
+ (1) In general.--No provision of this Act shall be 
+ construed to create a right to obtain access to information in 
+ the possession of the Federal Government that was considered in 
+ making a determination under this Act that a transaction is a 
+ covered transaction or interest or to prohibit, mitigate, or 
+ take action against a covered transaction or interest, 
+ including any classified national security information or 
+ sensitive but unclassified information.
+ (2) Inapplicability of foia.--Any information submitted to 
+ the Federal Government by a party to a covered transaction in 
+ accordance with this Act, as well as any information the 
+ Federal Government may create relating to review of the covered 
+ transaction, is exempt from disclosure under section 552 of 
+ title 5, United States Code (commonly referred to as the 
+ ``Freedom of Information Act'').1 / 1
+assistant: This section of the bill includes several miscellaneous provisions. It states that the Paperwork Reduction Act will not apply to any actions taken by the Secretary to implement the bill. The Secretary may appoint candidates directly to positions without regard to certain provisions of the U.S. Code. The functions exercised under the bill are not subject to certain sections of the U.S. Code, except for civil penalties imposed under section 9(b). Protected information in civil actions challenging actions or findings under the bill shall be submitted ex parte and in camera to the court and maintained under seal. The use of information provisions of certain sections of the Foreign Intelligence Surveillance Act of 1978 shall not apply in a civil action brought under this bill. Finally, the bill does not create a right to obtain access to information in the possession of the Federal Government or prohibit, mitigate, or take action against a covered transaction or interest. Any information submitted to the Federal Government in accordance with the bill is exempt from disclosure under the Freedom of Information Act.

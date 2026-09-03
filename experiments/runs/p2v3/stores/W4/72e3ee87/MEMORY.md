@@ -1,0 +1,25 @@
+# MEMORY.md
+
+- [a-short-history-of-nearly-everything-by-bill-bryson-recommended-for-science-hist](reference/a-short-history-of-nearly-everything-by-bill-bryson-recommended-for-science-hist.md) — 'A Short History of Nearly Everything' by Bill Bryson — recommended for science/history reading
+- [aesthetic-preference-for-detailed-ornate-costume-design-with-celestial-cosmic-an](user/aesthetic-preference-for-detailed-ornate-costume-design-with-celestial-cosmic-an.md) — Aesthetic preference for detailed, ornate costume design with celestial, cosmic, and luxurious themes
+- [cucumber-gimlets-with-grilled-pineapple-garnish-were-a-success-at-previous-bbq](experience/cucumber-gimlets-with-grilled-pineapple-garnish-were-a-success-at-previous-bbq.md) — Cucumber Gimlets with grilled pineapple garnish were a success at previous BBQ
+- [currently-watching-crash-course-science-series-on-episode-10](user/currently-watching-crash-course-science-series-on-episode-10.md) — Currently watching Crash Course Science series, on episode 10
+- [daily-schedule-wake-7-30-am-bed-11-30-pm-work-9-am5-30-pm-with-1-hour-lunch-brea](user/daily-schedule-wake-7-30-am-bed-11-30-pm-work-9-am5-30-pm-with-1-hour-lunch-brea.md) — Daily schedule: wake 7:30 AM, bed 11:30 PM, work 9 AM–5:30 PM with 1-hour lunch break
+- [detailed-fox-costume-prompt-for-creative-ai-generation-work](reference/detailed-fox-costume-prompt-for-creative-ai-generation-work.md) — Detailed fox costume prompt for creative/AI generation work
+- [diy-cocktail-bar-setup-mixers-garnishes-and-essentials-for-party-hosting](reference/diy-cocktail-bar-setup-mixers-garnishes-and-essentials-for-party-hosting.md) — DIY cocktail bar setup: mixers, garnishes, and essentials for party hosting
+- [exploring-indie-electronic-music-introduced-to-the-postal-service-in-2023](user/exploring-indie-electronic-music-introduced-to-the-postal-service-in-2023.md) — Exploring indie-electronic music; introduced to The Postal Service in 2023
+- [inherited-antique-music-box-from-great-aunt](user/inherited-antique-music-box-from-great-aunt.md) — Inherited antique music box from great-aunt
+- [inherited-depression-era-glassware-set-from-mom](user/inherited-depression-era-glassware-set-from-mom.md) — Inherited depression-era glassware set from mom
+- [inherited-grandmother-s-vintage-diamond-necklace](user/inherited-grandmother-s-vintage-diamond-necklace.md) — Inherited grandmother's vintage diamond necklace
+- [insurance-companies-specializing-in-valuable-items](reference/insurance-companies-specializing-in-valuable-items.md) — Insurance companies specializing in valuable items
+- [interested-in-taking-an-online-course-on-data-science-with-python](user/interested-in-taking-an-online-course-on-data-science-with-python.md) — Interested in taking an online course on Data Science with Python
+- [korean-inspired-bbq-sauces-and-marinades-for-summer-grilling](reference/korean-inspired-bbq-sauces-and-marinades-for-summer-grilling.md) — Korean-inspired BBQ sauces and marinades for summer grilling
+- [korean-inspired-side-dishes-for-bbq-parties](reference/korean-inspired-side-dishes-for-bbq-parties.md) — Korean-inspired side dishes for BBQ parties
+- [learning-adobe-photoshop-and-illustrator-currently-using-linkedin-learning](user/learning-adobe-photoshop-and-illustrator-currently-using-linkedin-learning.md) — Learning Adobe Photoshop and Illustrator, currently using LinkedIn Learning
+- [plan-to-insure-inherited-valuables-prioritize-necklace-first](project/plan-to-insure-inherited-valuables-prioritize-necklace-first.md) — Plan to insure inherited valuables - prioritize necklace first
+- [prefers-direct-storytelling-dislikes-excessive-setting-descriptions](user/prefers-direct-storytelling-dislikes-excessive-setting-descriptions.md) — Prefers direct storytelling; dislikes excessive setting descriptions
+- [professional-appraisal-organizations-and-certifications](reference/professional-appraisal-organizations-and-certifications.md) — Professional appraisal organizations and certifications
+- [reading-interests-science-history-self-improvement-has-finished-sapiens-currentl](user/reading-interests-science-history-self-improvement-has-finished-sapiens-currentl.md) — Reading interests: science, history, self-improvement. Has finished 'Sapiens', currently reading 'The Power of Habit'
+- [summer-cocktail-recipes-and-garnish-ideas-for-parties](reference/summer-cocktail-recipes-and-garnish-ideas-for-parties.md) — Summer cocktail recipes and garnish ideas for parties
+- [summer-party-menu-cucumber-gimlets-korean-dishes-bibimbap-kimchi-tacos-bbq-items](project/summer-party-menu-cucumber-gimlets-korean-dishes-bibimbap-kimchi-tacos-bbq-items.md) — Summer party menu: Cucumber Gimlets, Korean dishes (Bibimbap, kimchi tacos), BBQ items, DIY cocktail bar
+- [the-postal-service-give-up-album-2003-standout-tracks-and-artist-profile](reference/the-postal-service-give-up-album-2003-standout-tracks-and-artist-profile.md) — The Postal Service — Give Up album (2003), standout tracks and artist profile

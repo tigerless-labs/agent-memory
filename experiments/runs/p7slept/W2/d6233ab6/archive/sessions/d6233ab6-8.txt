@@ -1,0 +1,12 @@
+## Session sharegpt_cmJ4jdp_0 — 2023/05/22 (Mon) 17:34
+user: Topic: How to double your creative output. 
+
+For the topic above, brainstorm new angles or approaches. Prioritize ideas that are uncommon or novel.
+assistant: 1. Set aside dedicated time for creativity. Make sure to block out distractions and create a comfortable and inspiring environment.
+2. Collaborate with others. Working with someone else can stimulate new ideas and approaches that you may not have thought of on your own.
+3. Practice mindfulness and meditation. These practices can help you clear your mind and focus on the present moment, which can improve your ability to generate new ideas.
+4. Take breaks and allow yourself time to relax and recharge. This can help you approach problems with a fresh perspective and increase your productivity.
+5. Learn new skills and expose yourself to new experiences. This can help stimulate your creativity by providing new sources of inspiration and expanding your knowledge and expertise.
+6. Challenge yourself to come up with a set number of ideas within a specific time frame. This can help increase your creative output by forcing you to think quickly and generate new ideas.
+7. Use prompts or constraints to stimulate your creativity. For example, try to come up with ideas that are outside of your comfort zone or that use a specific word or phrase as inspiration.
+8. Keep a journal or sketchbook to record your ideas as they come to you. This can help you capture ideas that may otherwise be lost and can also serve as a source of inspiration for future projects.

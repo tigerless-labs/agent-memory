@@ -1,0 +1,33 @@
+# MEMORY.md
+
+- [blueberry-muffin-recipe-with-all-purpose-or-whole-wheat-flour](reference/blueberry-muffin-recipe-with-all-purpose-or-whole-wheat-flour.md) — Blueberry muffin recipe with all-purpose or whole wheat flour
+- [book-recommendations-for-character-development-in-fiction-writing](reference/book-recommendations-for-character-development-in-fiction-writing.md) — Book recommendations for character development in fiction writing
+- [budget-conscious-about-airport-transportation](user/budget-conscious-about-airport-transportation.md) — Budget-conscious about airport transportation
+- [dedicates-two-hours-every-morning-to-writing-monday-to-friday](user/dedicates-two-hours-every-morning-to-writing-monday-to-friday.md) — Dedicates two hours every morning to writing, Monday to Friday
+- [does-yoga-classes-with-friend-emily-grabs-smoothies-after](user/does-yoga-classes-with-friend-emily-grabs-smoothies-after.md) — Does yoga classes with friend Emily, grabs smoothies after
+- [example-7-day-social-media-captions-for-viowear-motivational-travel-focused](reference/example-7-day-social-media-captions-for-viowear-motivational-travel-focused.md) — Example 7-day social media captions for Viowear (motivational, travel-focused)
+- [external-hard-drive-options-for-photo-backup](reference/external-hard-drive-options-for-photo-backup.md) — External hard drive options for photo backup
+- [follows-seattle-seahawks-nfl-team](user/follows-seattle-seahawks-nfl-team.md) — Follows Seattle Seahawks NFL team
+- [has-access-to-a-co-working-space-near-their-apartment-for-networking-and-seminar](user/has-access-to-a-co-working-space-near-their-apartment-for-networking-and-seminar.md) — Has access to a co-working space near their apartment for networking and seminars
+- [healthy-oatmeal-cookies-recipe-with-oats-almond-meal-and-honey](reference/healthy-oatmeal-cookies-recipe-with-oats-almond-meal-and-honey.md) — Healthy oatmeal cookies recipe with oats, almond meal, and honey
+- [interested-in-healthier-alternatives-to-satisfy-sweet-tooth](user/interested-in-healthier-alternatives-to-satisfy-sweet-tooth.md) — Interested in healthier alternatives to satisfy sweet tooth
+- [interested-in-visiting-tokyo-japan-particularly-shinjuku-district](user/interested-in-visiting-tokyo-japan-particularly-shinjuku-district.md) — Interested in visiting Tokyo, Japan, particularly Shinjuku district
+- [lens-cases-and-pouches-for-protection-and-storage](reference/lens-cases-and-pouches-for-protection-and-storage.md) — Lens cases and pouches for protection and storage
+- [lens-cleaning-kits-and-cloths-for-canon-ef-24-70mm-lens-care](reference/lens-cleaning-kits-and-cloths-for-canon-ef-24-70mm-lens-care.md) — Lens cleaning kits and cloths for Canon EF 24-70mm lens care
+- [loves-blueberries-and-wants-to-add-them-to-daily-diet](user/loves-blueberries-and-wants-to-add-them-to-daily-diet.md) — Loves blueberries and wants to add them to daily diet
+- [manfrotto-befree-tripod-arrived-on-2023-02-05-improves-outdoor-shoots](experience/manfrotto-befree-tripod-arrived-on-2023-02-05-improves-outdoor-shoots.md) — Manfrotto BeFree tripod arrived on 2023-02-05, improves outdoor shoots
+- [owns-canon-ef-24-70mm-f-2-8l-ii-usm-lens](user/owns-canon-ef-24-70mm-f-2-8l-ii-usm-lens.md) — Owns Canon EF 24-70mm f/2.8L II USM lens
+- [owns-lowepro-protactic-450-aw-camera-bag-for-gear-organization](user/owns-lowepro-protactic-450-aw-camera-bag-for-gear-organization.md) — Owns Lowepro ProTactic 450 AW camera bag for gear organization
+- [planning-to-go-hiking-with-coworker-jack](user/planning-to-go-hiking-with-coworker-jack.md) — Planning to go hiking with coworker Jack
+- [prefers-respectful-non-pushy-networking-approaches-when-seeking-feedback](user/prefers-respectful-non-pushy-networking-approaches-when-seeking-feedback.md) — Prefers respectful, non-pushy networking approaches when seeking feedback
+- [protagonist-lyra-memory-thief-uncovering-her-own-fabricated-past](project/protagonist-lyra-memory-thief-uncovering-her-own-fabricated-past.md) — Protagonist Lyra: memory thief uncovering her own fabricated past
+- [rachel-lee-s-digital-marketing-workshop-insights-on-social-media-advertising](reference/rachel-lee-s-digital-marketing-workshop-insights-on-social-media-advertising.md) — Rachel Lee's digital marketing workshop insights on social media advertising
+- [reconnecting-with-friend-alex-after-falling-out-planning-coffee-meetup](user/reconnecting-with-friend-alex-after-falling-out-planning-coffee-meetup.md) — Reconnecting with friend Alex after falling out, planning coffee meetup
+- [reedsy-character-profile-template-for-character-development](reference/reedsy-character-profile-template-for-character-development.md) — Reedsy character profile template for character development
+- [runs-viowear-an-outdoor-clothing-line-travels-worldwide-creates-social-media-con](user/runs-viowear-an-outdoor-clothing-line-travels-worldwide-creates-social-media-con.md) — Runs Viowear, an outdoor clothing line; travels worldwide; creates social media content
+- [science-fiction-novel-in-progress-with-protagonist-maya-fighting-alien-invasion](project/science-fiction-novel-in-progress-with-protagonist-maya-fighting-alien-invasion.md) — Science fiction novel in progress with protagonist Maya fighting alien invasion
+- [seeks-local-expert-advice-for-travel-logistics-asks-hotels-for-recommendations](user/seeks-local-expert-advice-for-travel-logistics-asks-hotels-for-recommendations.md) — Seeks local expert advice for travel logistics (asks hotels for recommendations)
+- [travels-with-substantial-luggage-affects-transport-choices](user/travels-with-substantial-luggage-affects-transport-choices.md) — Travels with substantial luggage; affects transport choices
+- [trying-to-convince-friend-rachel-to-join-yoga-classes](user/trying-to-convince-friend-rachel-to-join-yoga-classes.md) — Trying to convince friend Rachel to join yoga classes
+- [uses-sandisk-extreme-pro-memory-cards-64gb-and-128gb-capacity](user/uses-sandisk-extreme-pro-memory-cards-64gb-and-128gb-capacity.md) — Uses SanDisk Extreme Pro memory cards: 64GB and 128GB capacity
+- [using-instagram-ads-with-awareness-objective-to-promote-project](project/using-instagram-ads-with-awareness-objective-to-promote-project.md) — Using Instagram ads with Awareness objective to promote project

@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [collecting-funko-pop-figures-including-complete-marvel-cinematic-universe-set](user/collecting-funko-pop-figures-including-complete-marvel-cinematic-universe-set.md) — Collecting Funko POP! figures including complete Marvel Cinematic Universe set
+- [collecting-posters-and-art-prints-including-mondo-hogwarts-castle-poster-from-ha](user/collecting-posters-and-art-prints-including-mondo-hogwarts-castle-poster-from-ha.md) — Collecting posters and art prints including Mondo Hogwarts castle poster from Harry Potter
+- [collecting-vintage-cameras-17-cameras-started-3-months-ago-feb-2023-includes-bro](user/collecting-vintage-cameras-17-cameras-started-3-months-ago-feb-2023-includes-bro.md) — Collecting vintage cameras: 17 cameras, started ~3 months ago (Feb 2023), includes Brownie Hawkeye acquired May 2023
+- [participates-in-instagram-book-club-discussions-after-winning-a-giveaway](user/participates-in-instagram-book-club-discussions-after-winning-a-giveaway.md) — Participates in Instagram book club discussions after winning a giveaway
+- [advisory-critically-evaluate-appraiser-complexity-assessments](reference/advisory-critically-evaluate-appraiser-complexity-assessments.md) — Advisory: critically evaluate appraiser complexity assessments
+- [battery-calibration-procedure-full-drain-to-0-then-charge-to-100](experience/battery-calibration-procedure-full-drain-to-0-then-charge-to-100.md) — Battery calibration procedure: full drain to 0% then charge to 100%
+- [book-summarization-and-note-taking-techniques-for-book-club-preparation](reference/book-summarization-and-note-taking-techniques-for-book-club-preparation.md) — Book summarization and note-taking techniques for book club preparation
+- [considering-desktop-replacement-new-imac-vs-windows-pc](project/considering-desktop-replacement-new-imac-vs-windows-pc.md) — Considering desktop replacement: new iMac vs Windows PC
+- [considering-ram-upgrade-from-8gb-to-16gb-for-laptop](project/considering-ram-upgrade-from-8gb-to-16gb-for-laptop.md) — Considering RAM upgrade from 8GB to 16GB for laptop
+- [educator-interested-in-role-playing-and-collaborative-learning-for-student-leade](user/educator-interested-in-role-playing-and-collaborative-learning-for-student-leade.md) — Educator: interested in role-playing and collaborative learning for student leadership development
+- [father-has-a-home-theater-setup-at-his-place](user/father-has-a-home-theater-setup-at-his-place.md) — Father has a home theater setup at his place
+- [friend-sarah-turned-30](user/friend-sarah-turned-30.md) — Friend Sarah turned 30
+- [interested-in-learning-printmaking-techniques-and-materials](user/interested-in-learning-printmaking-techniques-and-materials.md) — Interested in learning printmaking techniques and materials
+- [laptop-with-8gb-ram-achieving-8-9-hours-battery-life](user/laptop-with-8gb-ram-achieving-8-9-hours-battery-life.md) — Laptop with 8GB RAM achieving 8-9 hours battery life
+- [mother-is-an-excellent-baker](user/mother-is-an-excellent-baker.md) — Mother is an excellent baker
+- [old-imac-desktop-computer](user/old-imac-desktop-computer.md) — Old iMac desktop computer
+- [planning-surprise-birthday-party-for-sister-emma-with-movie-night-theme](project/planning-surprise-birthday-party-for-sister-emma-with-movie-night-theme.md) — Planning surprise birthday party for sister Emma with movie night theme
+- [prefers-ethical-justice-focused-true-crime-narratives-that-center-victim-experie](user/prefers-ethical-justice-focused-true-crime-narratives-that-center-victim-experie.md) — Prefers ethical, justice-focused true crime narratives that center victim experiences over sensationalism
+- [prefers-formal-professional-tone-in-business-writing-avoids-casual-phrasing](user/prefers-formal-professional-tone-in-business-writing-avoids-casual-phrasing.md) — Prefers formal professional tone in business writing, avoids casual phrasing
+- [property-complexity-assessment-checklist-for-appraisals](reference/property-complexity-assessment-checklist-for-appraisals.md) — Property complexity assessment checklist for appraisals
+- [sister-emma-enjoys-movies](user/sister-emma-enjoys-movies.md) — Sister Emma enjoys movies
+- [vinyl-record-collection-including-rare-1978-pressing-of-fleetwood-mac-s-rumours](user/vinyl-record-collection-including-rare-1978-pressing-of-fleetwood-mac-s-rumours.md) — Vinyl record collection including rare 1978 pressing of Fleetwood Mac's Rumours
+- [watched-movie-with-sister-emma-on-2023-05-08-and-had-great-time-together](experience/watched-movie-with-sister-emma-on-2023-05-08-and-had-great-time-together.md) — Watched movie with sister Emma on 2023-05-08 and had great time together
+- [weather-apps-for-hiking-forecasts-dark-sky-and-mountain-weather-forecast](reference/weather-apps-for-hiking-forecasts-dark-sky-and-mountain-weather-forecast.md) — Weather apps for hiking forecasts: Dark Sky and Mountain Weather Forecast
+- [works-in-appraisal-services-with-a-team](user/works-in-appraisal-services-with-a-team.md) — Works in appraisal services with a team

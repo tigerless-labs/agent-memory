@@ -1,0 +1,34 @@
+# MEMORY.md
+
+- [interested-in-indie-music-and-portland-music-scene](user/interested-in-indie-music-and-portland-music-scene.md) — Interested in indie music and Portland music scene
+- [notable-indie-artists-from-portland](reference/notable-indie-artists-from-portland.md) — Notable indie artists from Portland
+- [popular-portland-indie-music-venues](reference/popular-portland-indie-music-venues.md) — Popular Portland indie music venues
+- [apps-for-dual-career-management](reference/apps-for-dual-career-management.md) — Apps for dual career management
+- [attended-high-performance-driving-education-course-at-thunderhill-raceway](experience/attended-high-performance-driving-education-course-at-thunderhill-raceway.md) — Attended high-performance driving education course at Thunderhill Raceway
+- [attends-marketing-industry-conferences-for-networking-and-professional-developme](user/attends-marketing-industry-conferences-for-networking-and-professional-developme.md) — Attends marketing industry conferences for networking and professional development
+- [board-games-similar-to-azul-sagrada-carcassonne-7-wonders](reference/board-games-similar-to-azul-sagrada-carcassonne-7-wonders.md) — Board games similar to Azul: Sagrada, Carcassonne, 7 Wonders
+- [buy-wooden-storage-shelf-with-compartments-for-board-game-collection](project/buy-wooden-storage-shelf-with-compartments-for-board-game-collection.md) — Buy wooden storage shelf with compartments for board game collection
+- [dropped-iphone-12-on-2023-05-17-minor-corner-scratch](experience/dropped-iphone-12-on-2023-05-17-minor-corner-scratch.md) — Dropped iPhone 12 on 2023-05-17, minor corner scratch
+- [enjoys-board-games-scattergories-codenames-ticket-to-ride-azul](user/enjoys-board-games-scattergories-codenames-ticket-to-ride-azul.md) — Enjoys board games: Scattergories, Codenames, Ticket to Ride, Azul
+- [interest-in-mesopotamian-mythology-and-the-apkallu-seven-sages-of-sumer](user/interest-in-mesopotamian-mythology-and-the-apkallu-seven-sages-of-sumer.md) — Interest in Mesopotamian mythology and the Apkallu (Seven Sages of Sumer)
+- [interested-in-ai-powered-marketing-tools-and-industry-trends](user/interested-in-ai-powered-marketing-tools-and-industry-trends.md) — Interested in AI-powered marketing tools and industry trends
+- [interested-in-pursuing-creative-career-while-maintaining-part-time-technology-wo](user/interested-in-pursuing-creative-career-while-maintaining-part-time-technology-wo.md) — Interested in pursuing creative career while maintaining part-time technology work
+- [interested-in-visiting-montreal-for-budget-friendly-tourism-and-trying-poutine](user/interested-in-visiting-montreal-for-budget-friendly-tourism-and-trying-poutine.md) — Interested in visiting Montreal for budget-friendly tourism and trying poutine
+- [introduced-coworker-to-codenames-on-may-19-2023-coworker-enjoyed-it](experience/introduced-coworker-to-codenames-on-may-19-2023-coworker-enjoyed-it.md) — Introduced coworker to Codenames on May 19, 2023; coworker enjoyed it
+- [iphone-12-with-clear-glitter-case](user/iphone-12-with-clear-glitter-case.md) — iPhone 12 with clear glitter case
+- [montreal-budget-travel-guide-restaurants-foods-neighborhoods-and-transportation](reference/montreal-budget-travel-guide-restaurants-foods-neighborhoods-and-transportation.md) — Montreal budget travel guide: restaurants, foods, neighborhoods, and transportation
+- [morning-breakfast-oatmeal-with-fruit-and-coffee-at-8-00-am](user/morning-breakfast-oatmeal-with-fruit-and-coffee-at-8-00-am.md) — Morning breakfast: oatmeal with fruit and coffee at 8:00 AM
+- [owns-2018-bmw-m4-participates-in-high-performance-track-driving-at-racetracks](user/owns-2018-bmw-m4-participates-in-high-performance-track-driving-at-racetracks.md) — Owns 2018 BMW M4; participates in high-performance track driving at racetracks
+- [phone-usage-3-hours-per-day-average-tracked-via-app](user/phone-usage-3-hours-per-day-average-tracked-via-app.md) — Phone usage: 3 hours per day average, tracked via app
+- [prefers-10-15-minute-breaks-every-hour-during-work](user/prefers-10-15-minute-breaks-every-hour-during-work.md) — Prefers 10-15 minute breaks every hour during work
+- [purchase-ticket-to-ride-base-game-europe-expansion](project/purchase-ticket-to-ride-base-game-europe-expansion.md) — Purchase Ticket to Ride base game + Europe expansion
+- [purchase-zagg-invisibleshield-glass-screen-protector-for-iphone-12](project/purchase-zagg-invisibleshield-glass-screen-protector-for-iphone-12.md) — Purchase Zagg InvisibleShield Glass+ screen protector for iPhone 12
+- [purchased-high-performance-track-tires-on-march-15-2023](project/purchased-high-performance-track-tires-on-march-15-2023.md) — Purchased high-performance track tires on March 15, 2023
+- [roommate-is-named-mike-plays-board-games-together](user/roommate-is-named-mike-plays-board-games-together.md) — Roommate is named Mike; plays board games together
+- [scheduled-track-day-at-laguna-seca-raceway-on-may-20-2023](project/scheduled-track-day-at-laguna-seca-raceway-on-may-20-2023.md) — Scheduled track day at Laguna Seca Raceway on May 20, 2023
+- [takes-laptop-based-notes-at-conferences-focusing-on-understanding-over-transcrip](user/takes-laptop-based-notes-at-conferences-focusing-on-understanding-over-transcrip.md) — Takes laptop-based notes at conferences focusing on understanding over transcription
+- [ticket-to-ride-expansions-europe-asia-rails-sails-germany](reference/ticket-to-ride-expansions-europe-asia-rails-sails-germany.md) — Ticket to Ride expansions: Europe, Asia, Rails & Sails, Germany
+- [track-day-at-sonoma-raceway-in-april-2023-20-laps-completed-instructor-alex](experience/track-day-at-sonoma-raceway-in-april-2023-20-laps-completed-instructor-alex.md) — Track day at Sonoma Raceway in April 2023; 20 laps completed; instructor Alex
+- [tried-azul-for-first-time-at-board-game-cafe-on-may-14-2023-loved-it](experience/tried-azul-for-first-time-at-board-game-cafe-on-may-14-2023-loved-it.md) — Tried Azul for first time at board game cafe on May 14, 2023; loved it
+- [wake-up-at-7-30-am-with-extra-hour-of-sleep](user/wake-up-at-7-30-am-with-extra-hour-of-sleep.md) — Wake up at 7:30 AM with extra hour of sleep
+- [won-ticket-to-ride-game-against-roommate-mike-completing-6-8-destination-tickets](experience/won-ticket-to-ride-game-against-roommate-mike-completing-6-8-destination-tickets.md) — Won Ticket to Ride game against roommate Mike, completing 6/8 destination tickets (May 7, 2023)

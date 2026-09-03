@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [aquarium-20-gallon-tank-with-hydor-professional-canister-filter](user/aquarium-20-gallon-tank-with-hydor-professional-canister-filter.md) — Aquarium: 20-gallon tank with Hydor Professional Canister Filter
+- [book-content-creator-on-instagram-and-twitter-participates-in-bookclubchat](user/book-content-creator-on-instagram-and-twitter-participates-in-bookclubchat.md) — Book content creator on Instagram and Twitter, participates in #BookClubChat
+- [current-car-insurance-geico-for-3-years-considering-switch-to-progressive](user/current-car-insurance-geico-for-3-years-considering-switch-to-progressive.md) — Current car insurance: Geico for 3 years, considering switch to Progressive
+- [engaging-book-related-questions-for-instagram-follower-polls-and-posts](reference/engaging-book-related-questions-for-instagram-follower-polls-and-posts.md) — Engaging book-related questions for Instagram follower polls and posts
+- [fish-feeding-schedule-and-diet-preferences](user/fish-feeding-schedule-and-diet-preferences.md) — Fish feeding schedule and diet preferences
+- [flexible-with-flight-dates-and-willing-to-accept-layovers-for-international-trav](user/flexible-with-flight-dates-and-willing-to-accept-layovers-for-international-trav.md) — Flexible with flight dates and willing to accept layovers for international travel
+- [flight-price-benchmarks-nyc-to-frankfurt-summer-2023](reference/flight-price-benchmarks-nyc-to-frankfurt-summer-2023.md) — Flight price benchmarks NYC to Frankfurt summer 2023
+- [gm-social-media-agents-shift-rotation-7-agents-4-shifts-2-days-off-weekly](project/gm-social-media-agents-shift-rotation-7-agents-4-shifts-2-days-off-weekly.md) — GM social media agents shift rotation: 7 agents, 4 shifts, 2 days off weekly
+- [indian-ipr-law-patent-law-trademark-copyright-international-treaties](reference/indian-ipr-law-patent-law-trademark-copyright-international-treaties.md) — Indian IPR law: patent law, trademark, copyright, international treaties
+- [instagram-stories-and-igtv-content-ideas-for-book-creators](reference/instagram-stories-and-igtv-content-ideas-for-book-creators.md) — Instagram Stories and IGTV content ideas for book creators
+- [insurance-coverage-priorities-gap-coverage-safety-discounts-multi-car-options](user/insurance-coverage-priorities-gap-coverage-safety-discounts-multi-car-options.md) — Insurance coverage priorities: gap coverage, safety discounts, multi-car options
+- [interest-in-faith-healing-theology-and-worship-service-planning](user/interest-in-faith-healing-theology-and-worship-service-planning.md) — Interest in faith healing theology and worship service planning
+- [interested-in-taking-improv-classes-or-workshops-to-challenge-self-and-meet-new](user/interested-in-taking-improv-classes-or-workshops-to-challenge-self-and-meet-new.md) — Interested in taking improv classes or workshops to challenge self and meet new people
+- [lufthansa-vs-norwegian-air-service-and-amenities-comparison](reference/lufthansa-vs-norwegian-air-service-and-amenities-comparison.md) — Lufthansa vs Norwegian Air service and amenities comparison
+- [musical-theater-enthusiast-listening-to-soundtracks-daily-favorites-include-the](user/musical-theater-enthusiast-listening-to-soundtracks-daily-favorites-include-the.md) — Musical theater enthusiast: listening to soundtracks daily, favorites include The Book of Mormon
+- [popular-book-related-hashtags-for-instagram-engagement](reference/popular-book-related-hashtags-for-instagram-engagement.md) — Popular book-related hashtags for Instagram engagement
+- [prefers-bookrecs-over-bookrecommendations-hashtag](user/prefers-bookrecs-over-bookrecommendations-hashtag.md) — Prefers #bookrecs over #bookrecommendations hashtag
+- [prefers-detailed-midjourney-prompts-in-professional-photographer-style-with-tech](user/prefers-detailed-midjourney-prompts-in-professional-photographer-style-with-tech.md) — Prefers detailed Midjourney prompts in professional photographer style with technical camera specs
+- [prefers-established-carriers-lufthansa-over-budget-airlines-due-to-financial-sta](user/prefers-established-carriers-lufthansa-over-budget-airlines-due-to-financial-sta.md) — Prefers established carriers (Lufthansa) over budget airlines due to financial stability concerns
+- [soapstone-carving-learning-resources-and-platforms](reference/soapstone-carving-learning-resources-and-platforms.md) — Soapstone carving learning resources and platforms
+- [soapstone-sculptor-focusing-on-bird-carving](user/soapstone-sculptor-focusing-on-bird-carving.md) — Soapstone sculptor focusing on bird carving
+- [vehicle-silver-honda-civic-with-lane-departure-warning-and-blind-spot-detection](user/vehicle-silver-honda-civic-with-lane-departure-warning-and-blind-spot-detection.md) — Vehicle: silver Honda Civic with lane departure warning and blind spot detection
+- [worship-service-structure-template-for-faith-healing-theme](reference/worship-service-structure-template-for-faith-healing-theme.md) — Worship service structure template for faith healing theme
+- [worship-songs-and-hymns-on-faith-healing-theme](reference/worship-songs-and-hymns-on-faith-healing-theme.md) — Worship songs and hymns on faith healing theme

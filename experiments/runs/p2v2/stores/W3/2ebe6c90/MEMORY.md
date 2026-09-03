@@ -1,0 +1,12 @@
+# MEMORY.md
+
+- [beginner-yoga-tips-for-building-confidence-and-avoiding-injury](reference/beginner-yoga-tips-for-building-confidence-and-avoiding-injury.md) — Beginner yoga tips for building confidence and avoiding injury
+- [career-background-learning-designer-with-instructional-design-and-education-expe](reference/career-background-learning-designer-with-instructional-design-and-education-expe.md) — Career background: Learning Designer with instructional design and education expertise
+- [completed-10-day-rv-road-trip-from-california-to-yellowstone-with-family-of-five](experience/completed-10-day-rv-road-trip-from-california-to-yellowstone-with-family-of-five.md) — Completed 10-day RV road trip from California to Yellowstone with family of five in November 2022
+- [considering-costa-rica-for-summer-2023-vacation-with-focus-on-tortuguero-nationa](project/considering-costa-rica-for-summer-2023-vacation-with-focus-on-tortuguero-nationa.md) — Considering Costa Rica for summer 2023 vacation with focus on Tortuguero National Park eco-lodge
+- [has-expertise-and-audience-interest-in-beauty-makeup-and-skincare](user/has-expertise-and-audience-interest-in-beauty-makeup-and-skincare.md) — Has expertise and audience interest in beauty, makeup, and skincare
+- [interested-in-starting-yoga-practice-as-a-beginner](user/interested-in-starting-yoga-practice-as-a-beginner.md) — Interested in starting yoga practice as a beginner
+- [live-streaming-engagement-strategies-and-platform-specific-content-guidelines](reference/live-streaming-engagement-strategies-and-platform-specific-content-guidelines.md) — Live streaming engagement strategies and platform-specific content guidelines
+- [planning-future-trip-to-yellowstone-national-park-with-family-of-five](project/planning-future-trip-to-yellowstone-national-park-with-family-of-five.md) — Planning future trip to Yellowstone National Park with family of five
+- [prefers-eco-friendly-and-sustainable-tourism-with-wildlife-viewing-focus](user/prefers-eco-friendly-and-sustainable-tourism-with-wildlife-viewing-focus.md) — Prefers eco-friendly and sustainable tourism with wildlife viewing focus
+- [weekly-live-streaming-across-instagram-youtube-facebook-with-beauty-and-makeup-f](user/weekly-live-streaming-across-instagram-youtube-facebook-with-beauty-and-makeup-f.md) — Weekly live streaming across Instagram, YouTube, Facebook with beauty and makeup focus

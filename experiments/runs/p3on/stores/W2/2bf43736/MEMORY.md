@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [adolphe-tanqueray-s-spiritual-life-treatise-book-1-part-2-concepts-of-spiritual](reference/adolphe-tanqueray-s-spiritual-life-treatise-book-1-part-2-concepts-of-spiritual.md) — Adolphe Tanqueray's Spiritual Life treatise: Book 1 Part 2, concepts of spiritual beginners and prayer
+- [attended-ash-wednesday-service-at-st-mary-s-church-found-it-powerful](experience/attended-ash-wednesday-service-at-st-mary-s-church-found-it-powerful.md) — Attended Ash Wednesday service at St. Mary's Church, found it powerful
+- [attended-data-science-conference-may-2023](experience/attended-data-science-conference-may-2023.md) — Attended data science conference, May 2023
+- [bachelor-s-degree-in-computer-science-from-university-of-michigan-gpa-3-4](user/bachelor-s-degree-in-computer-science-from-university-of-michigan-gpa-3-4.md) — Bachelor's degree in Computer Science from University of Michigan, GPA 3.4
+- [certified-data-scientist-from-data-science-council-of-america-dasca](user/certified-data-scientist-from-data-science-council-of-america-dasca.md) — Certified Data Scientist from Data Science Council of America (DASCA)
+- [chose-rode-nt1-a-condenser-microphone-230-for-recording-ukulele-and-saxophone](project/chose-rode-nt1-a-condenser-microphone-230-for-recording-ukulele-and-saxophone.md) — Chose Rode NT1-A condenser microphone (~$230) for recording ukulele and saxophone
+- [completed-tour-de-local-20-mile-cycling-event-through-nearby-trails-on-2023-05-2](experience/completed-tour-de-local-20-mile-cycling-event-through-nearby-trails-on-2023-05-2.md) — Completed Tour de Local 20-mile cycling event through nearby trails on 2023-05-20
+- [data-visualization-and-dashboard-project-for-major-bank](project/data-visualization-and-dashboard-project-for-major-bank.md) — Data visualization and dashboard project for major bank
+- [does-strength-training-workouts-3-times-per-week](user/does-strength-training-workouts-3-times-per-week.md) — Does strength training workouts 3 times per week
+- [energy-efficient-bulb-in-bedside-lamp-failed-after-6-months](experience/energy-efficient-bulb-in-bedside-lamp-failed-after-6-months.md) — Energy-efficient bulb in bedside lamp failed after 6 months
+- [enjoys-chick-fil-a-chicken-sandwiches](user/enjoys-chick-fil-a-chicken-sandwiches.md) — Enjoys Chick-fil-A chicken sandwiches
+- [evaluating-yamaha-yas-209-soundbar-for-bedroom-purchase](project/evaluating-yamaha-yas-209-soundbar-for-bedroom-purchase.md) — Evaluating Yamaha YAS-209 soundbar for bedroom purchase
+- [interested-in-contemplative-prayer-and-meditation](user/interested-in-contemplative-prayer-and-meditation.md) — Interested in contemplative prayer and meditation
+- [interested-in-data-visualization-python-and-staying-current-with-data-science-tr](user/interested-in-data-visualization-python-and-staying-current-with-data-science-tr.md) — Interested in data visualization, Python, and staying current with data science trends
+- [interested-in-joining-sunday-morning-running-group-at-7-am](user/interested-in-joining-sunday-morning-running-group-at-7-am.md) — Interested in joining Sunday morning running group at 7 am
+- [interested-in-recording-saxophone-and-using-ableton-live-for-music-production](user/interested-in-recording-saxophone-and-using-ableton-live-for-music-production.md) — Interested in recording saxophone and using Ableton Live for music production
+- [interested-in-smart-light-bulbs-with-scheduling-and-color-temperature-automation](user/interested-in-smart-light-bulbs-with-scheduling-and-color-temperature-automation.md) — Interested in smart light bulbs with scheduling and color temperature automation
+- [learning-plan-datacamp-python-visualization-tableau-personal-projects-before-app](project/learning-plan-datacamp-python-visualization-tableau-personal-projects-before-app.md) — Learning plan: DataCamp Python visualization, Tableau, personal projects before applying to bank project
+- [lenten-goal-volunteer-at-soup-kitchen](project/lenten-goal-volunteer-at-soup-kitchen.md) — Lenten goal: volunteer at soup kitchen
+- [master-s-degree-in-data-science-at-new-york-university-in-progress-as-of-may-202](user/master-s-degree-in-data-science-at-new-york-university-in-progress-as-of-may-202.md) — Master's degree in Data Science at New York University, in progress as of May 2023
+- [new-wi-fi-router-installation-eliminated-streaming-buffering](experience/new-wi-fi-router-installation-eliminated-streaming-buffering.md) — New Wi-Fi router installation eliminated streaming buffering
+- [owns-coach-handbag-from-coach-outlet-versatile-piece](user/owns-coach-handbag-from-coach-outlet-versatile-piece.md) — Owns Coach handbag from Coach outlet, versatile piece
+- [plays-ukulele-practices-fingerpicking-patterns-and-chord-learning](user/plays-ukulele-practices-fingerpicking-patterns-and-chord-learning.md) — Plays ukulele, practices fingerpicking patterns and chord learning
+- [prefers-minimalist-delicate-silver-jewelry-with-small-charms](user/prefers-minimalist-delicate-silver-jewelry-with-small-charms.md) — Prefers minimalist, delicate silver jewelry with small charms
+- [prefers-minimalist-window-shades-that-allow-natural-light-with-light-filtering-f](user/prefers-minimalist-window-shades-that-allow-natural-light-with-light-filtering-f.md) — Prefers minimalist window shades that allow natural light with light-filtering fabrics
+- [prefers-warm-soft-glow-for-bedside-lamp](user/prefers-warm-soft-glow-for-bedside-lamp.md) — Prefers warm, soft glow for bedside lamp
+- [reads-daily-devotionals-for-spiritual-growth-chose-lent-for-everyone-by-n-t-wrig](user/reads-daily-devotionals-for-spiritual-growth-chose-lent-for-everyone-by-n-t-wrig.md) — Reads daily devotionals for spiritual growth; chose 'Lent for Everyone' by N.T. Wright
+- [recommended-led-and-smart-bulb-brands-for-long-lasting-quality-bulbs](reference/recommended-led-and-smart-bulb-brands-for-long-lasting-quality-bulbs.md) — Recommended LED and smart bulb brands for long-lasting, quality bulbs
+- [senior-data-analyst-at-xyz-corp](user/senior-data-analyst-at-xyz-corp.md) — Senior Data Analyst at XYZ Corp
+- [setting-up-home-music-room-with-recording-studio](project/setting-up-home-music-room-with-recording-studio.md) — Setting up home music room with recording studio
+- [takes-yoga-classes-monday-and-wednesday-mornings-at-community-center](user/takes-yoga-classes-monday-and-wednesday-mornings-at-community-center.md) — Takes yoga classes Monday and Wednesday mornings at community center
+- [tips-for-creating-drum-patterns-in-ableton-live](reference/tips-for-creating-drum-patterns-in-ableton-live.md) — Tips for creating drum patterns in Ableton Live
+- [uses-lastpass-exploring-password-manager-alternatives](user/uses-lastpass-exploring-password-manager-alternatives.md) — Uses LastPass; exploring password manager alternatives
+- [verde-fashion-co-4-email-welcome-series-strategy-for-new-subscribers](project/verde-fashion-co-4-email-welcome-series-strategy-for-new-subscribers.md) — Verde Fashion Co. — 4-email welcome series strategy for new subscribers
+- [verde-fashion-co-social-media-strategy-instagram-facebook-focus](project/verde-fashion-co-social-media-strategy-instagram-facebook-focus.md) — Verde Fashion Co. — social media strategy: Instagram + Facebook focus
+- [verde-fashion-co-sustainable-fashion-brand-website-launched-2023-05](project/verde-fashion-co-sustainable-fashion-brand-website-launched-2023-05.md) — Verde Fashion Co. — sustainable fashion brand, website launched 2023-05
+- [vice-president-of-acm-student-chapter-at-university-of-michigan-for-one-year](user/vice-president-of-acm-student-chapter-at-university-of-michigan-for-one-year.md) — Vice President of ACM Student Chapter at University of Michigan for one year
+- [wants-to-optimize-office-space-layout-to-maximize-natural-light](user/wants-to-optimize-office-space-layout-to-maximize-natural-light.md) — Wants to optimize office space layout to maximize natural light

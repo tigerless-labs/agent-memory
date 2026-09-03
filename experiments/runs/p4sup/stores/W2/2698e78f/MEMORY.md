@@ -1,0 +1,33 @@
+# MEMORY.md
+
+- [allows-self-caffeinated-tea-coffee-on-weekends-as-special-indulgence](user/allows-self-caffeinated-tea-coffee-on-weekends-as-special-indulgence.md) — Allows self caffeinated tea/coffee on weekends as special indulgence
+- [attended-friend-rachel-s-wedding-at-a-vineyard-in-napa-valley-on-2023-03-07](experience/attended-friend-rachel-s-wedding-at-a-vineyard-in-napa-valley-on-2023-03-07.md) — Attended friend Rachel's wedding at a vineyard in Napa Valley on 2023-03-07
+- [bhutan-s-gross-national-happiness-development-philosophy-prioritizing-well-being](reference/bhutan-s-gross-national-happiness-development-philosophy-prioritizing-well-being.md) — Bhutan's Gross National Happiness: development philosophy prioritizing well-being over GDP growth
+- [bi-weekly-therapy-sessions-with-dr-smith-for-boundary-setting-and-saying-no](user/bi-weekly-therapy-sessions-with-dr-smith-for-boundary-setting-and-saying-no.md) — Bi-weekly therapy sessions with Dr. Smith for boundary-setting and saying no
+- [caymus-special-selection-cabernet-sauvignon-napa-valley-wine-recommendation](reference/caymus-special-selection-cabernet-sauvignon-napa-valley-wine-recommendation.md) — Caymus Special Selection Cabernet Sauvignon - Napa Valley wine recommendation
+- [coastal-beach-and-ocean-sunrise-sunset-photography-shoots-weekly](user/coastal-beach-and-ocean-sunrise-sunset-photography-shoots-weekly.md) — Coastal beach and ocean sunrise/sunset photography; shoots weekly
+- [considering-wilson-blade-98-racket-310g-18x20-pattern-with-polyester-string](project/considering-wilson-blade-98-racket-310g-18x20-pattern-with-polyester-string.md) — Considering Wilson Blade 98 racket (310g, 18x20 pattern) with polyester string
+- [finished-reading-the-seven-husbands-of-evelyn-hugo-on-february-10-2023](experience/finished-reading-the-seven-husbands-of-evelyn-hugo-on-february-10-2023.md) — Finished reading The Seven Husbands of Evelyn Hugo on February 10, 2023
+- [friend-rachel-married-on-2023-03-07](user/friend-rachel-married-on-2023-03-07.md) — Friend Rachel married on 2023-03-07
+- [interested-in-alternative-development-philosophies-and-well-being-metrics-over-g](user/interested-in-alternative-development-philosophies-and-well-being-metrics-over-g.md) — Interested in alternative development philosophies and well-being metrics over GDP-focused growth
+- [interested-in-herbal-teas-for-evening-relaxation](user/interested-in-herbal-teas-for-evening-relaxation.md) — Interested in herbal teas for evening relaxation
+- [online-tennis-instruction-resources-and-coaches](reference/online-tennis-instruction-resources-and-coaches.md) — Online tennis instruction resources and coaches
+- [plays-recreational-tennis-soccer-cycling-and-running](user/plays-recreational-tennis-soccer-cycling-and-running.md) — Plays recreational tennis, soccer, cycling, and running
+- [practices-meditation-and-journaling-for-self-care](user/practices-meditation-and-journaling-for-self-care.md) — Practices meditation and journaling for self-care
+- [practices-yoga-and-meditation-for-anxiety-management](user/practices-yoga-and-meditation-for-anxiety-management.md) — Practices yoga and meditation for anxiety management
+- [prefers-elegant-sophisticated-wine-gift-presentation-in-wine-gift-boxes](user/prefers-elegant-sophisticated-wine-gift-presentation-in-wine-gift-boxes.md) — Prefers elegant, sophisticated wine gift presentation in wine gift boxes
+- [prefers-flexible-schedules-over-rigid-time-blocking](user/prefers-flexible-schedules-over-rigid-time-blocking.md) — Prefers flexible schedules over rigid time-blocking
+- [prefers-lighter-tennis-rackets-for-better-maneuverability](user/prefers-lighter-tennis-rackets-for-better-maneuverability.md) — Prefers lighter tennis rackets for better maneuverability
+- [prefers-personal-downtime-over-frequent-social-events](user/prefers-personal-downtime-over-frequent-social-events.md) — Prefers personal downtime over frequent social events
+- [regular-social-commitments-weekly-yoga-class-and-bi-weekly-dinner-with-friends](user/regular-social-commitments-weekly-yoga-class-and-bi-weekly-dinner-with-friends.md) — Regular social commitments: weekly yoga class and bi-weekly dinner with friends
+- [sleep-difficulty-despite-consistent-sleep-schedule-and-journaling](user/sleep-difficulty-despite-consistent-sleep-schedule-and-journaling.md) — Sleep difficulty despite consistent sleep schedule and journaling
+- [sleep-improvement-strategies-and-boundary-setting-techniques](reference/sleep-improvement-strategies-and-boundary-setting-techniques.md) — Sleep improvement strategies and boundary-setting techniques
+- [starting-a-physical-reading-journal-to-track-books-and-personal-thoughts](project/starting-a-physical-reading-journal-to-track-books-and-personal-thoughts.md) — Starting a physical reading journal to track books and personal thoughts
+- [strategies-and-examples-for-engaging-diverse-populations-in-community-events](reference/strategies-and-examples-for-engaging-diverse-populations-in-community-events.md) — Strategies and examples for engaging diverse populations in community events
+- [tennis-improvement-plan-focus-on-serve-consistency-take-online-lessons-for-techn](project/tennis-improvement-plan-focus-on-serve-consistency-take-online-lessons-for-techn.md) — Tennis improvement plan: focus on serve consistency, take online lessons for technique and strategy
+- [the-immortalists-by-chloe-benjamin-mythology-inspired-family-saga-about-four-sib](reference/the-immortalists-by-chloe-benjamin-mythology-inspired-family-saga-about-four-sib.md) — The Immortalists by Chloe Benjamin - mythology-inspired family saga about four siblings and mortality
+- [user-decided-to-start-a-coffee-and-tea-journal](experience/user-decided-to-start-a-coffee-and-tea-journal.md) — User decided to start a coffee and tea journal
+- [values-celebrating-cultural-diversity-in-communities](user/values-celebrating-cultural-diversity-in-communities.md) — Values celebrating cultural diversity in communities
+- [weekly-therapy-with-dr-smith-focused-on-setting-healthy-boundaries](user/weekly-therapy-with-dr-smith-focused-on-setting-healthy-boundaries.md) — Weekly therapy with Dr. Smith focused on setting healthy boundaries
+- [won-first-tournament-match-6-2-6-4-lost-in-semifinals](experience/won-first-tournament-match-6-2-6-4-lost-in-semifinals.md) — Won first tournament match 6-2, 6-4; lost in semifinals
+- [works-9-5-monday-through-friday](user/works-9-5-monday-through-friday.md) — Works 9-5 Monday through Friday

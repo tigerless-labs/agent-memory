@@ -1,7 +1,8 @@
 # Experiments
 
-Measurements that back empirical claims. Data and run artifacts stay out of git
-(`experiments/data/`, `experiments/runs/`); protocols and results live here.
+Measurements that back empirical claims. Protocols and results live here; the data behind
+them — question sets under `experiments/data/`, every run's records and store truth files
+under `experiments/runs/` — is committed too, with only rebuildable caches left out.
 
 The rules every experiment follows — experiment types, what counts as a result, attribution
 conditions, what a run must record, failure handling — are in
@@ -105,34 +106,29 @@ uv run mem-exp coverage --workspace runs/p10am
 uv run mem-exp coverage --workspace runs/p10mc
 ```
 
-## What in `experiments/runs/` may be deleted, and what may not
+## What is in git, and what a store needs before it can be replayed
 
-`experiments/runs/*/stores/` holds the memory stores a run built. They are gitignored — 464 MB
-of them — so git protects none of it, and the most expensive artefact this project has produced
-is the part a routine directory cleanup would take first. Two worktree removals nearly did.
+Every run's evidence is committed: `runs.jsonl`, `questions.json`, the report, and the store
+tree's truth files — memories, archives, config, MemCore nodes. What is not committed is what
+Invariant 1 says is a cache: `.index/` and MemCore's `index/`, `graph.idx`, `wal.log`, the
+`models` link, plus working directories and progress logs. A freshly cloned store therefore
+answers `mem read` but not `mem recall` until `mem rebuild` (or, for MemCore, its first
+daemon start) has projected the index again; a replay against a clone needs that step first.
 
-**Keep. A write pass costs hours and these are the frozen corpora every read-side comparison is
-anchored to.**
+**Frozen corpora.** These store trees anchor read-side results, so their truth files must
+stay exactly as written; a new write pass produces a different corpus and a future number
+measured on it is not comparable to any earlier one.
 
-| corpus | size | why it cannot be rebuilt |
+| corpus | stores | anchors |
 |---|---|---|
-| `p4sup/stores` | 101 MB, 120 stores | Every read-side result — P5 through P9 — is a replay against exactly these. A new write pass produces different stores, so a future read-side number measured elsewhere is not comparable to any of them. |
-| `p7slept/stores` | 96 MB, 120 stores | The same corpus after one Manage sleep. The before/after pair is the only evidence about M's net effect that exists; regenerating the "after" needs the "before" intact. |
-| `p10am/stores`, `p10mc/stores` | 120 stores each | The P10 pair: one agent-memory write pass and one MemCore write pass on the same episodes. Every P10 replay is anchored to exactly these, and the cheap follow-ups (a MemCore replay with a changed preamble) need them intact. |
+| `p4sup/stores` | 120 | every read-side result P5 through P9 |
+| `p7slept/stores` | 120 | the same corpus after one Manage sleep — the only before/after pair about M |
+| `p10am/stores`, `p10mc/stores` | 120 each | the P10 pair; its replays and the read-side follow-ups |
 
-**Disposable.** The n=24 optimisation rounds (`p2`, `p2v2`, `p2v3`, `p2v4`, `p2v5*`), the smoke
-runs, the discarded `fx1`/`fx2`, and the per-host slices. Their conclusions are recorded and
-nothing replays against them. `p3on/stores` (90 MB) sits between the two: P3 is settled and no
-run is anchored to it, so it is archival rather than load-bearing.
+The n=24 optimisation rounds, the smoke runs, the discarded `fx1`/`fx2`, the per-host slices,
+and runs started with `--reuse-stores` (whose `stores/` is scaffolding, not memories) anchor
+nothing. Their conclusions are recorded and their trees are kept only because keeping is free.
 
-**Not corpora at all.** A run started with `--reuse-stores` leaves a `stores/` of about 968 KB —
-scaffolding, not memories. `fxa`, `fxb`, `ctxa`, `ctxb`, `w24a`, `w24b`, `p5*`, `p3off` and `p7a`
-are all of this kind. Size tells them apart: under a megabyte means the run borrowed its corpus.
-
-Deleting a frozen corpus does not lose a *finding* — the records and write-ups are committed.
-It loses the ability to run one more arm against the same write pass, which is the only way a
-read-side change can be measured at all.
-
-Run records (`experiments/runs/*/runs.jsonl`) are committed as evidence. The stores they were
-built from are not — 468 MB — so a write-up's claims are checkable from the records while the
-corpora stay reproducible from `mem-exp prepare`.
+`experiments/data/longmemeval_s.json` — the published suite, 278 MB — is committed gzipped
+because it exceeds GitHub's single-file limit; `gunzip -k` it before `mem-exp prepare`.
+The bounded `longmemeval_s12.json` and the oracle are committed as they are.

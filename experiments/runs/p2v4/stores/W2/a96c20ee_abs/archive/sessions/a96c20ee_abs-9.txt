@@ -1,0 +1,76 @@
+## Session sharegpt_bhOrPyl_149 — 2023/05/21 (Sun) 07:02
+assistant: Azure PowerShell, Azure CLI, and Azure Cloud Shell are three tools used for managing Azure resources. Here are the differences between them:
+
+1. Azure PowerShell: Azure PowerShell is a module that adds Azure-specific commands to PowerShell. It requires PowerShell to function and provides a way to connect to Azure subscriptions and manage resources. It is available on Windows PowerShell and PowerShell Core.
+2. Azure CLI: Azure CLI is a command-line program that allows you to execute administrative commands on Azure resources. It runs on Linux, macOS, and Windows, and provides cross-platform command-line tools for managing Azure resources. It can be installed locally on computers running these operating systems.
+3. Azure Cloud Shell: Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources. It provides a browser-based command-line experience and is built with Azure management tasks in mind. It runs on a temporary host provided on a per-session, per-user basis, and requires a resource group, storage account, and Azure File share.
+
+In summary, Azure PowerShell and Azure CLI are both command-line tools that can be installed locally on your computer, while Azure Cloud Shell is a browser-based shell that runs on a temporary host in Azure. Azure PowerShell provides Azure-specific commands for PowerShell, while Azure CLI provides cross-platform command-line tools for managing Azure resources.
+user: Azure Resource Manager
+• Azure Resource Manager enables you to work with the resources in your
+solution as a group. You can deploy, update, or delete all the resources
+for your solution in a single, coordinated operation. You use a template
+for deployment and that template can work for different environments
+such as testing, staging, and production. Azure Resource Manager
+provides security, auditing, and tagging features to help you manage
+your resources after deployment.
+• Azure Resource Manager provides a consistent management layer to
+perform tasks through Azure PowerShell, Azure CLI, Azure portal, REST
+API, and client SDKs.
+assistant: Azure Resource Manager (ARM) is a service provided by Microsoft Azure for managing and organizing resources in Azure. It allows you to create, update, and delete resources in a single, coordinated operation. ARM provides a consistent management layer for performing tasks through various tools, such as Azure PowerShell, Azure CLI, Azure portal, REST API, and client SDKs.
+
+Azure PowerShell is a module that you add to Windows PowerShell or PowerShell Core to enable you to connect to your Azure subscription and manage resources. It provides a set of Azure-specific commands that allow you to manage Azure resources through PowerShell.
+
+Azure CLI is a command-line program that allows administrators and developers to execute administrative commands on Azure resources. It provides cross-platform command-line tools for managing Azure resources and can be installed locally on computers running Linux, macOS, or Windows.
+
+Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources. It provides a browser-based command-line experience and is built with Azure management tasks in mind. Cloud Shell is temporary and requires a new or existing Azure Files share to be mounted. It offers an integrated graphical text editor based on the open-source Monaco Editor and authenticates automatically for instant access to your resources.
+user: Templates improve consistency. Resource Manager templates provide a common
+language for deployments. Regardless of the tool or SDK that you use to deploy the
+template, the structure, format, and expressions inside the template remain the same.
+• Templates help express complex deployments. Templates enable you to deploy
+multiple resources in the correct order. For example, you wouldn't want to deploy a
+virtual machine prior to creating an operating system (OS) disk or network interface.
+Resource Manager maps out each resource and its dependent resources and creates
+dependent resources first. Dependency mapping helps ensure that the deployment is
+carried out in the correct order.
+• Templates reduce manual, error-prone tasks. Manually creating and connecting
+resources can be time consuming, and it's easy to make mistakes. Resource Manager
+ensures that the deployment happens the same way every time.
+• Templates are code. Templates express your requirements through code. Think of a
+template as a type of Infrastructure as Code that can be shared, tested, and versioned
+similar to any other piece of software. Also, because templates are code, you can create
+a "paper trail" that you can follow. The template code documents the deployment.
+assistant: Yes, that's correct. Templates in Azure Resource Manager provide a common language for deployments, ensuring consistency regardless of the tool or SDK used. They enable the expression of complex deployments, such as deploying multiple resources in the correct order, and reduce manual, error-prone tasks. Templates are also code, making them shareable, testable, and versionable, and provide a "paper trail" for
+user: Templates improve consistency. Resource Manager templates provide a common
+language for deployments. Regardless of the tool or SDK that you use to deploy the
+template, the structure, format, and expressions inside the template remain the same.
+• Templates help express complex deployments. Templates enable you to deploy
+multiple resources in the correct order. For example, you wouldn't want to deploy a
+virtual machine prior to creating an operating system (OS) disk or network interface.
+Resource Manager maps out each resource and its dependent resources and creates
+dependent resources first. Dependency mapping helps ensure that the deployment is
+carried out in the correct order.
+• Templates reduce manual, error-prone tasks. Manually creating and connecting
+resources can be time consuming, and it's easy to make mistakes. Resource Manager
+ensures that the deployment happens the same way every time.
+• Templates are code. Templates express your requirements through code. Think of a
+template as a type of Infrastructure as Code that can be shared, tested, and versioned
+similar to any other piece of software. Also, because templates are code, you can create
+a "paper trail" that you can follow. The template code documents the deployment.
+Templates promote reuse. Your template can contain parameters that are filled in when
+the template runs. A parameter can define a username or password, a domain name, and
+so on. Template parameters enable you to create multiple versions of your
+infrastructure, such as staging and production, while still using the exact same template.
+• Templates are linkable. You can link Resource Manager templates together to make the
+templates themselves modular. You can write small templates that each define a piece
+of a solution, and then combine them to create a complete system.
+• Templates simplify orchestration. You only need to deploy the template to deploy all of
+your resources. Normally this would take multiple operations.
+assistant: Yes, that's correct! Resource Manager templates have many benefits, including:
+
+1. Consistency: Resource Manager templates provide a common language for deployments, ensuring that the structure, format, and expressions inside the template remain the same regardless of the tool or SDK used for deployment.
+2. Complex deployments: Templates enable deployment of multiple resources in the correct order and create dependent resources first, helping ensure that the deployment is carried out in the correct order.
+3. Reduced manual errors: Templates reduce the time and potential for human error in manually creating and connecting resources.
+4. Code-based: Templates express your requirements through code, enabling you to create a "paper trail" that documents the deployment and promoting reuse of templates for different environments.
+5. Linkable: Resource Manager templates can be linked together to make the templates modular and enable you to create a complete system by combining smaller templates.
+6. Simplified orchestration: Deploying the template deploys all resources, simplifying orchestration and reducing the number of operations required.

@@ -1,0 +1,55 @@
+## Session sharegpt_fV5wNsl_0 — 2023/05/20 (Sat) 20:24
+user: You are a pregnancy health & nutrition expert and a mother of 3 children. 
+
+You have strong knowledge and hands-on experience on pregnancy topics.
+
+You have your own column in a major media.
+
+You are preparing a new article.
+
+For audience: 23-30 years old female
+Objective: provide information and advice for inexperienced audience
+
+Writing Style: informative, bias to short sentences, active voice, third person point of view
+Writing Voice: neutral and objective
+Writing Tone: friendly but professional
+
+Special instruction: Humans tend to write with greater "perplexity" and "burstiness." Perplexity measures the complexity of text. Separately, burstiness compares the variations of sentences. Humans tend to write with greater burstiness, for example, with some longer or complex sentences alongside shorter ones. AI sentences tend to be more uniform. Write the article in a tone that is not typical to AI with good amount of "perplexity" and "burstiness."
+
+Do you understand? If yes, please summarize my request. If no, please ask question to clarify.
+assistant: Yes, I understand. You need me to write an informative article on pregnancy health and nutrition, targeting an inexperienced female audience between the ages of 23-30. The objective is to provide information and advice in a friendly but professional tone, using short sentences and active voice. Additionally, you want the writing style to have a good amount of "perplexity" and "burstiness" to avoid sounding too uniform and typical of AI language.
+user: [topik]
+hamil anak ketiga
+
+[outline]
+I. Introduction
+a. Briefly introduce the topic of being pregnant with the third child and how it differs from previous pregnancies
+b. Mention the importance of recognizing the signs of pregnancy to ensure a healthy pregnancy and delivery
+
+II. Common signs of being pregnant with the third child
+a. Discuss the common physical symptoms such as morning sickness, frequent urination, and breast tenderness
+b. Mention how the body of the mother may have adjusted to pregnancy after going through it twice before 
+c. Highlight the potential risks associated with being pregnant with the third child, such as gestational diabetes, high blood pressure, and difficult delivery 
+
+III. Emotional changes during the third pregnancy
+a. Discuss how pregnancy blues may be easier to manage during the third pregnancy due to prior experience 
+b. Mention how having a third child can bring about a mix of emotions and changes in family dynamics 
+
+IV. Differences between delivering the third child and previous pregnancies
+a. Discuss how delivering the third child may differ from previous pregnancies, including changes in labor and delivery experiences 
+b. Mention how having more children may affect the birthing process 
+
+V. Conclusion
+a. Summarize the common signs, emotional changes, and differences associated with being pregnant with the third child
+b. Emphasize the importance of seeking medical attention and support during pregnancy
+c. Provide resources for further information or support
+
+I want you to execute the following steps. step 1 - write "I. Introduction", step 2 - write "II. Common signs of being pregnant with the third child" as 2000 words article, step 3 - write "III. Emotional changes during the third pregnancy" as 2000 words article, step 4 - write "IV. Differences between delivering the third child and previous pregnancies" as 2000 words article, step 5 - write "V. Conclusion" as 500 words article, in all steps use markdown headers, after finishing each step ask for my confirmation before continue to the next step
+assistant: Certainly, I can do that. I will begin with step 1 and write the "I. Introduction" section. Please let me know when you are ready for me to proceed to step 2.
+
+I. Introduction
+===============
+
+Being pregnant with a third child can bring about a mix of emotions and physical changes that may differ from previous pregnancies. While some women may feel more confident and experienced in managing their pregnancy, others may face new challenges and concerns. Recognizing the signs of pregnancy and seeking medical attention and support are crucial to ensuring a healthy pregnancy and delivery. In this article, we will explore the common signs of being pregnant with a third child, emotional changes during the third pregnancy, and differences between delivering the third child and previous pregnancies.
+
+Please let me know if this meets your requirements and if you would like me to proceed with step 2.

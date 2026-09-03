@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [ate-a-giant-breakfast-burrito-at-a-fresno-diner-on-the-way-back-from-yosemite](experience/ate-a-giant-breakfast-burrito-at-a-fresno-diner-on-the-way-back-from-yosemite.md) — Ate a giant breakfast burrito at a Fresno diner on the way back from Yosemite
+- [chose-a-full-exhaust-system-for-nissan-gt-r](project/chose-a-full-exhaust-system-for-nissan-gt-r.md) — Chose a full exhaust system for Nissan GT-R
+- [chose-staggered-wheel-and-tire-setup-for-drifting-nissan-gt-r](project/chose-staggered-wheel-and-tire-setup-for-drifting-nissan-gt-r.md) — Chose staggered wheel and tire setup for drifting Nissan GT-R
+- [chose-the-therm-a-rest-neoair-xlite-sleeping-pad-for-camping](project/chose-the-therm-a-rest-neoair-xlite-sleeping-pad-for-camping.md) — Chose the Therm-a-Rest NeoAir XLite sleeping pad for camping
+- [completed-a-solo-day-hike-to-mission-peak-in-fremont-on-2023-04-10](experience/completed-a-solo-day-hike-to-mission-peak-in-fremont-on-2023-04-10.md) — Completed a solo day hike to Mission Peak in Fremont on 2023-04-10
+- [credit-card-rewards-card-was-declined-at-a-merced-gas-station-returning-from-yos](experience/credit-card-rewards-card-was-declined-at-a-merced-gas-station-returning-from-yos.md) — Credit card rewards card was declined at a Merced gas station returning from Yosemite
+- [has-a-friend-named-alex-who-lent-an-uncomfortable-sleeping-pad-on-a-past-camping](user/has-a-friend-named-alex-who-lent-an-uncomfortable-sleeping-pad-on-a-past-camping.md) — Has a friend named Alex who lent an uncomfortable sleeping pad on a past camping trip
+- [has-a-son-who-is-a-picky-eater-deb](user/has-a-son-who-is-a-picky-eater-deb.md) — Has a son who is a picky eater (Deb)
+- [installed-new-coilovers-on-nissan-gt-r](project/installed-new-coilovers-on-nissan-gt-r.md) — Installed new coilovers on Nissan GT-R
+- [interested-in-education-technology-personalized-learning-and-real-time-ai-feedba](user/interested-in-education-technology-personalized-learning-and-real-time-ai-feedba.md) — Interested in education technology, personalized learning, and real-time AI feedback
+- [interested-in-learning-djing-as-a-music-hobby](user/interested-in-learning-djing-as-a-music-hobby.md) — Interested in learning DJing as a music hobby
+- [needs-to-oil-bike-chain-and-adjust-derailleur-before-next-ride](project/needs-to-oil-bike-chain-and-adjust-derailleur-before-next-ride.md) — Needs to oil bike chain and adjust derailleur before next ride
+- [owns-a-nissan-gt-r](user/owns-a-nissan-gt-r.md) — Owns a Nissan GT-R
+- [planning-a-solo-day-hike-to-mission-peak-in-fremont-with-a-fresno-diner-stop](project/planning-a-solo-day-hike-to-mission-peak-in-fremont-with-a-fresno-diner-stop.md) — Planning a solo day hike to Mission Peak in Fremont with a Fresno diner stop
+- [practicing-drifting-at-a-local-parking-lot-and-learned-turn-control-tips-from-al](experience/practicing-drifting-at-a-local-parking-lot-and-learned-turn-control-tips-from-al.md) — Practicing drifting at a local parking lot and learned turn control tips from Alex
+- [presented-poster-on-ai-in-education-thesis-research-at-first-research-conference](experience/presented-poster-on-ai-in-education-thesis-research-at-first-research-conference.md) — Presented poster on AI in education thesis research at first research conference at Harvard University
+- [recipe-blue-cheese-chocolate-chip-cookies](reference/recipe-blue-cheese-chocolate-chip-cookies.md) — Recipe: Blue Cheese Chocolate Chip Cookies
+- [recommended-breakfast-diners-in-fresno](reference/recommended-breakfast-diners-in-fresno.md) — Recommended breakfast diners in Fresno
+- [rode-15-miles-of-single-track-at-wilder-ranch-state-park-with-neighbor-mike-in-m](experience/rode-15-miles-of-single-track-at-wilder-ranch-state-park-with-neighbor-mike-in-m.md) — Rode 15 miles of single-track at Wilder Ranch State Park with neighbor Mike in May 2023
+- [thesis-research-focuses-on-ai-powered-adaptive-learning-systems-in-education](user/thesis-research-focuses-on-ai-powered-adaptive-learning-systems-in-education.md) — Thesis research focuses on AI-powered adaptive learning systems in education

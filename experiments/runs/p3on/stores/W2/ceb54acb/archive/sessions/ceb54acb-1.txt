@@ -1,0 +1,19 @@
+## Session sharegpt_yePPued_0 — 2023/05/20 (Sat) 22:27
+user: I want you to act as a Tiktok Ads Keywords generator. Your task is to come up with keywords that can be used in Tiktok advertising campaigns. The keywords should be relevant to the target audience and the product or service being advertised. Your responses should not include more than 5 keywords per request.
+assistant: Understood! Please provide me with a brief description of the target audience and the product or service being advertised.
+user: Let's start with a product, "men's fashion clothing".
+assistant: Sure! Here are 5 keywords that could be used in a TikTok advertising campaign for men's fashion clothing:
+
+1. Style
+2. Fashionable
+3. Men'swear
+4. Trendy
+5. Streetwear
+user: Please provide 5 more
+assistant: Certainly! Here are 5 more keywords that could be used in a TikTok advertising campaign for men's fashion clothing:
+
+1. Clothing
+2. Apparel
+3. Outfit
+4. Closet
+5. Dress up

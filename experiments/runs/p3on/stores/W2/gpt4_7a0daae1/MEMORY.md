@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [barbecue-side-dishes-desserts-and-beverageseasy-classics-for-casual-parties](reference/barbecue-side-dishes-desserts-and-beverageseasy-classics-for-casual-parties.md) — Barbecue side dishes, desserts, and beverages—easy classics for casual parties
+- [barcelona-eco-friendly-accommodations-bike-infrastructure-tours-and-restaurants](reference/barcelona-eco-friendly-accommodations-bike-infrastructure-tours-and-restaurants.md) — Barcelona eco-friendly accommodations, bike infrastructure, tours, and restaurants
+- [barcelona-eixample-hostel-preferences-budget-30-40-per-night-free-breakfast-and](user/barcelona-eixample-hostel-preferences-budget-30-40-per-night-free-breakfast-and.md) — Barcelona Eixample hostel preferences: budget 30-40 per night, free breakfast and communal kitchen required
+- [board-game-recommendations-for-family-game-nightsticket-to-ride-pictionary-catan](reference/board-game-recommendations-for-family-game-nightsticket-to-ride-pictionary-catan.md) — Board game recommendations for family game nights—Ticket to Ride, Pictionary, Catan, Clue, others
+- [cycles-solo-on-friday-evenings-along-the-river](user/cycles-solo-on-friday-evenings-along-the-river.md) — Cycles solo on Friday evenings along the river
+- [developing-net-play-and-volley-strategies-for-tennis](user/developing-net-play-and-volley-strategies-for-tennis.md) — Developing net play and volley strategies for tennis
+- [does-regular-30-minute-runs](user/does-regular-30-minute-runs.md) — Does regular 30-minute runs
+- [emphasizes-stretching-for-tennis-injury-prevention](user/emphasizes-stretching-for-tennis-injury-prevention.md) — Emphasizes stretching for tennis injury prevention
+- [family-game-night-this-weekchose-ticket-to-ride-and-pictionary](project/family-game-night-this-weekchose-ticket-to-ride-and-pictionary.md) — Family game night this week—chose Ticket to Ride and Pictionary
+- [has-regular-tennis-lessons-on-saturday](user/has-regular-tennis-lessons-on-saturday.md) — Has regular tennis lessons on Saturday
+- [has-saturday-tennis-lessons](user/has-saturday-tennis-lessons.md) — Has Saturday tennis lessons
+- [homemade-naan-bread-recipe-with-yeast](reference/homemade-naan-bread-recipe-with-yeast.md) — Homemade naan bread recipe with yeast
+- [indiana-compensation-clause-dispute-factors-contract-interpretation-parol-eviden](reference/indiana-compensation-clause-dispute-factors-contract-interpretation-parol-eviden.md) — Indiana compensation clause dispute factors: contract interpretation, parol evidence, course of performance, wage payment statutes
+- [interested-in-indian-inspired-cooking-experimenting-with-spice-blends-and-recipe](user/interested-in-indian-inspired-cooking-experimenting-with-spice-blends-and-recipe.md) — Interested in Indian-inspired cooking, experimenting with spice blends and recipes
+- [interested-in-joining-a-local-cycling-group-to-meet-new-people](user/interested-in-joining-a-local-cycling-group-to-meet-new-people.md) — Interested in joining a local cycling group to meet new people
+- [interested-in-plyometric-exercises-for-tennis](user/interested-in-plyometric-exercises-for-tennis.md) — Interested in plyometric exercises for tennis
+- [kitchen-organization-interested-in-spice-racks-and-cabinet-organizers](user/kitchen-organization-interested-in-spice-racks-and-cabinet-organizers.md) — Kitchen organization: interested in spice racks and cabinet organizers
+- [lake-house-trip-with-siblingsplayed-board-games-and-had-barbecue-lunch-saturday](experience/lake-house-trip-with-siblingsplayed-board-games-and-had-barbecue-lunch-saturday.md) — Lake house trip with siblings—played board games and had barbecue lunch Saturday morning
+- [madras-curry-powder-brands-penzeys-spices-the-spice-house-mccormick](reference/madras-curry-powder-brands-penzeys-spices-the-spice-house-mccormick.md) — Madras curry powder brands: Penzeys Spices, The Spice House, McCormick
+- [madras-curry-sauce-recipe-from-scratch-with-tofu](reference/madras-curry-sauce-recipe-from-scratch-with-tofu.md) — Madras curry sauce recipe from scratch with tofu
+- [makes-vegetable-stir-fry-in-batches-for-meal-prep](user/makes-vegetable-stir-fry-in-batches-for-meal-prep.md) — Makes vegetable stir-fry in batches for meal prep
+- [planning-casual-backyard-barbecuecoleslaw-baked-beans-s-mores-station](project/planning-casual-backyard-barbecuecoleslaw-baked-beans-s-mores-station.md) — Planning casual backyard barbecue—coleslaw, baked beans, s'mores station
+- [planning-to-book-barcelona-bike-tour-with-specific-comfort-requirements](project/planning-to-book-barcelona-bike-tour-with-specific-comfort-requirements.md) — Planning to book Barcelona bike tour with specific comfort requirements
+- [polestar-primary-driver-module-dynamodb-schema-with-previousorderids-list](project/polestar-primary-driver-module-dynamodb-schema-with-previousorderids-list.md) — Polestar Primary Driver Module: DynamoDB schema with PreviousOrderIDs list
+- [prefers-casual-laid-back-vibes-for-social-gatherings-and-entertaining](user/prefers-casual-laid-back-vibes-for-social-gatherings-and-entertaining.md) — Prefers casual, laid-back vibes for social gatherings and entertaining
+- [purchased-new-tennis-racket-online-on-2023-03-10](user/purchased-new-tennis-racket-online-on-2023-03-10.md) — Purchased new tennis racket online on 2023-03-10
+- [strength-training-approach-progressive-overload-proper-form-recovery-time-multip](user/strength-training-approach-progressive-overload-proper-form-recovery-time-multip.md) — Strength training approach: progressive overload, proper form, recovery time, multiple muscle groups
+- [supplier-management-process-contracting-negotiation-evaluation-onboarding-qualit](project/supplier-management-process-contracting-negotiation-evaluation-onboarding-qualit.md) — Supplier management process: contracting, negotiation, evaluation, onboarding, quality control
+- [uses-running-and-cycling-for-tennis-endurance-training](user/uses-running-and-cycling-for-tennis-endurance-training.md) — Uses running and cycling for tennis endurance training

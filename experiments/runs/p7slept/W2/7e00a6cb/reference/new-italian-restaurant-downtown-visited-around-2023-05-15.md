@@ -1,0 +1,16 @@
+---
+name: new-italian-restaurant-downtown-visited-around-2023-05-15
+abstract: New Italian restaurant downtown (visited around 2023-05-15)
+type: reference
+status: active
+created: 2026-09-02
+updated: 2026-09-02
+valid_from: 2023-05-22
+superseded_by: null
+weight: 2.5
+author: cli
+links: []
+provenance: []
+---
+
+Discovered a new Italian restaurant downtown that was amazing. Planning to take friends there when they visit. Location: downtown.

@@ -1,0 +1,12 @@
+## Session sharegpt_WImRhBG_0 — 2023/05/20 (Sat) 06:08
+user: how to connect xiaomi 360 camera to google cloud storage?
+assistant: To connect your Xiaomi 360 camera to Google Cloud Storage, you can follow these steps:
+
+1. Create a new bucket in Google Cloud Storage: To create a new bucket, go to the Google Cloud Storage Console and click the "Create Bucket" button. Follow the prompts to create a new bucket, and be sure to select the desired location and storage class.
+2. Install the Mi Home app: To connect your Xiaomi 360 camera to Google Cloud Storage, you'll need to use the Mi Home app. Install the app on your smartphone and sign in with your Xiaomi account.
+3. Connect your Xiaomi 360 camera to the Mi Home app: Follow the instructions in the app to connect your Xiaomi 360 camera to your Wi-Fi network and the Mi Home app.
+4. Enable Cloud Storage in the Mi Home app: In the Mi Home app, go to the camera's settings and select "Cloud Storage." Enable cloud storage and sign in with your Google account.
+5. Configure Cloud Storage settings: In the Cloud Storage settings, select the bucket you created in step 1. Choose the desired recording duration and resolution.
+6. Start recording: Once you've configured your Cloud Storage settings, your Xiaomi 360 camera will automatically record and upload videos to your Google Cloud Storage bucket.
+
+Note that you may need to have a Google Cloud Platform account to access Google Cloud Storage. Additionally, there may be additional costs associated with storing and accessing data in Google Cloud Storage, so be sure to review the pricing information before you start using the service.

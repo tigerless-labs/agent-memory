@@ -1,0 +1,35 @@
+# MEMORY.md
+
+- [enjoys-shopping-at-h-m-particularly-their-summer-collection](user/enjoys-shopping-at-h-m-particularly-their-summer-collection.md) — Enjoys shopping at H&M, particularly their summer collection
+- [h-m-member-loyalty-program-free-rewards-for-purchases](reference/h-m-member-loyalty-program-free-rewards-for-purchases.md) — H&M Member loyalty program - free rewards for purchases
+- [concerned-about-the-cost-of-pet-vaccinations-and-veterinary-care](user/concerned-about-the-cost-of-pet-vaccinations-and-veterinary-care.md) — Concerned about the cost of pet vaccinations and veterinary care
+- [has-emotional-responses-to-movies-watched-on-airplanes](user/has-emotional-responses-to-movies-watched-on-airplanes.md) — Has emotional responses to movies watched on airplanes
+- [considering-4-day-paris-museum-pass-for-paris-trip](project/considering-4-day-paris-museum-pass-for-paris-trip.md) — Considering 4-day Paris Museum Pass for Paris trip
+- [considering-travel-insurance-for-paris-and-rome-trip](project/considering-travel-insurance-for-paris-and-rome-trip.md) — Considering travel insurance for Paris and Rome trip
+- [docker-compose-setup-with-nginx-certbot-php-8-1-mariadb-services-and-volumes-con](reference/docker-compose-setup-with-nginx-certbot-php-8-1-mariadb-services-and-volumes-con.md) — Docker Compose setup with Nginx, Certbot, PHP 8.1, MariaDB - services and volumes configuration
+- [dog-vaccination-schedule-initial-at-6-8-weeks-with-boosters-every-2-4-weeks-unti](reference/dog-vaccination-schedule-initial-at-6-8-weeks-with-boosters-every-2-4-weeks-unti.md) — Dog vaccination schedule: initial at 6-8 weeks with boosters every 2-4 weeks until 16 weeks, then annually for 1 year, then every 3 years
+- [enjoys-creative-songwriting-exercises-in-music-artist-styles-including-blackpink](user/enjoys-creative-songwriting-exercises-in-music-artist-styles-including-blackpink.md) — Enjoys creative songwriting exercises in music artist styles, including BLACKPINK
+- [enjoys-young-adult-novels](user/enjoys-young-adult-novels.md) — Enjoys young adult novels
+- [establishing-consistent-bedtime-routine-aiming-for-11-pm](user/establishing-consistent-bedtime-routine-aiming-for-11-pm.md) — Establishing consistent bedtime routine - aiming for 11 pm
+- [has-a-female-dog-that-stays-indoors-most-of-the-time](user/has-a-female-dog-that-stays-indoors-most-of-the-time.md) — Has a female dog that stays indoors most of the time
+- [interested-in-global-bowls-and-spiced-lentils-for-sunday-meal-prep](user/interested-in-global-bowls-and-spiced-lentils-for-sunday-meal-prep.md) — Interested in global bowls and spiced lentils for Sunday meal prep
+- [interested-in-indian-cooking-and-experimenting-with-garam-masala-and-cumin](user/interested-in-indian-cooking-and-experimenting-with-garam-masala-and-cumin.md) — Interested in Indian cooking and experimenting with garam masala and cumin
+- [interested-in-science-fiction-books-and-bookstore-book-clubs](user/interested-in-science-fiction-books-and-bookstore-book-clubs.md) — Interested in science fiction books and bookstore book clubs
+- [interested-in-spreading-awareness-of-cross-cultural-emotional-concepts-through-s](user/interested-in-spreading-awareness-of-cross-cultural-emotional-concepts-through-s.md) — Interested in spreading awareness of cross-cultural emotional concepts through self-reflection and education
+- [interested-in-thrift-stores-and-vintage-shopping](user/interested-in-thrift-stores-and-vintage-shopping.md) — Interested in thrift stores and vintage shopping
+- [knows-maileen-had-meaningful-conversation-about-work-layoffs-and-books](user/knows-maileen-had-meaningful-conversation-about-work-layoffs-and-books.md) — Knows Maileen, had meaningful conversation about work layoffs and books
+- [makes-scrambled-eggs-and-toast-for-breakfast](user/makes-scrambled-eggs-and-toast-for-breakfast.md) — Makes scrambled eggs and toast for breakfast
+- [nginx-default-conf-template-with-ssl-https-redirect-php-fpm-and-default-server-b](reference/nginx-default-conf-template-with-ssl-https-redirect-php-fpm-and-default-server-b.md) — Nginx default.conf.template with SSL, HTTPS redirect, PHP-FPM, and default server block
+- [not-a-morning-person-prefers-to-sleep-in](user/not-a-morning-person-prefers-to-sleep-in.md) — Not a morning person - prefers to sleep in
+- [online-marketplaces-for-vintage-and-second-hand-items](reference/online-marketplaces-for-vintage-and-second-hand-items.md) — Online marketplaces for vintage and second-hand items
+- [recently-moved-into-new-apartment](experience/recently-moved-into-new-apartment.md) — Recently moved into new apartment
+- [setsunai-japanese-emotion-combining-sadness-nostalgia-happiness-and-longing](reference/setsunai-japanese-emotion-combining-sadness-nostalgia-happiness-and-longing.md) — Setsunai (切ない): Japanese emotion combining sadness, nostalgia, happiness, and longing
+- [shops-at-asos-for-clothing-and-sneakers-looks-for-promo-codes-and-sales](user/shops-at-asos-for-clothing-and-sneakers-looks-for-promo-codes-and-sales.md) — Shops at ASOS for clothing and sneakers, looks for promo codes and sales
+- [shops-at-target-for-household-essentials-interested-in-redcard-and-sales](user/shops-at-target-for-household-essentials-interested-in-redcard-and-sales.md) — Shops at Target for household essentials, interested in RedCard and sales
+- [spiced-lentils-dal-recipe-with-garam-masala-and-cumin](reference/spiced-lentils-dal-recipe-with-garam-masala-and-cumin.md) — Spiced Lentils (Dal) recipe with garam masala and cumin
+- [steps-for-creating-inclusive-hiring-processes](reference/steps-for-creating-inclusive-hiring-processes.md) — Steps for creating inclusive hiring processes
+- [summer-trip-to-paris-and-rome-planned](project/summer-trip-to-paris-and-rome-planned.md) — Summer trip to Paris and Rome planned
+- [the-vault-thrift-store-near-work-impressed-with-selection](reference/the-vault-thrift-store-near-work-impressed-with-selection.md) — The Vault thrift store near work - impressed with selection
+- [took-indian-cooking-class-and-successfully-made-chicken-tikka-masala](experience/took-indian-cooking-class-and-successfully-made-chicken-tikka-masala.md) — Took Indian cooking class and successfully made chicken tikka masala
+- [values-diversity-and-inclusion-in-hiring-and-workplace-practices](user/values-diversity-and-inclusion-in-hiring-and-workplace-practices.md) — Values diversity and inclusion in hiring and workplace practices
+- [works-as-a-hiring-manager](user/works-as-a-hiring-manager.md) — Works as a hiring manager

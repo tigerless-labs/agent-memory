@@ -1,0 +1,135 @@
+## Session sharegpt_KznkJ2p_0 — 2023/05/21 (Sun) 13:25
+user: Here are all the text on their home page, please let me what do it do. "Build your
+tokenized Guild
+Automated membership management for the platforms your community already uses.
+
+Guild creation is free and gasless
+
+Platform-agnostic communities
+Bring your community to your favourite communication platforms, management tools or games.
+
+Platform-agnostic communitiesRocket
+Token-enabled membership
+Create exclusive levels in your community and manage them with blockchain assets.
+
+ Fun fact: You can set allowlists or guest passes too
+
+Token-enabled membershipBunny
+Guard against phishing attacks
+Web3 captcha to filter bad-actor bots and protect your community against Discord scams.
+
+Guard against phishing attacksGuild RobotBrunya
+Real-time query engine
+Guild operates with its own indexer. 1M+ tokens, 100K+ NFT projects and 10+ chains are available. Search, pick and build on it.
+
+Real-time query engineUnicorn
+Composable membership requirements
+Built-in integrations and external APIs to maximize your choices. Play with logic gates and cross-chain opportunities.
+
+Composable membership requirementsComposable membership requirements - icons
+Explore trending Guilds
+Guild logo
+ZetaChain
+243K
+4 roles
+Guild logo
+Arbitrum
+227K
+19 roles
+Guild logo
+Galxe
+91K
+2 roles
+Guild logo
+Our Guild
+67K
+9 roles
+Guild logo
+Sui Ecosystem
+67K
+1 role
+Guild logo
+SyncSwap Guild
+65K
+6 roles
+Guild logo
+Sui Global
+61K
+1 role
+Guild logo
+Layer3
+60K
+1 role
+Guild logo
+SPACE ID
+58K
+1 role
+Guild logo
+Stargate Finance
+57K
+4 roles
+Guild logo
+Orbiter Finance
+54K
+7 roles
+Guild logo
+Swapped Finance
+54K
+4 roles
+Guild values
+Dedicated support
+You can count on us. There are no
+silly questions here. We can help
+you start, secure and scale.
+
+Dedicated support
+Open-source
+Our frontend and platform
+connectors are available
+for anyone.
+
+Open-source
+API/SDK
+Be creative and build on
+Guild's access control
+strategies.
+
+API/SDK
+Accessible
+Guild is for everyone. It's a no-
+code tool with smooth user
+experience.
+
+Accessible
+Discover tutorials & updates
+How Guild helps you organize your DAO
+How Guild helps you organize your DAO
+Guild, a platform that allows users to create private gated communities, hopes to make managing and joining a DAO easier.
+
+Our Guild is evolving
+Our Guild is evolving
+Over 10,000 web3 curious people have created or joined 600 guilds and our developer team has merged 1929 commits on Github, in response to hundreds of feature requests or bug reports.
+
+DAO Masters - Guild.xyz
+DAO Masters - Guild.xyz
+This is an easy, self-serve way to set up a gated community.
+
+Caroline | Tales of Elatora ⛩ MINTING NOW! on Twitter
+Caroline | Tales of Elatora ⛩ MINTING NOW! on Twitter
+Daily #NFT Show #167 ⚔️ Today's show is not about an #NFTartist but about a tool you should know if you run a Discord (or are helping to mod one). It's called: 👉 @guildxyz To be clear: I'm not affiliated in any way with this tool, I just like it! Powered by @redlion\_news 🦁
+
+Web3 is a Shared Experience: Reka and Raz, Co-Founders of Agora
+Web3 is a Shared Experience: Reka and Raz, Co-Founders of Agora
+Closing out our Web3 series, we sit down with Reka and Raz, Co-Founders of Agora, a studio DAO building essentials for communities. We dive into community role management with Guild, connecting Web2 and Web3 communities, and much more!
+
+Guild on Twitter
+Guild on Twitter
+Cross-chain token gating is here 🧙‍♂️ What does it mean for @SwaprEth (@DXdao\_ ) @nowdaoit @KlimaDAO and all the other communities spreading across blockchains? True multi-chain support for creating groups, read further..
+
+Start gating your
+community today for free
+It takes 5 mins
+"
+assistant: Guild.xyz is a platform that allows users to create private, tokenized communities or "guilds" across different communication platforms, management tools, and games. The platform offers a variety of features for community management, including automated membership management, token-enabled membership levels, protection against phishing attacks, a real-time query engine, and composable membership requirements. Guild.xyz also supports cross-chain token gating and has dedicated support, open-source code, and an API/SDK for developers. The platform is designed to be user-friendly and accessible, with tutorials and updates available to help users get started.
+user: What does https://www.collab.land/ do
+assistant: I am sorry, I couldn't find any information about <https://www.collab.land/>. It could be possible that the website is not live or not popular enough for my knowledge cutoff. Can you please provide more information about the website?

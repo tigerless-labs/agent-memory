@@ -1,0 +1,12 @@
+## Session sharegpt_inFVPIn_0 — 2023/05/20 (Sat) 02:08
+user: Great. Let's say that we would feed you with 90,000-100,000 documents with very little structured data. This means reports 1 to 5 pages-long, about subjects like international crime, terrorism and politics. How would you start organizing all this data?
+assistant: If you were to provide me with 90,000-100,000 unstructured documents with little to no structured data, the first step would be to preprocess and organize the data to enable analysis. Here are some of the steps that I would take to organize the data:
+
+1. **Text Cleaning**: The first step would be to clean the text by removing any irrelevant characters, such as special characters, punctuation, and stop words, and normalizing the text, such as converting all text to lowercase.
+2. **Document Parsing**: Once the text is clean, I would parse each document into its constituent parts, such as title, author, date, and body text.
+3. **Entity Extraction**: Next, I would perform entity extraction to identify and extract relevant information such as names, organizations, and locations mentioned in the text. This can be achieved through various techniques, including named entity recognition, part-of-speech tagging, and dependency parsing.
+4. **Topic Modeling**: I would then use topic modeling techniques to identify the main topics and themes present in the documents. This would help in organizing the documents based on common themes and identifying patterns and trends.
+5. **Sentiment Analysis**: I would also perform sentiment analysis to understand the tone and emotions expressed in the text. This would help in identifying and tracking changes in public opinion or political sentiments.
+6. **Document Classification**: Finally, I would classify the documents based on their content, such as international crime, terrorism, and politics. This would enable you to quickly search and filter the documents based on specific topics and themes.
+
+Overall, the process of organizing and analyzing unstructured data involves several steps, and the exact approach would depend on the specific requirements and the nature of the data. However, the techniques mentioned above are commonly used in text analysis tasks, and I can perform them quickly and accurately, even with large amounts of data.

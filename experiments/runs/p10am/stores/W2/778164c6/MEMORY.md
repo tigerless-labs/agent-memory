@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [brand-collaboration-inquiry-from-social-media-marketing-audience-may-21-2023](project/brand-collaboration-inquiry-from-social-media-marketing-audience-may-21-2023.md) — Brand collaboration inquiry from social media marketing audience (May 21 2023)
+- [brand-collaboration-negotiation-priorities-and-requirements](user/brand-collaboration-negotiation-priorities-and-requirements.md) — Brand collaboration negotiation priorities and requirements
+- [chose-mendeley-as-primary-reference-management-tool-zotero-as-backup-alternative](project/chose-mendeley-as-primary-reference-management-tool-zotero-as-backup-alternative.md) — Chose Mendeley as primary reference management tool; Zotero as backup alternative
+- [concert-and-festival-discovery-platforms](reference/concert-and-festival-discovery-platforms.md) — Concert and festival discovery platforms
+- [concert-ticket-money-saving-strategies](reference/concert-ticket-money-saving-strategies.md) — Concert ticket money-saving strategies
+- [content-creation-across-multiple-niches-social-media-marketing-tweets-book-revie](user/content-creation-across-multiple-niches-social-media-marketing-tweets-book-revie.md) — Content creation across multiple niches: social media marketing tweets, book reviews, fitness posts
+- [finds-monet-s-water-lilies-series-very-calming-and-peaceful](user/finds-monet-s-water-lilies-series-very-calming-and-peaceful.md) — Finds Monet's Water Lilies series very calming and peaceful
+- [finds-the-starry-night-by-van-gogh-captivating-appreciates-how-art-captures-emot](user/finds-the-starry-night-by-van-gogh-captivating-appreciates-how-art-captures-emot.md) — Finds The Starry Night by van Gogh captivating; appreciates how art captures emotion and meaning
+- [home-purchase-with-partner-closing-imminent-mortgage-pre-approved-may-2023](project/home-purchase-with-partner-closing-imminent-mortgage-pre-approved-may-2023.md) — Home purchase with partner, closing imminent; mortgage pre-approved (May 2023)
+- [home-search-took-3-months-momentum-accelerated-after-mortgage-pre-approval](experience/home-search-took-3-months-momentum-accelerated-after-mortgage-pre-approval.md) — Home search took 3 months; momentum accelerated after mortgage pre-approval
+- [home-security-hybrid-camera-setupwired-at-front-back-doors-wireless-inside](project/home-security-hybrid-camera-setupwired-at-front-back-doors-wireless-inside.md) — Home security: hybrid camera setup—wired at front/back doors, wireless inside
+- [interested-in-creating-concert-playlists](user/interested-in-creating-concert-playlists.md) — Interested in creating concert playlists
+- [interested-in-protecting-the-amazon-rainforest-and-indigenous-communities-willin](user/interested-in-protecting-the-amazon-rainforest-and-indigenous-communities-willin.md) — Interested in protecting the Amazon rainforest and indigenous communities; willing to support organizations working on conservation and indigenous rights
+- [interested-in-saving-money-on-concert-tickets](user/interested-in-saving-money-on-concert-tickets.md) — Interested in saving money on concert tickets
+- [keeping-festival-snacks-fresh-in-the-sun](reference/keeping-festival-snacks-fresh-in-the-sun.md) — Keeping festival snacks fresh in the sun
+- [music-festival-packing-checklist](reference/music-festival-packing-checklist.md) — Music festival packing checklist
+- [organizations-working-on-amazon-rainforest-protection-and-indigenous-rights](reference/organizations-working-on-amazon-rainforest-protection-and-indigenous-rights.md) — Organizations working on Amazon rainforest protection and indigenous rights
+- [planning-to-attend-music-festival-with-snack-strategy](project/planning-to-attend-music-festival-with-snack-strategy.md) — Planning to attend music festival with snack strategy
+- [prefers-user-friendly-interfaces-and-ease-of-use-for-tools-over-complex-advanced](user/prefers-user-friendly-interfaces-and-ease-of-use-for-tools-over-complex-advanced.md) — Prefers user-friendly interfaces and ease of use for tools over complex advanced features
+- [submitted-thesis-proposal-after-weeks-of-concentrated-work](experience/submitted-thesis-proposal-after-weeks-of-concentrated-work.md) — Submitted thesis proposal after weeks of concentrated work
+- [the-1975-concert-ticket-purchased-for-120-from-resale-website-may-2023](user/the-1975-concert-ticket-purchased-for-120-from-resale-website-may-2023.md) — The 1975 concert ticket purchased for $120 from resale website (May 2023)
+- [values-art-s-ability-to-evoke-different-emotions-based-on-individual-background](user/values-art-s-ability-to-evoke-different-emotions-based-on-individual-background.md) — Values art's ability to evoke different emotions based on individual background and experience
+- [was-tracking-thesis-references-in-spreadsheet-found-it-unwieldy-and-switched-to](experience/was-tracking-thesis-references-in-spreadsheet-found-it-unwieldy-and-switched-to.md) — Was tracking thesis references in spreadsheet; found it unwieldy and switched to Mendeley
+- [writing-literature-review-chapter-for-thesis](project/writing-literature-review-chapter-for-thesis.md) — Writing literature review chapter for thesis

@@ -1,0 +1,41 @@
+## Session sharegpt_I5HWvry_0 — 2023/07/12 (Wed) 02:43
+user: How do I use Sharepoint to refer to content available on a network share such that the content is indexed but not ingested into sharepoint?
+assistant: To refer to content available on a network share in SharePoint without ingesting the content, you can create a link or a "Shortcut" to the network share location within a SharePoint library or page. This will allow users to access the content from the SharePoint interface, but the content will still be stored and managed on the network share. Additionally, you can configure SharePoint to index the content on the network share, so it is searchable within the SharePoint search functionality. This can be done by creating a content source for the network share in the SharePoint Search service application, and then configuring a crawl schedule for the content source.
+user: How do I create a link to a network share location in a Sharepoint library or page?
+assistant: To create a link to a network share location in a SharePoint library or page, you can follow these steps:
+
+1. Navigate to the library or page where you want to add the link.
+2. Click on the "New" button and select "Link" or "Shortcut" from the options.
+3. In the "Create Link" or "Create Shortcut" dialog box, enter the name for the link and the URL for the network share location. The URL should be in the format of `\\server_name\folder_name`.
+4. Click on "OK" to save the link.
+
+The link will now appear in the library or page and users will be able to click on it to access the content on the network share.
+
+Note: You may need to have permissions to create links and shortcuts on the library or page and also need to ensure that the network share location is accessible by the user.
+user: How do I create a content source in sharepoint?
+assistant: To create a content source in SharePoint, you need to follow these steps:
+
+1. Open the SharePoint Central Administration website.
+2. Click on the "Manage service applications" link under the "Application Management" section.
+3. Click on the "Search Service Application" link.
+4. Click on the "Content Sources" link under the "Crawling" section.
+5. Click on the "New Content Source" button.
+6. In the "Content Source" dialog box, enter a name for the content source.
+7. Select the type of content you want to crawl, such as "SharePoint sites" or "Web sites".
+8. In the "Start Addresses" field, enter the URL of the network share location that you want to crawl. The URL should be in the format of `\\server_name\folder_name`.
+9. Select the "Crawl settings" and "Crawl schedule" as per your requirement
+10. Click on "OK" to create the content source.
+
+Once the content source is created, SharePoint will start crawling the content on the network share location according to the schedule you specified. The content will be indexed and will be searchable within the SharePoint search functionality.
+
+Note: You may need to have permissions to create content sources and also ensure that the network share location is accessible by the sharepoint crawlers.
+user: How do I prevent users who should not be able to access content from being able to access that content after it has been crawled and indexed by sharepoint?
+assistant: To prevent users who should not be able to access content from being able to access that content after it has been crawled and indexed by SharePoint, you can use a combination of the following methods:
+
+1. Use SharePoint permissions: SharePoint uses the permissions of the user who is performing the search to determine what content is returned in the search results. By setting proper permissions for the users, you can restrict access to the content.
+2. Use item-level permissions: SharePoint allows you to set permissions on individual items within a library or list. This allows you to control access to specific content, even if it is within a library or list that has more permissive permissions.
+3. Use Result Sources: Result sources allow you to define a set of rules for filtering the search results based on specific criteria. You can create a result source that filters out content that should not be accessible to certain users.
+4. Use SharePoint Information Rights Management (IRM) : IRM allows you to protect sensitive information by applying usage rights and permissions to files and folders. IRM works by encrypting the data, and then the permissions and usage rights are applied to the encryption keys rather than the data itself.
+5. Use SharePoint Secure Store Service (SSS) : SharePoint Secure Store Service (SSS) is a service application that stores and maps credentials, such as account names and passwords, which are used to connect to external systems. SSS can be used to store credentials for external systems and then map them to specific users or groups.
+
+By using these methods, you can restrict access to the content and only allow the users who should have access to the content to view it.

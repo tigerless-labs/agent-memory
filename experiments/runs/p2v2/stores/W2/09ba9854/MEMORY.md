@@ -1,0 +1,12 @@
+# MEMORY.md
+
+- [instagram-ad-campaign-setup-process-and-awareness-metrics-tracking](reference/instagram-ad-campaign-setup-process-and-awareness-metrics-tracking.md) — Instagram ad campaign setup process and awareness metrics tracking
+- [interested-in-character-development-resources-and-techniques-for-novel-writing](user/interested-in-character-development-resources-and-techniques-for-novel-writing.md) — Interested in character development resources and techniques for novel writing
+- [loves-blueberries-and-interested-in-healthy-recipes-with-ingredient-substitution](user/loves-blueberries-and-interested-in-healthy-recipes-with-ingredient-substitution.md) — Loves blueberries and interested in healthy recipes with ingredient substitutions
+- [networking-and-collaboration-approach-values-feedback-respectful-engagement-and](user/networking-and-collaboration-approach-values-feedback-respectful-engagement-and.md) — Networking and collaboration approach: values feedback, respectful engagement, and mutual value exchange
+- [owns-photography-equipment-for-organized-gear-management](user/owns-photography-equipment-for-organized-gear-management.md) — Owns photography equipment for organized gear management
+- [protagonist-lyra-for-sci-fi-romance-memory-thief-story-skilled-memory-thief-with](project/protagonist-lyra-for-sci-fi-romance-memory-thief-story-skilled-memory-thief-with.md) — Protagonist Lyra for sci-fi romance Memory Thief story: skilled memory thief with fragmented past, exploring identity and self-discovery
+- [science-fiction-novel-in-progress-protagonist-maya-alien-invasion-plot](project/science-fiction-novel-in-progress-protagonist-maya-alien-invasion-plot.md) — Science fiction novel in progress: protagonist Maya, alien invasion plot
+- [viowear-outdoor-clothing-line-promoting-travel-adventure-and-nature-exploration](project/viowear-outdoor-clothing-line-promoting-travel-adventure-and-nature-exploration.md) — Viowear: outdoor clothing line promoting travel, adventure, and nature exploration
+- [writing-interests-sci-fi-romance-character-driven-narratives-with-identity-and-s](user/writing-interests-sci-fi-romance-character-driven-narratives-with-identity-and-s.md) — Writing interests: sci-fi romance, character-driven narratives with identity and self-discovery themes
+- [writing-routine-2-hours-every-morning-monday-to-friday](user/writing-routine-2-hours-every-morning-monday-to-friday.md) — Writing routine: 2 hours every morning, Monday to Friday

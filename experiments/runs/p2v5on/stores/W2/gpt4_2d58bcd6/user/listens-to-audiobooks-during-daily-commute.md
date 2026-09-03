@@ -1,0 +1,16 @@
+---
+name: listens-to-audiobooks-during-daily-commute
+abstract: Listens to audiobooks during daily commute
+type: preference
+status: active
+created: 2026-09-02
+updated: 2026-09-02
+valid_from: 2026-09-02
+superseded_by: null
+weight: 1.0
+author: cli
+links: []
+provenance: []
+---
+
+Uses audiobook platforms to listen to books during daily commute. Considers it a game-changer for making efficient use of commute time.

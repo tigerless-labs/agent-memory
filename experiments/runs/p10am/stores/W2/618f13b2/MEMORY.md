@@ -1,0 +1,35 @@
+# MEMORY.md
+
+- [attended-street-photography-workshop-may-1-2-2023](user/attended-street-photography-workshop-may-1-2-2023.md) — Attended street photography workshop May 1-2, 2023
+- [bike-cleaning-and-maintenance-products-finish-line-pedro-s-muc-off-simple-green](reference/bike-cleaning-and-maintenance-products-finish-line-pedro-s-muc-off-simple-green.md) — Bike cleaning and maintenance products Finish Line Pedro's Muc-Off Simple Green
+- [bike-storage-solution-brands-saris-thule-topeak-delta-cycle-feedback-sports](reference/bike-storage-solution-brands-saris-thule-topeak-delta-cycle-feedback-sports.md) — Bike storage solution brands Saris Thule Topeak Delta Cycle Feedback Sports
+- [black-converse-chuck-taylor-all-star-sneakers-worn-4-times-as-of-may-30-2023-to](user/black-converse-chuck-taylor-all-star-sneakers-worn-4-times-as-of-may-30-2023-to.md) — Black Converse Chuck Taylor All Star sneakers worn 4 times as of May 30 2023 to friends birthday party
+- [black-converse-shoes-acquired-worn-6-times-as-of-may-30-2023](user/black-converse-shoes-acquired-worn-6-times-as-of-may-30-2023.md) — Black Converse shoes acquired, worn 6 times as of May 30, 2023
+- [brown-leather-boots-heel-coming-loose-needs-cobbler-repair-may-30-2023](project/brown-leather-boots-heel-coming-loose-needs-cobbler-repair-may-30-2023.md) — Brown leather boots heel coming loose needs cobbler repair May 30 2023
+- [cannondale-synapse-road-bike-lent-to-neighbor-rachel-february-20march-1-2023](user/cannondale-synapse-road-bike-lent-to-neighbor-rachel-february-20march-1-2023.md) — Cannondale Synapse road bike, lent to neighbor Rachel February 20–March 1, 2023
+- [canon-eos-80d-dslr-camera-used-for-wildlife-and-scenery-photography](user/canon-eos-80d-dslr-camera-used-for-wildlife-and-scenery-photography.md) — Canon EOS 80D DSLR camera used for wildlife and scenery photography
+- [clean-trek-fx-2-wheels-and-waterproof-drivetrain](project/clean-trek-fx-2-wheels-and-waterproof-drivetrain.md) — Clean Trek FX 2 wheels and waterproof drivetrain
+- [coach-handbag-purchased-2023-04-29-at-tj-maxx-near-house-with-60-discount](user/coach-handbag-purchased-2023-04-29-at-tj-maxx-near-house-with-60-discount.md) — Coach handbag purchased 2023-04-29 at TJ Maxx near house with 60% discount
+- [dad-s-bbq-sauce-experiment-with-smoked-paprika-at-family-camping-trip-april-2023](experience/dad-s-bbq-sauce-experiment-with-smoked-paprika-at-family-camping-trip-april-2023.md) — Dad's BBQ sauce experiment with smoked paprika at family camping trip (April 2023) was a hit
+- [experimenting-with-bbq-sauces-and-marinades-interested-in-char-techniques](project/experimenting-with-bbq-sauces-and-marinades-interested-in-char-techniques.md) — Experimenting with BBQ sauces and marinades, interested in char techniques
+- [honda-civic](user/honda-civic.md) — Honda Civic
+- [install-saris-bones-2-bike-trunk-rack-on-honda-civic](project/install-saris-bones-2-bike-trunk-rack-on-honda-civic.md) — Install Saris Bones 2-Bike Trunk Rack on Honda Civic
+- [interested-in-endangered-languages-and-language-preservation](user/interested-in-endangered-languages-and-language-preservation.md) — Interested in endangered languages and language preservation
+- [interested-in-vans-old-skool-sneakers](user/interested-in-vans-old-skool-sneakers.md) — Interested in Vans Old Skool sneakers
+- [mom-makes-homemade-marshmallows](user/mom-makes-homemade-marshmallows.md) — Mom makes homemade marshmallows
+- [organize-beach-vacation-2023-photos-with-lightroom-collections-and-smart-collect](project/organize-beach-vacation-2023-photos-with-lightroom-collections-and-smart-collect.md) — Organize beach vacation 2023 photos with Lightroom collections and smart collections
+- [organize-wildlife-outing-2023-photos-200-photos-with-lightroom](project/organize-wildlife-outing-2023-photos-200-photos-with-lightroom.md) — Organize wildlife outing 2023 photos (200+ photos) with Lightroom
+- [organizing-shoe-closet-by-type-and-color-for-easy-access](user/organizing-shoe-closet-by-type-and-color-for-easy-access.md) — Organizing shoe closet by type and color for easy access
+- [plan-to-get-cedar-shoe-tree-for-brown-leather-boots](project/plan-to-get-cedar-shoe-tree-for-brown-leather-boots.md) — Plan to get cedar shoe tree for brown leather boots
+- [plan-to-get-leather-shoe-cleaning-kit-for-brown-leather-boots](project/plan-to-get-leather-shoe-cleaning-kit-for-brown-leather-boots.md) — Plan to get leather shoe cleaning kit for brown leather boots
+- [purchase-coach-parker-handbag-for-sister-s-upcoming-birthday-with-monogramming-a](project/purchase-coach-parker-handbag-for-sister-s-upcoming-birthday-with-monogramming-a.md) — Purchase Coach Parker handbag for sister's upcoming birthday with monogramming and gift wrapping
+- [purchased-50mm-f-1-8-prime-lens-on-april-10-2023](project/purchased-50mm-f-1-8-prime-lens-on-april-10-2023.md) — Purchased 50mm f/1.8 prime lens on April 10, 2023
+- [repair-cannondale-synapse-flat-tire](project/repair-cannondale-synapse-flat-tire.md) — Repair Cannondale Synapse flat tire
+- [shoe-cleaning-and-waterproofing-product-brands](reference/shoe-cleaning-and-waterproofing-product-brands.md) — Shoe cleaning and waterproofing product brands
+- [shoe-rack-organized-by-type-then-color-out-of-season-shoes-in-storage-bins](project/shoe-rack-organized-by-type-then-color-out-of-season-shoes-in-storage-bins.md) — Shoe rack organized by type then color; out-of-season shoes in storage bins
+- [shot-sunset-photos-at-red-rock-canyon-on-april-12-2023](experience/shot-sunset-photos-at-red-rock-canyon-on-april-12-2023.md) — Shot sunset photos at Red Rock Canyon on April 12, 2023
+- [sister-prefers-classic-and-elegant-handbags-in-neutral-colors-beige-black-daily](user/sister-prefers-classic-and-elegant-handbags-in-neutral-colors-beige-black-daily.md) — Sister prefers classic and elegant handbags in neutral colors (beige, black), daily-use size
+- [street-photography-practice-daily-morning-commute-candid-shooting](project/street-photography-practice-daily-morning-commute-candid-shooting.md) — Street photography practice: daily morning commute candid shooting
+- [trek-fx-2-hybrid-bike-new](user/trek-fx-2-hybrid-bike-new.md) — Trek FX 2 hybrid bike (new)
+- [uses-adobe-lightroom-for-photo-organization-cataloging-and-editing](user/uses-adobe-lightroom-for-photo-organization-cataloging-and-editing.md) — Uses Adobe Lightroom for photo organization, cataloging, and editing
+- [white-adidas-superstars-gym-shoes-worn-around-may-23-2023-got-dirty-and-scuffed](user/white-adidas-superstars-gym-shoes-worn-around-may-23-2023-got-dirty-and-scuffed.md) — White Adidas Superstars gym shoes worn around May 23 2023 got dirty and scuffed

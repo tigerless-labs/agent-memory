@@ -1,0 +1,13 @@
+## Session sharegpt_u1DIJRf_0 — 2023/05/21 (Sun) 08:11
+user: what are the most important concepts to know about VFX workflows
+assistant: VFX (Visual Effects) workflows involve a range of processes and techniques used to create, manipulate, and integrate digital imagery into live-action footage. Here are some of the most important concepts to know about VFX workflows:
+
+1. Pre-production: This is the planning phase where VFX artists work with directors, producers, and cinematographers to determine the VFX needs for the project, including the look and feel of the visual effects.
+2. Asset creation: This involves creating digital assets such as characters, props, and environments. These assets are created using 3D modeling and texturing software.
+3. Animation: This involves animating digital characters, objects, and environments. This can include keyframe animation, motion capture, and simulations.
+4. Compositing: This is the process of combining different visual elements, such as live-action footage, CG elements, and visual effects, into a single cohesive image.
+5. Rendering: This is the process of generating the final output of the visual effects. This involves rendering the individual elements and then compositing them together.
+6. Review and approval: This is the process of reviewing the visual effects work with the director and other stakeholders to ensure that it meets the creative vision of the project.
+7. Delivery: This is the final stage of the VFX workflow where the finished visual effects are delivered to the client or integrated into the final project.
+
+Understanding these key concepts is important for anyone involved in the VFX workflow, from artists to producers to directors, to ensure that the final product meets the creative vision and technical requirements of the project.

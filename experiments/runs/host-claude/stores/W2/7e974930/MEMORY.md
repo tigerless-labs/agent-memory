@@ -1,0 +1,25 @@
+# MEMORY.md
+
+- [420-dollars-earned-at-downtown-farmers-market-most-recent-visit](project/420-dollars-earned-at-downtown-farmers-market-most-recent-visit.md) — 420 dollars earned at Downtown Farmers Market (most recent visit)
+- [academic-interest-in-ecocriticism-environmental-literature-and-landscape-archite](user/academic-interest-in-ecocriticism-environmental-literature-and-landscape-archite.md) — Academic interest in ecocriticism, environmental literature, and landscape architecture
+- [candle-supplies-almost-sold-out-immediate-restock-needed](project/candle-supplies-almost-sold-out-immediate-restock-needed.md) — Candle supplies almost sold out; immediate restock needed
+- [completed-marathon-on-april-15-2023-with-personal-best-time](experience/completed-marathon-on-april-15-2023-with-personal-best-time.md) — Completed marathon on April 15, 2023 with personal best time
+- [fitness-improvements-march-april-2023-lost-5-pounds-resting-heart-rate-decreased](user/fitness-improvements-march-april-2023-lost-5-pounds-resting-heart-rate-decreased.md) — Fitness improvements March-April 2023: lost 5 pounds, resting heart rate decreased 10 BPM
+- [implementing-points-based-loyalty-program-with-tier-based-rewards](project/implementing-points-based-loyalty-program-with-tier-based-rewards.md) — Implementing points-based loyalty program with tier-based rewards
+- [interested-in-attending-live-music-and-comedy-shows](user/interested-in-attending-live-music-and-comedy-shows.md) — Interested in attending live music and comedy shows
+- [interested-in-singer-songwriter-and-folk-influenced-music-genre](user/interested-in-singer-songwriter-and-folk-influenced-music-genre.md) — Interested in Singer-Songwriter and Folk-Influenced music genre
+- [ordering-100-business-cards-for-business-promotion](project/ordering-100-business-cards-for-business-promotion.md) — Ordering 100 business cards for business promotion
+- [owns-ergohuman-office-chair-good-experience-with-brand](user/owns-ergohuman-office-chair-good-experience-with-brand.md) — Owns ERGOhuman office chair; good experience with brand
+- [owns-ikea-micke-desk-recently-assembled-game-changer-for-home-office](user/owns-ikea-micke-desk-recently-assembled-game-changer-for-home-office.md) — Owns IKEA MICKE desk, recently assembled, game-changer for home office
+- [owns-west-elm-harmony-sofa-in-dark-gray-velvet](user/owns-west-elm-harmony-sofa-in-dark-gray-velvet.md) — Owns West Elm Harmony Sofa in dark gray velvet
+- [planning-fishing-trip-to-nearby-lake-in-a-few-weeks-from-march-20](project/planning-fishing-trip-to-nearby-lake-in-a-few-weeks-from-march-20.md) — Planning fishing trip to nearby lake in a few weeks from March 20
+- [planning-to-create-downtown-farmers-market-themed-gift-baskets](project/planning-to-create-downtown-farmers-market-themed-gift-baskets.md) — Planning to create Downtown Farmers Market themed gift baskets
+- [planning-to-expand-product-line-with-more-artisanal-soaps](project/planning-to-expand-product-line-with-more-artisanal-soaps.md) — Planning to expand product line with more artisanal soaps
+- [prefers-west-elm-and-crate-barrel-for-furniture-shopping-good-experiences-with-b](user/prefers-west-elm-and-crate-barrel-for-furniture-shopping-good-experiences-with-b.md) — Prefers West Elm and Crate & Barrel for furniture shopping; good experiences with both
+- [recently-rearranged-living-room-furniture-to-create-conversational-layout](user/recently-rearranged-living-room-furniture-to-create-conversational-layout.md) — Recently rearranged living room furniture to create conversational layout
+- [small-business-selling-homemade-jams-candles-and-soaps-at-farmers-markets-and-ev](project/small-business-selling-homemade-jams-candles-and-soaps-at-farmers-markets-and-ev.md) — Small business selling homemade jams, candles, and soaps at farmers markets and events
+- [spotify-discover-weekly-playlist-on-march-13-was-great-saved-10-songs](experience/spotify-discover-weekly-playlist-on-march-13-was-great-saved-10-songs.md) — Spotify Discover Weekly playlist on March 13 was great; saved 10 songs
+- [strawberry-jam-is-best-selling-jam-flavor](project/strawberry-jam-is-best-selling-jam-flavor.md) — Strawberry jam is best-selling jam flavor
+- [training-for-sprint-triathlon-swimming-endurance-focus](project/training-for-sprint-triathlon-swimming-endurance-focus.md) — Training for sprint triathlon; swimming endurance focus
+- [uses-spreadsheet-to-track-fitness-progress-and-training-metrics](user/uses-spreadsheet-to-track-fitness-progress-and-training-metrics.md) — Uses spreadsheet to track fitness progress and training metrics
+- [yoga-practice-2x-weekly-since-march-1-2023-30-day-challenge-completed-in-april](project/yoga-practice-2x-weekly-since-march-1-2023-30-day-challenge-completed-in-april.md) — Yoga practice 2x weekly since March 1, 2023; 30-day challenge completed in April

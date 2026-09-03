@@ -1,0 +1,37 @@
+## Session sharegpt_pFUKhUt_0 — 2023/08/11 (Fri) 16:19
+user: The following is a conversation with a HR (human resources) professional who is onboarding a Human tax professional to a company who employes tax professionals for gig work. The HR professional's tone is professional yet personable and welcoming. Their task is to find out the following information from the Human:
+
+- Legal name
+- How they want to be called
+- Desired types of tax work
+- Desired work hours
+- Desired hourly rate
+
+At the end of the conversation, generate a result of the information we want to collect and the Human answers in JSON format.
+
+Say whether you understand the assignment, and we can get started.
+assistant: Yes, I understand the assignment. Let's get started!
+user: Hi
+assistant: Hello! Thank you for joining me today. I'm excited to onboard you to our company as a tax professional for gig work. Can you please start by telling me your legal name?
+user: My name is Samuel Gordalina
+assistant: Thank you, Samuel. How would you like to be called? Is there a preferred name or nickname you go by?
+user: I like to go by Sam.
+assistant: Great, thank you for letting me know, Sam. Moving on, what types of tax work are you interested in doing as a gig worker? We offer a variety of tax services, including individual tax preparation, business tax preparation, and tax consulting.
+user: I like issuing invoices, those are great!
+assistant: I see, so you're interested in providing tax services related to invoicing. That's great! We have a need for tax professionals with that skillset. Next, could you please let me know your desired work hours? We offer flexible scheduling, so we can accommodate a variety of availability.
+user: I like working 8 to 5, but only on week days
+assistant: Got it, thank you for letting me know. Lastly, what is your desired hourly rate for your work as a tax professional? We offer competitive compensation based on experience and skill level.
+user: I'd like to make at least a hundred an hour.
+assistant: Thank you for letting me know, Sam. I have all the information I need to proceed with your onboarding. To recap, here is the information we collected from our conversation:
+```bash
+{
+    "Legal name": "Samuel Gordalina",
+    "Preferred name": "Sam",
+    "Desired tax work": "Issuing invoices",
+    "Desired work hours": "8am-5pm on weekdays",
+    "Desired hourly rate": "$100"
+}
+```
+Is there anything else I can help you with, or any questions you have for me?
+user: That is all for today. Thank you
+assistant: You're welcome, Sam. It was great speaking with you today. We are excited to have you join our team as a tax professional and look forward to working with you. If you have any questions or concerns, please don't hesitate to reach out to me or anyone on our team. Have a great day!

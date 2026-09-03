@@ -1,0 +1,38 @@
+# MEMORY.md
+
+- [2023-earnings-from-markets-and-events-1280-dollars-total](project/2023-earnings-from-markets-and-events-1280-dollars-total.md) — 2023 earnings from markets and events: 1280 dollars total
+- [academic-interest-in-ecocriticism-as-an-interdisciplinary-field](user/academic-interest-in-ecocriticism-as-an-interdisciplinary-field.md) — Academic interest in ecocriticism as an interdisciplinary field
+- [camera-upgrade-chose-fujifilm-x-t30-ii-for-landscape-photography-1500-budget](project/camera-upgrade-chose-fujifilm-x-t30-ii-for-landscape-photography-1500-budget.md) — Camera upgrade: chose Fujifilm X-T30 II for landscape photography (1500 budget)
+- [coffee-table-styles-for-conversational-layout](reference/coffee-table-styles-for-conversational-layout.md) — Coffee table styles for conversational layout
+- [completed-30-day-yoga-challenge-in-april-2023-with-daily-practice](experience/completed-30-day-yoga-challenge-in-april-2023-with-daily-practice.md) — Completed 30-day yoga challenge in April 2023 with daily practice
+- [comprehensive-bass-and-fly-fishing-guide-for-lake-fishing](reference/comprehensive-bass-and-fly-fishing-guide-for-lake-fishing.md) — Comprehensive bass and fly fishing guide for lake fishing
+- [currently-shopping-for-coffee-table-for-living-room](user/currently-shopping-for-coffee-table-for-living-room.md) — Currently shopping for coffee table for living room
+- [currently-shopping-for-dining-table-upgrade-to-reclaimed-wood](user/currently-shopping-for-dining-table-upgrade-to-reclaimed-wood.md) — Currently shopping for dining table upgrade to reclaimed wood
+- [decided-to-order-100-business-cards-as-starting-point](user/decided-to-order-100-business-cards-as-starting-point.md) — Decided to order 100 business cards as starting point
+- [enjoys-live-music-and-comedy-shows](user/enjoys-live-music-and-comedy-shows.md) — Enjoys live music and comedy shows
+- [enjoys-singer-songwriter-and-folk-influenced-music-genres](user/enjoys-singer-songwriter-and-folk-influenced-music-genres.md) — Enjoys Singer-Songwriter and Folk-Influenced music genres
+- [expanding-product-line-to-include-gift-baskets-with-downtown-farmers-market-them](project/expanding-product-line-to-include-gift-baskets-with-downtown-farmers-market-them.md) — Expanding product line to include gift baskets, with Downtown Farmers Market themed basket as first offering
+- [fram-ship-arctic-maritime-operations-cargo-handling-and-crew-procedures](reference/fram-ship-arctic-maritime-operations-cargo-handling-and-crew-procedures.md) — Fram ship Arctic maritime operations: cargo handling and crew procedures
+- [ikea-dining-table-models-lerhamn-malm-bjursta](reference/ikea-dining-table-models-lerhamn-malm-bjursta.md) — IKEA dining table models: LERHAMN, MALM, BJURSTA
+- [interest-in-arctic-exploration-and-maritime-operations-particularly-the-fram-shi](user/interest-in-arctic-exploration-and-maritime-operations-particularly-the-fram-shi.md) — Interest in Arctic exploration and maritime operations, particularly the Fram ship
+- [interest-in-connections-between-landscape-architecture-and-environmental-studies](user/interest-in-connections-between-landscape-architecture-and-environmental-studies.md) — Interest in connections between landscape architecture and environmental studies
+- [interested-in-bass-and-fly-fishing-for-lake-fishing](user/interested-in-bass-and-fly-fishing-for-lake-fishing.md) — Interested in bass and fly fishing for lake fishing
+- [lost-5-pounds-and-decreased-resting-heart-rate-by-10-bpm-through-training](experience/lost-5-pounds-and-decreased-resting-heart-rate-by-10-bpm-through-training.md) — Lost 5 pounds and decreased resting heart rate by 10 bpm through training
+- [marathon-personal-best-on-april-15-2023](experience/marathon-personal-best-on-april-15-2023.md) — Marathon personal best on April 15, 2023
+- [music-library-organization-tips-for-computer-and-spotify](reference/music-library-organization-tips-for-computer-and-spotify.md) — Music library organization tips for computer and Spotify
+- [needs-office-chair-for-guest-room](user/needs-office-chair-for-guest-room.md) — Needs office chair for guest room
+- [office-chair-brands-to-consider-herman-miller-steelcase-flash-furniture-autonomo](reference/office-chair-brands-to-consider-herman-miller-steelcase-flash-furniture-autonomo.md) — Office chair brands to consider: Herman Miller, Steelcase, Flash Furniture, Autonomous
+- [owns-ergohuman-office-chair-in-home-office](user/owns-ergohuman-office-chair-in-home-office.md) — Owns ERGOhuman office chair in home office
+- [owns-ikea-micke-desk-assembled-2023-03-06](user/owns-ikea-micke-desk-assembled-2023-03-06.md) — Owns IKEA MICKE desk, assembled 2023-03-06
+- [photography-hobby-landscape-and-nature-focus-planning-outdoor-adventures](user/photography-hobby-landscape-and-nature-focus-planning-outdoor-adventures.md) — Photography hobby: landscape and nature focus, planning outdoor adventures
+- [purchased-west-elm-harmony-sofa-dark-gray-velvet-2023-03-12](user/purchased-west-elm-harmony-sofa-dark-gray-velvet-2023-03-12.md) — Purchased West Elm Harmony Sofa dark gray velvet 2023-03-12
+- [re-engaged-with-photography-hobby-after-beach-trip-took-sunset-shots](experience/re-engaged-with-photography-hobby-after-beach-trip-took-sunset-shots.md) — Re-engaged with photography hobby after beach trip; took sunset shots
+- [recently-rearranged-living-room-for-conversational-layout](user/recently-rearranged-living-room-for-conversational-layout.md) — Recently rearranged living room for conversational layout
+- [runs-small-business-making-artisanal-soaps-and-candles](user/runs-small-business-making-artisanal-soaps-and-candles.md) — Runs small business making artisanal soaps and candles
+- [saved-10-songs-from-spotify-discover-weekly-playlist-on-2026-08-26](experience/saved-10-songs-from-spotify-discover-weekly-playlist-on-2026-08-26.md) — Saved ~10 songs from Spotify Discover Weekly playlist on 2026-08-26
+- [shops-for-furniture-at-west-elm-and-crate-barrel](user/shops-for-furniture-at-west-elm-and-crate-barrel.md) — Shops for furniture at West Elm and Crate & Barrel
+- [sprint-triathlon-training-program](project/sprint-triathlon-training-program.md) — Sprint triathlon training program
+- [story-collaboration-mk-held-captive-by-wukong-seeking-the-diamond-snare](project/story-collaboration-mk-held-captive-by-wukong-seeking-the-diamond-snare.md) — Story collaboration: MK held captive by Wukong seeking the diamond snare
+- [ursula-k-le-guin-major-worksenvironmental-and-political-themes](reference/ursula-k-le-guin-major-worksenvironmental-and-political-themes.md) — Ursula K. Le Guin major works—environmental and political themes
+- [uses-spreadsheet-to-track-triathlon-training-progress](user/uses-spreadsheet-to-track-triathlon-training-progress.md) — Uses spreadsheet to track triathlon training progress
+- [yoga-practice-twice-weekly-starting-march-1-2023](experience/yoga-practice-twice-weekly-starting-march-1-2023.md) — Yoga practice twice weekly starting March 1, 2023

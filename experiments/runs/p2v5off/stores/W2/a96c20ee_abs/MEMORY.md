@@ -1,0 +1,25 @@
+# MEMORY.md
+
+- [alex-friend-with-camping-gear-to-lend-mike-neighbor-and-regular-biking-partner](user/alex-friend-with-camping-gear-to-lend-mike-neighbor-and-regular-biking-partner.md) — Alex: friend with camping gear to lend; Mike: neighbor and regular biking partner
+- [attended-first-research-conference-at-harvard-university-on-ai-in-education](experience/attended-first-research-conference-at-harvard-university-on-ai-in-education.md) — Attended first research conference at Harvard University on AI in education
+- [bike-ride-with-neighbor-mike-to-wilder-ranch-state-park-mid-may-2023-15-miles-si](experience/bike-ride-with-neighbor-mike-to-wilder-ranch-state-park-mid-may-2023-15-miles-si.md) — Bike ride with neighbor Mike to Wilder Ranch State Park (mid-May 2023), 15 miles single-track
+- [blue-cheese-chocolate-chip-cookie-recipe-with-origin-story](reference/blue-cheese-chocolate-chip-cookie-recipe-with-origin-story.md) — Blue Cheese Chocolate Chip Cookie recipe with origin story
+- [contact-list-cleanup-and-organization-project-in-progress](experience/contact-list-cleanup-and-organization-project-in-progress.md) — Contact list cleanup and organization project in progress
+- [diner-in-fresno-serves-exceptional-breakfast-burritos-visited-on-yosemite-return](reference/diner-in-fresno-serves-exceptional-breakfast-burritos-visited-on-yosemite-return.md) — Diner in Fresno serves exceptional breakfast burritos, visited on Yosemite return trip (April 2023)
+- [enjoys-cooking-meal-planning-and-healthy-eating-with-ground-beef-and-chicken](user/enjoys-cooking-meal-planning-and-healthy-eating-with-ground-beef-and-chicken.md) — Enjoys cooking, meal planning, and healthy eating with ground beef and chicken
+- [hiked-mission-peak-in-fremont-on-2023-04-10-enjoyed-solo-hiking-planning-to-retu](experience/hiked-mission-peak-in-fremont-on-2023-04-10-enjoyed-solo-hiking-planning-to-retu.md) — Hiked Mission Peak in Fremont on 2023-04-10, enjoyed solo hiking, planning to return
+- [interested-in-djing-as-a-hobbywants-to-learn-music-mixing-and-equipment](user/interested-in-djing-as-a-hobbywants-to-learn-music-mixing-and-equipment.md) — Interested in DJing as a hobby—wants to learn music mixing and equipment
+- [learned-azure-resource-manager-templates-for-infrastructure-as-code](experience/learned-azure-resource-manager-templates-for-infrastructure-as-code.md) — Learned Azure Resource Manager templates for infrastructure as code
+- [met-alex-at-parking-lotreceives-drifting-mentorship](experience/met-alex-at-parking-lotreceives-drifting-mentorship.md) — Met Alex at parking lot—receives drifting mentorship
+- [nissan-gt-r-modification-project-for-drifting](project/nissan-gt-r-modification-project-for-drifting.md) — Nissan GT-R modification project for drifting
+- [phone-battery-draining-faster-than-normal-with-social-media-and-video-apps](experience/phone-battery-draining-faster-than-normal-with-social-media-and-video-apps.md) — Phone battery draining faster than normal with social media and video apps
+- [phone-screen-care-keeps-pristine-no-screen-protector-in-use](user/phone-screen-care-keeps-pristine-no-screen-protector-in-use.md) — Phone screen care: keeps pristine, no screen protector in use
+- [planning-screen-cleaner-upgrade-this-weekend](user/planning-screen-cleaner-upgrade-this-weekend.md) — Planning screen cleaner upgrade this weekend
+- [planning-to-purchase-portable-power-bank-for-travel-and-festivals](user/planning-to-purchase-portable-power-bank-for-travel-and-festivals.md) — Planning to purchase portable power bank for travel and festivals
+- [power-bank-selection-criteria-and-recommendations](reference/power-bank-selection-criteria-and-recommendations.md) — Power bank selection criteria and recommendations
+- [practice-drifting-regularly-at-local-parking-lot](user/practice-drifting-regularly-at-local-parking-lot.md) — Practice drifting regularly at local parking lot
+- [research-interests-ai-powered-adaptive-learning-systems-and-personalized-educati](user/research-interests-ai-powered-adaptive-learning-systems-and-personalized-educati.md) — Research interests: AI-powered adaptive learning systems and personalized education
+- [screen-cleaner-product-and-solution-recommendations](reference/screen-cleaner-product-and-solution-recommendations.md) — Screen cleaner product and solution recommendations
+- [selected-therm-a-rest-neoair-xlite-as-primary-sleeping-pad-for-camping](project/selected-therm-a-rest-neoair-xlite-as-primary-sleeping-pad-for-camping.md) — Selected Therm-a-Rest NeoAir XLite as primary sleeping pad for camping
+- [shops-at-publix-seeks-deals-on-meat](user/shops-at-publix-seeks-deals-on-meat.md) — Shops at Publix, seeks deals on meat
+- [thesis-research-on-ai-powered-adaptive-learning-systems-for-math-and-reading-com](project/thesis-research-on-ai-powered-adaptive-learning-systems-for-math-and-reading-com.md) — Thesis research on AI-powered adaptive learning systems for math and reading comprehension

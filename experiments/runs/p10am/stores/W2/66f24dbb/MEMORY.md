@@ -1,0 +1,16 @@
+# MEMORY.md
+
+- [bought-crib-bedding-set-with-stars-and-moons-for-best-friend-s-baby-shower-may-2](user/bought-crib-bedding-set-with-stars-and-moons-for-best-friend-s-baby-shower-may-2.md) — Bought crib bedding set with stars and moons for best friend's baby shower (May 2023)
+- [bought-groceries-and-flowers-for-neighbor-mrs-johnson-s-surgery-recovery-may-202](user/bought-groceries-and-flowers-for-neighbor-mrs-johnson-s-surgery-recovery-may-202.md) — Bought groceries and flowers for neighbor Mrs. Johnson's surgery recovery (May 2023)
+- [bought-kitchen-knives-and-wooden-cutting-board-for-brother-s-new-apartment-may-2](user/bought-kitchen-knives-and-wooden-cutting-board-for-brother-s-new-apartment-may-2.md) — Bought kitchen knives and wooden cutting board for brother's new apartment (May 2023)
+- [bought-silver-hoop-earrings-with-pearl-center-for-mom-may-2023](user/bought-silver-hoop-earrings-with-pearl-center-for-mom-may-2023.md) — Bought silver hoop earrings with pearl center for mom (May 2023)
+- [bought-yellow-dress-and-matching-earrings-for-sister-s-birthday-may-2023](user/bought-yellow-dress-and-matching-earrings-for-sister-s-birthday-may-2023.md) — Bought yellow dress and matching earrings for sister's birthday (May 2023)
+- [chipped-in-for-coworker-rachel-s-going-away-gift-journal-and-pens-may-2023](user/chipped-in-for-coworker-rachel-s-going-away-gift-journal-and-pens-may-2023.md) — Chipped in for coworker Rachel's going-away gift - journal and pens (May 2023)
+- [contributed-snacks-and-drinks-to-coworker-team-building-event-may-2023](user/contributed-snacks-and-drinks-to-coworker-team-building-event-may-2023.md) — Contributed snacks and drinks to coworker team-building event (May 2023)
+- [debian-mount-nfs-share-on-boot-via-systemd-without-blocking](reference/debian-mount-nfs-share-on-boot-via-systemd-without-blocking.md) — Debian: mount NFS share on boot via systemd without blocking
+- [interested-in-debian-linux-system-administration-and-nfs-storage-configuration](user/interested-in-debian-linux-system-administration-and-nfs-storage-configuration.md) — Interested in Debian Linux system administration and NFS/storage configuration
+- [interested-in-experiencing-indian-folk-music-and-attending-cultural-festivals-in](user/interested-in-experiencing-indian-folk-music-and-attending-cultural-festivals-in.md) — Interested in experiencing Indian folk music and attending cultural festivals in India
+- [jquery-form-with-mid-and-descriptor-fields-add-row-button-and-excel-paste-suppor](reference/jquery-form-with-mid-and-descriptor-fields-add-row-button-and-excel-paste-suppor.md) — jQuery form with MID and Descriptor fields, add row button, and Excel paste support
+- [plan-trip-to-india-to-attend-pushkar-camel-fair](project/plan-trip-to-india-to-attend-pushkar-camel-fair.md) — Plan trip to India to attend Pushkar Camel Fair
+- [pushkar-camel-fair-october-november-rajasthan-week-long-festival-with-music-and](reference/pushkar-camel-fair-october-november-rajasthan-week-long-festival-with-music-and.md) — Pushkar Camel Fair: October/November, Rajasthan, week-long festival with music and dance
+- [wants-to-visit-university-of-birmingham-campus-and-clock-tower-old-joe](user/wants-to-visit-university-of-birmingham-campus-and-clock-tower-old-joe.md) — Wants to visit University of Birmingham campus and clock tower (Old Joe)

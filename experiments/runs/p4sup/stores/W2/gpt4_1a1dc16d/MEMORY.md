@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [attended-gender-equality-seminar-on-march-22-2023](experience/attended-gender-equality-seminar-on-march-22-2023.md) — Attended gender equality seminar on March 22, 2023
+- [attended-pride-parade-on-may-1-2023](experience/attended-pride-parade-on-may-1-2023.md) — Attended pride parade on May 1, 2023
+- [chiang-mai-4-day-family-itinerary-with-20-attractions-restaurants-and-services](reference/chiang-mai-4-day-family-itinerary-with-20-attractions-restaurants-and-services.md) — Chiang Mai 4-day family itinerary with 20 attractions, restaurants, and services
+- [completed-italian-cooking-class-learning-homemade-pasta-making](user/completed-italian-cooking-class-learning-homemade-pasta-making.md) — Completed Italian cooking class learning homemade pasta making
+- [experimenting-with-different-cooking-oils-prefers-avocado-oil-for-roasting](user/experimenting-with-different-cooking-oils-prefers-avocado-oil-for-roasting.md) — Experimenting with different cooking oils, prefers avocado oil for roasting
+- [has-friends-working-in-the-semiconductor-industry](user/has-friends-working-in-the-semiconductor-industry.md) — Has friends working in the semiconductor industry
+- [instagram-engagement-growth-15-new-followers-stories-and-reels-performing-well](experience/instagram-engagement-growth-15-new-followers-stories-and-reels-performing-well.md) — Instagram engagement growth: 15 new followers, Stories and Reels performing well
+- [instagram-followers-most-active-weekdays-12pm-3pm-est](user/instagram-followers-most-active-weekdays-12pm-3pm-est.md) — Instagram followers most active weekdays 12pm-3pm EST
+- [instagram-igtv-q-a-session-wednesday-1pm-est-with-giveaway-and-exclusive-discoun](project/instagram-igtv-q-a-session-wednesday-1pm-est-with-giveaway-and-exclusive-discoun.md) — Instagram IGTV Q&A session Wednesday 1pm EST with giveaway and exclusive discount
+- [interested-in-diversity-equity-inclusion-and-feminist-theory](user/interested-in-diversity-equity-inclusion-and-feminist-theory.md) — Interested in diversity, equity, inclusion, and feminist theory
+- [interested-in-exploring-instagram-live-and-igtv-for-content-creation](user/interested-in-exploring-instagram-live-and-igtv-for-content-creation.md) — Interested in exploring Instagram Live and IGTV for content creation
+- [interested-in-solo-travel-initially-concerned-about-isolation-gaining-confidence](user/interested-in-solo-travel-initially-concerned-about-isolation-gaining-confidence.md) — Interested in solo travel; initially concerned about isolation, gaining confidence
+- [interested-in-taking-children-ages-6-13-to-chiang-mai-for-family-trips](user/interested-in-taking-children-ages-6-13-to-chiang-mai-for-family-trips.md) — Interested in taking children (ages 6-13) to Chiang Mai for family trips
+- [mentor-named-rachel-met-april-10-2023](user/mentor-named-rachel-met-april-10-2023.md) — Mentor named Rachel; met April 10, 2023
+- [new-product-line-launch-for-major-retail-client-scheduled-june-1-2023-completed](project/new-product-line-launch-for-major-retail-client-scheduled-june-1-2023-completed.md) — New product line launch for major retail client scheduled June 1, 2023 (completed)
+- [organizations-and-resources-for-unconscious-bias-training-and-d-i-initiatives](reference/organizations-and-resources-for-unconscious-bias-training-and-d-i-initiatives.md) — Organizations and resources for unconscious bias training and D&I initiatives
+- [planning-to-propose-diversity-and-inclusion-initiatives-including-unconscious-bi](project/planning-to-propose-diversity-and-inclusion-initiatives-including-unconscious-bi.md) — Planning to propose diversity and inclusion initiatives including unconscious bias training
+- [prefers-structured-project-planning-with-clear-timelines-role-assignments-and-co](user/prefers-structured-project-planning-with-clear-timelines-role-assignments-and-co.md) — Prefers structured project planning with clear timelines, role assignments, and communication protocols
+- [prepares-thoroughly-for-senior-leadership-meetings-with-data-visuals-and-anticip](user/prepares-thoroughly-for-senior-leadership-meetings-with-data-visuals-and-anticip.md) — Prepares thoroughly for senior leadership meetings with data, visuals, and anticipated Q&A
+- [reflecting-on-cisgender-male-privilege-and-impact-on-society](user/reflecting-on-cisgender-male-privilege-and-impact-on-society.md) — Reflecting on cisgender male privilege and impact on society
+- [resources-for-learning-about-masculinity-and-gender](reference/resources-for-learning-about-masculinity-and-gender.md) — Resources for learning about masculinity and gender
+- [senior-marketing-manager-leading-team-of-10-people-as-of-may-2023](user/senior-marketing-manager-leading-team-of-10-people-as-of-may-2023.md) — Senior Marketing Manager leading team of 10 people (as of May 2023)
+- [wants-to-share-travel-experiences-on-instagram-with-quality-photography](user/wants-to-share-travel-experiences-on-instagram-with-quality-photography.md) — Wants to share travel experiences on Instagram with quality photography
+- [works-in-tech-industry](user/works-in-tech-industry.md) — Works in tech industry

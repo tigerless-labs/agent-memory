@@ -1,0 +1,32 @@
+# MEMORY.md
+
+- [bitter-liqueur-alternatives-to-campari-for-negroni-cynar-aperol-luxardo-suze-mel](reference/bitter-liqueur-alternatives-to-campari-for-negroni-cynar-aperol-luxardo-suze-mel.md) — Bitter liqueur alternatives to Campari for Negroni (Cynar, Aperol, Luxardo, Suze, Meletti)
+- [buy-craftsman-10-piece-tool-set](project/buy-craftsman-10-piece-tool-set.md) — Buy Craftsman 10-Piece tool set
+- [buy-flotec-fp4012-water-pump](project/buy-flotec-fp4012-water-pump.md) — Buy Flotec FP4012 water pump
+- [certifications-google-analytics-and-hubspot-inbound-marketing](user/certifications-google-analytics-and-hubspot-inbound-marketing.md) — Certifications: Google Analytics and HubSpot Inbound Marketing
+- [citrus-fruits-for-gin-and-lavender-cocktails-yuzu-kumquat-satsuma-bergamot-orang](reference/citrus-fruits-for-gin-and-lavender-cocktails-yuzu-kumquat-satsuma-bergamot-orang.md) — Citrus fruits for gin and lavender cocktails (yuzu, kumquat, satsuma, bergamot, orange)
+- [cooking-classes-in-indian-sushi-french-pastry-experimenting-with-lemon-recipes](user/cooking-classes-in-indian-sushi-french-pastry-experimenting-with-lemon-recipes.md) — Cooking classes in Indian, sushi, French pastry; experimenting with lemon recipes
+- [dinner-party-menu-lemon-herb-naan-vegetarian-sushi-quinoa-lemon-desserts-for-8-1](project/dinner-party-menu-lemon-herb-naan-vegetarian-sushi-quinoa-lemon-desserts-for-8-1.md) — Dinner party menu: lemon-herb naan, vegetarian sushi, quinoa, lemon desserts for 8-10 guests
+- [emma-taught-how-to-make-negroni-cocktails-has-practiced-5-times](experience/emma-taught-how-to-make-negroni-cocktails-has-practiced-5-times.md) — Emma taught how to make Negroni cocktails; has practiced 5 times
+- [expand-pigpen-using-plot-near-barn](project/expand-pigpen-using-plot-near-barn.md) — Expand pigpen using plot near barn
+- [experimenting-with-different-citrus-fruits-in-cocktails-has-tried-grapefruit-and](user/experimenting-with-different-citrus-fruits-in-cocktails-has-tried-grapefruit-and.md) — Experimenting with different citrus fruits in cocktails; has tried grapefruit and lemon
+- [farm-maintenance-tasks-chicken-coop-cleaning-fencing-vet-visit](project/farm-maintenance-tasks-chicken-coop-cleaning-fencing-vet-visit.md) — Farm maintenance tasks: chicken coop cleaning, fencing, vet visit
+- [has-a-garden-with-fresh-herbs-basil-mint-thyme-lavender](user/has-a-garden-with-fresh-herbs-basil-mint-thyme-lavender.md) — Has a garden with fresh herbs (basil, mint, thyme, lavender)
+- [hosted-dinner-party-with-cranberry-sparkler-was-a-hit](experience/hosted-dinner-party-with-cranberry-sparkler-was-a-hit.md) — Hosted dinner party with Cranberry Sparkler - was a hit
+- [interested-in-infusing-spirits-and-making-syrups-for-cocktails](user/interested-in-infusing-spirits-and-making-syrups-for-cocktails.md) — Interested in infusing spirits and making syrups for cocktails
+- [interested-in-using-lavender-in-cocktails](user/interested-in-using-lavender-in-cocktails.md) — Interested in using lavender in cocktails
+- [job-search-goal-transition-to-senior-content-marketing-strategist-or-digital-mar](user/job-search-goal-transition-to-senior-content-marketing-strategist-or-digital-mar.md) — Job search goal: transition to senior Content Marketing Strategist or Digital Marketing Consultant role
+- [negroni-experiments-with-hendrick-s-gin-and-carpano-antica-vermouth](user/negroni-experiments-with-hendrick-s-gin-and-carpano-antica-vermouth.md) — Negroni experiments with Hendrick's gin and Carpano Antica vermouth
+- [negroni-practice-count-10-times-with-hendrick-s-gin-since-emma-taught](experience/negroni-practice-count-10-times-with-hendrick-s-gin-since-emma-taught.md) — Negroni practice count: 10 times with Hendrick's gin since Emma taught
+- [peak-campaign-season-work-hours-increases-to-50-hours-week-during-high-volume-pe](user/peak-campaign-season-work-hours-increases-to-50-hours-week-during-high-volume-pe.md) — Peak campaign season work hours: increases to 50 hours/week during high-volume periods
+- [photography-interests-and-tools](user/photography-interests-and-tools.md) — Photography interests and tools
+- [plans-to-try-classic-cocktails-pimm-s-cup-bee-s-knees-gin-rickey-gin-gin-mule-av](user/plans-to-try-classic-cocktails-pimm-s-cup-bee-s-knees-gin-rickey-gin-gin-mule-av.md) — Plans to try classic cocktails: Pimm's Cup, Bee's Knees, Gin Rickey, Gin-Gin Mule, Aviation, Last Word
+- [prefers-hendrick-s-gin-for-cocktails](user/prefers-hendrick-s-gin-for-cocktails.md) — Prefers Hendrick's gin for cocktails
+- [resume-and-linkedin-profile-strategy-hybrid-approach-with-core-version-and-tailo](project/resume-and-linkedin-profile-strategy-hybrid-approach-with-core-version-and-tailo.md) — Resume and LinkedIn profile strategy: hybrid approach with core version and tailored versions
+- [seasonal-photography-project-in-natural-setting](project/seasonal-photography-project-in-natural-setting.md) — Seasonal photography project in natural setting
+- [sold-excess-roosters-to-neighbor-on-2023-08-14](experience/sold-excess-roosters-to-neighbor-on-2023-08-14.md) — Sold excess roosters to neighbor on 2023-08-14
+- [start-farm-social-media-presence](project/start-farm-social-media-presence.md) — Start farm social media presence
+- [studied-web-development-fundamentals-html-dom-bom-event-handlers-dhtml-and-css](experience/studied-web-development-fundamentals-html-dom-bom-event-handlers-dhtml-and-css.md) — Studied web development fundamentals: HTML DOM/BOM, event handlers, DHTML, and CSS
+- [uses-lightroom-on-desktop-interested-in-lightroom-mobile-for-on-the-go-editing](user/uses-lightroom-on-desktop-interested-in-lightroom-mobile-for-on-the-go-editing.md) — Uses Lightroom on desktop, interested in Lightroom Mobile for on-the-go editing
+- [wants-to-experiment-with-white-negroni-using-dry-vermouth-and-dry-bitter-liqueur](user/wants-to-experiment-with-white-negroni-using-dry-vermouth-and-dry-bitter-liqueur.md) — Wants to experiment with White Negroni using dry vermouth and dry bitter liqueurs
+- [white-negroni-recipe-hendrick-s-gin-suze-dolin-dry-vermouth](reference/white-negroni-recipe-hendrick-s-gin-suze-dolin-dry-vermouth.md) — White Negroni recipe: Hendrick's gin, Suze, Dolin dry vermouth

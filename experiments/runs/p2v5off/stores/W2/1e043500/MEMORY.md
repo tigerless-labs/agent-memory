@@ -1,0 +1,23 @@
+# MEMORY.md
+
+- [1979-dracula-film-john-badham-frank-langella-recommended-as-most-faithful-to-sto](reference/1979-dracula-film-john-badham-frank-langella-recommended-as-most-faithful-to-sto.md) — 1979 Dracula film (John Badham, Frank Langella) recommended as most faithful to Stoker's novel
+- [attended-music-festival-april-2023-saw-the-lumineers-and-the-1975](experience/attended-music-festival-april-2023-saw-the-lumineers-and-the-1975.md) — Attended music festival April 2023; saw The Lumineers and The 1975
+- [brand-ethos-hire-great-humans-first-great-technologists-second](project/brand-ethos-hire-great-humans-first-great-technologists-second.md) — Brand ethos: hire great humans first, great technologists second
+- [content-strategy-framework-for-team-building-brand](project/content-strategy-framework-for-team-building-brand.md) — Content strategy framework for team building brand
+- [enjoys-entrepreneurial-and-business-podcasts](user/enjoys-entrepreneurial-and-business-podcasts.md) — Enjoys entrepreneurial and business podcasts
+- [gambian-visual-art-forms-and-their-role-in-cultural-preservation](reference/gambian-visual-art-forms-and-their-role-in-cultural-preservation.md) — Gambian visual art forms and their role in cultural preservation
+- [gives-thoughtful-quality-gifts-like-silver-jewelry-to-close-friends-around-70-do](user/gives-thoughtful-quality-gifts-like-silver-jewelry-to-close-friends-around-70-do.md) — Gives thoughtful quality gifts like silver jewelry to close friends, around 70 dollars appreciated
+- [grammar-that-said-in-relative-clauses-natural-phrasing-for-tweet-quote-content](reference/grammar-that-said-in-relative-clauses-natural-phrasing-for-tweet-quote-content.md) — Grammar: 'that said' in relative clauses - natural phrasing for tweet/quote content
+- [has-25-cousins-17-female-8-male](user/has-25-cousins-17-female-8-male.md) — Has 25 cousins: 17 female, 8 male
+- [interest-in-gambian-cultural-traditions-and-visual-arts](user/interest-in-gambian-cultural-traditions-and-visual-arts.md) — Interest in Gambian cultural traditions and visual arts
+- [interested-in-3-day-portugal-trip-in-early-april-prefers-lisbon-over-porto](user/interested-in-3-day-portugal-trip-in-early-april-prefers-lisbon-over-porto.md) — Interested in 3-day Portugal trip in early April; prefers Lisbon over Porto
+- [interested-in-dracula-adaptations-and-vampire-media-portrayals](user/interested-in-dracula-adaptations-and-vampire-media-portrayals.md) — Interested in Dracula adaptations and vampire media portrayals
+- [learning-to-play-guitar](user/learning-to-play-guitar.md) — Learning to play guitar
+- [lisbon-3-day-itinerary-for-early-april](reference/lisbon-3-day-itinerary-for-early-april.md) — Lisbon 3-day itinerary for early April
+- [music-taste-ambient-and-lo-fi-genres](user/music-taste-ambient-and-lo-fi-genres.md) — Music taste: ambient and lo-fi genres
+- [name-changed-from-john-wilson-to-emily-rose-thompson-after-divorce](user/name-changed-from-john-wilson-to-emily-rose-thompson-after-divorce.md) — Name changed from John Wilson to Emily Rose Thompson after divorce
+- [observed-female-cousins-dominate-conversations-male-cousins-more-laid-back-in-fa](experience/observed-female-cousins-dominate-conversations-male-cousins-more-laid-back-in-fa.md) — Observed female cousins dominate conversations, male cousins more laid-back in family settings
+- [prefers-two-truths-and-a-lie-game-for-family-gatherings](user/prefers-two-truths-and-a-lie-game-for-family-gatherings.md) — Prefers 'Two Truths and a Lie' game for family gatherings
+- [smith-couple-wedding-gift-personalized-bamboo-cutting-board](project/smith-couple-wedding-gift-personalized-bamboo-cutting-board.md) — Smith couple wedding gift: personalized bamboo cutting board
+- [summer-vibes-spotify-playlist](user/summer-vibes-spotify-playlist.md) — Summer Vibes Spotify playlist
+- [thesis-topic-impact-of-social-media-on-mental-health-in-young-adults-with-focus](project/thesis-topic-impact-of-social-media-on-mental-health-in-young-adults-with-focus.md) — Thesis topic: impact of social media on mental health in young adults with focus on depression and anxiety symptoms

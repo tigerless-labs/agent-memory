@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [appraisers-and-online-marketplaces-for-selling-collectibles](reference/appraisers-and-online-marketplaces-for-selling-collectibles.md) — Appraisers and online marketplaces for selling collectibles
+- [appreciates-symbolism-in-film-but-prefers-balanced-usedislikes-heavy-handed-or-d](user/appreciates-symbolism-in-film-but-prefers-balanced-usedislikes-heavy-handed-or-d.md) — Appreciates symbolism in film, but prefers balanced use—dislikes heavy-handed or distracting overuse
+- [document-verification-system-online-submission-government-agency-approval-blockc](project/document-verification-system-online-submission-government-agency-approval-blockc.md) — Document verification system: online submission, government agency approval, blockchain storage with OCR/NLP/ML pipeline (May 2023 design)
+- [federal-open-market-committee-fomc-meets-8-times-per-year-to-review-economic-dat](reference/federal-open-market-committee-fomc-meets-8-times-per-year-to-review-economic-dat.md) — Federal Open Market Committee (FOMC) meets 8 times per year to review economic data and adjust interest rates
+- [federal-reserve-crisis-intervention-tools-great-depression-1970s-80s-inflation-2](reference/federal-reserve-crisis-intervention-tools-great-depression-1970s-80s-inflation-2.md) — Federal Reserve crisis intervention tools: Great Depression, 1970s-80s inflation, 2007-2009 financial crisis, COVID-19 pandemic
+- [films-discussed-the-godfather-oranges-as-death-the-shining-maze-red-blade-runner](reference/films-discussed-the-godfather-oranges-as-death-the-shining-maze-red-blade-runner.md) — Films discussed: The Godfather (oranges as death), The Shining (maze/red), Blade Runner (eyes/animals/nature), Get Out (white/deer), The Matrix (red/blue pills)
+- [interested-in-understanding-personal-finance-and-macroeconomic-policy-federal-re](user/interested-in-understanding-personal-finance-and-macroeconomic-policy-federal-re.md) — Interested in understanding personal finance and macroeconomic policy (Federal Reserve, interest rates)
+- [interviewed-for-promotion-to-manager-of-information-desk-at-small-private-colleg](experience/interviewed-for-promotion-to-manager-of-information-desk-at-small-private-colleg.md) — Interviewed for promotion to Manager of Information Desk at small private college, May 2023
+- [lda-topic-modeling-approach-gensim-ldamulticore-with-3-topics-5-passes-extreme-f](reference/lda-topic-modeling-approach-gensim-ldamulticore-with-3-topics-5-passes-extreme-f.md) — LDA topic modeling approach: Gensim LdaMulticore with 3 topics, 5 passes, extreme filtering
+- [nar-real-estate-statistics-agent-demographics-and-income-benchmarks](reference/nar-real-estate-statistics-agent-demographics-and-income-benchmarks.md) — NAR real estate statistics: agent demographics and income benchmarks
+- [performance-marketing-saas-persona-susan-green-median-real-estate-agent](reference/performance-marketing-saas-persona-susan-green-median-real-estate-agent.md) — Performance marketing SaaS persona: Susan Green (median real estate agent)
+- [plans-to-monitor-interest-rates-news-and-bank-accounts-to-stay-informed-about-fe](user/plans-to-monitor-interest-rates-news-and-bank-accounts-to-stay-informed-about-fe.md) — Plans to monitor interest rates, news, and bank accounts to stay informed about Fed policy
+- [sell-1960s-leica-camera](project/sell-1960s-leica-camera.md) — Sell 1960s Leica camera
+- [sell-rare-coin-collection](project/sell-rare-coin-collection.md) — Sell rare coin collection
+- [sell-rare-first-edition-book](project/sell-rare-first-edition-book.md) — Sell rare first edition book
+- [sell-vintage-pearl-necklace-from-1920s-found-in-attic](project/sell-vintage-pearl-necklace-from-1920s-found-in-attic.md) — Sell vintage pearl necklace from 1920s found in attic
+- [sell-vintage-typewriter](project/sell-vintage-typewriter.md) — Sell vintage typewriter
+- [sell-vintage-vinyl-records-collection](project/sell-vintage-vinyl-records-collection.md) — Sell vintage vinyl records collection
+- [twitter-dataset-4800-tweets-about-academic-writing-anxiety-for-topic-modeling](project/twitter-dataset-4800-tweets-about-academic-writing-anxiety-for-topic-modeling.md) — Twitter dataset: 4800 tweets about academic writing anxiety for topic modeling

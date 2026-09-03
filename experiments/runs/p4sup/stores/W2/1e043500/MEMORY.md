@@ -1,0 +1,24 @@
+# MEMORY.md
+
+- [3-day-lisbon-itinerary-for-early-april](reference/3-day-lisbon-itinerary-for-early-april.md) — 3-day Lisbon itinerary for early April
+- [attended-music-festival-in-april-2023-with-friends-saw-the-lumineers-and-the-197](experience/attended-music-festival-in-april-2023-with-friends-saw-the-lumineers-and-the-197.md) — Attended music festival in April 2023 with friends, saw The Lumineers and The 1975
+- [brand-ethos-prioritize-hiring-great-human-beings-first-then-technologists](project/brand-ethos-prioritize-hiring-great-human-beings-first-then-technologists.md) — Brand ethos: prioritize hiring great human beings first, then technologists
+- [entrepreneurial-and-business-podcasts-how-i-built-this-the-tim-ferriss-show-mast](reference/entrepreneurial-and-business-podcasts-how-i-built-this-the-tim-ferriss-show-mast.md) — Entrepreneurial and business podcasts: How I Built This, The Tim Ferriss Show, Masters of Scale, GaryVee, and others
+- [gambian-visual-art-forms-and-recent-developments-in-cultural-preservation](reference/gambian-visual-art-forms-and-recent-developments-in-cultural-preservation.md) — Gambian visual art forms and recent developments in cultural preservation
+- [gave-best-friend-silver-necklace-70-as-birthday-gift-in-april-2023-she-loved-it](experience/gave-best-friend-silver-necklace-70-as-birthday-gift-in-april-2023-she-loved-it.md) — Gave best friend silver necklace (~$70) as birthday gift in April 2023; she loved it
+- [getting-back-into-playing-guitar](user/getting-back-into-playing-guitar.md) — Getting back into playing guitar
+- [guitar-learning-platforms-guitar-tricks-truefire-justin-guitar-yousician-artistw](reference/guitar-learning-platforms-guitar-tricks-truefire-justin-guitar-yousician-artistw.md) — Guitar learning platforms: Guitar Tricks, TrueFire, Justin Guitar, Yousician, ArtistWorks, JamPlay
+- [has-25-cousins-17-female-8-male](user/has-25-cousins-17-female-8-male.md) — Has 25 cousins: 17 female, 8 male
+- [interested-in-discovering-ambient-and-lo-fi-music-genres](user/interested-in-discovering-ambient-and-lo-fi-music-genres.md) — Interested in discovering ambient and lo-fi music genres
+- [interested-in-dracula-film-adaptations-and-vampire-fiction](user/interested-in-dracula-film-adaptations-and-vampire-fiction.md) — Interested in Dracula film adaptations and vampire fiction
+- [interested-in-entrepreneurial-stories-and-business-related-podcasts](user/interested-in-entrepreneurial-stories-and-business-related-podcasts.md) — Interested in entrepreneurial stories and business-related podcasts
+- [interested-in-gambian-visual-arts-and-cultural-preservation](user/interested-in-gambian-visual-arts-and-cultural-preservation.md) — Interested in Gambian visual arts and cultural preservation
+- [literature-review-databases-and-search-strategies-for-social-media-and-mental-he](reference/literature-review-databases-and-search-strategies-for-social-media-and-mental-he.md) — Literature review databases and search strategies for social media and mental health research
+- [music-streaming-and-discovery-services-for-ambient-and-lo-fi-bandcamp-apple-musi](reference/music-streaming-and-discovery-services-for-ambient-and-lo-fi-bandcamp-apple-musi.md) — Music streaming and discovery services for ambient and lo-fi: Bandcamp, Apple Music, Tidal, Deezer
+- [observed-female-majority-family-dynamic-at-last-family-reunion](experience/observed-female-majority-family-dynamic-at-last-family-reunion.md) — Observed female-majority family dynamic at last family reunion
+- [parents-house-used-for-large-family-gatherings-25-30-people](user/parents-house-used-for-large-family-gatherings-25-30-people.md) — Parents' house used for large family gatherings (25-30 people)
+- [prefers-simple-low-setup-group-activities-for-family-gatherings](user/prefers-simple-low-setup-group-activities-for-family-gatherings.md) — Prefers simple, low-setup group activities for family gatherings
+- [purchase-personalized-bamboo-cutting-board-the-smith-kitchen-as-wedding-gift-for](project/purchase-personalized-bamboo-cutting-board-the-smith-kitchen-as-wedding-gift-for.md) — Purchase personalized bamboo cutting board 'The Smith Kitchen' as wedding gift for Smith couple
+- [received-positive-feedback-from-thesis-advisor-on-proposal](experience/received-positive-feedback-from-thesis-advisor-on-proposal.md) — Received positive feedback from thesis advisor on proposal
+- [summer-vibes-spotify-playlist-chill-tracks-for-relaxing-and-working-out](reference/summer-vibes-spotify-playlist-chill-tracks-for-relaxing-and-working-out.md) — Summer Vibes Spotify playlist: chill tracks for relaxing and working out
+- [thesis-on-social-media-impact-on-mental-health-in-young-adults](project/thesis-on-social-media-impact-on-mental-health-in-young-adults.md) — Thesis on social media impact on mental health in young adults

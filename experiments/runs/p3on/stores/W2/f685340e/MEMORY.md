@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [authors-similar-to-alex-michaelides-fiona-barton-and-clare-mackintosh-of-particu](reference/authors-similar-to-alex-michaelides-fiona-barton-and-clare-mackintosh-of-particu.md) — Authors similar to Alex Michaelides; Fiona Barton and Clare Mackintosh of particular interest
+- [baseline-tennis-player-working-to-improve-net-game](user/baseline-tennis-player-working-to-improve-net-game.md) — Baseline tennis player; working to improve net game
+- [big-fan-of-roger-federer](user/big-fan-of-roger-federer.md) — Big fan of Roger Federer
+- [corepower-yoga-almaden-studio-in-san-jose-hot-yoga-vinyasa-flow-yoga-sculpt-clas](reference/corepower-yoga-almaden-studio-in-san-jose-hot-yoga-vinyasa-flow-yoga-sculpt-clas.md) — CorePower Yoga Almaden studio in San Jose — Hot Yoga, Vinyasa Flow, Yoga Sculpt classes
+- [decided-to-purchase-fitbit-charge-3](user/decided-to-purchase-fitbit-charge-3.md) — Decided to purchase Fitbit Charge 3
+- [display-strategy-new-arrivals-section-color-gradients-varied-heights-focal-point](project/display-strategy-new-arrivals-section-color-gradients-varied-heights-focal-point.md) — Display strategy: New Arrivals section, color gradients, varied heights, focal points
+- [energy-levels-increased-from-salsa-training](experience/energy-levels-increased-from-salsa-training.md) — Energy levels increased from salsa training
+- [enjoys-psychological-thrillers-with-complex-morally-ambiguous-characters-dark-hu](user/enjoys-psychological-thrillers-with-complex-morally-ambiguous-characters-dark-hu.md) — Enjoys psychological thrillers with complex, morally ambiguous characters, dark humor, and social commentary; also likes character-driven narratives and historical fiction
+- [environmental-impact-and-sustainability-of-plant-based-milks-almond-soy-cashew-o](reference/environmental-impact-and-sustainability-of-plant-based-milks-almond-soy-cashew-o.md) — Environmental impact and sustainability of plant-based milks (almond, soy, cashew, oat)
+- [established-consistent-6-30-am-wake-up-routine-daily-including-weekends](user/established-consistent-6-30-am-wake-up-routine-daily-including-weekends.md) — Established consistent 6:30 AM wake-up routine daily, including weekends
+- [expanding-candle-product-line-with-new-scents-and-colors](project/expanding-candle-product-line-with-new-scents-and-colors.md) — Expanding candle product line with new scents and colors
+- [experiences-sluggishness-on-tuesdays-due-to-heavy-deadline-workload](user/experiences-sluggishness-on-tuesdays-due-to-heavy-deadline-workload.md) — Experiences sluggishness on Tuesdays due to heavy deadline workload
+- [fitness-tracker-recommendations-for-dance-workouts](reference/fitness-tracker-recommendations-for-dance-workouts.md) — Fitness tracker recommendations for dance workouts
+- [how-to-make-oat-milk-at-home-recipe-and-equipment](reference/how-to-make-oat-milk-at-home-recipe-and-equipment.md) — How to make oat milk at home - recipe and equipment
+- [interested-in-cross-cultural-communication-and-linguistic-diversity](user/interested-in-cross-cultural-communication-and-linguistic-diversity.md) — Interested in cross-cultural communication and linguistic diversity
+- [interested-in-environmental-ecological-topics-conservation-efforts-and-freshwate](user/interested-in-environmental-ecological-topics-conservation-efforts-and-freshwate.md) — Interested in environmental/ecological topics, conservation efforts, and freshwater ecosystem protection
+- [interested-in-making-plant-based-milk-at-home](user/interested-in-making-plant-based-milk-at-home.md) — Interested in making plant-based milk at home
+- [interested-in-philosophy-of-language-wittgenstein-and-linguistic-theory](user/interested-in-philosophy-of-language-wittgenstein-and-linguistic-theory.md) — Interested in philosophy of language, Wittgenstein, and linguistic theory
+- [japanese-has-distinct-words-for-love-ai-deep-unconditional-koi-romantic-daisuki](reference/japanese-has-distinct-words-for-love-ai-deep-unconditional-koi-romantic-daisuki.md) — Japanese has distinct words for love: ai (deep/unconditional), koi (romantic), daisuki (liking/affection)
+- [jogging-route-almaden-lake-park-loop-5-miles-minimal-traffic-and-scenic](user/jogging-route-almaden-lake-park-loop-5-miles-minimal-traffic-and-scenic.md) — Jogging route: Almaden Lake Park Loop, 5 miles, minimal traffic and scenic
+- [lives-in-san-jose-ca-zip-code-95123](user/lives-in-san-jose-ca-zip-code-95123.md) — Lives in San Jose, CA, zip code 95123
+- [maintains-meal-prepping-habit-doing-well-with-it](user/maintains-meal-prepping-habit-doing-well-with-it.md) — Maintains meal prepping habit, doing well with it
+- [nutritional-yeast-benefits-and-uses-in-vegan-cooking](reference/nutritional-yeast-benefits-and-uses-in-vegan-cooking.md) — Nutritional yeast benefits and uses in vegan cooking
+- [online-platforms-for-salsa-dance-lessons](reference/online-platforms-for-salsa-dance-lessons.md) — Online platforms for salsa dance lessons
+- [owns-nike-air-zoom-tennis-shoes](user/owns-nike-air-zoom-tennis-shoes.md) — Owns Nike Air Zoom tennis shoes
+- [planning-to-implement-loyalty-program-and-referral-program-for-customer-retentio](project/planning-to-implement-loyalty-program-and-referral-program-for-customer-retentio.md) — Planning to implement loyalty program and referral program for customer retention
+- [plant-based-milk-types-characteristics-and-culinary-uses](reference/plant-based-milk-types-characteristics-and-culinary-uses.md) — Plant-based milk types, characteristics and culinary uses
+- [plays-tennis-every-other-week-on-sundays-at-local-park-with-friends](user/plays-tennis-every-other-week-on-sundays-at-local-park-with-friends.md) — Plays tennis every other week on Sundays at local park with friends
+- [plays-tennis-weekly-with-friends-at-the-local-park](user/plays-tennis-weekly-with-friends-at-the-local-park.md) — Plays tennis weekly with friends at the local park
+- [prefers-morning-yoga-classes-prioritizes-early-start-times](user/prefers-morning-yoga-classes-prioritizes-early-start-times.md) — Prefers morning yoga classes, prioritizes early start times
+- [pricing-strategy-research-calculate-costs-tier-prices-bundle-promotions](project/pricing-strategy-research-calculate-costs-tier-prices-bundle-promotions.md) — Pricing strategy: research, calculate costs, tier prices, bundle promotions
+- [prioritizes-environmental-sustainability-in-food-choices](user/prioritizes-environmental-sustainability-in-food-choices.md) — Prioritizes environmental sustainability in food choices
+- [psychological-thriller-book-recommendations-10-titles-ranging-from-classic-gone](reference/psychological-thriller-book-recommendations-10-titles-ranging-from-classic-gone.md) — Psychological thriller book recommendations: 10 titles ranging from classic (Gone Girl, Sharp Objects) to lesser-known gems (The Last Mrs. Parrish, The 7 1/2 Deaths of Evelyn Hardcastle)
+- [recently-signed-up-for-swim-lessons-at-local-pool-enjoying-the-experience](user/recently-signed-up-for-swim-lessons-at-local-pool-enjoying-the-experience.md) — Recently signed up for swim lessons at local pool, enjoying the experience
+- [salsa-class-practice](user/salsa-class-practice.md) — Salsa class practice
+- [sells-handmade-candles-and-knitted-scarves-at-craft-fairs-and-artisan-markets](user/sells-handmade-candles-and-knitted-scarves-at-craft-fairs-and-artisan-markets.md) — Sells handmade candles and knitted scarves at craft fairs and artisan markets
+- [sold-candles-and-scarves-at-craft-fair-at-local-community-center-on-2023-03-30](experience/sold-candles-and-scarves-at-craft-fair-at-local-community-center-on-2023-03-30.md) — Sold candles and scarves at craft fair at local community center on 2023-03-30
+- [vegan-diet-with-focus-on-plant-based-proteins-tofu-tempeh-seitan](user/vegan-diet-with-focus-on-plant-based-proteins-tofu-tempeh-seitan.md) — Vegan diet with focus on plant-based proteins (tofu, tempeh, seitan)

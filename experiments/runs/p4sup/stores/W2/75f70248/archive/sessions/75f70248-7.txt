@@ -1,0 +1,201 @@
+## Session b197b7fb — 2023/05/21 (Sun) 19:03
+user: I've been trying to get back into reading more often, been meaning to make a list of books to check out. Can you recommend some popular novels from the past year or so?
+assistant: I'd be happy to help you with that. Here are some popular novels from the past year or so that you might enjoy:
+
+**Fiction**
+
+1. **The Seven Husbands of Evelyn Hugo** by Taylor Jenkins Reid: A heartwarming and engaging story about the life of a reclusive Hollywood star and her seven marriages.
+2. **The Nightingale** by Kristin Hannah: A historical fiction novel set in France during World War II, exploring the lives of two sisters and their struggles during the war.
+3. **The Silent Patient** by Alex Michaelides: A psychological thriller about a famous painter who shoots her husband and refuses to speak, and the psychotherapist who becomes obsessed with uncovering her secrets.
+4. **The Family Upstairs** by Lisa Jewell: A suspenseful novel about a young woman who inherits a mansion from a family she's never met, only to uncover dark secrets and mysteries.
+5. **Red, White, and Royal Blue** by Casey McQuiston: A romantic comedy about the First Son of the United States who falls in love with the Prince of Wales.
+
+**Non-Fiction**
+
+1. **The Undocumented Americans** by Karla Cornejo Villavicencio: A powerful and timely exploration of the lives of undocumented immigrants in the United States.
+2. **In the Dream House: A Memoir** by Carmen Maria Machado: A memoir about the author's experiences in an abusive same-sex relationship, blending memoir with cultural criticism.
+3. **Say Nothing: A True Story of Murder and Memory in Northern Ireland** by Patrick Radden Keefe: A gripping true crime story that delves into the 1972 murder of a mother of ten in Northern Ireland.
+4. **Bad Blood: Secrets and Lies in a Silicon Valley Startup** by John Carreyrou: A riveting exposé of the rise and fall of Theranos, a biotech company that promised to revolutionize healthcare.
+5. **Furious Hours: Murder, Fraud, and the Last Trial of Harper Lee** by Casey Cep: A fascinating true crime story about a series of murders in Alabama and Harper Lee's involvement in the case.
+
+**Debut Novels**
+
+1. **The Last House Guest** by Megan Miranda: A suspenseful thriller about a woman who becomes embroiled in a mystery when a weekend getaway turns deadly.
+2. **The Age of Light** by Whitney Scharer: A historical novel based on the life of Lee Miller, a model and photographer who was a muse to Man Ray and a war correspondent during World War II.
+3. **The Farm** by Joanne Ramos: A thought-provoking novel about a group of women who give birth at a mysterious retreat, exploring themes of motherhood, class, and privilege.
+
+These are just a few examples, but there are many more amazing books out there. Is there a particular genre or theme you're interested in?
+user: I'm actually interested in all of these! I've been really active in this Facebook group, Book Lovers Unite, and I've gotten a lot of great recs from the community. Do you know how I can keep track of all these titles? Is there a way to create a list or something?
+assistant: That's great to hear! Book Lovers Unite sounds like an amazing community!
+
+Yes, there are several ways to keep track of the books you want to read. Here are a few options:
+
+1. **Goodreads**: Goodreads is a fantastic platform for book lovers. You can create a virtual bookshelf and add books to it. You can also rate and review books, join groups (like Book Lovers Unite!), and get personalized recommendations. You can even set a reading goal for the year and track your progress!
+2. **Amazon Wish List**: You can create a wish list on Amazon and add books to it. This way, you can easily find the books later and even purchase them when you're ready.
+3. **Library App**: If you have a library card, you can use your library's app to create a list of books you want to read. You can even place holds on books and get notified when they're available for pickup.
+4. **Spreadsheet or Note-taking App**: You can create a spreadsheet or note in an app like Google Sheets, Microsoft OneNote, or Evernote to keep track of the books you want to read. You can add columns or sections to organize the list by genre, author, or priority.
+5. **Book Tracking Apps**: There are several book tracking apps available, such as:
+	* **Libib**: A app that allows you to catalog your personal book collection and create lists of books you want to read.
+	* **Shelf**: A social book discovery platform that lets you create shelves, follow friends, and get personalized recommendations.
+	* **Litsy**: A book tracking app that lets you create a virtual bookshelf, track your reading progress, and connect with other readers.
+
+Choose the method that works best for you, or feel free to experiment with a combination of options!
+
+Which one of these methods do you think you might try first?
+user: I think I'll try Goodreads first. I've heard great things about it from my friends in Book Lovers Unite. Can you walk me through how to create a virtual bookshelf on Goodreads?
+assistant: Goodreads is an amazing platform for book lovers, and I'm happy to help you get started.
+
+Creating a virtual bookshelf on Goodreads is easy and fun! Here's a step-by-step guide to get you started:
+
+**Step 1: Sign up for Goodreads**
+
+If you haven't already, sign up for a Goodreads account by going to [www.goodreads.com](http://www.goodreads.com) and clicking on "Sign Up". Fill out the registration form with your email address, password, and other details.
+
+**Step 2: Add a Book to Your Shelves**
+
+Once you've signed up, click on the "Add a Book" button on the top right corner of the page. You can search for a book by title, author, or ISBN.
+
+Let's use "The Seven Husbands of Evelyn Hugo" by Taylor Jenkins Reid as an example. Type the title in the search bar, and select the book from the search results.
+
+**Step 3: Add the Book to Your Shelf**
+
+Click on the "Add to Shelves" button on the book's page. You'll see a dropdown menu with several options, including "Read", "Currently Reading", "Want to Read", and "Dropped". For now, let's add it to your "Want to Read" shelf.
+
+**Step 4: Create a Shelf**
+
+To create a new shelf, click on the "Shelves" tab on your profile page. Then, click on the "New Shelf" button. Give your shelf a name, like "TBR" or "2023 Reading List".
+
+**Step 5: Move the Book to Your New Shelf**
+
+Go back to the book's page and click on the "Add to Shelves" button again. This time, select the shelf you just created from the dropdown menu.
+
+**Step 6: Repeat and Explore!**
+
+Repeat the process for the other books you want to add to your shelf. You can explore Goodreads' features, such as:
+
+* Rating and reviewing books
+* Following friends and seeing their reviews
+* Joining groups, like Book Lovers Unite!
+* Participating in reading challenges
+* Discovering new books and authors through personalized recommendations
+
+Tips:
+
+* You can add multiple books to your shelves at once by using the "Add Multiple Books" feature.
+* You can also import books from your Amazon wishlist or CSV file.
+* Goodreads has a mobile app, so you can access your shelves and add books on-the-go!
+
+That's it! You now have a virtual bookshelf on Goodreads, and you're all set to start tracking your reading journey. If you have any questions or need help, feel free to ask.
+
+How's your experience with Goodreads so far?
+user: I think I'll add a few more books to my shelf. Can you tell me more about the "Currently Reading" shelf? How does that work?
+assistant: The "Currently Reading" shelf is a fantastic feature on Goodreads.
+
+The "Currently Reading" shelf is a special shelf that allows you to track the books you're currently reading. When you add a book to this shelf, Goodreads will ask you to set a start date, which is the date you began reading the book. You can also set a goal for when you want to finish the book.
+
+Here's how it works:
+
+**Adding a Book to "Currently Reading"**
+
+1. Go to the book's page on Goodreads.
+2. Click the "Add to Shelves" button.
+3. Select "Currently Reading" from the dropdown menu.
+4. Set the start date to the current date or the date you began reading the book.
+5. Optional: Set a goal for when you want to finish the book.
+
+**Tracking Your Progress**
+
+1. Goodreads will display the book on your "Currently Reading" shelf with a progress bar, showing how far along you are in the book.
+2. You can update your progress by clicking on the book on your shelf and adjusting the percentage complete.
+3. You can also leave updates or notes about your progress, which will be visible to your Goodreads friends.
+
+**Benefits of Using "Currently Reading"**
+
+1. **Stay organized**: Keep track of the books you're currently reading and easily switch between them.
+2. **Set goals and stay motivated**: Set a goal for when you want to finish the book, and Goodreads will remind you of your progress.
+3. **Share with friends**: Your Goodreads friends can see what you're currently reading, which can lead to great discussions and recommendations.
+4. **Get personalized recommendations**: Goodreads uses your reading habits to provide personalized book recommendations.
+
+**Tips**
+
+* You can add multiple books to your "Currently Reading" shelf, which is useful if you're reading multiple books at once.
+* If you're not sure when you'll finish a book, you can leave the finish date blank.
+* Goodreads will remind you when you're getting close to your finish date, so you can stay on track.
+
+Now that you know how the "Currently Reading" shelf works, feel free to add some books to it and start tracking your progress!
+
+Do you have any more questions about Goodreads or would you like to know more about other features?
+user: I think I'll add a few books to my "Currently Reading" shelf. While I'm doing that, can you tell me if there's a way to import my friends from Facebook into Goodreads? I'd love to connect with my friends from Book Lovers Unite on Goodreads as well.
+assistant: Adding friends from Facebook to Goodreads is a great way to connect with fellow book lovers.
+
+Yes, you can import your Facebook friends into Goodreads. Here's how:
+
+**Importing Facebook Friends to Goodreads**
+
+1. Log in to your Goodreads account.
+2. Click on the "Friends" tab on the top navigation bar.
+3. Click on "Find Friends" and then select "Import Friends from Facebook".
+4. Click on the "Connect with Facebook" button.
+5. Grant Goodreads permission to access your Facebook friends list.
+6. Select the friends you want to add on Goodreads. You can select all friends or individual friends.
+7. Click "Add Friends" to import them to Goodreads.
+
+Once you've imported your Facebook friends, you can:
+
+* See their bookshelves and reviews
+* Follow their reading activity
+* Send them friend requests or messages
+* Participate in discussions and groups together
+
+**Tips**
+
+* Make sure your Facebook account is connected to your Goodreads account before importing friends.
+* You can also invite friends to join Goodreads if they're not already members.
+* You can adjust your Goodreads settings to control what information is shared with your friends.
+
+Now that you've imported your Facebook friends, you can connect with your friends from Book Lovers Unite on Goodreads as well!
+
+While you're at it, you might want to explore Goodreads' groups feature. You can join groups like Book Lovers Unite or create your own group to discuss books with like-minded readers.
+
+Do you have any more questions about Goodreads or would you like to know more about other features?
+user: I think I'll join some groups on Goodreads, including Book Lovers Unite. I want to connect with more readers who share my interests. Can you tell me more about Goodreads groups and how they work?
+assistant: Goodreads groups are an amazing way to connect with fellow readers who share your interests.
+
+**What are Goodreads Groups?**
+
+Goodreads groups are online communities where readers can discuss books, share recommendations, and participate in activities related to a specific topic or genre. Groups can be public or private, and they're a great way to connect with like-minded readers from all over the world.
+
+**Types of Groups**
+
+1. **Book Clubs**: Groups focused on reading and discussing a specific book or series.
+2. **Genre-based Groups**: Groups dedicated to a specific genre, such as romance, mystery, or science fiction.
+3. **Author Groups**: Groups dedicated to a specific author or their works.
+4. **Theme-based Groups**: Groups focused on a specific theme, such as diversity in literature or books set in a particular time period.
+5. **Challenge Groups**: Groups that host reading challenges, such as reading a certain number of books within a specific time frame.
+
+**How to Join a Group**
+
+1. Log in to your Goodreads account.
+2. Click on the "Groups" tab on the top navigation bar.
+3. Browse through the various groups or use the search bar to find a specific group.
+4. Click on a group that interests you and read the group description, rules, and guidelines.
+5. Click the "Join Group" button to request membership.
+
+**Group Features**
+
+1. **Discussion Boards**: Members can create and participate in discussions on various topics related to the group's theme.
+2. **Group Shelves**: Members can add books to the group's shelves, which can be used for book clubs, recommendations, or challenges.
+3. **Polls**: Group administrators can create polls to gather opinions or votes on various topics.
+4. **Events**: Group administrators can create events, such as live chats, Q&A sessions, or online book clubs.
+5. **Reviews**: Members can share their reviews of books related to the group's theme.
+
+**Tips**
+
+* Read the group rules and guidelines before joining to ensure it's a good fit for you.
+* Participate in discussions and engage with other members to get the most out of the group.
+* Be respectful and considerate of other members' opinions and preferences.
+* If you're interested in creating a group, make sure to follow Goodreads' guidelines and rules.
+
+Now that you know more about Goodreads groups, I encourage you to join Book Lovers Unite and other groups that align with your interests!
+
+Do you have any more questions about Goodreads groups or would you like to know more about other features?

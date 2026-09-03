@@ -1,0 +1,12 @@
+# MEMORY.md
+
+- [active-fitness-routine-gym-yoga-walking-cycling-strength-training](user/active-fitness-routine-gym-yoga-walking-cycling-strength-training.md) — Active fitness routine: gym, yoga, walking, cycling, strength training
+- [avid-reader-of-fiction-and-self-help-keeps-reading-log-listening-to-audiobooks-d](user/avid-reader-of-fiction-and-self-help-keeps-reading-log-listening-to-audiobooks-d.md) — Avid reader of fiction and self-help; keeps reading log; listening to audiobooks during commute
+- [book-club-member-reads-diverse-genres-prefers-full-cast-audiobook-narrations](user/book-club-member-reads-diverse-genres-prefers-full-cast-audiobook-narrations.md) — Book club member; reads diverse genres; prefers full-cast audiobook narrations
+- [enjoys-cooking-winter-soups-interested-in-butternut-squash-soup-recipe-and-food](user/enjoys-cooking-winter-soups-interested-in-butternut-squash-soup-recipe-and-food.md) — Enjoys cooking winter soups; interested in butternut squash soup recipe and food storage
+- [listening-to-the-west-wing-weekly-podcast-interested-in-politics-and-pop-culture](user/listening-to-the-west-wing-weekly-podcast-interested-in-politics-and-pop-culture.md) — Listening to The West Wing Weekly podcast; interested in politics and pop culture intersection
+- [obsessed-with-hamilton-soundtrack-interested-in-hip-hop-and-musical-theater-fusi](user/obsessed-with-hamilton-soundtrack-interested-in-hip-hop-and-musical-theater-fusi.md) — Obsessed with Hamilton soundtrack; interested in hip-hop and musical theater fusion
+- [started-bookstagram-account-posts-book-reviews-and-book-related-photos](project/started-bookstagram-account-posts-book-reviews-and-book-related-photos.md) — Started bookstagram account; posts book reviews and book-related photos
+- [twisted-ankle-playing-basketball-in-mid-may-2023-recovered-within-days](user/twisted-ankle-playing-basketball-in-mid-may-2023-recovered-within-days.md) — Twisted ankle playing basketball in mid-May 2023; recovered within days
+- [volleyball-team-member-the-spikers-does-kickboxing-tues-thurs-planning-strength](user/volleyball-team-member-the-spikers-does-kickboxing-tues-thurs-planning-strength.md) — Volleyball team member (The Spikers); does kickboxing Tues/Thurs; planning strength training routine
+- [weekend-outdoor-activities-cycling-and-hiking-planning-christmas-mountain-trip](user/weekend-outdoor-activities-cycling-and-hiking-planning-christmas-mountain-trip.md) — Weekend outdoor activities: cycling and hiking; planning Christmas mountain trip

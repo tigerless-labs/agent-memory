@@ -1,0 +1,16 @@
+# MEMORY.md
+
+- [building-nissan-gt-r-for-drifting-coilovers-installed-planning-brake-pads-stagge](project/building-nissan-gt-r-for-drifting-coilovers-installed-planning-brake-pads-stagge.md) — Building Nissan GT-R for drifting: coilovers installed, planning brake pads, staggered wheel setup, full exhaust system
+- [camping-and-outdoor-activities-enjoys-camping-trips-bike-riding-and-solo-hiking](user/camping-and-outdoor-activities-enjoys-camping-trips-bike-riding-and-solo-hiking.md) — Camping and outdoor activities: enjoys camping trips, bike riding, and solo hiking
+- [credit-card-rewards-card-declined-at-gas-station-in-merced-2023-05-21](experience/credit-card-rewards-card-declined-at-gas-station-in-merced-2023-05-21.md) — Credit card rewards card declined at gas station in Merced 2023-05-21
+- [first-research-conference-presentation-on-ai-in-education-poster-presentation-20](experience/first-research-conference-presentation-on-ai-in-education-poster-presentation-20.md) — First research conference presentation on AI in education - poster presentation, 2023 summer
+- [interested-in-portable-power-banks-for-travel-and-events](user/interested-in-portable-power-banks-for-travel-and-events.md) — Interested in portable power banks for travel and events
+- [met-alex-at-parking-lot-drifting-practice-received-tips-on-speed-and-angle-contr](experience/met-alex-at-parking-lot-drifting-practice-received-tips-on-speed-and-angle-contr.md) — Met Alex at parking lot drifting practice; received tips on speed and angle control
+- [newly-interested-in-djing-as-a-hobby-exploring-music-production-and-beatmatching](user/newly-interested-in-djing-as-a-hobby-exploring-music-production-and-beatmatching.md) — Newly interested in DJing as a hobby; exploring music production and beatmatching
+- [practices-drifting-skills-regularly-at-local-parking-lot](user/practices-drifting-skills-regularly-at-local-parking-lot.md) — Practices drifting skills regularly at local parking lot
+- [research-interests-in-ai-powered-adaptive-learning-personalized-learning-and-cri](user/research-interests-in-ai-powered-adaptive-learning-personalized-learning-and-cri.md) — Research interests in AI-powered adaptive learning, personalized learning, and critical thinking development
+- [selected-therm-a-rest-neoair-xlite-sleeping-pad-for-camping](user/selected-therm-a-rest-neoair-xlite-sleeping-pad-for-camping.md) — Selected Therm-a-Rest NeoAir XLite sleeping pad for camping
+- [social-connections-friend-alex-neighbor-mike](user/social-connections-friend-alex-neighbor-mike.md) — Social connections: friend Alex, neighbor Mike
+- [solo-hike-to-mission-peak-in-fremont-on-2023-04-10](experience/solo-hike-to-mission-peak-in-fremont-on-2023-04-10.md) — Solo hike to Mission Peak in Fremont on 2023-04-10
+- [takes-meticulous-care-of-personal-electronics-maintains-devices-in-pristine-cond](user/takes-meticulous-care-of-personal-electronics-maintains-devices-in-pristine-cond.md) — Takes meticulous care of personal electronics; maintains devices in pristine condition
+- [thesis-research-on-ai-powered-adaptive-learning-systems-in-education](project/thesis-research-on-ai-powered-adaptive-learning-systems-in-education.md) — Thesis research on AI-powered adaptive learning systems in education

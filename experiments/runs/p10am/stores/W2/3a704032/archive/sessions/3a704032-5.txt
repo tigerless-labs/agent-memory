@@ -1,0 +1,81 @@
+## Session sharegpt_RrdCPkt_0 — 2023/05/21 (Sun) 13:47
+user: From now on, you are a media education instructor. I will make a lesson plan for the 10th class of digital literacy for students in the 6th grade of elementary school. Present the results in tabular form.
+Answer in English.지금 번역하기
+assistant: Sure, I can do that! Here's a lesson plan for a media education instructor teaching digital literacy to 6th-grade elementary school students:
+
+Title: Digital Literacy Lesson Plan for 6th Grade
+
+Objective: Students will develop the skills necessary to safely and effectively navigate the digital world, including identifying online threats, practicing responsible behavior, and using technology to enhance their learning.
+
+Materials:
+
+* Computers or laptops with internet access
+* Whiteboard and markers
+* Printed copies of the Digital Citizenship and Responsibility Checklist
+* Online resources, such as Common Sense Media's Digital Citizenship Curriculum
+* Video clips, such as "Internet Safety for Kids" or "What is Cyberbullying?" (optional)
+
+Lesson Plan:
+
+| Time | Activity | Materials | Learning Outcomes |
+| --- | --- | --- | --- |
+| 10 min | Introduction | Whiteboard, markers | Introduce the concept of digital literacy and discuss the benefits and risks associated with technology use. |
+| 20 min | Instruction | Printed copies of Digital Citizenship and Responsibility Checklist, online resources | Review the Digital Citizenship and Responsibility Checklist with the class, highlighting important topics such as protecting personal information, cyberbullying, and online etiquette. Present online resources that can help students develop their digital literacy skills, such as Common Sense Media's Digital Citizenship Curriculum. |
+| 30 min | Activity | Computers or laptops with internet access | Divide the class into small groups and have them complete an online scavenger hunt, where they find and bookmark a list of safe and reliable websites related to a specific topic, such as science or history. Afterward, each group presents their findings to the class and explains how they determined which websites were trustworthy. |
+| 10 min | Break | - | - |
+| 20 min | Activity | Video clips (optional), whiteboard, markers | Watch video clips related to digital citizenship, such as "Internet Safety for Kids" or "What is Cyberbullying?" Afterward, have a class discussion about the main takeaways from the videos and create a list of dos and don'ts for safe and responsible technology use on the whiteboard. |
+| 10 min | Conclusion | Whiteboard, markers | Recap the importance of digital literacy and responsibility, and encourage students to practice safe and responsible technology use in their daily lives. |
+
+Assessment:
+
+* Monitor group participation during the activity.
+* Review student presentations or posters for accuracy and completeness.
+* Evaluate student understanding through a short quiz or class discussion at the end of the lesson.
+user: I asked for a lecture plan for the 10th round of digital literacy, and he made a detailed lesson plan for one round. Once again, make the lesson plan for the 10th session in tabular form.
+Answer in English.지금 번역하기
+assistant: Apologies for the confusion earlier. Here is a lesson plan for the 10th session of a digital literacy course:
+
+Title: Evaluating Online Information
+
+Objective: Students will learn how to evaluate the credibility and reliability of online information.
+
+Materials:
+
+* Computers or laptops with internet access
+* Whiteboard and markers
+* Printed copies of the CRAAP Test worksheet
+* Online resources, such as news articles or academic papers
+
+Lesson Plan:
+
+| Time | Activity | Materials | Learning Outcomes |
+| --- | --- | --- | --- |
+| 10 min | Introduction | Whiteboard, markers | Introduce the concept of evaluating online information and discuss the importance of verifying the credibility and reliability of online sources. |
+| 20 min | Instruction | Printed copies of CRAAP Test worksheet, online resources | Review the CRAAP Test (Currency, Relevance, Authority, Accuracy, Purpose) with the class and provide examples of how to apply it to different types of online sources, such as news articles or academic papers. Have students practice using the CRAAP Test by evaluating a sample online article and discussing their findings with a partner. |
+| 30 min | Activity | Computers or laptops with internet access | Assign each student a different topic to research online and have them find two sources related to their topic. Instruct them to evaluate each source using the CRAAP Test and record their findings on the worksheet. Afterward, have students present their sources to the class and explain their reasoning for why they did or did not consider the sources credible and reliable. |
+| 10 min | Break | - | - |
+| 20 min | Activity | Whiteboard, markers | Create a list of tips for evaluating online information on the whiteboard, such as checking the author's credentials or searching for alternative sources. Discuss how these tips can help students verify the credibility and reliability of online sources. |
+| 10 min | Conclusion | Whiteboard, markers | Recap the importance of evaluating online information and encourage students to use the CRAAP Test and other tips when conducting research online. |
+
+Assessment:
+
+* Review student worksheets for accuracy and completeness.
+* Evaluate student understanding through a short quiz or class discussion at the end of the lesson.
+* Monitor group participation during the activity.
+user: What method should be used during 'reflection and discussion time 4' to have an educational effect? If you have any good edtech programs to do this, please recommend them.
+Answer in English.지금 번역하기
+assistant: During the reflection and discussion time in class 4, the instructor should use active listening and questioning techniques to promote student engagement and deeper learning. Some examples of effective methods that can be used to facilitate discussion and reflection include:
+
+1. Ask open-ended questions: Encourage students to share their thoughts and opinions by asking open-ended questions that require more than a yes or no answer. For example, "What did you learn from playing the game?" or "How can you apply what you learned about digital communication in your daily life?"
+2. Paraphrase and summarize: Show students that their thoughts and opinions are valued by paraphrasing and summarizing what they say. This also helps to ensure that everyone understands what has been said.
+3. Encourage active listening: Encourage students to actively listen to their peers by asking them to summarize what they heard or to ask a follow-up question.
+4. Use visual aids: Visual aids such as diagrams or graphic organizers can help students to better understand and organize their thoughts.
+
+As for edtech programs that can be used to facilitate reflection and discussion, there are several options:
+
+1. Padlet: A collaborative platform that allows students to share their thoughts and ideas in a virtual space.
+2. Nearpod: An interactive platform that includes features such as polls and open-ended questions to encourage student participation.
+3. Flipgrid: A video discussion platform that allows students to respond to prompts or questions with short videos.
+4. Google Jamboard: A virtual whiteboard that allows students to collaborate and share their ideas visually.
+
+All of these tools can be used to facilitate discussion and reflection in an engaging and interactive way.

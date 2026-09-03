@@ -1,0 +1,37 @@
+# MEMORY.md
+
+- [get-watch-battery-replaced](project/get-watch-battery-replaced.md) — Get watch battery replaced
+- [planning-to-introduce-weekly-virtual-coffee-breaks-to-team-using-collaborative-a](project/planning-to-introduce-weekly-virtual-coffee-breaks-to-team-using-collaborative-a.md) — Planning to introduce weekly virtual coffee breaks to team using collaborative approach
+- [watch-needs-battery-replacement-unworn-since-feb-5-2023](user/watch-needs-battery-replacement-unworn-since-feb-5-2023.md) — Watch needs battery replacement (unworn since Feb 5, 2023)
+- [works-from-home-enjoys-flexibility-but-misses-social-interaction-with-colleagues](user/works-from-home-enjoys-flexibility-but-misses-social-interaction-with-colleagues.md) — Works from home, enjoys flexibility but misses social interaction with colleagues
+- [already-uses-everlane-for-sustainable-fashion-values-brand-transparency-and-envi](user/already-uses-everlane-for-sustainable-fashion-values-brand-transparency-and-envi.md) — Already uses Everlane for sustainable fashion; values brand transparency and environmental practices
+- [applying-for-senior-quantitative-analyst-position-for-model-validation](project/applying-for-senior-quantitative-analyst-position-for-model-validation.md) — Applying for Senior Quantitative Analyst position for Model Validation
+- [back-care-and-pain-management-resources-recommended](reference/back-care-and-pain-management-resources-recommended.md) — Back care and pain management resources recommended
+- [big-sports-fan](user/big-sports-fan.md) — Big sports fan
+- [build-automated-real-estate-listing-scraper-with-daily-email-alerts](project/build-automated-real-estate-listing-scraper-with-daily-email-alerts.md) — Build automated real estate listing scraper with daily email alerts
+- [design-and-commission-custom-scorpio-necklace-with-silver-metal-and-dark-rich-co](project/design-and-commission-custom-scorpio-necklace-with-silver-metal-and-dark-rich-co.md) — Design and commission custom Scorpio necklace with silver metal and dark rich colors
+- [enjoys-films-with-all-female-and-predominantly-female-casts](user/enjoys-films-with-all-female-and-predominantly-female-casts.md) — Enjoys films with all-female and predominantly female casts
+- [find-replacement-for-lost-silver-stud](project/find-replacement-for-lost-silver-stud.md) — Find replacement for lost silver stud
+- [flu-illness-lasted-12-weeks-long-recovery-journey-impacting-overall-health](experience/flu-illness-lasted-12-weeks-long-recovery-journey-impacting-overall-health.md) — Flu illness lasted ~12 weeks; long recovery journey impacting overall health
+- [got-grandmother-s-pearl-earrings-resized-on-february-20-2023](experience/got-grandmother-s-pearl-earrings-resized-on-february-20-2023.md) — Got grandmother's pearl earrings resized on February 20, 2023
+- [has-a-basil-plant-used-frequently-for-cooking](user/has-a-basil-plant-used-frequently-for-cooking.md) — Has a basil plant used frequently for cooking
+- [herniated-disc-diagnosis-managing-with-exercise-acupuncture-and-progressive-musc](user/herniated-disc-diagnosis-managing-with-exercise-acupuncture-and-progressive-musc.md) — Herniated disc diagnosis; managing with exercise, acupuncture, and progressive muscle relaxation
+- [interested-in-air-purifying-plants-for-bedroom](user/interested-in-air-purifying-plants-for-bedroom.md) — Interested in air-purifying plants for bedroom
+- [lost-silver-stud-during-brunch-on-march-1-2023](experience/lost-silver-stud-during-brunch-on-march-1-2023.md) — Lost silver stud during brunch on March 1, 2023
+- [new-downtown-cafe-with-patioavocado-toast-and-quiche](reference/new-downtown-cafe-with-patioavocado-toast-and-quiche.md) — New downtown cafe with patio—avocado toast and quiche
+- [owns-cat-luna](user/owns-cat-luna.md) — Owns cat Luna
+- [owns-dog-max-5-years-old](user/owns-dog-max-5-years-old.md) — Owns dog Max, 5 years old
+- [prefers-silver-metal-for-jewelry-pieces](user/prefers-silver-metal-for-jewelry-pieces.md) — Prefers silver metal for jewelry pieces
+- [purchased-banana-republic-dress-and-trousers-at-friends-and-family-sale-40-off](experience/purchased-banana-republic-dress-and-trousers-at-friends-and-family-sale-40-off.md) — Purchased Banana Republic dress and trousers at friends and family sale, 40% off
+- [purchased-pet-bed-for-luna-with-20-discount](experience/purchased-pet-bed-for-luna-with-20-discount.md) — Purchased pet bed for Luna with 20% discount
+- [received-new-orchid-plant-on-2023-05-20](user/received-new-orchid-plant-on-2023-05-20.md) — Received new orchid plant on 2023-05-20
+- [repot-spider-plant-planned-for-2023-05-27](project/repot-spider-plant-planned-for-2023-05-27.md) — Repot spider plant planned for 2023-05-27
+- [research-and-purchase-humidifier-for-living-room](project/research-and-purchase-humidifier-for-living-room.md) — Research and purchase humidifier for living room
+- [retrieve-silver-hoop-earrings-from-roommate](project/retrieve-silver-hoop-earrings-from-roommate.md) — Retrieve silver hoop earrings from roommate
+- [selected-ruffwear-palisades-pack-for-max-for-longer-hikes](project/selected-ruffwear-palisades-pack-for-max-for-longer-hikes.md) — Selected Ruffwear Palisades Pack for Max for longer hikes
+- [selected-ruffwear-roamer-leash-for-max](project/selected-ruffwear-roamer-leash-for-max.md) — Selected Ruffwear Roamer Leash for Max
+- [spring-dinner-party-planned-with-lavender-theme-lavender-gin-fizz-signature-cock](project/spring-dinner-party-planned-with-lavender-theme-lavender-gin-fizz-signature-cock.md) — Spring dinner party planned with lavender theme, Lavender Gin Fizz signature cocktail, mixed floral and fruit desserts
+- [stress-and-anxiety-management-techniques-and-apps-relaxation-methods-meditation](reference/stress-and-anxiety-management-techniques-and-apps-relaxation-methods-meditation.md) — Stress and anxiety management techniques and apps: relaxation methods, meditation apps, and grounding techniques
+- [user-behavior-analytics-track-server-confirmed-actions-via-client-side-js-not-ju](reference/user-behavior-analytics-track-server-confirmed-actions-via-client-side-js-not-ju.md) — User behavior analytics: track server-confirmed actions via client-side JS, not just button clicks
+- [wears-silver-star-pendant-necklace-almost-daily](user/wears-silver-star-pendant-necklace-almost-daily.md) — Wears silver star pendant necklace almost daily
+- [web-scraping-techniques-rate-limiting-bypass-headless-browsers-vs-beautifulsoup](reference/web-scraping-techniques-rate-limiting-bypass-headless-browsers-vs-beautifulsoup.md) — Web scraping techniques: rate limiting bypass, headless browsers vs BeautifulSoup, tools and Python examples

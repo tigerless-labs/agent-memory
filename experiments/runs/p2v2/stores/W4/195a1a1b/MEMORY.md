@@ -1,0 +1,9 @@
+# MEMORY.md
+
+- [discovered-meditation-highly-effective-for-sleep-and-relaxation-uses-headspace-a](user/discovered-meditation-highly-effective-for-sleep-and-relaxation-uses-headspace-a.md) — Discovered meditation highly effective for sleep and relaxation; uses Headspace and Insight Timer apps
+- [interested-in-dance-workout-playlists-on-spotify](user/interested-in-dance-workout-playlists-on-spotify.md) — Interested in dance workout playlists on Spotify
+- [interested-in-experimenting-with-chorus-and-phaser-modulation-effects-for-guitar](user/interested-in-experimenting-with-chorus-and-phaser-modulation-effects-for-guitar.md) — Interested in experimenting with chorus and phaser modulation effects for guitar solos
+- [interested-in-studying-civil-rights-history-particularly-the-civil-rights-act-of](user/interested-in-studying-civil-rights-history-particularly-the-civil-rights-act-of.md) — Interested in studying civil rights history, particularly the Civil Rights Act of 1964 and opposition to racial equality
+- [takes-hip-hop-dance-classes-on-saturdays-at-street-beats-with-instructor-jamal](user/takes-hip-hop-dance-classes-on-saturdays-at-street-beats-with-instructor-jamal.md) — Takes hip hop dance classes on Saturdays at Street Beats with instructor Jamal
+- [work-schedule-7-8-hours-available-daily-peak-productivity-10am-12pm-30-minute-mo](user/work-schedule-7-8-hours-available-daily-peak-productivity-10am-12pm-30-minute-mo.md) — Work schedule: 7-8 hours available daily; peak productivity 10am-12pm; 30-minute morning exercise routine; prefers structured schedule; target bedtime 9:30pm
+- [working-on-or-researching-genius-voucher-humanitarian-aid-platform-for-ngos-in-a](project/working-on-or-researching-genius-voucher-humanitarian-aid-platform-for-ngos-in-a.md) — Working on or researching Genius Voucher humanitarian aid platform for NGOs in Africa

@@ -1,0 +1,15 @@
+# MEMORY.md
+
+- [art-interests-printmaking-abstract-art-art-science-intersections-vintage-thrift](user/art-interests-printmaking-abstract-art-art-science-intersections-vintage-thrift.md) — Art interests: printmaking, abstract art, art-science intersections, vintage/thrift shops, vinyl records
+- [attended-austin-film-festival-april-2023-took-jim-uhls-screenwriting-workshop](experience/attended-austin-film-festival-april-2023-took-jim-uhls-screenwriting-workshop.md) — Attended Austin Film Festival (April 2023), took Jim Uhls screenwriting workshop
+- [autumn-hiking-trip-planned-moncayo-mountain-aragon-gr-90-trail](project/autumn-hiking-trip-planned-moncayo-mountain-aragon-gr-90-trail.md) — Autumn hiking trip planned - Moncayo mountain, Aragón, GR-90 trail
+- [bot-trading-learner-interested-in-cryptocurrency-trading-automation](user/bot-trading-learner-interested-in-cryptocurrency-trading-automation.md) — Bot trading learner, interested in cryptocurrency trading automation
+- [created-blue-cheese-chocolate-chip-cookies-recipe-savory-sweet-flavor-experiment](experience/created-blue-cheese-chocolate-chip-cookies-recipe-savory-sweet-flavor-experiment.md) — Created Blue Cheese Chocolate Chip Cookies recipe — savory-sweet flavor experiment
+- [family-has-son-picky-eater-and-niece](user/family-has-son-picky-eater-and-niece.md) — Family: has son (picky eater) and niece
+- [new-interest-screenwriting-and-film-production](user/new-interest-screenwriting-and-film-production.md) — New interest: screenwriting and film production
+- [pittsburgh-weekend-trip-strip-district-mount-washington-breweries](project/pittsburgh-weekend-trip-strip-district-mount-washington-breweries.md) — Pittsburgh weekend trip - Strip District, Mount Washington, breweries
+- [planning-zion-national-park-trip-with-new-hiking-boots-merrell-moab-2-mid-waterp](project/planning-zion-national-park-trip-with-new-hiking-boots-merrell-moab-2-mid-waterp.md) — Planning Zion National Park trip with new hiking boots — Merrell Moab 2 Mid Waterproof
+- [prefers-off-peak-travel-weekend-getaways-with-budget-of-500-700-dollars](user/prefers-off-peak-travel-weekend-getaways-with-budget-of-500-700-dollars.md) — Prefers off-peak travel, weekend getaways with budget of 500-700 dollars
+- [recent-travel-to-la-and-san-diego-april-2023-with-chicago-layover](experience/recent-travel-to-la-and-san-diego-april-2023-with-chicago-layover.md) — Recent travel to LA and San Diego - April 2023, with Chicago layover
+- [solo-camping-trip-to-pfeiffer-big-sur-state-park-may-2023-first-use-of-portable](experience/solo-camping-trip-to-pfeiffer-big-sur-state-park-may-2023-first-use-of-portable.md) — Solo camping trip to Pfeiffer Big Sur State Park, May 2023 — first use of portable camping stove
+- [struggles-with-time-management-doesn-t-use-calendar-consistently-difficulty-sayi](user/struggles-with-time-management-doesn-t-use-calendar-consistently-difficulty-sayi.md) — Struggles with time management: doesn't use calendar consistently, difficulty saying no

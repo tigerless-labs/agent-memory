@@ -1,0 +1,30 @@
+# MEMORY.md
+
+- [active-in-instagram-book-club-won-giveaway](user/active-in-instagram-book-club-won-giveaway.md) — Active in Instagram book club, won giveaway
+- [book-note-taking-and-summarizing-strategies-for-book-club-prep](reference/book-note-taking-and-summarizing-strategies-for-book-club-prep.md) — Book note-taking and summarizing strategies for book club prep
+- [building-social-media-presence-and-meaningful-connections](user/building-social-media-presence-and-meaningful-connections.md) — Building social media presence and meaningful connections
+- [collects-funko-pop-figures-has-complete-marvel-cinematic-universe-set](user/collects-funko-pop-figures-has-complete-marvel-cinematic-universe-set.md) — Collects Funko POP! figures; has complete Marvel Cinematic Universe set
+- [collects-posters-and-art-prints-owns-mondo-hogwarts-castle-harry-potter-poster](user/collects-posters-and-art-prints-owns-mondo-hogwarts-castle-harry-potter-poster.md) — Collects posters and art prints; owns Mondo Hogwarts castle Harry Potter poster
+- [collects-vintage-cameras-17-camera-collection-started-3-months-ago](user/collects-vintage-cameras-17-camera-collection-started-3-months-ago.md) — Collects vintage cameras; 17-camera collection started 3 months ago
+- [collects-vinyl-records-owns-rare-1978-pressing-of-fleetwood-mac-s-rumours](user/collects-vinyl-records-owns-rare-1978-pressing-of-fleetwood-mac-s-rumours.md) — Collects vinyl records; owns rare 1978 pressing of Fleetwood Mac's Rumours
+- [considering-laptop-ram-upgrade-from-8gb-to-16gb](user/considering-laptop-ram-upgrade-from-8gb-to-16gb.md) — Considering laptop RAM upgrade from 8GB to 16GB
+- [desktop-computer-old-imac-considering-replacement](user/desktop-computer-old-imac-considering-replacement.md) — Desktop computer: Old iMac, considering replacement
+- [easy-healthy-snacks-for-elderly-individuals](reference/easy-healthy-snacks-for-elderly-individuals.md) — Easy healthy snacks for elderly individuals
+- [enjoys-hiking-target-distance-5-7-miles](user/enjoys-hiking-target-distance-5-7-miles.md) — Enjoys hiking, target distance 5-7 miles
+- [file-transfer-methods-from-mac-to-windows-cloud-services-external-drives](reference/file-transfer-methods-from-mac-to-windows-cloud-services-external-drives.md) — File transfer methods from Mac to Windows: cloud services, external drives
+- [foods-and-supplements-for-elderly-cognitive-function](reference/foods-and-supplements-for-elderly-cognitive-function.md) — Foods and supplements for elderly cognitive function
+- [friend-sarah-turned-30-in-may-2023](user/friend-sarah-turned-30-in-may-2023.md) — Friend Sarah turned 30 in May 2023
+- [has-grandmother-supporting-her-cognitive-health-through-nutrition](user/has-grandmother-supporting-her-cognitive-health-through-nutrition.md) — Has grandmother; supporting her cognitive health through nutrition
+- [imac-vs-windows-pc-comparison-pros-and-cons-for-desktop-upgrade](reference/imac-vs-windows-pc-comparison-pros-and-cons-for-desktop-upgrade.md) — iMac vs Windows PC comparison: pros and cons for desktop upgrade
+- [laptop-battery-life-8-9-hours-achieved-after-battery-calibration](user/laptop-battery-life-8-9-hours-achieved-after-battery-calibration.md) — Laptop battery life: 8-9 hours achieved after battery calibration
+- [laptop-specs-8gb-ram-used-for-work-and-personal-tasks](user/laptop-specs-8gb-ram-used-for-work-and-personal-tasks.md) — Laptop specs: 8GB RAM, used for work and personal tasks
+- [plan-surprise-movie-night-birthday-party-for-sister-emma](project/plan-surprise-movie-night-birthday-party-for-sister-emma.md) — Plan surprise movie night birthday party for sister Emma
+- [property-appraisal-complexity-assessment-checklist-and-guidelines](project/property-appraisal-complexity-assessment-checklist-and-guidelines.md) — Property appraisal complexity assessment checklist and guidelines
+- [ram-power-consumption-8gb-uses-1-2w-16gb-uses-2-4w](reference/ram-power-consumption-8gb-uses-1-2w-16gb-uses-2-4w.md) — RAM power consumption: 8GB uses 1-2W, 16GB uses 2-4W
+- [sister-emma](user/sister-emma.md) — Sister Emma
+- [social-media-engagement-and-conversation-management-strategies](reference/social-media-engagement-and-conversation-management-strategies.md) — Social media engagement and conversation management strategies
+- [tips-for-making-healthy-foods-appealing-to-elderly-people](reference/tips-for-making-healthy-foods-appealing-to-elderly-people.md) — Tips for making healthy foods appealing to elderly people
+- [trail-finding-resources-alltrails-traillink-hiking-project](reference/trail-finding-resources-alltrails-traillink-hiking-project.md) — Trail finding resources: AllTrails, TrailLink, Hiking Project
+- [values-ethical-true-crime-narratives-that-center-victims-and-justice-not-exploit](user/values-ethical-true-crime-narratives-that-center-victims-and-justice-not-exploit.md) — Values ethical true crime narratives that center victims and justice, not exploitation
+- [watched-movie-with-sister-emma-over-lunch-on-2023-05-07](experience/watched-movie-with-sister-emma-over-lunch-on-2023-05-07.md) — Watched movie with sister Emma over lunch on 2023-05-07
+- [weather-apps-for-hiking-dark-sky-mountain-weather-forecast-opensnow-weather-unde](reference/weather-apps-for-hiking-dark-sky-mountain-weather-forecast-opensnow-weather-unde.md) — Weather apps for hiking: Dark Sky, Mountain Weather Forecast, OpenSnow, Weather Underground, NWS, AccuWeather

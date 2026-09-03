@@ -1,0 +1,20 @@
+# MEMORY.md
+
+- [bbq-sauce-balancing-tips-for-sweet-and-tangy-flavors](reference/bbq-sauce-balancing-tips-for-sweet-and-tangy-flavors.md) — BBQ sauce balancing tips for sweet and tangy flavors
+- [bike-cleaning-and-maintenance-product-recommendations](reference/bike-cleaning-and-maintenance-product-recommendations.md) — Bike cleaning and maintenance product recommendations
+- [cannondale-synapse-returned-with-flat-tire-on-2023-03-01](experience/cannondale-synapse-returned-with-flat-tire-on-2023-03-01.md) — Cannondale Synapse returned with flat tire on 2023-03-01
+- [father-successfully-made-bbq-sauce-with-smoked-paprika-during-family-camping-tri](user/father-successfully-made-bbq-sauce-with-smoked-paprika-during-family-camping-tri.md) — Father successfully made BBQ sauce with smoked paprika during family camping trip, April 2023; Mother makes homemade marshmallows
+- [interested-in-bbq-cooking-and-marinades-experimenting-with-flavor-balance](user/interested-in-bbq-cooking-and-marinades-experimenting-with-flavor-balance.md) — Interested in BBQ cooking and marinades, experimenting with flavor balance
+- [introverted-prefers-smaller-gatherings-and-own-company-interested-in-intentional](user/introverted-prefers-smaller-gatherings-and-own-company-interested-in-intentional.md) — Introverted, prefers smaller gatherings and own company, interested in intentional social connections
+- [korean-style-bbq-marinade-recipe-with-gochujang-base](reference/korean-style-bbq-marinade-recipe-with-gochujang-base.md) — Korean-style BBQ marinade recipe with gochujang base
+- [lent-cannondale-synapse-to-neighbor-rachel-from-2023-02-20-to-2023-03-01](experience/lent-cannondale-synapse-to-neighbor-rachel-from-2023-02-20-to-2023-03-01.md) — Lent Cannondale Synapse to neighbor Rachel from 2023-02-20 to 2023-03-01
+- [organizing-photos-from-beach-vacation-and-wildlife-outing-using-adobe-lightroom](project/organizing-photos-from-beach-vacation-and-wildlife-outing-using-adobe-lightroom.md) — Organizing photos from beach vacation and wildlife outing using Adobe Lightroom, May 2023
+- [owns-canon-eos-80d-camera-experiments-with-different-modes-and-settings](user/owns-canon-eos-80d-camera-experiments-with-different-modes-and-settings.md) — Owns Canon EOS 80D camera, experiments with different modes and settings
+- [owns-trek-fx-2-hybrid-bike-and-cannondale-synapse-road-bike](user/owns-trek-fx-2-hybrid-bike-and-cannondale-synapse-road-bike.md) — Owns Trek FX 2 hybrid bike and Cannondale Synapse road bike
+- [planning-to-buy-saris-bones-2-bike-trunk-rack-for-honda-civic](project/planning-to-buy-saris-bones-2-bike-trunk-rack-for-honda-civic.md) — Planning to buy Saris Bones 2-Bike Trunk Rack for Honda Civic
+- [prefers-adobe-ecosystem-for-software-comfortable-with-lightroom-for-photo-manage](user/prefers-adobe-ecosystem-for-software-comfortable-with-lightroom-for-photo-manage.md) — Prefers Adobe ecosystem for software, comfortable with Lightroom for photo management
+- [shoe-care-regular-cleaning-conditioning-waterproofing-shoe-trees](user/shoe-care-regular-cleaning-conditioning-waterproofing-shoe-trees.md) — Shoe care: regular cleaning, conditioning, waterproofing, shoe trees
+- [shoe-collection-converse-chuck-taylor-all-stars-adidas-superstars-brown-leather](user/shoe-collection-converse-chuck-taylor-all-stars-adidas-superstars-brown-leather.md) — Shoe collection: Converse Chuck Taylor All Stars, Adidas Superstars, brown leather boots
+- [shoe-organization-sort-by-type-first-then-by-color-within-each-type](user/shoe-organization-sort-by-type-first-then-by-color-within-each-type.md) — Shoe organization: sort by type first, then by color within each type
+- [street-photography-hobby-attends-workshops-practices-with-50mm-prime-lens](user/street-photography-hobby-attends-workshops-practices-with-50mm-prime-lens.md) — Street photography hobby: attends workshops, practices with 50mm prime lens
+- [trek-fx-2-tire-pressure-65-psi-for-rough-trail-riding](user/trek-fx-2-tire-pressure-65-psi-for-rough-trail-riding.md) — Trek FX 2 tire pressure: 65 PSI for rough trail riding

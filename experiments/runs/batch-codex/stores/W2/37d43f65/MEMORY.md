@@ -1,0 +1,34 @@
+# MEMORY.md
+
+- [affordable-gpu-alternatives-suggested-to-nvidia-geforce-rtx-3070](reference/affordable-gpu-alternatives-suggested-to-nvidia-geforce-rtx-3070.md) — Affordable GPU alternatives suggested to NVIDIA GeForce RTX 3070
+- [considering-a-compact-workstation-or-reading-nook-by-the-living-room-window](user/considering-a-compact-workstation-or-reading-nook-by-the-living-room-window.md) — Considering a compact workstation or reading nook by the living room window
+- [does-not-have-a-grill-as-of-2023-05-20](user/does-not-have-a-grill-as-of-2023-05-20.md) — Does not have a grill as of 2023-05-20
+- [green-card-interview-preparation-guidance-given-on-2023-05-20](reference/green-card-interview-preparation-guidance-given-on-2023-05-20.md) — Green card interview preparation guidance given on 2023-05-20
+- [green-card-interview-was-scheduled-for-2023-05-24](user/green-card-interview-was-scheduled-for-2023-05-24.md) — Green card interview was scheduled for 2023-05-24
+- [grill-pan-chicken-recipe-recommended-on-2023-05-20](reference/grill-pan-chicken-recipe-recommended-on-2023-05-20.md) — Grill-pan chicken recipe recommended on 2023-05-20
+- [had-been-married-to-husband-for-over-2-years-and-together-about-4-years-as-of-20](user/had-been-married-to-husband-for-over-2-years-and-together-about-4-years-as-of-20.md) — Had been married to husband for over 2 years and together about 4 years as of 2023-05-20
+- [had-not-watched-cable-tv-in-months-as-of-2023-05-20](user/had-not-watched-cable-tv-in-months-as-of-2023-05-20.md) — Had not watched cable TV in months as of 2023-05-20
+- [has-regular-gaming-sessions-with-someone-in-another-city-at-least-twice-a-week](user/has-regular-gaming-sessions-with-someone-in-another-city-at-least-twice-a-week.md) — Has regular gaming sessions with someone in another city at least twice a week
+- [interested-in-adding-low-maintenance-plants-to-the-living-room](user/interested-in-adding-low-maintenance-plants-to-the-living-room.md) — Interested in adding low-maintenance plants to the living room
+- [interested-in-using-google-calendar-and-zoom-to-coordinate-gaming-sessions](user/interested-in-using-google-calendar-and-zoom-to-coordinate-gaming-sessions.md) — Interested in using Google Calendar and Zoom to coordinate gaming sessions
+- [likes-ad-free-uninterrupted-viewing-and-binge-watching](user/likes-ad-free-uninterrupted-viewing-and-binge-watching.md) — Likes ad-free uninterrupted viewing and binge-watching
+- [likes-streaming-access-to-missed-and-cable-unavailable-content](user/likes-streaming-access-to-missed-and-cable-unavailable-content.md) — Likes streaming access to missed and cable-unavailable content
+- [likes-streaming-services-remembering-playback-position](user/likes-streaming-services-remembering-playback-position.md) — Likes streaming services remembering playback position
+- [likes-watching-shows-and-movies-on-a-phone-or-tablet-while-on-the-go](user/likes-watching-shows-and-movies-on-a-phone-or-tablet-while-on-the-go.md) — Likes watching shows and movies on a phone or tablet while on the go
+- [living-room-was-tidy-and-has-big-windows](user/living-room-was-tidy-and-has-big-windows.md) — Living room was tidy and has big windows
+- [owns-a-1tb-western-digital-portable-external-hard-drive-bought-at-best-buy-for-a](user/owns-a-1tb-western-digital-portable-external-hard-drive-bought-at-best-buy-for-a.md) — Owns a 1TB Western Digital portable external hard drive bought at Best Buy for around $50
+- [plans-to-try-making-grilled-chicken-in-a-grill-pan](project/plans-to-try-making-grilled-chicken-in-a-grill-pan.md) — Plans to try making grilled chicken in a grill pan
+- [prefers-streaming-services-for-variety-and-convenience](user/prefers-streaming-services-for-variety-and-convenience.md) — Prefers streaming services for variety and convenience
+- [prefers-whole-season-releases-over-waiting-a-week-between-episodes](user/prefers-whole-season-releases-over-waiting-a-week-between-episodes.md) — Prefers whole-season releases over waiting a week between episodes
+- [prepared-passport-birth-certificate-and-marriage-certificate-for-green-card-inte](user/prepared-passport-birth-certificate-and-marriage-certificate-for-green-card-inte.md) — Prepared passport, birth certificate, and marriage certificate for green card interview
+- [prior-guidance-for-using-a-24-inch-lg-4k-monitor](reference/prior-guidance-for-using-a-24-inch-lg-4k-monitor.md) — Prior guidance for using a 24-inch LG 4K monitor
+- [recommended-compact-living-room-workspace-and-decor-options](reference/recommended-compact-living-room-workspace-and-decor-options.md) — Recommended compact living-room workspace and decor options
+- [recommended-low-maintenance-plants-for-a-bright-living-room](reference/recommended-low-maintenance-plants-for-a-bright-living-room.md) — Recommended low-maintenance plants for a bright living room
+- [recommended-ways-to-evaluate-whether-an-employee-wellness-program-is-worth-inves](reference/recommended-ways-to-evaluate-whether-an-employee-wellness-program-is-worth-inves.md) — Recommended ways to evaluate whether an employee wellness program is worth investing in
+- [scientific-studies-and-doi-links-provided-for-the-big-five-personality-test](reference/scientific-studies-and-doi-links-provided-for-the-big-five-personality-test.md) — Scientific studies and DOI links provided for the Big Five Personality Test
+- [side-dishes-suggested-for-grill-pan-chicken-on-2023-05-20](reference/side-dishes-suggested-for-grill-pan-chicken-on-2023-05-20.md) — Side dishes suggested for grill-pan chicken on 2023-05-20
+- [submitted-green-card-application-about-6-months-before-the-2023-05-24-interview](user/submitted-green-card-application-about-6-months-before-the-2023-05-24-interview.md) — Submitted green card application about 6 months before the 2023-05-24 interview appointment
+- [upgraded-dell-inspiron-laptop-ram-to-16gb-and-battery-life-fell-from-6-7-hours-t](user/upgraded-dell-inspiron-laptop-ram-to-16gb-and-battery-life-fell-from-6-7-hours-t.md) — Upgraded Dell Inspiron laptop RAM to 16GB and battery life fell from 6-7 hours to 4-5 hours
+- [upgraded-desktop-to-a-24-inch-4k-monitor-from-lg](user/upgraded-desktop-to-a-24-inch-4k-monitor-from-lg.md) — Upgraded desktop to a 24-inch 4K monitor from LG
+- [uses-a-2018-dell-inspiron-15-5000-series-as-primary-work-laptop](user/uses-a-2018-dell-inspiron-15-5000-series-as-primary-work-laptop.md) — Uses a 2018 Dell Inspiron 15 5000 series as primary work laptop
+- [was-considering-a-desktop-gpu-upgrade-but-nvidia-geforce-rtx-3070-at-around-500](user/was-considering-a-desktop-gpu-upgrade-but-nvidia-geforce-rtx-3070-at-around-500.md) — Was considering a desktop GPU upgrade but NVIDIA GeForce RTX 3070 at around $500 was over budget

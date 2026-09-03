@@ -1,0 +1,25 @@
+# MEMORY.md
+
+- [11-us-high-school-learning-models-with-positive-keywords](reference/11-us-high-school-learning-models-with-positive-keywords.md) — 11 US high school learning models with positive keywords
+- [attended-bread-baking-workshop-at-local-culinary-school](experience/attended-bread-baking-workshop-at-local-culinary-school.md) — Attended bread-baking workshop at local culinary school
+- [attended-opening-reception-for-frida-kahlo-and-diego-rivera-exhibition-at-philad](experience/attended-opening-reception-for-frida-kahlo-and-diego-rivera-exhibition-at-philad.md) — Attended opening reception for 'Frida Kahlo and Diego Rivera' exhibition at Philadelphia Museum of Art
+- [broadway-style-musicals-and-theaters-in-paris](reference/broadway-style-musicals-and-theaters-in-paris.md) — Broadway-style musicals and theaters in Paris
+- [enjoys-broadway-style-musicals-and-theater-productions](user/enjoys-broadway-style-musicals-and-theater-productions.md) — Enjoys Broadway-style musicals and theater productions
+- [has-recommended-documentaries-to-3-friends-and-family-who-have-started-watching](user/has-recommended-documentaries-to-3-friends-and-family-who-have-started-watching.md) — Has recommended documentaries to 3+ friends and family who have started watching
+- [interested-in-french-wines-and-wine-bars](user/interested-in-french-wines-and-wine-bars.md) — Interested in French wines and wine bars
+- [interested-in-frida-kahlo-s-art-life-and-how-personal-suffering-influenced-her-a](user/interested-in-frida-kahlo-s-art-life-and-how-personal-suffering-influenced-her-a.md) — Interested in Frida Kahlo's art, life, and how personal suffering influenced her artistic vision
+- [interested-in-whole-grain-breads-and-sourdough-baking](user/interested-in-whole-grain-breads-and-sourdough-baking.md) — Interested in whole grain breads and sourdough baking
+- [interested-in-wwii-and-french-resistance-history](user/interested-in-wwii-and-french-resistance-history.md) — Interested in WWII and French Resistance history
+- [jacques-and-natasha-gelman-collection-major-private-collection-of-modern-mexican](reference/jacques-and-natasha-gelman-collection-major-private-collection-of-modern-mexican.md) — Jacques and Natasha Gelman Collection — major private collection of modern Mexican art featuring works by Frida Kahlo and Diego Rivera
+- [movie-viewing-list-from-may-2023-including-classics-indie-films-and-recent-relea](reference/movie-viewing-list-from-may-2023-including-classics-indie-films-and-recent-relea.md) — Movie viewing list from May 2023 including classics, indie films, and recent releases
+- [paris-museums-and-sites-related-to-french-resistance-and-wwii](reference/paris-museums-and-sites-related-to-french-resistance-and-wwii.md) — Paris museums and sites related to French Resistance and WWII
+- [prefers-sports-and-fitness-documentaries-especially-free-solo-and-the-game-chang](user/prefers-sports-and-fitness-documentaries-especially-free-solo-and-the-game-chang.md) — Prefers sports and fitness documentaries, especially Free Solo and The Game Changers
+- [prefers-traditional-french-restaurants-with-seasonal-ingredients-and-cozy-atmosp](user/prefers-traditional-french-restaurants-with-seasonal-ingredients-and-cozy-atmosp.md) — Prefers traditional French restaurants with seasonal ingredients and cozy atmospheres
+- [strongly-prefers-physical-books-over-digital-books-values-sensory-experience-and](user/strongly-prefers-physical-books-over-digital-books-values-sensory-experience-and.md) — Strongly prefers physical books over digital books; values sensory experience and disconnection from screens
+- [tracks-movie-watching-history-in-spreadsheets-with-detailed-columns](user/tracks-movie-watching-history-in-spreadsheets-with-detailed-columns.md) — Tracks movie watching history in spreadsheets with detailed columns
+- [traditional-french-restaurants-in-paris-with-seasonal-menus](reference/traditional-french-restaurants-in-paris-with-seasonal-menus.md) — Traditional French restaurants in Paris with seasonal menus
+- [watched-all-22-mcu-films-in-a-two-week-binge](experience/watched-all-22-mcu-films-in-a-two-week-binge.md) — Watched all 22 MCU films in a two-week binge
+- [watched-star-wars-marathonall-main-films-in-a-week-and-a-half](experience/watched-star-wars-marathonall-main-films-in-a-week-and-a-half.md) — Watched Star Wars marathon—all main films in a week and a half
+- [watching-game-of-thrones-completed-season-1-and-the-office-season-5-in-progress](experience/watching-game-of-thrones-completed-season-1-and-the-office-season-5-in-progress.md) — Watching Game of Thrones (completed season 1) and The Office (season 5 in progress) as of May 2023
+- [whole-grain-bread-recipes-to-try](reference/whole-grain-bread-recipes-to-try.md) — Whole grain bread recipes to try
+- [wine-bars-and-shops-in-paris-for-french-wine-exploration](reference/wine-bars-and-shops-in-paris-for-french-wine-exploration.md) — Wine bars and shops in Paris for French wine exploration

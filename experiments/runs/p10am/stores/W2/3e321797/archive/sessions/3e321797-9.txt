@@ -1,0 +1,40 @@
+## Session sharegpt_OzK1xD9_0 — 2023/05/21 (Sun) 07:28
+user: I run a new nanny service. Prior to me running this nanny service, Someone that I've hired in the past to nanny my own kids is asking to work for my new company.
+However, my kids didn't like her as a nanny and I've heard from other people that had hired her in the past that they wouldn't hire her again. 
+
+How can I politely and professionally tell her that I will not be hiring her for my new nanny service?
+assistant: Subject: Nanny Application Status Update
+
+Dear [Nanny's Name],
+
+I hope this message finds you well. Firstly, I would like to thank you for your interest in working with our new nanny service. We appreciate the time and effort you have taken to apply for a position with our company.
+
+After careful consideration, I have decided not to move forward with your application at this time. As a new business, we are focusing on building a team with a diverse range of skills, experiences, and backgrounds. While your previous experience as a nanny is certainly valuable, we believe that we need to explore other options that may better align with our current business objectives.
+
+Please understand that this decision was not made lightly, and I truly appreciate your interest in working with us. I wish you the best of luck in your future endeavors and hope that you will find a position that is a great fit for your skills and experience.
+
+Thank you once again for considering our company, and please do not hesitate to reach out if you have any questions or concerns.
+
+Warm regards,
+
+[Your Name]
+[Your Title]
+[Your Company Name]
+user: Can you re-write it to be slightly less formal?
+assistant: Subject: Update on Your Application
+
+Hi [Nanny's Name],
+
+I hope you're doing well! I wanted to reach out and let you know about the status of your application to join our nanny service. Thank you for your interest in working with us – we really appreciate it.
+
+After giving it some thought, we've decided not to move forward with your application right now. As we're building our team, we're looking for a mix of different skills, experiences, and backgrounds. Although you have nanny experience, we think it's best to explore other options that might be a better fit for our company at the moment.
+
+I want you to know that this wasn't an easy decision, and we're grateful for your interest in working with us. I hope you'll find a great opportunity that matches your skills and experience soon.
+
+If you have any questions or concerns, please don't hesitate to reach out. Best of luck in your future endeavors!
+
+Take care,
+
+[Your Name]
+[Your Title]
+[Your Company Name]

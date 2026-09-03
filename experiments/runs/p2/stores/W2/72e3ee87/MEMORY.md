@@ -1,0 +1,8 @@
+# MEMORY.md
+
+- [daily-routine-7-30-am-wake-11-30-pm-sleep-work-9-00-5-30-pm-with-1-hour-lunch-br](user/daily-routine-7-30-am-wake-11-30-pm-sleep-work-9-00-5-30-pm-with-1-hour-lunch-br.md) — Daily routine: 7:30 AM wake, 11:30 PM sleep, work 9:00-5:30 PM with 1-hour lunch break 12-1 PM
+- [inherited-three-family-heirlooms-grandmother-s-vintage-diamond-necklace-great-au](project/inherited-three-family-heirlooms-grandmother-s-vintage-diamond-necklace-great-au.md) — Inherited three family heirlooms: grandmother's vintage diamond necklace, great-aunt's antique music box, mother's depression-era glassware
+- [interested-in-korean-cuisine-and-fusion-cooking](user/interested-in-korean-cuisine-and-fusion-cooking.md) — Interested in Korean cuisine and fusion cooking
+- [learning-priorities-data-science-with-python-coursera-linear-algebra-spanish-lan](project/learning-priorities-data-science-with-python-coursera-linear-algebra-spanish-lan.md) — Learning priorities: Data Science with Python (Coursera), Linear Algebra, Spanish language, Adobe Photoshop/Illustrator
+- [reading-finished-sapiens-currently-reading-the-power-of-habit-planned-next-a-sho](user/reading-finished-sapiens-currently-reading-the-power-of-habit-planned-next-a-sho.md) — Reading: finished Sapiens, currently reading The Power of Habit, planned next: A Short History of Nearly Everything by Bill Bryson
+- [successfully-served-cucumber-gimlets-with-grilled-pineapple-garnish-at-bbq-guest](experience/successfully-served-cucumber-gimlets-with-grilled-pineapple-garnish-at-bbq-guest.md) — Successfully served Cucumber Gimlets with grilled pineapple garnish at BBQ — guests enjoyed

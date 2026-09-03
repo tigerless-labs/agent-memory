@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [70-200mm-telephoto-lens-for-nikon-d500](user/70-200mm-telephoto-lens-for-nikon-d500.md) — 70-200mm telephoto lens for Nikon D500
+- [add-bird-friendly-plants-and-flowers-to-yard](project/add-bird-friendly-plants-and-flowers-to-yard.md) — Add bird-friendly plants and flowers to yard
+- [apple-cider-mimosa-pairs-well-with-tarte-aux-pommes](reference/apple-cider-mimosa-pairs-well-with-tarte-aux-pommes.md) — Apple cider mimosa pairs well with Tarte aux Pommes
+- [attended-photography-workshop-downtown-2023-05-22](experience/attended-photography-workshop-downtown-2023-05-22.md) — Attended photography workshop downtown (2023-05-22)
+- [bird-feeder-with-squirrel-and-raccoon-visits](user/bird-feeder-with-squirrel-and-raccoon-visits.md) — Bird feeder with squirrel and raccoon visits
+- [compact-polarizing-filter-for-reducing-glare-and-enhancing-colors](user/compact-polarizing-filter-for-reducing-glare-and-enhancing-colors.md) — Compact polarizing filter for reducing glare and enhancing colors
+- [decided-to-purchase-nikon-mc-36a-multi-function-remote-cord-for-d500](project/decided-to-purchase-nikon-mc-36a-multi-function-remote-cord-for-d500.md) — Decided to purchase Nikon MC-36a Multi-Function Remote Cord for D500
+- [european-platforms-for-selling-small-businesses](reference/european-platforms-for-selling-small-businesses.md) — European platforms for selling small businesses
+- [flowers-that-attract-hummingbirds-trumpet-vine-honeysuckle-fuchsia-lantana-salvi](reference/flowers-that-attract-hummingbirds-trumpet-vine-honeysuckle-fuchsia-lantana-salvi.md) — Flowers that attract hummingbirds: trumpet vine, honeysuckle, fuchsia, lantana, salvias, bee balm, cardinal flower, coral bells, coneflower, black-eyed susan, zinnias
+- [interested-in-backyard-bird-watching-and-identification](user/interested-in-backyard-bird-watching-and-identification.md) — Interested in backyard bird watching and identification
+- [loves-apple-desserts-planning-to-make-tarte-aux-pommes](user/loves-apple-desserts-planning-to-make-tarte-aux-pommes.md) — Loves apple desserts; planning to make Tarte aux Pommes
+- [make-tarte-aux-pommes-with-apple-cider-mimosa](project/make-tarte-aux-pommes-with-apple-cider-mimosa.md) — Make Tarte aux Pommes with apple cider mimosa
+- [methods-to-deter-squirrels-and-raccoons-from-bird-feeders](reference/methods-to-deter-squirrels-and-raccoons-from-bird-feeders.md) — Methods to deter squirrels and raccoons from bird feeders
+- [nikon-d500-dslr-camera-for-photography](user/nikon-d500-dslr-camera-for-photography.md) — Nikon D500 DSLR camera for photography
+- [observed-ruby-throated-hummingbird-in-yard-second-sighting-may-22-2023](user/observed-ruby-throated-hummingbird-in-yard-second-sighting-may-22-2023.md) — Observed Ruby-throated Hummingbird in yard - second sighting, May 22, 2023
+- [ruby-throated-hummingbird-activity-patterns-and-call-characteristics](reference/ruby-throated-hummingbird-activity-patterns-and-call-characteristics.md) — Ruby-throated Hummingbird: activity patterns and call characteristics
+- [self-assessed-as-not-skilled-at-baking](user/self-assessed-as-not-skilled-at-baking.md) — Self-assessed as not skilled at baking
+- [spare-en-el15a-battery-for-nikon-d500](user/spare-en-el15a-battery-for-nikon-d500.md) — Spare EN-EL15a battery for Nikon D500
+- [tarte-aux-pommes-baking-techniques-and-apple-selection](reference/tarte-aux-pommes-baking-techniques-and-apple-selection.md) — Tarte aux Pommes baking techniques and apple selection
+- [traditional-normandy-desserts-tarte-aux-pommes-teurgouel-calvados-souffle](reference/traditional-normandy-desserts-tarte-aux-pommes-teurgouel-calvados-souffle.md) — Traditional Normandy desserts: Tarte aux Pommes, Teurgouel, Calvados Soufflé
+- [upgrade-to-squirrel-proof-bird-feeders](project/upgrade-to-squirrel-proof-bird-feeders.md) — Upgrade to squirrel-proof bird feeders
+- [us-platforms-for-selling-small-businesses](reference/us-platforms-for-selling-small-businesses.md) — US platforms for selling small businesses
+- [winter-bird-feeder-visitors-goldfinches-finches-sparrows-woodpeckers-jays-cardin](reference/winter-bird-feeder-visitors-goldfinches-finches-sparrows-woodpeckers-jays-cardin.md) — Winter bird feeder visitors: goldfinches, finches, sparrows, woodpeckers, jays, cardinals, chickadees
+- [winter-bird-friendly-plants-holly-cotoneaster-winterberry-holly-crabapple-pine-c](reference/winter-bird-friendly-plants-holly-cotoneaster-winterberry-holly-crabapple-pine-c.md) — Winter bird-friendly plants: holly, cotoneaster, winterberry holly, crabapple, pine, coneflower, sunflower

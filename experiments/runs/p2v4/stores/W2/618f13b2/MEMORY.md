@@ -1,0 +1,33 @@
+# MEMORY.md
+
+- [50mm-f-1-8-prime-lens-purchased-april-10-2023](user/50mm-f-1-8-prime-lens-purchased-april-10-2023.md) — 50mm f/1.8 prime lens purchased April 10, 2023
+- [attempted-joining-a-book-club-but-it-didn-t-work-out](experience/attempted-joining-a-book-club-but-it-didn-t-work-out.md) — Attempted joining a book club but it didn't work out
+- [beach-vacation-photo-project-being-organized-in-lightroom](project/beach-vacation-photo-project-being-organized-in-lightroom.md) — Beach vacation photo project being organized in Lightroom
+- [cannondale-synapse-road-bike-needs-flat-tire-repair](project/cannondale-synapse-road-bike-needs-flat-tire-repair.md) — Cannondale Synapse road bike needs flat tire repair
+- [coach-warranty-monogramming-and-gift-wrapping-services](reference/coach-warranty-monogramming-and-gift-wrapping-services.md) — Coach warranty, monogramming, and gift wrapping services
+- [companies-implementing-blockchain-and-iot-in-supply-chain](reference/companies-implementing-blockchain-and-iot-in-supply-chain.md) — Companies implementing blockchain and IoT in supply chain
+- [dad-s-bbq-sauce-with-smoked-paprika-was-successful-at-camping-trippork-sausages](project/dad-s-bbq-sauce-with-smoked-paprika-was-successful-at-camping-trippork-sausages.md) — Dad's BBQ sauce with smoked paprika was successful at camping trip—pork sausages were well-received
+- [daily-street-photography-practice-during-morning-commute-started-may-2023](user/daily-street-photography-practice-during-morning-commute-started-may-2023.md) — Daily street photography practice during morning commute, started May 2023
+- [interest-in-emerging-technologies-blockchain-and-iot-applications](user/interest-in-emerging-technologies-blockchain-and-iot-applications.md) — Interest in emerging technologies: blockchain and IoT applications
+- [interested-in-experimenting-with-bbq-recipes-and-grilling-techniques](user/interested-in-experimenting-with-bbq-recipes-and-grilling-techniques.md) — Interested in experimenting with BBQ recipes and grilling techniques
+- [introvert-who-prefers-their-own-company-and-finds-large-social-gatherings-draini](user/introvert-who-prefers-their-own-company-and-finds-large-social-gatherings-draini.md) — Introvert who prefers their own company and finds large social gatherings draining
+- [lightroom-develop-module-basic-editing-workflow-for-photo-adjustments](reference/lightroom-develop-module-basic-editing-workflow-for-photo-adjustments.md) — Lightroom Develop module basic editing workflow for photo adjustments
+- [lightroom-smart-collections-workflow-for-organizing-photos-by-date-range-and-loc](reference/lightroom-smart-collections-workflow-for-organizing-photos-by-date-range-and-loc.md) — Lightroom smart collections workflow for organizing photos by date range and location
+- [mom-makes-homemade-marshmallows](user/mom-makes-homemade-marshmallows.md) — Mom makes homemade marshmallows
+- [owns-trek-fx-2-hybrid-bike-cannondale-synapse-road-bike-and-honda-civic](user/owns-trek-fx-2-hybrid-bike-cannondale-synapse-road-bike-and-honda-civic.md) — Owns Trek FX 2 hybrid bike, Cannondale Synapse road bike, and Honda Civic
+- [photography-workshop-may-1-2-2023-on-street-photography-and-approaching-subjects](experience/photography-workshop-may-1-2-2023-on-street-photography-and-approaching-subjects.md) — Photography workshop May 1-2, 2023 on street photography and approaching subjects
+- [plans-to-host-game-nights-and-potluck-dinners-with-friends](project/plans-to-host-game-nights-and-potluck-dinners-with-friends.md) — Plans to host game nights and potluck dinners with friends
+- [prefers-65-psi-tire-pressure-on-trek-fx-2-for-trail-riding](user/prefers-65-psi-tire-pressure-on-trek-fx-2-for-trail-riding.md) — Prefers 65 PSI tire pressure on Trek FX 2 for trail riding
+- [prefers-adobe-lightroom-for-photo-management-and-editing](user/prefers-adobe-lightroom-for-photo-management-and-editing.md) — Prefers Adobe Lightroom for photo management and editing
+- [purchased-coach-handbag-at-tj-maxx-with-60-discount](experience/purchased-coach-handbag-at-tj-maxx-with-60-discount.md) — Purchased Coach handbag at TJ Maxx with 60% discount
+- [red-rock-canyon-sunset-photography-session-april-12-2023-captured-amazing-shots](experience/red-rock-canyon-sunset-photography-session-april-12-2023-captured-amazing-shots.md) — Red Rock Canyon sunset photography session April 12, 2023 - captured amazing shots
+- [risks-in-blockchain-and-iot-implementation](reference/risks-in-blockchain-and-iot-implementation.md) — Risks in blockchain and IoT implementation
+- [saris-bones-2-bike-trunk-rack-for-honda-civic](reference/saris-bones-2-bike-trunk-rack-for-honda-civic.md) — Saris Bones 2-Bike Trunk Rack for Honda Civic
+- [shoe-collection-and-care-preferences](user/shoe-collection-and-care-preferences.md) — Shoe collection and care preferences
+- [sister-s-birthday-gift-coach-parker-handbag-with-monogramming-and-gift-wrap](project/sister-s-birthday-gift-coach-parker-handbag-with-monogramming-and-gift-wrap.md) — Sister's birthday gift: Coach Parker handbag with monogramming and gift wrap
+- [street-photography-candid-portraits-approaching-subjects-building-rapport](user/street-photography-candid-portraits-approaching-subjects-building-rapport.md) — Street photography: candid portraits, approaching subjects, building rapport
+- [struggles-with-social-media-induced-fomo-and-disconnection-despite-heavy-use](user/struggles-with-social-media-induced-fomo-and-disconnection-despite-heavy-use.md) — Struggles with social media-induced FOMO and disconnection despite heavy use
+- [tory-burch-warranty-monogramming-and-gift-wrapping-services](reference/tory-burch-warranty-monogramming-and-gift-wrapping-services.md) — Tory Burch warranty, monogramming, and gift wrapping services
+- [uses-canon-eos-80d-camera](user/uses-canon-eos-80d-camera.md) — Uses Canon EOS 80D camera
+- [values-setting-intentions-before-social-meetups-to-create-meaningful-direction](user/values-setting-intentions-before-social-meetups-to-create-meaningful-direction.md) — Values setting intentions before social meetups to create meaningful direction
+- [wildlife-and-scenery-outing-with-200-photos-to-organize-in-lightroom](project/wildlife-and-scenery-outing-with-200-photos-to-organize-in-lightroom.md) — Wildlife and scenery outing with 200+ photos to organize in Lightroom

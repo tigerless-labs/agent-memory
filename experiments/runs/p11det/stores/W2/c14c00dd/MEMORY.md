@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [upcoming-trip-to-europe](project/upcoming-trip-to-europe.md) — Upcoming trip to Europe
+- [uses-lavender-scented-shampoo-from-trader-joe-s-for-hair-care](user/uses-lavender-scented-shampoo-from-trader-joe-s-for-hair-care.md) — Uses lavender-scented shampoo from Trader Joe's for hair care
+- [writing-lego-monkie-kid-fanfiction-mk-helps-macaque-reclaim-the-mountain-from-wu](project/writing-lego-monkie-kid-fanfiction-mk-helps-macaque-reclaim-the-mountain-from-wu.md) — Writing Lego Monkie Kid fanfiction: MK helps Macaque reclaim the mountain from Wukong's invasion
+- [guild-xyz-tokenized-community-platform-with-token-gating-and-cross-chain-support](reference/guild-xyz-tokenized-community-platform-with-token-gating-and-cross-chain-support.md) — Guild.xyz — tokenized community platform with token-gating and cross-chain support
+- [ai-powered-traffic-management-systems-singapore-its-melbourne-los-angeles-atsac](reference/ai-powered-traffic-management-systems-singapore-its-melbourne-los-angeles-atsac.md) — AI-powered traffic management systems: Singapore ITS, Melbourne, Los Angeles ATSAC
+- [developing-water-intake-habit-with-refillable-water-bottle-on-bathroom-counter](user/developing-water-intake-habit-with-refillable-water-bottle-on-bathroom-counter.md) — Developing water intake habit with refillable water bottle on bathroom counter
+- [does-not-have-a-large-earring-collection](user/does-not-have-a-large-earring-collection.md) — Does not have a large earring collection
+- [grandmother-s-antique-pearl-necklace](user/grandmother-s-antique-pearl-necklace.md) — Grandmother's antique pearl necklace
+- [has-experience-with-diy-home-repair-projects](user/has-experience-with-diy-home-repair-projects.md) — Has experience with DIY home repair projects
+- [hip-hop-showcase-performance-10-person-group-ariana-grande-song-public-event](project/hip-hop-showcase-performance-10-person-group-ariana-grande-song-public-event.md) — Hip hop showcase performance: 10-person group, Ariana Grande song, public event
+- [interested-in-ai-applications-for-sustainable-transportation-and-traffic-managem](user/interested-in-ai-applications-for-sustainable-transportation-and-traffic-managem.md) — Interested in AI applications for sustainable transportation and traffic management
+- [interested-in-dance-salsa-hip-hop-contemporary-classes](user/interested-in-dance-salsa-hip-hop-contemporary-classes.md) — Interested in dance: salsa, hip hop, contemporary classes
+- [interested-in-deep-sea-exploration-ocean-science-and-mariana-trench](user/interested-in-deep-sea-exploration-ocean-science-and-mariana-trench.md) — Interested in deep-sea exploration, ocean science, and Mariana Trench
+- [interested-in-digital-nomad-travel-destinations-and-post-pandemic-travel-plannin](user/interested-in-digital-nomad-travel-destinations-and-post-pandemic-travel-plannin.md) — Interested in digital nomad travel destinations and post-pandemic travel planning
+- [interested-in-habitica-app-for-gamifying-tasks-and-habits](user/interested-in-habitica-app-for-gamifying-tasks-and-habits.md) — Interested in Habitica app for gamifying tasks and habits
+- [interested-in-learning-about-hindu-worship-practices-and-religious-rituals](user/interested-in-learning-about-hindu-worship-practices-and-religious-rituals.md) — Interested in learning about Hindu worship practices and religious rituals
+- [laxmi-puja-rituals-and-their-significance-in-hindu-worship](reference/laxmi-puja-rituals-and-their-significance-in-hindu-worship.md) — Laxmi Puja rituals and their significance in Hindu worship
+- [mariana-trench-depth-and-exploration-facts](reference/mariana-trench-depth-and-exploration-facts.md) — Mariana Trench depth and exploration facts
+- [organizing-bathroom-cleaning-routine-with-schedule-and-app-tracking](project/organizing-bathroom-cleaning-routine-with-schedule-and-app-tracking.md) — Organizing bathroom cleaning routine with schedule and app tracking
+- [pearl-necklace-appraisal-from-february-2023](reference/pearl-necklace-appraisal-from-february-2023.md) — Pearl necklace appraisal from February 2023
+- [planning-to-fix-leaky-faucet-in-bathroom-as-diy-project](project/planning-to-fix-leaky-faucet-in-bathroom-as-diy-project.md) — Planning to fix leaky faucet in bathroom as DIY project
+- [recently-acquired-silver-cuff](user/recently-acquired-silver-cuff.md) — Recently acquired silver cuff
+- [researched-web3-community-management-platforms-guild-xyz-and-collab-land](experience/researched-web3-community-management-platforms-guild-xyz-and-collab-land.md) — Researched Web3 community management platforms: Guild.xyz and Collab.Land
+- [salsa-lessons-started-early-may-2023-3-weeks-in-working-on-cross-body-lead-step](user/salsa-lessons-started-early-may-2023-3-weeks-in-working-on-cross-body-lead-step.md) — Salsa lessons: started early May 2023, 3 weeks in, working on cross-body lead step
+- [wants-jewelry-organizers-with-universal-earring-slots](user/wants-jewelry-organizers-with-universal-earring-slots.md) — Wants jewelry organizers with universal earring slots

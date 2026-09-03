@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [audio-and-video-recording-tips-for-musical-instruments](reference/audio-and-video-recording-tips-for-musical-instruments.md) — Audio and video recording tips for musical instruments
+- [basil-plant-on-balcony-struggling-with-too-much-direct-sunlight](user/basil-plant-on-balcony-struggling-with-too-much-direct-sunlight.md) — Basil plant on balcony struggling with too much direct sunlight
+- [contemporary-fiction-novels-with-strong-female-protagonists-and-complex-relation](reference/contemporary-fiction-novels-with-strong-female-protagonists-and-complex-relation.md) — Contemporary fiction novels with strong female protagonists and complex relationships
+- [edtech-platforms-for-classroom-discussion-and-reflection](reference/edtech-platforms-for-classroom-discussion-and-reflection.md) — EdTech platforms for classroom discussion and reflection
+- [exploring-career-transition-considering-escalation-engineer-ii-aws-vs-computer-n](project/exploring-career-transition-considering-escalation-engineer-ii-aws-vs-computer-n.md) — Exploring career transition: considering Escalation Engineer II (AWS) vs Computer Network and Systems Engineer roles
+- [extensive-indoor-and-outdoor-plant-collection](user/extensive-indoor-and-outdoor-plant-collection.md) — Extensive indoor and outdoor plant collection
+- [fern-infested-with-tiny-moving-pests-treated-with-neem-oil](experience/fern-infested-with-tiny-moving-pests-treated-with-neem-oil.md) — Fern infested with tiny moving pests, treated with neem oil
+- [getting-back-into-graphic-novels-loves-saga-by-brian-k-vaughan-and-fiona-staples](user/getting-back-into-graphic-novels-loves-saga-by-brian-k-vaughan-and-fiona-staples.md) — Getting back into graphic novels, loves Saga by Brian K. Vaughan and Fiona Staples
+- [has-a-fern-that-is-misted-every-other-day-has-a-rose-bush](user/has-a-fern-that-is-misted-every-other-day-has-a-rose-bush.md) — Has a fern that is misted every other day; has a rose bush
+- [humidifier-recommendations-for-indoor-plants](reference/humidifier-recommendations-for-indoor-plants.md) — Humidifier recommendations for indoor plants
+- [interest-in-contemporary-art-and-emerging-artists](user/interest-in-contemporary-art-and-emerging-artists.md) — Interest in contemporary art and emerging artists
+- [interested-in-learning-music-programming-starting-with-sonic-pi](user/interested-in-learning-music-programming-starting-with-sonic-pi.md) — Interested in learning music programming, starting with Sonic Pi
+- [online-art-platforms-for-discovering-emerging-artists](reference/online-art-platforms-for-discovering-emerging-artists.md) — Online art platforms for discovering emerging artists
+- [owns-kala-ka-ce15s-ukulele](user/owns-kala-ka-ce15s-ukulele.md) — Owns Kala KA-CE15S ukulele
+- [peace-lily-care-guide-lighting-watering-humidity-temperature-fertilization-misti](reference/peace-lily-care-guide-lighting-watering-humidity-temperature-fertilization-misti.md) — Peace lily care guide: lighting, watering, humidity, temperature, fertilization, misting schedule
+- [perfecting-kimchi-recipe-reduce-salt-and-spice](project/perfecting-kimchi-recipe-reduce-salt-and-spice.md) — Perfecting kimchi recipe — reduce salt and spice
+- [programming-languages-for-music-production-and-synthesis](reference/programming-languages-for-music-production-and-synthesis.md) — Programming languages for music production and synthesis
+- [purchased-peace-lily-and-succulent-from-nursery-on-may-6-2023](user/purchased-peace-lily-and-succulent-from-nursery-on-may-6-2023.md) — Purchased peace lily and succulent from nursery on May 6, 2023
+- [reading-the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid-started-january](user/reading-the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid-started-january.md) — Reading 'The Seven Husbands of Evelyn Hugo' by Taylor Jenkins Reid, started January 29, 2023
+- [recommended-affordable-sustainable-fashion-brands-pact-h-m-conscious-everlane-pa](reference/recommended-affordable-sustainable-fashion-brands-pact-h-m-conscious-everlane-pa.md) — Recommended affordable sustainable fashion brands: Pact, H&M Conscious, Everlane, Patagonia, Levi's
+- [recommended-fertilizers-for-different-plant-types](reference/recommended-fertilizers-for-different-plant-types.md) — Recommended fertilizers for different plant types
+- [record-ukulele-videos-in-new-music-room](project/record-ukulele-videos-in-new-music-room.md) — Record ukulele videos in new music room
+- [rose-bush-pruning-strategy-deadheading-during-blooming-season-extensive-pruning](reference/rose-bush-pruning-strategy-deadheading-during-blooming-season-extensive-pruning.md) — Rose bush pruning strategy: deadheading during blooming season, extensive pruning after season ends
+- [sell-fender-deluxe-90-guitar-amp](project/sell-fender-deluxe-90-guitar-amp.md) — Sell Fender Deluxe 90 guitar amp
+- [sell-yamaha-psr-e263-keyboard](project/sell-yamaha-psr-e263-keyboard.md) — Sell Yamaha PSR-E263 keyboard
+- [setting-up-music-room-in-garage-with-soundproofing](project/setting-up-music-room-in-garage-with-soundproofing.md) — Setting up music room in garage with soundproofing
+- [snake-plant-received-from-sister-thriving-with-current-care-routine](user/snake-plant-received-from-sister-thriving-with-current-care-routine.md) — Snake plant received from sister, thriving with current care routine
+- [supports-sustainable-and-ethical-fashion-brands-interested-in-everlane-for-men-s](user/supports-sustainable-and-ethical-fashion-brands-interested-in-everlane-for-men-s.md) — Supports sustainable and ethical fashion brands; interested in Everlane for men's clothing
+- [uses-a-plant-tracking-app-to-manage-watering-schedules-and-fertilization-reminde](user/uses-a-plant-tracking-app-to-manage-watering-schedules-and-fertilization-reminde.md) — Uses a plant tracking app to manage watering schedules and fertilization reminders

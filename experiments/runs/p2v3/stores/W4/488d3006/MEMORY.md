@@ -1,0 +1,39 @@
+# MEMORY.md
+
+- [10-week-bot-trading-course-curriculum](reference/10-week-bot-trading-course-curriculum.md) — 10-week bot trading course curriculum
+- [6-step-data-organization-approach-for-unstructured-document-corpus](reference/6-step-data-organization-approach-for-unstructured-document-corpus.md) — 6-step data organization approach for unstructured document corpus
+- [artists-and-exhibitions-exploring-art-science-intersection-bioart-and-neuro-art](reference/artists-and-exhibitions-exploring-art-science-intersection-bioart-and-neuro-art.md) — Artists and exhibitions exploring art-science intersection, bioart, and neuro-art
+- [attended-austin-film-festival-in-april-2023-and-found-it-amazing](experience/attended-austin-film-festival-in-april-2023-and-found-it-amazing.md) — Attended Austin Film Festival in April 2023 and found it amazing
+- [attended-screenwriting-workshop-led-by-jim-uhls-at-austin-film-festival-found-it](experience/attended-screenwriting-workshop-led-by-jim-uhls-at-austin-film-festival-found-it.md) — Attended screenwriting workshop led by Jim Uhls at Austin Film Festival, found it insightful
+- [austin-film-production-resources-austin-film-commission-texas-film-commission-fi](reference/austin-film-production-resources-austin-film-commission-texas-film-commission-fi.md) — Austin film production resources: Austin Film Commission, Texas Film Commission, Film Austin, casting calls, production lists
+- [austin-food-truck-recommendations-veracruz-all-natural-frank-torchy-s-tacos-east](reference/austin-food-truck-recommendations-veracruz-all-natural-frank-torchy-s-tacos-east.md) — Austin food truck recommendations: Veracruz All Natural, Frank, Torchy's Tacos, East Side King, Chi'Lantro, Peached Tortilla, G'Raj Mahal, Lulu's Fried Chicken, Yume Burger, Good Seed
+- [austin-screenwriting-workshops-and-resources-austin-film-festival-writers-guild](reference/austin-screenwriting-workshops-and-resources-austin-film-festival-writers-guild.md) — Austin screenwriting workshops and resources: Austin Film Festival, Writers Guild, Austin Screenwriters Group, Screenplay Workshop, UT Moody College, Austin Film Society, SXSW
+- [bear-resistant-food-storage-containers-and-bags-recommendations](reference/bear-resistant-food-storage-containers-and-bags-recommendations.md) — Bear-resistant food storage containers and bags recommendations
+- [bitcoin-trading-bot-example-code-ccxt-library-python](reference/bitcoin-trading-bot-example-code-ccxt-library-python.md) — Bitcoin trading bot example code (CCXT library, Python)
+- [blue-cheese-chocolate-chip-cookies-recipesweet-savory-balance-with-blue-cheese-a](reference/blue-cheese-chocolate-chip-cookies-recipesweet-savory-balance-with-blue-cheese-a.md) — Blue Cheese Chocolate Chip Cookies recipe—sweet-savory balance with blue cheese and chocolate
+- [calendar-and-time-management-tools-recommended](reference/calendar-and-time-management-tools-recommended.md) — Calendar and time management tools recommended
+- [chicago-restaurant-recommendations-girl-the-goat-au-chavel-xoco-intelligentsia-c](reference/chicago-restaurant-recommendations-girl-the-goat-au-chavel-xoco-intelligentsia-c.md) — Chicago restaurant recommendations: Girl & the Goat, Au Chavel, Xoco, Intelligentsia Coffee, The Gage
+- [dinosaur-themed-art-and-natural-history-exhibitions-and-resources](reference/dinosaur-themed-art-and-natural-history-exhibitions-and-resources.md) — Dinosaur-themed art and natural history exhibitions and resources
+- [document-corpus-90-000-100-000-documents-15-pages-each-on-international-crime-te](project/document-corpus-90-000-100-000-documents-15-pages-each-on-international-crime-te.md) — Document corpus: 90,000-100,000 documents (1–5 pages each) on international crime, terrorism, and politics with minimal structured data
+- [gr-90-hiking-trail-in-moncayo-natural-park-aragon](reference/gr-90-hiking-trail-in-moncayo-natural-park-aragon.md) — GR-90 hiking trail in Moncayo Natural Park Aragón
+- [hiking-boot-recommendations-for-desert-terrain](reference/hiking-boot-recommendations-for-desert-terrain.md) — Hiking boot recommendations for desert terrain
+- [interest-in-camping-and-outdoor-cooking-with-portable-stove](user/interest-in-camping-and-outdoor-cooking-with-portable-stove.md) — Interest in camping and outdoor cooking with portable stove
+- [interest-in-vintage-and-thrift-shopping-especially-for-finding-vinyl-records](user/interest-in-vintage-and-thrift-shopping-especially-for-finding-vinyl-records.md) — Interest in vintage and thrift shopping, especially for finding vinyl records
+- [interest-in-visiting-zion-national-park-for-hiking](user/interest-in-visiting-zion-national-park-for-hiking.md) — Interest in visiting Zion National Park for hiking
+- [interested-in-art-science-intersection-and-bioart](user/interested-in-art-science-intersection-and-bioart.md) — Interested in art-science intersection and bioart
+- [interested-in-learning-abstract-art-and-printmaking](user/interested-in-learning-abstract-art-and-printmaking.md) — Interested in learning abstract art and printmaking
+- [interested-in-learning-bot-trading](user/interested-in-learning-bot-trading.md) — Interested in learning bot trading
+- [interested-in-screenwriting-and-filmmaking](user/interested-in-screenwriting-and-filmmaking.md) — Interested in screenwriting and filmmaking
+- [interested-in-visiting-moncayo-mountain-in-aragon](user/interested-in-visiting-moncayo-mountain-in-aragon.md) — Interested in visiting Moncayo mountain in Aragón
+- [merrell-moab-2-mid-waterproof-hiking-boots-recommendation](reference/merrell-moab-2-mid-waterproof-hiking-boots-recommendation.md) — Merrell Moab 2 Mid Waterproof hiking boots recommendation
+- [notable-museums-and-galleries-featuring-abstract-art-and-printmaking](reference/notable-museums-and-galleries-featuring-abstract-art-and-printmaking.md) — Notable museums and galleries featuring abstract art and printmaking
+- [online-resources-for-learning-abstract-art-and-printmaking](reference/online-resources-for-learning-abstract-art-and-printmaking.md) — Online resources for learning abstract art and printmaking
+- [planning-to-attend-a-film-festival-in-chicago](project/planning-to-attend-a-film-festival-in-chicago.md) — Planning to attend a film festival in Chicago
+- [planning-weekend-trip-to-pittsburgh-2-3-days](project/planning-weekend-trip-to-pittsburgh-2-3-days.md) — Planning weekend trip to Pittsburgh (2-3 days)
+- [pollock-krasner-foundation-grant-for-artists](reference/pollock-krasner-foundation-grant-for-artists.md) — Pollock-Krasner Foundation grant for artists
+- [prefers-budget-friendly-flexible-weekend-getaways-during-off-peak-seasons](user/prefers-budget-friendly-flexible-weekend-getaways-during-off-peak-seasons.md) — Prefers budget-friendly, flexible weekend getaways during off-peak seasons
+- [prefers-renting-rural-cottages-for-accommodation](user/prefers-renting-rural-cottages-for-accommodation.md) — Prefers renting rural cottages for accommodation
+- [rainey-street-austin-breakfast-spots-banger-s-craft-pride-container-bar-lustre-p](reference/rainey-street-austin-breakfast-spots-banger-s-craft-pride-container-bar-lustre-p.md) — Rainey Street Austin breakfast spots: Banger's, Craft Pride, Container Bar, Lustre Pearl, Emmer & Rye, Café José
+- [rainey-street-austin-coffee-shops-cuvee-coffee-once-over-coffee-bar-veracruz-all](reference/rainey-street-austin-coffee-shops-cuvee-coffee-once-over-coffee-bar-veracruz-all.md) — Rainey Street Austin coffee shops: Cuvee Coffee, Once Over Coffee Bar, Veracruz All Natural Coffee, Café No Sé, The Brew & Brew
+- [recently-visited-boston](experience/recently-visited-boston.md) — Recently visited Boston
+- [recommended-online-art-supply-marketplaces-and-stores](reference/recommended-online-art-supply-marketplaces-and-stores.md) — Recommended online art supply marketplaces and stores

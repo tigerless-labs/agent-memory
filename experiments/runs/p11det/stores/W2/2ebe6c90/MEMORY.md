@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [currently-reading-the-song-of-achilles-by-madeline-miller-about-halfway-through](project/currently-reading-the-song-of-achilles-by-madeline-miller-about-halfway-through.md) — Currently reading 'The Song of Achilles' by Madeline Miller, about halfway through as of 2023-01-31, goal to finish by end of January 2023
+- [finished-reading-the-nightingale-by-kristin-hannah-on-2023-01-31](experience/finished-reading-the-nightingale-by-kristin-hannah-on-2023-01-31.md) — Finished reading 'The Nightingale' by Kristin Hannah on 2023-01-31
+- [oil-change-overdue-by-1000-miles-schedule-mechanic-appointment](project/oil-change-overdue-by-1000-miles-schedule-mechanic-appointment.md) — Oil change overdue by 1000 miles, schedule mechanic appointment
+- [reading-interests-historical-fiction-mythology-retellings-strong-female-leads-fe](user/reading-interests-historical-fiction-mythology-retellings-strong-female-leads-fe.md) — Reading interests: historical fiction, mythology retellings, strong female leads, feminist themes, and non-Western cultures
+- [10-day-rv-road-trip-from-california-to-yellowstone-national-park](experience/10-day-rv-road-trip-from-california-to-yellowstone-national-park.md) — 10-day RV road trip from California to Yellowstone National Park
+- [amazon-detailing-spray-for-20-dollars-effective-for-removing-tar-and-bug-stains](reference/amazon-detailing-spray-for-20-dollars-effective-for-removing-tar-and-bug-stains.md) — Amazon detailing spray for 20 dollars: effective for removing tar and bug stains
+- [car-fuel-efficiency-28-mpg-in-city-down-from-30-mpg](user/car-fuel-efficiency-28-mpg-in-city-down-from-30-mpg.md) — Car fuel efficiency: 28 mpg in city (down from 30 mpg)
+- [car-interior-cleaning-tips-center-console-and-new-floor-mats](reference/car-interior-cleaning-tips-center-console-and-new-floor-mats.md) — Car interior cleaning tips: center console and new floor mats
+- [car-wax-recommendations-meguiar-s-gold-class-chemical-guys-turtle-wax-p21s-conco](reference/car-wax-recommendations-meguiar-s-gold-class-chemical-guys-turtle-wax-p21s-conco.md) — Car wax recommendations: Meguiar's Gold Class, Chemical Guys, Turtle Wax, P21S Concours
+- [costa-rica-eco-lodges-and-sustainable-tourism-operators](reference/costa-rica-eco-lodges-and-sustainable-tourism-operators.md) — Costa Rica eco-lodges and sustainable tourism operators
+- [deeply-committed-to-addressing-healthcare-inequalities-globally](user/deeply-committed-to-addressing-healthcare-inequalities-globally.md) — Deeply committed to addressing healthcare inequalities globally
+- [does-live-streams-at-least-once-a-week-across-multiple-platforms](user/does-live-streams-at-least-once-a-week-across-multiple-platforms.md) — Does live streams at least once a week across multiple platforms
+- [interested-in-drunk-elephant-skincare-products](user/interested-in-drunk-elephant-skincare-products.md) — Interested in Drunk Elephant skincare products
+- [interested-in-shopping-for-shoes-and-levi-s-jeans](user/interested-in-shopping-for-shoes-and-levi-s-jeans.md) — Interested in shopping for shoes and Levi's jeans
+- [interested-in-trying-yoga-but-concerned-about-performance-anxiety-and-pacing](user/interested-in-trying-yoga-but-concerned-about-performance-anxiety-and-pacing.md) — Interested in trying yoga but concerned about performance anxiety and pacing
+- [loves-urban-decay-naked-heat-eyeshadow-palette](user/loves-urban-decay-naked-heat-eyeshadow-palette.md) — Loves Urban Decay Naked Heat eyeshadow palette
+- [normal-to-combination-skin-type](user/normal-to-combination-skin-type.md) — Normal to combination skin type
+- [plan-costa-rica-vacation-for-august-2023-focusing-on-tortuguero-national-park-ec](project/plan-costa-rica-vacation-for-august-2023-focusing-on-tortuguero-national-park-ec.md) — Plan Costa Rica vacation for August 2023, focusing on Tortuguero National Park eco-lodge stay
+- [planning-a-future-family-trip-to-yellowstone-national-park-with-family-of-five](project/planning-a-future-family-trip-to-yellowstone-national-park-with-family-of-five.md) — Planning a future family trip to Yellowstone National Park with family of five
+- [planning-to-create-live-makeup-tutorial-on-youtube](project/planning-to-create-live-makeup-tutorial-on-youtube.md) — Planning to create live makeup tutorial on YouTube
+- [platform-specific-live-streaming-strategies](reference/platform-specific-live-streaming-strategies.md) — Platform-specific live streaming strategies
+- [prefers-eco-lodges-and-sustainable-tourism-operators-that-prioritize-environment](user/prefers-eco-lodges-and-sustainable-tourism-operators-that-prioritize-environment.md) — Prefers eco-lodges and sustainable tourism operators that prioritize environmental conservation and community engagement
+- [recently-ordered-custom-planner-from-etsy-interested-in-erin-condren-lifeplanner](user/recently-ordered-custom-planner-from-etsy-interested-in-erin-condren-lifeplanner.md) — Recently ordered custom planner from Etsy, interested in Erin Condren LifePlanner
+- [sean-downie-learning-designer-resume-with-rmit-and-jobs-victoria-experience](reference/sean-downie-learning-designer-resume-with-rmit-and-jobs-victoria-experience.md) — Sean Downie Learning Designer resume with RMIT and Jobs Victoria experience
+- [waterproof-car-cover-purchased-for-120-dollars-effective-at-reducing-dust-and-di](user/waterproof-car-cover-purchased-for-120-dollars-effective-at-reducing-dust-and-di.md) — Waterproof car cover purchased for 120 dollars, effective at reducing dust and dirt

@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [20-gallon-aquarium-setup-with-community-fish-and-live-plants](project/20-gallon-aquarium-setup-with-community-fish-and-live-plants.md) — 20-gallon aquarium setup with community fish and live plants
+- [anytime-fitness-10-contextual-nudges-table-with-specific-implementations-for-eac](reference/anytime-fitness-10-contextual-nudges-table-with-specific-implementations-for-eac.md) — Anytime Fitness 10 contextual nudges table with specific implementations for each member segment and BCT mapping
+- [anytime-fitness-member-engagement-10-contextual-nudges-across-5-member-segments](project/anytime-fitness-member-engagement-10-contextual-nudges-across-5-member-segments.md) — Anytime Fitness member engagement: 10 contextual nudges across 5 member segments with behavior change technique mapping
+- [build-jira-servicenow-ticket-sync-software](project/build-jira-servicenow-ticket-sync-software.md) — Build Jira-ServiceNow ticket sync software
+- [canny-edge-detector-python-opencv-implementation-with-gaussian-blur-gradient-sup](reference/canny-edge-detector-python-opencv-implementation-with-gaussian-blur-gradient-sup.md) — Canny edge detector: Python OpenCV implementation with Gaussian blur, gradient, suppression, and hysteresis
+- [collects-comic-books-and-interested-in-professional-grading](user/collects-comic-books-and-interested-in-professional-grading.md) — Collects comic books and interested in professional grading
+- [collects-rare-and-valuable-items-across-multiple-categories](user/collects-rare-and-valuable-items-across-multiple-categories.md) — Collects rare and valuable items across multiple categories
+- [completed-5-day-yellowstone-road-trip-in-april-2023-drove-2-400-miles-with-famil](experience/completed-5-day-yellowstone-road-trip-in-april-2023-drove-2-400-miles-with-famil.md) — Completed 5-day Yellowstone road trip in April 2023, drove 2,400 miles with family in Honda Pilot
+- [currently-housed-by-catholic-charities-in-queens-needs-to-find-own-place](user/currently-housed-by-catholic-charities-in-queens-needs-to-find-own-place.md) — Currently housed by Catholic Charities in Queens, needs to find own place
+- [dining-and-scenic-recommendations-for-san-francisco-to-grand-canyon-road-trip](reference/dining-and-scenic-recommendations-for-san-francisco-to-grand-canyon-road-trip.md) — Dining and scenic recommendations for San Francisco to Grand Canyon road trip
+- [engaged-in-twitter-debate-about-spider-man-no-way-home-s-multiverse-handling](experience/engaged-in-twitter-debate-about-spider-man-no-way-home-s-multiverse-handling.md) — Engaged in Twitter debate about Spider-Man: No Way Home's multiverse handling
+- [family-owns-honda-pilot](user/family-owns-honda-pilot.md) — Family owns Honda Pilot
+- [favorite-album-ok-computer-by-radiohead-creates-diverse-road-trip-playlists](user/favorite-album-ok-computer-by-radiohead-creates-diverse-road-trip-playlists.md) — Favorite album OK Computer by Radiohead; creates diverse road trip playlists
+- [fled-somalia-immigrated-to-us-arrived-few-weeks-before-may-2023](user/fled-somalia-immigrated-to-us-arrived-few-weeks-before-may-2023.md) — Fled Somalia, immigrated to US, arrived few weeks before May 2023
+- [has-chronic-back-pain-manages-with-dr-ahmed](user/has-chronic-back-pain-manages-with-dr-ahmed.md) — Has chronic back pain, manages with Dr. Ahmed
+- [interest-in-confucianism-and-its-influence-on-east-asian-education-systems](user/interest-in-confucianism-and-its-influence-on-east-asian-education-systems.md) — Interest in Confucianism and its influence on East Asian education systems
+- [interested-in-increasing-potassium-intake-through-diet](user/interested-in-increasing-potassium-intake-through-diet.md) — Interested in increasing potassium intake through diet
+- [jira-servicenow-sync-recommended-architecture-and-modules](reference/jira-servicenow-sync-recommended-architecture-and-modules.md) — Jira-ServiceNow sync: recommended architecture and modules
+- [job-search-in-queens-food-handler-janitor-open-to-other-paths](project/job-search-in-queens-food-handler-janitor-open-to-other-paths.md) — Job search in Queens: food handler, janitor, open to other paths
+- [laptop-battery-degrading-considering-replacement-as-likely-culprit-for-poor-batt](experience/laptop-battery-degrading-considering-replacement-as-likely-culprit-for-poor-batt.md) — Laptop battery degrading; considering replacement as likely culprit for poor battery life
+- [owns-grandfather-s-vintage-guitar-amplifier](user/owns-grandfather-s-vintage-guitar-amplifier.md) — Owns grandfather's vintage guitar amplifier
+- [owns-grandmother-s-antique-diamond-necklace-from-1920s](user/owns-grandmother-s-antique-diamond-necklace-from-1920s.md) — Owns grandmother's antique diamond necklace from 1920s
+- [owns-rare-1913-liberty-head-nickel](user/owns-rare-1913-liberty-head-nickel.md) — Owns rare 1913 Liberty Head nickel
+- [owns-rare-vinyl-record-by-electric-storm](user/owns-rare-vinyl-record-by-electric-storm.md) — Owns rare vinyl record by Electric Storm
+- [owns-toyota-corolla-values-fuel-efficiency](user/owns-toyota-corolla-values-fuel-efficiency.md) — Owns Toyota Corolla, values fuel efficiency
+- [owns-western-digital-2tb-external-hard-drive-backed-up-files-photos-videos](user/owns-western-digital-2tb-external-hard-drive-backed-up-files-photos-videos.md) — Owns Western Digital 2TB external hard drive; backed up files, photos, videos
+- [prefers-manual-watering-for-plants-over-automated-systems](user/prefers-manual-watering-for-plants-over-automated-systems.md) — Prefers manual watering for plants over automated systems
+- [prefers-sleek-low-profile-couch-design-considering-west-elm-harmony-sofa](user/prefers-sleek-low-profile-couch-design-considering-west-elm-harmony-sofa.md) — Prefers sleek, low-profile couch design; considering West Elm Harmony Sofa
+- [prioritizes-archival-quality-storage-and-preservation-of-collectibles](user/prioritizes-archival-quality-storage-and-preservation-of-collectibles.md) — Prioritizes archival-quality storage and preservation of collectibles
+- [queens-job-search-and-settlement-resources-for-new-immigrants](reference/queens-job-search-and-settlement-resources-for-new-immigrants.md) — Queens job search and settlement resources for new immigrants
+- [road-trip-to-grand-canyon-planned-for-june-2023-with-friends-from-san-francisco](project/road-trip-to-grand-canyon-planned-for-june-2023-with-friends-from-san-francisco.md) — Road trip to Grand Canyon planned for June 2023 with friends from San Francisco in Ford F-150
+- [struggles-with-home-clutter-and-disorganization-desk-coffee-table-dishes](user/struggles-with-home-clutter-and-disorganization-desk-coffee-table-dishes.md) — Struggles with home clutter and disorganization (desk, coffee table, dishes)
+- [subscribed-to-disney](user/subscribed-to-disney.md) — Subscribed to Disney+
+- [successfully-sold-rare-galactic-heroes-figurine-from-childhood-to-collector-for](experience/successfully-sold-rare-galactic-heroes-figurine-from-childhood-to-collector-for.md) — Successfully sold rare Galactic Heroes figurine from childhood to collector for profit
+- [sweet-potato-and-black-bean-chili-recipe-potassium-rich](reference/sweet-potato-and-black-bean-chili-recipe-potassium-rich.md) — Sweet potato and black bean chili recipe (potassium-rich)
+- [trash-and-recycling-frequently-pile-up-to-point-of-odor](user/trash-and-recycling-frequently-pile-up-to-point-of-odor.md) — Trash and recycling frequently pile up to point of odor
+- [upgraded-to-500-mbps-internet-speed-uses-for-netflix-streaming](user/upgraded-to-500-mbps-internet-speed-uses-for-netflix-streaming.md) — Upgraded to 500 Mbps internet speed; uses for Netflix streaming
+- [views-consistency-authenticity-and-genuine-interest-as-keys-to-meaningful-social](user/views-consistency-authenticity-and-genuine-interest-as-keys-to-meaningful-social.md) — Views consistency, authenticity, and genuine interest as keys to meaningful social media relationships

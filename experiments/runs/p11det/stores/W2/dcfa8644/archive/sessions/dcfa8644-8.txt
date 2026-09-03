@@ -1,0 +1,130 @@
+## Session sharegpt_hUAh1Tu_0 — 2023/02/03 (Fri) 04:16
+user: Write a will for Rosalynn McClenagan (birthday 11/20/1939 in Gruver, Texas (Hansford County) who has 3 living children, an annuity, a home worth 120,000 that is paid for, 1/3 of a section of farmland and a life insurance policy and a car worth 11,000. Divide it evenly among the three children. Make accommodations for household items, keepsakes, photo albums and any pets that may be in her care at the time of her passing.
+assistant: Last Will and Testament of Rosalynn McClenagan
+
+I, Rosalynn McClenagan, being of sound mind and disposing memory, do hereby declare this to be my Last Will and Testament.
+
+I appoint my eldest child, Jane Doe, as the Executor of my estate. In the event that Jane Doe is unable or unwilling to serve, I appoint my second eldest child, John Doe, as the alternate Executor.
+
+I give, devise, and bequeath all of my property, both real and personal, as follows:
+
+1. To my three children, Jane Doe, John Doe, and Mary Smith, I give, devise, and bequeath all of my estate, including but not limited to the following:
+* My annuity
+* My home located at [insert address], which is currently valued at approximately $120,000 and is paid for
+* One-third (1/3) of my section of farmland
+* My life insurance policy
+* My car, which is currently valued at approximately $11,000
+
+It is my wish that my estate be divided equally among my three children.
+
+2. I make the following specific bequests:
+* I give all of my household items, including but not limited to furniture, appliances, and other personal property, to be divided equally among my three children.
+* I give all of my keepsakes, including but not limited to jewelry, heirlooms, and personal effects, to be divided equally among my three children.
+* I give all of my photo albums and any other personal photographs to be divided equally among my three children.
+* In the event that I have any pets at the time of my passing, I direct that they be given to my children in the following order of priority: Jane Doe, John Doe, and Mary Smith. If none of my children are able or willing to care for my pets, then I direct that they be given to a reputable animal rescue organization or shelter.
+
+I hereby revoke all prior Wills and Codicils.
+
+In witness whereof, I have hereunto set my hand this [insert date] day of [insert month], [insert year].
+
+[Signature of Rosalynn McClenagan]
+
+Signed, published, and declared by Rosalynn McClenagan, as and for her Last Will and Testament, in the presence of us, who, at her request, in her presence, and in the presence of each other, have hereunto subscribed our names as witnesses.
+
+[Signature of Witness 1]
+
+[Address of Witness 1]
+
+[Signature of Witness 2]
+
+[Address of Witness 2]
+user: rewrite with son's names: Warren (1/20/64), Brian (2/12/64 and Benjamen (4/26/74)
+assistant: Last Will and Testament of Rosalynn McClenagan
+
+I, Rosalynn McClenagan, being of sound mind and disposing memory, do hereby declare this to be my Last Will and Testament.
+
+I appoint my eldest son, Warren McClenagan, as the Executor of my estate. In the event that Warren McClenagan is unable or unwilling to serve, I appoint my second eldest son, Brian McClenagan, as the alternate Executor.
+
+I give, devise, and bequeath all of my property, both real and personal, as follows:
+
+1. To my three sons, Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, I give, devise, and bequeath all of my estate, including but not limited to the following:
+* My annuity
+* My home located at [insert address], which is currently valued at approximately $120,000 and is paid for
+* One-third (1/3) of my section of farmland
+* My life insurance policy
+* My car, which is currently valued at approximately $11,000
+
+It is my wish that my estate be divided equally among my three sons.
+
+2. I make the following specific bequests:
+* I give all of my household items, including but not limited to furniture, appliances, and other personal property, to be divided equally among my three sons.
+* I give all of my keepsakes, including but not limited to jewelry, heirlooms, and personal effects, to be divided equally among my three sons.
+* I give all of my photo albums and any other personal photographs to be divided equally among my three sons.
+* In the event that I have any pets at the time of my passing, I direct that they be given to my sons in the following order of priority: Warren McClenagan, Brian McClenagan, and Benjamen McClenagan. If none of my sons are able or willing to care for my pets, then I direct that they be given to a reputable animal rescue organization or shelter.
+
+I hereby revoke all prior Wills and Codicils.
+
+In witness whereof, I have hereunto set my hand this [insert date] day of [insert month], [insert year].
+
+[Signature of Rosalynn McClenagan]
+
+Signed, published, and declared by Rosalynn McClenagan, as and for her Last Will and Testament, in the presence of us, who, at her request, in her presence, and in the presence of each other, have hereunto subscribed our names as witnesses.
+
+[Signature of Witness 1]
+
+[Address of Witness 1]
+
+[Signature of Witness 2]
+
+[Address of Witness 2]
+user: change "1/3 of my section of farmland" to indicate that she owns 1/3 of a section of the Ayres farmland.
+assistant: I give, devise, and bequeath one-third (1/3) of the Ayres farmland, which I own, to my three sons, Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, to be divided equally among them.
+user: integrate that into the full will.
+assistant: Last Will and Testament of Rosalynn McClenagan
+
+I, Rosalynn McClenagan, being of sound mind and disposing memory, do hereby declare this to be my Last Will and Testament.
+
+I appoint my eldest son, Warren McClenagan, as the Executor of my estate. In the event that Warren McClenagan is unable or unwilling to serve, I appoint my second eldest son, Brian McClenagan, as the alternate Executor.
+
+I give, devise, and bequeath all of my property, both real and personal, as follows:
+
+1. To my three sons, Warren McClenagan, Brian McClenagan, and Benjamen McClenagan, I give, devise, and bequeath all of my estate, including but not limited to the following:
+* My annuity
+* My home located at [insert address], which is currently valued at approximately $120,000 and is paid for
+* One-third (1/3) of the Ayres farmland, which I own
+* My life insurance policy
+* My car, which is currently valued at approximately $11,000
+
+It is my wish that my estate be divided equally among my three sons.
+
+2. I make the following specific bequests:
+* I give all of my household items, including but not limited to furniture, appliances, and other personal property, to be divided equally among my three sons.
+* I give all of my keepsakes, including but not limited to jewelry, heirlooms, and personal effects, to be divided equally among my three sons.
+* I give all of my photo albums and any other personal photographs to be divided equally among my three sons.
+* In the event that I have any pets at the time of my passing, I direct that they be given to my sons in the following order of priority: Warren McClenagan, Brian McClenagan, and Benjamen McClenagan. If none of my sons are able or willing to care for my pets, then I direct that they be given to a reputable animal rescue organization or shelter.
+
+I hereby revoke all prior Wills and Codicils.
+
+In witness whereof, I have hereunto set my hand this [insert date] day of [insert month], [insert year].
+
+[Signature of Rosalynn McClenagan]
+
+Signed, published, and declared by Rosalynn McClenagan, as and for her Last Will and Testament, in the presence of us, who, at her request, in her presence, and in the presence of each other, have hereunto subscribed our names as witnesses.
+
+[Signature of Witness 1]
+
+[Address of Witness 1]
+
+[Signature of Witness 2]
+
+[Address of Witness 2]
+user: change her home address to 305 Chase Ave, Gruver, TX
+assistant: I give, devise, and bequeath all of my estate, including but not limited to the following:
+
+* My annuity
+* My home located at 305 Chase Ave, Gruver, TX, which is currently valued at approximately $120,000 and is paid for
+* One-third (1/3) of the Ayres farmland, which I own
+* My life insurance policy
+* My car, which is currently valued at approximately $11,000
+
+It is my wish that my estate be divided equally among my three sons.

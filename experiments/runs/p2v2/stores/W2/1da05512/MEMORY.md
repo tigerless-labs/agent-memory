@@ -1,0 +1,14 @@
+# MEMORY.md
+
+- [bay-area-hiking-trail-recommendations-tilden-regional-park-berkeley-hills-mount](reference/bay-area-hiking-trail-recommendations-tilden-regional-park-berkeley-hills-mount.md) — Bay Area hiking trail recommendations: Tilden Regional Park, Berkeley Hills, Mount Diablo, and others
+- [black-mirror-style-visual-effects-scene-person-disappearing-into-computer](project/black-mirror-style-visual-effects-scene-person-disappearing-into-computer.md) — Black Mirror-style visual effects scene: person disappearing into computer
+- [cousin-shares-love-of-horror-films-met-at-frightfest-in-london](user/cousin-shares-love-of-horror-films-met-at-frightfest-in-london.md) — Cousin shares love of horror films; met at FrightFest in London
+- [cyclist-interested-in-road-and-mountain-biking-with-planned-upgrades](user/cyclist-interested-in-road-and-mountain-biking-with-planned-upgrades.md) — Cyclist interested in road and mountain biking with planned upgrades
+- [eco-friendly-travel-resources-transportation-accommodations-airlines-apps-and-ge](reference/eco-friendly-travel-resources-transportation-accommodations-airlines-apps-and-ge.md) — Eco-friendly travel resources: transportation, accommodations, airlines, apps, and gear
+- [enjoys-solo-day-hiking-and-backpacking-especially-in-bay-area-and-sierra-nevada](user/enjoys-solo-day-hiking-and-backpacking-especially-in-bay-area-and-sierra-nevada.md) — Enjoys solo day hiking and backpacking, especially in Bay Area and Sierra Nevada
+- [horror-film-enthusiast-attends-film-festivals-and-enjoys-folk-horror-and-horror](user/horror-film-enthusiast-attends-film-festivals-and-enjoys-folk-horror-and-horror.md) — Horror film enthusiast; attends film festivals and enjoys folk horror and horror-comedies
+- [horror-film-recommendations-folk-horror-horror-comedies-and-horror-tv-series](reference/horror-film-recommendations-folk-horror-horror-comedies-and-horror-tv-series.md) — Horror film recommendations: folk horror, horror-comedies, and horror TV series
+- [nas-device-project-central-backup-and-storage-for-home-network](project/nas-device-project-central-backup-and-storage-for-home-network.md) — NAS device project: central backup and storage for home network
+- [prioritizes-eco-friendly-and-sustainable-travel-practices](user/prioritizes-eco-friendly-and-sustainable-travel-practices.md) — Prioritizes eco-friendly and sustainable travel practices
+- [sierra-nevada-backpacking-trip-recommendations-for-3-4-days-in-september](reference/sierra-nevada-backpacking-trip-recommendations-for-3-4-days-in-september.md) — Sierra Nevada backpacking trip recommendations for 3-4 days in September
+- [travel-interest-off-the-beaten-path-africa-especially-ethiopia-for-culture-and-f](user/travel-interest-off-the-beaten-path-africa-especially-ethiopia-for-culture-and-f.md) — Travel interest: off-the-beaten-path Africa, especially Ethiopia for culture and festivals

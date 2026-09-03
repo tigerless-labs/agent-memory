@@ -1,0 +1,24 @@
+# MEMORY.md
+
+- [active-pottery-and-ceramics-hobby-learning-techniques-coiling-scoring-glazing-fi](user/active-pottery-and-ceramics-hobby-learning-techniques-coiling-scoring-glazing-fi.md) — Active pottery and ceramics hobby; learning techniques (coiling, scoring, glazing, firing)
+- [anish-kapoor-sculptor-reflective-surfaces-cloud-gate-chicago](reference/anish-kapoor-sculptor-reflective-surfaces-cloud-gate-chicago.md) — Anish Kapoor sculptor reflective surfaces Cloud Gate Chicago
+- [bald-eagles-are-favorite-wildlife-species](user/bald-eagles-are-favorite-wildlife-species.md) — Bald eagles are favorite wildlife species
+- [currently-in-a-long-distance-relationship](user/currently-in-a-long-distance-relationship.md) — Currently in a long-distance relationship
+- [cycling-enthusiast-with-road-and-mountain-bikes-planning-upgrades](user/cycling-enthusiast-with-road-and-mountain-bikes-planning-upgrades.md) — Cycling enthusiast with road and mountain bikes; planning upgrades
+- [eco-friendly-and-sustainable-travel-practices](user/eco-friendly-and-sustainable-travel-practices.md) — Eco-friendly and sustainable travel practices
+- [enjoys-solo-road-trips-and-travel-attended-music-festival-in-san-francisco-in-ma](user/enjoys-solo-road-trips-and-travel-attended-music-festival-in-san-francisco-in-ma.md) — Enjoys solo road trips and travel; attended music festival in San Francisco in May 2023
+- [film-festival-attendance-frightfest-london-august-2023-asian-american-int-l-film](experience/film-festival-attendance-frightfest-london-august-2023-asian-american-int-l-film.md) — Film festival attendance: FrightFest London (August 2023), Asian American Int'l Film Festival NYC (April 2023)
+- [flagstaff-arizona-restaurants-and-accommodations-for-grand-canyon-visits](reference/flagstaff-arizona-restaurants-and-accommodations-for-grand-canyon-visits.md) — Flagstaff Arizona restaurants and accommodations for Grand Canyon visits
+- [home-nas-device-for-centralized-backupprioritizing-encryption-and-access-control](project/home-nas-device-for-centralized-backupprioritizing-encryption-and-access-control.md) — Home NAS device for centralized backup—prioritizing encryption and access control
+- [horror-film-interests-folk-horror-dark-atmosphere-humor-horror-blend](user/horror-film-interests-folk-horror-dark-atmosphere-humor-horror-blend.md) — Horror film interests: folk horror, dark atmosphere, humor-horror blend
+- [interested-in-modern-sculpture-and-visual-arts-especially-reflective-interactive](user/interested-in-modern-sculpture-and-visual-arts-especially-reflective-interactive.md) — Interested in modern sculpture and visual arts, especially reflective/interactive installations
+- [outdoor-recreation-solo-hiking-backpacking-kayaking-camping](user/outdoor-recreation-solo-hiking-backpacking-kayaking-camping.md) — Outdoor recreation: solo hiking, backpacking, kayaking, camping
+- [pottery-project-in-progress-clay-vase-with-coiling-and-glazing](project/pottery-project-in-progress-clay-vase-with-coiling-and-glazing.md) — Pottery project in progress: clay vase with coiling and glazing
+- [prefers-personalized-and-handmade-gifts-typical-friend-gift-budget-is-thirty-to](user/prefers-personalized-and-handmade-gifts-typical-friend-gift-budget-is-thirty-to.md) — Prefers personalized and handmade gifts; typical friend gift budget is thirty to forty dollars
+- [sister-s-birthday-is-may-15-she-is-25-years-old-born-1998](user/sister-s-birthday-is-may-15-she-is-25-years-old-born-1998.md) — Sister's birthday is May 15; she is 25 years old (born 1998)
+- [solo-road-trip-to-san-francisco-for-music-festival-in-golden-gate-park-may-2023](experience/solo-road-trip-to-san-francisco-for-music-festival-in-golden-gate-park-may-2023.md) — Solo road trip to San Francisco for music festival in Golden Gate Park, May 2023
+- [travel-interest-ethiopia-and-african-destinations-for-cultural-immersion](user/travel-interest-ethiopia-and-african-destinations-for-cultural-immersion.md) — Travel interest: Ethiopia and African destinations for cultural immersion
+- [visited-art-museum-and-saw-modern-sculpture-exhibit-on-2023-may-20](experience/visited-art-museum-and-saw-modern-sculpture-exhibit-on-2023-may-20.md) — Visited art museum and saw modern sculpture exhibit on 2023 May 20
+- [vogelsang-high-sierra-camp-backpacking-trip-september-2023](project/vogelsang-high-sierra-camp-backpacking-trip-september-2023.md) — Vogelsang High Sierra Camp backpacking trip, September 2023
+- [winter-2023-grand-canyon-trip-with-friends](project/winter-2023-grand-canyon-trip-with-friends.md) — Winter 2023 Grand Canyon trip with friends
+- [working-on-black-mirror-style-visual-effects-scenegirl-disappearing-into-compute](project/working-on-black-mirror-style-visual-effects-scenegirl-disappearing-into-compute.md) — Working on Black Mirror-style visual effects scene—girl disappearing into computer

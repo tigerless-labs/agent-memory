@@ -1,0 +1,44 @@
+# MEMORY.md
+
+- [almaden-lake-park-loop-jogging-route-in-san-jose](reference/almaden-lake-park-loop-jogging-route-in-san-jose.md) — Almaden Lake Park Loop jogging route in San Jose
+- [attended-artisan-market-at-local-library-on-april-10-2023-received-positive-feed](experience/attended-artisan-market-at-local-library-on-april-10-2023-received-positive-feed.md) — Attended Artisan Market at local library on April 10, 2023; received positive feedback on candles
+- [baseline-tennis-player-working-to-improve-net-game](user/baseline-tennis-player-working-to-improve-net-game.md) — Baseline tennis player working to improve net game
+- [bellagio-hotel-attractions-and-nearby-activities](reference/bellagio-hotel-attractions-and-nearby-activities.md) — Bellagio hotel attractions and nearby activities
+- [comparison-of-plant-based-milks-nutrition-uses-and-sustainability](reference/comparison-of-plant-based-milks-nutrition-uses-and-sustainability.md) — Comparison of plant-based milks: nutrition, uses, and sustainability
+- [considering-purchasing-a-new-tennis-bag](project/considering-purchasing-a-new-tennis-bag.md) — Considering purchasing a new tennis bag
+- [corepower-yoga-almaden-studio-in-san-jose](reference/corepower-yoga-almaden-studio-in-san-jose.md) — CorePower Yoga Almaden studio in San Jose
+- [decided-to-purchase-fitbit-charge-3-for-tracking-fitness](project/decided-to-purchase-fitbit-charge-3-for-tracking-fitness.md) — Decided to purchase Fitbit Charge 3 for tracking fitness
+- [diy-oat-milk-recipe-and-equipment-guide](reference/diy-oat-milk-recipe-and-equipment-guide.md) — DIY oat milk recipe and equipment guide
+- [doing-well-with-meal-prepping-routine](user/doing-well-with-meal-prepping-routine.md) — Doing well with meal prepping routine
+- [enjoys-psychological-thrillers-with-dark-twisted-characters-dark-humor-and-socia](user/enjoys-psychological-thrillers-with-dark-twisted-characters-dark-humor-and-socia.md) — Enjoys psychological thrillers with dark twisted characters, dark humor, and social commentary
+- [established-6-30-am-daily-wake-up-routine-including-weekends](user/established-6-30-am-daily-wake-up-routine-including-weekends.md) — Established 6:30 am daily wake-up routine, including weekends
+- [expanding-candle-product-line-with-new-scents-and-colors](project/expanding-candle-product-line-with-new-scents-and-colors.md) — Expanding candle product line with new scents and colors
+- [experimenting-with-plant-based-milks-interested-in-environmental-sustainability](user/experimenting-with-plant-based-milks-interested-in-environmental-sustainability.md) — Experimenting with plant-based milks; interested in environmental sustainability
+- [fan-of-roger-federer](user/fan-of-roger-federer.md) — Fan of Roger Federer
+- [finished-reading-the-silent-patient-by-alex-michaelides-on-2023-03-15](experience/finished-reading-the-silent-patient-by-alex-michaelides-on-2023-03-15.md) — Finished reading 'The Silent Patient' by Alex Michaelides on 2023-03-15
+- [holiday-market-sales-event](project/holiday-market-sales-event.md) — Holiday market sales event
+- [interested-in-linguistics-philosophy-of-language-and-how-language-shapes-percept](user/interested-in-linguistics-philosophy-of-language-and-how-language-shapes-percept.md) — Interested in linguistics, philosophy of language, and how language shapes perception and culture
+- [interested-in-trying-penicillin-cocktail-at-the-dorsey-in-las-vegas](user/interested-in-trying-penicillin-cocktail-at-the-dorsey-in-las-vegas.md) — Interested in trying Penicillin cocktail at The Dorsey in Las Vegas
+- [interested-in-vegan-dinner-recipes-using-tofu-tempeh-and-seitan](user/interested-in-vegan-dinner-recipes-using-tofu-tempeh-and-seitan.md) — Interested in vegan dinner recipes using tofu, tempeh, and seitan
+- [interested-in-visiting-bellagio-conservatory-and-botanical-gardens](user/interested-in-visiting-bellagio-conservatory-and-botanical-gardens.md) — Interested in visiting Bellagio Conservatory and Botanical Gardens
+- [interested-in-watching-the-fountains-of-bellagio](user/interested-in-watching-the-fountains-of-bellagio.md) — Interested in watching the Fountains of Bellagio
+- [japanese-language-distinguishes-multiple-types-of-love-ai-deep-unconditional-lov](reference/japanese-language-distinguishes-multiple-types-of-love-ai-deep-unconditional-lov.md) — Japanese language distinguishes multiple types of love: ai (deep unconditional love), koi (romantic love), daisuki (liking/affection)
+- [las-vegas-bellagio-area-fine-dining-restaurants-picasso-le-cirque-wolfgang-puck](reference/las-vegas-bellagio-area-fine-dining-restaurants-picasso-le-cirque-wolfgang-puck.md) — Las Vegas Bellagio area fine dining restaurants: Picasso, Le Cirque, Wolfgang Puck's Spago
+- [las-vegas-casual-dining-and-brunch-spots-near-bellagio](reference/las-vegas-casual-dining-and-brunch-spots-near-bellagio.md) — Las Vegas casual dining and brunch spots near Bellagio
+- [loyalty-and-referral-programs-planned](project/loyalty-and-referral-programs-planned.md) — Loyalty and referral programs planned
+- [makes-and-sells-handmade-candles-and-knitted-scarves](project/makes-and-sells-handmade-candles-and-knitted-scarves.md) — Makes and sells handmade candles and knitted scarves
+- [marinating-tips-for-tofu-and-tempeh](reference/marinating-tips-for-tofu-and-tempeh.md) — Marinating tips for tofu and tempeh
+- [net-game-drills-reaction-time-and-hand-eye-coordination](reference/net-game-drills-reaction-time-and-hand-eye-coordination.md) — Net game drills: reaction time and hand-eye coordination
+- [next-book-to-read-the-last-mrs-parrish-by-liv-constantine](user/next-book-to-read-the-last-mrs-parrish-by-liv-constantine.md) — Next book to read: 'The Last Mrs. Parrish' by Liv Constantine
+- [noticed-significant-increase-in-energy-levels-from-salsa-dancing](experience/noticed-significant-increase-in-energy-levels-from-salsa-dancing.md) — Noticed significant increase in energy levels from salsa dancing
+- [nutritional-yeast-benefits-uses-and-flavor-profile](reference/nutritional-yeast-benefits-uses-and-flavor-profile.md) — Nutritional yeast: benefits, uses, and flavor profile
+- [owns-nike-air-zoom-tennis-shoes](user/owns-nike-air-zoom-tennis-shoes.md) — Owns Nike Air Zoom tennis shoes
+- [planned-trip-to-las-vegas-on-may-20-2023-staying-at-bellagio-with-friends-for-a](user/planned-trip-to-las-vegas-on-may-20-2023-staying-at-bellagio-with-friends-for-a.md) — Planned trip to Las Vegas on May 20, 2023 staying at Bellagio with friends for a concert
+- [planning-to-apply-for-summer-solstice-fair-in-june](project/planning-to-apply-for-summer-solstice-fair-in-june.md) — Planning to apply for Summer Solstice Fair in June
+- [positive-customer-feedback-at-artisan-market-influenced-decision-to-launch-new-s](experience/positive-customer-feedback-at-artisan-market-influenced-decision-to-launch-new-s.md) — Positive customer feedback at Artisan Market influenced decision to launch new seasonal candle lines
+- [prefers-jogging-routes-with-minimal-traffic-and-scenic-views](user/prefers-jogging-routes-with-minimal-traffic-and-scenic-views.md) — Prefers jogging routes with minimal traffic and scenic views
+- [prefers-morning-yoga-classes](user/prefers-morning-yoga-classes.md) — Prefers morning yoga classes
+- [priority-authors-to-explore-fiona-barton-and-clare-mackintosh](user/priority-authors-to-explore-fiona-barton-and-clare-mackintosh.md) — Priority authors to explore: Fiona Barton and Clare Mackintosh
+- [product-display-and-pricing-strategies-for-craft-fairs](reference/product-display-and-pricing-strategies-for-craft-fairs.md) — Product display and pricing strategies for craft fairs
+- [product-photography-tips-for-eco-friendly-candles](project/product-photography-tips-for-eco-friendly-candles.md) — Product photography tips for eco-friendly candles
+- [psychological-thriller-book-and-author-recommendations-similar-to-the-silent-pat](reference/psychological-thriller-book-and-author-recommendations-similar-to-the-silent-pat.md) — Psychological thriller book and author recommendations similar to 'The Silent Patient'

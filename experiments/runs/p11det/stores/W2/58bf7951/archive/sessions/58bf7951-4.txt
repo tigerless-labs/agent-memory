@@ -1,0 +1,275 @@
+## Session sharegpt_CvVLg2J_18 — 2023/05/21 (Sun) 17:01
+user: Figure 4 provides an overview of our fndings on SAV deployment,
+for packets both outbound from and inbound to the measured network, for the year ending 1 August 2019. We present deployment
+statistics by IPv4/24 and IPv6/40 prefxes, and by AS. An AS with
+partial deployment originates some prefxes from which the Spoofer
+system did not receive spoofed packets, and originates other prefxes from which the Spoofer system did.
+This data indicates that while most networks block packets with
+spoofed source IP addresses, deployment is far from universal. In
+particular, 25.2% and 32.1% of tested IPv4 and IPv6 ASes, respectively, had at least one prefx where operators had not deployed SAV
+to block outbound spoofed packets to the Internet (frst and last
+bars in fgure 4b). The comparatively small fraction of prefxes from
+which we received spoofed IPv4 packets (fgure 4a) is primarily due
+to the presence of Network Address Translation (NAT) routers that
+rewrite spoofed packets with the router’s publicly routable address.
+When a NAT router was not present, 14.9% of IPv4 prefxes had no
+fltering; fltering was better deployed at prefx-level granularity in
+IPv6, with 12.3% of tested prefxes not fltering. Outbound from Client (AS) Inbound to Client (prefix) Inbound to Client (AS)
+Outbound from Client (prefix)
+ 80 100
+IPv4
+IPv4 NAT
+IPv4 No−NAT
+IPv6
+IPv4
+IPv4 NAT
+IPv4 No−Nat
+IPv6
+IPv4
+IPv6
+IPv4
+IPv6
+ 0 20 40 60 80 100
+7.3%
+6.4%
+14.9%
+12.3%
+11.9−25.2%
+22.0%
+21.1−30.5%
+24.5−32.1%
+42.6%
+62.2%
+59.2−67.0%
+68.6−74.2%
+(a)
+(c)
+(d)
+Percentage with Classification
+ 0
+Partial Rewritten Blocked
+(b)
+No Filtering
+ 20 40 60
+Figure 4: Summary statistics for Spoofer Project for the year
+ending August 2019. Percent values to right of barplot indicate the fraction of networks with problematic SAV deployments, either no fltering or partial fltering of spoofed packets (red plus orange segments).
+The lower panels of fgure 4 (c and d) summarize the observed
+state of fltering of packets inbound to the client’s network, claiming
+to be from within the same subnet as the client. This test sends a
+packet to the client with a source address that is inside the same
+subnet as the client. For IPv4 we toggle the last (31st) bit of the
+address, and for IPv6 we toggle the 120th bit. Surprisingly, inbound
+fltering of spoofed packets is even less deployed than outbound fltering, despite these packets being a threat to the receiving network.
+Deploying this type of fltering is incentive-compatible because internal hosts are often more trusted than external hosts [46]. In our
+data, 67.0% and 74.2% of IPv4 and IPv6 ASes, respectively, had at
+least one prefx where they were not fltering inbound packets.
+We compare the IPv4 tests we received for the year ending August 2019 where the client was not behind a NAT, to the same class
+of tests 1 May 2006 to 7 May 2006, during which the project received
+1057 tests, triggered by an article on Slashdot encouraging readers
+to run the original Spoofer test [61] (lower left panel of fgure 2).
+For the frst week of May 2006, 18.3% of IPv4/24 prefxes and 20.4%
+of ASes tested did not block spoofed-source packets from leaving
+their networks. Figure 4 shows that for the year ending August
+2019, 14.9% of IPv4/24 prefxes and 30.5% of ASes tested did not
+block spoofed-source packets, implying that SAV deployment has
+not generally improved.
+We reinforce this result by considering the infuence of a prefx’s
+age – defned as how long it has been observable in the global
+BGP routing table – on the probability that it performs source address validation. One hypothesis is that older networks are more
+ 0.05
+ 0.1
+ 0.15
+ 0.2
+ 0 50 100 150 200 250
+Prefix Age (Months)
+Fraction of Spoofable Tests
+ 0
+f(x) = 0.0000262x + 0.08
+Figure 5: For Spoofer tests collected between May 2016 and
+August 2019, we found no correlation between prefx age
+(measured as frst appearance in the global BGP routing table) and its probability of SAV deployment (as measured by
+a client in that prefx performing a test).
+mature and hence have better hygiene. However, newer networks
+may have newer equipment, less confguration inertia, and better
+awareness of network security. The increasing prevalence of address transfers post-IPv4-exhaustion adds additional noise to this
+already speculative exercise.
+We generate a radix trie of prefx ages by iterating over monthly
+snapshots of Routeviews [1] and RIPE RIS from January 2000 to
+August 2019. The meta-data in the radix trie for each prefx is the
+date it frst appeared in our snapshots. Note that prefx aggregation
+and deaggregation over time result in new ages within the radix
+trie – i.e., a deaggregation is a new BGP policy and hence resets the
+age. Let t0(p) be the time at which the IPv4 prefx p frst appeared
+in the global BGP routing table. For a client with IPv4 address c
+who performs a Spoofer test at time t, we fnd the longest matching
+prefx p
+′ = LPM(c,t) within the radix trie at time t. The prefx age
+is then relative to the time of the test:
+aдe(c,t) = t − t0(LPM(c,t))
+For each Spoofer client using a routed source address, we determined the age of the corresponding client prefx. We binned results
+into months and determined the relative fraction of tests within
+each age bin that could successfully spoof the routed IPv4 address.
+Figure 5 shows the relationship between the fraction of tests where
+a client could spoof and the age of the prefx to which the client
+belonged. Using Pearson’s correlation, we found no meaningful
+relationship between age and spoofability.
+5 EPISTEMOLOGICAL CHALLENGES WITH
+CROWD-SOURCING MEASUREMENT
+A crowd-sourced approach to assessing the deployment of SAV
+is confounded by multiple factors. First, the opt-in nature of the
+measurement can induce sample bias: people interested in security issues are more likely to provide a measurement. Second, and
+related, the measurement results we receive are distributed nonuniformly across time and networks. Third, the Internet itself is
+changing, e.g., due to equipment upgrades, confguration changes,
+and policy changes. Fourth, the results of a single test may not
+be indicative of the larger network, prefx, or autonomous system
+from which the client executes its test.
+ 140
+Weeks Active
+Cumulative Fraction
+Longest matching prefix
+ 0
+ 0.2
+ 0.4 AS
+ 0.6
+ 0.8
+ 1
+ 0 20 40 60 80 100 120
+/24 prefix
+Figure 6: Even with periodic weekly probing by the client,
+only 8% of IPv4 /24 prefxes and 23% of ASes reported measurements in 20 or more weeks in data we collected between
+May 2016 and August 2019.
+This sparsity complicates inferences of remediation. For instance,
+if two samples from an AS are signifcantly separated in time and
+from diferent prefxes, and the frst sample indicates the tested
+network permits spoofng, while the second indicates fltering, there
+could be several diferent explanations for the change. The tested
+network might have deployed SAV across their network, fxing the
+frst prefx; or the frst tested prefx might still permit spoofng.
+5.1 Efect of daemonizing Spoofer client
+We attempted to mitigate sampling concerns by daemonizing the
+Spoofer client, i.e., running the client in the background after installation, executing measurements any time the client detected a
+new attached network, and repeating tests weekly on previously
+seen networks. In addition to obtaining more test samples, daemonizing the Spoofer client allows the system to automatically gather
+longitudinal samples of the same network – data that is useful to
+characterize the evolution of fltering policies.
+Because we do not use a client identifer (§3) it is not possible
+to determine whether a specifc client continues to probe after its
+initial installation. Instead, we must estimate the ability of the periodic daemon to gather longitudinal data for a given /24 prefx,
+longest matching BGP prefx, or AS. Figure 6 displays the cumulative fraction of these as a function of the number of active weeks.
+We defne an active week to be any week for which there is a test
+report from a client with the daemon functionality.
+Unfortunately, even with the daemon, 44% of the IPv4 /24 prefxes
+and 32% of the ASes reported measurements in only a single week
+between May 2016 and August 2019. This may be due to either
+users who run the tool once and then uninstall it after obtaining
+their test result, or infrequent or one-of tests performed by clients
+while they are roaming, e.g., mobile hosts that attach infrequently
+to a hotel or airport network. Although unexpected, these results
+are also consistent with feedback from operators that told us they
+used the client on a short-term basis while they were testing SAV
+confguration and then uninstalled the software from their laptop.
+While our coverage is longitudinally sparse for many networks,
+fgure 6 exhibits long tails. In particular, for large providers, we
+have tests in every week. For example, we obtained test results from
+clients in AT&T, Comcast, Verizon, Deutsche Telekom, Charter, and
+Cox in nearly all of the weeks since the release of the daemonized
+client – May 2016 to August 2019.5.2 Representativeness of Spoofer data
+Another inferential challenge of crowd-sourced measurement is
+assessing how representative the data is of the networks it samples,
+and the larger Internet [21]. Since the measurements we receive
+come from volunteers, both on-demand and triggered by clients
+detecting new network attachments, we do not control the sampling
+across either networks or time. While we can characterize the
+coverage of our results by, e.g., networks, ASes, or geolocation,
+this characterization does not capture the degree to which our
+measurements correctly capture the behavior of those networks.
+To gain confdence in the data’s representativeness of the networks it covers, we assess the data’s predictive ability – i.e., whether
+we can use the data to predict the ability of a client to spoof using
+an IP address we have no prior tests from. We use the standard
+train-then-test supervised learning approach, but always split the
+training and test sets such that the training samples are chronologically before the test samples. We analyze the data on month
+boundaries, such that the model is trained on all data prior to a
+given month and tested on all data for the month and after. In this
+way, we simulate predictions over future tests given the available
+data we have to that point.
+We built a simple per-prefx model of spoofability that operates
+in ascending chronological order over training samples. Our algorithm determines the global BGP prefx from which the client ran
+the test using an August 2019 RIB snapshot from route-views2 [1].
+We then label (or update) the prefx in a radix-trie with the client’s
+spoofng status. To account for variations across policies of individual networks within larger BGP prefxes, we also label the spoofng
+status of the more specifc /24 prefx of the client. The model also
+computes the network-wide prior probability of spoofng using the
+fraction of clients that can spoof for each source address.
+After building the radix-trie using the training data, the model
+queries the trie in a manner analogous to a routing table lookup
+over the test data. For each new client IP address in the test set, the
+model returns a prediction corresponding to the spoofng capability
+of its longest-prefx match on the radix trie. In the case that there
+is no matching longest-prefx, the model fips a biased coin that
+captures the overall prior probability of being able to spoof. Note
+that we ignore clients in the test set that also occur in the training
+set, so as not to artifcially infate the results positively via simple
+memorization of previous results from that same client IP address.
+Thus, we only test over clients that are “new.”
+We term the ability to send spoofed packets a positive label. Our
+model’s accuracy is > 90% across IP versions and source addresses.
+However, accuracy is a poor measure of the model due to the fact
+that the prior probability of spoofability is low, so we focus on
+recall and precision. Figure 7 plots per-prefx spoofability recall and
+precision of our model, as a function of the month that splits the
+training from the test data. Recall is a measure of positive coverage:
+the fraction of the clients able to spoof for which the model correctly
+predicted this fact. Precision (positive predictive value) captures
+fdelity: the fraction of the clients the model predicted can spoof
+which were actually observed to spoof.
+This data-driven model is basic and could incorporate many additional features, or use more advanced statistical learning techniques.
+Thus, our recall and precision results represent a lower-bound of
+what is likely possible to model. Rather, our goal is to demonstrate:
+i) that our automated data gathering eforts have increased the
+quality of the model over time; and ii) the data we have efectively
+captures the actual state of Internet spoofability, by virtue of its
+ability to make accurate predictions for unknown clients based on
+the prior population of client data available to the project.
+Figure 7(a) shows that as the system has accumulated more tests,
+the model’s predictive recall has increased signifcantly, from a low
+of around 20% in May 2016, to more than 80% for IPv6 in August
+2019, but only 50-70% for IPv4. Similarly, fgure 7(b) shows that our
+model’s precision has increased signifcantly in the last year, and
+IPv6 predictions outperform IPv4 predictions. Note that 76% and
+87% of the predictions come from the model’s radix trie for August
+2019, for IPv4 and IPv6 respectively. Thus, the model’s performance
+does not come from making random guesses based on the overall
+prior spoofng probability, but from topological characteristics in
+the observed data.
+The model has poor precision for IPv4 private addresses, because
+fltering for IPv4 private addresses is more pervasive in the core,
+which occludes measurement of fltering policies at the edge. Figure 8 shows that for all other classes of spoofed source address
+packets, nearly all Spoofer servers distributed around the world
+receive the class of spoofed packet. This is typically never the case
+with IPv4 private-address packets, which are fltered elsewhere in
+the network, rather than at the source.
+6 NATS ARE NOT A SUBSTITUTE FOR SAV
+Our testing client is primarily installed on hosts whose IPv4 connectivity is provided by a NAT [18] system. In the year ending August
+2019, we received reports from 2,783 ASes using IPv4; 2,418 (86.8%)
+of these ASes had tests involving a NAT. A NAT system rewrites
+the source address of packets so that internal hosts behind the NAT
+with private addresses can communicate with other systems across
+the Internet. A well-implemented NAT should not forward packets
+with spoofed source addresses, as the spoofed address is unlikely
+to fall within the private address range the NAT serves. However,
+fgure 4a shows that 6.4% of IPv4 /24 prefxes tested from clients
+behind a NAT did not flter packets with spoofed source addresses
+in the year ending August 2019. Further, NAT use is rare in IPv6 because unique addresses are plentiful, so SAV is explicitly required in
+IPv6 to flter packets with spoofed source addresses; fgure 4a also
+shows that 12.3% of tested IPv6 /40 prefxes did not flter packets
+with spoofed source addresses over the same time period.
+6.1 IPv4 NATs are broken
+In practice, there are two failure modes where a NAT will forward
+packets with spoofed source addresses. We illustrate these failure
+modes in fgure 9. In the frst failure mode, the NAT simply forwards
+the packets with the spoofed source address (the victim) intact to
+the amplifer. We hypothesize this occurs when the NAT does not
+rewrite the source address because the address is not in the local
+network served by the NAT. In the second failure mode, the NAT
+rewrites the source address to the NAT’s publicly routable address,
+assistant: The paper "Network Hygiene, Incentives, and Regulation: Deployment of Source Address Validation in the Internet" presents data on the deployment of source address validation (SAV) on the internet. The data is presented in Figure 4, which provides an overview of the findings on SAV deployment for packets both outbound from and inbound to the measured network, for the year ending August 1, 2019. The data is presented by IPv4/24 and IPv6/40 prefixes, and by autonomous systems (ASes). The figure shows that while most networks block packets with spoofed source IP addresses, deployment is far from universal. The data indicates that 25.2% and 32.1% of tested IPv4 and IPv6 ASes, respectively, had at least one prefix where operators had not deployed SAV to block outbound spoofed packets to the Internet. The authors also show that the deployment of SAV is worse for inbound packets than outbound packets, despite these packets being a threat to the receiving network. The authors also compare the data from the year ending August 2019 to data from May 2006, and found that the deployment of SAV has not generally improved.

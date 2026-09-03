@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [active-lifestyle-yoga-lunch-walks-weekend-biking-to-grocery-store](user/active-lifestyle-yoga-lunch-walks-weekend-biking-to-grocery-store.md) — Active lifestyle: yoga, lunch walks, weekend biking to grocery store
+- [audiobook-daisy-jones-and-the-six-by-taylor-jenkins-reid-loved-it](user/audiobook-daisy-jones-and-the-six-by-taylor-jenkins-reid-loved-it.md) — Audiobook: Daisy Jones and The Six by Taylor Jenkins Reid - loved it
+- [audiobook-sapiens-by-yuval-noah-harari-recently-finished](user/audiobook-sapiens-by-yuval-noah-harari-recently-finished.md) — Audiobook: Sapiens by Yuval Noah Harari - recently finished
+- [follows-book-bloggers-and-bookstagrammers-on-social-media](user/follows-book-bloggers-and-bookstagrammers-on-social-media.md) — Follows book bloggers and bookstagrammers on social media
+- [interested-in-blending-genres-hip-hop-r-b-jazz-pop-in-music](user/interested-in-blending-genres-hip-hop-r-b-jazz-pop-in-music.md) — Interested in blending genres: hip-hop, R&B, jazz, pop in music
+- [interested-in-injury-prevention-and-recovery-strategies](user/interested-in-injury-prevention-and-recovery-strategies.md) — Interested in injury prevention and recovery strategies
+- [interested-in-politics-and-pop-culture-intersection](user/interested-in-politics-and-pop-culture-intersection.md) — Interested in politics and pop culture intersection
+- [keeps-reading-log-to-track-progress-finds-it-motivating](user/keeps-reading-log-to-track-progress-finds-it-motivating.md) — Keeps reading log to track progress; finds it motivating
+- [listens-to-audiobooks-during-daily-commute](user/listens-to-audiobooks-during-daily-commute.md) — Listens to audiobooks during daily commute
+- [listens-to-the-west-wing-weekly-podcast](user/listens-to-the-west-wing-weekly-podcast.md) — Listens to The West Wing Weekly podcast
+- [loves-musicals-with-hip-hop-and-theater-fusion](user/loves-musicals-with-hip-hop-and-theater-fusion.md) — Loves musicals with hip-hop and theater fusion
+- [practices-tarot-card-reading-and-divination-spreads](user/practices-tarot-card-reading-and-divination-spreads.md) — Practices tarot card reading and divination spreads
+- [read-the-nightingale-by-kristin-hannah-finished-late-may-2023](user/read-the-nightingale-by-kristin-hannah-finished-late-may-2023.md) — Read The Nightingale by Kristin Hannah; finished late May 2023
+- [read-the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid](user/read-the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid.md) — Read The Seven Husbands of Evelyn Hugo by Taylor Jenkins Reid
+- [read-the-silent-patient-by-alex-michaelides](user/read-the-silent-patient-by-alex-michaelides.md) — Read The Silent Patient by Alex Michaelides
+- [recently-interested-in-self-help-and-personal-development-books](user/recently-interested-in-self-help-and-personal-development-books.md) — Recently interested in self-help and personal development books
+- [recently-joined-a-gym-for-structured-workout-guidance](user/recently-joined-a-gym-for-structured-workout-guidance.md) — Recently joined a gym for structured workout guidance
+- [rewatched-la-la-land-on-amazon-prime-late-may-2023](user/rewatched-la-la-land-on-amazon-prime-late-may-2023.md) — Rewatched La La Land on Amazon Prime late May 2023
+- [twisted-ankle-playing-basketball-mid-may-2023-recovered-and-returned-to-gym-the](experience/twisted-ankle-playing-basketball-mid-may-2023-recovered-and-returned-to-gym-the.md) — Twisted ankle playing basketball mid-May 2023; recovered and returned to gym the following week
+- [watched-hamilton-on-disney-early-may-2023-obsessed-with-soundtrack](user/watched-hamilton-on-disney-early-may-2023-obsessed-with-soundtrack.md) — Watched Hamilton on Disney+ early May 2023; obsessed with soundtrack

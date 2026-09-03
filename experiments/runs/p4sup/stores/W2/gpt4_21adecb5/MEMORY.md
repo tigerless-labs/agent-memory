@@ -1,0 +1,36 @@
+# MEMORY.md
+
+- [african-peanut-soup-with-sweet-potato-and-kale](reference/african-peanut-soup-with-sweet-potato-and-kale.md) — African Peanut Soup with sweet potato and kale
+- [beef-and-barley-soup-with-kale-for-winter-warmth](reference/beef-and-barley-soup-with-kale-for-winter-warmth.md) — Beef and Barley Soup with kale for winter warmth
+- [bert-fine-tuning-approach-for-customer-feedback-nlp-tasks-sentiment-analysis-abs](reference/bert-fine-tuning-approach-for-customer-feedback-nlp-tasks-sentiment-analysis-abs.md) — BERT fine-tuning approach for customer feedback NLP tasks: sentiment analysis, ABSA, intent detection, dialogue systems
+- [buy-saffron-threads-from-whole-foods-and-make-saffron-gin-fizz-cocktail](project/buy-saffron-threads-from-whole-foods-and-make-saffron-gin-fizz-cocktail.md) — Buy saffron threads from Whole Foods and make Saffron Gin Fizz cocktail
+- [completed-undergraduate-degree-in-computer-science](user/completed-undergraduate-degree-in-computer-science.md) — Completed undergraduate degree in computer science
+- [deep-learning-and-nlp-online-courses-and-resources](reference/deep-learning-and-nlp-online-courses-and-resources.md) — Deep learning and NLP online courses and resources
+- [experiment-with-making-homemade-flavored-syrups-for-cocktails](project/experiment-with-making-homemade-flavored-syrups-for-cocktails.md) — Experiment with making homemade flavored syrups for cocktails
+- [exploring-bert-based-models-for-nlp-applications-sentiment-analysis-absa-intent](project/exploring-bert-based-models-for-nlp-applications-sentiment-analysis-absa-intent.md) — Exploring BERT-based models for NLP applications: sentiment analysis, ABSA, intent detection, dialogue systems
+- [friday-night-routine-stays-up-late-watching-tv-scrolling-until-12-30-am](user/friday-night-routine-stays-up-late-watching-tv-scrolling-until-12-30-am.md) — Friday night routine: stays up late watching TV/scrolling until 12:30 AM
+- [has-recent-experience-with-nlp-research-paper](user/has-recent-experience-with-nlp-research-paper.md) — Has recent experience with NLP research paper
+- [has-various-bitters-in-cabinet-and-actively-exploring-new-unique-bitters](user/has-various-bitters-in-cabinet-and-actively-exploring-new-unique-bitters.md) — Has various bitters in cabinet and actively exploring new unique bitters
+- [interested-in-ballads-and-narrative-driven-songs-with-complex-thematic-arcs](user/interested-in-ballads-and-narrative-driven-songs-with-complex-thematic-arcs.md) — Interested in ballads and narrative-driven songs with complex thematic arcs
+- [interested-in-gin-based-cocktails-with-unique-flavor-combinations](user/interested-in-gin-based-cocktails-with-unique-flavor-combinations.md) — Interested in gin-based cocktails with unique flavor combinations
+- [interested-in-learning-deep-learning-nlp-transformers-and-attention-mechanisms](user/interested-in-learning-deep-learning-nlp-transformers-and-attention-mechanisms.md) — Interested in learning deep learning, NLP, transformers, and attention mechanisms
+- [interested-in-learning-kiowa-language-and-supporting-language-revitalization-eff](user/interested-in-learning-kiowa-language-and-supporting-language-revitalization-eff.md) — Interested in learning Kiowa language and supporting language revitalization efforts
+- [interested-in-researching-music-collaborations-and-creative-effects](user/interested-in-researching-music-collaborations-and-creative-effects.md) — Interested in researching music collaborations and creative effects
+- [job-candidate-profile-cycling-manchester-united-fan-soccer-background-canadian-r](reference/job-candidate-profile-cycling-manchester-united-fan-soccer-background-canadian-r.md) — Job candidate profile: cycling, Manchester United fan, soccer background, Canadian residency program
+- [learning-spanish-language](user/learning-spanish-language.md) — Learning Spanish language
+- [loves-trying-new-things-in-the-kitchen-and-exploring-unconventional-soup-bases](user/loves-trying-new-things-in-the-kitchen-and-exploring-unconventional-soup-bases.md) — Loves trying new things in the kitchen and exploring unconventional soup bases
+- [notable-music-collaborations-that-influenced-sound-and-style](reference/notable-music-collaborations-that-influenced-sound-and-style.md) — Notable music collaborations that influenced sound and style
+- [quinoa-and-black-bean-soup-with-cumin-and-paprika](reference/quinoa-and-black-bean-soup-with-cumin-and-paprika.md) — Quinoa and Black Bean Soup with cumin and paprika
+- [read-spanish-books-for-language-learning](project/read-spanish-books-for-language-learning.md) — Read Spanish books for language learning
+- [resources-for-kiowa-language-learning-and-revitalization](reference/resources-for-kiowa-language-learning-and-revitalization.md) — Resources for Kiowa language learning and revitalization
+- [seminal-papers-on-transformers-attention-mechanisms-and-their-applications](reference/seminal-papers-on-transformers-attention-mechanisms-and-their-applications.md) — Seminal papers on transformers, attention mechanisms, and their applications
+- [spanish-book-recommendations-for-beginners-learning-language](reference/spanish-book-recommendations-for-beginners-learning-language.md) — Spanish book recommendations for beginners learning language
+- [spanish-language-tv-show-recommendations-for-language-learning](reference/spanish-language-tv-show-recommendations-for-language-learning.md) — Spanish-language TV show recommendations for language learning
+- [submitted-master-s-thesis-in-computer-science-on-may-15-2023](experience/submitted-master-s-thesis-in-computer-science-on-may-15-2023.md) — Submitted master's thesis in computer science on May 15, 2023
+- [thai-curry-chicken-soup-with-coconut-milk](reference/thai-curry-chicken-soup-with-coconut-milk.md) — Thai Curry Chicken Soup with coconut milk
+- [try-cardamom-old-fashioned-recipe-with-cardamom-bitters](project/try-cardamom-old-fashioned-recipe-with-cardamom-bitters.md) — Try Cardamom Old Fashioned recipe with cardamom bitters
+- [unique-and-lesser-known-bitters-recommendations-for-gin-cocktails](reference/unique-and-lesser-known-bitters-recommendations-for-gin-cocktails.md) — Unique and lesser-known bitters recommendations for gin cocktails
+- [unique-gin-based-cocktail-recipes-recommended](reference/unique-gin-based-cocktail-recipes-recommended.md) — Unique gin-based cocktail recipes recommended
+- [watch-la-casa-de-papel-in-spanish-with-english-subtitles-for-language-learning](project/watch-la-casa-de-papel-in-spanish-with-english-subtitles-for-language-learning.md) — Watch La Casa de Papel in Spanish with English subtitles for language learning
+- [watch-ozark-tv-series](project/watch-ozark-tv-series.md) — Watch Ozark TV series
+- [where-to-buy-saffron-threads-and-selection-tips](reference/where-to-buy-saffron-threads-and-selection-tips.md) — Where to buy saffron threads and selection tips

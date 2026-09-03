@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [attended-street-photography-workshop-may-1-2-2023-on-approaching-strangers-for-p](experience/attended-street-photography-workshop-may-1-2-2023-on-approaching-strangers-for-p.md) — Attended street photography workshop May 1-2, 2023 on approaching strangers for photos
+- [bike-cleaning-and-maintenance-products-recommended](reference/bike-cleaning-and-maintenance-products-recommended.md) — Bike cleaning and maintenance products recommended
+- [captured-sunset-photos-at-red-rock-canyon-on-april-12-2023](experience/captured-sunset-photos-at-red-rock-canyon-on-april-12-2023.md) — Captured sunset photos at Red Rock Canyon on April 12, 2023
+- [challenges-in-endangered-language-documentation-and-preservation](reference/challenges-in-endangered-language-documentation-and-preservation.md) — Challenges in endangered language documentation and preservation
+- [considering-saris-bones-2-bike-trunk-rack-for-honda-civic](user/considering-saris-bones-2-bike-trunk-rack-for-honda-civic.md) — Considering Saris Bones 2-Bike Trunk Rack for Honda Civic
+- [considering-vans-old-skool-sneakers-as-next-shoe-purchase](user/considering-vans-old-skool-sneakers-as-next-shoe-purchase.md) — Considering Vans Old Skool sneakers as next shoe purchase
+- [conversation-strategies-for-approaching-people-at-meetups-and-events-without-bei](reference/conversation-strategies-for-approaching-people-at-meetups-and-events-without-bei.md) — Conversation strategies for approaching people at meetups and events without being awkward or pushy
+- [dad-s-bbq-sauce-with-smoked-paprika-was-a-family-hit-at-summer-camping-trip](experience/dad-s-bbq-sauce-with-smoked-paprika-was-a-family-hit-at-summer-camping-trip.md) — Dad's BBQ sauce with smoked paprika was a family hit at summer camping trip
+- [drives-honda-civic](user/drives-honda-civic.md) — Drives Honda Civic
+- [endangered-languages-statistics-approximately-3-000-as-of-2021](reference/endangered-languages-statistics-approximately-3-000-as-of-2021.md) — Endangered languages statistics: approximately 3,000 as of 2021
+- [enjoys-bbq-cooking-sauce-balancing-marinades-and-mastering-grilling-techniques](user/enjoys-bbq-cooking-sauce-balancing-marinades-and-mastering-grilling-techniques.md) — Enjoys BBQ cooking, sauce balancing, marinades, and mastering grilling techniques
+- [found-coach-handbag-at-60-off-at-tj-maxx](experience/found-coach-handbag-at-60-off-at-tj-maxx.md) — Found Coach handbag at 60% off at TJ Maxx
+- [handbag-brands-recommended-for-classic-elegant-aesthetic](reference/handbag-brands-recommended-for-classic-elegant-aesthetic.md) — Handbag brands recommended for classic elegant aesthetic
+- [interested-in-endangered-language-documentation-and-preservation-efforts](user/interested-in-endangered-language-documentation-and-preservation-efforts.md) — Interested in endangered language documentation and preservation efforts
+- [interested-in-planning-game-nights-and-potluck-dinners-to-create-meaningful-conn](user/interested-in-planning-game-nights-and-potluck-dinners-to-create-meaningful-conn.md) — Interested in planning game nights and potluck dinners to create meaningful connections with friends
+- [introvert-who-feels-relieved-leaving-social-gatherings-early-prefers-smaller-low](user/introvert-who-feels-relieved-leaving-social-gatherings-early-prefers-smaller-low.md) — Introvert who feels relieved leaving social gatherings early; prefers smaller, low-key settings
+- [korean-style-bbq-marinade-recipe-gochujang-soy-sauce-garlic-ginger-brown-sugar-s](reference/korean-style-bbq-marinade-recipe-gochujang-soy-sauce-garlic-ginger-brown-sugar-s.md) — Korean-style BBQ marinade recipe: gochujang, soy sauce, garlic, ginger, brown sugar, sesame oil
+- [lent-cannondale-synapse-to-neighbor-rachel-returned-with-flat-tire](experience/lent-cannondale-synapse-to-neighbor-rachel-returned-with-flat-tire.md) — Lent Cannondale Synapse to neighbor Rachel, returned with flat tire
+- [methods-for-documenting-and-preserving-endangered-languages](reference/methods-for-documenting-and-preserving-endangered-languages.md) — Methods for documenting and preserving endangered languages
+- [organizes-shoe-closet-by-type-and-color-for-easy-access](user/organizes-shoe-closet-by-type-and-color-for-easy-access.md) — Organizes shoe closet by type and color for easy access
+- [organizes-shoes-by-type-then-by-color-within-each-group](user/organizes-shoes-by-type-then-by-color-within-each-group.md) — Organizes shoes by type, then by color within each group
+- [owns-50mm-f-1-8-prime-lens-for-street-photography](user/owns-50mm-f-1-8-prime-lens-for-street-photography.md) — Owns 50mm f/1.8 prime lens for street photography
+- [owns-a-canon-eos-80d-camera-for-photography](user/owns-a-canon-eos-80d-camera-for-photography.md) — Owns a Canon EOS 80D camera for photography
+- [owns-black-converse-chuck-taylor-all-star-sneakers](user/owns-black-converse-chuck-taylor-all-star-sneakers.md) — Owns black Converse Chuck Taylor All Star sneakers
+- [owns-black-converse-sneakers](user/owns-black-converse-sneakers.md) — Owns black Converse sneakers
+- [owns-brown-leather-boots-that-need-repair](user/owns-brown-leather-boots-that-need-repair.md) — Owns brown leather boots that need repair
+- [owns-brown-leather-boots-with-loose-heel-needing-repair](user/owns-brown-leather-boots-with-loose-heel-needing-repair.md) — Owns brown leather boots with loose heel needing repair
+- [owns-cannondale-synapse-road-bike](user/owns-cannondale-synapse-road-bike.md) — Owns Cannondale Synapse road bike
+- [owns-trek-fx-2-hybrid-bike-new](user/owns-trek-fx-2-hybrid-bike-new.md) — Owns Trek FX 2 hybrid bike (new)
+- [owns-white-adidas-superstars-that-require-careful-cleaning](user/owns-white-adidas-superstars-that-require-careful-cleaning.md) — Owns white Adidas Superstars that require careful cleaning
+- [practices-street-photography-during-morning-commute-capturing-candid-shots-of-pe](user/practices-street-photography-during-morning-commute-capturing-candid-shots-of-pe.md) — Practices street photography during morning commute, capturing candid shots of people
+- [purchasing-coach-parker-handbag-as-sister-birthday-gift](project/purchasing-coach-parker-handbag-as-sister-birthday-gift.md) — Purchasing Coach Parker handbag as sister birthday gift
+- [shoe-cleaning-and-care-techniques-for-different-shoe-types](reference/shoe-cleaning-and-care-techniques-for-different-shoe-types.md) — Shoe cleaning and care techniques for different shoe types
+- [shoe-cleaning-kit-brands-saphir-kiwi-jason-markk-dr-martens](reference/shoe-cleaning-kit-brands-saphir-kiwi-jason-markk-dr-martens.md) — Shoe cleaning kit brands: Saphir, Kiwi, Jason Markk, Dr. Martens
+- [sister-s-handbag-style-classic-elegant-neutral-colors-daily-driver](reference/sister-s-handbag-style-classic-elegant-neutral-colors-daily-driver.md) — Sister's handbag style: classic elegant, neutral colors, daily driver
+- [strategies-for-reducing-social-media-use-without-losing-connection-set-boundarie](reference/strategies-for-reducing-social-media-use-without-losing-connection-set-boundarie.md) — Strategies for reducing social media use without losing connection: set boundaries, use blockers, schedule checks, unfollow accounts that trigger FOMO
+- [street-photography-techniques-anticipation-decisive-moment-burst-mode-positionin](reference/street-photography-techniques-anticipation-decisive-moment-burst-mode-positionin.md) — Street photography techniques: anticipation, decisive moment, burst mode, positioning, rapport-building
+- [tried-joining-a-book-club-but-it-didn-t-work-out-as-a-way-to-meet-people](experience/tried-joining-a-book-club-but-it-didn-t-work-out-as-a-way-to-meet-people.md) — Tried joining a book club but it didn't work out as a way to meet people
+- [uses-adobe-lightroom-for-photo-organization-and-editing](user/uses-adobe-lightroom-for-photo-organization-and-editing.md) — Uses Adobe Lightroom for photo organization and editing

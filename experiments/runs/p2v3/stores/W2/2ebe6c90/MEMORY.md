@@ -1,0 +1,35 @@
+# MEMORY.md
+
+- [10-day-rv-road-trip-to-yellowstone-from-california-in-november-2022](experience/10-day-rv-road-trip-to-yellowstone-from-california-in-november-2022.md) — 10-day RV road trip to Yellowstone from California in November 2022
+- [advocates-for-healthcare-equity-and-systemic-change-to-address-inequalities](user/advocates-for-healthcare-equity-and-systemic-change-to-address-inequalities.md) — Advocates for healthcare equity and systemic change to address inequalities
+- [book-recommendations-for-historical-fiction-similar-to-the-nightingale](reference/book-recommendations-for-historical-fiction-similar-to-the-nightingale.md) — Book recommendations for historical fiction similar to The Nightingale
+- [car-fuel-efficiency-tracking-28-mpg-city](user/car-fuel-efficiency-tracking-28-mpg-city.md) — Car fuel efficiency tracking: 28 MPG city
+- [car-maintenance-approach-tracking-fuel-efficiency-and-staying-on-top-of-schedule](user/car-maintenance-approach-tracking-fuel-efficiency-and-staying-on-top-of-schedule.md) — Car maintenance approach: tracking fuel efficiency and staying on top of scheduled maintenance
+- [costa-rica-outdoor-activities-and-highlights](reference/costa-rica-outdoor-activities-and-highlights.md) — Costa Rica: outdoor activities and highlights
+- [costa-rica-road-conditions-and-transportation-options](reference/costa-rica-road-conditions-and-transportation-options.md) — Costa Rica: road conditions and transportation options
+- [created-professional-resume-as-learning-designer-seeking-standout-applications](project/created-professional-resume-as-learning-designer-seeking-standout-applications.md) — Created professional resume as Learning Designer seeking standout applications
+- [currently-reading-the-song-of-achilles-by-madeline-miller-halfway-through-goal-t](user/currently-reading-the-song-of-achilles-by-madeline-miller-halfway-through-goal-t.md) — Currently reading 'The Song of Achilles' by Madeline Miller, halfway through, goal to finish by end of January 2023
+- [education-masters-of-arts-in-education-from-university-of-auckland-2013](user/education-masters-of-arts-in-education-from-university-of-auckland-2013.md) — Education: Masters of Arts in Education from University of Auckland (2013)
+- [effective-detailing-spray-from-amazon-for-tar-and-bug-removal](reference/effective-detailing-spray-from-amazon-for-tar-and-bug-removal.md) — Effective detailing spray from Amazon for tar and bug removal
+- [eyeshadow-palettes-loves-urban-decay-naked-heat-interested-in-anastasia-beverly](user/eyeshadow-palettes-loves-urban-decay-naked-heat-interested-in-anastasia-beverly.md) — Eyeshadow palettes: loves Urban Decay Naked Heat, interested in Anastasia Beverly Hills Modern Renaissance
+- [family-composition-five-people](user/family-composition-five-people.md) — Family composition: five people
+- [interest-in-language-evolution-and-technology-s-impact-on-writing-craft](user/interest-in-language-evolution-and-technology-s-impact-on-writing-craft.md) — Interest in language evolution and technology's impact on writing craft
+- [interest-in-trying-yoga-beginner-with-concerns-about-keeping-up-and-ability](user/interest-in-trying-yoga-beginner-with-concerns-about-keeping-up-and-ability.md) — Interest in trying yoga; beginner with concerns about keeping up and ability
+- [job-advocate-at-jobs-victoria-2021-2022](experience/job-advocate-at-jobs-victoria-2021-2022.md) — Job Advocate at Jobs Victoria (2021-2022)
+- [live-streaming-content-creator-on-instagram-youtube-facebook-with-focus-on-skinc](user/live-streaming-content-creator-on-instagram-youtube-facebook-with-focus-on-skinc.md) — Live streaming content creator on Instagram, YouTube, Facebook with focus on skincare and beauty
+- [live-streaming-engagement-strategies-for-instagram-youtube-facebook-with-tailore](reference/live-streaming-engagement-strategies-for-instagram-youtube-facebook-with-tailore.md) — Live streaming engagement strategies for Instagram, YouTube, Facebook with tailored approach per platform
+- [new-floor-mats-purchased](user/new-floor-mats-purchased.md) — New floor mats purchased
+- [oil-change-overdue-by-1000-miles](user/oil-change-overdue-by-1000-miles.md) — Oil change overdue by 1000 miles
+- [plan-to-create-live-makeup-skincare-tutorial-on-youtube](project/plan-to-create-live-makeup-skincare-tutorial-on-youtube.md) — Plan to create live makeup/skincare tutorial on YouTube
+- [planners-ordered-custom-etsy-planner-interested-in-erin-condren-lifeplanner](user/planners-ordered-custom-etsy-planner-interested-in-erin-condren-lifeplanner.md) — Planners: ordered custom Etsy planner, interested in Erin Condren LifePlanner
+- [planning-future-yellowstone-national-park-trip-with-family-of-five](project/planning-future-yellowstone-national-park-trip-with-family-of-five.md) — Planning future Yellowstone National Park trip with family of five
+- [prefers-eco-tourism-wildlife-watching-and-outdoor-activities-in-tropical-setting](user/prefers-eco-tourism-wildlife-watching-and-outdoor-activities-in-tropical-setting.md) — Prefers eco-tourism, wildlife watching, and outdoor activities in tropical settings
+- [professional-contact-sean-downie-learning-designer](user/professional-contact-sean-downie-learning-designer.md) — Professional contact: Sean Downie, Learning Designer
+- [professional-skills-learning-design-tools-and-software](user/professional-skills-learning-design-tools-and-software.md) — Professional skills: Learning design tools and software
+- [purchased-waterproof-car-cover](user/purchased-waterproof-car-cover.md) — Purchased waterproof car cover
+- [reading-interests-historical-fiction-strong-female-leads-mythology-retellings-fr](user/reading-interests-historical-fiction-strong-female-leads-mythology-retellings-fr.md) — Reading interests: historical fiction, strong female leads, mythology retellings from non-Western cultures, audiobooks
+- [recommended-eco-lodges-in-costa-rica](reference/recommended-eco-lodges-in-costa-rica.md) — Recommended eco-lodges in Costa Rica
+- [shopping-trip-to-macy-s-weekend-of-2022-12-24-for-shoes-and-levi-s-jeans](user/shopping-trip-to-macy-s-weekend-of-2022-12-24-for-shoes-and-levi-s-jeans.md) — Shopping trip to Macy's weekend of 2022-12-24 for shoes and Levi's jeans
+- [skincare-normal-to-combination-skin-type-interested-in-drunk-elephant-products](user/skincare-normal-to-combination-skin-type-interested-in-drunk-elephant-products.md) — Skincare: normal to combination skin type, interested in Drunk Elephant products
+- [tortuguero-national-park-wildlife-access-and-travel-tips](reference/tortuguero-national-park-wildlife-access-and-travel-tips.md) — Tortuguero National Park: wildlife, access, and travel tips
+- [worked-as-english-language-teacher-at-rmit-english-worldwide-starting-2022](experience/worked-as-english-language-teacher-at-rmit-english-worldwide-starting-2022.md) — Worked as English Language Teacher at RMIT English Worldwide starting 2022

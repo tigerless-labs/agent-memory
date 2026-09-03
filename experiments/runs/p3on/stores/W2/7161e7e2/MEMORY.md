@@ -1,0 +1,30 @@
+# MEMORY.md
+
+- [20-gallon-aquarium-established-february-2023](user/20-gallon-aquarium-established-february-2023.md) — 20-gallon aquarium established February 2023
+- [bible-passages-supporting-faith-healing-theology](reference/bible-passages-supporting-faith-healing-theology.md) — Bible passages supporting faith healing theology
+- [canister-filter-recommendations-for-20-gallon-tanks](reference/canister-filter-recommendations-for-20-gallon-tanks.md) — Canister filter recommendations for 20-gallon tanks
+- [chose-hydor-professional-canister-filter](user/chose-hydor-professional-canister-filter.md) — Chose Hydor Professional Canister Filter
+- [creates-book-content-on-instagram-using-stories-igtv-reels-and-static-posts](project/creates-book-content-on-instagram-using-stories-igtv-reels-and-static-posts.md) — Creates book content on Instagram using Stories, IGTV/Reels, and static posts
+- [enjoys-musical-theater-especially-the-book-of-mormon-listens-to-soundtracks-on-d](user/enjoys-musical-theater-especially-the-book-of-mormon-listens-to-soundtracks-on-d.md) — Enjoys musical theater, especially The Book of Mormon; listens to soundtracks on daily commute
+- [fish-feeding-routine-twice-daily-with-variety](user/fish-feeding-routine-twice-daily-with-variety.md) — Fish feeding routine twice daily with variety
+- [formula-1-explained-youtube-series-helpful-for-learning-technical-aspects](reference/formula-1-explained-youtube-series-helpful-for-learning-technical-aspects.md) — Formula 1 Explained YouTube series — helpful for learning technical aspects
+- [frozen-brine-shrimp-brands-for-aquarium-fish](reference/frozen-brine-shrimp-brands-for-aquarium-fish.md) — Frozen brine shrimp brands for aquarium fish
+- [gm-social-media-team-7-agents-4-shifts-with-2-days-off-per-week](project/gm-social-media-team-7-agents-4-shifts-with-2-days-off-per-week.md) — GM social media team: 7 agents, 4 shifts with 2 days off per week
+- [hymns-and-worship-songs-for-faith-healing-theme](reference/hymns-and-worship-songs-for-faith-healing-theme.md) — Hymns and worship songs for faith healing theme
+- [instagram-sculptors-to-follow-for-soapstone-carving-inspiration](reference/instagram-sculptors-to-follow-for-soapstone-carving-inspiration.md) — Instagram sculptors to follow for soapstone carving inspiration
+- [interested-in-biblical-theology-sermon-writing-and-worship-service-planning](user/interested-in-biblical-theology-sermon-writing-and-worship-service-planning.md) — Interested in biblical theology, sermon writing, and worship service planning
+- [interested-in-carving-birds-as-subject-matter-in-soapstone](user/interested-in-carving-birds-as-subject-matter-in-soapstone.md) — Interested in carving birds as subject matter in soapstone
+- [interested-in-formula-1-learning-technical-and-mechanical-aspects](user/interested-in-formula-1-learning-technical-and-mechanical-aspects.md) — Interested in Formula 1, learning technical and mechanical aspects
+- [interested-in-loan-lease-gap-coverage-for-car-insurance](user/interested-in-loan-lease-gap-coverage-for-car-insurance.md) — Interested in loan/lease gap coverage for car insurance
+- [interested-in-taking-improv-classes-or-workshops-to-challenge-themselves-and-mee](user/interested-in-taking-improv-classes-or-workshops-to-challenge-themselves-and-mee.md) — Interested in taking improv classes or workshops to challenge themselves and meet new people
+- [lives-in-kansas-city-missouri](user/lives-in-kansas-city-missouri.md) — Lives in Kansas City, Missouri
+- [lufthansa-vs-norwegian-air-economy-transatlantic-flights](reference/lufthansa-vs-norwegian-air-economy-transatlantic-flights.md) — Lufthansa vs Norwegian Air economy transatlantic flights
+- [owns-silver-honda-civic-with-lane-departure-warning-and-blind-spot-detection](user/owns-silver-honda-civic-with-lane-departure-warning-and-blind-spot-detection.md) — Owns silver Honda Civic with lane departure warning and blind spot detection
+- [participates-in-weekly-bookclubchat-on-twitter](project/participates-in-weekly-bookclubchat-on-twitter.md) — Participates in weekly #BookClubChat on Twitter
+- [popular-book-community-hashtags-and-engagement-strategies-for-instagram](reference/popular-book-community-hashtags-and-engagement-strategies-for-instagram.md) — Popular book community hashtags and engagement strategies for Instagram
+- [prefers-detailed-midjourney-prompts-with-professional-photography-language-and-c](user/prefers-detailed-midjourney-prompts-with-professional-photography-language-and-c.md) — Prefers detailed Midjourney prompts with professional photography language and camera specifications
+- [recently-started-soapstone-carving-and-is-enjoying-it](user/recently-started-soapstone-carving-and-is-enjoying-it.md) — Recently started soapstone carving and is enjoying it
+- [soapstone-carving-learning-resources-websites-youtube-channels-forums](reference/soapstone-carving-learning-resources-websites-youtube-channels-forums.md) — Soapstone carving learning resources: websites, YouTube channels, forums
+- [transatlantic-flight-preferences-flexible-dates-economy-prefers-non-stop](user/transatlantic-flight-preferences-flexible-dates-economy-prefers-non-stop.md) — Transatlantic flight preferences: flexible dates, economy, prefers non-stop
+- [uses-effective-car-wash-soap-for-cleaning-interested-in-uv-protection-for-steeri](user/uses-effective-car-wash-soap-for-cleaning-interested-in-uv-protection-for-steeri.md) — Uses effective car wash soap for cleaning; interested in UV protection for steering wheel
+- [watched-nfl-playoff-game-with-friends-at-sports-bar-on-january-15th-enjoyed-the](experience/watched-nfl-playoff-game-with-friends-at-sports-bar-on-january-15th-enjoyed-the.md) — Watched NFL playoff game with friends at sports bar on January 15th, enjoyed the experience

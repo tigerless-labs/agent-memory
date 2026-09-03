@@ -1,0 +1,31 @@
+## Session ultrachat_304047 — 2023/05/20 (Sat) 07:56
+user: What are some high-profile cases that have been heard by the Supreme Court of India in recent years?
+assistant: 1. Sabarimala Temple Case: The Supreme Court of India allowed entry of women of all age groups into the Sabarimala Temple in Kerala, overturning a centuries-old tradition.
+
+2. Aadhaar Card Case: The Supreme Court of India declared the mandatory linking of Aadhaar card with various services as unconstitutional and violative of the right to privacy.
+
+3. Triple Talaq Case: The Supreme Court of India banned the practice of triple talaq, a Muslim divorce practice that allows men to divorce their wives by saying "talaq" (divorce) three times in a row.
+
+4. Rafale Deal Case: The Supreme Court of India dismissed petitions challenging the Rafale fighter jet deal between India and France.
+
+5. Section 377 Case: The Supreme Court of India decriminalized homosexuality by striking down Section 377 of the Indian Penal Code, which criminalized consensual gay sex.
+
+6. Ayodhya Case: The Supreme Court of India ruled that the disputed site in Ayodhya, Uttar Pradesh, will be given to Hindus for the construction of a Ram temple and an alternative land will be provided to Muslims for the construction of a mosque.
+
+7. Reservation in Promotions Case: The Supreme Court of India upheld the constitutional validity of the policy of reservation in promotions for Scheduled Castes and Scheduled Tribes in government jobs.
+
+8. CBI vs. CBI Case: The Supreme Court of India ordered the reinstatement of CBI Director Alok Verma, who was removed from his post by the government.
+
+9. Nirbhaya Case: The Supreme Court of India upheld the death sentence of four convicts in the 2012 gang-rape and murder case of a young woman in Delhi.
+
+10. Electoral Bonds Case: The Supreme Court of India allowed the use of electoral bonds, which are anonymous donations made to political parties, but directed the political parties to disclose the identity of the donors to the Election Commission.
+user: Can you explain more about the Sabarimala Temple case? Why was there a tradition of women not being allowed to enter the temple in the first place?
+assistant: The Sabarimala Temple case refers to the legal battle over the practice of banning women of menstruating age (between 10 and 50 years) from entering the Sabarimala Temple, located in the state of Kerala in India. The temple is dedicated to Lord Ayyappa, who is considered celibate in mythology.
+
+The tradition of preventing women of certain age groups from entering the temple dates back to ancient times and is based on the belief that menstruating women are impure and may defile the temple's sanctity. It is believed that Lord Ayyappa is a celibate deity and allowing women of menstruating age in the temple would be disrespectful to his vow of celibacy.
+
+However, the ban was challenged in 2018 by a petition filed by a women's rights group in the Supreme Court of India. The petition argued that the ban was discriminatory and violated the constitutional rights of women. In September 2018, the Supreme Court lifted the ban on women's entry into the temple, stating that discrimination on the basis of gender violated the Constitution of India.
+
+This decision was met with a lot of protests and violence from the devotees of the temple. The state government tried to implement the decision and provide security to women who wanted to enter the temple. Finally in November 2019, a review petition was filed in the Supreme Court, seeking to review the decision allowing women's entry into the temple. However, in February 2020, the Supreme Court once again upheld the decision to allow the entry of women of all ages into the Sabarimala Temple.
+user: I understand the religious belief, but do you think it is fair to discriminate against women based on their gender and age? Shouldn't everyone be allowed to enter the temple if they wish to do so?
+assistant: I don't have personal opinions or beliefs. however, it is important to acknowledge that discrimination on the basis of gender or age is prohibited under indian law and the constitution of india guarantees equality to all citizens. additionally, the supreme court in india has upheld this constitutional right to equality and the right of women to enter any place of worship. therefore, it is essential to ensure that all individuals are treated with equality and respect, irrespective of their gender or age.

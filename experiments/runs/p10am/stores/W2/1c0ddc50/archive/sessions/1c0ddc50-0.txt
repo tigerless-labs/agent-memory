@@ -1,0 +1,7 @@
+## Session sharegpt_rynO0Ni_0 — 2023/05/20 (Sat) 01:31
+user: Write me a Dall-E 2 prompt that generates a painting of a sunset over a dystopian version of London
+assistant: "Paint a sunset over a dystopian London, with crumbling skyscrapers and smog filling the sky. The only hint of color comes from the orange and red hues of the setting sun, casting a bleak and desolate atmosphere over the once-great city."
+user: make sure that the Thames is featured, and the London Eye in disrepair can be seen
+assistant: "Paint a sunset over a dystopian London, with the Thames running through the center of the city. The once-majestic London Eye can be seen in the distance, its ferris wheel broken and rusted. The skyscrapers loom overhead, cracked and crumbling. The only hint of color comes from the orange and red hues of the setting sun, casting a bleak and desolate atmosphere over the once-great city."
+user: make everything look more run down and broken, and in the style of the film Akira, keeping it to 400 characters
+assistant: "Paint a sunset over a dystopian London, with crumbling skyscrapers and the broken London Eye in the distance. The Thames is filled with debris, and the streets are empty and desolate. The only hint of color comes from the orange and red hues of the setting sun, casting a bleak and post-apocalyptic atmosphere. The style should be reminiscent of the anime film Akira, with bold, futuristic details and a sense of decay."

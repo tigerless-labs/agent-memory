@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [carries-reusable-water-bottle-in-carry-on-luggage-to-reduce-plastic-waste](user/carries-reusable-water-bottle-in-carry-on-luggage-to-reduce-plastic-waste.md) — Carries reusable water bottle in carry-on luggage to reduce plastic waste
+- [cycles-solo-and-interested-in-joining-local-cycling-group](user/cycles-solo-and-interested-in-joining-local-cycling-group.md) — Cycles solo and interested in joining local cycling group
+- [document-organization-approach-for-90-000-100-000-unstructured-reports-on-crime](reference/document-organization-approach-for-90-000-100-000-unstructured-reports-on-crime.md) — Document organization approach for 90,000-100,000 unstructured reports on crime, terrorism, politics
+- [english-communication-with-grammar-correction-during-conversations](user/english-communication-with-grammar-correction-during-conversations.md) — English communication with grammar correction during conversations
+- [enjoys-board-games-ticket-to-ride-and-pictionary](user/enjoys-board-games-ticket-to-ride-and-pictionary.md) — Enjoys board games: Ticket to Ride and Pictionary
+- [enjoys-linkin-park-music](user/enjoys-linkin-park-music.md) — Enjoys Linkin Park music
+- [has-back-issues-requires-ergonomic-accommodation-in-seating](user/has-back-issues-requires-ergonomic-accommodation-in-seating.md) — Has back issues; requires ergonomic accommodation in seating
+- [hokkaido-cuisine-recommendations-must-try-dishes-and-restaurant-locations-2023](reference/hokkaido-cuisine-recommendations-must-try-dishes-and-restaurant-locations-2023.md) — Hokkaido cuisine recommendations: must-try dishes and restaurant locations (2023)
+- [hosts-casual-barbecues](user/hosts-casual-barbecues.md) — Hosts casual barbecues
+- [interested-in-indian-inspired-cooking-madras-curry-and-homemade-naan](user/interested-in-indian-inspired-cooking-madras-curry-and-homemade-naan.md) — Interested in Indian-inspired cooking, Madras curry, and homemade naan
+- [interested-in-plyometric-exercises-for-tennis-stretching-for-flexibility-and-inj](user/interested-in-plyometric-exercises-for-tennis-stretching-for-flexibility-and-inj.md) — Interested in plyometric exercises for tennis, stretching for flexibility and injury prevention
+- [loves-to-travel-and-explore-new-cities](user/loves-to-travel-and-explore-new-cities.md) — Loves to travel and explore new cities
+- [owns-a-lake-house](user/owns-a-lake-house.md) — Owns a lake house
+- [plays-tennis-with-saturday-lessons-interested-in-improving-serves-and-volleys](user/plays-tennis-with-saturday-lessons-interested-in-improving-serves-and-volleys.md) — Plays tennis with Saturday lessons, interested in improving serves and volleys
+- [polestar-vehicle-owner-and-user-management-service-with-primary-driver-module](project/polestar-vehicle-owner-and-user-management-service-with-primary-driver-module.md) — Polestar Vehicle owner and user management service with primary driver module
+- [prefers-eco-friendly-and-sustainable-options-across-travel-products-and-lifestyl](user/prefers-eco-friendly-and-sustainable-options-across-travel-products-and-lifestyl.md) — Prefers eco-friendly and sustainable options across travel, products, and lifestyle
+- [prepares-batch-vegetable-meals-that-last-multiple-days](user/prepares-batch-vegetable-meals-that-last-multiple-days.md) — Prepares batch vegetable meals that last multiple days
+- [runs-regularly-30-minute-runs-friday-evenings-along-the-river](user/runs-regularly-30-minute-runs-friday-evenings-along-the-river.md) — Runs regularly, 30-minute runs, Friday evenings along the river
+- [strength-training-focus-on-core-and-legs-for-tennis-and-running-performance](user/strength-training-focus-on-core-and-legs-for-tennis-and-running-performance.md) — Strength training focus on core and legs for tennis and running performance
+- [working-on-finding-suppliers-for-products-learning-supplier-management-best-prac](project/working-on-finding-suppliers-for-products-learning-supplier-management-best-prac.md) — Working on finding suppliers for products; learning supplier management best practices

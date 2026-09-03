@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [completed-30-day-daily-yoga-challenge-in-april-2023](experience/completed-30-day-daily-yoga-challenge-in-april-2023.md) — Completed 30-day daily yoga challenge in April 2023
+- [fishing-trip-planned](project/fishing-trip-planned.md) — Fishing trip planned
+- [has-ergohuman-office-chair-very-satisfied](user/has-ergohuman-office-chair-very-satisfied.md) — Has ERGOhuman office chair, very satisfied
+- [interested-in-ecocriticism-landscape-architecture-and-ursula-k-le-guin-s-work](user/interested-in-ecocriticism-landscape-architecture-and-ursula-k-le-guin-s-work.md) — Interested in ecocriticism, landscape architecture, and Ursula K. Le Guin's work
+- [interested-in-live-music-and-comedy-shows](user/interested-in-live-music-and-comedy-shows.md) — Interested in live music and comedy shows
+- [interested-in-singer-songwriter-and-folk-influenced-music-genre](user/interested-in-singer-songwriter-and-folk-influenced-music-genre.md) — Interested in Singer-Songwriter and Folk-Influenced music genre
+- [julien-baker-discography-recommendations](reference/julien-baker-discography-recommendations.md) — Julien Baker discography recommendations
+- [leaning-toward-reclaimed-wood-dining-table-upgrade-from-small-round-table](project/leaning-toward-reclaimed-wood-dining-table-upgrade-from-small-round-table.md) — Leaning toward reclaimed wood dining table upgrade from small round table
+- [lost-5-pounds-and-decreased-resting-heart-rate-by-10-bpm-during-spring-2023-trai](experience/lost-5-pounds-and-decreased-resting-heart-rate-by-10-bpm-during-spring-2023-trai.md) — Lost 5 pounds and decreased resting heart rate by 10 BPM during spring 2023 training
+- [lucy-dacus-discography-start-with-historian-album-2018-also-has-no-burden-2016-a](reference/lucy-dacus-discography-start-with-historian-album-2018-also-has-no-burden-2016-a.md) — Lucy Dacus discography: start with 'Historian' album (2018), also has 'No Burden' (2016) and 'Home Video' (2021)
+- [phoebe-bridgers-discography-recommendations](reference/phoebe-bridgers-discography-recommendations.md) — Phoebe Bridgers discography recommendations
+- [prefers-shopping-at-west-elm-and-crate-barrel-for-home-furniture](user/prefers-shopping-at-west-elm-and-crate-barrel-for-home-furniture.md) — Prefers shopping at West Elm and Crate & Barrel for home furniture
+- [purchased-ikea-micke-desk-on-2023-03-11-has-been-very-satisfied](experience/purchased-ikea-micke-desk-on-2023-03-11-has-been-very-satisfied.md) — Purchased IKEA MICKE desk on 2023-03-11, has been very satisfied
+- [ran-a-marathon-with-personal-best-time-on-april-15-2023](experience/ran-a-marathon-with-personal-best-time-on-april-15-2023.md) — Ran a marathon with personal best time on April 15, 2023
+- [recently-purchased-west-elm-harmony-sofa-in-dark-gray-velvet-for-living-room](experience/recently-purchased-west-elm-harmony-sofa-in-dark-gray-velvet-for-living-room.md) — Recently purchased West Elm Harmony Sofa in dark gray velvet for living room
+- [recently-rearranged-living-room-furniture-for-conversational-layout](user/recently-rearranged-living-room-furniture-for-conversational-layout.md) — Recently rearranged living room furniture for conversational layout
+- [tracks-fitness-progress-on-spreadsheet-with-metrics-including-weight-heart-rate](user/tracks-fitness-progress-on-spreadsheet-with-metrics-including-weight-heart-rate.md) — Tracks fitness progress on spreadsheet with metrics including weight, heart rate, distance, and time
+- [training-for-a-sprint-triathlon-with-focus-on-swimming-running-and-biking](project/training-for-a-sprint-triathlon-with-focus-on-swimming-running-and-biking.md) — Training for a sprint triathlon with focus on swimming, running, and biking
+- [uses-spotify-for-music-organization-and-discovery-saves-discover-weekly-finds](user/uses-spotify-for-music-organization-and-discovery-saves-discover-weekly-finds.md) — Uses Spotify for music organization and discovery, saves Discover Weekly finds

@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [enjoys-meal-prep-and-customizing-recipes-to-personal-taste](user/enjoys-meal-prep-and-customizing-recipes-to-personal-taste.md) — Enjoys meal prep and customizing recipes to personal taste
+- [interested-in-learning-about-world-war-i-history](user/interested-in-learning-about-world-war-i-history.md) — Interested in learning about World War I history
+- [lentil-and-mushroom-bolognese-recipe](reference/lentil-and-mushroom-bolognese-recipe.md) — Lentil and mushroom bolognese recipe
+- [wwi-history-books-and-resources-for-learning-about-world-war-i](reference/wwi-history-books-and-resources-for-learning-about-world-war-i.md) — WWI history books and resources for learning about World War I
+- [interested-in-taking-a-gap-year-to-explore-the-world-and-experience-new-cultures](user/interested-in-taking-a-gap-year-to-explore-the-world-and-experience-new-cultures.md) — Interested in taking a gap year to explore the world and experience new cultures
+- [3-seater-couch-in-living-room](user/3-seater-couch-in-living-room.md) — 3-seater couch in living room
+- [all-the-light-we-cannot-see-by-anthony-doerr-wwii-historical-fiction](reference/all-the-light-we-cannot-see-by-anthony-doerr-wwii-historical-fiction.md) — All the Light We Cannot See by Anthony Doerr — WWII historical fiction
+- [buy-throw-pillows-for-couch-from-west-elm](project/buy-throw-pillows-for-couch-from-west-elm.md) — Buy throw pillows for couch from West Elm
+- [ceramic-bowl-in-progress-started-may-2023](project/ceramic-bowl-in-progress-started-may-2023.md) — Ceramic bowl in progress, started May 2023
+- [chronic-back-pain-managed-by-dr-ahmed-first-appointment-march-10-2023](user/chronic-back-pain-managed-by-dr-ahmed-first-appointment-march-10-2023.md) — Chronic back pain managed by Dr. Ahmed; first appointment March 10, 2023
+- [claycreations-instagram-ceramic-jewelry-and-sculpting-tutorials](reference/claycreations-instagram-ceramic-jewelry-and-sculpting-tutorials.md) — @claycreations Instagram - ceramic jewelry and sculpting tutorials
+- [considering-nikon-z6-mirrorless-camera-as-backup-to-d850-for-travel-and-video-wo](project/considering-nikon-z6-mirrorless-camera-as-backup-to-d850-for-travel-and-video-wo.md) — Considering Nikon Z6 mirrorless camera as backup to D850 for travel and video work
+- [considering-upgrading-camera-bag-from-think-tank-photo-urban-disguise-40l-to-air](project/considering-upgrading-camera-bag-from-think-tank-photo-urban-disguise-40l-to-air.md) — Considering upgrading camera bag from Think Tank Photo Urban Disguise 40L to Airport Advantage
+- [grandmother-passed-away-circa-march-2023-triggering-spiritual-crisis-and-faith-q](experience/grandmother-passed-away-circa-march-2023-triggering-spiritual-crisis-and-faith-q.md) — Grandmother passed away (circa March 2023), triggering spiritual crisis and faith questioning
+- [heavily-invested-in-nikon-f-mount-lens-ecosystem](user/heavily-invested-in-nikon-f-mount-lens-ecosystem.md) — Heavily invested in Nikon F-mount lens ecosystem
+- [holiday-market-jewelry-purchases-for-sister-birthday](project/holiday-market-jewelry-purchases-for-sister-birthday.md) — Holiday Market jewelry purchases for sister birthday
+- [honor-grandmother-s-legacy-by-integrating-kindness-and-compassion-into-daily-lif](project/honor-grandmother-s-legacy-by-integrating-kindness-and-compassion-into-daily-lif.md) — Honor grandmother's legacy by integrating kindness and compassion into daily life
+- [interested-in-ceramic-jewelry-making-and-combining-with-sculpting](user/interested-in-ceramic-jewelry-making-and-combining-with-sculpting.md) — Interested in ceramic jewelry making and combining with sculpting
+- [interested-in-getting-into-video-production-particularly-learning-nikon-z6-capab](user/interested-in-getting-into-video-production-particularly-learning-nikon-z6-capab.md) — Interested in getting into video production, particularly learning Nikon Z6 capabilities
+- [interested-in-renewable-energy-career-paths-and-industry-job-prospects](user/interested-in-renewable-energy-career-paths-and-industry-job-prospects.md) — Interested in renewable energy career paths and industry job prospects
+- [interested-in-trying-paper-clay-as-an-art-medium](user/interested-in-trying-paper-clay-as-an-art-medium.md) — Interested in trying paper clay as an art medium
+- [job-search-in-queens-initially-interested-in-food-handler-or-janitor-open-to-car](project/job-search-in-queens-initially-interested-in-food-handler-or-janitor-open-to-car.md) — Job search in Queens: initially interested in food handler or janitor, open to career exploration
+- [listens-to-audiobooks-during-morning-runs](user/listens-to-audiobooks-during-morning-runs.md) — Listens to audiobooks during morning runs
+- [online-stores-for-throw-pillows-and-home-decor](reference/online-stores-for-throw-pillows-and-home-decor.md) — Online stores for throw pillows and home decor
+- [owns-nikon-d850-dslr-camera-acquired-1-5-years-ago-primary-camera-for-most-shoot](user/owns-nikon-d850-dslr-camera-acquired-1-5-years-ago-primary-camera-for-most-shoot.md) — Owns Nikon D850 DSLR camera, acquired ~1.5 years ago, primary camera for most shoots
+- [owns-sigma-24-70mm-f-2-8-dg-os-hsm-art-lens-f-mount-for-d850](user/owns-sigma-24-70mm-f-2-8-dg-os-hsm-art-lens-f-mount-for-d850.md) — Owns Sigma 24-70mm f/2.8 DG OS HSM Art Lens, F-mount for D850
+- [positive-shopping-experience-with-west-elm](user/positive-shopping-experience-with-west-elm.md) — Positive shopping experience with West Elm
+- [queens-affordable-healthcare-resources-nyc-health-hospitals-chcs-medicaid-refuge](reference/queens-affordable-healthcare-resources-nyc-health-hospitals-chcs-medicaid-refuge.md) — Queens affordable healthcare resources: NYC Health+Hospitals, CHCs, Medicaid, refugee clinics
+- [queens-affordable-housing-resources-nyc-housing-connect-section-8-chcs-shared-ho](reference/queens-affordable-housing-resources-nyc-housing-connect-section-8-chcs-shared-ho.md) — Queens affordable housing resources: NYC Housing Connect, Section 8, CHCs, shared housing options
+- [reads-books-during-daily-commute](user/reads-books-during-daily-commute.md) — Reads books during daily commute
+- [recently-fled-somalia-and-arrived-in-us-in-early-may-2023-currently-in-queens](user/recently-fled-somalia-and-arrived-in-us-in-early-may-2023-currently-in-queens.md) — Recently fled Somalia and arrived in US in early May 2023, currently in Queens
+- [recommended-books-for-spiritual-exploration-and-values-integration](reference/recommended-books-for-spiritual-exploration-and-values-integration.md) — Recommended books for spiritual exploration and values integration
+- [redefining-faith-from-rule-based-to-values-based-emphasizes-love-kindness-compas](user/redefining-faith-from-rule-based-to-values-based-emphasizes-love-kindness-compas.md) — Redefining faith from rule-based to values-based: emphasizes love, kindness, compassion, and service over institutional practice
+- [renewable-energy-career-paths-with-salary-comparison-data-from-2023](reference/renewable-energy-career-paths-with-salary-comparison-data-from-2023.md) — Renewable energy career paths with salary comparison data from 2023
+- [retail-options-for-affordable-personalized-gifts](reference/retail-options-for-affordable-personalized-gifts.md) — Retail options for affordable personalized gifts
+- [sister-birthday-gift-decision](project/sister-birthday-gift-decision.md) — Sister birthday gift decision
+- [sister-birthday-gourmet-gift-basket-contents](project/sister-birthday-gourmet-gift-basket-contents.md) — Sister birthday gourmet gift basket contents
+- [taking-sculpting-classes-for-3-months](user/taking-sculpting-classes-for-3-months.md) — Taking sculpting classes for 3 months
+- [the-alice-network-by-kate-quinn-wwi-espionage-and-historical-fiction](reference/the-alice-network-by-kate-quinn-wwi-espionage-and-historical-fiction.md) — The Alice Network by Kate Quinn — WWI espionage and historical fiction
