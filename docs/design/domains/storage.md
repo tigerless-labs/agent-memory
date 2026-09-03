@@ -27,6 +27,7 @@ memory/
 **单条记忆文件**:frontmatter 携带 name(kebab slug=稳定 id)、abstract(一句话)、
 type、status(active/stale/retired,M 的三级降档面)、created/updated、valid_from、
 superseded_by、links、weight、author(写入方 agent)、provenance;正文自由 markdown。
+三个时间字段都是 UTC 时刻(ISO 8601,秒级,`Z` 后缀):写入方所在时区不进文件,同日先后可比。
 
 **文件边界公理:失效原子 = 文件边界**。一个文件装作为整体一起过期的一份知识
 (supersede/weight/召回单位都是文件)。同生共死测试:某部分会单独过期 → 拆;

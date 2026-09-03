@@ -1,0 +1,120 @@
+## Session sharegpt_YwmoLVl_0 — 2023/05/20 (Sat) 11:56
+user: Given the FAQ below, I would like to generate a knowledge graph from it. Can you suggest the entity classes that I should use?
+
+Q. What is “Pay with Miles/Mix Miles and Cash”?
+A. “Pay with Miles” (PwM)/Mix Miles with Cash is the project enabling KrisFlyer (KF) members to use their KF miles as payment or partial payment of their commercial tickets and selected ancillaries on singaporeair.com (SAA).
+Q. How will this payment method benefits KF members?
+A, Members will be able to use this payment option for all commercial booking classes available on SAA, which means that they will have access to all available seats on all flights operated by SIA. Members will also have control over the number of miles they want to use, as long as it is more than the minimum required. Members will have more opportunities to use their miles before expiry. 
+Q. What is the minimum number of miles required to pay for a commercial ticket?
+A. A minimum of approximately 1050 KF miles is required per transaction (i.e., per PNR). This minimum may vary as the conversion rate from SGD to KF miles is subject to change upon review. For information only: The conversion rate is stored as SGD 1: 105 KF miles, hence the KF miles deducted for such a transaction will always be in multiples of 105 miles.
+Q. Is there a maximum number of miles which is allowed to be used?
+A. No, members can pay up to 100% of the commercial ticket using miles (inclusive of airport taxes and surcharges).
+Q. If members do not have enough miles, can they purchase miles to pay for tickets?
+A. No, purchase of miles is only available when redeeming award tickets or flight upgrades.
+Q. Will members be able to use their miles to pay for taxes and surcharges on their commercial tickets?
+A. Yes, members will be able to use their miles to pay for airport taxes and surcharges of their commercial tickets bought on SAA. 
+In other words, the entire commercial ticket can be paid for with miles.
+Q. Can members use their miles to pay for the tickets of their friends and family?
+A. Members can use their miles to pay for the commercial tickets of their nominees (RGN) only. Members can nominate up to a maximum of 5 RGNs. Nominees can be added at any time. However, once added, these RGNs cannot be removed or changed for a period of 6 months and a fee is applicable.
+Q. Can members use their miles to pay for flights on another airline?
+A. No, members are only able to use their miles for SIA operated flights. If members were to purchase an itinerary on SAA which includes a codeshare flight operated by another airline, they would also be unable to use KF miles to pay for the SIA operated flight within that itinerary.
+Q. Can members use KF miles to pay for a booking made through a travel agent?
+A. No, the KF miles payment option is only available for KF members via SAA. 
+Q. For transactions in foreign currencies, would the cash component be rounded up or down? Would it be rounded off to the nearest dollar?
+A. Itineraries originating from outside Singapore will be priced in local currencies (as per current SAA logic), and the local fares will be converted to SGD (based on the IATA rounding logic) before being converted to KF miles. 
+Q. What is the SGD to miles conversion rate?
+A. The current conversion rate is SGD1per 105 KF miles. This rate will be reviewed periodically and is subject to change. 
+Q. Will the SGD to miles conversion rate be made known to members?
+A. The conversion rate will not be explicitly made known to members on SAA (both on the content pages and the booking flow). However, if members were to enquire about the conversion rate or about the monetary value of the miles in their accounts, you can share that the conversion rate is currently SGD1 per 105 KF miles. Members can then work out the value of their miles and the amount they wish to use. Please note that this conversion rate will be reviewed periodically and is subject to change. 
+Q. Will members be able to accrue PPS Value, Elite miles and KF miles if they use their miles as payment for their commercial ticket?
+A. Yes, KrisFlyer and Elite miles will be earned, in proportion to the fare (excluding airport taxes) paid using credit/debit card if the fare is mileage accruable. The PPS Value accrued will similarly be derived from the proportion paid using credit/debit card. The current conditions for accruing and calculating PPS Value still apply. As a result of this logic, the KF miles used to pay for a transaction will first be used to offset all the airport taxes of all the tickets before being used to offset the fare and fuel surcharges of the tickets. Please note that Elite miles and KF miles accrued on tickets that are partially paid for using KF miles can only be accrued to KF account. The miles accrued on such tickets cannot be parked with any other OFFPs.
+Q. Will members be able to opt to accrue miles for other KF members before themselves?
+A. No, we have optimized the accruals to benefit the principal member (the member who has used his/her miles to purchase the tickets). Members will not be able to adjust this logic.
+Q. Can members accrue miles to OFFP accounts?
+A. No, the miles earned from a commercial ticket paid for with KF miles can only be credited to their KF accounts. 
+Q. Are these tickets subject to any special conditions?
+A. Yes, commercial tickets paid for with KF miles are strictly non-endorsable, even if the purchased fare is one which is fully endorsable. Other than that, the prevailing commercial conditions associated with the fare paid will be applicable.
+Q. Are redemption upgrades allowed for tickets that are paid for with KF miles?
+A. Yes, redemption upgrades are allowed for tickets that are paid for with KF miles as long as the commercial fare is in an upgradeable booking class.
+Q. Will members be able to make changes to their tickets paid for with KF miles on SAA?
+A. For flight or itinerary changes, members will have to contact their local SIA office or call centres. Any additional collection resulting from these changes can only be paid for using credit card/debit card/cash. Fare conditions will apply. Members will be able to submit their request for booking changes via SAA which will be routed offline for handling. These requests will be routed based on the POS for that transaction. For seat and meal requests, members will be able to self-service on SAA. 
+Q. Can a ticket paid for with KF miles be issued by AROs/call centres?
+A. Offline assistance is to be provided to the passenger for exceptional handling only.
+Q. How do we service a customer when SAA is down?
+A. This payment feature is only available on SAA. As a result, if SAA is down, KF miles will not be an available payment option at that time. Member will be able to continue to complete the transaction offline, but payment must be made using credit/debit card. 
+Q. Will members be able to go back onto SAA to do seat and meal requests after their bookings are reissued offline?
+A. Yes, as per all commercial tickets, members can make seat and meal requests on SAA for their tickets paid for with KF miles even if they have been reissued offline by AROs/call centres. 
+Q. Can tickets paid for with KF miles be refunded on SAA?
+A. Yes, as per all other commercial tickets, tickets paid for with KF miles can be submitted for refunds on SAA if the tickets are completely unflown and have not been reissued. The maximum amount paid using credit/debit card will be refunded to members first (not exceeding the original amount paid using credit/debit card). The balance will then be refunded accordingly in miles. KF miles that have expired, will not be refunded.
+Q. How will the refund be handled for cancellations of a ticket paid for with miles?
+A. If refunds are applicable, then the maximum possible amount of the fare paid using credit/debit card (but not more than the original amount paid using credit/debit card) will be refunded first. The remaining refund amount, if any, will be returned in equivalent miles. In other words, we will always refund the “cash” amount first (not exceeding the original amount paid using credit/debit card), before refunding the KF miles. This logic also applies to the refund of residual value when a ticket is reissued from a higher fare to a lower fare. KF miles that have expired, will not be refunded.
+Q. Will residual miles be refunded for reissuance from higher fares to lower fares?
+A. For a booking change from a higher fare to a lower fare, the refund logic will apply to the residual value. In other words, we will always refund the “cash” amount first (not exceeding the original amount paid using credit/debit card). Any balance refund amount will then be refunded in miles. KF miles that have expired will not be refunded.
+Q. What happens if some miles used to pay for the flight have already expired at the point of refund?
+A. The expired miles will not be refunded. Only miles which have not expired can be refunded. Any applicable fees and charges associated with the refund will be deducted from the oldest miles used for the ticket. I.e., Expired miles will be used to deduct such charges first. 
+Q. How can we verify whether the miles the member used to pay for the flight have already expired?
+A. Information on the expiry of the miles used for tickets is available in the transaction record in MARMS. Alternatively, once the refund mask has been created in Altea, the information is displayed as a response from MARMS. Members will also be advised of this if they submit their tickets for refund on SAA. 
+Q. How can members submit their tickets paid for with miles for refund?
+A. Members can either submit their tickets for refund on SAA or they may contact their nearest SIA office to do so. For tickets submitted for refund offline, these tickets must be refunded by the original issue station. 
+Q. When will the miles be credited back to members’ accounts when they submit their tickets paid for with miles for refund?
+A. The miles will be returned to members’ account immediately once the refund is successfully completed. 
+Q. If members have purchased a commercial ticket paid fully with credit/debit card, will they be able to use miles to pay for any additional collection resulting from a reissuance?
+A. No, this new payment option is only available on SAA for new ticket issuance. 
+Q. Will members be able to use their miles to pay for any other services available on SAA?
+A. No, KF miles are only available as a payment method for commercial tickets. We are working on increasing the list of SIA services members can use their KF miles to pay for. 
+Q. Can members use their miles to pay for the taxes and surcharges on their redemption award tickets?
+A. No, members can only use their miles to pay for commercial bookings (including taxes and surcharges) made on SAA. We are working on enabling members to pay for taxes and surcharges on their redemption tickets in the next phase of development.
+Q. When can members use their KF miles to pay for taxes and surcharges on their redemption tickets or for any other SIA services?
+A. We are working on enabling members to use their miles to pay for (i) taxes and surcharges on their redemption tickets and (ii) other SIA services. This will be in the next phase of development.
+Q. Will OFFP members (e.g., LH Miles & More member using LH miles) be able to use their own miles from their respective FFP programmes if they are not KF members?
+A. No, only KF miles can be used for this new payment option. Hence, only KF members (who accrue KF miles) will be able to use this payment option. 
+Q. Can member continue to use their KF miles to redeem Saver, Standard and Full Award tickets?
+A. Yes, we will continue to maintain the current redemption options for members. This is an additional programme feature which will increase the number of options for members to make use of their miles.
+Q. Is it better to use KF miles to pay for a commercial ticket or redeem an award ticket?
+A. The number of miles required to pay for a commercial ticket depends on the fares available at the time of purchase. Customers are advised to check the mileage requirement for both the commercial ticket and the Award redemption, as well as to consider the applicable fare conditions before deciding which ticket type is more suitable for their purpose.
+Q. Will members be able to pay for an infant ticket with miles?
+A. Currently, infant nominees are not available in the dropdown list on SAA. However, once this feature is made available on the commercial booking flow, members will be able to pay for their infant tickets with miles.
+Q. Will members be able to make a booking for himself and/or his nominees and other passengers who are not his nominees?
+A. Yes, however, members will only be able to use their miles to pay for the tickets for themselves and their nominees. They will have pay for the tickets of any other passengers using credit/debit card. 
+Q. For tickets paid for with miles with itineraries starting from MI destinations, will MI be able to service (reissue/revalidate/refund) these tickets?
+A. No, as these tickets involve the collection of miles, they will have to be routed to SQ for handling. This is similar to the handling of redemption tickets. 
+Q. When voiding a reissue of a ticket originally paid for with miles, the FOP for the reissue must be deleted before attempting another reissue. Why is this so?
+A. MARMs will return an approval code for all reissue ticket and this approval code is appended into the FOP field. When the reissue ticket is voided, a void message is sent to MARMs and the approval code will be invalidated by MARMS. Hence, if the FOP is not deleted, Altea will use the same approval code to issue the new ticket and this new ticket number will not be updated by MARMS. Subsequent servicing such as reissue or refund will fail since MARMS has no record of this new ticket.
+Q. Why is voiding the refund of a ticket originally paid for with miles not allowed even when sales report is not closed yet?
+A. Like a redemption ticket, Altea does not send any void message to MARMs for voiding of a refund record for tickets originally paid with miles. Hence, MARMs will not be aware that the refund is voided and subsequent attempt to refund the ET will fail.
+Q. How can members submit their tickets paid for with miles for refund?
+A. Members can either submit their tickets for refund on SAA or they may contact their nearest SIA office to do so. For tickets submitted for refund offline, these tickets must be refunded by the original issue station. 
+Q. Why must refund of tickets, which has been paid with miles, always be refunded by original issue station?
+A. If refund is done by a different station, BBR will be used to convert refundable amount to the refund station currency. However, MARMS only stores IATA exchange rate. Hence, there is a possibility that the converted amount using BBR may be higher that the converted rate by MARMS, thus resulting in refund failure. 
+Q. For tickets paid for with miles, cover refund is permitted for a flown ticket but not an already refunded ticket. Why is this so?
+A. Altea will make a call to MARMs for all refund of tickets which has been paid for with miles. MARMs will have a record that the ticket is already refunded, hence further refund will not be allowed. MARMS has no record that the ticket is flown, hence cover refund is still allowed for flown ticket.
+Q. Zero refund is not allowed for tickets paid for with miles. Why is this so?
+A. MARMS expects to receive the FOP details for tickets paid for with miles in the refund message from Altea. However, there is no FOP for zero refund, hence zero refund is not allowed for ticket, which has been paid with miles. For reissue of tickets paid for with miles, only cash is allowed if additional fare is required. Why is FQTR still a mandatory element for such reissues and also reissue without adc as well? MARMS need the FQTR number from Altea in order to create the MARMs record for the reissue transaction.
+Q. If the member wants to use 100% of the miles for his own ticket only, can he select "Not a nominee" in the passenger details and manually type in his RGN's details?
+A. The logic for accruals has been defaulted to always favour the principal member. The principal member will always accrue full miles before the nominee (also a KF member) accrues any miles. In the event the principal member would like to use miles to pay for his own ticket and not his nominee, he may choose not to select his nominee from the dropdown list. Instead, he could choose 'Not a nominee' and enter the 2nd pax details manually, he will not be able to use miles for this 2nd pax. In this case, the principal member will get either partial/no accrual while pax 2 will get full accrual. 
+Q. Why a residual value eMD, that is issued against a ticket paid for with miles, cannot be reissued into another ET or eMD? 
+A. Such reissue is not in scope for phase 1. MARMs will return an error message to Altea and reissue will fail. Hence, the eMD must be submitted for refund. This will be reviewed by LMD in phase 2.
+assistant: * Pay with Miles/Mix Miles and Cash (project)
+* KrisFlyer (membership program)
+* Singaporeair.com (website)
+* Commercial ticket (travel option)
+* Ancillaries (additional services)
+* KF miles (currency)
+* Booking classes (seat availability)
+* SIA (airline)
+* Expiry (mile expiration)
+* Minimum number of miles (threshold for payment)
+* Conversion rate (exchange rate from SGD to KF miles)
+* Maximum number of miles (limit for payment)
+* Taxes and surcharges (additional fees)
+* Nominees (designated individuals)
+* RGN (acronym for nominee)
+* Travel agent (middleman)
+* Foreign currency (non-SGD currency)
+* IATA (International Air Transport Association)
+* PPS Value (rewards program)
+* Elite miles (membership status)
+* KF miles (currency)
+* PNR (booking reference number)
+* SIA operated flights (flights operated by SIA)
+* Codeshare flights (flights operated by another airline but marketed by SIA)

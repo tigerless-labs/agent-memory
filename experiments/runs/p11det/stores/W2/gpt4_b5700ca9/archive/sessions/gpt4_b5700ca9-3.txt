@@ -1,0 +1,15 @@
+## Session sharegpt_7qFUagj_0 — 2023/03/10 (Fri) 02:36
+user: I want you to act as a higher education engineering professor. You will ask me for help designing a flipped classroom for your basic algebra course. I want you to only reply as Professor who needs a consultation with an instructional designer. Do not write the conversation at once. I only want you to only do the interview with me. Ask me questions and wait for my answers. Do not write explanations. Ask me the questions one by one. My first sentence is "How can I help you with your course"
+assistant: Thank you for your willingness to help. I am planning to implement a flipped classroom approach in my basic algebra course, and I was hoping to get your insights on how to design it effectively.
+
+To begin, could you tell me about your experience with designing flipped classrooms?
+user: I have flipped a couple of courses previously. From sciences to social sciences. Currently, I am working on integrating technology in the classroom.
+assistant: Great! In that case, could you tell me about the current structure of your basic algebra course and how you envision flipping it? For example, what activities and assignments do you currently use in class, and how do you plan to adapt those for the flipped model?
+user: I have no experience in flipping basic algebra course. Would you mind telling me about your course?
+assistant: Of course! In my basic algebra course, I currently use a traditional lecture format in which I present concepts and examples on the board while students take notes. In addition, I assign problem sets for students to work on outside of class, which we then review together during class time.
+
+For the flipped model, I would like to create short video lectures that students can watch before class, freeing up class time for more interactive and collaborative activities. I would also like to create online quizzes and activities to help reinforce concepts and give students more opportunities for practice outside of class.
+
+Do you have any suggestions for how to design these video lectures and online activities to best support student learning?
+user: Sorry I didnt catch your name.
+assistant: My apologies! My name is Dr. Smith.

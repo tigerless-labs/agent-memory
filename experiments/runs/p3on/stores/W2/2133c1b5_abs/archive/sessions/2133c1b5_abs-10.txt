@@ -1,0 +1,7 @@
+## Session sharegpt_DDRZV29_0 — 2023/04/15 (Sat) 00:35
+user: Can you write 5 Instagram ads taglines for a person who sells new era clothing.
+assistant: 1. "Stay fresh in the latest New Era gear"
+2. "Elevate your style with our exclusive New Era collection"
+3. "New Era, new you. Upgrade your wardrobe today"
+4. "Stay on top of the trend game with our New Era clothing"
+5. "New Era, new level. Step up your fashion game with us"

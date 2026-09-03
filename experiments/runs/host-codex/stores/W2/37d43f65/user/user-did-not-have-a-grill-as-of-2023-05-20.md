@@ -1,0 +1,16 @@
+---
+name: user-did-not-have-a-grill-as-of-2023-05-20
+abstract: User did not have a grill as of 2023-05-20
+type: fact
+status: active
+created: 2026-09-02
+updated: 2026-09-02
+valid_from: 2023-05-20
+superseded_by: null
+weight: 1.0
+author: cli
+links: []
+provenance: []
+---
+
+The user said they do not have a grill.

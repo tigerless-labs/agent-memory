@@ -1,0 +1,32 @@
+# MEMORY.md
+
+- [attended-open-mic-night-in-early-may-2023-saw-10-amateur-comedians-found-it-insp](experience/attended-open-mic-night-in-early-may-2023-saw-10-amateur-comedians-found-it-insp.md) — Attended open mic night in early May 2023; saw 10 amateur comedians, found it inspiring
+- [taking-stand-up-comedy-class-practicing-comedy-writing-and-performance](user/taking-stand-up-comedy-class-practicing-comedy-writing-and-performance.md) — Taking stand-up comedy class; practicing comedy writing and performance
+- [interested-in-exploring-beatles-music-particularly-their-experimental-and-classi](user/interested-in-exploring-beatles-music-particularly-their-experimental-and-classi.md) — Interested in exploring Beatles music, particularly their experimental and classical elements
+- [recommended-affordable-hotels-in-paris-city-center](reference/recommended-affordable-hotels-in-paris-city-center.md) — Recommended affordable hotels in Paris city center
+- [planning-road-trip-to-eastern-sierra-nevada-for-scenic-drives-and-hiking](project/planning-road-trip-to-eastern-sierra-nevada-for-scenic-drives-and-hiking.md) — Planning road trip to eastern Sierra Nevada for scenic drives and hiking
+- [30-generative-ai-use-cases-for-halifax-mooseheads-junior-hockey-team-with-specif](reference/30-generative-ai-use-cases-for-halifax-mooseheads-junior-hockey-team-with-specif.md) — 30 generative AI use cases for Halifax Mooseheads junior hockey team with specific examples
+- [beatles-albums-recommended-for-exploration](reference/beatles-albums-recommended-for-exploration.md) — Beatles albums recommended for exploration
+- [chase-ultimate-rewards-points-redemption-options-and-strategy](reference/chase-ultimate-rewards-points-redemption-options-and-strategy.md) — Chase Ultimate Rewards points redemption options and strategy
+- [eastern-sierra-nevada-scenic-attractions-mammoth-lakes-mono-lake-june-lake-loop](reference/eastern-sierra-nevada-scenic-attractions-mammoth-lakes-mono-lake-june-lake-loop.md) — Eastern Sierra Nevada scenic attractions: Mammoth Lakes, Mono Lake, June Lake Loop
+- [enjoys-longer-morning-walks-started-march-1-2023](user/enjoys-longer-morning-walks-started-march-1-2023.md) — Enjoys longer morning walks; started March 1, 2023
+- [erc-721-standard-functions-vs-custom-functions-in-nft-contracts](reference/erc-721-standard-functions-vs-custom-functions-in-nft-contracts.md) — ERC-721 standard functions vs custom functions in NFT contracts
+- [establish-weekly-laundry-and-gym-gear-cleaning-day](project/establish-weekly-laundry-and-gym-gear-cleaning-day.md) — Establish weekly laundry and gym gear cleaning day
+- [goals-for-stand-up-performance-improve-thinking-on-feet-confidence-with-unexpect](project/goals-for-stand-up-performance-improve-thinking-on-feet-confidence-with-unexpect.md) — Goals for stand-up performance: improve thinking on feet, confidence with unexpected moments and hecklers
+- [grandmother-passed-away-on-january-15-2023-sorting-through-belongings-found-phot](experience/grandmother-passed-away-on-january-15-2023-sorting-through-belongings-found-phot.md) — Grandmother passed away on January 15, 2023; sorting through belongings found photos and letters
+- [has-favorite-yoga-pants-worn-regularly-to-gym](user/has-favorite-yoga-pants-worn-regularly-to-gym.md) — Has favorite yoga pants worn regularly to gym
+- [interested-in-chase-sapphire-preferred-travel-rewards-credit-card](user/interested-in-chase-sapphire-preferred-travel-rewards-credit-card.md) — Interested in Chase Sapphire Preferred travel rewards credit card
+- [madewell-transport-tote-and-mini-transport-crossbody-handbag-recommendations-wit](reference/madewell-transport-tote-and-mini-transport-crossbody-handbag-recommendations-wit.md) — Madewell Transport Tote and Mini Transport Crossbody - handbag recommendations with materials and care
+- [organize-closet-by-season](project/organize-closet-by-season.md) — Organize closet by season
+- [owns-levi-s-black-jeans](user/owns-levi-s-black-jeans.md) — Owns Levi's black jeans
+- [paris-trip-planned-for-june-2023-flight-booked-air-france-through-expedia-packag](project/paris-trip-planned-for-june-2023-flight-booked-air-france-through-expedia-packag.md) — Paris trip planned for June 2023, flight booked Air France through Expedia package
+- [pick-up-exchanged-boots-from-zara](project/pick-up-exchanged-boots-from-zara.md) — Pick up exchanged boots from Zara
+- [prefers-affordable-handbags-with-good-value](user/prefers-affordable-handbags-with-good-value.md) — Prefers affordable handbags with good value
+- [private-guided-tour-platforms-viator-getyourguide-and-others](reference/private-guided-tour-platforms-viator-getyourguide-and-others.md) — Private guided tour platforms: Viator, GetYourGuide, and others
+- [recently-took-improv-class-learned-to-think-on-feet-and-respond-to-unexpected-si](experience/recently-took-improv-class-learned-to-think-on-feet-and-respond-to-unexpected-si.md) — Recently took improv class; learned to think on feet and respond to unexpected situations
+- [skiing-trip-with-friends-in-eastern-sierra-nevada-on-february-15-2023](experience/skiing-trip-with-friends-in-eastern-sierra-nevada-on-february-15-2023.md) — Skiing trip with friends in eastern Sierra Nevada on February 15, 2023
+- [tahoe-to-yosemite-multi-day-e-bike-trip-planned-with-modified-beginner-friendly](project/tahoe-to-yosemite-multi-day-e-bike-trip-planned-with-modified-beginner-friendly.md) — Tahoe to Yosemite multi-day e-bike trip planned with modified beginner-friendly itinerary
+- [tracking-pickups-and-returns-with-notes-app-instead-of-memory](user/tracking-pickups-and-returns-with-notes-app-instead-of-memory.md) — Tracking pickups and returns with notes app instead of memory
+- [uses-journaling-comfort-items-and-sharing-family-memories-to-process-grief-and-e](user/uses-journaling-comfort-items-and-sharing-family-memories-to-process-grief-and-e.md) — Uses journaling, comfort items, and sharing family memories to process grief and emotions
+- [using-improv-exercises-and-freewriting-to-generate-comedy-material](project/using-improv-exercises-and-freewriting-to-generate-comedy-material.md) — Using improv exercises and freewriting to generate comedy material
+- [working-to-be-more-mindful-of-spending-recognizes-impulse-purchase-pattern-with](user/working-to-be-more-mindful-of-spending-recognizes-impulse-purchase-pattern-with.md) — Working to be more mindful of spending; recognizes impulse purchase pattern with luxury items

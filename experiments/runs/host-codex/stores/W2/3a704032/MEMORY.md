@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [affordable-sustainable-clothing-brands-suggested-on-2023-05-20-pact-h-m-consciou](reference/affordable-sustainable-clothing-brands-suggested-on-2023-05-20-pact-h-m-consciou.md) — Affordable sustainable clothing brands suggested on 2023-05-20: pact, h&m conscious, everlane, patagonia, and levi's
+- [aws-escalation-engineer-ii-role-and-network-engineering-alignment-described-on-2](reference/aws-escalation-engineer-ii-role-and-network-engineering-alignment-described-on-2.md) — AWS Escalation Engineer II role and network engineering alignment described on 2023-05-21
+- [balcony-basil-struggled-with-too-much-direct-sunlight](experience/balcony-basil-struggled-with-too-much-direct-sunlight.md) — Balcony basil struggled with too much direct sunlight
+- [beginner-instrument-recording-equipment-and-software-recommendations](reference/beginner-instrument-recording-equipment-and-software-recommendations.md) — Beginner instrument-recording equipment and software recommendations
+- [bought-a-peace-lily-and-a-succulent-from-a-nursery-around-2023-05-06](user/bought-a-peace-lily-and-a-succulent-from-a-nursery-around-2023-05-06.md) — Bought a peace lily and a succulent from a nursery around 2023-05-06
+- [contemporary-fiction-recommended-after-the-seven-husbands-of-evelyn-hugo](reference/contemporary-fiction-recommended-after-the-seven-husbands-of-evelyn-hugo.md) — Contemporary fiction recommended after "The Seven Husbands of Evelyn Hugo"
+- [decided-to-wait-before-repotting-the-snake-plant](project/decided-to-wait-before-repotting-the-snake-plant.md) — Decided to wait before repotting the snake plant
+- [digital-literacy-session-10-focuses-on-evaluating-online-information-with-the-cr](project/digital-literacy-session-10-focuses-on-evaluating-online-information-with-the-cr.md) — Digital literacy session 10 focuses on evaluating online information with the CRAAP Test
+- [enjoys-fiction-with-strong-women-complex-interconnected-relationships-intersecti](user/enjoys-fiction-with-strong-women-complex-interconnected-relationships-intersecti.md) — Enjoys fiction with strong women, complex interconnected relationships, intersectional identity, and public-versus-private selves
+- [fern-developed-tiny-moving-pests-on-its-leaves-and-stems](experience/fern-developed-tiny-moving-pests-on-its-leaves-and-stems.md) — Fern developed tiny moving pests on its leaves and stems
+- [fertilizers-recommended-for-the-user-s-snake-plant-succulent-and-orchid](reference/fertilizers-recommended-for-the-user-s-snake-plant-succulent-and-orchid.md) — Fertilizers recommended for the user's snake plant, succulent, and orchid
+- [first-kimchi-attempt-around-2023-05-14-was-far-too-spicy-and-salty](experience/first-kimchi-attempt-around-2023-05-14-was-far-too-spicy-and-salty.md) — First kimchi attempt around 2023-05-14 was far too spicy and salty
+- [first-ukulele-video-will-use-the-kala-ka-ce15s-and-a-phone-camera-in-the-new-mus](project/first-ukulele-video-will-use-the-kala-ka-ce15s-and-a-phone-camera-in-the-new-mus.md) — First ukulele video will use the Kala KA-CE15S and a phone camera in the new music room
+- [graphic-novels-recommended-as-similar-to-saga](reference/graphic-novels-recommended-as-similar-to-saga.md) — Graphic novels recommended as similar to "Saga"
+- [humidifiers-recommended-for-the-user-s-indoor-plants](reference/humidifiers-recommended-for-the-user-s-indoor-plants.md) — Humidifiers recommended for the user's indoor plants
+- [interested-in-contemporary-art-and-discovering-emerging-artists](user/interested-in-contemporary-art-and-discovering-emerging-artists.md) — Interested in contemporary art and discovering emerging artists
+- [is-beginning-music-programming-with-sonic-pi](user/is-beginning-music-programming-with-sonic-pi.md) — Is beginning music programming with Sonic Pi
+- [is-developing-a-10-session-digital-literacy-course-for-6th-grade-elementary-stud](project/is-developing-a-10-session-digital-literacy-course-for-6th-grade-elementary-stud.md) — Is developing a 10-session digital literacy course for 6th-grade elementary students
+- [keeps-a-peace-lily-snake-plant-succulent-orchid-fern-african-violets-spider-plan](user/keeps-a-peace-lily-snake-plant-succulent-orchid-fern-african-violets-spider-plan.md) — Keeps a peace lily, snake plant, succulent, orchid, fern, African violets, spider plant, and balcony basil
+- [keeps-the-peace-lily-at-65f-to-70f-18c-to-21c](user/keeps-the-peace-lily-at-65f-to-70f-18c-to-21c.md) — Keeps the peace lily at 65°F to 70°F (18°C to 21°C)
+- [mists-their-fern-every-other-day](user/mists-their-fern-every-other-day.md) — Mists their fern every other day
+- [owns-a-fender-deluxe-90-guitar-amp-and-planned-to-sell-it](user/owns-a-fender-deluxe-90-guitar-amp-and-planned-to-sell-it.md) — Owns a Fender Deluxe 90 guitar amp and planned to sell it
+- [owns-a-yamaha-psr-e263-keyboard-and-planned-to-sell-it](user/owns-a-yamaha-psr-e263-keyboard-and-planned-to-sell-it.md) — Owns a Yamaha PSR-E263 keyboard and planned to sell it
+- [owns-and-plays-a-kala-ka-ce15s-ukulele](user/owns-and-plays-a-kala-ka-ce15s-ukulele.md) — Owns and plays a Kala KA-CE15S ukulele
+- [peace-lily-care-guidance-given-on-2023-05-20](reference/peace-lily-care-guidance-given-on-2023-05-20.md) — Peace lily care guidance given on 2023-05-20
+- [peace-lily-had-been-losing-leaves-after-being-brought-home](experience/peace-lily-had-been-losing-leaves-after-being-brought-home.md) — Peace lily had been losing leaves after being brought home
+- [planning-to-set-up-a-music-room-in-the-garage](project/planning-to-set-up-a-music-room-in-the-garage.md) — Planning to set up a music room in the garage
+- [plans-to-explore-artspace-and-uprise-art-for-emerging-contemporary-artists](project/plans-to-explore-artspace-and-uprise-art-for-emerging-contemporary-artists.md) — Plans to explore Artspace and Uprise Art for emerging contemporary artists
+- [plans-to-repot-the-spider-plant-in-fresh-potting-mix](project/plans-to-repot-the-spider-plant-in-fresh-potting-mix.md) — Plans to repot the spider plant in fresh potting mix
+- [plans-to-treat-the-fern-pests-with-neem-oil](project/plans-to-treat-the-fern-pests-with-neem-oil.md) — Plans to treat the fern pests with neem oil
+- [potting-mixes-recommended-for-the-user-s-spider-plant](reference/potting-mixes-recommended-for-the-user-s-spider-plant.md) — Potting mixes recommended for the user's spider plant
+- [prefers-gochugaru-with-a-medium-to-hot-heat-level-and-balanced-flavor-for-kimchi](user/prefers-gochugaru-with-a-medium-to-hot-heat-level-and-balanced-flavor-for-kimchi.md) — Prefers gochugaru with a medium-to-hot heat level and balanced flavor for kimchi
+- [pruned-a-rose-bush-around-2023-04-20-it-was-producing-new-buds-by-2023-05-20](user/pruned-a-rose-bush-around-2023-04-20-it-was-producing-new-buds-by-2023-05-20.md) — Pruned a rose bush around 2023-04-20; it was producing new buds by 2023-05-20
+- [recommended-online-platforms-for-discovering-emerging-and-contemporary-artists](reference/recommended-online-platforms-for-discovering-emerging-and-contemporary-artists.md) — Recommended online platforms for discovering emerging and contemporary artists
+- [recommended-padlet-nearpod-flipgrid-and-google-jamboard-for-student-reflection-a](reference/recommended-padlet-nearpod-flipgrid-and-google-jamboard-for-student-reflection-a.md) — Recommended Padlet, Nearpod, Flipgrid, and Google Jamboard for student reflection and discussion
+- [recommended-sonic-pi-beginner-resources-and-first-steps](reference/recommended-sonic-pi-beginner-resources-and-first-steps.md) — Recommended Sonic Pi beginner resources and first steps
+- [rose-bush-pruning-guidance-given-on-2023-05-20](reference/rose-bush-pruning-guidance-given-on-2023-05-20.md) — Rose bush pruning guidance given on 2023-05-20
+- [saw-sarah-johnson-s-climate-change-installation-at-the-contemporary-art-exhibiti](experience/saw-sarah-johnson-s-climate-change-installation-at-the-contemporary-art-exhibiti.md) — Saw Sarah Johnson's climate-change installation at the Contemporary Art Exhibition at the Modern Art Museum

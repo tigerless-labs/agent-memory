@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [10-quick-and-healthy-breakfast-ideas-5-15-minute-prep](reference/10-quick-and-healthy-breakfast-ideas-5-15-minute-prep.md) — 10 quick and healthy breakfast ideas (5-15 minute prep)
+- [black-fjallraven-kanken-backpack-purchased-may-1-2023](user/black-fjallraven-kanken-backpack-purchased-may-1-2023.md) — Black Fjallraven Kanken backpack purchased May 1, 2023
+- [breakfast-preference-scrambled-eggs-with-spinach-and-feta-cheese](user/breakfast-preference-scrambled-eggs-with-spinach-and-feta-cheese.md) — Breakfast preference: scrambled eggs with spinach and feta cheese
+- [carries-gym-supplies-in-backpack-water-bottle-towel-gym-clothes-shoes](user/carries-gym-supplies-in-backpack-water-bottle-towel-gym-clothes-shoes.md) — Carries gym supplies in backpack: water bottle, towel, gym clothes, shoes
+- [considering-a-career-in-medicine](user/considering-a-career-in-medicine.md) — Considering a career in medicine
+- [considering-installing-solar-panels-on-roof](user/considering-installing-solar-panels-on-roof.md) — Considering installing solar panels on roof
+- [declutter-apartment-and-sell-antique-tea-set-from-cousin-rachel-and-vintage-type](project/declutter-apartment-and-sell-antique-tea-set-from-cousin-rachel-and-vintage-type.md) — Declutter apartment and sell antique tea set from cousin Rachel and vintage typewriter from dad
+- [family-visit-trip-in-april-2023-brought-back-souvenirs-and-mementos](experience/family-visit-trip-in-april-2023-brought-back-souvenirs-and-mementos.md) — Family visit trip in April 2023, brought back souvenirs and mementos
+- [how-to-find-reliable-solar-panel-installation-companies](reference/how-to-find-reliable-solar-panel-installation-companies.md) — How to find reliable solar panel installation companies
+- [inherited-three-family-heirlooms-grandmother-s-vintage-diamond-necklace-great-au](user/inherited-three-family-heirlooms-grandmother-s-vintage-diamond-necklace-great-au.md) — Inherited three family heirlooms: grandmother's vintage diamond necklace, great-aunt's antique music box, mother's depression-era glassware
+- [insure-family-heirlooms-get-appraisals-then-shop-for-insurance](project/insure-family-heirlooms-get-appraisals-then-shop-for-insurance.md) — Insure family heirlooms: get appraisals then shop for insurance
+- [jewelry-appraisal-certifications-and-organizations](reference/jewelry-appraisal-certifications-and-organizations.md) — Jewelry appraisal certifications and organizations
+- [jewelry-insurance-companies-specializing-in-valuable-items](reference/jewelry-insurance-companies-specializing-in-valuable-items.md) — Jewelry insurance companies specializing in valuable items
+- [morning-routine-7-00-8-30-am-daily-1-5-hours-with-exercise-breakfast-shower-medi](project/morning-routine-7-00-8-30-am-daily-1-5-hours-with-exercise-breakfast-shower-medi.md) — Morning routine: 7:00-8:30 AM daily (1.5 hours) with exercise, breakfast, shower, meditation
+- [muffin-tin-frittatas-with-bell-peppers-and-onions-batch-breakfast-prep](project/muffin-tin-frittatas-with-bell-peppers-and-onions-batch-breakfast-prep.md) — Muffin tin frittatas with bell peppers and onions - batch breakfast prep
+- [prefers-sunrise-photography-viewpoints-accessible-by-foot-or-short-car-and-walk](user/prefers-sunrise-photography-viewpoints-accessible-by-foot-or-short-car-and-walk.md) — Prefers sunrise photography viewpoints accessible by foot or short car and walk; dislikes long drives
+- [rocky-mountain-np-sunrise-viewpoints-dream-lake-nymph-lake-emerald-lake-bear-lak](reference/rocky-mountain-np-sunrise-viewpoints-dream-lake-nymph-lake-emerald-lake-bear-lak.md) — Rocky Mountain NP sunrise viewpoints: Dream Lake, Nymph Lake, Emerald Lake, Bear Lake, Moraine Park (car plus short walk)
+- [solar-panel-installation-evaluation-factors](reference/solar-panel-installation-evaluation-factors.md) — Solar panel installation evaluation factors
+- [trail-ridge-road-summit-rocky-mountain-np-alpine-tundra-alpine-visitor-center-am](reference/trail-ridge-road-summit-rocky-mountain-np-alpine-tundra-alpine-visitor-center-am.md) — Trail Ridge Road summit Rocky Mountain NP: alpine tundra, Alpine Visitor Center amenities, 1 hour drive from park entrance
+- [uses-portable-power-bank-to-extend-phone-battery-on-long-days](user/uses-portable-power-bank-to-extend-phone-battery-on-long-days.md) — Uses portable power bank to extend phone battery on long days

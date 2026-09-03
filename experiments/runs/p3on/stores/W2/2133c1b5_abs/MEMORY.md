@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [15-minute-meditation-before-work-on-2023-03-31-improved-morning-energy](experience/15-minute-meditation-before-work-on-2023-03-31-improved-morning-energy.md) — 15-minute meditation before work on 2023-03-31 improved morning energy
+- [5-instagram-taglines-for-new-era-clothing-sales](reference/5-instagram-taglines-for-new-era-clothing-sales.md) — 5 Instagram taglines for New Era clothing sales
+- [applying-for-green-card](project/applying-for-green-card.md) — Applying for green card
+- [appreciates-fall-foliage-and-autumn-atmosphere-in-tokyo](user/appreciates-fall-foliage-and-autumn-atmosphere-in-tokyo.md) — Appreciates fall foliage and autumn atmosphere in Tokyo
+- [attended-cultural-festival-at-indian-consulate](experience/attended-cultural-festival-at-indian-consulate.md) — Attended cultural festival at Indian consulate
+- [d-d-4e-campaign-abraham-level-5-halfling-druid-starting-adventure-in-evermere](project/d-d-4e-campaign-abraham-level-5-halfling-druid-starting-adventure-in-evermere.md) — D&D 4e campaign: Abraham, Level 5 Halfling Druid, starting adventure in Evermere
+- [daikanyama-coffee-shop-discovery](reference/daikanyama-coffee-shop-discovery.md) — Daikanyama coffee shop discovery
+- [english-instructor-maria-from-brazil](reference/english-instructor-maria-from-brazil.md) — English instructor Maria from Brazil
+- [enjoys-trying-local-food-specialties-and-sampling-different-beers](user/enjoys-trying-local-food-specialties-and-sampling-different-beers.md) — Enjoys trying local food specialties and sampling different beers
+- [explores-tokyo-neighborhoods-for-hidden-gems-especially-on-sundays](user/explores-tokyo-neighborhoods-for-hidden-gems-especially-on-sundays.md) — Explores Tokyo neighborhoods for hidden gems, especially on Sundays
+- [from-hyderabad-india](user/from-hyderabad-india.md) — From Hyderabad, India
+- [goal-establish-consistent-wake-up-time-and-bedtime-routine-for-better-sleep-and](project/goal-establish-consistent-wake-up-time-and-bedtime-routine-for-better-sleep-and.md) — Goal: establish consistent wake-up time and bedtime routine for better sleep and energy
+- [interest-in-harriet-tubman-and-underground-railroad-history](user/interest-in-harriet-tubman-and-underground-railroad-history.md) — Interest in Harriet Tubman and Underground Railroad history
+- [interested-in-nuts-and-seeds-almonds-pumpkin-seeds-as-healthy-energy-snacks](user/interested-in-nuts-and-seeds-almonds-pumpkin-seeds-as-healthy-energy-snacks.md) — Interested in nuts and seeds (almonds, pumpkin seeds) as healthy energy snacks
+- [interested-in-traditional-japanese-culture-history-and-cultural-heritage](user/interested-in-traditional-japanese-culture-history-and-cultural-heritage.md) — Interested in traditional Japanese culture, history, and cultural heritage
+- [interested-in-visiting-historical-shrines-in-harajuku](user/interested-in-visiting-historical-shrines-in-harajuku.md) — Interested in visiting historical shrines in Harajuku
+- [key-findings-from-adaptive-learning-systems-research-teacher-training-and-curric](project/key-findings-from-adaptive-learning-systems-research-teacher-training-and-curric.md) — Key findings from adaptive learning systems research: teacher training and curriculum alignment are critical for successful implementation
+- [london-to-nice-road-trip-april-3-14-2023-ferry-harwich-to-amsterdam-drive-to-nic](project/london-to-nice-road-trip-april-3-14-2023-ferry-harwich-to-amsterdam-drive-to-nic.md) — London to Nice road trip April 3-14, 2023: ferry Harwich to Amsterdam, drive to Nice by April 10, return via Eurotunnel by April 16, 2059 miles total
+- [loves-walking-on-sunshine-by-katrina-the-waves-for-morning-energy-boost](user/loves-walking-on-sunshine-by-katrina-the-waves-for-morning-energy-boost.md) — Loves 'Walking on Sunshine' by Katrina & The Waves for morning energy boost
+- [moved-to-studio-apartment-in-harajuku-tokyo-in-march-2023](user/moved-to-studio-apartment-in-harajuku-tokyo-in-march-2023.md) — Moved to studio apartment in Harajuku, Tokyo in March 2023
+- [must-visit-attractions-and-cultural-sites-in-matsumoto](reference/must-visit-attractions-and-cultural-sites-in-matsumoto.md) — Must-visit attractions and cultural sites in Matsumoto
+- [onsen-hot-springs-near-matsumoto](reference/onsen-hot-springs-near-matsumoto.md) — Onsen (hot springs) near Matsumoto
+- [philippine-vat-rate-and-calculation-method-12-vat](reference/philippine-vat-rate-and-calculation-method-12-vat.md) — Philippine VAT rate and calculation method: 12% VAT
+- [philippine-vat-registration-requirements-php-3-million-annual-sales-threshold](reference/philippine-vat-registration-requirements-php-3-million-annual-sales-threshold.md) — Philippine VAT registration requirements: PHP 3 million annual sales threshold
+- [prefers-immersive-sensory-descriptions-with-emotional-detail-over-brief-abstract](user/prefers-immersive-sensory-descriptions-with-emotional-detail-over-brief-abstract.md) — Prefers immersive sensory descriptions with emotional detail over brief abstract narrative
+- [prefers-oatmeal-with-fruit-and-nuts-for-breakfast-to-boost-energy-and-focus](user/prefers-oatmeal-with-fruit-and-nuts-for-breakfast-to-boost-energy-and-focus.md) — Prefers oatmeal with fruit and nuts for breakfast to boost energy and focus
+- [preparing-early-for-naturalization-test](project/preparing-early-for-naturalization-test.md) — Preparing early for naturalization test
+- [research-interest-and-expertise-in-education-technology-edtech-and-ai-s-role-in](user/research-interest-and-expertise-in-education-technology-edtech-and-ai-s-role-in.md) — Research interest and expertise in education technology (EdTech) and AI's role in learning
+- [research-recommendations-for-effective-implementation-of-ai-powered-adaptive-lea](project/research-recommendations-for-effective-implementation-of-ai-powered-adaptive-lea.md) — Research recommendations for effective implementation of AI-powered adaptive learning systems in education
+- [taking-english-language-proficiency-classes-with-instructor-maria-from-brazil](user/taking-english-language-proficiency-classes-with-instructor-maria-from-brazil.md) — Taking English language proficiency classes with instructor Maria from Brazil
+- [thesis-research-on-ai-powered-adaptive-learning-systems-for-math-and-reading-com](project/thesis-research-on-ai-powered-adaptive-learning-systems-for-math-and-reading-com.md) — Thesis research on AI-powered adaptive learning systems for math and reading comprehension
+- [transportation-from-tokyo-to-nagano-trains-buses-flights](reference/transportation-from-tokyo-to-nagano-trains-buses-flights.md) — Transportation from Tokyo to Nagano: trains, buses, flights
+- [trip-to-japanese-alps-in-november-2023-with-friends-from-tokyo](project/trip-to-japanese-alps-in-november-2023-with-friends-from-tokyo.md) — Trip to Japanese Alps in November 2023 with friends from Tokyo
+- [uses-10-minute-rule-for-waking-up-slowly-and-transitioning-to-wake-mode](user/uses-10-minute-rule-for-waking-up-slowly-and-transitioning-to-wake-mode.md) — Uses 10-minute rule for waking up slowly and transitioning to wake mode
+- [volunteered-at-children-s-museum-family-art-day-on-march-22-2023-supervising-col](experience/volunteered-at-children-s-museum-family-art-day-on-march-22-2023-supervising-col.md) — Volunteered at Children's Museum Family Art Day on March 22, 2023, supervising collaborative art activities
+- [wants-to-get-u-s-driver-s-license-but-procrastinating-on-dmv-visit](user/wants-to-get-u-s-driver-s-license-but-procrastinating-on-dmv-visit.md) — Wants to get U.S. driver's license but procrastinating on DMV visit
+- [when-to-renew-indian-passport-during-green-card-application](project/when-to-renew-indian-passport-during-green-card-application.md) — When to renew Indian passport during green card application
+- [yokohama-attractions-museums-parks-and-district-highlights](reference/yokohama-attractions-museums-parks-and-district-highlights.md) — Yokohama attractions: museums, parks, and district highlights

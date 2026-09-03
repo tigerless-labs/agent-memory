@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [document-verification-system-ocr-nlp-ml-blockchain-for-government-tax-permit-doc](project/document-verification-system-ocr-nlp-ml-blockchain-for-government-tax-permit-doc.md) — Document verification system: OCR+NLP+ML+blockchain for government tax/permit documents with agency approval workflow
+- [interested-in-film-symbolism-and-analysis-prefers-balanced-symbolism-that-enhanc](user/interested-in-film-symbolism-and-analysis-prefers-balanced-symbolism-that-enhanc.md) — Interested in film symbolism and analysis; prefers balanced symbolism that enhances story over heavy-handed use
+- [lda-topic-modeling-on-twitter-dataset-using-gensim](project/lda-topic-modeling-on-twitter-dataset-using-gensim.md) — LDA topic modeling on Twitter dataset using Gensim
+- [marketplace-options-for-selling-rare-coins](reference/marketplace-options-for-selling-rare-coins.md) — Marketplace options for selling rare coins
+- [marketplace-options-for-selling-rare-first-edition-books](reference/marketplace-options-for-selling-rare-first-edition-books.md) — Marketplace options for selling rare first edition books
+- [marketplace-options-for-selling-vintage-cameras-leica](reference/marketplace-options-for-selling-vintage-cameras-leica.md) — Marketplace options for selling vintage cameras (Leica)
+- [marketplace-options-for-selling-vintage-typewriters](reference/marketplace-options-for-selling-vintage-typewriters.md) — Marketplace options for selling vintage typewriters
+- [marketplace-options-for-selling-vintage-vinyl-records](reference/marketplace-options-for-selling-vintage-vinyl-records.md) — Marketplace options for selling vintage vinyl records
+- [owns-1960s-leica-camera-for-potential-sale](user/owns-1960s-leica-camera-for-potential-sale.md) — Owns 1960s Leica camera for potential sale
+- [owns-rare-coin-collection-for-potential-sale](user/owns-rare-coin-collection-for-potential-sale.md) — Owns rare coin collection for potential sale
+- [owns-rare-first-edition-book-for-potential-sale](user/owns-rare-first-edition-book-for-potential-sale.md) — Owns rare first edition book for potential sale
+- [owns-vintage-pearl-necklace-from-1920s-found-in-attic](user/owns-vintage-pearl-necklace-from-1920s-found-in-attic.md) — Owns vintage pearl necklace from 1920s found in attic
+- [owns-vintage-typewriter-for-potential-sale](user/owns-vintage-typewriter-for-potential-sale.md) — Owns vintage typewriter for potential sale
+- [owns-vintage-vinyl-records-collection-for-potential-sale](user/owns-vintage-vinyl-records-collection-for-potential-sale.md) — Owns vintage vinyl records collection for potential sale
+- [prefers-spreadsheet-based-tracking-with-phone-reminders-for-loyalty-program-mana](user/prefers-spreadsheet-based-tracking-with-phone-reminders-for-loyalty-program-mana.md) — Prefers spreadsheet-based tracking with phone reminders for loyalty program management
+- [prepared-for-promotion-interview-to-manager-of-information-desk-at-small-private](experience/prepared-for-promotion-interview-to-manager-of-information-desk-at-small-private.md) — Prepared for promotion interview to manager of information desk at small private college
+- [tips-for-selling-vintage-and-rare-collectibles](reference/tips-for-selling-vintage-and-rare-collectibles.md) — Tips for selling vintage and rare collectibles
+- [twitter-dataset-4800-tweets-on-academic-writing-anxiety](project/twitter-dataset-4800-tweets-on-academic-writing-anxiety.md) — Twitter dataset: 4800 tweets on academic writing anxiety
+- [us-real-estate-agent-persona-susan-green-based-on-nar-statistics](reference/us-real-estate-agent-persona-susan-green-based-on-nar-statistics.md) — US real estate agent persona Susan Green based on NAR statistics

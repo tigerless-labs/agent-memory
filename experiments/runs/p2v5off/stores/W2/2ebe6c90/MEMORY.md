@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [10-day-rv-road-trip-from-california-to-yellowstone-in-november-2022](experience/10-day-rv-road-trip-from-california-to-yellowstone-in-november-2022.md) — 10-day RV road trip from California to Yellowstone in November 2022
+- [advocates-for-systemic-approaches-to-healthcare-equity-addressing-root-causes](user/advocates-for-systemic-approaches-to-healthcare-equity-addressing-root-causes.md) — Advocates for systemic approaches to healthcare equity addressing root causes
+- [character-driven-historical-fiction-recommendations-alice-network-song-of-achill](reference/character-driven-historical-fiction-recommendations-alice-network-song-of-achill.md) — Character-driven historical fiction recommendations: Alice Network, Song of Achilles, Kitchen House, Women in the Castle, et al.
+- [costa-rica-eco-lodges-and-sustainable-tour-operators-2022-research](reference/costa-rica-eco-lodges-and-sustainable-tour-operators-2022-research.md) — Costa Rica eco-lodges and sustainable tour operators (2022 research)
+- [currently-reading-the-nightingale-by-kristin-hannah](user/currently-reading-the-nightingale-by-kristin-hannah.md) — Currently reading: The Nightingale by Kristin Hannah
+- [currently-reading-the-song-of-achilles-by-madeline-miller-halfway-through](user/currently-reading-the-song-of-achilles-by-madeline-miller-halfway-through.md) — Currently reading: The Song of Achilles by Madeline Miller (halfway through)
+- [currently-reading-the-song-of-achilles-by-madeline-miller-reading-before-bed-in](user/currently-reading-the-song-of-achilles-by-madeline-miller-reading-before-bed-in.md) — Currently reading: The Song of Achilles by Madeline Miller; reading before bed in short bursts
+- [currently-reading-the-star-touched-queen-by-roshani-chokshi](user/currently-reading-the-star-touched-queen-by-roshani-chokshi.md) — Currently reading: The Star-Touched Queen by Roshani Chokshi
+- [drunk-elephant-skincare-product-recommendations-protini-c-firma-babyfacial-beste](reference/drunk-elephant-skincare-product-recommendations-protini-c-firma-babyfacial-beste.md) — Drunk Elephant skincare product recommendations: Protini, C-Firma, Babyfacial, Beste, Lala, Slaai, Shaba, Framboos
+- [eyeshadow-palette-recommendations-abh-modern-renaissance-huda-beauty-tom-ford-ch](reference/eyeshadow-palette-recommendations-abh-modern-renaissance-huda-beauty-tom-ford-ch.md) — Eyeshadow palette recommendations: ABH Modern Renaissance, Huda Beauty, Tom Ford, Charlotte Tilbury, NARS, Make Up For Ever, Tarte, Pat McGrath, Giorgio Armani, Viseart
+- [family-of-five](user/family-of-five.md) — Family of five
+- [finished-reading-the-nightingale-by-kristin-hannah-on-2023-01-31](experience/finished-reading-the-nightingale-by-kristin-hannah-on-2023-01-31.md) — Finished reading The Nightingale by Kristin Hannah on 2023-01-31
+- [has-read-and-enjoyed-the-poppy-war-by-r-f-kuang](user/has-read-and-enjoyed-the-poppy-war-by-r-f-kuang.md) — Has read and enjoyed: The Poppy War by R.F. Kuang
+- [interested-in-erin-condren-lifeplanner](user/interested-in-erin-condren-lifeplanner.md) — Interested in Erin Condren LifePlanner
+- [interested-in-starting-yoga-practice-concerned-about-ability-level-and-keeping-u](user/interested-in-starting-yoga-practice-concerned-about-ability-level-and-keeping-u.md) — Interested in starting yoga practice; concerned about ability level and keeping up with classes
+- [interested-in-writing-craft-evolution-how-language-technology-and-writers-adapt](user/interested-in-writing-craft-evolution-how-language-technology-and-writers-adapt.md) — Interested in writing craft evolution: how language, technology, and writers adapt
+- [live-streams-weekly-on-instagram-youtube-and-facebook](user/live-streams-weekly-on-instagram-youtube-and-facebook.md) — Live streams weekly on Instagram, YouTube, and Facebook
+- [long-distance-road-trip-tips-for-kids](reference/long-distance-road-trip-tips-for-kids.md) — Long-distance road trip tips for kids
+- [owns-urban-decay-naked-heat-eyeshadow-palette](user/owns-urban-decay-naked-heat-eyeshadow-palette.md) — Owns Urban Decay Naked Heat eyeshadow palette
+- [planner-brand-recommendations-erin-condren-passion-planner-happy-planner-day-des](reference/planner-brand-recommendations-erin-condren-passion-planner-happy-planner-day-des.md) — Planner brand recommendations: Erin Condren, Passion Planner, Happy Planner, Day Designer, Plum Paper
+- [planning-live-makeup-tutorial-on-youtube](project/planning-live-makeup-tutorial-on-youtube.md) — Planning live makeup tutorial on YouTube
+- [prefers-eco-tourism-and-sustainable-travel-with-wildlife-watching-and-hiking](user/prefers-eco-tourism-and-sustainable-travel-with-wildlife-watching-and-hiking.md) — Prefers eco-tourism and sustainable travel with wildlife watching and hiking
+- [reading-interests-historical-fiction-mythology-retellings-strong-female-leads-fe](user/reading-interests-historical-fiction-mythology-retellings-strong-female-leads-fe.md) — Reading interests: historical fiction, mythology retellings, strong female leads, feminist themes, dystopian settings, non-Western mythologies (African, Asian, Latin American)
+- [recently-ordered-custom-planner-from-etsy](user/recently-ordered-custom-planner-from-etsy.md) — Recently ordered custom planner from Etsy
+- [sean-downie-professional-profile-and-resume](reference/sean-downie-professional-profile-and-resume.md) — Sean Downie professional profile and resume
+- [skin-type-normal-to-combination-interested-in-drunk-elephant-skincare](user/skin-type-normal-to-combination-interested-in-drunk-elephant-skincare.md) — Skin type: normal to combination; interested in Drunk Elephant skincare
+- [travel-style-rv-road-trips-from-california](user/travel-style-rv-road-trips-from-california.md) — Travel style: RV road trips from California
+- [yellowstone-family-trip-accommodations-attractions-tips](reference/yellowstone-family-trip-accommodations-attractions-tips.md) — Yellowstone family trip: accommodations, attractions, tips
+- [yellowstone-trip-interests-geysers-hot-springs-wildlife-hiking](user/yellowstone-trip-interests-geysers-hot-springs-wildlife-hiking.md) — Yellowstone trip interests: geysers, hot springs, wildlife, hiking

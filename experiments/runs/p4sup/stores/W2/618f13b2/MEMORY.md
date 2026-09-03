@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [actively-practicing-street-photography-incorporating-into-daily-morning-commute](user/actively-practicing-street-photography-incorporating-into-daily-morning-commute.md) — Actively practicing street photography, incorporating into daily morning commute
+- [attended-friend-s-birthday-party-on-2023-05-25-wearing-black-converse-sneakers](experience/attended-friend-s-birthday-party-on-2023-05-25-wearing-black-converse-sneakers.md) — Attended friend's birthday party on 2023-05-25 wearing black Converse sneakers
+- [attended-street-photography-workshop-may-1-2-2023](experience/attended-street-photography-workshop-may-1-2-2023.md) — Attended street photography workshop May 1-2, 2023
+- [beach-vacation-with-photos-of-sunrise-sunset-and-coastal-scenes](experience/beach-vacation-with-photos-of-sunrise-sunset-and-coastal-scenes.md) — Beach vacation with photos of sunrise, sunset, and coastal scenes
+- [bike-cleaning-products-and-waterproofing-recommendations](reference/bike-cleaning-products-and-waterproofing-recommendations.md) — Bike cleaning products and waterproofing recommendations
+- [building-rapport-with-strangers-for-street-photography-permission-requests](reference/building-rapport-with-strangers-for-street-photography-permission-requests.md) — Building rapport with strangers for street photography permission requests
+- [captured-sunset-photos-at-red-rock-canyon-on-april-12-2023](experience/captured-sunset-photos-at-red-rock-canyon-on-april-12-2023.md) — Captured sunset photos at Red Rock Canyon on April 12, 2023
+- [cleaned-white-adidas-superstars-after-gym-on-2023-05-30](experience/cleaned-white-adidas-superstars-after-gym-on-2023-05-30.md) — Cleaned white Adidas Superstars after gym on 2023-05-30
+- [conversation-strategies-for-social-events-listening-finding-common-ground-authen](reference/conversation-strategies-for-social-events-listening-finding-common-ground-authen.md) — Conversation strategies for social events: listening, finding common ground, authenticity, body language, brief initial interactions
+- [dad-s-smoked-paprika-bbq-sauce-succeeded-at-family-camping-trip](experience/dad-s-smoked-paprika-bbq-sauce-succeeded-at-family-camping-trip.md) — Dad's smoked paprika BBQ sauce succeeded at family camping trip
+- [endangered-languages-classification-criteria-documentation-methods-preservation](reference/endangered-languages-classification-criteria-documentation-methods-preservation.md) — Endangered languages: classification criteria, documentation methods, preservation challenges
+- [ideas-for-meaningful-in-person-gatherings-setting-intention-shared-activities-se](reference/ideas-for-meaningful-in-person-gatherings-setting-intention-shared-activities-se.md) — Ideas for meaningful in-person gatherings: setting intention, shared activities, sensory elements, active listening, creating rituals
+- [interested-in-korean-style-bbq-marinades](user/interested-in-korean-style-bbq-marinades.md) — Interested in Korean-style BBQ marinades
+- [interested-in-planning-game-nights-and-potluck-dinners-with-friends](user/interested-in-planning-game-nights-and-potluck-dinners-with-friends.md) — Interested in planning game nights and potluck dinners with friends
+- [interested-in-vans-old-skool-sneakers-for-comfort-and-durability](user/interested-in-vans-old-skool-sneakers-for-comfort-and-durability.md) — Interested in Vans Old Skool sneakers for comfort and durability
+- [introvert-who-finds-relief-and-comfort-in-solitude-feels-drained-by-large-social](user/introvert-who-finds-relief-and-comfort-in-solitude-feels-drained-by-large-social.md) — Introvert who finds relief and comfort in solitude; feels drained by large social gatherings
+- [korean-style-gochujang-bbq-marinade-recipe](reference/korean-style-gochujang-bbq-marinade-recipe.md) — Korean-style gochujang BBQ marinade recipe
+- [mom-makes-homemade-marshmallows-from-scratch](user/mom-makes-homemade-marshmallows-from-scratch.md) — Mom makes homemade marshmallows from scratch
+- [organizes-shoes-by-type-and-color](user/organizes-shoes-by-type-and-color.md) — Organizes shoes by type and color
+- [outing-with-200-photos-of-scenery-and-wildlife-experimenting-with-camera-modes](experience/outing-with-200-photos-of-scenery-and-wildlife-experimenting-with-camera-modes.md) — Outing with 200+ photos of scenery and wildlife, experimenting with camera modes
+- [owns-50mm-f-1-8-prime-lens-purchased-april-10-2023](user/owns-50mm-f-1-8-prime-lens-purchased-april-10-2023.md) — Owns 50mm f/1.8 prime lens purchased April 10, 2023
+- [owns-black-converse-chuck-taylor-all-star-sneakers](user/owns-black-converse-chuck-taylor-all-star-sneakers.md) — Owns black Converse Chuck Taylor All Star sneakers
+- [owns-brown-leather-boots-with-loose-heel-needing-repair-plans-cedar-shoe-tree-an](user/owns-brown-leather-boots-with-loose-heel-needing-repair-plans-cedar-shoe-tree-an.md) — Owns brown leather boots with loose heel needing repair; plans cedar shoe tree and leather cleaning kit maintenance
+- [owns-cannondale-synapse-road-bike](user/owns-cannondale-synapse-road-bike.md) — Owns Cannondale Synapse road bike
+- [owns-honda-civic](user/owns-honda-civic.md) — Owns Honda Civic
+- [owns-trek-fx-2-hybrid-bike](user/owns-trek-fx-2-hybrid-bike.md) — Owns Trek FX 2 hybrid bike
+- [owns-white-adidas-superstars](user/owns-white-adidas-superstars.md) — Owns white Adidas Superstars
+- [photo-organization-workflow-lightroom-collections-by-type-with-smart-collections](user/photo-organization-workflow-lightroom-collections-by-type-with-smart-collections.md) — Photo organization workflow: Lightroom collections by type with Smart Collections for filtering
+- [planning-to-organize-garage-for-bike-storage](project/planning-to-organize-garage-for-bike-storage.md) — Planning to organize garage for bike storage
+- [purchasing-coach-parker-handbag-for-sister-s-birthday-with-monogramming-and-gift](project/purchasing-coach-parker-handbag-for-sister-s-birthday-with-monogramming-and-gift.md) — Purchasing Coach Parker handbag for sister's birthday with monogramming and gift wrapping
+- [saris-bones-2-bike-trunk-rack-highly-rated-bike-rack-for-honda-civic](reference/saris-bones-2-bike-trunk-rack-highly-rated-bike-rack-for-honda-civic.md) — Saris Bones 2-Bike Trunk Rack: highly-rated bike rack for Honda Civic
+- [scored-coach-handbag-at-tj-maxx-near-home-with-60-discount](experience/scored-coach-handbag-at-tj-maxx-near-home-with-60-discount.md) — Scored Coach handbag at TJ Maxx near home with 60% discount
+- [shoe-care-products-and-brands-recommended-saphir-kiwi-jason-markk-lexol-scotchga](reference/shoe-care-products-and-brands-recommended-saphir-kiwi-jason-markk-lexol-scotchga.md) — Shoe care products and brands recommended: Saphir, Kiwi, Jason Markk, Lexol, Scotchgard, Crepe Protect, Nikwax
+- [sister-prefers-classic-elegant-handbags-in-neutral-colors-beige-black-daily-bag](user/sister-prefers-classic-elegant-handbags-in-neutral-colors-beige-black-daily-bag.md) — Sister prefers classic, elegant handbags in neutral colors (beige, black), daily bag style
+- [strategies-for-limiting-social-media-while-maintaining-connections-scheduled-che](reference/strategies-for-limiting-social-media-while-maintaining-connections-scheduled-che.md) — Strategies for limiting social media while maintaining connections: scheduled checks, blockers, meaningful interactions focus, FOMO reframing
+- [street-photography-techniques-burst-mode-zone-focusing-decisive-moment-anticipat](reference/street-photography-techniques-burst-mode-zone-focusing-decisive-moment-anticipat.md) — Street photography techniques: burst mode, zone focusing, decisive moment, anticipation, lighting, composition
+- [struggling-with-social-media-use-and-fomo-wants-to-limit-use-without-feeling-dis](user/struggling-with-social-media-use-and-fomo-wants-to-limit-use-without-feeling-dis.md) — Struggling with social media use and FOMO; wants to limit use without feeling disconnected
+- [tried-joining-a-book-club-but-it-didn-t-work-out](user/tried-joining-a-book-club-but-it-didn-t-work-out.md) — Tried joining a book club but it didn't work out

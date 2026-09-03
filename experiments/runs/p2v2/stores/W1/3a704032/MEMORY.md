@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [affordable-sustainable-clothing-brands](reference/affordable-sustainable-clothing-brands.md) — Affordable sustainable clothing brands
+- [attended-gallery-opening-at-contemporary-art-space-in-october-2023](experience/attended-gallery-opening-at-contemporary-art-space-in-october-2023.md) — Attended gallery opening at Contemporary Art Space in October 2023
+- [aws-escalation-engineer-ii-role-and-network-systems-engineer-skill-overlap](reference/aws-escalation-engineer-ii-role-and-network-systems-engineer-skill-overlap.md) — AWS Escalation Engineer II role and network/systems engineer skill overlap
+- [basil-plant-on-balcony-struggling-with-too-much-direct-sunlight-moving-to-shadie](experience/basil-plant-on-balcony-struggling-with-too-much-direct-sunlight-moving-to-shadie.md) — Basil plant on balcony struggling with too much direct sunlight, moving to shadier spot
+- [cooking-perfecting-kimchi-recipe-balancing-spice-and-salt](user/cooking-perfecting-kimchi-recipe-balancing-spice-and-salt.md) — Cooking: perfecting kimchi recipe — balancing spice and salt
+- [creating-digital-literacy-lesson-plan-session-10-evaluating-online-information](project/creating-digital-literacy-lesson-plan-session-10-evaluating-online-information.md) — Creating digital literacy lesson plan: Session 10 — Evaluating Online Information
+- [emerging-artist-sarah-johnson-climate-change-installation-at-modern-art-museum](reference/emerging-artist-sarah-johnson-climate-change-installation-at-modern-art-museum.md) — Emerging artist Sarah Johnson, climate change installation at Modern Art Museum
+- [fern-has-pest-infestation-treating-with-neem-oil-and-misting-as-of-may-25-2023](experience/fern-has-pest-infestation-treating-with-neem-oil-and-misting-as-of-may-25-2023.md) — Fern has pest infestation, treating with neem oil and misting as of May 25 2023
+- [interested-in-contemporary-art-and-discovering-emerging-artists](user/interested-in-contemporary-art-and-discovering-emerging-artists.md) — Interested in contemporary art and discovering emerging artists
+- [learning-music-programming-starting-with-sonic-pi](user/learning-music-programming-starting-with-sonic-pi.md) — Learning: music programming — starting with Sonic Pi
+- [owns-fender-deluxe-90-amp-and-yamaha-psr-e263-keyboard-planning-to-sell-separate](user/owns-fender-deluxe-90-amp-and-yamaha-psr-e263-keyboard-planning-to-sell-separate.md) — Owns Fender Deluxe 90 amp and Yamaha PSR-E263 keyboard, planning to sell separately
+- [plant-collection-includes-peace-lily-snake-plant-succulents-orchid-fern-african](user/plant-collection-includes-peace-lily-snake-plant-succulents-orchid-fern-african.md) — Plant collection includes peace lily, snake plant, succulents, orchid, fern, African violets, spider plant, and basil
+- [plays-ukulele-kala-ka-ce15s-and-wants-to-record-and-share-videos-online](user/plays-ukulele-kala-ka-ce15s-and-wants-to-record-and-share-videos-online.md) — Plays ukulele (Kala KA-CE15S) and wants to record and share videos online
+- [prefers-to-support-sustainable-and-ethical-fashion-brands](user/prefers-to-support-sustainable-and-ethical-fashion-brands.md) — Prefers to support sustainable and ethical fashion brands
+- [reading-contemporary-fiction-with-strong-female-protagonists-and-complex-relatio](user/reading-contemporary-fiction-with-strong-female-protagonists-and-complex-relatio.md) — Reading: contemporary fiction with strong female protagonists and complex relationships
+- [reading-graphic-novels-with-sci-fi-fantasy-and-complex-narratives](user/reading-graphic-novels-with-sci-fi-fantasy-and-complex-narratives.md) — Reading: graphic novels with sci-fi, fantasy, and complex narratives
+- [received-snake-plant-as-gift-from-sister-in-april-2023](experience/received-snake-plant-as-gift-from-sister-in-april-2023.md) — Received snake plant as gift from sister in April 2023
+- [setting-up-a-soundproofed-music-room-in-garage](project/setting-up-a-soundproofed-music-room-in-garage.md) — Setting up a soundproofed music room in garage
+- [uses-plant-tracking-app-to-manage-houseplant-watering-and-fertilization-schedule](user/uses-plant-tracking-app-to-manage-houseplant-watering-and-fertilization-schedule.md) — Uses plant tracking app to manage houseplant watering and fertilization schedule

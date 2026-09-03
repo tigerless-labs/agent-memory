@@ -1,0 +1,43 @@
+## Session sharegpt_YSEjnMT_7 — 2023/05/21 (Sun) 05:32
+assistant: Here is an example of Dalan Hargrave's Fantasy Cut in the format you requested:
+
+GemCad 5.0
+g 72 0.0
+y 9 y
+I 1.76
+H PC 01.652 Dalan Hargrave’s Fantasy Cut
+H Designed by Dalan Hargrave, Copyright May 23, 2003
+H Average face up brilliance ISO=89.5% COS=78.1% At 10 degrees tilt ISO= 89.2%
+H COS= 78.6%. At 20 degrees tilt ISO= 75.9% COS= 63.9%.
+a -43.493107 0.76546964 70 66 n P1 62 58 54 50 46 42 38 34 30 26 22 18 14 10
+6 2 G TCP.
+a -90.000000 1.03984691 70 n P2 66 62 58 54 50 46 42 38 34 30 26 22 18 14 10
+6 2 G Level girdle.
+a -41.494666 0.74831056 71 65 63 n P3 57 55 49 47 41 39 33 31 25 23 17 15 9
+7 1 G New TCP, GMP.
+a -41.000000 0.74450915 72 n P4 64 56 48 40 32 24 16 8 G PCP, New GMP.
+a 40.000000 0.68012328 2 6 n C1 10 14 18 22 26 30 34 38 42 46 50 54 58 62
+66 70 G Level girdle.
+a 35.000000 0.61816787 72 n C2 8 16 24 32 40 48 56 64 G GMP
+a 22.000000 0.51342634 4 12 n C3 20 28 36 44 52 60 68 G MP @ C1.
+a 18.000000 0.48233771 4 n C4 12 20 28 36 44 52 60 68 G MP @ C2.
+a 0.000000 0.37026969 72 n C5 G Cut to size.
+F The 72-index teeth are 5 deg. apart. Therefore, designing with adjacent indices isn't as much of a
+F problem as it would be for finer resolution index gears. I have tried to optimize this design for
+F CREATIVE GEMS SC-33 Kashmir Blue Synthetic flame-fusion corundum. I designed it for an 8mm ring stone.
+F It should work nice in most light to medium material RI 1.7+ in sizes 8mm and larger.
+user: use that format only for an example of the template, dont just copy it
+assistant: I apologize for the confusion earlier. Here's an example template for a GemCad diagram:
+
+GemCad [Version Number]
+g [Number of Indexes] [Index Angle]
+y [Number of Facets] y
+I [Refractive Index]
+H [Pavilion Angle] [Gemstone Name]
+H [Additional Details]
+a [Angle] [Height Ratio] [Indexes] [Facet Name] [Indexes of Adjacent Facets] [Symmetry Group]
+a [Angle] [Height Ratio] [Indexes] [Facet Name] [Indexes of Adjacent Facets] [Symmetry Group]
+...
+F [Additional Notes]
+
+You can replace the information in brackets with the specific details of your gemstone cut, including the version number of GemCad, the number of indexes and index angle, the number of facets, the refractive index, the pavilion angle, and any additional details or notes. The "a" lines denote the different facets of the gemstone, including the angle, height ratio, indexes, facet name, indexes of adjacent facets, and symmetry group. The "F" line can be used to provide additional notes or details about the cut.

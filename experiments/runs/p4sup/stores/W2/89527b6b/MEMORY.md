@@ -1,0 +1,29 @@
+# MEMORY.md
+
+- [attended-austin-film-festival-and-watched-12-critically-acclaimed-films-includin](experience/attended-austin-film-festival-and-watched-12-critically-acclaimed-films-includin.md) — Attended Austin Film Festival and watched 12 critically acclaimed films including 'The French Dispatch' and 'The Power of the Dog'
+- [bbq-chicken-pizza-restaurant-recommendations](reference/bbq-chicken-pizza-restaurant-recommendations.md) — BBQ chicken pizza restaurant recommendations
+- [enjoys-scenic-and-off-the-beaten-path-travel-experiences](user/enjoys-scenic-and-off-the-beaten-path-travel-experiences.md) — Enjoys scenic and off-the-beaten-path travel experiences
+- [experimenting-with-new-cooking-ingredients-sumac-and-paprika](user/experimenting-with-new-cooking-ingredients-sumac-and-paprika.md) — Experimenting with new cooking ingredients: sumac and paprika
+- [favorite-film-critics-and-publications-rogerebert-com-the-a-v-club-the-film-comm](reference/favorite-film-critics-and-publications-rogerebert-com-the-a-v-club-the-film-comm.md) — Favorite film critics and publications: RogerEbert.com, The A.V. Club, The Film Comment
+- [find-and-volunteer-at-more-music-and-arts-events-in-local-community](project/find-and-volunteer-at-more-music-and-arts-events-in-local-community.md) — Find and volunteer at more music and arts events in local community
+- [five-project-catalyst-proposal-ideas-for-ghana-development](reference/five-project-catalyst-proposal-ideas-for-ghana-development.md) — Five Project Catalyst proposal ideas for Ghana development
+- [geochemical-ternary-plot-2020-12-18-noc-sample-25-oxide-analyses](reference/geochemical-ternary-plot-2020-12-18-noc-sample-25-oxide-analyses.md) — Geochemical ternary plot: 2020-12-18 noc sample, 25 oxide analyses
+- [grand-canyon-and-monument-valley-travel-routes-and-attractions](reference/grand-canyon-and-monument-valley-travel-routes-and-attractions.md) — Grand Canyon and Monument Valley travel routes and attractions
+- [interested-in-ancient-languages-and-early-written-history](user/interested-in-ancient-languages-and-early-written-history.md) — Interested in ancient languages and early written history
+- [interested-in-cardano-blockchain-and-project-catalyst-funding-mechanisms-for-gha](user/interested-in-cardano-blockchain-and-project-catalyst-funding-mechanisms-for-gha.md) — Interested in Cardano blockchain and Project Catalyst funding mechanisms for Ghana-based development
+- [interested-in-cinematography-film-criticism-and-analyzing-cinematic-techniques](user/interested-in-cinematography-film-criticism-and-analyzing-cinematic-techniques.md) — Interested in cinematography, film criticism, and analyzing cinematic techniques
+- [interested-in-visiting-monument-valley-and-iconic-rock-formations](user/interested-in-visiting-monument-valley-and-iconic-rock-formations.md) — Interested in visiting Monument Valley and iconic rock formations
+- [learn-to-make-chicken-fajitas-at-home-from-scratch](project/learn-to-make-chicken-fajitas-at-home-from-scratch.md) — Learn to make chicken fajitas at home from scratch
+- [loves-ankle-boots-that-need-heel-repair](user/loves-ankle-boots-that-need-heel-repair.md) — Loves ankle boots that need heel repair
+- [orders-kfc-chicken-burgers-every-friday-night](user/orders-kfc-chicken-burgers-every-friday-night.md) — Orders KFC chicken burgers every Friday night
+- [owns-h-m-sandals-that-pair-well-with-dresses](user/owns-h-m-sandals-that-pair-well-with-dresses.md) — Owns H&M sandals that pair well with dresses
+- [owns-yellow-sundress-from-asos](user/owns-yellow-sundress-from-asos.md) — Owns yellow sundress from ASOS
+- [planned-grand-canyon-road-trip-with-friends](project/planned-grand-canyon-road-trip-with-friends.md) — Planned Grand Canyon road trip with friends
+- [prefers-boho-chic-fashion-style](user/prefers-boho-chic-fashion-style.md) — Prefers boho chic fashion style
+- [prefers-early-holiday-shopping-planning-to-avoid-last-minute-rush-uses-budgeting](user/prefers-early-holiday-shopping-planning-to-avoid-last-minute-rush-uses-budgeting.md) — Prefers early holiday shopping planning to avoid last-minute rush; uses budgeting apps and spreadsheets to track spending
+- [prefers-indie-and-rock-music-at-small-intimate-local-venues](user/prefers-indie-and-rock-music-at-small-intimate-local-venues.md) — Prefers indie and rock music at small, intimate local venues
+- [prefers-pizza-hut-s-bbq-chicken-pizza-ordered-4-times-in-one-week](user/prefers-pizza-hut-s-bbq-chicken-pizza-ordered-4-times-in-one-week.md) — Prefers Pizza Hut's BBQ chicken pizza; ordered 4 times in one week
+- [relies-on-food-delivery-apps-on-weekdays-due-to-busy-schedule](user/relies-on-food-delivery-apps-on-weekdays-due-to-busy-schedule.md) — Relies on food delivery apps on weekdays due to busy schedule
+- [values-diversity-inclusion-and-representation-behind-the-camera-in-the-film-indu](user/values-diversity-inclusion-and-representation-behind-the-camera-in-the-film-indu.md) — Values diversity, inclusion, and representation behind the camera in the film industry
+- [volunteered-at-music-for-a-cause-benefit-concert-at-community-center-in-april-20](experience/volunteered-at-music-for-a-cause-benefit-concert-at-community-center-in-april-20.md) — Volunteered at Music for a Cause benefit concert at Community Center in April 2023
+- [wrote-children-s-book-the-amazing-adventures-of-dinosaurs-with-image-description](experience/wrote-children-s-book-the-amazing-adventures-of-dinosaurs-with-image-description.md) — Wrote children's book 'The Amazing Adventures of Dinosaurs' with image descriptions in custom format

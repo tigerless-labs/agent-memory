@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [camera-choice-fujifilm-x-t30-ii-for-landscape-photography](reference/camera-choice-fujifilm-x-t30-ii-for-landscape-photography.md) — Camera choice: Fujifilm X-T30 II for landscape photography
+- [considering-expansion-of-product-line-to-include-more-artisanal-soaps](project/considering-expansion-of-product-line-to-include-more-artisanal-soaps.md) — Considering expansion of product line to include more artisanal soaps
+- [current-inventory-status-candle-supplies-almost-sold-out-strawberry-jam-is-top-s](project/current-inventory-status-candle-supplies-almost-sold-out-strawberry-jam-is-top-s.md) — Current inventory status: candle supplies almost sold out, strawberry jam is top seller
+- [deciding-between-reclaimed-wood-or-minimalist-design-for-dining-table-upgrade](project/deciding-between-reclaimed-wood-or-minimalist-design-for-dining-table-upgrade.md) — Deciding between reclaimed wood or minimalist design for dining table upgrade
+- [entertainment-interests-live-music-and-comedy-shows](user/entertainment-interests-live-music-and-comedy-shows.md) — Entertainment interests: live music and comedy shows
+- [fitness-improvements-lost-5-pounds-and-resting-heart-rate-decreased-10-bpm-by-ma](experience/fitness-improvements-lost-5-pounds-and-resting-heart-rate-decreased-10-bpm-by-ma.md) — Fitness improvements: lost 5 pounds and resting heart rate decreased 10 bpm by March 2023
+- [furniture-shopping-preferences-ikea-west-elm-crate-barrel](user/furniture-shopping-preferences-ikea-west-elm-crate-barrel.md) — Furniture shopping preferences: IKEA, West Elm, Crate & Barrel
+- [getting-back-into-photography-after-beach-trip-interested-in-landscape-and-natur](user/getting-back-into-photography-after-beach-trip-interested-in-landscape-and-natur.md) — Getting back into photography after beach trip; interested in landscape and nature photography
+- [gift-basket-product-idea-downtown-farmers-market-themed-collection](project/gift-basket-product-idea-downtown-farmers-market-themed-collection.md) — Gift basket product idea: Downtown Farmers Market themed collection
+- [hobbies-fishing-particularly-bass-and-fly-fishing](user/hobbies-fishing-particularly-bass-and-fly-fishing.md) — Hobbies: fishing, particularly bass and fly fishing
+- [music-taste-singer-songwriter-and-folk-influenced-genre-artists-like-lucy-dacus](user/music-taste-singer-songwriter-and-folk-influenced-genre-artists-like-lucy-dacus.md) — Music taste: Singer-Songwriter and Folk-Influenced genre, artists like Lucy Dacus, Phoebe Bridgers, Julien Baker
+- [ordered-100-business-cards-as-starting-inventory](project/ordered-100-business-cards-as-starting-inventory.md) — Ordered 100 business cards as starting inventory
+- [owns-ergohuman-office-chair-considering-second-chair-for-guest-room](user/owns-ergohuman-office-chair-considering-second-chair-for-guest-room.md) — Owns ERGOhuman office chair, considering second chair for guest room
+- [plan-to-implement-points-based-loyalty-program-with-tiers-and-sign-up-bonus](project/plan-to-implement-points-based-loyalty-program-with-tiers-and-sign-up-bonus.md) — Plan to implement points-based loyalty program with tiers and sign-up bonus
+- [planning-fishing-trip-to-nearby-lake-in-early-april-2023](project/planning-fishing-trip-to-nearby-lake-in-early-april-2023.md) — Planning fishing trip to nearby lake in early April 2023
+- [ran-marathon-on-april-15-2023-with-a-personal-best-time](experience/ran-marathon-on-april-15-2023-with-a-personal-best-time.md) — Ran marathon on April 15, 2023 with a personal best time
+- [recently-purchased-ikea-micke-desk](user/recently-purchased-ikea-micke-desk.md) — Recently purchased IKEA MICKE desk
+- [recently-purchased-west-elm-harmony-sofa-in-dark-gray-velvet](user/recently-purchased-west-elm-harmony-sofa-in-dark-gray-velvet.md) — Recently purchased West Elm Harmony Sofa in dark gray velvet
+- [shopping-for-coffee-table-for-living-room](project/shopping-for-coffee-table-for-living-room.md) — Shopping for coffee table for living room
+- [small-business-homemade-jams-candles-artisanal-soaps-event-vendor](project/small-business-homemade-jams-candles-artisanal-soaps-event-vendor.md) — Small business: homemade jams, candles, artisanal soaps — event vendor
+- [spotify-discover-weekly-playlist-on-march-13-2023-particularly-great-saved-10-so](experience/spotify-discover-weekly-playlist-on-march-13-2023-particularly-great-saved-10-so.md) — Spotify Discover Weekly playlist on March 13, 2023 particularly great, saved 10 songs
+- [tracks-fitness-progress-using-spreadsheet-method](user/tracks-fitness-progress-using-spreadsheet-method.md) — Tracks fitness progress using spreadsheet method
+- [training-for-sprint-triathlon-2023](project/training-for-sprint-triathlon-2023.md) — Training for sprint triathlon (2023)
+- [yoga-practice-started-march-1-2023-completed-30-day-challenge-in-april-2023](project/yoga-practice-started-march-1-2023-completed-30-day-challenge-in-april-2023.md) — Yoga practice started March 1, 2023; completed 30-day challenge in April 2023

@@ -1,0 +1,4 @@
+# proposal decisions
+
+- be4ec91f7002 rejected 2026-09-02T22:46:44.872950+00:00
+- 325fb0508b8c rejected 2026-09-02T22:46:44.880803+00:00

@@ -1,0 +1,33 @@
+# MEMORY.md
+
+- [attended-mike-and-sarah-s-party](experience/attended-mike-and-sarah-s-party.md) — Attended Mike and Sarah's party
+- [attends-seminars-and-networking-events-to-get-feedback-and-build-connections-for](user/attends-seminars-and-networking-events-to-get-feedback-and-build-connections-for.md) — Attends seminars and networking events to get feedback and build connections for projects
+- [blueberry-muffin-recipe-with-whole-wheat-flour-substitution-option](reference/blueberry-muffin-recipe-with-whole-wheat-flour-substitution-option.md) — Blueberry muffin recipe with whole wheat flour substitution option
+- [camera-bag-lowepro-protactic-450-aw](user/camera-bag-lowepro-protactic-450-aw.md) — Camera bag: Lowepro ProTactic 450 AW
+- [camera-lens-canon-ef-24-70mm-f-2-8l-ii-usm](user/camera-lens-canon-ef-24-70mm-f-2-8l-ii-usm.md) — Camera lens: Canon EF 24-70mm f/2.8L II USM
+- [character-development-resources-for-fiction-writing](reference/character-development-resources-for-fiction-writing.md) — Character development resources for fiction writing
+- [coworker-jack-interested-in-hiking-user-considering-joining](user/coworker-jack-interested-in-hiking-user-considering-joining.md) — Coworker Jack interested in hiking; user considering joining
+- [daily-writing-routine-2-hours-every-morning-mondayfriday](user/daily-writing-routine-2-hours-every-morning-mondayfriday.md) — Daily writing routine: 2 hours every morning, Monday–Friday
+- [external-hard-drive-backup-recommendations-western-digital-my-book-seagate-backu](reference/external-hard-drive-backup-recommendations-western-digital-my-book-seagate-backu.md) — External hard drive backup recommendations: Western Digital My Book, Seagate Backup Plus, LaCie Rugged, G-Technology G-Drive
+- [falling-out-with-friend-alex-reconnecting-via-text](experience/falling-out-with-friend-alex-reconnecting-via-text.md) — Falling out with friend Alex, reconnecting via text
+- [friend-rachel-hesitant-about-trying-yoga](user/friend-rachel-hesitant-about-trying-yoga.md) — Friend Rachel hesitant about trying yoga
+- [healthy-oatmeal-cookies-recipe-with-chocolate-chip-substitution-option](reference/healthy-oatmeal-cookies-recipe-with-chocolate-chip-substitution-option.md) — Healthy oatmeal cookies recipe with chocolate chip substitution option
+- [instagram-awareness-campaign-setup-and-success-metrics-to-track](project/instagram-awareness-campaign-setup-and-success-metrics-to-track.md) — Instagram awareness campaign setup and success metrics to track
+- [interest-in-economic-forecasting-methodology-and-political-uncertainty-modeling](user/interest-in-economic-forecasting-methodology-and-political-uncertainty-modeling.md) — Interest in economic forecasting methodology and political uncertainty modeling
+- [interested-in-healthy-sweet-treat-alternatives-and-recipes](user/interested-in-healthy-sweet-treat-alternatives-and-recipes.md) — Interested in healthy sweet treat alternatives and recipes
+- [interested-in-seattle-seahawks-and-nfl-statistics](user/interested-in-seattle-seahawks-and-nfl-statistics.md) — Interested in Seattle Seahawks and NFL statistics
+- [interested-in-traveling-to-japan-prefers-shinjuku-district-in-tokyo](user/interested-in-traveling-to-japan-prefers-shinjuku-district-in-tokyo.md) — Interested in traveling to Japan, prefers Shinjuku district in Tokyo
+- [lens-protection-and-cleaning-recommendations-cases-pouches-and-cleaning-kits](reference/lens-protection-and-cleaning-recommendations-cases-pouches-and-cleaning-kits.md) — Lens protection and cleaning recommendations: cases, pouches, and cleaning kits
+- [memory-cards-sandisk-extreme-pro-64gb-existing-two-128gb-arrived-2023-02-12](user/memory-cards-sandisk-extreme-pro-64gb-existing-two-128gb-arrived-2023-02-12.md) — Memory cards: SanDisk Extreme Pro (64GB existing + two 128GB arrived 2023-02-12)
+- [photography-gear-organization-priority-protecting-organizing-and-maintaining-equ](user/photography-gear-organization-priority-protecting-organizing-and-maintaining-equ.md) — Photography gear organization priority: protecting, organizing, and maintaining equipment
+- [planned-trip-to-japan-with-tokyo-hotel-researched-airport-transportation-options](experience/planned-trip-to-japan-with-tokyo-hotel-researched-airport-transportation-options.md) — Planned trip to Japan with Tokyo hotel, researched airport transportation options
+- [prefers-respectful-non-pushy-approach-when-seeking-feedback-and-collaboration](user/prefers-respectful-non-pushy-approach-when-seeking-feedback-and-collaboration.md) — Prefers respectful, non-pushy approach when seeking feedback and collaboration
+- [reedsy-character-profile-template-12-section-character-development-tool](reference/reedsy-character-profile-template-12-section-character-development-tool.md) — Reedsy character profile template: 12-section character development tool
+- [regular-yoga-practice-with-friend-emily-post-class-smoothies](user/regular-yoga-practice-with-friend-emily-post-class-smoothies.md) — Regular yoga practice with friend Emily; post-class smoothies
+- [sci-fi-romance-story-in-progress-protagonist-lyra-memory-thief-discovering-her-p](project/sci-fi-romance-story-in-progress-protagonist-lyra-memory-thief-discovering-her-p.md) — Sci-fi romance story in progress: protagonist Lyra, memory thief discovering her past through stolen CEO memories
+- [science-fiction-novel-protagonist-maya-saves-planet-from-alien-invasion](project/science-fiction-novel-protagonist-maya-saves-planet-from-alien-invasion.md) — Science fiction novel: protagonist Maya saves planet from alien invasion
+- [social-media-content-instagram-captions-for-viowear-motivational-hashtag-rich-da](project/social-media-content-instagram-captions-for-viowear-motivational-hashtag-rich-da.md) — Social media content: Instagram captions for Viowear — motivational, hashtag-rich, daily posting
+- [travel-and-outdoor-lifestyle-loves-exploring-the-world-happy-traveler](user/travel-and-outdoor-lifestyle-loves-exploring-the-world-happy-traveler.md) — Travel and outdoor lifestyle: loves exploring the world, happy traveler
+- [tripod-manfrotto-befree-arrived-2023-02-05](user/tripod-manfrotto-befree-arrived-2023-02-05.md) — Tripod: Manfrotto BeFree (arrived 2023-02-05)
+- [user-loves-blueberries-and-plans-to-eat-daily-for-cognitive-benefits](user/user-loves-blueberries-and-plans-to-eat-daily-for-cognitive-benefits.md) — User loves blueberries and plans to eat daily for cognitive benefits
+- [viowear-user-owned-outdoorsy-clothing-brand](project/viowear-user-owned-outdoorsy-clothing-brand.md) — Viowear: user-owned outdoorsy clothing brand

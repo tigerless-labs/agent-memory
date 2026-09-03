@@ -1,0 +1,9 @@
+# MEMORY.md
+
+- [friend-sarah-turned-30-around-may-2023-and-lives-in-the-same-city](user/friend-sarah-turned-30-around-may-2023-and-lives-in-the-same-city.md) — Friend Sarah turned 30 around May 2023 and lives in the same city
+- [laptop-has-8gb-ram-gets-8-9-hours-battery-life-after-calibration-around-2023-05](user/laptop-has-8gb-ram-gets-8-9-hours-battery-life-after-calibration-around-2023-05.md) — Laptop has 8GB RAM, gets 8-9 hours battery life after calibration around 2023-05-07, considering 16GB upgrade
+- [owns-an-old-imac-desktop-computer-and-is-considering-replacing-it-with-a-new-mac](user/owns-an-old-imac-desktop-computer-and-is-considering-replacing-it-with-a-new-mac.md) — Owns an old iMac desktop computer and is considering replacing it with a new Mac or Windows PC
+- [prefers-true-crime-narratives-that-focus-on-victims-and-justice-over-perpetrator](user/prefers-true-crime-narratives-that-focus-on-victims-and-justice-over-perpetrator.md) — Prefers true crime narratives that focus on victims and justice over perpetrator sensationalism
+- [recommended-weather-apps-for-trail-hiking-including-dark-sky-and-mountain-weathe](reference/recommended-weather-apps-for-trail-hiking-including-dark-sky-and-mountain-weathe.md) — Recommended weather apps for trail hiking including Dark Sky and Mountain Weather Forecast
+- [team-guidelines-for-assessing-property-appraisal-complexity-and-justifying-highe](project/team-guidelines-for-assessing-property-appraisal-complexity-and-justifying-highe.md) — Team guidelines for assessing property appraisal complexity and justifying higher fees
+- [won-an-instagram-book-club-giveaway-and-participates-in-discussion-of-current-re](user/won-an-instagram-book-club-giveaway-and-participates-in-discussion-of-current-re.md) — Won an Instagram book club giveaway and participates in discussion of current read

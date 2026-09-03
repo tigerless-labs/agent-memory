@@ -1,0 +1,20 @@
+## Session sharegpt_h1UXagU_9 — 2023/05/21 (Sun) 00:12
+assistant: Part 5 (acknowledge and wait for the next part):
+
+Thank you for sharing the detailed findings and recommendations for Ridge View Echo in greater Blairstown. It's interesting to see how community input has influenced the changes that Ridge View Echo decided to make in their coverage and approach. I'll wait for the next part of the report.
+user: Here is the final part: 
+Key takeaways
+
+Although the three communities we worked with differ in important ways, there were a few things they had in common when it comes to their information needs. First, all three communities expressed a desire for some form of “service journalism,” whether it was in the form of more information about the location and content of municipal government meetings, how to find service providers, or contact information for local leaders. Content like this may seem like low-hanging fruit, but publishers who can keep up-to-date and reliable lists like this would provide tangible benefit to their communities. 
+
+Second, we learned that people in all three communities rely heavily on Facebook for news and information about their towns and the people in them. While not everyone enjoys the often partisan or misleading information that circulates so easily on Facebook, it is still one of the first to be updated when news breaks and one of the best places for publishers to be highly visible. Finally, in two of the three communities – Paterson and Trenton – people want more local news about crime and safety, and in two others – Paterson and Blairstown – the publishers may grow their audience if they offer their content in languages other than English. In all three, at least some people mentioned wanting more feel-good, solutions-oriented local news.
+Lessons and future work
+
+One lesson learned was that it is difficult to “parachute” in to a community and expect to get a robust response to surveys or focus groups. Even though our publishers – who themselves are deeply rooted in their communities – assisted in recruiting people, we likely could have benefitted from more face time in the locations and more creative outreach to bring people to the table. 
+
+Despite the challenges, all three publishers were deeply appreciative of the opportunity to better understand their audiences at the formative early stage of their development. Our hope is that the connection they have forged with their audience will continue to become an iterative feedback loop. To make an even greater and lasting connection, similar research (surveys, focus groups) would be conducted in six months or a year, and yet another round of improvements would be undertaken.
+assistant: Summary:
+
+This study focused on three New Jersey communities with different characteristics and assessed their information needs. Key takeaways from the study include the desire for service journalism, the heavy reliance on Facebook for news and information, and the need for more local news in different languages. Despite some difficulties in conducting the study, the publishers were appreciative of the opportunity to better understand their audiences.
+
+To further strengthen the connection with their audiences, the study suggests that similar research should be conducted in six months or a year, and improvements should be made based on the findings.

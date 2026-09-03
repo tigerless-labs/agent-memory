@@ -35,10 +35,8 @@
       而非答案本身,judge 需要第三条分支(已加,标定 23/25)
 - [x] **实验设计下限已成文**:重复重放 + 逐对配对、n≥120、禁止跨重放取多数,
       连同实验分类、归因条件、run 必留项、失败处理,落在 docs/experiments.md,CLAUDE.md 已引用
-- [ ] 宿主失败原因被吞掉:`claude -p` 撞额度时把提示打到 stdout 并以 exit 1 退出,
-      harness 只留 stderr,于是 runs.jsonl 里 error 为空、只剩 status=failed
-      (fx1 110/120、fx2 120/120 即此因)——非零退出时应保留 stdout 尾部,
-      并对「额度/限流」类失败停跑而不是把整轮跑成 failed
+- [x] 宿主失败原因不再被吞掉:非零退出保留 stdout 尾部;`mem-exp run` 撞到额度/限流类失败即停
+      (已测记录保留,其余不记),`--resume` 只补跑未成功的题(同 episode 集、同系统才允许)
 
 ## 设计-实现一致性核对(2026-09-02)欠账
 
@@ -97,12 +95,6 @@
       唯一复现成功的读侧结果,走 MCP 进来的宿主拿不到——直接违反不变量 8(异入口同结果)
 - [ ] `recall.context_full_text_entries = 4` 从未被任何 run 变过(只有一个单元测试设成 1)。
       它决定 context 里几条展开全文,是纯读侧、可用重放廉价测:4 / 8 / 全摘要三档 × 两次重放
-- [ ] **覆盖率探针未进 harness**:「答案是否被写进库」目前只有临时脚本。做成离线子命令后,
-      任何写侧改动都能先看覆盖率而不必先烧一轮考试。实测(p4sup 冻结语料,110 可答题):
-      答案落进某条记忆的仅 36/110 = 33%;而在这 36 条里 recall top-8 捞回 34(94.4%),
-      top-24 捞回 36(100%)——检索不是瓶颈,写入覆盖是
-- [ ] 与 MemCLI 的对照实验(同宿主 Claude Code,先 n=24 冒烟再上 120,带 W0 对照):
-      待 MemCLI 仓库地址;需新增记忆系统维度的臂与系统无关覆盖率探针
 - [ ] 对照臂候选:obsidian-second-brain(eugeniughelbur)与 obsidian-mind(breferrari)同属
       「markdown 真源 + Claude Code 钩子」一族,写入决策同样落在消费端。前者有读侧 eval
       (300 篇合成语料 / 48 问 / recall@k + MRR,单跑无重放),其 BASELINE.md 自陈不测写入覆盖;
@@ -124,3 +116,13 @@
       读成负结果(evidence: experiments/results/p11-manage.md)
 - [ ] 纵向协议(session 批 → 睡眠 → session 批 → 睡眠 → 考试,批次间推进时钟)仍不存在。
       没有它,M 的立身之本(陈旧、被取代的值、话题密度)在实验里根本不出现
+- [x] **覆盖率探针已进 harness**:`mem-exp coverage` 离线按(系统, W)报答案落盘率;
+      历史实测(p4sup 冻结语料,110 可答题)答案落进某条记忆的仅 36/110 = 33%,而这 36 条里
+      recall top-8 捞回 34(94.4%)——检索不是瓶颈,写入覆盖是
+- [x] 与 MemCLI 的对照实验(P10,同宿主 Claude Code,带 W0 对照)已完成:agent-memory 127/240
+      对 MemCore 86/240,两次重放逐对 +37/−17(p=0.009)与 +35/−14(p=0.004);写入覆盖率
+      32/110 对 37/110,差距不在落盘而在其后(evidence: experiments/results/p10-memcore.md)
+- [ ] P10 后续(读侧,重放 p10mc 冻结库即可):给 MemCore 的考题前言加上 synthesis 段,
+      看 knowledge-update / multi-session / temporal 三类的差距是否由前言驱动
+- [ ] 写前「先 recall / supersede」纪律从未被单独裁决:P4 触发 25 条边、得分 9/15 = 9/15,
+      而每次 mem 调用占一个 turn(P1 的 13× 写入量差);需一轮写侧全跑:W2 去掉该段 vs 保留

@@ -1,0 +1,32 @@
+# MEMORY.md
+
+- [aims-to-be-in-bed-by-11-pm-establishing-better-bedtime-routine](user/aims-to-be-in-bed-by-11-pm-establishing-better-bedtime-routine.md) — Aims to be in bed by 11 pm — establishing better bedtime routine
+- [book-airbnb-in-paris-for-5-nights-budget-eur-80-120-night](project/book-airbnb-in-paris-for-5-nights-budget-eur-80-120-night.md) — Book Airbnb in Paris for 5 nights, budget EUR 80-120/night
+- [consider-travel-insurance-for-paris-and-rome-trip](project/consider-travel-insurance-for-paris-and-rome-trip.md) — Consider travel insurance for Paris and Rome trip
+- [conversation-with-maileen-meta-layoffs-after-fun-event-young-adult-novels-crying](experience/conversation-with-maileen-meta-layoffs-after-fun-event-young-adult-novels-crying.md) — Conversation with Maileen: Meta layoffs after fun event, young adult novels, crying at movies on airplane
+- [cost-conscious-about-dog-vaccination-expenses](user/cost-conscious-about-dog-vaccination-expenses.md) — Cost-conscious about dog vaccination expenses
+- [enjoys-outdoor-activities-jogging-and-kayaking](user/enjoys-outdoor-activities-jogging-and-kayaking.md) — Enjoys outdoor activities: jogging and kayaking
+- [enjoys-sci-fi-books-and-bookstores-browses-sci-fi-section-with-coffee](user/enjoys-sci-fi-books-and-bookstores-browses-sci-fi-section-with-coffee.md) — Enjoys sci-fi books and bookstores; browses sci-fi section with coffee
+- [enjoys-shopping-at-h-m-loves-their-summer-collection](user/enjoys-shopping-at-h-m-loves-their-summer-collection.md) — Enjoys shopping at H&M; loves their summer collection
+- [evolving-meal-prep-strategy-to-global-bowls-with-international-ingredients](project/evolving-meal-prep-strategy-to-global-bowls-with-international-ingredients.md) — Evolving meal prep strategy to global bowls with international ingredients
+- [has-a-female-dog-that-stays-mostly-indoors](user/has-a-female-dog-that-stays-mostly-indoors.md) — Has a female dog that stays mostly indoors
+- [has-five-h-m-tops-interested-in-getting-more-from-h-m](user/has-five-h-m-tops-interested-in-getting-more-from-h-m.md) — Has five H&M tops; interested in getting more from H&M
+- [interested-in-blackpink-music-style](user/interested-in-blackpink-music-style.md) — Interested in BLACKPINK music style
+- [interested-in-thrift-stores-and-vintage-clothing-shopping](user/interested-in-thrift-stores-and-vintage-clothing-shopping.md) — Interested in thrift stores and vintage clothing shopping
+- [interested-in-untranslatable-emotional-concepts-and-cross-linguistic-understandi](user/interested-in-untranslatable-emotional-concepts-and-cross-linguistic-understandi.md) — Interested in untranslatable emotional concepts and cross-linguistic understanding of human emotions
+- [learning-and-experimenting-with-indian-spices-garam-masala-cumin-coriander-turme](user/learning-and-experimenting-with-indian-spices-garam-masala-cumin-coriander-turme.md) — Learning and experimenting with Indian spices: garam masala, cumin, coriander, turmeric
+- [making-batch-of-spiced-lentils-dal-for-weekly-meal-prep](project/making-batch-of-spiced-lentils-dal-for-weekly-meal-prep.md) — Making batch of spiced lentils (dal) for weekly meal prep
+- [not-a-morning-person](user/not-a-morning-person.md) — Not a morning person
+- [online-marketplaces-for-vintage-clothing-and-second-hand-items](reference/online-marketplaces-for-vintage-clothing-and-second-hand-items.md) — Online marketplaces for vintage clothing and second-hand items
+- [planning-summer-trip-to-paris-and-rome](project/planning-summer-trip-to-paris-and-rome.md) — Planning summer trip to Paris and Rome
+- [prefers-destinations-that-are-walkable-and-easy-to-navigate-without-a-car](user/prefers-destinations-that-are-walkable-and-easy-to-navigate-without-a-car.md) — Prefers destinations that are walkable and easy to navigate without a car
+- [purchase-4-day-paris-museum-pass-online-in-advance-for-eur-62](project/purchase-4-day-paris-museum-pass-online-in-advance-for-eur-62.md) — Purchase 4-day Paris Museum Pass online in advance for EUR 62
+- [recently-moved-to-new-apartment-3-day-move-process-in-late-july-2023](user/recently-moved-to-new-apartment-3-day-move-process-in-late-july-2023.md) — Recently moved to new apartment, 3-day move process in late July 2023
+- [recently-placed-order-with-asos-considering-another-if-deal-is-good](user/recently-placed-order-with-asos-considering-another-if-deal-is-good.md) — Recently placed order with ASOS; considering another if deal is good
+- [saturday-breakfast-routine-scrambled-eggs-and-toast](user/saturday-breakfast-routine-scrambled-eggs-and-toast.md) — Saturday breakfast routine: scrambled eggs and toast
+- [setsunai-japanese-word-for-bittersweet-emotion-blending-sadness-nostalgia-and-jo](reference/setsunai-japanese-word-for-bittersweet-emotion-blending-sadness-nostalgia-and-jo.md) — Setsunai (切ない) — Japanese word for bittersweet emotion blending sadness, nostalgia, and joy
+- [spiced-lentils-dal-recipe-with-cumin-coriander-turmeric-garam-masala](project/spiced-lentils-dal-recipe-with-cumin-coriander-turmeric-garam-masala.md) — Spiced Lentils Dal recipe with cumin, coriander, turmeric, garam masala
+- [the-vault-thrift-store-near-work](reference/the-vault-thrift-store-near-work.md) — The Vault thrift store near work
+- [took-indian-cooking-class-learned-chicken-tikka-masala-august-2023](experience/took-indian-cooking-class-learned-chicken-tikka-masala-august-2023.md) — Took Indian cooking class, learned chicken tikka masala (August 2023)
+- [vinaigrette-recipes-for-lentil-salads-cilantro-lime-ginger-turmeric-cumin-corian](reference/vinaigrette-recipes-for-lentil-salads-cilantro-lime-ginger-turmeric-cumin-corian.md) — Vinaigrette recipes for lentil salads: cilantro-lime, ginger-turmeric, cumin-coriander, lemon-garlic
+- [woke-up-at-8-30-am-on-both-saturday-and-sunday-last-weekend-august-5-6-2023-unus](experience/woke-up-at-8-30-am-on-both-saturday-and-sunday-last-weekend-august-5-6-2023-unus.md) — Woke up at 8:30 am on both Saturday and Sunday last weekend (August 5-6, 2023) — unusual as not typically a morning person

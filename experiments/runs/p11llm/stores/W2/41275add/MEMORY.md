@@ -1,0 +1,34 @@
+# MEMORY.md
+
+- [interested-in-meditation-for-mental-health-concerned-about-time-and-discipline-f](user/interested-in-meditation-for-mental-health-concerned-about-time-and-discipline-f.md) — Interested in meditation for mental health; concerned about time and discipline for daily practice
+- [start-youtube-channel-recording-gameplay-footage](project/start-youtube-channel-recording-gameplay-footage.md) — Start YouTube channel recording gameplay footage
+- [three-meditation-types-for-beginners-mindfulness-guided-meditation-loving-kindne](reference/three-meditation-types-for-beginners-mindfulness-guided-meditation-loving-kindne.md) — Three meditation types for beginners: mindfulness, guided meditation, loving kindness
+- [linkedin-profile-summary-draft-and-recommended-marketing-keywords](reference/linkedin-profile-summary-draft-and-recommended-marketing-keywords.md) — LinkedIn profile summary draft and recommended marketing keywords
+- [screen-recording-software-comparison-obs-studio-vs-xsplit](reference/screen-recording-software-comparison-obs-studio-vs-xsplit.md) — Screen recording software comparison: OBS Studio vs XSplit
+- [upgrade-pc-cooling-system-with-liquid-cooler-consider-ram-upgrade-to-64gb](project/upgrade-pc-cooling-system-with-liquid-cooler-consider-ram-upgrade-to-64gb.md) — Upgrade PC cooling system with liquid cooler; consider RAM upgrade to 64GB
+- [amd-ryzen-9-5900x-processor-and-nvidia-geforce-rtx-3080-graphics-card](user/amd-ryzen-9-5900x-processor-and-nvidia-geforce-rtx-3080-graphics-card.md) — AMD Ryzen 9 5900X processor and NVIDIA GeForce RTX 3080 graphics card
+- [considering-expanding-farm-to-include-sheep](project/considering-expanding-farm-to-include-sheep.md) — Considering expanding farm to include sheep
+- [cousin-emma-has-a-new-baby](user/cousin-emma-has-a-new-baby.md) — Cousin Emma has a new baby
+- [cpu-liquid-cooler-recommendations-for-amd-ryzen-9-5900x](reference/cpu-liquid-cooler-recommendations-for-amd-ryzen-9-5900x.md) — CPU liquid cooler recommendations for AMD Ryzen 9 5900X
+- [exploring-marketing-consulting-as-potential-remote-career-path](project/exploring-marketing-consulting-as-potential-remote-career-path.md) — Exploring marketing consulting as potential remote career path
+- [fender-jazzmaster-1960s-vintage-guitar-for-sale](project/fender-jazzmaster-1960s-vintage-guitar-for-sale.md) — Fender Jazzmaster 1960s vintage guitar for sale
+- [horse-vaccination-schedule-core-and-risk-based-vaccines-per-aaep](reference/horse-vaccination-schedule-core-and-risk-based-vaccines-per-aaep.md) — Horse vaccination schedule: core and risk-based vaccines per AAEP
+- [interested-in-historical-young-women-and-girls-under-18-who-made-important-contr](user/interested-in-historical-young-women-and-girls-under-18-who-made-important-contr.md) — Interested in historical young women and girls under 18 who made important contributions—wants global diversity, non-Western perspectives, and pre-1787 examples
+- [interested-in-lds-religious-speaking-content-in-elder-jeffrey-r-holland-s-style](user/interested-in-lds-religious-speaking-content-in-elder-jeffrey-r-holland-s-style.md) — Interested in LDS/religious speaking content in Elder Jeffrey R Holland's style
+- [marketing-consulting-services-and-target-markets-brainstormed](project/marketing-consulting-services-and-target-markets-brainstormed.md) — Marketing consulting services and target markets brainstormed
+- [meditation-apps-headspace-and-calm-for-guided-meditation-practice](reference/meditation-apps-headspace-and-calm-for-guided-meditation-practice.md) — Meditation apps: Headspace and Calm for guided meditation practice
+- [meditation-practice-guidance-start-with-5-10-minutes-consistency-beats-duration](reference/meditation-practice-guidance-start-with-5-10-minutes-consistency-beats-duration.md) — Meditation practice guidance: start with 5-10 minutes, consistency beats duration, even part-time helps
+- [omega-seamaster-1960s-vintage-watch-for-sale](project/omega-seamaster-1960s-vintage-watch-for-sale.md) — Omega Seamaster 1960s vintage watch for sale
+- [omega-vintage-watch-certification-and-authentication-process](reference/omega-vintage-watch-certification-and-authentication-process.md) — Omega vintage watch certification and authentication process
+- [organic-chicken-feed-suppliers-amazon-tractor-supply-co-meyer-hatchery-blue-seal](reference/organic-chicken-feed-suppliers-amazon-tractor-supply-co-meyer-hatchery-blue-seal.md) — Organic chicken feed suppliers: Amazon, Tractor Supply Co., Meyer Hatchery, Blue Seal, Scratch and Peck Feeds
+- [other-vintage-collectibles-for-sale](project/other-vintage-collectibles-for-sale.md) — Other vintage collectibles for sale
+- [owns-horses-and-chickens-on-farm](user/owns-horses-and-chickens-on-farm.md) — Owns horses and chickens on farm
+- [plan-to-sell-vintage-collectibles-collection](project/plan-to-sell-vintage-collectibles-collection.md) — Plan to sell vintage collectibles collection
+- [prefers-dark-or-light-brown-pants-over-white-for-outdoor-activities](user/prefers-dark-or-light-brown-pants-over-white-for-outdoor-activities.md) — Prefers dark or light brown pants over white for outdoor activities
+- [product-photography-tips-for-high-end-collectibles](reference/product-photography-tips-for-high-end-collectibles.md) — Product photography tips for high-end collectibles
+- [recently-purchased-matching-yellow-shirts-and-white-pants-with-mom](user/recently-purchased-matching-yellow-shirts-and-white-pants-with-mom.md) — Recently purchased matching yellow shirts and white pants with mom
+- [sheep-care-resources-and-vaccination-feed-costs](reference/sheep-care-resources-and-vaccination-feed-costs.md) — Sheep care resources and vaccination/feed costs
+- [siblings-play-instruments-together-in-informal-jam-sessions-at-family-gatherings](user/siblings-play-instruments-together-in-informal-jam-sessions-at-family-gatherings.md) — Siblings play instruments together in informal jam sessions at family gatherings
+- [strengths-project-management-marketing-strategy-leadership-communication-problem](user/strengths-project-management-marketing-strategy-leadership-communication-problem.md) — Strengths: project management, marketing strategy, leadership, communication, problem-solving
+- [supplements-to-support-horse-immune-system-before-vaccinations](reference/supplements-to-support-horse-immune-system-before-vaccinations.md) — Supplements to support horse immune system before vaccinations
+- [works-at-xyz-corporation-as-marketing-specialist-2-years-9-months-tenure](user/works-at-xyz-corporation-as-marketing-specialist-2-years-9-months-tenure.md) — Works at XYZ Corporation as marketing specialist, 2 years 9 months tenure

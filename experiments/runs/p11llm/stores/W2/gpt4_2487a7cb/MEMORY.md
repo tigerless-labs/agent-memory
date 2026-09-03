@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [attended-effective-time-management-workshop-at-local-community-center-on-may-20](experience/attended-effective-time-management-workshop-at-local-community-center-on-may-20.md) — Attended Effective Time Management workshop at local community center on May 20, 2023
+- [dashboard-project-evaluating-tableau-and-power-bi-with-python-data-connection](project/dashboard-project-evaluating-tableau-and-power-bi-with-python-data-connection.md) — Dashboard project: evaluating Tableau and Power BI with Python data connection
+- [safeguard-global-self-service-applications-section-structure](project/safeguard-global-self-service-applications-section-structure.md) — Safeguard Global self-service applications section structure
+- [starting-with-seaborn-for-data-visualization-in-python-project](project/starting-with-seaborn-for-data-visualization-in-python-project.md) — Starting with Seaborn for data visualization in Python project
+- [acquire-yoga-gear-lululemon-and-athleta-apparel-and-mat-bag](project/acquire-yoga-gear-lululemon-and-athleta-apparel-and-mat-bag.md) — Acquire yoga gear: Lululemon and Athleta apparel and mat bag
+- [breaking-mindless-phone-checking-habit](project/breaking-mindless-phone-checking-habit.md) — Breaking mindless phone checking habit
+- [government-funded-apprenticeship-programs-in-healthcare-and-culinary-arts](reference/government-funded-apprenticeship-programs-in-healthcare-and-culinary-arts.md) — Government-funded apprenticeship programs in healthcare and culinary arts
+- [implementing-task-prioritization-and-chunking-to-improve-productivity](project/implementing-task-prioritization-and-chunking-to-improve-productivity.md) — Implementing task prioritization and chunking to improve productivity
+- [interested-in-communicating-data-insights-effectively-to-non-technical-stakehold](user/interested-in-communicating-data-insights-effectively-to-non-technical-stakehold.md) — Interested in communicating data insights effectively to non-technical stakeholders
+- [interested-in-continuous-learning-and-skill-development](user/interested-in-continuous-learning-and-skill-development.md) — Interested in continuous learning and skill development
+- [interested-in-educational-documentaries-about-space-astronomy-and-mars-explorati](user/interested-in-educational-documentaries-about-space-astronomy-and-mars-explorati.md) — Interested in educational documentaries about space, astronomy, and Mars exploration
+- [managing-social-media-distraction-during-focused-work](project/managing-social-media-distraction-during-focused-work.md) — Managing social media distraction during focused work
+- [practices-morning-vinyasa-flow-classes](user/practices-morning-vinyasa-flow-classes.md) — Practices morning Vinyasa flow classes
+- [researched-apprenticeship-programs-as-alternative-to-traditional-degrees](experience/researched-apprenticeship-programs-as-alternative-to-traditional-degrees.md) — Researched apprenticeship programs as alternative to traditional degrees
+- [safeguard-global-combine-recruit-and-hire-sections-into-unified-section](project/safeguard-global-combine-recruit-and-hire-sections-into-unified-section.md) — Safeguard Global: combine Recruit and Hire sections into unified section
+- [safeguard-global-hire-section-marketing-paragraph](reference/safeguard-global-hire-section-marketing-paragraph.md) — Safeguard Global Hire section marketing paragraph
+- [starting-a-journaling-habit-with-physical-journal-to-reflect-on-goals-and-priori](user/starting-a-journaling-habit-with-physical-journal-to-reflect-on-goals-and-priori.md) — Starting a journaling habit with physical journal to reflect on goals and priorities
+- [took-5-social-media-breaks-in-past-few-months-breaks-help-maintain-focus-on-enri](experience/took-5-social-media-breaks-in-past-few-months-breaks-help-maintain-focus-on-enri.md) — Took 5 social media breaks in past few months; breaks help maintain focus on enriching activities
+- [yoga-gear-recommendations-tanks-leggings-mat-bag](reference/yoga-gear-recommendations-tanks-leggings-mat-bag.md) — Yoga gear recommendations: tanks, leggings, mat bag

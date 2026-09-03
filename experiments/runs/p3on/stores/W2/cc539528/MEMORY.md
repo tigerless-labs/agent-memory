@@ -1,0 +1,43 @@
+# MEMORY.md
+
+- [carpets-mix-of-low-pile-and-berber-in-hallways-and-living-room](user/carpets-mix-of-low-pile-and-berber-in-hallways-and-living-room.md) — Carpets: mix of low-pile and berber in hallways and living room
+- [considering-purchasing-a-robot-vacuum-for-daily-maintenance](project/considering-purchasing-a-robot-vacuum-for-daily-maintenance.md) — Considering purchasing a robot vacuum for daily maintenance
+- [considering-smart-plug-to-control-robot-vacuum-remotely](project/considering-smart-plug-to-control-robot-vacuum-remotely.md) — Considering smart plug to control robot vacuum remotely
+- [coworker-lisa-is-expecting-baby-girl-olivia-due-early-july-2023](user/coworker-lisa-is-expecting-baby-girl-olivia-due-early-july-2023.md) — Coworker Lisa is expecting baby girl Olivia, due early July 2023
+- [daily-quick-pick-up-routine-10-minutes-before-work](user/daily-quick-pick-up-routine-10-minutes-before-work.md) — Daily quick pick-up routine: 10 minutes before work
+- [dry-cleaner-on-main-st-leather-cleaning-and-conditioning](reference/dry-cleaner-on-main-st-leather-cleaning-and-conditioning.md) — Dry cleaner on Main St. — leather cleaning and conditioning
+- [exploring-coffee-shops-near-bus-stop-prefers-atmosphere-over-lower-prices](user/exploring-coffee-shops-near-bus-stop-prefers-atmosphere-over-lower-prices.md) — Exploring coffee shops near bus stop; prefers atmosphere over lower prices
+- [family-friendly-national-parks-for-road-trips](reference/family-friendly-national-parks-for-road-trips.md) — Family-friendly national parks for road trips
+- [from-crook-to-cook-platinum-recipes-from-tha-boss-dogg-s-kitchen-by-snoop-dogg](reference/from-crook-to-cook-platinum-recipes-from-tha-boss-dogg-s-kitchen-by-snoop-dogg.md) — From Crook to Cook: Platinum Recipes from Tha Boss Dogg's Kitchen by Snoop Dogg
+- [hip-hop-dancers-renowned-for-exceptional-footwork-to-study-and-learn-from](reference/hip-hop-dancers-renowned-for-exceptional-footwork-to-study-and-learn-from.md) — Hip-hop dancers renowned for exceptional footwork to study and learn from
+- [interested-in-food-writing-that-connects-cooking-to-cultural-identity-and-person](user/interested-in-food-writing-that-connects-cooking-to-cultural-identity-and-person.md) — Interested in food writing that connects cooking to cultural identity and personal narrative
+- [interested-in-learning-full-stack-web-development](user/interested-in-learning-full-stack-web-development.md) — Interested in learning full-stack web development
+- [interested-in-learning-hip-hop-dance-particularly-footwork-though-not-a-fan-of-h](user/interested-in-learning-hip-hop-dance-particularly-footwork-though-not-a-fan-of-h.md) — Interested in learning hip-hop dance, particularly footwork, though not a fan of hip-hop music
+- [interested-in-national-park-family-road-trips](user/interested-in-national-park-family-road-trips.md) — Interested in national park family road trips
+- [interested-in-theodicy-the-problem-of-evil-in-christian-theology](user/interested-in-theodicy-the-problem-of-evil-in-christian-theology.md) — Interested in theodicy — the problem of evil in Christian theology
+- [interested-in-theology-comparative-religion-and-philosophy-of-religion](user/interested-in-theology-comparative-religion-and-philosophy-of-religion.md) — Interested in theology, comparative religion, and philosophy of religion
+- [interested-in-trying-pour-over-coffee-brewing-to-bring-out-bean-flavors](user/interested-in-trying-pour-over-coffee-brewing-to-bring-out-bean-flavors.md) — Interested in trying pour-over coffee brewing to bring out bean flavors
+- [lives-alone-with-no-pets](user/lives-alone-with-no-pets.md) — Lives alone with no pets
+- [lives-in-california](user/lives-in-california.md) — Lives in California
+- [luxury-and-modern-design-color-palette-hex-codes](reference/luxury-and-modern-design-color-palette-hex-codes.md) — Luxury and modern design color palette: hex codes
+- [luxury-and-modern-typeface-recommendations](reference/luxury-and-modern-typeface-recommendations.md) — Luxury and modern typeface recommendations
+- [makes-bed-every-morning-as-daily-routine](user/makes-bed-every-morning-as-daily-routine.md) — Makes bed every morning as daily routine
+- [online-stores-for-customized-baby-blankets-and-personalized-gifts](reference/online-stores-for-customized-baby-blankets-and-personalized-gifts.md) — Online stores for customized baby blankets and personalized gifts
+- [owns-a-black-leather-jacket](user/owns-a-black-leather-jacket.md) — Owns a black leather jacket
+- [owns-a-winter-coat-that-needs-alterations](user/owns-a-winter-coat-that-needs-alterations.md) — Owns a winter coat that needs alterations
+- [positive-experience-with-dry-cleaner-on-main-st-for-leather-jacket](experience/positive-experience-with-dry-cleaner-on-main-st-for-leather-jacket.md) — Positive experience with dry cleaner on Main St. for leather jacket
+- [prefers-luxury-and-modern-aesthetic-in-design](user/prefers-luxury-and-modern-aesthetic-in-design.md) — Prefers luxury and modern aesthetic in design
+- [prefers-thoughtful-themed-gift-baskets-with-personalized-items-and-heartfelt-car](user/prefers-thoughtful-themed-gift-baskets-with-personalized-items-and-heartfelt-car.md) — Prefers thoughtful, themed gift baskets with personalized items and heartfelt cards
+- [ran-into-old-friend-from-high-school-on-bus-exchanged-numbers-to-reconnect](experience/ran-into-old-friend-from-high-school-on-bus-exchanged-numbers-to-reconnect.md) — Ran into old friend from high school on bus, exchanged numbers to reconnect
+- [recently-completed-10-day-family-road-trip-to-yellowstone-april-2023](user/recently-completed-10-day-family-road-trip-to-yellowstone-april-2023.md) — Recently completed 10-day family road trip to Yellowstone (April 2023)
+- [recently-reorganized-bathroom-cabinets-to-organize-skincare-products-makes-daily](user/recently-reorganized-bathroom-cabinets-to-organize-skincare-products-makes-daily.md) — Recently reorganized bathroom cabinets to organize skincare products; makes daily routine easier
+- [recommended-online-courses-for-web-development](reference/recommended-online-courses-for-web-development.md) — Recommended online courses for web development
+- [recommended-online-hip-hop-dance-learning-platforms-and-youtubers-for-beginners](reference/recommended-online-hip-hop-dance-learning-platforms-and-youtubers-for-beginners.md) — Recommended online hip-hop dance learning platforms and YouTubers for beginners
+- [replaced-leaky-sink-faucet-from-home-depot-diy-installation-took-1-hour-on-2023](experience/replaced-leaky-sink-faucet-from-home-depot-diy-installation-took-1-hour-on-2023.md) — Replaced leaky sink faucet from Home Depot; DIY installation took ~1 hour on 2023-04-29
+- [rv-rental-company-recommendations](reference/rv-rental-company-recommendations.md) — RV rental company recommendations
+- [soft-toy-brands-for-babies-gund-aurora-world-jellycat](reference/soft-toy-brands-for-babies-gund-aurora-world-jellycat.md) — Soft toy brands for babies: GUND, Aurora World, Jellycat
+- [thai-luxury-and-modern-font-recommendations](reference/thai-luxury-and-modern-font-recommendations.md) — Thai luxury and modern font recommendations
+- [toilet-clog-from-flushing-too-much-paper-called-plumber-on-2023-05-17](experience/toilet-clog-from-flushing-too-much-paper-called-plumber-on-2023-05-17.md) — Toilet clog from flushing too much paper; called plumber on 2023-05-17
+- [travels-with-family-and-kids](user/travels-with-family-and-kids.md) — Travels with family and kids
+- [uses-daily-bus-commute-for-productivity-listening-to-podcasts-and-doing-work](user/uses-daily-bus-commute-for-productivity-listening-to-podcasts-and-doing-work.md) — Uses daily bus commute for productivity: listening to podcasts and doing work
+- [weekly-vacuuming-routine-30-minutes-per-week](user/weekly-vacuuming-routine-30-minutes-per-week.md) — Weekly vacuuming routine: 30 minutes per week

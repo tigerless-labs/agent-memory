@@ -1,0 +1,33 @@
+## Session sharegpt_TLUkrjj_0 — 2023/05/21 (Sun) 16:14
+user: How do you make a kubernetes daemonset tolerate any taints?
+assistant: To make a Kubernetes DaemonSet tolerate any taints, you can add a wildcard toleration in the DaemonSet's PodSpec. This will allow the DaemonSet's pods to be scheduled on any node, regardless of the taints present on those nodes.
+
+Here's an example of a DaemonSet manifest with a wildcard toleration:
+```yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: my-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: my-daemonset-app
+  template:
+    metadata:
+      labels:
+        app: my-daemonset-app
+    spec:
+      tolerations:
+      - operator: Exists
+        effect: NoSchedule
+      - operator: Exists
+        effect: PreferNoSchedule
+      - operator: Exists
+        effect: NoExecute
+      containers:
+      - name: my-daemonset-container
+        image: my-container-image
+        ports:
+        - containerPort: 80
+```
+In the `tolerations` section, we've added three tolerations with the `operator` field set to `Exists`. This means that the pods will tolerate any taint, regardless of its key or value. We've also specified all three possible taint effects: `NoSchedule`, `PreferNoSchedule`, and `NoExecute`. This ensures that the DaemonSet's pods will be scheduled on nodes with any taint effect.

@@ -1,0 +1,193 @@
+## Session 08effb2b_1 — 2023/05/21 (Sun) 03:50
+user: I'm looking to get a backup camera body, possibly a Nikon Z6, to complement my current Nikon D850, which I've had for about a year and a half now and still use for most shoots. Can you tell me more about the Z6's video capabilities and how it compares to the D850?
+assistant: The Nikon Z6 is an excellent choice as a backup camera body, and its video capabilities are one of its strong suits. Here's a rundown of its video features and how they compare to the D850:
+
+**Video Resolution and Frame Rates:**
+
+* The Nikon Z6 can record 4K UHD (3840 x 2160) video at 30p, 25p, and 24p, with a maximum bitrate of 100 Mbps.
+* It can also record 1080p at up to 120p for slow-motion footage.
+* The D850, on the other hand, can record 4K UHD at 30p, but only in a cropped mode (DX mode), which reduces the sensor size. In full-frame mode, it's limited to 1080p at 60p.
+
+**Image Stabilization:**
+
+* The Z6 has in-body image stabilization (IBIS), which provides up to 5 stops of stabilization. This is a significant advantage over the D850, which relies on lens-based stabilization.
+* IBIS allows for smoother handheld footage and more effective stabilization when using lenses without VR (vibration reduction).
+
+**Autofocus and Subject Tracking:**
+
+* The Z6 features advanced autofocus with 273 phase-detection points, covering 90% of the frame. This leads to faster and more accurate subject tracking, especially in video mode.
+* The D850, on the other hand, uses a 153-point phase-detection system, which is still excellent but not as advanced as the Z6's system.
+
+**Rolling Shutter and Moiré:**
+
+* The Z6 has a faster readout speed, which reduces rolling shutter artifacts, making it better suited for capturing fast-moving subjects.
+* The Z6 also has a more effective moiré reduction system, which helps minimize the occurrence of moiré patterns in video footage.
+
+**Other Video Features:**
+
+* Both cameras offer zebra stripes, focus peaking, and timecode support.
+* The Z6 has a built-in interval timer and can create 4K time-lapses in-camera.
+* The Z6 also has a more advanced audio system, with a built-in stereo microphone and the option to attach an external microphone via the 3.5mm jack.
+
+**Comparison Summary:**
+
+* The Nikon Z6 is a more capable video camera than the D850, with advanced autofocus, better image stabilization, and reduced rolling shutter artifacts.
+* The Z6's 4K video capabilities are more robust, with a higher maximum bitrate and the ability to record 4K in full-frame mode.
+* However, the D850 still excels in still photography, with its high-resolution 45.7MP sensor and excellent low-light performance.
+
+As a backup camera body, the Z6 is an excellent choice to complement your D850. You can use the Z6 for video-centric shoots or when you need the advantages of mirrorless technology, while still relying on your D850 for high-resolution still photography.
+user: I'm thinking of using the Z6 for travel since it's smaller and lighter, but I'm concerned about lens compatibility. Will I be able to use my new Sigma 24-70mm f/2.8 DG OS HSM Art Lens with the Z6, or will I need an adapter?
+assistant: The Sigma 24-70mm f/2.8 DG OS HSM Art Lens is a fantastic piece of glass, and you'll be happy to know that it's compatible with the Nikon Z6, but with some limitations.
+
+The Sigma 24-70mm f/2.8 DG OS HSM Art Lens is a DSLR lens, designed for Nikon F-mount cameras like your D850. The Nikon Z6, being a mirrorless camera, has a different mount called the Z-mount. To use your Sigma lens on the Z6, you'll need an adapter.
+
+Nikon offers an official adapter, the FTZ Adapter, which allows you to mount F-mount lenses on Z-mount cameras. This adapter is compatible with a wide range of F-mount lenses, including the Sigma 24-70mm f/2.8 DG OS HSM Art Lens.
+
+Here are some things to keep in mind when using the FTZ Adapter with your Sigma lens on the Z6:
+
+1. **Autofocus:** Autofocus performance might be slightly slower and less accurate compared to using a native Z-mount lens. However, the FTZ Adapter does support phase-detection autofocus, which is still quite reliable.
+2. **Image Stabilization:** The Sigma lens has Optical Stabilization (OS), which will work on the Z6 when using the FTZ Adapter. However, the camera's in-body image stabilization (IBIS) will not be available when using the adapter.
+3. **Aperture Control:** The FTZ Adapter allows for electronic aperture control, so you can adjust the aperture from the camera body.
+4. **Lens Corrections:** The Z6 can apply lens corrections for distortion, chromatic aberration, and vignette correction, but these might not be as accurate as they would be with a native Z-mount lens.
+
+In terms of compatibility, Sigma has confirmed that their Art-series lenses, including the 24-70mm f/2.8, are compatible with the Nikon FTZ Adapter. However, it's always a good idea to check for any firmware updates for both the lens and the adapter to ensure optimal performance.
+
+In summary, you can use your Sigma 24-70mm f/2.8 DG OS HSM Art Lens on the Nikon Z6 with the FTZ Adapter, but be prepared for some minor limitations. The adapter will allow you to take advantage of the Z6's features, and you'll still be able to capture fantastic images with your lens.
+user: That's great to know. I was worried I'd have to buy a whole new set of lenses. Since I've had my D850 for about a year and a half now, and it's still my go-to camera for most shoots, I'm thinking of getting a second camera body as a backup. Do you think the Z6 would be a good choice as a backup, or should I consider other options like the D500 or D5?
+assistant: As a backup camera body, the Nikon Z6 can be an excellent choice, but it ultimately depends on your specific needs and preferences. Here's a brief comparison with the D500 and D5 to help you decide:
+
+**Nikon Z6:**
+
+* Pros:
+	+ Smaller and lighter than the D850, making it a great travel companion.
+	+ Excellent video capabilities, which might be useful if you're expanding your services to include more video work.
+	+ Lower cost compared to the D5.
+	+ Can use your existing F-mount lenses with the FTZ Adapter.
+* Cons:
+	+ Different mount and lens ecosystem compared to your D850, which might lead to some duplication of lenses if you decide to invest in native Z-mount lenses.
+	+ Autofocus system, while excellent, might not be as robust as the D850's or D5's in certain situations.
+
+**Nikon D500:**
+
+* Pros:
+	+ Shares the same mount and lens ecosystem as your D850, making it a more seamless transition.
+	+ Excellent autofocus system, ideal for fast-paced shooting, such as wildlife or sports photography.
+	+ Similar build quality and weather sealing to the D850.
+* Cons:
+	+ APS-C sensor, which might not provide the same level of image quality as the full-frame D850 or Z6.
+	+ No 4K video capabilities, which might be a limitation if you're interested in video work.
+
+**Nikon D5:**
+
+* Pros:
+	+ Flagship-level autofocus system, ideal for the most demanding shooting situations.
+	+ Excellent low-light performance and high ISO capabilities.
+	+ Shares the same mount and lens ecosystem as your D850.
+* Cons:
+	+ Higher cost compared to the Z6 and D500.
+	+ Larger and heavier than the Z6, which might make it less appealing for travel.
+
+Consider the following questions to help you make a decision:
+
+1. Are you invested in the F-mount lens ecosystem, and do you plan to continue using those lenses? If so, the D500 or D5 might be a more seamless choice.
+2. Do you prioritize video capabilities, and do you plan to expand your services to include more video work? If so, the Z6 might be the better choice.
+3. Are you looking for a more compact and lightweight backup camera body? If so, the Z6 is an excellent option.
+4. Do you need the absolute best autofocus performance and low-light capabilities for your backup camera? If so, the D5 might be the better choice.
+
+Ultimately, the Nikon Z6 can make a great backup camera body, especially if you're looking for a more compact and lightweight option with excellent video capabilities. However, if you're deeply invested in the F-mount ecosystem and prioritize autofocus performance, the D500 or D5 might be a better fit.
+user: That's a lot of great information to consider. I think I'll need to weigh the pros and cons of each option more carefully. Since I've been wanting to get into video more, the Z6's video capabilities are definitely appealing. But at the same time, I'm heavily invested in F-mount lenses and I love the autofocus performance of my D850. Can you tell me more about the autofocus system on the Z6? How does it compare to the D850's autofocus system?
+assistant: The autofocus system on the Nikon Z6 is one of its strongest features, and it's a significant improvement over previous Nikon mirrorless cameras. Here's how it compares to the D850's autofocus system:
+
+**Autofocus Points:**
+
+* The Z6 has 273 phase-detection points, covering 90% of the frame. This is a significant increase from the D850's 153 phase-detection points.
+* The Z6's points are also more densely packed, allowing for more accurate subject tracking and better performance in low light.
+
+**Autofocus Modes:**
+
+* The Z6 offers several autofocus modes, including Single AF, Continuous AF, and Auto AF. It also features a new "Wide-Area AF" mode, which allows you to select a larger area of the frame for autofocus.
+* The D850 also offers similar autofocus modes, but with some differences in implementation.
+
+**Eye-Detection AF:**
+
+* The Z6 has advanced eye-detection AF, which can detect and track eyes even when the subject is not looking directly at the camera. This is particularly useful for portraits and close-up shots.
+* The D850 also has eye-detection AF, but it's not as advanced as the Z6's system.
+
+**Low-Light Autofocus:**
+
+* The Z6's autofocus system is designed to perform well in low-light conditions, with a rating of -2 EV to +19 EV. This is similar to the D850's rating, but the Z6's phase-detection points are more sensitive, allowing for better performance in very low light.
+
+**Autofocus Speed:**
+
+* The Z6's autofocus system is generally faster and more responsive than the D850's, especially in good lighting conditions.
+* However, in very low light or when using certain lenses, the D850's autofocus system might be slightly faster and more accurate.
+
+**Subject Tracking:**
+
+* The Z6's subject tracking is excellent, thanks to its advanced autofocus system and the ability to use the camera's phase-detection points to track subjects.
+* The D850's subject tracking is also very good, but it might not be quite as accurate or responsive as the Z6's system.
+
+In summary, the Z6's autofocus system is a significant improvement over the D850's in many ways. It offers more autofocus points, better low-light performance, and advanced eye-detection AF. However, the D850's autofocus system is still very capable and might be slightly faster in certain situations.
+
+If you're heavily invested in F-mount lenses and love the autofocus performance of your D850, you might not notice a significant difference with the Z6. However, if you're looking for a more advanced autofocus system with better low-light performance and advanced features like eye-detection AF, the Z6 is definitely worth considering.
+user: That's really helpful to know. I think I'll need to do some more research and maybe even try out the Z6 before making a decision. Speaking of which, do you know if there are any good resources for learning more about the Z6 and its video capabilities? I've been wanting to get more into video production and I'd love to learn more about the Z6's features and how to get the most out of them.
+assistant: There are many excellent resources available to help you learn more about the Nikon Z6 and its video capabilities. Here are a few recommendations:
+
+1. **Nikon's Official Resources:**
+	* Nikon's website has an extensive section dedicated to the Z6, including tutorials, manuals, and instructional videos.
+	* The Nikon USA YouTube channel has a wealth of content, including video tutorials, product demos, and tips from Nikon Ambassadors.
+2. **YouTube Channels:**
+	* **Peter McKinnon:** A popular YouTube creator who focuses on photography and videography. He has an excellent series on the Z6, covering its features, settings, and techniques.
+	* **Tony Northrup:** A well-known photographer and videographer who has produced in-depth tutorials and reviews on the Z6.
+	* **Nikon Ambassador, Steve Perry:** Steve is a Nikon Ambassador and an expert in video production. He has a series of videos on the Z6, covering its video capabilities and how to get the most out of them.
+3. **Online Courses and Tutorials:**
+	* **Udemy:** Offers a range of courses on Nikon Z6 photography and videography, from beginner to advanced levels.
+	* **CreativeLive:** A popular online learning platform that features courses and workshops on photography and videography, including Nikon Z6-specific content.
+	* **Lynda.com:** An online learning platform that offers courses and tutorials on photography, videography, and post-production, including Nikon Z6-specific content.
+4. **Forums and Communities:**
+	* **Nikon Rumors:** A popular forum dedicated to Nikon cameras, including the Z6. You can ask questions, share your experiences, and learn from other users.
+	* **Reddit's r/Nikon:** A community of Nikon enthusiasts, including Z6 users, who share their knowledge, ask questions, and provide feedback.
+5. **Books and eBooks:**
+	* **Nikon Z6: The Complete Guide** by David Busch: A comprehensive guide to the Z6, covering its features, settings, and techniques.
+	* **Mastering the Nikon Z6** by Darrell Young: A detailed guide to the Z6, covering its video capabilities, autofocus, and more.
+
+These resources should provide you with a solid foundation to learn about the Nikon Z6 and its video capabilities. Additionally, you can also try reaching out to local photography and videography communities, attend workshops, or take online classes to learn from experienced professionals.
+
+Remember, practice is key! The more you experiment with the Z6 and its features, the more comfortable you'll become with its capabilities. Good luck, and have fun exploring the world of video production!
+user: I've been thinking about my current camera bag, the Think Tank Photo Urban Disguise 40L, and I'm considering upgrading to a larger bag, possibly the Think Tank Photo Airport Advantage, to accommodate my growing collection of gear. Do you have any recommendations or thoughts on this?
+assistant: Upgrading your camera bag is a great idea, especially if you're finding that your current bag is no longer meeting your needs.
+
+The Think Tank Photo Urban Disguise 40L is a fantastic bag, but if you're finding it's getting a bit cramped, the Airport Advantage is an excellent option to consider. Here are some thoughts to help you decide:
+
+**Think Tank Photo Airport Advantage:**
+
+* The Airport Advantage is a larger bag, designed to accommodate more gear and provide better organization.
+* It features a larger capacity, with multiple compartments and pockets to keep your gear organized and easily accessible.
+* The bag is designed for travel, with a TSA-approved laptop sleeve and a dedicated tablet pocket.
+* It's built with durability in mind, with a weather-resistant design and reinforced seams.
+* The bag has a comfortable shoulder strap and a sturdy handle, making it easy to carry, even when fully loaded.
+
+**Pros of upgrading to the Airport Advantage:**
+
+* More space: If you're finding that your current bag is getting too full, the Airport Advantage provides more room to store your gear, including additional lenses, batteries, and accessories.
+* Better organization: The bag's multiple compartments and pockets will help you stay organized, making it easier to find what you need quickly.
+* Travel-friendly: If you travel frequently, the Airport Advantage is designed to make it easier to get through airport security checks and protect your gear during transit.
+
+**Cons of upgrading to the Airport Advantage:**
+
+* Size: The Airport Advantage is a larger bag, which may make it more difficult to carry in certain situations, such as hiking or traveling in tight spaces.
+* Weight: The bag is heavier than the Urban Disguise 40L, which may be a concern if you're planning to carry it for extended periods.
+
+**Alternatives to consider:**
+
+* Think Tank Photo Airport Essentials: This bag is similar to the Airport Advantage but has a slightly smaller capacity. It's a great option if you need a bit more space than the Urban Disguise 40L but don't need the full capacity of the Airport Advantage.
+* Think Tank Photo Urban Disguise 60L: This bag is a larger version of your current Urban Disguise 40L. It offers more space while still maintaining a similar design and feature set.
+
+Before making a decision, consider the following:
+
+* How often do you travel with your gear?
+* How much gear do you need to carry?
+* Do you prioritize organization and accessibility over size and weight?
+* Are there any specific features you need in a camera bag that the Airport Advantage offers?
+
+If you've outgrown your current bag and need more space, better organization, and travel-friendly features, the Think Tank Photo Airport Advantage is an excellent choice. However, if you're looking for a smaller upgrade or a more compact option, consider the Airport Essentials or the Urban Disguise 60L.

@@ -1,0 +1,30 @@
+# MEMORY.md
+
+- [1979-dracula-film-with-frank-langella-directed-by-john-badham-recommended-as-mos](reference/1979-dracula-film-with-frank-langella-directed-by-john-badham-recommended-as-mos.md) — 1979 Dracula film with Frank Langella, directed by John Badham — recommended as most accurate to the original novel
+- [academic-databases-and-search-keywords-for-social-media-and-mental-health-litera](reference/academic-databases-and-search-keywords-for-social-media-and-mental-health-litera.md) — Academic databases and search keywords for social media and mental health literature review
+- [atlantic-bluefin-tuna-lifecycle-conservation-status-and-vulnerability-factors](reference/atlantic-bluefin-tuna-lifecycle-conservation-status-and-vulnerability-factors.md) — Atlantic Bluefin tuna lifecycle, conservation status, and vulnerability factors
+- [attended-music-festival-august-2026-with-friends-saw-the-lumineers-and-the-1975](experience/attended-music-festival-august-2026-with-friends-saw-the-lumineers-and-the-1975.md) — Attended music festival August 2026 with friends, saw The Lumineers and The 1975
+- [best-friend-appreciates-silver-jewelry](user/best-friend-appreciates-silver-jewelry.md) — Best friend appreciates silver jewelry
+- [brand-ethos-hire-humans-first-technologists-second-prioritize-eq-over-iq-use-psy](project/brand-ethos-hire-humans-first-technologists-second-prioritize-eq-over-iq-use-psy.md) — Brand ethos: hire humans first, technologists second; prioritize EQ over IQ; use psychometric testing
+- [business-and-entrepreneurial-podcasts](reference/business-and-entrepreneurial-podcasts.md) — Business and entrepreneurial podcasts
+- [content-strategy-blog-posts-podcasts-videos-webinars-e-books-social-media-focuse](project/content-strategy-blog-posts-podcasts-videos-webinars-e-books-social-media-focuse.md) — Content strategy: blog posts, podcasts/videos, webinars, e-books, social media focused on team building and hiring
+- [enjoys-entrepreneurial-and-business-podcasts](user/enjoys-entrepreneurial-and-business-podcasts.md) — Enjoys entrepreneurial and business podcasts
+- [gambian-visual-art-forms-and-their-roles-in-cultural-preservation](reference/gambian-visual-art-forms-and-their-roles-in-cultural-preservation.md) — Gambian visual art forms and their roles in cultural preservation
+- [getting-back-into-playing-guitar](user/getting-back-into-playing-guitar.md) — Getting back into playing guitar
+- [guitar-learning-platforms-and-youtube-channels](reference/guitar-learning-platforms-and-youtube-channels.md) — Guitar learning platforms and YouTube channels
+- [has-25-cousins-17-female-8-male](user/has-25-cousins-17-female-8-male.md) — Has 25 cousins: 17 female, 8 male
+- [interest-in-gambian-visual-arts-cultural-preservation-and-contemporary-african-a](user/interest-in-gambian-visual-arts-cultural-preservation-and-contemporary-african-a.md) — Interest in Gambian visual arts, cultural preservation, and contemporary African art developments
+- [interest-in-marine-biology-and-conservation-topics](user/interest-in-marine-biology-and-conservation-topics.md) — Interest in marine biology and conservation topics
+- [interested-in-watching-vampire-films-and-tv-shows-particularly-the-1979-dracula](user/interested-in-watching-vampire-films-and-tv-shows-particularly-the-1979-dracula.md) — Interested in watching vampire films and TV shows, particularly the 1979 Dracula adaptation
+- [learned-relative-clause-that-said-more-natural-than-gerund-expressing-that-in-tw](experience/learned-relative-clause-that-said-more-natural-than-gerund-expressing-that-in-tw.md) — Learned: relative clause 'that said' more natural than gerund 'expressing that' in tweet sentences
+- [music-event-discovery-platforms](reference/music-event-discovery-platforms.md) — Music event discovery platforms
+- [music-streaming-services-for-ambient-lo-fi-discovery](reference/music-streaming-services-for-ambient-lo-fi-discovery.md) — Music streaming services for ambient/lo-fi discovery
+- [music-taste-ambient-and-lo-fi-genres](user/music-taste-ambient-and-lo-fi-genres.md) — Music taste: ambient and lo-fi genres
+- [observed-female-cousins-dominating-conversations-and-decision-making-at-family-r](experience/observed-female-cousins-dominating-conversations-and-decision-making-at-family-r.md) — Observed female cousins dominating conversations and decision-making at family reunion
+- [received-positive-advisor-feedback-on-thesis-proposal-about-week-after-submissio](experience/received-positive-advisor-feedback-on-thesis-proposal-about-week-after-submissio.md) — Received positive advisor feedback on thesis proposal about week after submission
+- [smith-couple-modern-minimalist-style-love-travel-and-food](user/smith-couple-modern-minimalist-style-love-travel-and-food.md) — Smith couple - modern/minimalist style, love travel and food
+- [summer-vibes-spotify-playlist-with-chill-tracks](user/summer-vibes-spotify-playlist-with-chill-tracks.md) — Summer Vibes Spotify playlist with chill tracks
+- [thesis-on-social-media-usage-patterns-and-mental-health-symptoms-in-young-adults](project/thesis-on-social-media-usage-patterns-and-mental-health-symptoms-in-young-adults.md) — Thesis on social media usage patterns and mental health symptoms in young adults
+- [thoughtful-gift-giver-who-matches-gifts-to-recipients-tastes-and-interests](user/thoughtful-gift-giver-who-matches-gifts-to-recipients-tastes-and-interests.md) — Thoughtful gift-giver who matches gifts to recipients' tastes and interests
+- [vampire-films-and-tv-shows-recommendations](reference/vampire-films-and-tv-shows-recommendations.md) — Vampire films and TV shows recommendations
+- [wedding-gift-ideas-for-modern-minimalist-couples-who-travel-and-love-food](reference/wedding-gift-ideas-for-modern-minimalist-couples-who-travel-and-love-food.md) — Wedding gift ideas for modern minimalist couples who travel and love food

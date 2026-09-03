@@ -1,0 +1,71 @@
+## Session sharegpt_6J4MSPx_0 — 2023/08/06 (Sun) 12:32
+user: I want you to function as medical content and graphic designer. I will show you a simple workflow in below arrows, which can be changed into a nice diagram that i can use for my website and presentation. Can you help me? 
+YouTube Viewers —> Seeing the music therapy songs for anxiety, depression, and anger management —> Buy NFT token to support cancer patients
+assistant: Sure, I can help you visualize your workflow into a diagram. Here's a possible design:
+```lua
+            +----------------+
+            |YouTube Viewers |
+            +----------------+
+                     |
+                     |
+                     v
++-----------------------------------------------+
+|Seeing the music therapy songs for anxiety,    |
+|depression, and anger management               |
++-----------------------------------------------+
+                     |
+                     |
+                     v
++-----------------------------------------------+
+|Buy NFT token to support cancer patients        |
++-----------------------------------------------+
+```
+This diagram shows the three steps in your workflow, with arrows indicating the flow of activity from one step to the next. The first step is YouTube viewers, who are presumably searching for videos related to music therapy for anxiety, depression, and anger management. The second step shows viewers engaging with the videos and potentially being interested in purchasing NFT tokens to support cancer patients. The third step is the purchase of NFT tokens, which is the ultimate goal of your workflow.
+
+Let me know if you have any feedback or if you'd like me to make any changes to the design.
+user: can you draw the following too? "YouTube Viewers—--> personalized if having cancer, depression, anxiety, chronic kidney diseases from Diabetes/Hypertension, etc. via our AI Chat Bot with free health risks assessment —> listening to the music therapy songs for anxiety, depression, and anger management for free —> buy the NFT tokens to support others cancer patients & innovations —> Wanting PHQ 2 or PHQ10 screening questionnaires —> Joining group counseling with counselors and specialists by using the Calendly platform or our EHR booking calendar platform. "
+assistant: Sure! Here's a diagram for the updated workflow you provided:
+```sql
+          +------------------+
+          | YouTube Viewers  |
+          +------------------+
+                   |
+                   |
+                   v
++------------------------------------------------------+
+| Personalized health assessment via AI chat bot for    |
+| cancer, depression, anxiety, chronic kidney diseases  |
+| from Diabetes/Hypertension, etc.                      |
++------------------------------------------------------+
+                   |
+                   |
+                   v
++------------------------------------------------------+
+| Listening to music therapy songs for anxiety,         |
+| depression, and anger management for free             |
++------------------------------------------------------+
+                   |
+                   |
+                   v
++------------------------------------------------------+
+| Buy NFT tokens to support cancer patients &            |
+| innovations                                           |
++------------------------------------------------------+
+                   |
+                   |
+                   v
++------------------------------------------------------+
+| Wanting PHQ 2 or PHQ 10 screening questionnaires      |
++------------------------------------------------------+
+                   |
+                   |
+                   v
++------------------------------------------------------+
+| Joining group counseling with counselors and          |
+| specialists by using Calendly platform or our EHR      |
+| booking calendar platform                             |
++------------------------------------------------------+
+```
+This diagram shows the six steps in the workflow with arrows indicating the flow of activity from one step to the next. The first step is YouTube viewers, who are directed to a personalized health assessment via an AI chatbot. The second step shows the assessment taking place for various health conditions. The third step is listening to music therapy songs for free. The fourth step is purchasing NFT tokens to support cancer patients and innovations. The fifth step is wanting to take PHQ 2 or PHQ 10 screening questionnaires. The final step is joining group counseling with counselors and specialists by using the Calendly platform or EHR booking calendar platform.
+
+Let me know if you have any feedback or if you'd like me to make any changes to the design.

@@ -1,0 +1,16 @@
+---
+name: black-mirror-ish-scene-girl-disappears-into-computer-while-sitting-before-microp
+abstract: "Black Mirror-ish scene: girl disappears into computer while sitting before microphone"
+type: decision
+status: active
+created: 2026-09-02
+updated: 2026-09-02
+valid_from: 2023-05-21
+superseded_by: null
+weight: 1.0
+author: cli
+links: []
+provenance: []
+---
+
+

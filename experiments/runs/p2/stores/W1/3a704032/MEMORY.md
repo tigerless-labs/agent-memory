@@ -1,0 +1,17 @@
+# MEMORY.md
+
+- [basil-plant-on-balcony-struggling-with-too-much-direct-sunlight](project/basil-plant-on-balcony-struggling-with-too-much-direct-sunlight.md) — Basil plant on balcony struggling with too much direct sunlight
+- [building-music-room-in-garage-with-soundproofing](project/building-music-room-in-garage-with-soundproofing.md) — Building music room in garage with soundproofing
+- [contemporary-art-and-emerging-artists-especially-installations-and-thought-provo](user/contemporary-art-and-emerging-artists-especially-installations-and-thought-provo.md) — Contemporary art and emerging artists, especially installations and thought-provoking work
+- [digital-literacy-lesson-planning-session-10-focuses-on-evaluating-online-informa](project/digital-literacy-lesson-planning-session-10-focuses-on-evaluating-online-informa.md) — Digital literacy lesson planning: Session 10 focuses on evaluating online information using CRAAP Test
+- [first-kimchi-making-attempt-was-too-spicy-and-salty-learned-seasoning-balance-le](experience/first-kimchi-making-attempt-was-too-spicy-and-salty-learned-seasoning-balance-le.md) — First kimchi-making attempt was too spicy and salty; learned seasoning balance lessons
+- [graphic-novels-and-contemporary-fiction-recommendations-for-character-driven-nar](reference/graphic-novels-and-contemporary-fiction-recommendations-for-character-driven-nar.md) — Graphic novels and contemporary fiction recommendations for character-driven narratives with complex female relationships
+- [growing-houseplants-with-focus-on-proper-care-and-organization](user/growing-houseplants-with-focus-on-proper-care-and-organization.md) — Growing houseplants with focus on proper care and organization
+- [learning-music-programming-languages-started-with-chuck-interested-in-sonic-pi-a](user/learning-music-programming-languages-started-with-chuck-interested-in-sonic-pi-a.md) — Learning music programming languages; started with ChucK, interested in Sonic Pi as beginner option
+- [musical-interests-plays-ukulele-and-guitar-recording-music-videos](user/musical-interests-plays-ukulele-and-guitar-recording-music-videos.md) — Musical interests: plays ukulele and guitar, recording music videos
+- [reading-preferences-character-driven-fiction-strong-female-protagonists-identity](user/reading-preferences-character-driven-fiction-strong-female-protagonists-identity.md) — Reading preferences: character-driven fiction, strong female protagonists, identity themes
+- [recording-ukulele-performance-videos-for-online-sharing](project/recording-ukulele-performance-videos-for-online-sharing.md) — Recording ukulele performance videos for online sharing
+- [seeks-affordable-sustainable-and-ethical-fashion-brands](user/seeks-affordable-sustainable-and-ethical-fashion-brands.md) — Seeks affordable sustainable and ethical fashion brands
+- [selling-fender-deluxe-90-amp-and-yamaha-psr-e263-keyboard](project/selling-fender-deluxe-90-amp-and-yamaha-psr-e263-keyboard.md) — Selling Fender Deluxe 90 amp and Yamaha PSR-E263 keyboard
+- [snake-plant-from-sister-in-may-2023-thriving-with-low-maintenance-care](user/snake-plant-from-sister-in-may-2023-thriving-with-low-maintenance-care.md) — Snake plant from sister in May 2023 thriving with low-maintenance care
+- [treating-fern-pest-infestation-with-neem-oil-and-misting](project/treating-fern-pest-infestation-with-neem-oil-and-misting.md) — Treating fern pest infestation with neem oil and misting

@@ -1,0 +1,34 @@
+# MEMORY.md
+
+- [bike-chain-maintenance-needed-rusty-chains](project/bike-chain-maintenance-needed-rusty-chains.md) — Bike chain maintenance needed — rusty chains
+- [bread-flour-vs-all-purpose-flour-in-bread-recipes](reference/bread-flour-vs-all-purpose-flour-in-bread-recipes.md) — Bread flour vs all-purpose flour in bread recipes
+- [composite-niece-s-witch-photo-with-spooky-castle-illustration-using-gimp](project/composite-niece-s-witch-photo-with-spooky-castle-illustration-using-gimp.md) — Composite niece's witch photo with spooky castle illustration using GIMP
+- [considering-full-frame-camera-upgrade-from-nikon-d5600](project/considering-full-frame-camera-upgrade-from-nikon-d5600.md) — Considering full-frame camera upgrade from Nikon D5600
+- [drum-learning-recommendations-for-beginners](reference/drum-learning-recommendations-for-beginners.md) — Drum learning recommendations for beginners
+- [enjoys-sourdough-bread-with-a-pat-of-butter](user/enjoys-sourdough-bread-with-a-pat-of-butter.md) — Enjoys sourdough bread with a pat of butter
+- [experimenting-with-different-types-of-flour-for-baking](user/experimenting-with-different-types-of-flour-for-baking.md) — Experimenting with different types of flour for baking
+- [express-gratitude-to-woman-from-networking-event-jan-2023-she-provided-valuable](project/express-gratitude-to-woman-from-networking-event-jan-2023-she-provided-valuable.md) — Express gratitude to woman from networking event (~Jan 2023); she provided valuable job-related resources and insights
+- [fresh-rosemary-handling-tips-for-bread-baking](reference/fresh-rosemary-handling-tips-for-bread-baking.md) — Fresh rosemary handling tips for bread baking
+- [honda-civic-car](user/honda-civic-car.md) — Honda Civic car
+- [host-dinner-party-soon-from-feb-18-2023-experiment-with-jam-and-cheese-pairings](project/host-dinner-party-soon-from-feb-18-2023-experiment-with-jam-and-cheese-pairings.md) — Host dinner party soon from Feb 18, 2023; experiment with jam and cheese pairings
+- [image-compositing-workflow-fixing-lighting-and-color-mismatch-between-composited](reference/image-compositing-workflow-fixing-lighting-and-color-mismatch-between-composited.md) — Image compositing workflow: fixing lighting and color mismatch between composited elements
+- [interested-in-learning-how-to-play-the-drums](user/interested-in-learning-how-to-play-the-drums.md) — Interested in learning how to play the drums
+- [interested-in-wide-angle-lens-for-landscapes-and-cityscapes](user/interested-in-wide-angle-lens-for-landscapes-and-cityscapes.md) — Interested in wide-angle lens for landscapes and cityscapes
+- [king-arthur-flour-classic-sourdough-recipe-beginner-friendly-starter](reference/king-arthur-flour-classic-sourdough-recipe-beginner-friendly-starter.md) — King Arthur Flour Classic Sourdough Recipe - beginner-friendly starter
+- [kryptonite-u-lock-bike-lock-purchased-recently](user/kryptonite-u-lock-bike-lock-purchased-recently.md) — Kryptonite U-Lock bike lock purchased recently
+- [making-rosemary-and-olive-oil-focaccia-with-bread-flour](project/making-rosemary-and-olive-oil-focaccia-with-bread-flour.md) — Making Rosemary and Olive Oil Focaccia with bread flour
+- [met-jam-maker-at-farmer-s-market-on-saturday-morning-feb-4-2023-received-flavor](experience/met-jam-maker-at-farmer-s-market-on-saturday-morning-feb-4-2023-received-flavor.md) — Met jam maker at farmer's market on Saturday morning, ~Feb 4, 2023; received flavor combination recommendations
+- [met-personal-trainer-at-gym-around-feb-15-2023-interested-in-staying-in-touch](user/met-personal-trainer-at-gym-around-feb-15-2023-interested-in-staying-in-touch.md) — Met personal trainer at gym around Feb 15, 2023; interested in staying in touch
+- [nikon-d5600-camera-body-aps-c-sensor](user/nikon-d5600-camera-body-aps-c-sensor.md) — Nikon D5600 camera body (APS-C sensor)
+- [owns-bob-s-red-mill-bread-flour](user/owns-bob-s-red-mill-bread-flour.md) — Owns Bob's Red Mill bread flour
+- [perfecting-sourdough-technique-discovered-tendency-to-overmix-dough](project/perfecting-sourdough-technique-discovered-tendency-to-overmix-dough.md) — Perfecting sourdough technique, discovered tendency to overmix dough
+- [photography-types-street-travel-portrait-landscape](user/photography-types-street-travel-portrait-landscape.md) — Photography types: street, travel, portrait, landscape
+- [purchased-think-tank-urban-disguise-40l-camera-bag](user/purchased-think-tank-urban-disguise-40l-camera-bag.md) — Purchased Think Tank Urban Disguise 40L camera bag
+- [recently-acquired-70-200mm-zoom-lens](user/recently-acquired-70-200mm-zoom-lens.md) — Recently acquired 70-200mm zoom lens
+- [remote-flash-triggers-from-workshop](user/remote-flash-triggers-from-workshop.md) — Remote flash triggers from workshop
+- [road-bike-ride-60-miles-at-18-5-mph-average-new-personal-best](experience/road-bike-ride-60-miles-at-18-5-mph-average-new-personal-best.md) — Road bike ride: 60 miles at 18.5 mph average — new personal best
+- [saris-bones-2-bike-trunk-rack-on-amazon-wishlist-plans-to-purchase-soon](project/saris-bones-2-bike-trunk-rack-on-amazon-wishlist-plans-to-purchase-soon.md) — Saris Bones 2-Bike Trunk Rack on Amazon wishlist, plans to purchase soon
+- [solution-ln-1-e-3x-2-x-1-3-ln-e-2-1](reference/solution-ln-1-e-3x-2-x-1-3-ln-e-2-1.md) — Solution: ln(1+e^(-3x)) = 2 → x = -(1/3) ln(e^2 - 1)
+- [techniques-for-achieving-lighter-airier-crumb-in-sourdough-bread](reference/techniques-for-achieving-lighter-airier-crumb-in-sourdough-bread.md) — Techniques for achieving lighter, airier crumb in sourdough bread
+- [trek-emonda-road-bike](user/trek-emonda-road-bike.md) — Trek Emonda road bike
+- [upcoming-charity-ride-40-miles](project/upcoming-charity-ride-40-miles.md) — Upcoming charity ride: 40 miles

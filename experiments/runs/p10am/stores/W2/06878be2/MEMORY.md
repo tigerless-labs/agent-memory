@@ -1,0 +1,39 @@
+# MEMORY.md
+
+- [alps-2-ocean-cycle-trail-301km-south-island-new-zealand-planned-trip-for-challen](project/alps-2-ocean-cycle-trail-301km-south-island-new-zealand-planned-trip-for-challen.md) — Alps 2 Ocean Cycle Trail 301km South Island New Zealand planned trip for challenge and scenery
+- [andrew-ng-statistics-lectures-on-mit-opencourseware](reference/andrew-ng-statistics-lectures-on-mit-opencourseware.md) — Andrew Ng statistics lectures on MIT OpenCourseWare
+- [attended-artisan-market-at-local-library-on-april-10-2023-received-positive-feed](experience/attended-artisan-market-at-local-library-on-april-10-2023-received-positive-feed.md) — Attended Artisan Market at local library on April 10, 2023; received positive feedback on candles
+- [attended-family-gathering-to-celebrate-cousin-s-new-baby-boy-on-may-21-2023](experience/attended-family-gathering-to-celebrate-cousin-s-new-baby-boy-on-may-21-2023.md) — Attended family gathering to celebrate cousin's new baby boy on May 21, 2023
+- [aulani-a-disney-resort-spa-oahu-large-family-resort-recommendation](reference/aulani-a-disney-resort-spa-oahu-large-family-resort-recommendation.md) — Aulani, a Disney Resort & Spa (Oahu) - large family resort recommendation
+- [can-lift-10-pounds-in-each-hand-for-bicep-curls-as-of-may-2023](user/can-lift-10-pounds-in-each-hand-for-bicep-curls-as-of-may-2023.md) — Can lift 10 pounds in each hand for bicep curls as of May 2023
+- [candle-business-with-eco-friendly-focus](project/candle-business-with-eco-friendly-focus.md) — Candle business with eco-friendly focus
+- [completed-customer-sentiment-analysis-project-using-nlp](project/completed-customer-sentiment-analysis-project-using-nlp.md) — Completed customer sentiment analysis project using NLP
+- [concerned-that-private-insurance-companies-prioritize-profits-over-patient-needs](user/concerned-that-private-insurance-companies-prioritize-profits-over-patient-needs.md) — Concerned that private insurance companies prioritize profits over patient needs
+- [considering-gitzo-gt3543ls-tripod-purchase](project/considering-gitzo-gt3543ls-tripod-purchase.md) — Considering Gitzo GT3543LS tripod purchase
+- [data-science-podcast-resources-for-staying-current-on-data-science-developments](reference/data-science-podcast-resources-for-staying-current-on-data-science-developments.md) — Data Science Podcast - resources for staying current on data science developments
+- [decided-to-purchase-godox-v1-flash-for-sony-a7r-iv](project/decided-to-purchase-godox-v1-flash-for-sony-a7r-iv.md) — Decided to purchase Godox V1 flash for Sony A7R IV
+- [deep-learning-by-ian-goodfellow-yoshua-bengio-and-aaron-courville-seminal-book-o](reference/deep-learning-by-ian-goodfellow-yoshua-bengio-and-aaron-courville-seminal-book-o.md) — Deep Learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville - seminal book on deep learning
+- [developing-seasonal-candle-line-with-lavender-and-lemon-scents-for-summer-2023](project/developing-seasonal-candle-line-with-lavender-and-lemon-scents-for-summer-2023.md) — Developing seasonal candle line with lavender and lemon scents for summer 2023
+- [does-zumba-classes-and-weightlifting-regularly-for-high-intensity-workouts](user/does-zumba-classes-and-weightlifting-regularly-for-high-intensity-workouts.md) — Does Zumba classes and weightlifting regularly for high-intensity workouts
+- [excessive-online-shopping-1-3-purchases-per-week-since-april-2023-feeling-overwh](user/excessive-online-shopping-1-3-purchases-per-week-since-april-2023-feeling-overwh.md) — Excessive online shopping: 1-3 purchases per week since April 2023, feeling overwhelmed
+- [external-battery-packs-for-charging-sony-a7r-iv](reference/external-battery-packs-for-charging-sony-a7r-iv.md) — External battery packs for charging Sony A7R IV
+- [family-friendly-activities-in-oahu-and-maui-with-kids-ages-5-15](reference/family-friendly-activities-in-oahu-and-maui-with-kids-ages-5-15.md) — Family-friendly activities in Oahu and Maui with kids ages 5-15
+- [favors-equitable-healthcare-access-open-to-government-run-or-public-option-appro](user/favors-equitable-healthcare-access-open-to-government-run-or-public-option-appro.md) — Favors equitable healthcare access, open to government-run or public option approaches
+- [flash-protection-cases-and-pouches-compatible-with-godox-v1](reference/flash-protection-cases-and-pouches-compatible-with-godox-v1.md) — Flash protection cases and pouches compatible with Godox V1
+- [goal-reduce-mindless-online-shopping-and-develop-healthier-spending-habits](project/goal-reduce-mindless-online-shopping-and-develop-healthier-spending-habits.md) — Goal: reduce mindless online shopping and develop healthier spending habits
+- [hawaii-restaurants-for-large-family-groups-oahu-and-maui](reference/hawaii-restaurants-for-large-family-groups-oahu-and-maui.md) — Hawaii restaurants for large family groups (Oahu and Maui)
+- [interested-in-deep-learning-nlp-and-practical-applications-to-real-world-problem](user/interested-in-deep-learning-nlp-and-practical-applications-to-real-world-problem.md) — Interested in deep learning, NLP, and practical applications to real-world problems
+- [interested-in-healthcare-policy-debates-and-reform-solutions](user/interested-in-healthcare-policy-debates-and-reform-solutions.md) — Interested in healthcare policy debates and reform solutions
+- [interested-in-shop-page-ux-and-user-journey-design-for-mobile-rpg-games](user/interested-in-shop-page-ux-and-user-journey-design-for-mobile-rpg-games.md) — Interested in shop page UX and user journey design for mobile RPG games
+- [lens-cleaning-procedure-for-sony-cameras](reference/lens-cleaning-procedure-for-sony-cameras.md) — Lens cleaning procedure for Sony cameras
+- [luaus-in-oahu-and-maui-for-large-family-groups](reference/luaus-in-oahu-and-maui-for-large-family-groups.md) — Luaus in Oahu and Maui for large family groups
+- [manchester-vs-london-living-cost-safety-job-opportunities-comparison](reference/manchester-vs-london-living-cost-safety-job-opportunities-comparison.md) — Manchester vs London: living cost, safety, job opportunities comparison
+- [owns-sony-24-70mm-f-2-8-lens](user/owns-sony-24-70mm-f-2-8-lens.md) — Owns Sony 24-70mm f/2.8 lens
+- [owns-sony-a7r-iv-camera-body](user/owns-sony-a7r-iv-camera-body.md) — Owns Sony A7R IV camera body
+- [plan-hawaii-family-vacation-for-15-20-people-kids-ages-5-15-in-oahu-and-maui](project/plan-hawaii-family-vacation-for-15-20-people-kids-ages-5-15-in-oahu-and-maui.md) — Plan Hawaii family vacation for 15-20 people (kids ages 5-15) in Oahu and Maui
+- [planning-stock-price-prediction-project-combining-news-sentiment-analysis-with-h](project/planning-stock-price-prediction-project-combining-news-sentiment-analysis-with-h.md) — Planning stock price prediction project combining news sentiment analysis with historical data
+- [planning-to-apply-for-summer-solstice-fair-in-june-2023](project/planning-to-apply-for-summer-solstice-fair-in-june-2023.md) — Planning to apply for Summer Solstice Fair in June 2023
+- [posture-improved-since-starting-weightlifting](user/posture-improved-since-starting-weightlifting.md) — Posture improved since starting weightlifting
+- [prefers-relaxing-yoga-styles-to-balance-high-intensity-workouts](user/prefers-relaxing-yoga-styles-to-balance-high-intensity-workouts.md) — Prefers relaxing yoga styles to balance high-intensity workouts
+- [starting-hatha-yoga-classes-sundays-9am-at-studio-near-gym-one-class-per-week](project/starting-hatha-yoga-classes-sundays-9am-at-studio-near-gym-one-class-per-week.md) — Starting Hatha Yoga classes Sundays 9am at studio near gym, one class per week
+- [using-mint-budgeting-app-to-track-online-shopping-expenses-and-spending-patterns](project/using-mint-budgeting-app-to-track-online-shopping-expenses-and-spending-patterns.md) — Using Mint budgeting app to track online shopping expenses and spending patterns

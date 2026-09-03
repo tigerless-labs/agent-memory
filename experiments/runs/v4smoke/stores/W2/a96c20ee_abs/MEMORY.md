@@ -1,0 +1,28 @@
+# MEMORY.md
+
+- [attended-first-research-conference-at-harvard-university-to-see-ai-in-education](experience/attended-first-research-conference-at-harvard-university-to-see-ai-in-education.md) — Attended first research conference at Harvard University to see AI in education projects
+- [bike-ride-with-neighbor-mike-to-wilder-ranch-state-park-15-miles-single-track](experience/bike-ride-with-neighbor-mike-to-wilder-ranch-state-park-15-miles-single-track.md) — Bike ride with neighbor Mike to Wilder Ranch State Park, 15 miles single-track
+- [budget-conscious-grocery-shopper-looks-for-bogo-deals-at-publix](user/budget-conscious-grocery-shopper-looks-for-bogo-deals-at-publix.md) — Budget-conscious grocery shopper; looks for BOGO deals at Publix
+- [chose-staggered-wheel-setup-for-drifting-on-gt-r](project/chose-staggered-wheel-setup-for-drifting-on-gt-r.md) — Chose staggered wheel setup for drifting on GT-R
+- [decided-on-full-exhaust-system-for-gt-r](project/decided-on-full-exhaust-system-for-gt-r.md) — Decided on full exhaust system for GT-R
+- [diner-recommendations-in-fresno-california-for-breakfast](reference/diner-recommendations-in-fresno-california-for-breakfast.md) — Diner recommendations in Fresno, California for breakfast
+- [enjoys-meal-planning-and-cooking-with-ground-beef-and-chicken](user/enjoys-meal-planning-and-cooking-with-ground-beef-and-chicken.md) — Enjoys meal planning and cooking with ground beef and chicken
+- [friend-alex-lends-camping-gear](user/friend-alex-lends-camping-gear.md) — Friend Alex lends camping gear
+- [installed-coilovers-on-gt-r-suspension](user/installed-coilovers-on-gt-r-suspension.md) — Installed coilovers on GT-R suspension
+- [interest-in-ai-powered-adaptive-learning-systems-personalized-instruction-real-t](user/interest-in-ai-powered-adaptive-learning-systems-personalized-instruction-real-t.md) — Interest in AI-powered adaptive learning systems: personalized instruction, real-time feedback, critical thinking development, collaborative problem-solving
+- [interested-in-learning-djing-as-a-music-hobby](user/interested-in-learning-djing-as-a-music-hobby.md) — Interested in learning DJing as a music hobby
+- [met-alex-at-parking-lot-drifting-practice-on-2023-05-20](experience/met-alex-at-parking-lot-drifting-practice-on-2023-05-20.md) — Met Alex at parking lot drifting practice on 2023-05-20
+- [neighbor-mike-is-a-biking-companion](user/neighbor-mike-is-a-biking-companion.md) — Neighbor Mike is a biking companion
+- [organize-contact-list-merge-duplicates-add-notes-remove-unknowns](project/organize-contact-list-merge-duplicates-add-notes-remove-unknowns.md) — Organize contact list: merge duplicates, add notes, remove unknowns
+- [owns-nissan-gt-r](user/owns-nissan-gt-r.md) — Owns Nissan GT-R
+- [phone-battery-draining-quickly-with-social-media-and-video-use](user/phone-battery-draining-quickly-with-social-media-and-video-use.md) — Phone battery draining quickly with social media and video use
+- [phone-screen-in-excellent-condition-no-scratches-or-cracks-doesn-t-use-screen-pr](user/phone-screen-in-excellent-condition-no-scratches-or-cracks-doesn-t-use-screen-pr.md) — Phone screen in excellent condition: no scratches or cracks, doesn't use screen protector
+- [planning-to-purchase-portable-power-bank-and-screen-cleaning-solution](project/planning-to-purchase-portable-power-bank-and-screen-cleaning-solution.md) — Planning to purchase portable power bank and screen cleaning solution
+- [practices-drifting-at-local-parking-lot](user/practices-drifting-at-local-parking-lot.md) — Practices drifting at local parking lot
+- [purchased-therm-a-rest-neoair-xlite-sleeping-pad-for-camping-trips](project/purchased-therm-a-rest-neoair-xlite-sleeping-pad-for-camping-trips.md) — Purchased Therm-a-Rest NeoAir XLite sleeping pad for camping trips
+- [sleeping-pad-recommendations-for-camping-and-backpacking](reference/sleeping-pad-recommendations-for-camping-and-backpacking.md) — Sleeping pad recommendations for camping and backpacking
+- [solo-day-hike-to-mission-peak-in-fremont-on-2023-04-10](experience/solo-day-hike-to-mission-peak-in-fremont-on-2023-04-10.md) — Solo day hike to Mission Peak in Fremont on 2023-04-10
+- [steps-to-get-started-with-djing](reference/steps-to-get-started-with-djing.md) — Steps to get started with DJing
+- [thesis-research-on-ai-powered-adaptive-learning-systems-impact-on-math-and-readi](reference/thesis-research-on-ai-powered-adaptive-learning-systems-impact-on-math-and-readi.md) — Thesis research on AI-powered adaptive learning systems impact on math and reading comprehension
+- [upgrading-brake-pads-for-drifting-use](project/upgrading-brake-pads-for-drifting-use.md) — Upgrading brake pads for drifting use
+- [yosemite-trip-with-fresno-diner-stop-for-large-breakfast-burrito](experience/yosemite-trip-with-fresno-diner-stop-for-large-breakfast-burrito.md) — Yosemite trip with Fresno diner stop for large breakfast burrito

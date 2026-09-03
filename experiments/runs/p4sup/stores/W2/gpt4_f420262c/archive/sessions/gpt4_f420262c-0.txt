@@ -1,0 +1,58 @@
+## Session sharegpt_3dtASzd_0 — 2022/10/20 (Thu) 00:52
+user: generate text like "week 1, week 2, week 3" all the way to week 20
+assistant: Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8, Week 9, Week 10,
+Week 11, Week 12, Week 13, Week 14, Week 15, Week 16, Week 17, Week 18, Week 19, Week 20
+user: now add calendaristic dates to all of them, consider that the 1st week starts on 6th of february 2023 on monday
+assistant: Week 1 (6th February - 12th February 2023), Week 2 (13th February - 19th February 2023), Week 3 (20th February - 26th February 2023), Week 4 (27th February - 5th March 2023), Week 5 (6th March - 12th March 2023), Week 6 (13th March - 19th March 2023), Week 7 (20th March - 26th March 2023), Week 8 (27th March - 2nd April 2023), Week 9 (3rd April - 9th April 2023), Week 10 (10th April - 16th April 2023),
+Week 11 (17th April - 23rd April 2023), Week 12 (24th April - 30th April 2023), Week 13 (1st May - 7th May 2023), Week 14 (8th May - 14th May 2023), Week 15 (15th May - 21st May 2023), Week 16 (22nd May - 28th May 2023), Week 17 (29th May - 4th June 2023), Week 18 (5th June - 11th June 2023), Week 19 (12th June - 18th June 2023), Week 20 (19th June - 25th June 2023)
+user: put each week on a seperate line of text
+assistant: Week 1 (6th February - 12th February 2023)
+Week 2 (13th February - 19th February 2023)
+Week 3 (20th February - 26th February 2023)
+Week 4 (27th February - 5th March 2023)
+Week 5 (6th March - 12th March 2023)
+Week 6 (13th March - 19th March 2023)
+Week 7 (20th March - 26th March 2023)
+Week 8 (27th March - 2nd April 2023)
+Week 9 (3rd April - 9th April 2023)
+Week 10 (10th April - 16th April 2023)
+Week 11 (17th April - 23rd April 2023)
+Week 12 (24th April - 30th April 2023)
+Week 13 (1st May - 7th May 2023)
+Week 14 (8th May - 14th May 2023)
+Week 15 (15th May - 21st May 2023)
+Week 16 (22nd May - 28th May 2023)
+Week 17 (29th May - 4th June 2023)
+Week 18 (5th June - 11th June 2023)
+Week 19 (12th June - 18th June 2023)
+Week 20 (19th June - 25th June 2023)
+user: include the following information according to the weeks generated above:
+Schedule of Intellectual Property Law Lecture:
+- Week 1-8: Each week seminar + workshop 
+- Week 9: Oral exam 
+o Information To be announced 
+- Week 10-16: Each week seminar + workshop 
+- Week 17: Study Week – no classes (Prepare for assignments)
+- Week 18: Submission Deadline: Written Professional Assignment 
+- Week 19: Study week – no classes 
+- Week 20: Re-sit: Oral Exams (presentation to the client)
+assistant: Week 1 (6th February - 12th February 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 2 (13th February - 19th February 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 3 (20th February - 26th February 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 4 (27th February - 5th March 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 5 (6th March - 12th March 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 6 (13th March - 19th March 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 7 (20th March - 26th March 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 8 (27th March - 2nd April 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 9 (3rd April - 9th April 2023): Intellectual Property Law Lecture - Oral Exam. Information To be announced
+Week 10 (10th April - 16th April 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 11 (17th April - 23rd April 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 12 (24th April - 30th April 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 13 (1st May - 7th May 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 14 (8th May - 14th May 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 15 (15th May - 21st May 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 16 (22nd May - 28th May 2023): Intellectual Property Law Lecture - Seminar + Workshop
+Week 17 (29th May - 4th June 2023): Study Week – no classes (Prepare for assignments)
+Week 18 (5th June - 11th June 2023): Submission Deadline: Written Professional Assignment
+Week 19 (12th June - 18th June 2023): Study week – no classes
+Week 20 (19th June - 25th June 2023): Re-sit: Oral Exams (presentation to the client)

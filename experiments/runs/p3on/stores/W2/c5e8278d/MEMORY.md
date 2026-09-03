@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [5k-interval-training-workouts-fartlek-400m-800m-hill-repeats-pyramid-proportiona](reference/5k-interval-training-workouts-fartlek-400m-800m-hill-repeats-pyramid-proportiona.md) — 5K interval training workouts: Fartlek, 400m, 800m, Hill Repeats, Pyramid, Proportional Intervals
+- [bedtime-routine-11-00-pm-target](user/bedtime-routine-11-00-pm-target.md) — Bedtime routine: 11:00 pm target
+- [chapter-10-technology-in-transportation-management-for-south-african-road-freigh](project/chapter-10-technology-in-transportation-management-for-south-african-road-freigh.md) — Chapter 10: Technology in Transportation Management for South African road freight — four subchapters completed
+- [create-branded-hashtag-for-customer-photos-and-reviews](project/create-branded-hashtag-for-customer-photos-and-reviews.md) — Create branded hashtag for customer photos and reviews
+- [currently-based-in-vancouver-bc-attends-university-there](user/currently-based-in-vancouver-bc-attends-university-there.md) — Currently based in Vancouver, BC; attends university there
+- [cycling-warm-up-and-cool-down-routines](reference/cycling-warm-up-and-cool-down-routines.md) — Cycling warm-up and cool-down routines
+- [daily-breakfast-oatmeal-with-fruit-at-8-15-am](user/daily-breakfast-oatmeal-with-fruit-at-8-15-am.md) — Daily breakfast: oatmeal with fruit at 8:15 am
+- [e-commerce-platforms-for-online-candle-soap-sales](reference/e-commerce-platforms-for-online-candle-soap-sales.md) — E-commerce platforms for online candle/soap sales
+- [ebin-new-york-content-strategy-for-retail-partner-support-launch-promotion-measu](reference/ebin-new-york-content-strategy-for-retail-partner-support-launch-promotion-measu.md) — Ebin New York content strategy for retail partner support (launch, promotion, measurement)
+- [ebin-new-york-in-store-launch-campaign-measurement-strategy](reference/ebin-new-york-in-store-launch-campaign-measurement-strategy.md) — Ebin New York in-store launch campaign measurement strategy
+- [ebin-new-york-retail-partner-launch-content-strategy](reference/ebin-new-york-retail-partner-launch-content-strategy.md) — Ebin New York retail partner launch content strategy
+- [enjoys-exploring-urban-neighborhoods-and-learning-public-transit-systems](user/enjoys-exploring-urban-neighborhoods-and-learning-public-transit-systems.md) — Enjoys exploring urban neighborhoods and learning public transit systems
+- [enjoys-family-picnics-with-outdoor-games-and-group-photos](user/enjoys-family-picnics-with-outdoor-games-and-group-photos.md) — Enjoys family picnics with outdoor games and group photos
+- [enjoys-relaxing-acoustic-and-folk-music-for-outdoor-settings](user/enjoys-relaxing-acoustic-and-folk-music-for-outdoor-settings.md) — Enjoys relaxing acoustic and folk music for outdoor settings
+- [evening-tv-and-streaming-shows](user/evening-tv-and-streaming-shows.md) — Evening TV and streaming shows
+- [evening-workouts-around-6-30-7-00-pm-on-weekdays](user/evening-workouts-around-6-30-7-00-pm-on-weekdays.md) — Evening workouts around 6:30-7:00 pm on weekdays
+- [experiences-it-band-and-hip-flexor-tightness-after-cycling](user/experiences-it-band-and-hip-flexor-tightness-after-cycling.md) — Experiences IT band and hip flexor tightness after cycling
+- [foam-rolling-and-stretching-for-it-band-and-hip-flexor-recovery](reference/foam-rolling-and-stretching-for-it-band-and-hip-flexor-recovery.md) — Foam rolling and stretching for IT band and hip flexor recovery
+- [goal-to-improve-5k-running-time-with-interval-training](user/goal-to-improve-5k-running-time-with-interval-training.md) — Goal to improve 5K running time with interval training
+- [had-successful-market-sale-on-2023-05-08-300-in-candles-and-soaps](user/had-successful-market-sale-on-2023-05-08-300-in-candles-and-soaps.md) — Had successful market sale on 2023-05-08: ~$300 in candles and soaps
+- [has-a-grandmother-they-regularly-visit-and-enjoy-park-walks-with](user/has-a-grandmother-they-regularly-visit-and-enjoy-park-walks-with.md) — Has a grandmother they regularly visit and enjoy park walks with
+- [hull-uk-government-policies-on-displacement-housing-affordability-and-local-busi](reference/hull-uk-government-policies-on-displacement-housing-affordability-and-local-busi.md) — Hull UK government policies on displacement, housing affordability, and local business support
+- [hull-uk-redevelopment-areas-fruit-market-st-stephen-s-humber-enterprise-park](reference/hull-uk-redevelopment-areas-fruit-market-st-stephen-s-humber-enterprise-park.md) — Hull UK redevelopment areas: Fruit Market, St. Stephen's, Humber Enterprise Park
+- [last-name-changed-from-johnson-to-winters](user/last-name-changed-from-johnson-to-winters.md) — Last name changed from Johnson to Winters
+- [launch-online-presence-via-facebook-and-instagram](project/launch-online-presence-via-facebook-and-instagram.md) — Launch online presence via Facebook and Instagram
+- [likes-cats-musical-by-andrew-lloyd-webber](user/likes-cats-musical-by-andrew-lloyd-webber.md) — Likes 'Cats' musical by Andrew Lloyd Webber
+- [monday-and-thursday-9-00-am-morning-meetings](project/monday-and-thursday-9-00-am-morning-meetings.md) — Monday and Thursday 9:00 am morning meetings
+- [moved-to-vancouver-for-university-august-2023-semester-starting-september-1-2023](experience/moved-to-vancouver-for-university-august-2023-semester-starting-september-1-2023.md) — Moved to Vancouver for university, August 2023, semester starting September 1, 2023
+- [prefers-calling-to-handle-administrative-tasks-quickly](user/prefers-calling-to-handle-administrative-tasks-quickly.md) — Prefers calling to handle administrative tasks quickly
+- [prioritizes-waterproof-and-layered-clothing-for-rainy-mild-climates-prefers-brea](user/prioritizes-waterproof-and-layered-clothing-for-rainy-mild-climates-prefers-brea.md) — Prioritizes waterproof and layered clothing for rainy/mild climates; prefers breathable, water-resistant winter gear
+- [run-photo-contest-on-social-media](project/run-photo-contest-on-social-media.md) — Run photo contest on social media
+- [saturday-morning-bike-rides](user/saturday-morning-bike-rides.md) — Saturday morning bike rides
+- [sells-handmade-candles-and-soaps-at-local-markets](user/sells-handmade-candles-and-soaps-at-local-markets.md) — Sells handmade candles and soaps at local markets
+- [share-behind-the-scenes-content-from-market-and-production](project/share-behind-the-scenes-content-from-market-and-production.md) — Share behind-the-scenes content from market and production
+- [social-media-strategy-for-visual-products-facebook-and-instagram-content-tips](reference/social-media-strategy-for-visual-products-facebook-and-instagram-content-tips.md) — Social media strategy for visual products: Facebook and Instagram content tips
+- [strength-training-exercises-for-runners-targeting-it-band-and-hip-flexor-issues](reference/strength-training-exercises-for-runners-targeting-it-band-and-hip-flexor-issues.md) — Strength training exercises for runners targeting IT band and hip flexor issues
+- [sunday-8-00-pm-evening-walk-routine](user/sunday-8-00-pm-evening-walk-routine.md) — Sunday 8:00 pm evening walk routine
+- [uses-eureka-lemons-for-making-lemonade](user/uses-eureka-lemons-for-making-lemonade.md) — Uses Eureka lemons for making lemonade
+- [will-explore-influencer-and-small-business-collaborations](project/will-explore-influencer-and-small-business-collaborations.md) — Will explore influencer and small business collaborations

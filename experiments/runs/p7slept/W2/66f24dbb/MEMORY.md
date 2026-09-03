@@ -1,0 +1,23 @@
+# MEMORY.md
+
+- [contributed-to-going-away-gift-for-coworker-rachel-journal-and-pens](experience/contributed-to-going-away-gift-for-coworker-rachel-journal-and-pens.md) — Contributed to going-away gift for coworker Rachel: journal and pens
+- [gave-yellow-dress-and-matching-earrings-to-sister-for-her-birthday](experience/gave-yellow-dress-and-matching-earrings-to-sister-for-her-birthday.md) — Gave yellow dress and matching earrings to sister for her birthday
+- [gave-silver-hoop-earrings-with-pearl-to-mother](experience/gave-silver-hoop-earrings-with-pearl-to-mother.md) — Gave silver hoop earrings with pearl to mother
+- [speed-networking-event-preparationquestions-and-tactics-for-5-minute-conversatio](project/speed-networking-event-preparationquestions-and-tactics-for-5-minute-conversatio.md) — Speed networking event preparation—questions and tactics for 5-minute conversations
+- [actively-building-professional-network-through-conferences-speed-networking-even](user/actively-building-professional-network-through-conferences-speed-networking-even.md) — Actively building professional network through conferences, speed networking events, and direct outreach to contacts
+- [alexecocycle-founder-potential-partnership-in-plastic-waste-reduction](reference/alexecocycle-founder-potential-partnership-in-plastic-waste-reduction.md) — Alex—EcoCycle founder, potential partnership in plastic waste reduction
+- [banking-definitions-payer-sends-funds-payee-sends-money](reference/banking-definitions-payer-sends-funds-payee-sends-money.md) — Banking definitions: Payer sends funds, Payee sends money
+- [core-banking-activities](reference/core-banking-activities.md) — Core banking activities
+- [correspondent-banking-at-least-2-banks-providing-cross-border-services](reference/correspondent-banking-at-least-2-banks-providing-cross-border-services.md) — Correspondent banking: at least 2 banks providing cross-border services
+- [emily-chenfintech-product-manager-reconnection-and-collaboration-opportunity](reference/emily-chenfintech-product-manager-reconnection-and-collaboration-opportunity.md) — Emily Chen—fintech product manager, reconnection and collaboration opportunity
+- [gave-groceries-and-flowers-to-neighbor-mrs-johnson-during-her-surgery-recovery](experience/gave-groceries-and-flowers-to-neighbor-mrs-johnson-during-her-surgery-recovery.md) — Gave groceries and flowers to neighbor Mrs. Johnson during her surgery recovery
+- [herstatt-risk-settlement-risk-in-foreign-exchange](reference/herstatt-risk-settlement-risk-in-foreign-exchange.md) — Herstatt risk: settlement risk in foreign exchange
+- [interested-in-attending-indian-cultural-festivals-to-experience-folk-music-and-l](user/interested-in-attending-indian-cultural-festivals-to-experience-folk-music-and-l.md) — Interested in attending Indian cultural festivals to experience folk music and local traditions
+- [jquery-solution-for-dynamic-form-fields-with-excel-data-paste](reference/jquery-solution-for-dynamic-form-fields-with-excel-data-paste.md) — jQuery solution for dynamic form fields with Excel data paste
+- [plan-to-attend-pushkar-camel-fair-in-rajasthan](project/plan-to-attend-pushkar-camel-fair-in-rajasthan.md) — Plan to attend Pushkar Camel Fair in Rajasthan
+- [provided-snacks-and-drinks-for-coworkers-team-building-event](experience/provided-snacks-and-drinks-for-coworkers-team-building-event.md) — Provided snacks and drinks for coworkers' team-building event
+- [rachel-leekeynote-speaker-potential-collaboration-on-social-media-influencer-mar](reference/rachel-leekeynote-speaker-potential-collaboration-on-social-media-influencer-mar.md) — Rachel Lee—keynote speaker, potential collaboration on social media/influencer marketing
+- [retail-banking-systems-for-cross-border-payments-possible-but-inefficient](reference/retail-banking-systems-for-cross-border-payments-possible-but-inefficient.md) — Retail banking systems for cross-border payments: possible but inefficient
+- [swift-network-vs-western-union-different-payment-systems](reference/swift-network-vs-western-union-different-payment-systems.md) — SWIFT network vs Western Union: different payment systems
+- [university-of-birmingham-notable-buildings-and-landmarks-to-visit](reference/university-of-birmingham-notable-buildings-and-landmarks-to-visit.md) — University of Birmingham notable buildings and landmarks to visit
+- [wants-to-visit-university-of-birmingham-clock-tower-and-campus-museum-someday](user/wants-to-visit-university-of-birmingham-clock-tower-and-campus-museum-someday.md) — Wants to visit University of Birmingham clock tower and campus museum someday

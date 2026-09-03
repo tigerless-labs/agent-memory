@@ -1,0 +1,42 @@
+# MEMORY.md
+
+- [4-day-chiang-mai-itinerary-with-attractions-google-ranks-and-drive-times](project/4-day-chiang-mai-itinerary-with-attractions-google-ranks-and-drive-times.md) — 4-day Chiang Mai itinerary with attractions, Google ranks, and drive times
+- [can-work-extremely-fast-and-productively-when-focused](user/can-work-extremely-fast-and-productively-when-focused.md) — Can work extremely fast and productively when focused
+- [car-detailing-spray-recommendations](reference/car-detailing-spray-recommendations.md) — Car detailing spray recommendations
+- [cautious-defensive-driver](user/cautious-defensive-driver.md) — Cautious, defensive driver
+- [collects-vintage-barbie-dolls-from-the-1960s](user/collects-vintage-barbie-dolls-from-the-1960s.md) — Collects vintage Barbie dolls from the 1960s
+- [completed-data-science-certification-in-april-2023](user/completed-data-science-certification-in-april-2023.md) — Completed Data Science certification in April 2023
+- [consider-joining-local-collectible-club-or-organization-for-networking-and-learn](project/consider-joining-local-collectible-club-or-organization-for-networking-and-learn.md) — Consider joining local collectible club or organization for networking and learning
+- [considering-mba-programs-at-university-of-florida-and-arizona-state-university](project/considering-mba-programs-at-university-of-florida-and-arizona-state-university.md) — Considering MBA programs at University of Florida and Arizona State University
+- [crusty-vegan-bread-with-oat-flour-and-sesame-seeds-recipe](reference/crusty-vegan-bread-with-oat-flour-and-sesame-seeds-recipe.md) — Crusty vegan bread with oat flour and sesame seeds recipe
+- [document-and-organize-collectibles-collection-with-photos-and-spreadsheet](project/document-and-organize-collectibles-collection-with-photos-and-spreadsheet.md) — Document and organize collectibles collection with photos and spreadsheet
+- [driving-more-aggressively-to-get-to-work-on-time-gas-mileage-declining](user/driving-more-aggressively-to-get-to-work-on-time-gas-mileage-declining.md) — Driving more aggressively to get to work on time; gas mileage declining
+- [exploring-gender-identity-and-fluidity-after-attending-workshop](user/exploring-gender-identity-and-fluidity-after-attending-workshop.md) — Exploring gender identity and fluidity after attending workshop
+- [floor-mat-brand-recommendations-for-honda-civic](reference/floor-mat-brand-recommendations-for-honda-civic.md) — Floor mat brand recommendations for Honda Civic
+- [follows-non-binary-artists-for-creative-inspiration-and-identity-exploration](user/follows-non-binary-artists-for-creative-inspiration-and-identity-exploration.md) — Follows non-binary artists for creative inspiration and identity exploration
+- [get-collectibles-appraised-starting-with-rare-boba-fett-star-wars-figure](project/get-collectibles-appraised-starting-with-rare-boba-fett-star-wars-figure.md) — Get collectibles appraised, starting with rare Boba Fett Star Wars figure
+- [get-collectibles-collection-insured](project/get-collectibles-collection-insured.md) — Get collectibles collection insured
+- [get-new-floor-mats-for-2018-honda-civic](project/get-new-floor-mats-for-2018-honda-civic.md) — Get new floor mats for 2018 Honda Civic
+- [gps-took-detour-on-trip-to-cousin-s-house-switched-to-phone-gps](experience/gps-took-detour-on-trip-to-cousin-s-house-switched-to-phone-gps.md) — GPS took detour on trip to cousin's house, switched to phone GPS
+- [has-children-who-enjoy-vegan-meals](user/has-children-who-enjoy-vegan-meals.md) — Has children who enjoy vegan meals
+- [interested-in-daily-mindfulness-podcasts-for-commute-routine](user/interested-in-daily-mindfulness-podcasts-for-commute-routine.md) — Interested in daily mindfulness podcasts for commute routine
+- [interested-in-quick-and-easy-dinner-recipes-that-can-be-made-in-under-30-minutes](user/interested-in-quick-and-easy-dinner-recipes-that-can-be-made-in-under-30-minutes.md) — Interested in quick and easy dinner recipes that can be made in under 30 minutes
+- [interested-in-vegan-recipes-using-tofu-especially-with-middle-eastern-flavors](user/interested-in-vegan-recipes-using-tofu-especially-with-middle-eastern-flavors.md) — Interested in vegan recipes using tofu, especially with Middle Eastern flavors
+- [learning-to-set-healthy-boundaries-and-say-no-without-guilt](user/learning-to-set-healthy-boundaries-and-say-no-without-guilt.md) — Learning to set healthy boundaries and say no without guilt
+- [meal-preps-batches-of-rice-and-roasted-vegetables-weekly-for-various-dishes](user/meal-preps-batches-of-rice-and-roasted-vegetables-weekly-for-various-dishes.md) — Meal preps batches of rice and roasted vegetables weekly for various dishes
+- [oat-milk-creamy-tomato-soup-recipe](reference/oat-milk-creamy-tomato-soup-recipe.md) — Oat milk creamy tomato soup recipe
+- [online-collector-communities-and-resources-for-vintage-toys-and-collectibles](reference/online-collector-communities-and-resources-for-vintage-toys-and-collectibles.md) — Online collector communities and resources for vintage toys and collectibles
+- [optimize-linkedin-profile-for-data-science-job-opportunities](project/optimize-linkedin-profile-for-data-science-job-opportunities.md) — Optimize LinkedIn profile for data science job opportunities
+- [owns-17-vintage-star-wars-action-figures-from-1980s-including-rare-boba-fett](user/owns-17-vintage-star-wars-action-figures-from-1980s-including-rare-boba-fett.md) — Owns 17 vintage Star Wars action figures from 1980s including rare Boba Fett
+- [owns-1893-morgan-dollar-coin-recently-purchased](user/owns-1893-morgan-dollar-coin-recently-purchased.md) — Owns 1893 Morgan dollar coin, recently purchased
+- [owns-2018-honda-civic-acquired-2020](user/owns-2018-honda-civic-acquired-2020.md) — Owns 2018 Honda Civic, acquired ~2020
+- [plan-to-create-online-course-on-android-open-source-topics-targeting-udemy-platf](project/plan-to-create-online-course-on-android-open-source-topics-targeting-udemy-platf.md) — Plan to create online course on Android open source topics, targeting Udemy platform
+- [prefers-brief-concise-answers-will-ask-for-details-if-needed](user/prefers-brief-concise-answers-will-ask-for-details-if-needed.md) — Prefers brief, concise answers; will ask for details if needed
+- [prefers-oat-milk-among-plant-based-milks](user/prefers-oat-milk-among-plant-based-milks.md) — Prefers oat milk among plant-based milks
+- [pursuing-it-career-path-with-focus-on-in-demand-skills-and-hands-on-industry-exp](user/pursuing-it-career-path-with-focus-on-in-demand-skills-and-hands-on-industry-exp.md) — Pursuing IT career path with focus on in-demand skills and hands-on industry experience
+- [received-asylum-approval-settling-into-new-life](experience/received-asylum-approval-settling-into-new-life.md) — Received asylum approval, settling into new life
+- [regularly-uses-sumac-cumin-and-smoked-paprika-spices-in-cooking](user/regularly-uses-sumac-cumin-and-smoked-paprika-spices-in-cooking.md) — Regularly uses sumac, cumin, and smoked paprika spices in cooking
+- [san-francisco-road-trip-planned-for-early-june-2023-using-all-season-tires](project/san-francisco-road-trip-planned-for-early-june-2023-using-all-season-tires.md) — San Francisco road trip planned for early June 2023; using all-season tires
+- [secured-scholarship-for-it-vocational-training-from-local-non-profit-organizatio](project/secured-scholarship-for-it-vocational-training-from-local-non-profit-organizatio.md) — Secured scholarship for IT vocational training from local non-profit organization
+- [the-tim-ferriss-show-and-the-garyvee-audio-experience-recommended-for-self-impro](reference/the-tim-ferriss-show-and-the-garyvee-audio-experience-recommended-for-self-impro.md) — The Tim Ferriss Show and The GaryVee Audio Experience recommended for self-improvement
+- [tools-for-creating-consistent-online-course-content-with-design-themes](reference/tools-for-creating-consistent-online-course-content-with-design-themes.md) — Tools for creating consistent online course content with design themes

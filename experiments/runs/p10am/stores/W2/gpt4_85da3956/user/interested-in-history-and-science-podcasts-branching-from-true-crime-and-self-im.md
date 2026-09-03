@@ -1,0 +1,16 @@
+---
+name: interested-in-history-and-science-podcasts-branching-from-true-crime-and-self-im
+abstract: Interested in history and science podcasts; branching from true crime and self-improvement
+type: preference
+status: active
+created: 2026-09-02
+updated: 2026-09-02
+valid_from: 2026-09-02
+superseded_by: null
+weight: 1.0
+author: cli
+links: []
+provenance: []
+---
+
+Currently listens to true crime and self-improvement content, wants to explore history and science podcasts during commute.

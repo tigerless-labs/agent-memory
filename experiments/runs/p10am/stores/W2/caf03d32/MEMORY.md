@@ -1,0 +1,37 @@
+# MEMORY.md
+
+- [all2trade-business-model-free-platform-for-users-revenue-from-profitable-trades](project/all2trade-business-model-free-platform-for-users-revenue-from-profitable-trades.md) — All2Trade business model: free platform for users; revenue from profitable trades minus user payouts
+- [all2trade-cryptocurrency-trading-system-that-aggregates-user-opinions-to-make-au](project/all2trade-cryptocurrency-trading-system-that-aggregates-user-opinions-to-make-au.md) — All2Trade: cryptocurrency trading system that aggregates user opinions to make automated trading decisions
+- [all2trade-database-schema-users-opinions-trades-and-payouts-tables](reference/all2trade-database-schema-users-opinions-trades-and-payouts-tables.md) — All2Trade database schema: Users, Opinions, Trades, and Payouts tables
+- [all2trade-tech-stack-python-3-flask-frontend-mysql-database-celery-for-automatio](project/all2trade-tech-stack-python-3-flask-frontend-mysql-database-celery-for-automatio.md) — All2Trade tech stack: Python 3, Flask frontend, MySQL database, Celery for automation, deep learning system planned
+- [all2trade-workflow-user-signup-opinion-submission-ml-processing-automated-tradin](reference/all2trade-workflow-user-signup-opinion-submission-ml-processing-automated-tradin.md) — All2Trade workflow: user signup → opinion submission → ML processing → automated trading → revenue sharing
+- [basic-slow-cooker-yogurt-recipe-with-temperature-monitoring](reference/basic-slow-cooker-yogurt-recipe-with-temperature-monitoring.md) — Basic slow cooker yogurt recipe with temperature monitoring
+- [camping-lantern-recommendations-black-diamond-apollo-and-coleman-classic](reference/camping-lantern-recommendations-black-diamond-apollo-and-coleman-classic.md) — Camping lantern recommendations: Black Diamond Apollo and Coleman Classic
+- [camping-stove-recommendations-msr-pocketrocket-2-and-jetboil-flash-cooking-syste](reference/camping-stove-recommendations-msr-pocketrocket-2-and-jetboil-flash-cooking-syste.md) — Camping stove recommendations: MSR PocketRocket 2 and Jetboil Flash Cooking System
+- [camping-trip-to-pfeiffer-big-sur-state-park-2-nights-with-mcway-falls-and-pfeiff](experience/camping-trip-to-pfeiffer-big-sur-state-park-2-nights-with-mcway-falls-and-pfeiff.md) — Camping trip to Pfeiffer Big Sur State Park: 2 nights with McWay Falls and Pfeiffer Beach hikes
+- [clean-and-organize-jewelry-box-by-type-with-dividers-and-material-specific-clean](project/clean-and-organize-jewelry-box-by-type-with-dividers-and-material-specific-clean.md) — Clean and organize jewelry box by type with dividers and material-specific cleaning
+- [considering-upgrade-to-new-portable-camping-stove](user/considering-upgrade-to-new-portable-camping-stove.md) — Considering upgrade to new portable camping stove
+- [currently-listening-to-billie-eilish](user/currently-listening-to-billie-eilish.md) — Currently listening to Billie Eilish
+- [flavorings-and-sweeteners-for-slow-cooker-yogurt](reference/flavorings-and-sweeteners-for-slow-cooker-yogurt.md) — Flavorings and sweeteners for slow cooker yogurt
+- [guava-oatmeal-recipe-with-hemp-seeds-and-chia-seeds](reference/guava-oatmeal-recipe-with-hemp-seeds-and-chia-seeds.md) — Guava oatmeal recipe with hemp seeds and chia seeds
+- [interested-in-discovering-new-music-with-unique-blends-of-different-genres](user/interested-in-discovering-new-music-with-unique-blends-of-different-genres.md) — Interested in discovering new music with unique blends of different genres
+- [interested-in-guava-and-durian-as-high-protein-fruit-sources](user/interested-in-guava-and-durian-as-high-protein-fruit-sources.md) — Interested in guava and durian as high-protein fruit sources
+- [interested-in-kacey-musgraves-music](user/interested-in-kacey-musgraves-music.md) — Interested in Kacey Musgraves music
+- [interested-in-waterproof-action-camera-for-kayaking-trips](user/interested-in-waterproof-action-camera-for-kayaking-trips.md) — Interested in waterproof action camera for kayaking trips
+- [kacey-musgraves-recommended-songs-merry-go-round-follow-your-arrow-butterflies-r](reference/kacey-musgraves-recommended-songs-merry-go-round-follow-your-arrow-butterflies-r.md) — Kacey Musgraves recommended songs: Merry Go Round, Follow Your Arrow, Butterflies, Rainbow
+- [learning-guitar-as-a-beginner](user/learning-guitar-as-a-beginner.md) — Learning guitar as a beginner
+- [looking-for-gold-bracelet-similar-to-one-seen-on-pinterest](project/looking-for-gold-bracelet-similar-to-one-seen-on-pinterest.md) — Looking for gold bracelet similar to one seen on Pinterest
+- [lost-silver-necklace-with-small-pendant-from-grandmother-at-beach](experience/lost-silver-necklace-with-small-pendant-from-grandmother-at-beach.md) — Lost silver necklace with small pendant from grandmother at beach
+- [loves-tame-impala-psychedelic-sound-and-mellow-atmospheric-psychedelic-rock](user/loves-tame-impala-psychedelic-sound-and-mellow-atmospheric-psychedelic-rock.md) — Loves Tame Impala psychedelic sound and mellow atmospheric psychedelic rock
+- [music-documentaries-on-netflix-similar-to-taylor-swift-documentary](reference/music-documentaries-on-netflix-similar-to-taylor-swift-documentary.md) — Music documentaries on Netflix similar to Taylor Swift documentary
+- [previous-hiking-at-mount-tamalpais-state-park](experience/previous-hiking-at-mount-tamalpais-state-park.md) — Previous hiking at Mount Tamalpais State Park
+- [psychedelic-rock-bands-similar-to-tame-impala-with-mellow-atmospheric-sound](reference/psychedelic-rock-bands-similar-to-tame-impala-with-mellow-atmospheric-sound.md) — Psychedelic rock bands similar to Tame Impala with mellow atmospheric sound
+- [recently-learned-to-use-slow-cooker-made-beef-stew](user/recently-learned-to-use-slow-cooker-made-beef-stew.md) — Recently learned to use slow cooker; made beef stew
+- [recently-purchased-merrell-moab-2-mid-waterproof-hiking-boots-may-2023](user/recently-purchased-merrell-moab-2-mid-waterproof-hiking-boots-may-2023.md) — Recently purchased Merrell Moab 2 Mid Waterproof hiking boots (May 2023)
+- [search-for-lost-grandmother-necklace-via-local-lost-found-groups-and-beach-lifeg](project/search-for-lost-grandmother-necklace-via-local-lost-found-groups-and-beach-lifeg.md) — Search for lost grandmother necklace via local lost/found groups and beach lifeguards, offer reward
+- [started-strength-training-routine-on-may-21-2023-with-split-schedule](project/started-strength-training-routine-on-may-21-2023-with-split-schedule.md) — Started strength training routine on May 21 2023 with split schedule
+- [starting-with-pond-man-it-feels-like-space-again-album-2015](project/starting-with-pond-man-it-feels-like-space-again-album-2015.md) — Starting with Pond Man It Feels Like Space Again album 2015
+- [trying-to-eat-more-plant-based-and-vegan-meals](user/trying-to-eat-more-plant-based-and-vegan-meals.md) — Trying to eat more plant-based and vegan meals
+- [vegan-yogurt-brands-for-slow-cooker-base](reference/vegan-yogurt-brands-for-slow-cooker-base.md) — Vegan yogurt brands for slow cooker base
+- [wants-to-improve-astrophotography-and-night-photography-skills](user/wants-to-improve-astrophotography-and-night-photography-skills.md) — Wants to improve astrophotography and night photography skills
+- [youtube-guitar-tutorial-channels-for-beginners](reference/youtube-guitar-tutorial-channels-for-beginners.md) — YouTube guitar tutorial channels for beginners

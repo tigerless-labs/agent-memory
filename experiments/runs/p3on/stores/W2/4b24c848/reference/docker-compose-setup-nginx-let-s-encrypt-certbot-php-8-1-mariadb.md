@@ -1,0 +1,90 @@
+---
+name: docker-compose-setup-nginx-let-s-encrypt-certbot-php-8-1-mariadb
+abstract: "Docker Compose setup: Nginx, Let's Encrypt Certbot, PHP 8.1, MariaDB"
+type: reference
+status: active
+created: 2026-09-02
+updated: 2026-09-02
+valid_from: 2023-08-13
+superseded_by: null
+weight: 1.0
+author: cli
+links: []
+provenance: []
+---
+
+## docker-compose.yml
+
+```yaml
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./app:/app
+    depends_on:
+      - certbot
+      - php
+    environment:
+      - NGINX_HOST=example.com
+      - NGINX_EMAIL=webmaster@example.com
+    command: /bin/bash -c "envsubst '$$NGINX_HOST $$NGINX_EMAIL' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./nginx/ssl:/etc/letsencrypt
+    environment:
+      - CERTBOT_EMAIL=webmaster@example.com
+      - CERTBOT_DOMAINS=example.com
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  php:
+    image: php:8.1-fpm
+    volumes:
+      - ./app:/app
+    depends_on:
+      - mariadb
+    environment:
+      - DB_HOST=mariadb
+      - DB_DATABASE=app
+      - DB_USERNAME=app
+      - DB_PASSWORD=secret
+      - UPLOAD_MAX_FILESIZE=10M
+      - POST_MAX_SIZE=10M
+
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=app
+      - MYSQL_PASSWORD=secret
+
+volumes:
+  mariadb:
+```
+
+Directory structure:
+```
+nginx/
+├── conf.d/
+│   └── default.conf.template
+└── ssl/
+    ├── letsencrypt/
+    │   ├── accounts/
+    │   ├── archive/
+    │   ├── csr/
+    │   ├── keys/
+    │   └── renewal/
+    ├── example.com.crt
+    └── example.com.key
+```

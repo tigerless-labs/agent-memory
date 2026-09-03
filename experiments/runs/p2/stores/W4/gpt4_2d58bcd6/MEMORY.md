@@ -1,0 +1,13 @@
+# MEMORY.md
+
+- [active-lifestyle-walking-biking-yoga-gym-training-injury-prevention](user/active-lifestyle-walking-biking-yoga-gym-training-injury-prevention.md) — Active lifestyle: walking, biking, yoga, gym training, injury prevention
+- [company-manufactures-high-voltage-fuses-for-electric-vehicles-exploring-indian-m](project/company-manufactures-high-voltage-fuses-for-electric-vehicles-exploring-indian-m.md) — Company manufactures high-voltage fuses for electric vehicles; exploring Indian market entry
+- [music-and-theater-interests-hip-hop-musicals-lin-manuel-miranda-works-jazz-pop-f](user/music-and-theater-interests-hip-hop-musicals-lin-manuel-miranda-works-jazz-pop-f.md) — Music and theater interests: hip-hop musicals, Lin-Manuel Miranda works, jazz/pop fusion
+- [part-of-volleyball-team-the-spikers-with-colleagues-planning-outdoor-activities](user/part-of-volleyball-team-the-spikers-with-colleagues-planning-outdoor-activities.md) — Part of volleyball team 'The Spikers' with colleagues; planning outdoor activities together
+- [planning-mountain-trip-for-christmas-with-snowshoeing-and-winter-photography](user/planning-mountain-trip-for-christmas-with-snowshoeing-and-winter-photography.md) — Planning mountain trip for Christmas with snowshoeing and winter photography
+- [podcast-interests-politics-pop-culture-behind-the-scenes-analysis](user/podcast-interests-politics-pop-culture-behind-the-scenes-analysis.md) — Podcast interests: politics, pop culture, behind-the-scenes analysis
+- [prefers-full-cast-narrations-in-audiobooks-listens-during-daily-commute](user/prefers-full-cast-narrations-in-audiobooks-listens-during-daily-commute.md) — Prefers full-cast narrations in audiobooks; listens during daily commute
+- [reading-diversely-recently-finished-multiple-novels-and-has-book-club-commitment](user/reading-diversely-recently-finished-multiple-novels-and-has-book-club-commitment.md) — Reading diversely; recently finished multiple novels and has book club commitments
+- [reading-interests-and-habits-fiction-audiobooks-reading-log](user/reading-interests-and-habits-fiction-audiobooks-reading-log.md) — Reading interests and habits: fiction, audiobooks, reading log
+- [started-bookstagram-account-for-book-reviews-and-recommendations](project/started-bookstagram-account-for-book-reviews-and-recommendations.md) — Started bookstagram account for book reviews and recommendations
+- [weekly-fitness-routine-kickboxing-on-tuesdays-thursdays-strength-training-2-3x-w](user/weekly-fitness-routine-kickboxing-on-tuesdays-thursdays-strength-training-2-3x-w.md) — Weekly fitness routine: kickboxing on Tuesdays/Thursdays, strength training 2-3x/week, weekend outdoor activities

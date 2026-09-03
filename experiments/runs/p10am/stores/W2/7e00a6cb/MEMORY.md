@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [2d-deserted-island-escape-game-in-construct-3-with-raft-building-final-goal](project/2d-deserted-island-escape-game-in-construct-3-with-raft-building-final-goal.md) — 2D deserted island escape game in Construct 3 with raft-building final goal
+- [active-listening-and-empathy-techniques-for-workplace-communication](reference/active-listening-and-empathy-techniques-for-workplace-communication.md) — Active listening and empathy techniques for workplace communication
+- [african-geomancy-quiz-project-50-multiple-choice-questions-with-explanations-cov](project/african-geomancy-quiz-project-50-multiple-choice-questions-with-explanations-cov.md) — African geomancy quiz project: 50 multiple-choice questions with explanations covering Yoruba, Western, and Bambara traditions
+- [ai-in-healthcare-legal-ethical-economic-considerations](reference/ai-in-healthcare-legal-ethical-economic-considerations.md) — AI in healthcare: legal, ethical, economic considerations
+- [amsterdam-budget-friendly-hostels-stayokay-amsterdam-vondelpark-clinknoord-hoste](reference/amsterdam-budget-friendly-hostels-stayokay-amsterdam-vondelpark-clinknoord-hoste.md) — Amsterdam budget-friendly hostels: Stayokay Amsterdam Vondelpark, ClinkNOORD Hostel, The Bulldog, International Budget, Amsterdam Hostel Centre
+- [ask-david-for-sci-fi-show-recommendations](project/ask-david-for-sci-fi-show-recommendations.md) — Ask David for sci-fi show recommendations
+- [board-games-recommended-for-game-night-codenames-scattergories-ticket-to-ride-se](reference/board-games-recommended-for-game-night-codenames-scattergories-ticket-to-ride-se.md) — Board games recommended for game night: Codenames, Scattergories, Ticket to Ride, Settlers of Catan, Pandemic
+- [card-games-recommended-for-game-night-cards-against-humanity-exploding-kittens-w](reference/card-games-recommended-for-game-night-cards-against-humanity-exploding-kittens-w.md) — Card games recommended for game night: Cards Against Humanity, Exploding Kittens, What Do You Meme, Hearts, Slapjack
+- [collects-vinyl-records-got-back-into-hobby-by-may-2023](user/collects-vinyl-records-got-back-into-hobby-by-may-2023.md) — Collects vinyl records; got back into hobby by May 2023
+- [english-learning-interjection-clause-punctuation-and-capitalization](user/english-learning-interjection-clause-punctuation-and-capitalization.md) — English learning: interjection + clause punctuation and capitalization
+- [found-near-mint-copy-of-sgt-pepper-s-lonely-hearts-club-band-for-5-at-garage-sal](user/found-near-mint-copy-of-sgt-pepper-s-lonely-hearts-club-band-for-5-at-garage-sal.md) — Found near-mint copy of Sgt. Pepper's Lonely Hearts Club Band for $5 at garage sale in April 2023
+- [game-night-at-home-with-david-and-michael](project/game-night-at-home-with-david-and-michael.md) — Game night at home with David and Michael
+- [has-or-working-with-raspberry-pi-running-android-os](user/has-or-working-with-raspberry-pi-running-android-os.md) — Has or working with Raspberry Pi running Android OS
+- [hawaii-vacation-planned-for-october](project/hawaii-vacation-planned-for-october.md) — Hawaii vacation planned for October
+- [honolulu-mid-range-hotels-with-pools-near-waikiki-beach](reference/honolulu-mid-range-hotels-with-pools-near-waikiki-beach.md) — Honolulu mid-range hotels with pools near Waikiki Beach
+- [indian-supreme-court-landmark-cases-sabarimala-aadhaar-triple-talaq-rafale-secti](reference/indian-supreme-court-landmark-cases-sabarimala-aadhaar-triple-talaq-rafale-secti.md) — Indian Supreme Court landmark cases: Sabarimala, Aadhaar, triple talaq, Rafale, Section 377, Ayodhya, and others
+- [interested-in-sci-fi-shows-for-binge-watching](user/interested-in-sci-fi-shows-for-binge-watching.md) — Interested in sci-fi shows for binge-watching
+- [interested-in-travel-planning-particularly-budget-friendly-accommodation-options](user/interested-in-travel-planning-particularly-budget-friendly-accommodation-options.md) — Interested in travel planning, particularly budget-friendly accommodation options
+- [searching-for-1950s-era-zeiss-planar-lens-to-complete-vintage-camera-collection](project/searching-for-1950s-era-zeiss-planar-lens-to-complete-vintage-camera-collection.md) — Searching for 1950s-era Zeiss Planar lens to complete vintage camera collection
+- [strategies-for-improving-language-clarity-and-handling-miscommunication](reference/strategies-for-improving-language-clarity-and-handling-miscommunication.md) — Strategies for improving language clarity and handling miscommunication
+- [struggles-finding-the-right-words-even-when-thinking-is-clear](user/struggles-finding-the-right-words-even-when-thinking-is-clear.md) — Struggles finding the right words even when thinking is clear
+- [top-attractions-and-activities-in-amsterdam](reference/top-attractions-and-activities-in-amsterdam.md) — Top attractions and activities in Amsterdam
+- [usb-port-control-on-raspberry-pi-running-android](reference/usb-port-control-on-raspberry-pi-running-android.md) — USB port control on Raspberry Pi running Android
+- [working-to-improve-interpersonal-communication-with-coworkers-and-clients](user/working-to-improve-interpersonal-communication-with-coworkers-and-clients.md) — Working to improve interpersonal communication with coworkers and clients

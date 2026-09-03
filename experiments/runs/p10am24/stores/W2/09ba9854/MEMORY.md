@@ -1,0 +1,25 @@
+# MEMORY.md
+
+- [asks-hotels-for-airport-transportation-recommendations-and-discounts](user/asks-hotels-for-airport-transportation-recommendations-and-discounts.md) — Asks hotels for airport transportation recommendations and discounts
+- [canon-ef-24-70mm-f-2-8l-ii-usm-lens-for-photography](user/canon-ef-24-70mm-f-2-8l-ii-usm-lens-for-photography.md) — Canon EF 24-70mm f/2.8L II USM lens for photography
+- [coworker-jack-prefers-hiking-to-yoga](user/coworker-jack-prefers-hiking-to-yoga.md) — Coworker Jack prefers hiking to yoga
+- [currently-using-sandisk-extreme-pro-64gb-memory-cards](user/currently-using-sandisk-extreme-pro-64gb-memory-cards.md) — Currently using SanDisk Extreme Pro 64GB memory cards
+- [external-hard-drive-options-for-photo-backup-wd-my-book-seagate-backup-plus-laci](reference/external-hard-drive-options-for-photo-backup-wd-my-book-seagate-backup-plus-laci.md) — External hard drive options for photo backup: WD My Book, Seagate Backup Plus, LaCie Rugged, G-Tech G-Drive
+- [finding-a-new-yoga-studio](project/finding-a-new-yoga-studio.md) — Finding a new yoga studio
+- [friend-alex-reconnecting-after-falling-out](user/friend-alex-reconnecting-after-falling-out.md) — Friend Alex reconnecting after falling out
+- [friend-rachel-hesitant-about-trying-yoga](user/friend-rachel-hesitant-about-trying-yoga.md) — Friend Rachel hesitant about trying yoga
+- [goes-to-yoga-classes-with-friend-emily-grabs-smoothies-after-class](user/goes-to-yoga-classes-with-friend-emily-grabs-smoothies-after-class.md) — Goes to yoga classes with friend Emily, grabs smoothies after class
+- [going-hiking-with-coworker-jack](project/going-hiking-with-coworker-jack.md) — Going hiking with coworker Jack
+- [interested-in-sci-fi-romance-writing-with-identity-and-self-discovery-themes](user/interested-in-sci-fi-romance-writing-with-identity-and-self-discovery-themes.md) — Interested in sci-fi romance writing with identity and self-discovery themes
+- [japan-trip-to-tokyo-planned-narita-to-shinjuku-arriving-friday-2023-05-26](project/japan-trip-to-tokyo-planned-narita-to-shinjuku-arriving-friday-2023-05-26.md) — Japan trip to Tokyo planned: Narita to Shinjuku, arriving Friday 2023-05-26
+- [lens-case-brands-think-tank-photo-lowepro-nanuk-pouches-op-tech-usa-lenscoat-tam](reference/lens-case-brands-think-tank-photo-lowepro-nanuk-pouches-op-tech-usa-lenscoat-tam.md) — Lens case brands: Think Tank Photo, Lowepro, Nanuk; Pouches: Op/Tech USA, Lenscoat, Tamrac
+- [lowepro-protactic-450-aw-camera-bag-with-adjustable-dividers-for-organizing-gear](user/lowepro-protactic-450-aw-camera-bag-with-adjustable-dividers-for-organizing-gear.md) — Lowepro ProTactic 450 AW camera bag with adjustable dividers for organizing gear
+- [manfrotto-befree-tripod-arrived-february-5-2023-game-changer-for-outdoor-shoots](user/manfrotto-befree-tripod-arrived-february-5-2023-game-changer-for-outdoor-shoots.md) — Manfrotto BeFree tripod arrived February 5 2023 - game-changer for outdoor shoots
+- [narita-to-shinjuku-transportation-prices-times-routes](reference/narita-to-shinjuku-transportation-prices-times-routes.md) — Narita to Shinjuku transportation: prices, times, routes
+- [prefers-respectful-non-pushy-approach-when-networking-and-asking-for-feedback](user/prefers-respectful-non-pushy-approach-when-networking-and-asking-for-feedback.md) — Prefers respectful, non-pushy approach when networking and asking for feedback
+- [rachel-lee-digital-marketing-workshop-on-social-media-advertising](reference/rachel-lee-digital-marketing-workshop-on-social-media-advertising.md) — Rachel Lee - digital marketing workshop on social media advertising
+- [tokyo-airport-transportation-narita-express-skyliner-monorail-buses-taxis-with-c](reference/tokyo-airport-transportation-narita-express-skyliner-monorail-buses-taxis-with-c.md) — Tokyo airport transportation: Narita Express, Skyliner, Monorail, buses, taxis with costs
+- [two-sandisk-extreme-pro-128gb-memory-cards-arrived-february-12-2023-for-high-res](user/two-sandisk-extreme-pro-128gb-memory-cards-arrived-february-12-2023-for-high-res.md) — Two SanDisk Extreme Pro 128GB memory cards arrived February 12 2023 for high-res images
+- [using-instagram-ads-with-awareness-objective-to-increase-project-visibility](project/using-instagram-ads-with-awareness-objective-to-increase-project-visibility.md) — Using Instagram ads with Awareness objective to increase project visibility
+- [viowear-clothing-line-outdoor-travel-brand-positioning-with-motivational-social](project/viowear-clothing-line-outdoor-travel-brand-positioning-with-motivational-social.md) — Viowear clothing line: outdoor/travel brand positioning with motivational social content
+- [writing-project-the-memory-thief-dystopian-sci-fi-romance-about-memory-thief-lyr](project/writing-project-the-memory-thief-dystopian-sci-fi-romance-about-memory-thief-lyr.md) — Writing project: The Memory Thief - dystopian sci-fi romance about memory thief Lyra discovering lost identity

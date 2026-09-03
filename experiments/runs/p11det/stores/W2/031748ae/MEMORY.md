@@ -1,0 +1,29 @@
+# MEMORY.md
+
+- [senior-software-engineer-leading-team-of-5-engineers](user/senior-software-engineer-leading-team-of-5-engineers.md) — Senior Software Engineer leading team of 5 engineers
+- [interested-in-art-of-imperfection-as-framework-for-self-acceptance-and-inclusion](user/interested-in-art-of-imperfection-as-framework-for-self-acceptance-and-inclusion.md) — Interested in art of imperfection as framework for self-acceptance and inclusion
+- [linkedin-engagement-baseline-20-likes-and-5-comments-on-digital-marketing-trend](experience/linkedin-engagement-baseline-20-likes-and-5-comments-on-digital-marketing-trend.md) — LinkedIn engagement baseline: 20 likes and 5 comments on digital marketing trend articles
+- [works-as-medical-content-and-graphic-designer-creates-healthcare-workflow-diagra](user/works-as-medical-content-and-graphic-designer-creates-healthcare-workflow-diagra.md) — Works as medical content and graphic designer; creates healthcare workflow diagrams
+- [team-outings-prefers-games-and-structured-collaborative-activities](user/team-outings-prefers-games-and-structured-collaborative-activities.md) — Team outings: prefers games and structured collaborative activities
+- [actively-participates-in-freelancer-slack-community-values-peer-support-and-advi](user/actively-participates-in-freelancer-slack-community-values-peer-support-and-advi.md) — Actively participates in freelancer Slack community; values peer support and advice
+- [amsterdam-bakeries-with-gluten-free-and-vegan-options](reference/amsterdam-bakeries-with-gluten-free-and-vegan-options.md) — Amsterdam bakeries with gluten-free and vegan options
+- [appreciates-visually-driven-films-especially-wes-anderson-s-color-grading-and-wh](user/appreciates-visually-driven-films-especially-wes-anderson-s-color-grading-and-wh.md) — Appreciates visually-driven films, especially Wes Anderson's color grading and whimsical aesthetic
+- [art-of-imperfection-framework-proposal-with-5-key-components](reference/art-of-imperfection-framework-proposal-with-5-key-components.md) — Art of Imperfection Framework proposal with 5 key components
+- [blogging-tips-for-freelancers-strategy-content-and-promotion](reference/blogging-tips-for-freelancers-strategy-content-and-promotion.md) — Blogging tips for freelancers: strategy, content, and promotion
+- [budget-conscious-gift-giver-targeting-moderate-price-range](user/budget-conscious-gift-giver-targeting-moderate-price-range.md) — Budget-conscious gift-giver targeting moderate price range
+- [creating-a-series-of-linkedin-and-multi-platform-posts-on-social-media-engagemen](project/creating-a-series-of-linkedin-and-multi-platform-posts-on-social-media-engagemen.md) — Creating a series of LinkedIn and multi-platform posts on social media engagement strategy
+- [cutting-back-on-gluten-intake](user/cutting-back-on-gluten-intake.md) — Cutting back on gluten intake
+- [friend-rachel-has-experienced-marginalization-in-the-lgbtq-community](user/friend-rachel-has-experienced-marginalization-in-the-lgbtq-community.md) — Friend Rachel has experienced marginalization in the LGBTQ+ community
+- [has-nieces-and-nephews-aged-5-12-years-old](user/has-nieces-and-nephews-aged-5-12-years-old.md) — Has nieces and nephews aged 5-12 years old
+- [has-photography-enthusiast-friends-who-are-beginners](user/has-photography-enthusiast-friends-who-are-beginners.md) — Has photography enthusiast friends who are beginners
+- [interested-in-amsterdam-travel-and-dutch-food-experiences](user/interested-in-amsterdam-travel-and-dutch-food-experiences.md) — Interested in Amsterdam travel and Dutch food experiences
+- [interested-in-creating-lgbtq-inclusive-spaces-particularly-at-gyms](user/interested-in-creating-lgbtq-inclusive-spaces-particularly-at-gyms.md) — Interested in creating LGBTQ+-inclusive spaces, particularly at gyms
+- [interested-in-vegan-desserts](user/interested-in-vegan-desserts.md) — Interested in vegan desserts
+- [leadership-priorities-delegating-effectively-setting-realistic-deadlines-providi](user/leadership-priorities-delegating-effectively-setting-realistic-deadlines-providi.md) — Leadership priorities: delegating effectively, setting realistic deadlines, providing team resources
+- [manager-named-rachel-work](user/manager-named-rachel-work.md) — Manager named Rachel (work)
+- [music-therapy-platform-workflow-with-ai-chatbot-nft-tokens-and-counseling-integr](project/music-therapy-platform-workflow-with-ai-chatbot-nft-tokens-and-counseling-integr.md) — Music therapy platform workflow with AI chatbot, NFT tokens, and counseling integration
+- [planning-to-add-a-blog-to-website-for-sharing-freelance-insights-and-experiences](project/planning-to-add-a-blog-to-website-for-sharing-freelance-insights-and-experiences.md) — Planning to add a blog to website for sharing freelance insights and experiences
+- [prefers-experience-based-gifts-for-creating-lasting-memories](user/prefers-experience-based-gifts-for-creating-lasting-memories.md) — Prefers experience-based gifts for creating lasting memories
+- [selected-wix-unlimited-plan-for-freelancer-website](project/selected-wix-unlimited-plan-for-freelancer-website.md) — Selected Wix Unlimited plan for freelancer website
+- [team-hike-at-mount-tamalpais-state-park-with-scavenger-hunt](project/team-hike-at-mount-tamalpais-state-park-with-scavenger-hunt.md) — Team hike at Mount Tamalpais State Park with scavenger hunt
+- [website-builder-comparison-wix-squarespace-weebly-carrd-strikingly-wordpress-com](reference/website-builder-comparison-wix-squarespace-weebly-carrd-strikingly-wordpress-com.md) — Website builder comparison: Wix, Squarespace, Weebly, Carrd, Strikingly, WordPress.com

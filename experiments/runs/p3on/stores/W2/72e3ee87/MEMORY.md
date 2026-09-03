@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [a-short-history-of-nearly-everything-by-bill-bryson-book-to-read-next](reference/a-short-history-of-nearly-everything-by-bill-bryson-book-to-read-next.md) — A Short History of Nearly Everything by Bill Bryson - book to read next
+- [book-recommendations-for-data-science-and-machine-learning-learning](reference/book-recommendations-for-data-science-and-machine-learning-learning.md) — Book recommendations for data science and machine learning learning
+- [completed-50-episodes-of-crash-course-science-series-on-2023-05-29](experience/completed-50-episodes-of-crash-course-science-series-on-2023-05-29.md) — Completed 50 episodes of Crash Course Science series on 2023-05-29
+- [considering-data-science-with-python-online-course](project/considering-data-science-with-python-online-course.md) — Considering Data Science with Python online course
+- [creative-interest-in-elaborate-haute-couture-costume-design-with-ethereal-cosmic](user/creative-interest-in-elaborate-haute-couture-costume-design-with-ethereal-cosmic.md) — Creative interest in elaborate haute couture costume design with ethereal, cosmic, celestial, fae themes
+- [currently-reading-the-power-of-habit-by-charles-duhigg](user/currently-reading-the-power-of-habit-by-charles-duhigg.md) — Currently reading The Power of Habit by Charles Duhigg
+- [emerging-automotive-materials-graphene-nanocellulose-advanced-composites-adoptio](reference/emerging-automotive-materials-graphene-nanocellulose-advanced-composites-adoptio.md) — Emerging automotive materials: graphene, nanocellulose, advanced composites; adoption barriers
+- [enjoys-cucumber-gimlets-with-grilled-pineapple-garnish](user/enjoys-cucumber-gimlets-with-grilled-pineapple-garnish.md) — Enjoys Cucumber Gimlets with grilled pineapple garnish
+- [enjoys-hosting-summer-parties-and-experimenting-with-cocktails-and-bbq-recipes](user/enjoys-hosting-summer-parties-and-experimenting-with-cocktails-and-bbq-recipes.md) — Enjoys hosting summer parties and experimenting with cocktails and BBQ recipes
+- [finished-reading-sapiens-by-yuval-noah-harari](experience/finished-reading-sapiens-by-yuval-noah-harari.md) — Finished reading Sapiens by Yuval Noah Harari
+- [get-three-inherited-heirlooms-appraised-and-insured](project/get-three-inherited-heirlooms-appraised-and-insured.md) — Get three inherited heirlooms appraised and insured
+- [interested-in-automotive-materials-science-and-future-vehicle-technology](user/interested-in-automotive-materials-science-and-future-vehicle-technology.md) — Interested in automotive materials science and future vehicle technology
+- [interested-in-indie-electronic-music-appreciates-innovation-but-values-critical](user/interested-in-indie-electronic-music-appreciates-innovation-but-values-critical.md) — Interested in indie-electronic music; appreciates innovation but values critical assessment
+- [interested-in-korean-inspired-cuisine](user/interested-in-korean-inspired-cuisine.md) — Interested in Korean-inspired cuisine
+- [interested-in-science-history-and-self-improvement-non-fiction-books](user/interested-in-science-history-and-self-improvement-non-fiction-books.md) — Interested in science, history, and self-improvement non-fiction books
+- [jewelry-and-antique-appraisal-organizations-and-certifications](reference/jewelry-and-antique-appraisal-organizations-and-certifications.md) — Jewelry and antique appraisal organizations and certifications
+- [learning-adobe-photoshop-and-illustrator-via-linkedin-learning-tutorials](user/learning-adobe-photoshop-and-illustrator-via-linkedin-learning-tutorials.md) — Learning Adobe Photoshop and Illustrator via LinkedIn Learning tutorials
+- [learning-data-science-and-machine-learning-via-coursera-course-and-supplementary](user/learning-data-science-and-machine-learning-via-coursera-course-and-supplementary.md) — Learning data science and machine learning via Coursera course and supplementary books
+- [learning-linear-algebra-via-khan-academy-then-coursera-specialization](user/learning-linear-algebra-via-khan-academy-then-coursera-specialization.md) — Learning linear algebra via Khan Academy then Coursera specialization
+- [learning-spanish-using-duolingo-supplementing-with-spanishdict-and-coursera](user/learning-spanish-using-duolingo-supplementing-with-spanishdict-and-coursera.md) — Learning Spanish using Duolingo, supplementing with SpanishDict and Coursera
+- [online-resources-and-courses-for-learning-linear-algebra](reference/online-resources-and-courses-for-learning-linear-algebra.md) — Online resources and courses for learning linear algebra
+- [owns-antique-music-box-from-great-aunt-inherited](user/owns-antique-music-box-from-great-aunt-inherited.md) — Owns antique music box from great-aunt (inherited)
+- [owns-depression-era-glassware-set-from-mom-inherited](user/owns-depression-era-glassware-set-from-mom-inherited.md) — Owns depression-era glassware set from mom (inherited)
+- [owns-grandmother-s-vintage-diamond-necklace-inherited](user/owns-grandmother-s-vintage-diamond-necklace-inherited.md) — Owns grandmother's vintage diamond necklace (inherited)
+- [prefers-narrative-focus-on-character-and-plot-finds-excessive-descriptive-passag](user/prefers-narrative-focus-on-character-and-plot-finds-excessive-descriptive-passag.md) — Prefers narrative focus on character and plot; finds excessive descriptive passages distracting
+- [resources-for-learning-spanish](reference/resources-for-learning-spanish.md) — Resources for learning Spanish
+- [specialty-insurance-companies-for-valuable-items-and-heirlooms](reference/specialty-insurance-companies-for-valuable-items-and-heirlooms.md) — Specialty insurance companies for valuable items and heirlooms
+- [summer-cocktail-recipes-pimm-s-cup-watermelon-margaritas-sangria-gin-gin-mule-an](reference/summer-cocktail-recipes-pimm-s-cup-watermelon-margaritas-sangria-gin-gin-mule-an.md) — Summer cocktail recipes: Pimm's Cup, Watermelon Margaritas, Sangria, Gin-Gin Mule, and others
+- [the-postal-service-give-up-album-2003-indie-electronic-duo](reference/the-postal-service-give-up-album-2003-indie-electronic-duo.md) — The Postal Service 'Give Up' album (2003) - indie-electronic duo

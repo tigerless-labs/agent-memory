@@ -1,0 +1,34 @@
+# MEMORY.md
+
+- [alexander-shelstrop-character-streetwear-enthusiast-cameraman-cryptid-enthusiast](reference/alexander-shelstrop-character-streetwear-enthusiast-cameraman-cryptid-enthusiast.md) — Alexander Shelstrop character: streetwear enthusiast, cameraman, cryptid enthusiast
+- [arabic-learning-resources-duolingo-italki-youtube-podcasts-apps-communities](reference/arabic-learning-resources-duolingo-italki-youtube-podcasts-apps-communities.md) — Arabic learning resources: Duolingo, italki, YouTube, podcasts, apps, communities
+- [beginner-arabic-phrases-for-greetings-introductions-questions-and-expressions](reference/beginner-arabic-phrases-for-greetings-introductions-questions-and-expressions.md) — Beginner Arabic phrases for greetings, introductions, questions, and expressions
+- [big-bear-s-boxing-wrestling-and-mixed-martial-arts-academy-martial-arts-facility](reference/big-bear-s-boxing-wrestling-and-mixed-martial-arts-academy-martial-arts-facility.md) — Big Bear's Boxing, Wrestling, and Mixed Martial Arts Academy — martial arts facility founded by Big Bear
+- [character-dialogue-scene-sebastian-and-alexander-discuss-style-vs-function](reference/character-dialogue-scene-sebastian-and-alexander-discuss-style-vs-function.md) — Character dialogue scene: Sebastian and Alexander discuss style vs function
+- [colony-design-philosophy-prioritizes-community-engagement-and-active-lifestyle-o](reference/colony-design-philosophy-prioritizes-community-engagement-and-active-lifestyle-o.md) — Colony design philosophy — prioritizes community engagement and active lifestyle over home-centered living
+- [colony-food-policy-no-highly-processed-foods-imported-or-manufactured](reference/colony-food-policy-no-highly-processed-foods-imported-or-manufactured.md) — Colony food policy — no highly processed foods imported or manufactured
+- [considering-organizing-own-charity-run-or-walk-event](project/considering-organizing-own-charity-run-or-walk-event.md) — Considering organizing own charity run or walk event
+- [donated-10-new-toys-at-gym-charity-toy-drive-on-may-21-2023](experience/donated-10-new-toys-at-gym-charity-toy-drive-on-may-21-2023.md) — Donated 10 new toys at gym charity toy drive on May 21, 2023
+- [enjoys-local-japanese-food-grilled-trout-yuba-soba-houtou](user/enjoys-local-japanese-food-grilled-trout-yuba-soba-houtou.md) — Enjoys local Japanese food: grilled trout, yuba, soba, houtou
+- [interested-in-hiking-senjogahara-marshland-trail-in-nikko](user/interested-in-hiking-senjogahara-marshland-trail-in-nikko.md) — Interested in hiking; Senjogahara Marshland Trail in Nikko
+- [interested-in-tamil-language-preservation-and-indian-linguistic-heritage](user/interested-in-tamil-language-preservation-and-indian-linguistic-heritage.md) — Interested in Tamil language preservation and Indian linguistic heritage
+- [interested-in-visiting-south-korea-particularly-seoul-food-scene-and-dmz](user/interested-in-visiting-south-korea-particularly-seoul-food-scene-and-dmz.md) — Interested in visiting South Korea, particularly Seoul food scene and DMZ
+- [karaoke-bar-by-the-izakaya-entertainment-venue-in-the-colony](reference/karaoke-bar-by-the-izakaya-entertainment-venue-in-the-colony.md) — Karaoke bar by the izakaya — entertainment venue in the colony
+- [living-in-tokyo-since-august-2022](user/living-in-tokyo-since-august-2022.md) — Living in Tokyo since August 2022
+- [managua-restaurants-for-traditional-nicaraguan-cuisine](reference/managua-restaurants-for-traditional-nicaraguan-cuisine.md) — Managua restaurants for traditional Nicaraguan cuisine
+- [nicaragua-car-rental-and-driving-information](reference/nicaragua-car-rental-and-driving-information.md) — Nicaragua car rental and driving information
+- [nicaraguan-food-to-try](reference/nicaraguan-food-to-try.md) — Nicaraguan food to try
+- [nikko-dining-and-logistics-guide](reference/nikko-dining-and-logistics-guide.md) — Nikko dining and logistics guide
+- [philippines-vat-rate-12-registration-threshold-php-3-million-annual-sales](reference/philippines-vat-rate-12-registration-threshold-php-3-million-annual-sales.md) — Philippines VAT rate 12%; registration threshold PHP 3 million annual sales
+- [planning-to-upgrade-gym-wardrobe](project/planning-to-upgrade-gym-wardrobe.md) — Planning to upgrade gym wardrobe
+- [practice-arabic-conversationally-with-classmate-rachel-lebanese-descent](project/practice-arabic-conversationally-with-classmate-rachel-lebanese-descent.md) — Practice Arabic conversationally with classmate Rachel (Lebanese descent)
+- [prefers-female-rappers-for-workout-playlists](user/prefers-female-rappers-for-workout-playlists.md) — Prefers female rappers for workout playlists
+- [public-onsen-with-natural-mineral-hot-spring-wellness-facility-near-park-and-fit](reference/public-onsen-with-natural-mineral-hot-spring-wellness-facility-near-park-and-fit.md) — Public onsen with natural mineral hot spring — wellness facility near park and fitness facilities
+- [sebastian-vivaldi-greensleeves-character-emo-musician](reference/sebastian-vivaldi-greensleeves-character-emo-musician.md) — Sebastian Vivaldi Greensleeves character: emo musician
+- [solo-2-week-trip-to-japan-visited-fushimi-inari-shrine-stayed-in-hostels-and-gue](experience/solo-2-week-trip-to-japan-visited-fushimi-inari-shrine-stayed-in-hostels-and-gue.md) — Solo 2-week trip to Japan, visited Fushimi Inari Shrine, stayed in hostels and guesthouses
+- [started-beginner-arabic-class-at-local-language-school-on-may-21-2023](experience/started-beginner-arabic-class-at-local-language-school-on-may-21-2023.md) — Started beginner Arabic class at local language school on May 21, 2023
+- [state-of-the-art-hospital-designed-by-frontier-service-chief-medical-officer](reference/state-of-the-art-hospital-designed-by-frontier-service-chief-medical-officer.md) — State-of-the-art hospital designed by Frontier Service Chief Medical Officer
+- [tamil-purists-movement-and-indian-language-preservation-organizations](reference/tamil-purists-movement-and-indian-language-preservation-organizations.md) — Tamil Purists Movement and Indian language preservation organizations
+- [the-playing-field-multisport-arena-versatile-sports-facility-near-big-bear-s-aca](reference/the-playing-field-multisport-arena-versatile-sports-facility-near-big-bear-s-aca.md) — The Playing Field Multisport Arena — versatile sports facility near Big Bear's Academy
+- [trip-to-nicaragua-planned-granada-ometepe-island-masaya-volcano-national-park](project/trip-to-nicaragua-planned-granada-ometepe-island-masaya-volcano-national-park.md) — Trip to Nicaragua planned: Granada, Ometepe Island, Masaya Volcano National Park
+- [values-community-involvement-and-giving-back](user/values-community-involvement-and-giving-back.md) — Values community involvement and giving back

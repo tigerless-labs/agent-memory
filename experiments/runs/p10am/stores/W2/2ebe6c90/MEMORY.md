@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [10-day-rv-road-trip-from-california-to-yellowstone-december-2022-family-of-five](experience/10-day-rv-road-trip-from-california-to-yellowstone-december-2022-family-of-five.md) — 10-day RV road trip from California to Yellowstone, December 2022; family of five
+- [amazon-detailing-spray-20-removes-tar-and-bug-stains](reference/amazon-detailing-spray-20-removes-tar-and-bug-stains.md) — Amazon detailing spray, $20, removes tar and bug stains
+- [car-fuel-efficiency-tracking-28-mpg-city-down-from-30-mpg](project/car-fuel-efficiency-tracking-28-mpg-city-down-from-30-mpg.md) — Car fuel efficiency tracking: 28 mpg city (down from 30 mpg)
+- [car-oil-change-overdue-by-approximately-1000-miles-needs-mechanic-appointment](project/car-oil-change-overdue-by-approximately-1000-miles-needs-mechanic-appointment.md) — Car oil change overdue by approximately 1000 miles, needs mechanic appointment
+- [content-strategy-ideas-journal-repurposing-platform-tailoring](project/content-strategy-ideas-journal-repurposing-platform-tailoring.md) — Content strategy: ideas journal, repurposing, platform tailoring
+- [costa-rica-eco-lodges-and-tour-operators-lapa-rios-monteverde-arenal-observatory](reference/costa-rica-eco-lodges-and-tour-operators-lapa-rios-monteverde-arenal-observatory.md) — Costa Rica eco-lodges and tour operators: Lapa Rios, Monteverde, Arenal Observatory, Tortuga Lodge, El Remanso, Costa Rica Expeditions, Osa Conservation, Tortuguero Canals Tours, Selva Bananito, Golfito Wildlife Refuge
+- [enjoys-audiobooks-as-well-as-physical-digital-books-for-reading](user/enjoys-audiobooks-as-well-as-physical-digital-books-for-reading.md) — Enjoys audiobooks as well as physical/digital books for reading
+- [family-of-five](user/family-of-five.md) — Family of five
+- [interested-in-anastasia-beverly-hills-modern-renaissance-palette](user/interested-in-anastasia-beverly-hills-modern-renaissance-palette.md) — Interested in Anastasia Beverly Hills Modern Renaissance Palette
+- [interested-in-drunk-elephant-skincare-products](user/interested-in-drunk-elephant-skincare-products.md) — Interested in Drunk Elephant skincare products
+- [interested-in-eco-tourism-wildlife-watching-and-outdoor-activities](user/interested-in-eco-tourism-wildlife-watching-and-outdoor-activities.md) — Interested in eco-tourism, wildlife watching, and outdoor activities
+- [interested-in-erin-condren-lifeplanner](user/interested-in-erin-condren-lifeplanner.md) — Interested in Erin Condren LifePlanner
+- [new-floor-mats-acquired-wants-to-keep-clean](user/new-floor-mats-acquired-wants-to-keep-clean.md) — New floor mats acquired, wants to keep clean
+- [planning-future-family-trip-to-yellowstone-national-park-considering-canyon-lodg](project/planning-future-family-trip-to-yellowstone-national-park-considering-canyon-lodg.md) — Planning future family trip to Yellowstone National Park; considering Canyon Lodge & Cabins
+- [planning-live-makeup-tutorial-on-youtube](project/planning-live-makeup-tutorial-on-youtube.md) — Planning live makeup tutorial on YouTube
+- [recently-purchased-and-loves-urban-decay-naked-heat-eyeshadow-palette-december-2](user/recently-purchased-and-loves-urban-decay-naked-heat-eyeshadow-palette-december-2.md) — Recently purchased and loves Urban Decay Naked Heat eyeshadow palette (December 2022)
+- [shares-morning-skincare-routine-creates-q-a-and-behind-the-scenes-content](user/shares-morning-skincare-routine-creates-q-a-and-behind-the-scenes-content.md) — Shares morning skincare routine; creates Q&A and behind-the-scenes content
+- [skin-type-is-normal-to-combination](user/skin-type-is-normal-to-combination.md) — Skin type is normal to combination
+- [started-reading-the-nightingale-by-kristin-hannah-on-2023-01-10](user/started-reading-the-nightingale-by-kristin-hannah-on-2023-01-10.md) — Started reading The Nightingale by Kristin Hannah on 2023-01-10
+- [tortuguero-national-park-flight-or-shuttle-plus-boat-transportation-from-san-jos](reference/tortuguero-national-park-flight-or-shuttle-plus-boat-transportation-from-san-jos.md) — Tortuguero National Park: flight or shuttle plus boat transportation from San José, 300+ bird species, wildlife (monkeys, sloths, birds, reptiles, jaguars), 1,200+ butterfly species
+- [values-proactive-healthcare-equity-and-systemic-solutions-to-health-disparities](user/values-proactive-healthcare-equity-and-systemic-solutions-to-health-disparities.md) — Values proactive healthcare equity and systemic solutions to health disparities
+- [waterproof-car-cover-purchased-for-120-effectively-reduces-dust-and-dirt](user/waterproof-car-cover-purchased-for-120-effectively-reduces-dust-and-dirt.md) — Waterproof car cover purchased for $120, effectively reduces dust and dirt
+- [weekly-live-streams-on-instagram-youtube-facebook-with-skincare-beauty-focus](project/weekly-live-streams-on-instagram-youtube-facebook-with-skincare-beauty-focus.md) — Weekly live streams on Instagram, YouTube, Facebook with skincare/beauty focus
+- [yellowstone-family-trip-recommendations-collected-december-2022](reference/yellowstone-family-trip-recommendations-collected-december-2022.md) — Yellowstone family trip recommendations collected December 2022
+- [yellowstone-interests-geysers-hot-springs-bears-geology-grand-canyon-area](user/yellowstone-interests-geysers-hot-springs-bears-geology-grand-canyon-area.md) — Yellowstone interests: geysers, hot springs, bears, geology, Grand Canyon area

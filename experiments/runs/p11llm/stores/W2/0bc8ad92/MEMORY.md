@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [has-a-chemistry-professor-friend](user/has-a-chemistry-professor-friend.md) — Has a chemistry professor friend
+- [resources-for-finding-museums-and-science-centers](reference/resources-for-finding-museums-and-science-centers.md) — Resources for finding museums and science centers
+- [visited-natural-history-museum-with-dad-impressed-by-fossil-collection-and-t-rex](experience/visited-natural-history-museum-with-dad-impressed-by-fossil-collection-and-t-rex.md) — Visited Natural History Museum with dad, impressed by fossil collection and T-Rex skeleton
+- [went-on-behind-the-scenes-tour-at-science-museum-with-chemistry-professor-friend](experience/went-on-behind-the-scenes-tour-at-science-museum-with-chemistry-professor-friend.md) — Went on behind-the-scenes tour at Science Museum with chemistry professor friend
+- [planning-trip-to-jordan-to-visit-petra](project/planning-trip-to-jordan-to-visit-petra.md) — Planning trip to Jordan to visit Petra
+- [anniversary-trip-to-las-vegas-in-february-romantic-getaway-with-helicopter-tour](project/anniversary-trip-to-las-vegas-in-february-romantic-getaway-with-helicopter-tour.md) — Anniversary trip to Las Vegas in February - romantic getaway with helicopter tour, golf, and fine dining
+- [birthday-is-march-12](user/birthday-is-march-12.md) — Birthday is March 12
+- [build-hybrid-wardrobe-with-h-m-graphic-t-shirt-capsule-base](project/build-hybrid-wardrobe-with-h-m-graphic-t-shirt-capsule-base.md) — Build hybrid wardrobe with H&M graphic t-shirt capsule base
+- [currently-enjoying-hummus-and-carrot-sticks-as-a-favorite-snack-pairing](user/currently-enjoying-hummus-and-carrot-sticks-as-a-favorite-snack-pairing.md) — Currently enjoying hummus and carrot sticks as a favorite snack pairing
+- [does-weekly-sunday-meal-prep-with-customizable-quinoa-salad-jars-for-lunches](user/does-weekly-sunday-meal-prep-with-customizable-quinoa-salad-jars-for-lunches.md) — Does weekly Sunday meal prep with customizable quinoa salad jars for lunches
+- [educational-resources-for-chemistry-and-physics](reference/educational-resources-for-chemistry-and-physics.md) — Educational resources for chemistry and physics
+- [enjoys-creative-themed-parties-with-detailed-decorations-especially-outdoor-movi](user/enjoys-creative-themed-parties-with-detailed-decorations-especially-outdoor-movi.md) — Enjoys creative themed parties with detailed decorations, especially outdoor movie nights
+- [fencing-recommendations-for-baby-goats-not-electric-fencing-for-bottle-fed-kids](reference/fencing-recommendations-for-baby-goats-not-electric-fencing-for-bottle-fed-kids.md) — Fencing recommendations for baby goats (not electric fencing for bottle-fed kids)
+- [interested-in-ancient-history-particularly-nabataean-civilization](user/interested-in-ancient-history-particularly-nabataean-civilization.md) — Interested in ancient history, particularly Nabataean civilization
+- [interested-in-chemistry-and-physics-education](user/interested-in-chemistry-and-physics-education.md) — Interested in chemistry and physics education
+- [interested-in-environmental-volunteering-particularly-marine-ecosystem-conservat](user/interested-in-environmental-volunteering-particularly-marine-ecosystem-conservat.md) — Interested in environmental volunteering, particularly marine ecosystem conservation
+- [interested-in-making-roasted-chickpeas-with-garlic-powder-and-paprika-seasoning](user/interested-in-making-roasted-chickpeas-with-garlic-powder-and-paprika-seasoning.md) — Interested in making roasted chickpeas with garlic powder and paprika seasoning
+- [interested-in-paleontology-dinosaurs-and-extinct-fauna](user/interested-in-paleontology-dinosaurs-and-extinct-fauna.md) — Interested in paleontology, dinosaurs, and extinct fauna
+- [manages-a-manure-compost-pile-from-goat-husbandry](user/manages-a-manure-compost-pile-from-goat-husbandry.md) — Manages a manure compost pile from goat husbandry
+- [ocean-conservancy-organization-and-trash-free-seas-program-for-marine-conservati](reference/ocean-conservancy-organization-and-trash-free-seas-program-for-marine-conservati.md) — Ocean Conservancy organization and Trash Free Seas program for marine conservation
+- [owns-baby-goats-luna-and-leo-bottle-fed](user/owns-baby-goats-luna-and-leo-bottle-fed.md) — Owns baby goats Luna and Leo, bottle-fed
+- [participated-in-charity-gala-in-april-2022](experience/participated-in-charity-gala-in-april-2022.md) — Participated in charity gala in April 2022
+- [participated-in-community-clean-up-event-on-april-17-2022](experience/participated-in-community-clean-up-event-on-april-17-2022.md) — Participated in community clean-up event on April 17, 2022
+- [plans-to-expand-goat-herd-beyond-luna-and-leo](project/plans-to-expand-goat-herd-beyond-luna-and-leo.md) — Plans to expand goat herd beyond Luna and Leo
+- [prefers-quick-healthy-air-fryer-meals-with-whole-grains-and-lean-proteins](user/prefers-quick-healthy-air-fryer-meals-with-whole-grains-and-lean-proteins.md) — Prefers quick, healthy air fryer meals with whole grains and lean proteins
+- [prefers-styled-winter-outfits-that-avoid-bulk-and-overwhelming-volume](user/prefers-styled-winter-outfits-that-avoid-bulk-and-overwhelming-volume.md) — Prefers styled winter outfits that avoid bulk and overwhelming volume
+- [recommended-vaccinations-and-health-care-for-baby-goats](reference/recommended-vaccinations-and-health-care-for-baby-goats.md) — Recommended vaccinations and health care for baby goats
+- [shops-for-clothing-at-h-m-zara-and-madewell](user/shops-for-clothing-at-h-m-zara-and-madewell.md) — Shops for clothing at H&M, Zara, and Madewell
+- [struggles-with-convenience-store-snack-temptation-finished-potato-chips-in-2-day](user/struggles-with-convenience-store-snack-temptation-finished-potato-chips-in-2-day.md) — Struggles with convenience store snack temptation; finished potato chips in 2 days

@@ -1,0 +1,12 @@
+# MEMORY.md
+
+- [considering-desktop-graphics-card-upgrade-for-gaming-researched-options-due-to-b](project/considering-desktop-graphics-card-upgrade-for-gaming-researched-options-due-to-b.md) — Considering desktop graphics card upgrade for gaming, researched options due to budget constraints
+- [dell-inspiron-15-5000-series-laptop-from-2018-used-as-primary-work-laptop](user/dell-inspiron-15-5000-series-laptop-from-2018-used-as-primary-work-laptop.md) — Dell Inspiron 15 5000 series laptop from 2018, used as primary work laptop
+- [graphics-card-recommendations-for-gaming-at-various-price-points](reference/graphics-card-recommendations-for-gaming-at-various-price-points.md) — Graphics card recommendations for gaming at various price points
+- [laptop-battery-life-decreased-from-6-7-hours-to-4-5-hours-after-ram-upgrade](user/laptop-battery-life-decreased-from-6-7-hours-to-4-5-hours-after-ram-upgrade.md) — Laptop battery life decreased from 6-7 hours to 4-5 hours after RAM upgrade
+- [owns-1tb-western-digital-portable-external-hard-drive-purchased-from-best-buy-fo](user/owns-1tb-western-digital-portable-external-hard-drive-purchased-from-best-buy-fo.md) — Owns 1TB Western Digital portable external hard drive purchased from Best Buy for approximately 50 dollars
+- [planning-to-calibrate-dell-inspiron-15-battery-to-troubleshoot-reduced-battery-l](project/planning-to-calibrate-dell-inspiron-15-battery-to-troubleshoot-reduced-battery-l.md) — Planning to calibrate Dell Inspiron 15 battery to troubleshoot reduced battery life
+- [prefers-streaming-services-over-cable-tv-variety-no-ads-mobile-access-whole-seas](user/prefers-streaming-services-over-cable-tv-variety-no-ads-mobile-access-whole-seas.md) — Prefers streaming services over cable TV: variety, no ads, mobile access, whole seasons at once
+- [regularly-backs-up-files-to-external-hard-drive-for-data-protection](user/regularly-backs-up-files-to-external-hard-drive-for-data-protection.md) — Regularly backs up files to external hard drive for data protection
+- [upgraded-desktop-monitor-to-24-inch-4k-lg-monitor-from-previous-1080p-monitor](user/upgraded-desktop-monitor-to-24-inch-4k-lg-monitor-from-previous-1080p-monitor.md) — Upgraded desktop monitor to 24-inch 4K LG monitor from previous 1080p monitor
+- [upgraded-laptop-ram-to-16gb-and-noticed-significant-performance-boost](user/upgraded-laptop-ram-to-16gb-and-noticed-significant-performance-boost.md) — Upgraded laptop RAM to 16GB and noticed significant performance boost

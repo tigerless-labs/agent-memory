@@ -1,0 +1,29 @@
+# MEMORY.md
+
+- [2021-benoit-landron-naturlich-80-semillon-from-bergerac-due-to-2021-frost](reference/2021-benoit-landron-naturlich-80-semillon-from-bergerac-due-to-2021-frost.md) — 2021 Benoit Landron Naturlich: 80% Semillon from Bergerac due to 2021 frost
+- [bathroom-materials-glazed-porcelain-tile-and-cement-based-grout-selected](project/bathroom-materials-glazed-porcelain-tile-and-cement-based-grout-selected.md) — Bathroom materials: glazed porcelain tile and cement-based grout selected
+- [bathroom-renovation-spa-inspired-retreat-design-for-5x8-feet-bathroom-with-frees](project/bathroom-renovation-spa-inspired-retreat-design-for-5x8-feet-bathroom-with-frees.md) — Bathroom renovation: Spa-Inspired Retreat design for 5x8 feet bathroom with freestanding tub and walk-in shower
+- [breastfeeding-milk-supply-signs-of-adequate-intake-factors-affecting-supply-diet](reference/breastfeeding-milk-supply-signs-of-adequate-intake-factors-affecting-supply-diet.md) — Breastfeeding milk supply: signs of adequate intake, factors affecting supply, dietary and supplement interventions
+- [committed-to-trying-screen-free-dinner-and-wind-down-routine-plus-better-task-pr](user/committed-to-trying-screen-free-dinner-and-wind-down-routine-plus-better-task-pr.md) — Committed to trying screen-free dinner and wind-down routine, plus better task prioritization
+- [current-screen-time-habits-4-5-hours-daily-on-smartphone-and-laptop-top-apps-are](user/current-screen-time-habits-4-5-hours-daily-on-smartphone-and-laptop-top-apps-are.md) — Current screen time habits: 4-5 hours daily on smartphone and laptop; top apps are social media, email, Netflix
+- [diy-experience-plumbing-faucet-repair-tile-work-bathroom-fixtures](user/diy-experience-plumbing-faucet-repair-tile-work-bathroom-fixtures.md) — DIY experience: plumbing (faucet repair), tile work, bathroom fixtures
+- [does-marketing-for-a-natural-wine-importer-distributor](user/does-marketing-for-a-natural-wine-importer-distributor.md) — Does marketing for a natural wine importer/distributor
+- [friend-named-amanda-van-west](user/friend-named-amanda-van-west.md) — Friend named Amanda Van West
+- [herbal-teas-for-relaxation-and-sleep](reference/herbal-teas-for-relaxation-and-sleep.md) — Herbal teas for relaxation and sleep
+- [interest-in-prohibition-era-language-and-1920s-gangster-themes](user/interest-in-prohibition-era-language-and-1920s-gangster-themes.md) — Interest in prohibition-era language and 1920s gangster themes
+- [interested-in-cycling-and-long-distance-bike-rides](user/interested-in-cycling-and-long-distance-bike-rides.md) — Interested in cycling and long-distance bike rides
+- [knowledgeable-about-natural-wine-industry-can-correct-producer-details](user/knowledgeable-about-natural-wine-industry-can-correct-producer-details.md) — Knowledgeable about natural wine industry, can correct producer details
+- [lost-city-of-eldorado-campaign-with-puzzle-mechanics](project/lost-city-of-eldorado-campaign-with-puzzle-mechanics.md) — Lost City of Eldorado campaign with puzzle mechanics
+- [most-tempted-to-mindlessly-scroll-7-8-pm-after-dinner-and-before-bed](user/most-tempted-to-mindlessly-scroll-7-8-pm-after-dinner-and-before-bed.md) — Most tempted to mindlessly scroll 7-8 pm after dinner and before bed
+- [owns-a-new-garmin-bike-computer-for-tracking-rides](user/owns-a-new-garmin-bike-computer-for-tracking-rides.md) — Owns a new Garmin bike computer for tracking rides
+- [planning-to-order-a-new-specialized-bike-helmet](user/planning-to-order-a-new-specialized-bike-helmet.md) — Planning to order a new Specialized bike helmet
+- [reasons-to-write-your-own-book-vs-ghost-writing-or-ai-creation](reference/reasons-to-write-your-own-book-vs-ghost-writing-or-ai-creation.md) — Reasons to write your own book vs ghost-writing or AI creation
+- [replaced-bike-chain-and-cassette-on-2024-02-01](user/replaced-bike-chain-and-cassette-on-2024-02-01.md) — Replaced bike chain and cassette on 2024-02-01
+- [runs-161-a-natural-wine-bar-in-sydenham-south-east-london](user/runs-161-a-natural-wine-bar-in-sydenham-south-east-london.md) — Runs 161, a natural wine bar in Sydenham, South East London
+- [screen-time-reduction-strategies-recommended-feb-20-2024](reference/screen-time-reduction-strategies-recommended-feb-20-2024.md) — Screen time reduction strategies recommended Feb 20, 2024
+- [sleep-routine-reading-calming-music-white-noise-machine](user/sleep-routine-reading-calming-music-white-noise-machine.md) — Sleep routine: reading, calming music, white noise machine
+- [target-bedtime-10-pm-on-weekdays-10-30-pm-on-weekends-wake-time-7-am](user/target-bedtime-10-pm-on-weekdays-10-30-pm-on-weekends-wake-time-7-am.md) — Target bedtime 10 pm on weekdays, 10:30 pm on weekends; wake time 7 am
+- [training-course-survey-system-trainees-complete-pre-post-surveys-with-progress-a](project/training-course-survey-system-trainees-complete-pre-post-surveys-with-progress-a.md) — Training course survey system: trainees complete pre/post surveys with progress and class-wide visibility
+- [uses-netflix-as-primary-method-to-unwind-after-long-workdays](user/uses-netflix-as-primary-method-to-unwind-after-long-workdays.md) — Uses Netflix as primary method to unwind after long workdays
+- [values-authorship-and-control-in-book-writing-over-outsourced-alternatives](user/values-authorship-and-control-in-book-writing-over-outsourced-alternatives.md) — Values authorship and control in book writing over outsourced alternatives
+- [work-overload-early-february-2024-stayed-up-till-1-am-for-several-nights-to-fini](experience/work-overload-early-february-2024-stayed-up-till-1-am-for-several-nights-to-fini.md) — Work overload early February 2024: stayed up till 1 am for several nights to finish projects

@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [attended-contemporary-art-space-gallery-opening-in-october-2022-spent-2-hours-th](experience/attended-contemporary-art-space-gallery-opening-in-october-2022-spent-2-hours-th.md) — Attended Contemporary Art Space gallery opening in October 2022, spent 2+ hours, thought-provoking work
+- [contemporary-fiction-recommendations-featuring-strong-female-protagonists-and-co](reference/contemporary-fiction-recommendations-featuring-strong-female-protagonists-and-co.md) — Contemporary fiction recommendations featuring strong female protagonists and complex relationships
+- [graphic-novel-recommendations-similar-to-saga-by-brian-k-vaughan-and-fiona-stapl](reference/graphic-novel-recommendations-similar-to-saga-by-brian-k-vaughan-and-fiona-stapl.md) — Graphic novel recommendations similar to Saga by Brian K. Vaughan and Fiona Staples
+- [houseplant-collection-peace-lily-succulent-fern-and-rose-bush-as-of-may-2023](user/houseplant-collection-peace-lily-succulent-fern-and-rose-bush-as-of-may-2023.md) — Houseplant collection: peace lily, succulent, fern, and rose bush (as of May 2023)
+- [interest-in-plant-gardening-and-houseplant-care](user/interest-in-plant-gardening-and-houseplant-care.md) — Interest in plant gardening and houseplant care
+- [interest-in-sustainable-and-ethical-fashion](user/interest-in-sustainable-and-ethical-fashion.md) — Interest in sustainable and ethical fashion
+- [interested-in-contemporary-art-especially-emerging-artists-and-installations](user/interested-in-contemporary-art-especially-emerging-artists-and-installations.md) — Interested in contemporary art, especially emerging artists and installations
+- [maintains-indoor-plant-collection-peace-lily-snake-plant-succulent-orchid-fern-a](user/maintains-indoor-plant-collection-peace-lily-snake-plant-succulent-orchid-fern-a.md) — Maintains indoor plant collection: peace lily, snake plant, succulent, orchid, fern, African violets, spider plant, basil
+- [online-platforms-for-discovering-contemporary-art-and-emerging-artists](reference/online-platforms-for-discovering-contemporary-art-and-emerging-artists.md) — Online platforms for discovering contemporary art and emerging artists
+- [owns-kala-ka-ce15s-ukulele-plays-regularly](user/owns-kala-ka-ce15s-ukulele-plays-regularly.md) — Owns Kala KA-CE15S ukulele, plays regularly
+- [peace-lily-care-guidelines](reference/peace-lily-care-guidelines.md) — Peace lily care guidelines
+- [peace-lily-struggling-with-leaf-drop-since-brought-home-basil-struggling-in-balc](experience/peace-lily-struggling-with-leaf-drop-since-brought-home-basil-struggling-in-balc.md) — Peace lily struggling with leaf drop since brought home, basil struggling in balcony sunlight, fern has pest issues
+- [plant-care-product-recommendations-fertilizers-humidifiers-potting-mixes](reference/plant-care-product-recommendations-fertilizers-humidifiers-potting-mixes.md) — Plant care product recommendations: fertilizers, humidifiers, potting mixes
+- [reading-the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid-started-2023-01](user/reading-the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid-started-2023-01.md) — Reading 'The Seven Husbands of Evelyn Hugo' by Taylor Jenkins Reid, started 2023-01-29
+- [sarah-johnson-emerging-artist-climate-change-installations](reference/sarah-johnson-emerging-artist-climate-change-installations.md) — Sarah Johnson - emerging artist, climate change installations
+- [selling-fender-deluxe-90-amp-and-yamaha-psr-e263-keyboard-separately](project/selling-fender-deluxe-90-amp-and-yamaha-psr-e263-keyboard-separately.md) — Selling Fender Deluxe 90 amp and Yamaha PSR-E263 keyboard separately
+- [setting-up-music-room-in-garage-with-soundproofing](project/setting-up-music-room-in-garage-with-soundproofing.md) — Setting up music room in garage with soundproofing
+- [sister-gave-snake-plant-as-gift-in-april-2023-thriving-with-current-care-routine](experience/sister-gave-snake-plant-as-gift-in-april-2023-thriving-with-current-care-routine.md) — Sister gave snake plant as gift in April 2023, thriving with current care routine
+- [sustainable-and-ethical-fashion-brands-recommended](reference/sustainable-and-ethical-fashion-brands-recommended.md) — Sustainable and ethical fashion brands recommended
+- [tips-for-recording-ukulele-videos-audio-lighting-microphone-positioning](reference/tips-for-recording-ukulele-videos-audio-lighting-microphone-positioning.md) — Tips for recording ukulele videos - audio, lighting, microphone positioning

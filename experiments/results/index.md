@@ -36,6 +36,18 @@ Smaller runs — the n=24 optimisation series and the n=12 per-host slices — a
 sleep comparison, and what it found about the drafter before it got to the exam, is in
 [p11-manage.md](p11-manage.md).
 
+## System-to-system rows
+
+Same 120 episodes, same host and judge, agentic exam; a fresh write pass per system, two exam
+replays each. These rows are end-to-end: the two systems differ in write and read together,
+so the guard refuses attribution between them by design — [p10](p10-memcore.md).
+
+| system | fingerprint | pooled | replays | runs | coverage |
+|---|---|---|---|---|---|
+| agent-memory W2 | `d231843a` (new write pass, not the ctx corpus) | 127/240 = 52.9% | 2 | p10am 64, p10am2 63 | 32/110 |
+| MemCore W2 | `memcore:52e6e1dc` | 86/240 = 35.8% | 2 | p10mc 44, p10mc2 42 | 37/110 |
+| W0 control | — | 7/120 = 5.8% | 1 | p10am | — |
+
 ## Two rows that had no write-up until now
 
 **`1c553b61` — the fixed exam (fxa, fxb).** The harness performs the recall itself, builds one

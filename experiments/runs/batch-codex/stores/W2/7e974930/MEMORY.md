@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [bass-flies-and-presentation-tactics-recommended-for-lake-fishing](reference/bass-flies-and-presentation-tactics-recommended-for-lake-fishing.md) — Bass flies and presentation tactics recommended for lake fishing
+- [bass-fly-fishing-setup-recommended-for-the-planned-lake-trip](reference/bass-fly-fishing-setup-recommended-for-the-planned-lake-trip.md) — Bass fly-fishing setup recommended for the planned lake trip
+- [candle-stock-was-almost-sold-out-on-2023-09-30](project/candle-stock-was-almost-sold-out-on-2023-09-30.md) — Candle stock was almost sold out on 2023-09-30
+- [completed-a-30-day-yoga-challenge-in-april-by-practicing-every-day](experience/completed-a-30-day-yoga-challenge-in-april-by-practicing-every-day.md) — Completed a 30-day yoga challenge in April by practicing every day
+- [considering-a-downtown-farmers-market-themed-gift-basket-with-best-selling-soaps](project/considering-a-downtown-farmers-market-themed-gift-basket-with-best-selling-soaps.md) — Considering a Downtown Farmers Market themed gift basket with best-selling soaps and candles
+- [considering-expanding-the-product-line-with-more-artisanal-soaps](project/considering-expanding-the-product-line-with-more-artisanal-soaps.md) — Considering expanding the product line with more artisanal soaps
+- [current-office-chair-is-from-ergohuman-and-has-been-great](user/current-office-chair-is-from-ergohuman-and-has-been-great.md) — Current office chair is from ERGOhuman and has been great
+- [decided-to-order-100-business-cards-as-a-starting-quantity](project/decided-to-order-100-business-cards-as-a-starting-quantity.md) — Decided to order 100 business cards as a starting quantity
+- [earned-200-at-mothers-day-market-on-2023-05-13](project/earned-200-at-mothers-day-market-on-2023-05-13.md) — Earned $200 at Mother’s Day Market on 2023-05-13
+- [earned-220-at-downtown-farmers-market-on-2023-03-18](project/earned-220-at-downtown-farmers-market-on-2023-03-18.md) — Earned $220 at Downtown Farmers Market on 2023-03-18
+- [earned-25-at-earth-day-market-on-2023-04-01](project/earned-25-at-earth-day-market-on-2023-04-01.md) — Earned $25 at Earth Day Market on 2023-04-01
+- [earned-350-at-downtown-farmers-market-on-2023-05-06](project/earned-350-at-downtown-farmers-market-on-2023-05-06.md) — Earned $350 at Downtown Farmers Market on 2023-05-06
+- [earned-400-at-foodie-festival-on-2023-05-20](project/earned-400-at-foodie-festival-on-2023-05-20.md) — Earned $400 at Foodie Festival on 2023-05-20
+- [earned-420-at-the-most-recent-downtown-farmers-market-visit-reported-on-2023-09](project/earned-420-at-the-most-recent-downtown-farmers-market-visit-reported-on-2023-09.md) — Earned $420 at the most recent Downtown Farmers Market visit reported on 2023-09-30
+- [earned-85-at-arts-and-crafts-fair-on-2023-03-25](project/earned-85-at-arts-and-crafts-fair-on-2023-03-25.md) — Earned $85 at Arts and Crafts Fair on 2023-03-25
+- [enjoys-landscape-and-nature-photography-and-is-comfortable-carrying-dslr-sized-g](user/enjoys-landscape-and-nature-photography-and-is-comfortable-carrying-dslr-sized-g.md) — Enjoys landscape and nature photography and is comfortable carrying DSLR-sized gear
+- [enjoys-live-music-and-comedy-shows](user/enjoys-live-music-and-comedy-shows.md) — Enjoys live music and comedy shows
+- [foodie-festival-visit-cleared-out-some-old-stock-before-2023-09-30](experience/foodie-festival-visit-cleared-out-some-old-stock-before-2023-09-30.md) — Foodie Festival visit cleared out some old stock before 2023-09-30
+- [has-had-good-experiences-with-ikea-and-plans-to-consider-ikea-dining-tables](user/has-had-good-experiences-with-ikea-and-plans-to-consider-ikea-dining-tables.md) — Has had good experiences with IKEA and plans to consider IKEA dining tables
+- [has-practiced-yoga-twice-a-week-since-march-1st](user/has-practiced-yoga-twice-a-week-since-march-1st.md) — Has practiced yoga twice a week since March 1st
+- [interested-in-singer-songwriter-and-folk-influenced-music](user/interested-in-singer-songwriter-and-folk-influenced-music.md) — Interested in singer-songwriter and folk-influenced music
+- [julien-baker-listening-recommendations-given-on-2023-03-16](reference/julien-baker-listening-recommendations-given-on-2023-03-16.md) — Julien Baker listening recommendations given on 2023-03-16
+- [leaning-toward-a-fujifilm-x-t30-ii-for-landscape-and-nature-photography-with-a-1](project/leaning-toward-a-fujifilm-x-t30-ii-for-landscape-and-nature-photography-with-a-1.md) — Leaning toward a Fujifilm X-T30 II for landscape and nature photography with a $1,500 body-and-lens budget
+- [leans-toward-a-reclaimed-wood-dining-table-but-wants-manageable-maintenance](user/leans-toward-a-reclaimed-wood-dining-table-but-wants-manageable-maintenance.md) — Leans toward a reclaimed wood dining table but wants manageable maintenance
+- [lost-5-pounds-during-triathlon-training](user/lost-5-pounds-during-triathlon-training.md) — Lost 5 pounds during triathlon training
+- [lucy-dacus-listening-recommendations-given-on-2023-03-16](reference/lucy-dacus-listening-recommendations-given-on-2023-03-16.md) — Lucy Dacus listening recommendations given on 2023-03-16
+- [owned-a-new-ikea-micke-desk-and-found-it-a-game-changer-for-the-home-office-by-2](user/owned-a-new-ikea-micke-desk-and-found-it-a-game-changer-for-the-home-office-by-2.md) — Owned a new IKEA MICKE desk and found it a game-changer for the home office by 2023-03-12
+- [owned-a-west-elm-harmony-sofa-in-dark-gray-velvet-by-2023-03-12](user/owned-a-west-elm-harmony-sofa-in-dark-gray-velvet-by-2023-03-12.md) — Owned a West Elm Harmony Sofa in dark gray velvet by 2023-03-12
+- [phoebe-bridgers-listening-recommendations-given-on-2023-03-16](reference/phoebe-bridgers-listening-recommendations-given-on-2023-03-16.md) — Phoebe Bridgers listening recommendations given on 2023-03-16
+- [planned-a-nearby-lake-bass-fishing-trip-for-early-april-2023](user/planned-a-nearby-lake-bass-fishing-trip-for-early-april-2023.md) — Planned a nearby-lake bass fishing trip for early April 2023
+- [plans-a-points-based-tiered-loyalty-program-with-discounts-or-free-products](project/plans-a-points-based-tiered-loyalty-program-with-discounts-or-free-products.md) — Plans a points-based tiered loyalty program with discounts or free products
+- [plans-to-shop-west-elm-and-crate-barrel-for-a-coffee-table](user/plans-to-shop-west-elm-and-crate-barrel-for-a-coffee-table.md) — Plans to shop West Elm and Crate & Barrel for a coffee table
+- [ran-a-marathon-on-april-15th-and-finished-with-a-personal-best-time](user/ran-a-marathon-on-april-15th-and-finished-with-a-personal-best-time.md) — Ran a marathon on April 15th and finished with a personal best time
+- [rearranged-living-room-into-a-more-conversational-layout-and-wanted-a-new-coffee](user/rearranged-living-room-into-a-more-conversational-layout-and-wanted-a-new-coffee.md) — Rearranged living room into a more conversational layout and wanted a new coffee table
+- [resting-heart-rate-decreased-by-10-beats-per-minute-during-triathlon-training](user/resting-heart-rate-decreased-by-10-beats-per-minute-during-triathlon-training.md) — Resting heart rate decreased by 10 beats per minute during triathlon training
+- [returned-to-photography-after-a-beach-trip-with-friends-around-2023-02-13-and-ph](user/returned-to-photography-after-a-beach-trip-with-friends-around-2023-02-13-and-ph.md) — Returned to photography after a beach trip with friends around 2023-02-13 and photographed the sunset
+- [runs-a-small-business-selling-homemade-jams-candles-and-soaps](user/runs-a-small-business-selling-homemade-jams-candles-and-soaps.md) — Runs a small business selling homemade jams, candles, and soaps
+- [saved-around-10-songs-from-spotify-discover-weekly-on-2023-03-13](user/saved-around-10-songs-from-spotify-discover-weekly-on-2023-03-13.md) — Saved around 10 songs from Spotify Discover Weekly on 2023-03-13
+- [strawberry-jam-is-one-of-the-businesss-best-selling-flavors](project/strawberry-jam-is-one-of-the-businesss-best-selling-flavors.md) — Strawberry jam is one of the business’s best-selling flavors

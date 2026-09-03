@@ -1,0 +1,91 @@
+## Session sharegpt_RjO1Toi_66 — 2023/05/21 (Sun) 04:58
+user: extract frames and the frame elements from this sentence: {"sentence": "After both say “no,” the soldier—standing near a small building painted in the Russian flag’s white, blue and red stripes—throws the gun onto the ground with the words “get the fout of here” and gives the gun a couple of kicks, to the delighted guffaws of the guy filming.", "frames": [{"name": "Statement", "elements": [{"name": "Speaker", "text": "both"}, {"name": "Message", "text": "no"}]}, {"name": "Size", "elements": [{"name": "Entity", "text": "building"}]}, {"name": "Buildings", "elements": [{"name": "Descriptor", "text": "small"}, {"name": "Building", "text": "building"}]}, {"name": "Color", "elements": [{"name": "Color", "text": "white"}, {"name": "Entity", "text": "stripes"}]}, {"name": "Color", "elements": [{"name": "Color", "text": "blue"}, {"name": "Entity", "text": "stripes"}]}, {"name": "Color", "elements": [{"name": "Color", "text": "red"}, {"name": "Entity", "text": "stripes"}]}, {"name": "Weapon", "elements": [{"name": "Weapon", "text": "gun"}]}, {"name": "Departing", "elements": [{"name": "Theme", "text": "the f"}, {"name": "Source", "text": "of here"}]}, {"name": "Departing", "elements": [{"name": "Theme", "text": "the f"}, {"name": "Source", "text": "of here"}]}, {"name": "Departing", "elements": [{"name": "Theme", "text": "the f"}, {"name": "Source", "text": "of here"}]}, {"name": "Weapon", "elements": [{"name": "Weapon", "text": "gun"}]}, {"name": "Cardinal\_numbers", "elements": [{"name": "Number", "text": "couple"}, {"name": "Entity", "text": "of kicks"}]}, {"name": "Emotion\_directed", "elements": [{"name": "Experiencer", "text": "guffaws"}]}, {"name": "People", "elements": [{"name": "Person", "text": "guy"}]}]}
+assistant: Frame extraction:
+
+1. Statement: "both say 'no'"
+	* Speaker: "both"
+	* Message: "no"
+2. Size: "a small building"
+	* Entity: "building"
+3. Buildings: "small building"
+	* Descriptor: "small"
+	* Building: "building"
+4. Color: "white, blue and red stripes"
+	* Color: "white"
+	* Entity: "stripes"
+	* Color: "blue"
+	* Entity: "stripes"
+	* Color: "red"
+	* Entity: "stripes"
+5. Weapon: "the gun"
+	* Weapon: "gun"
+6. Departing: "get the fout of here"
+	* Theme: "the f"
+	* Source: "of here"
+	* Theme: "the f"
+	* Source: "of here"
+	* Theme: "the f"
+	* Source: "of here"
+7. Weapon: "the gun"
+	* Weapon: "gun"
+8. Cardinal\_numbers: "a couple of kicks"
+	* Number: "couple"
+	* Entity: "of kicks"
+9. Emotion\_directed: "delighted guffaws"
+	* Experiencer: "guffaws"
+10. People: "the guy filming"
+* Person: "guy"
+user: extract frames and the frame elements from this sentence: {"sentence": "Alexander Khodakovsky, Donbas separatist commander: “The reason for what is happening, first and foremost, is not a lack of people but careless use of people—that is, how [poorly] the process is organized.", "frames": [{"name": "Leadership", "elements": [{"name": "Governed", "text": "Donbas separatist"}]}, {"name": "Causation", "elements": [{"name": "Effect", "text": "for what is happening"}, {"name": "Cause", "text": "is not a lack of people but careless use of people—that is, how [poorly] the process is organized"}]}, {"name": "Event", "elements": [{"name": "Event", "text": "what"}]}, {"name": "Possession", "elements": [{"name": "Possession", "text": "of people"}]}, {"name": "People", "elements": [{"name": "Person", "text": "people"}]}, {"name": "Using", "elements": [{"name": "Manner", "text": "careless"}, {"name": "Instrument", "text": "of people"}]}, {"name": "People", "elements": [{"name": "Person", "text": "people"}]}, {"name": "Process", "elements": [{"name": "Process", "text": "process"}]}, {"name": "Organization", "elements": [{"name": "Organization", "text": "how"}, {"name": "Members", "text": "the process"}]}]}
+assistant: Frames:
+
+* Leadership
+* Causation
+* Event
+* Possession
+* Using
+* People
+* Process
+* Organization
+
+Frame elements:
+
+* Leadership:
+	+ Governed: "Donbas separatist"
+* Causation:
+	+ Effect: "for what is happening"
+	+ Cause: "is not a lack of people but careless use of people—that is, how [poorly] the process is organized"
+* Event:
+	+ Event: "what"
+* Possession:
+	+ Possession: "of people"
+* Using:
+	+ Manner: "careless"
+	+ Instrument: "of people"
+* People:
+	+ Person: "people"
+* Process:
+	+ Process: "process"
+* Organization:
+	+ Organization: "how"
+	+ Members: "the process"
+user: extract frames and the frame elements from this sentence: {"sentence": "If this approach stays in place, the shortage will be constant, no matter how many people you mobilize, and Russia will be hit by a wave of killed-in-action notices without getting Russia desired result, which will lead to a serious crisis.", "frames": [{"name": "Means", "elements": [{"name": "Means", "text": "approach"}]}, {"name": "State\_continue", "elements": [{"name": "Entity", "text": "this approach"}, {"name": "State", "text": "in place"}]}, {"name": "Event", "elements": [{"name": "Event", "text": "this approach"}]}, {"name": "People", "elements": [{"name": "Person", "text": "people"}]}, {"name": "Impact", "elements": [{"name": "Impactee", "text": "Russia"}, {"name": "Impactor", "text": "by a wave of killed-in-action notices"}]}, {"name": "Getting", "elements": [{"name": "Theme", "text": "Russia"}, {"name": "Theme", "text": "desired result"}]}, {"name": "Causation", "elements": [{"name": "Cause", "text": "cause"}, {"name": "Effect", "text": "a serious crisis"}]}]}
+assistant: Frames and their elements in the sentence are:
+
+1. Means: {"name": "Means", "elements": [{"name": "Means", "text": "approach"}]}
+	* Means: approach
+2. State\_continue: {"name": "State\_continue", "elements": [{"name": "Entity", "text": "this approach"}, {"name": "State", "text": "in place"}]}
+	* Entity: this approach
+	* State: in place
+3. Event: {"name": "Event", "elements": [{"name": "Event", "text": "this approach"}]}
+	* Event: this approach
+4. People: {"name": "People", "elements": [{"name": "Person", "text": "people"}]}
+	* Person: people
+5. Impact: {"name": "Impact", "elements": [{"name": "Impactee", "text": "Russia"}, {"name": "Impactor", "text": "by a wave of killed-in-action notices"}]}
+	* Impactee: Russia
+	* Impactor: by a wave of killed-in-action notices
+6. Getting: {"name": "Getting", "elements": [{"name": "Theme", "text": "Russia"}, {"name": "Theme", "text": "desired result"}]}
+	* Theme: Russia
+	* Theme: desired result
+7. Causation: {"name": "Causation", "elements": [{"name": "Cause", "text": "cause"}, {"name": "Effect", "text": "a serious crisis"}]}
+	* Cause: cause
+	* Effect: a serious crisis

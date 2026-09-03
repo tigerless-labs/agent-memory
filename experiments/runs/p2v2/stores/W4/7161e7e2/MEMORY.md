@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [book-focused-instagram-account-with-quarterly-content-strategy](project/book-focused-instagram-account-with-quarterly-content-strategy.md) — Book-focused Instagram account with quarterly content strategy
+- [canister-filter-recommendations-for-20-gallon-aquariums](reference/canister-filter-recommendations-for-20-gallon-aquariums.md) — Canister filter recommendations for 20-gallon aquariums
+- [considering-switching-car-insurance-from-geico-to-progressive-or-state-farm](user/considering-switching-car-insurance-from-geico-to-progressive-or-state-farm.md) — Considering switching car insurance from Geico to Progressive or State Farm
+- [drives-a-silver-honda-civic-with-advanced-safety-features-lane-departure-warning](user/drives-a-silver-honda-civic-with-advanced-safety-features-lane-departure-warning.md) — Drives a silver Honda Civic with advanced safety features (lane departure warning, blind spot detection)
+- [gm-social-media-team-7-agents-with-4-shift-rotation](project/gm-social-media-team-7-agents-with-4-shift-rotation.md) — GM social media team: 7 agents with 4-shift rotation
+- [interested-in-christian-theology-biblical-studies-and-worship-planning](user/interested-in-christian-theology-biblical-studies-and-worship-planning.md) — Interested in Christian theology, biblical studies, and worship planning
+- [interested-in-taking-improv-classes-or-workshops](user/interested-in-taking-improv-classes-or-workshops.md) — Interested in taking improv classes or workshops
+- [learning-about-formula-1-planning-viewing-party](user/learning-about-formula-1-planning-viewing-party.md) — Learning about Formula 1, planning viewing party
+- [lives-in-kansas-city-missouri](user/lives-in-kansas-city-missouri.md) — Lives in Kansas City, Missouri
+- [musical-theater-enthusiast-loves-irreverent-humor-and-catchy-music](user/musical-theater-enthusiast-loves-irreverent-humor-and-catchy-music.md) — Musical theater enthusiast, loves irreverent humor and catchy music
+- [musical-theater-recommendations-irreverent-humor-musicals](reference/musical-theater-recommendations-irreverent-humor-musicals.md) — Musical theater recommendations: irreverent humor musicals
+- [owns-20-gallon-aquarium-set-up-for-3-months](user/owns-20-gallon-aquarium-set-up-for-3-months.md) — Owns 20-gallon aquarium, set up for 3 months
+- [participates-in-weekly-bookclubchat-on-twitter](user/participates-in-weekly-bookclubchat-on-twitter.md) — Participates in weekly #BookClubChat on Twitter
+- [planning-europe-trip-to-frankfurt-july-or-august-2023](user/planning-europe-trip-to-frankfurt-july-or-august-2023.md) — Planning Europe trip to Frankfurt July or August 2023
+- [recently-started-soapstone-carving-interested-in-learning-techniques-and-finding](user/recently-started-soapstone-carving-interested-in-learning-techniques-and-finding.md) — Recently started soapstone carving; interested in learning techniques and finding artistic inspiration
+- [sports-bars-in-kansas-city-missouri](reference/sports-bars-in-kansas-city-missouri.md) — Sports bars in Kansas City, Missouri
+- [uses-midjourney-for-ai-generated-visual-content](user/uses-midjourney-for-ai-generated-visual-content.md) — Uses Midjourney for AI-generated visual content
+- [values-sustainable-tourism-and-environmental-protection](user/values-sustainable-tourism-and-environmental-protection.md) — Values sustainable tourism and environmental protection
+- [watched-nfl-playoff-game-at-sports-bar-on-january-15-2023](experience/watched-nfl-playoff-game-at-sports-bar-on-january-15-2023.md) — Watched NFL playoff game at sports bar on January 15, 2023

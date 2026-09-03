@@ -1,0 +1,8 @@
+# MEMORY.md
+
+- [experiencing-pollen-allergy-symptoms-sneezing-runny-stuffy-nose-itching-watery-s](user/experiencing-pollen-allergy-symptoms-sneezing-runny-stuffy-nose-itching-watery-s.md) — Experiencing pollen allergy symptoms: sneezing, runny/stuffy nose, itching, watery/swollen eyes, cough, postnasal drip, fatigue, headache
+- [interested-in-attending-local-hip-hop-dance-events-battles-and-workshops-to-impr](project/interested-in-attending-local-hip-hop-dance-events-battles-and-workshops-to-impr.md) — Interested in attending local hip hop dance events, battles, and workshops to improve skills and network
+- [over-the-counter-medications-for-pollen-allergy-symptom-relief](reference/over-the-counter-medications-for-pollen-allergy-symptom-relief.md) — Over-the-counter medications for pollen allergy symptom relief
+- [searching-for-other-hip-hop-dance-studios-with-high-energy-street-dance-vibe-pla](project/searching-for-other-hip-hop-dance-studios-with-high-energy-street-dance-vibe-pla.md) — Searching for other hip hop dance studios with high-energy street dance vibe; planning to ask Jamal for recommendations
+- [spotify-dance-workout-playlists-for-hip-hop-beast-mode-dance-workout-hip-hop-wor](reference/spotify-dance-workout-playlists-for-hip-hop-beast-mode-dance-workout-hip-hop-wor.md) — Spotify dance workout playlists for hip hop: Beast Mode, Dance Workout, Hip Hop Workout, Cardio Kickstart, Dance Party Workout, Hip Hop HIIT, Sweat Remix
+- [takes-hip-hop-dance-classes-on-saturdays-at-street-beats-studio-with-instructor](user/takes-hip-hop-dance-classes-on-saturdays-at-street-beats-studio-with-instructor.md) — Takes hip hop dance classes on Saturdays at Street Beats studio with instructor Jamal

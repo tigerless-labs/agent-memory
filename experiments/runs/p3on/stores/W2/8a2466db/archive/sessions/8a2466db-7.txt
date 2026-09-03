@@ -1,0 +1,78 @@
+## Session sharegpt_9fgo8nM_8 — 2023/05/21 (Sun) 04:24
+user: Analyze my resume for ATS Screening : VIJAY KANASE (H1B Approved)
+Email: vkanase@okstate.edu LinkedIn-https://www.linkedin.com/in/vijay-kanase/ Phone: 405-780-5053
+EDUCATION:
+
+Master of Science in Industrial Engineering and Management August 2019 - May 2021
+ Oklahoma State University – Stillwater, OK GPA 3.7/4.0
+• Supply Chain Strategy • Integrated Manufacturing & Planning • Data Analytics & Visualization
+
+Bachelor of Science in Mechanical Engineering July 2013 – July 2017
+University of Pune, India GPA 3.6/4.0
+• Manufacturing Processes • Industrial Engineering • Operation Research
+
+SKILLS:
+• Data Analytics: MySQL, Advanced Excel, SQL, Tableau
+• Statistical Analysis: Regression, Predictive Modeling
+• Supply Chain: Forecasting, Logistics, Network Optimization • Problem-Solving: Root Cause Analysis, Value Stream Mapping
+• Communication: Business Process Mapping & Periodic Business Presentations
+• Technical: SAP, Zoho Projects, Microsoft Office Suite
+
+SUPPLY CHAIN EXPERIENCE:
+ 
+Supply Chain Analyst – Salad and Go, AZ, USA Mar 2022 – Present 
+• Created labour and transportation forecasting models for financial & operational planning, reducing costs and driving efficiency.
+• Responsible for supporting ad hoc modelling and developing tools for production, P&L, logistics, and distribution activities.
+• Gathered, manipulated, cleaned, and analysed structured and unstructured data sources helping leaders in supply chain to 
+• reduce costs and drive efficiency.
+• Developed open action tool using Tableau and Azure data studio to monitor & collect data on current operations across supply
+chain including operations, warehousing, storage, and delivery.
+• Used 3TO for supply chain network modelling to choose a facility in West coast & Southeast region of US worth $60M.
+• Used SQL to write queries & create database which acted as a backend for network optimization software – 3TO
+
+Supply Chain Analyst – Customer Success – - Supply Chain Wizard, NJ, USA July 2021 – December 2021 
+• Continuously monitor multiple client statuses to ensure issue-free usage of the products like OEE Tracker, Digital Logbook.
+• Perform OEE analysis to measure availability, quality, and performance to administer the opportunity for improvement.
+• Provided suggestions to client via business process mapping using data analysis via Excel and visualizations via Tableau.
+• Resolved complex business problems using creative problem solving & organized periodic business presentations for clients.
+• Managed both functional and non-functional business requirements as well as new requested requirements using JIRA
+
+Process Engineer – Wilo Mather & Platt, Pune, India Oct 2017 – April 2018
+• Conduct Root cause analysis and implement corrective actions to address quality issues and prevent recurrence.
+• Achieved 20% productivity increase by creating Value Stream Map for pump assembly line to eliminate NVA.
+
+Graduate Trainee – Vishwaraj Industries, Pune, India May 2018 – April 2019
+• Analyzed supplier performance data to identify areas for improvement and develop corrective actions.
+• Provided training and guidance to suppliers on quality requirements, standards, and procedures.
+
+Manufacturing an ATV, SAE BAJA, University of Pune, India Project Duration: Jul 2013 – May 2017
+• Lead and managed a team of 25 individuals securing 9 national awards & stood 6th overall in world for SAE BAJA International.
+• Responsible for supply chain management at sub assembly level, finalize quotations and supplier negotiations for material procurement, manufacturing of all subsystems system, and material testing.
+
+ADDITIONAL PROFESSIONAL EXPERIENCE:
+
+Graduate Research Assistant – Oklahoma State University – Stillwater, OK August 2021 – July 2021 
+• Analysed experiment data and equipment specifications to establish standard operating procedures for individual experiments
+
+CAMPUS PROJECTS AND ACTIVITIES:
+
+Transportation Modelling Network optimization in Supply Chain Guru 
+• Tasked to develop a transportation network optimization model in Llamasoft Supply Chain Guru to redesign the DC network.
+• Created a dashboard and visualized the comparison of scenarios to maximize percent of demand served with 97% service level
+
+Implementing Relational Database Management System Using MySQL and MS Access 
+• Implemented a RDBMS (M-Trak) in Microsoft-access and MySQL to record, edit & generate reports using MySQL queries. 
+
+Head of Sports (Badminton) - Oklahoma State University – Elected President August 2020 – May 2021
+• Managed and organized all facets of sport events including budgeting, logistics, team building & execution.
+assistant: Overall, your resume seems well-tailored to the supply chain industry, with relevant experience and education in the field. However, to ensure it passes ATS screening, you might want to make a few changes.
+
+First, consider adding a summary or objective section at the top of your resume that highlights your key skills and experience. This will make it easier for an ATS to quickly identify whether you are a good fit for the role.
+
+Second, make sure to use keywords from the job description throughout your resume. This will help an ATS recognize that you have the required skills and experience for the role.
+
+Third, try to quantify your accomplishments as much as possible. For example, instead of saying that you "achieved a 20% productivity increase," you could say that you "increased productivity by 20% by implementing a Value Stream Map for the pump assembly line, resulting in a cost savings of $X per year."
+
+Finally, consider using a simpler format for your resume, with clear headings and bullet points. This will make it easier for an ATS to scan and parse your resume.
+
+Overall, your resume looks promising, and with a few tweaks, you should be able to optimize it for ATS screening. Good luck with your job search!

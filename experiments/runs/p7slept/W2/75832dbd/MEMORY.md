@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [citrus-bitters-brands-that-pair-well-with-negroni](reference/citrus-bitters-brands-that-pair-well-with-negroni.md) — Citrus bitters brands that pair well with Negroni
+- [citrus-garnish-options-for-negroni-cocktails](reference/citrus-garnish-options-for-negroni-cocktails.md) — Citrus garnish options for Negroni cocktails
+- [meal-preps-on-sundays-with-healthy-lunch-containers](user/meal-preps-on-sundays-with-healthy-lunch-containers.md) — Meal preps on Sundays with healthy lunch containers
+- [weight-loss-motivation-strategies-set-small-goals-track-progress-celebrate-non-s](reference/weight-loss-motivation-strategies-set-small-goals-track-progress-celebrate-non-s.md) — Weight loss motivation strategies: set small goals, track progress, celebrate non-scale victories, practice self-care
+- [working-in-deep-learning-for-medical-image-analysis-researching-explainable-ai-m](user/working-in-deep-learning-for-medical-image-analysis-researching-explainable-ai-m.md) — Working in deep learning for medical image analysis; researching explainable AI, multi-modal fusion, transfer learning, and domain adaptation
+- [research-papers-on-explainable-ai-and-advanced-topics-in-medical-image-analysis](reference/research-papers-on-explainable-ai-and-advanced-topics-in-medical-image-analysis.md) — Research papers on explainable AI and advanced topics in medical image analysis
+- [classic-negroni-recipe-with-traditional-1-1-1-ratio](reference/classic-negroni-recipe-with-traditional-1-1-1-ratio.md) — Classic Negroni recipe with traditional 1:1:1 ratio
+- [considering-buying-a-ukulele-researched-multiple-models](project/considering-buying-a-ukulele-researched-multiple-models.md) — Considering buying a ukulele; researched multiple models
+- [content-seo-metadata-for-deed-of-release-guide-for-nsw-homeowners](project/content-seo-metadata-for-deed-of-release-guide-for-nsw-homeowners.md) — Content SEO metadata for Deed of Release guide for NSW homeowners
+- [gin-recommendations-for-negroni-cocktails](reference/gin-recommendations-for-negroni-cocktails.md) — Gin recommendations for Negroni cocktails
+- [go-green-twitter-campaign-with-daily-plastic-waste-reduction-updates](project/go-green-twitter-campaign-with-daily-plastic-waste-reduction-updates.md) — Go Green Twitter campaign with daily plastic waste reduction updates
+- [healthy-weight-loss-meal-plan-example-eggs-and-vegetables-lean-protein-salmon-da](reference/healthy-weight-loss-meal-plan-example-eggs-and-vegetables-lean-protein-salmon-da.md) — Healthy weight loss meal plan example: eggs and vegetables, lean protein, salmon, dark chocolate
+- [interested-in-uk-film-investing-and-investor-website-content](user/interested-in-uk-film-investing-and-investor-website-content.md) — Interested in UK film investing and investor website content
+- [key-points-for-uk-film-investment-blog-content](reference/key-points-for-uk-film-investment-blog-content.md) — Key points for UK film investment blog content
+- [make-grilled-chicken-and-veggie-containers-with-mushrooms](project/make-grilled-chicken-and-veggie-containers-with-mushrooms.md) — Make Grilled Chicken and Veggie Containers with mushrooms
+- [medical-image-segmentation-datasets-for-deep-learning-research](reference/medical-image-segmentation-datasets-for-deep-learning-research.md) — Medical image segmentation datasets for deep learning research
+- [planned-twitter-chat-on-sustainable-fashion-with-maxine-bedat](project/planned-twitter-chat-on-sustainable-fashion-with-maxine-bedat.md) — Planned Twitter chat on sustainable fashion with Maxine Bédat
+- [prefers-contemporary-romance-with-strong-female-protagonists-detective-crime-sto](user/prefers-contemporary-romance-with-strong-female-protagonists-detective-crime-sto.md) — Prefers contemporary Romance with strong female protagonists, detective/crime stories, and steamy content; dislikes The Help
+- [prefers-pan-seared-chicken-breast-with-italian-seasoning-and-olive-oil](user/prefers-pan-seared-chicken-breast-with-italian-seasoning-and-olive-oil.md) — Prefers pan-seared chicken breast with Italian seasoning and olive oil
+- [prefers-warm-balanced-tone-in-instruments](user/prefers-warm-balanced-tone-in-instruments.md) — Prefers warm, balanced tone in instruments
+- [redistricting-strategies-and-state-implementations-for-fair-electoral-processes](reference/redistricting-strategies-and-state-implementations-for-fair-electoral-processes.md) — Redistricting strategies and state implementations for fair electoral processes
+- [struggles-with-weight-loss-motivation-prefers-sustainable-approach-over-rapid-re](user/struggles-with-weight-loss-motivation-prefers-sustainable-approach-over-rapid-re.md) — Struggles with weight loss motivation; prefers sustainable approach over rapid results; wants to keep favorite foods in diet
+- [sweet-vermouth-recommendations-for-negroni-cocktails](reference/sweet-vermouth-recommendations-for-negroni-cocktails.md) — Sweet vermouth recommendations for Negroni cocktails
+- [twitter-hashtags-and-contacts-for-sustainable-fashion-campaigns](reference/twitter-hashtags-and-contacts-for-sustainable-fashion-campaigns.md) — Twitter hashtags and contacts for sustainable fashion campaigns
+- [website-content-plan-for-uk-investors](project/website-content-plan-for-uk-investors.md) — Website content plan for UK investors

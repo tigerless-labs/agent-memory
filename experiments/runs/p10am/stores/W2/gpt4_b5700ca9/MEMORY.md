@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [air-purifier-is-old-considering-purchase-of-replacement-model](project/air-purifier-is-old-considering-purchase-of-replacement-model.md) — Air purifier is old; considering purchase of replacement model
+- [basic-algebra-flipped-classroom-design-proposal](reference/basic-algebra-flipped-classroom-design-proposal.md) — Basic algebra flipped classroom design proposal
+- [completed-the-last-of-us-part-ii-with-5-hour-gaming-session](experience/completed-the-last-of-us-part-ii-with-5-hour-gaming-session.md) — Completed The Last of Us Part II with 5-hour gaming session
+- [consulted-on-flipped-classroom-design-for-basic-algebra](experience/consulted-on-flipped-classroom-design-for-basic-algebra.md) — Consulted on flipped classroom design for basic algebra
+- [currently-working-on-integrating-technology-into-classroom](user/currently-working-on-integrating-technology-into-classroom.md) — Currently working on integrating technology into classroom
+- [d-d-5e-language-phonetics-how-exotic-and-standard-languages-sound-to-non-speaker](reference/d-d-5e-language-phonetics-how-exotic-and-standard-languages-sound-to-non-speaker.md) — D&D 5e language phonetics: how exotic and standard languages sound to non-speakers
+- [has-allergies](user/has-allergies.md) — Has allergies
+- [has-experience-flipping-courses-in-sciences-and-social-sciences](user/has-experience-flipping-courses-in-sciences-and-social-sciences.md) — Has experience flipping courses in sciences and social sciences
+- [has-high-systolic-blood-pressure](user/has-high-systolic-blood-pressure.md) — Has high systolic blood pressure
+- [healthy-high-fat-foods-with-nutritional-benefits-and-meal-ideas](reference/healthy-high-fat-foods-with-nutritional-benefits-and-meal-ideas.md) — Healthy high-fat foods with nutritional benefits and meal ideas
+- [interested-in-avocados-and-healthy-high-fat-foods-for-weight-management-and-nutr](user/interested-in-avocados-and-healthy-high-fat-foods-for-weight-management-and-nutr.md) — Interested in avocados and healthy high-fat foods for weight management and nutrition
+- [owns-fitbit-charge-3-fitness-tracker](user/owns-fitbit-charge-3-fitness-tracker.md) — Owns Fitbit Charge 3 fitness tracker
+- [planning-to-purchase-akracing-core-series-gaming-chair](project/planning-to-purchase-akracing-core-series-gaming-chair.md) — Planning to purchase AKRacing Core Series gaming chair
+- [planning-to-purchase-arozzi-verona-pro-gaming-desk](project/planning-to-purchase-arozzi-verona-pro-gaming-desk.md) — Planning to purchase Arozzi Verona Pro gaming desk
+- [plays-overwatch-online-with-friends](project/plays-overwatch-online-with-friends.md) — Plays Overwatch online with friends
+- [takes-omega-3-supplements-daily-noticed-improvements-in-skin-and-hair](user/takes-omega-3-supplements-daily-noticed-improvements-in-skin-and-hair.md) — Takes omega-3 supplements daily; noticed improvements in skin and hair
+- [uses-blood-pressure-monitor-to-track-readings](user/uses-blood-pressure-monitor-to-track-readings.md) — Uses blood pressure monitor to track readings
+- [watches-twitch-streams-to-learn-gaming-strategies](user/watches-twitch-streams-to-learn-gaming-strategies.md) — Watches Twitch streams to learn gaming strategies
+- [yoga-mat-is-worn-out-needs-replacement](project/yoga-mat-is-worn-out-needs-replacement.md) — Yoga mat is worn out; needs replacement

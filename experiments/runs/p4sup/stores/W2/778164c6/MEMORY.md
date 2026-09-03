@@ -1,0 +1,24 @@
+# MEMORY.md
+
+- [attends-concerts-and-interested-in-saving-money-on-tickets](user/attends-concerts-and-interested-in-saving-money-on-tickets.md) — Attends concerts and interested in saving money on tickets
+- [brand-collaboration-values-mutual-benefit-content-control-engagement-strategy](user/brand-collaboration-values-mutual-benefit-content-control-engagement-strategy.md) — Brand collaboration values: mutual benefit, content control, engagement strategy
+- [buying-a-home-with-partner-mortgage-pre-approved-closing-imminent-may-2023](project/buying-a-home-with-partner-mortgage-pre-approved-closing-imminent-may-2023.md) — Buying a home with partner, mortgage pre-approved, closing imminent (May 2023)
+- [chose-mendeley-for-thesis-reference-management](project/chose-mendeley-for-thesis-reference-management.md) — Chose Mendeley for thesis reference management
+- [concert-ticket-saving-strategies-official-sources-presales-early-bird-discounts](reference/concert-ticket-saving-strategies-official-sources-presales-early-bird-discounts.md) — Concert ticket-saving strategies: official sources, presales, early bird discounts, resale marketplaces
+- [creates-content-on-social-media-marketing-book-reviews-and-fitness](user/creates-content-on-social-media-marketing-book-reviews-and-fitness.md) — Creates content on social media marketing, book reviews, and fitness
+- [enjoys-open-world-games-and-values-exploration-freedom](user/enjoys-open-world-games-and-values-exploration-freedom.md) — Enjoys open-world games and values exploration freedom
+- [hybrid-home-security-camera-setup-wired-at-front-back-doors-wireless-inside](project/hybrid-home-security-camera-setup-wired-at-front-back-doors-wireless-inside.md) — Hybrid home security camera setup: wired at front/back doors, wireless inside
+- [interested-in-supporting-organizations-that-protect-amazon-rainforest-and-indige](user/interested-in-supporting-organizations-that-protect-amazon-rainforest-and-indige.md) — Interested in supporting organizations that protect Amazon rainforest and indigenous communities
+- [loves-jerk-chicken-and-caribbean-cuisine](user/loves-jerk-chicken-and-caribbean-cuisine.md) — Loves jerk chicken and Caribbean cuisine
+- [loves-snapper-fish-and-caribbean-fish-dishes](user/loves-snapper-fish-and-caribbean-fish-dishes.md) — Loves snapper fish and Caribbean fish dishes
+- [music-festival-packing-checklist-essentials-food-personal-items](reference/music-festival-packing-checklist-essentials-food-personal-items.md) — Music festival packing checklist: essentials, food, personal items
+- [organizations-protecting-amazon-rainforest-and-indigenous-communities-amazon-wat](reference/organizations-protecting-amazon-rainforest-and-indigenous-communities-amazon-wat.md) — Organizations protecting Amazon rainforest and indigenous communities: Amazon Watch, Rainforest Trust, WWF, Cultural Survival, Greenpeace
+- [planning-to-attend-a-music-festival-soon](project/planning-to-attend-a-music-festival-soon.md) — Planning to attend a music festival soon
+- [popular-jamaican-dishes-to-try-escovitch-fish-curry-goat-festival-and-fried-fish](reference/popular-jamaican-dishes-to-try-escovitch-fish-curry-goat-festival-and-fried-fish.md) — Popular Jamaican dishes to try: Escovitch Fish, Curry Goat, Festival and Fried Fish, Brown Stew Chicken, Oxtail Stew
+- [prefers-smart-door-locks-with-deadbolts-for-home-security](user/prefers-smart-door-locks-with-deadbolts-for-home-security.md) — Prefers smart door locks with deadbolts for home security
+- [purchased-the-1975-concert-ticket-for-120-from-resale-website-in-may-2023](experience/purchased-the-1975-concert-ticket-for-120-from-resale-website-in-may-2023.md) — Purchased The 1975 concert ticket for $120 from resale website in May 2023
+- [received-antique-porcelain-vase-from-aunt-that-belonged-to-great-great-grandmoth](experience/received-antique-porcelain-vase-from-aunt-that-belonged-to-great-great-grandmoth.md) — Received antique porcelain vase from aunt that belonged to great-great-grandmother
+- [reference-management-tools-comparison-mendeley-zotero-endnote-citavi-papers-read](reference/reference-management-tools-comparison-mendeley-zotero-endnote-citavi-papers-read.md) — Reference management tools comparison: Mendeley, Zotero, EndNote, Citavi, Papers, ReadCube, RefWorks
+- [refinishing-old-oak-coffee-table-and-taking-antique-furniture-restoration-classe](project/refinishing-old-oak-coffee-table-and-taking-antique-furniture-restoration-classe.md) — Refinishing old oak coffee table and taking antique furniture restoration classes
+- [the-1975-concert-playlist-suggestions-and-structure](reference/the-1975-concert-playlist-suggestions-and-structure.md) — The 1975 concert playlist suggestions and structure
+- [writing-thesis-with-literature-review-chapter-in-progress](project/writing-thesis-with-literature-review-chapter-in-progress.md) — Writing thesis with literature review chapter in progress

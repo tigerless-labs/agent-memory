@@ -1,0 +1,39 @@
+# MEMORY.md
+
+- [caught-3-pound-trout-on-lake-tahoe-with-silver-lure](experience/caught-3-pound-trout-on-lake-tahoe-with-silver-lure.md) — Caught 3-pound trout on Lake Tahoe with silver lure
+- [citrus-recommendations-for-gin-and-lavender-cocktails](reference/citrus-recommendations-for-gin-and-lavender-cocktails.md) — Citrus recommendations for gin and lavender cocktails
+- [cocktail-experiments-hendrick-s-gin-with-herbs-and-citrus](user/cocktail-experiments-hendrick-s-gin-with-herbs-and-citrus.md) — Cocktail experiments: Hendrick's gin with herbs and citrus
+- [cocktail-recipes-and-infusion-techniques-from-nov-2023-session](reference/cocktail-recipes-and-infusion-techniques-from-nov-2023-session.md) — Cocktail recipes and infusion techniques from Nov 2023 session
+- [content-creation-interests-fashion-and-skincare](user/content-creation-interests-fashion-and-skincare.md) — Content creation interests: fashion and skincare
+- [cooking-classes-indian-sushi-making-pastry-making](user/cooking-classes-indian-sushi-making-pastry-making.md) — Cooking classes: Indian, sushi-making, pastry-making
+- [dinner-party-menu-planning-august-2023-8-10-guests](project/dinner-party-menu-planning-august-2023-8-10-guests.md) — Dinner party menu planning (August 2023, 8-10 guests)
+- [emma-taught-negroni-recipe-5-practice-attempts](experience/emma-taught-negroni-recipe-5-practice-attempts.md) — Emma taught Negroni recipe; 5 practice attempts
+- [expanding-pigpen-on-empty-plot-near-barn](project/expanding-pigpen-on-empty-plot-near-barn.md) — Expanding pigpen on empty plot near barn
+- [experienced-traditional-spin-fisherman-familiar-with-water-reading-and-fish-hand](user/experienced-traditional-spin-fisherman-familiar-with-water-reading-and-fish-hand.md) — Experienced traditional spin fisherman; familiar with water reading and fish-handling
+- [experimenting-with-lemon-based-recipes](user/experimenting-with-lemon-based-recipes.md) — Experimenting with lemon-based recipes
+- [family-loved-pasta-dish-from-beginner-s-cooking-class-2023-08-14](experience/family-loved-pasta-dish-from-beginner-s-cooking-class-2023-08-14.md) — Family loved pasta dish from beginner's cooking class (2023-08-14)
+- [fishing-trip-to-lake-tahoe-with-friend-caught-dozen-trout](experience/fishing-trip-to-lake-tahoe-with-friend-caught-dozen-trout.md) — Fishing trip to Lake Tahoe with friend: caught dozen trout
+- [has-a-regular-fishing-friend-they-fish-together-frequently](user/has-a-regular-fishing-friend-they-fish-together-frequently.md) — Has a regular fishing friend; they fish together frequently
+- [hosted-dinner-party-late-2023-cranberry-sparkler-cocktail-was-a-hit](experience/hosted-dinner-party-late-2023-cranberry-sparkler-cocktail-was-a-hit.md) — Hosted dinner party (late 2023); Cranberry Sparkler cocktail was a hit
+- [interest-in-literary-analysis-character-ethics-moral-responsibility-and-culpabil](user/interest-in-literary-analysis-character-ethics-moral-responsibility-and-culpabil.md) — Interest in literary analysis: character ethics, moral responsibility, and culpability in fiction
+- [interested-in-learning-fly-fishing](user/interested-in-learning-fly-fishing.md) — Interested in learning fly fishing
+- [lavender-syrup-recipe-and-cocktail-suggestions](reference/lavender-syrup-recipe-and-cocktail-suggestions.md) — Lavender syrup recipe and cocktail suggestions
+- [negroni-experiments-5-attempts-since-emma-taught-recipe](user/negroni-experiments-5-attempts-since-emma-taught-recipe.md) — Negroni experiments: 5 attempts since Emma taught recipe
+- [negroni-practice-10-attempts-since-emma-taught-perfecting-with-hendrick-s-gin](user/negroni-practice-10-attempts-since-emma-taught-perfecting-with-hendrick-s-gin.md) — Negroni practice: 10 attempts since Emma taught; perfecting with Hendrick's gin
+- [ordered-beginner-s-fly-fishing-kit-online](user/ordered-beginner-s-fly-fishing-kit-online.md) — Ordered beginner's fly fishing kit online
+- [photo-editing-tools-lightroom-desktop-lightroom-mobile-and-other-apps-like-vsco](reference/photo-editing-tools-lightroom-desktop-lightroom-mobile-and-other-apps-like-vsco.md) — Photo editing tools: Lightroom (desktop), Lightroom Mobile, and other apps like VSCO, Snapseed, PicsArt
+- [photography-interests-wildlife-nature-seasonal-changes-light-and-color](user/photography-interests-wildlife-nature-seasonal-changes-light-and-color.md) — Photography interests: wildlife, nature, seasonal changes, light and color
+- [planning-farm-social-media-account-for-online-presence](project/planning-farm-social-media-account-for-online-presence.md) — Planning farm social media account for online presence
+- [planning-gin-infusions-cucumber-and-mint-separately-for-cucumber-gimlet-style-co](project/planning-gin-infusions-cucumber-and-mint-separately-for-cucumber-gimlet-style-co.md) — Planning gin infusions: cucumber and mint separately, for Cucumber Gimlet-style cocktails
+- [planning-to-enter-fishing-tournament-at-joe-s-tackle-on-main-st-in-september-202](project/planning-to-enter-fishing-tournament-at-joe-s-tackle-on-main-st-in-september-202.md) — Planning to enter fishing tournament at Joe's Tackle on Main St. in September 2023
+- [prefers-diverse-flavorful-menus-with-careful-attention-to-presentation](user/prefers-diverse-flavorful-menus-with-careful-attention-to-presentation.md) — Prefers diverse, flavorful menus with careful attention to presentation
+- [professional-certifications-google-analytics-and-hubspot-inbound-marketing](user/professional-certifications-google-analytics-and-hubspot-inbound-marketing.md) — Professional certifications: Google Analytics and HubSpot Inbound Marketing
+- [professional-experience-social-media-management-content-creation-engagement-anal](user/professional-experience-social-media-management-content-creation-engagement-anal.md) — Professional experience: Social media management, content creation, engagement analytics
+- [recently-purchased-hendrick-s-gin-enjoying-it-for-cocktails](user/recently-purchased-hendrick-s-gin-enjoying-it-for-cocktails.md) — Recently purchased Hendrick's gin; enjoying it for cocktails
+- [skincare-content-strategy-sustainable-and-eco-friendly-focus](project/skincare-content-strategy-sustainable-and-eco-friendly-focus.md) — Skincare content strategy: sustainable and eco-friendly focus
+- [social-media-analytics-facebook-low-engagement-pinterest-growing-steadily](project/social-media-analytics-facebook-low-engagement-pinterest-growing-steadily.md) — Social media analytics: Facebook low engagement, Pinterest growing steadily
+- [sold-excess-roosters-to-neighbor-on-2023-08-14](experience/sold-excess-roosters-to-neighbor-on-2023-08-14.md) — Sold excess roosters to neighbor on 2023-08-14
+- [starting-seasonal-photography-project-capturing-changing-seasons-in-natural-sett](user/starting-seasonal-photography-project-capturing-changing-seasons-in-natural-sett.md) — Starting seasonal photography project: capturing changing seasons in natural settings (forest/wetland)
+- [targeting-senior-marketing-role-transition-content-marketing-strategist-or-digit](project/targeting-senior-marketing-role-transition-content-marketing-strategist-or-digit.md) — Targeting senior marketing role transition: Content Marketing Strategist or Digital Marketing Consultant
+- [vegetarian-sushi-filling-options-grilled-portobello-mushrooms-carrot-ginger-temp](reference/vegetarian-sushi-filling-options-grilled-portobello-mushrooms-carrot-ginger-temp.md) — Vegetarian sushi filling options: grilled portobello mushrooms, carrot-ginger tempura bits
+- [white-negroni-recipe-with-suze-and-dolin-vermouth](reference/white-negroni-recipe-with-suze-and-dolin-vermouth.md) — White Negroni recipe with Suze and Dolin vermouth

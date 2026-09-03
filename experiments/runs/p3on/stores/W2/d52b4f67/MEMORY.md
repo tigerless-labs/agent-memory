@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [campaign-performance-metrics-engagement-reach-conversions-roi-cac-across-channel](reference/campaign-performance-metrics-engagement-reach-conversions-roi-cac-across-channel.md) — Campaign performance metrics: engagement, reach, conversions, ROI, CAC across channels
+- [content-calendar-setup-for-6-week-marketing-campaign](reference/content-calendar-setup-for-6-week-marketing-campaign.md) — Content calendar setup for 6-week marketing campaign
+- [drafted-job-application-for-liam-for-senior-advisor-position-at-te-puni-kokiri-i](experience/drafted-job-application-for-liam-for-senior-advisor-position-at-te-puni-kokiri-i.md) — Drafted job application for Liam for Senior Advisor position at Te Puni Kōkiri in Te Tai Tokerau Rohe
+- [friend-emily-is-into-skincare-and-has-been-exploring-skincare-products-recently](user/friend-emily-is-into-skincare-and-has-been-exploring-skincare-products-recently.md) — Friend Emily is into skincare and has been exploring skincare products recently
+- [has-a-cat-named-luna](user/has-a-cat-named-luna.md) — Has a cat named Luna
+- [has-a-dog-named-max-with-sensitive-skin](user/has-a-dog-named-max-with-sensitive-skin.md) — Has a dog named Max with sensitive skin
+- [has-a-rabbit-named-benny](user/has-a-rabbit-named-benny.md) — Has a rabbit named Benny
+- [interested-in-organizing-and-planning-charity-fundraising-events](user/interested-in-organizing-and-planning-charity-fundraising-events.md) — Interested in organizing and planning charity fundraising events
+- [interested-in-speculative-science-and-theoretical-futures-frameworks](user/interested-in-speculative-science-and-theoretical-futures-frameworks.md) — Interested in speculative science and theoretical futures frameworks
+- [kardashev-scale-type-0-8-civilization-technological-achievement-predictions](reference/kardashev-scale-type-0-8-civilization-technological-achievement-predictions.md) — Kardashev scale: Type 0.8 civilization technological achievement predictions
+- [l-occitane-en-provence-and-jo-malone-london-luxury-skincare-brands-with-lavender](reference/l-occitane-en-provence-and-jo-malone-london-luxury-skincare-brands-with-lavender.md) — L'Occitane en Provence and Jo Malone London — luxury skincare brands with lavender products, recommended for gift sets
+- [mom-s-birthday-is-june-15-loves-skincare-and-beauty-products-classic-and-elegant](user/mom-s-birthday-is-june-15-loves-skincare-and-beauty-products-classic-and-elegant.md) — Mom's birthday is June 15; loves skincare and beauty products; classic and elegant style; favorite color is lavender
+- [participated-in-breast-cancer-awareness-walk-on-october-17-2022](experience/participated-in-breast-cancer-awareness-walk-on-october-17-2022.md) — Participated in breast cancer awareness walk on October 17, 2022
+- [pet-supplies-stored-in-laundry-room-cabinet-cluttered](user/pet-supplies-stored-in-laundry-room-cabinet-cluttered.md) — Pet supplies stored in laundry room cabinet (cluttered)
+- [planning-charity-fundraising-event-for-local-animal-shelter](project/planning-charity-fundraising-event-for-local-animal-shelter.md) — Planning charity fundraising event for local animal shelter
+- [recommended-flea-and-tick-prevention-shampoos-and-rabbit-toys-for-pets](reference/recommended-flea-and-tick-prevention-shampoos-and-rabbit-toys-for-pets.md) — Recommended flea and tick prevention, shampoos, and rabbit toys for pets
+- [social-media-posting-frequency-guidelines-by-platform](reference/social-media-posting-frequency-guidelines-by-platform.md) — Social media posting frequency guidelines by platform
+- [tips-for-organizing-pet-supplies-in-a-cabinet](reference/tips-for-organizing-pet-supplies-in-a-cabinet.md) — Tips for organizing pet supplies in a cabinet
+- [works-on-marketing-campaigns-and-brand-awareness-initiatives-typically-40-hours](user/works-on-marketing-campaigns-and-brand-awareness-initiatives-typically-40-hours.md) — Works on marketing campaigns and brand awareness initiatives, typically 40+ hours per week
+- [writing-a-constitution-document-for-a-uk-community-user-group](project/writing-a-constitution-document-for-a-uk-community-user-group.md) — Writing a constitution document for a UK community user group

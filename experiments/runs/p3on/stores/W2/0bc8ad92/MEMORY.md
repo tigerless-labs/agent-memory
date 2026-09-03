@@ -1,0 +1,39 @@
+# MEMORY.md
+
+- [air-fryer-meal-recipe-suggestions-for-quick-healthy-cooking](reference/air-fryer-meal-recipe-suggestions-for-quick-healthy-cooking.md) — Air fryer meal recipe suggestions for quick healthy cooking
+- [anniversary-trip-planned-for-february-in-las-vegas-previously-booked-the-cosmopo](project/anniversary-trip-planned-for-february-in-las-vegas-previously-booked-the-cosmopo.md) — Anniversary trip planned for February in Las Vegas; previously booked The Cosmopolitan but cancelled due to family emergency
+- [attended-history-museum-lecture-on-ancient-civilizations-covering-nabataean-cult](experience/attended-history-museum-lecture-on-ancient-civilizations-covering-nabataean-cult.md) — Attended History Museum lecture on ancient civilizations covering Nabataean culture
+- [baby-goat-vaccination-schedule-and-health-care-recommendations](reference/baby-goat-vaccination-schedule-and-health-care-recommendations.md) — Baby goat vaccination schedule and health care recommendations
+- [behind-the-scenes-tour-at-science-museum-with-chemistry-professor-friend-on-2022](experience/behind-the-scenes-tour-at-science-museum-with-chemistry-professor-friend-on-2022.md) — Behind-the-scenes tour at Science Museum with chemistry professor friend on 2022-10-22
+- [birthday-is-march-12](user/birthday-is-march-12.md) — Birthday is March 12
+- [bought-multiple-graphic-t-shirts-from-h-m-october-2022](user/bought-multiple-graphic-t-shirts-from-h-m-october-2022.md) — Bought multiple graphic t-shirts from H&M (October 2022)
+- [educational-resources-for-chemistry-and-physics-youtube-channels-courses-and-web](reference/educational-resources-for-chemistry-and-physics-youtube-channels-courses-and-web.md) — Educational resources for chemistry and physics: YouTube channels, courses, and websites
+- [enjoys-hummus-with-carrot-sticks-and-other-vegetable-dippers](user/enjoys-hummus-with-carrot-sticks-and-other-vegetable-dippers.md) — Enjoys hummus with carrot sticks and other vegetable dippers
+- [environmental-and-marine-conservation-organizations-for-volunteer-opportunities](reference/environmental-and-marine-conservation-organizations-for-volunteer-opportunities.md) — Environmental and marine conservation organizations for volunteer opportunities
+- [favorite-movie-the-princess-bride](user/favorite-movie-the-princess-bride.md) — Favorite movie: The Princess Bride
+- [fencing-recommendations-for-baby-goats](reference/fencing-recommendations-for-baby-goats.md) — Fencing recommendations for baby goats
+- [hybrid-capsule-wardrobe-strategy-h-m-graphic-tees-as-foundation-mixed-with-zara](project/hybrid-capsule-wardrobe-strategy-h-m-graphic-tees-as-foundation-mixed-with-zara.md) — Hybrid capsule wardrobe strategy: H&M graphic tees as foundation, mixed with Zara and Madewell pieces
+- [interested-in-dinosaurs-paleontology-and-natural-history](user/interested-in-dinosaurs-paleontology-and-natural-history.md) — Interested in dinosaurs, paleontology, and natural history
+- [interested-in-environmental-volunteering-particularly-marine-ecosystem-conservat](user/interested-in-environmental-volunteering-particularly-marine-ecosystem-conservat.md) — Interested in environmental volunteering, particularly marine ecosystem conservation and plastic pollution reduction
+- [interested-in-learning-about-ancient-history-particularly-nabataean-culture-arch](user/interested-in-learning-about-ancient-history-particularly-nabataean-culture-arch.md) — Interested in learning about ancient history, particularly Nabataean culture, archaeology, and trade routes
+- [interested-in-museums-and-science-centers-especially-behind-the-scenes-tours-and](user/interested-in-museums-and-science-centers-especially-behind-the-scenes-tours-and.md) — Interested in museums and science centers, especially behind-the-scenes tours and exhibits on chemistry/physics
+- [kitchen-inventory-pantry-fridge-freezer-contents-as-of-october-2022](user/kitchen-inventory-pantry-fridge-freezer-contents-as-of-october-2022.md) — Kitchen inventory: pantry, fridge, freezer contents as of October 2022
+- [las-vegas-helicopter-tour-operators-and-options-for-anniversary-experience](reference/las-vegas-helicopter-tour-operators-and-options-for-anniversary-experience.md) — Las Vegas helicopter tour operators and options for anniversary experience
+- [las-vegas-limousine-and-luxury-car-services-bell-transportation-presidential-lim](reference/las-vegas-limousine-and-luxury-car-services-bell-transportation-presidential-lim.md) — Las Vegas limousine and luxury car services: Bell Transportation, Presidential Limousine, Luxury Ride Las Vegas, Vegas Luxury Rides
+- [maintains-goat-manure-compost-pile](user/maintains-goat-manure-compost-pile.md) — Maintains goat manure compost pile
+- [moved-into-current-apartment-in-october-2021](user/moved-into-current-apartment-in-october-2021.md) — Moved into current apartment in October 2021
+- [ocean-conservancy-and-trash-free-seas-program-for-marine-conservation](reference/ocean-conservancy-and-trash-free-seas-program-for-marine-conservation.md) — Ocean Conservancy and Trash Free Seas program for marine conservation
+- [owns-bottle-fed-baby-goats-luna-and-leo](user/owns-bottle-fed-baby-goats-luna-and-leo.md) — Owns bottle-fed baby goats Luna and Leo
+- [participated-in-charity-gala-in-early-april-2022](experience/participated-in-charity-gala-in-early-april-2022.md) — Participated in charity gala in early April 2022
+- [participated-in-community-cleanup-event-on-april-17-2022](experience/participated-in-community-cleanup-event-on-april-17-2022.md) — Participated in community cleanup event on April 17, 2022
+- [planned-grocery-shopping-list-to-purchase](user/planned-grocery-shopping-list-to-purchase.md) — Planned grocery shopping list to purchase
+- [planning-trip-to-jordan-with-focus-on-visiting-petra-archaeological-site](project/planning-trip-to-jordan-with-focus-on-visiting-petra-archaeological-site.md) — Planning trip to Jordan with focus on visiting Petra archaeological site
+- [plans-to-expand-goat-herd-in-the-future](user/plans-to-expand-goat-herd-in-the-future.md) — Plans to expand goat herd in the future
+- [prefers-markdown-image-format-with-italicized-descriptions](user/prefers-markdown-image-format-with-italicized-descriptions.md) — Prefers Markdown image format with italicized descriptions
+- [prefers-non-bulky-balanced-styling-for-winter-clothing](user/prefers-non-bulky-balanced-styling-for-winter-clothing.md) — Prefers non-bulky, balanced styling for winter clothing
+- [prefers-savory-protein-rich-snacks-over-sweet-ones](user/prefers-savory-protein-rich-snacks-over-sweet-ones.md) — Prefers savory, protein-rich snacks over sweet ones
+- [roasted-chickpea-recipe-with-garlic-powder-and-paprika](reference/roasted-chickpea-recipe-with-garlic-powder-and-paprika.md) — Roasted chickpea recipe with garlic powder and paprika
+- [romantic-restaurants-in-las-vegas-for-anniversary-dining-joel-robuchon-le-cirque](reference/romantic-restaurants-in-las-vegas-for-anniversary-dining-joel-robuchon-le-cirque.md) — Romantic restaurants in Las Vegas for anniversary dining: Joël Robuchon, Le Cirque, Picasso, Carbone, Eiffel Tower Restaurant, and others
+- [shops-regularly-at-h-m-zara-and-madewell-for-fashion](user/shops-regularly-at-h-m-zara-and-madewell-for-fashion.md) — Shops regularly at H&M, Zara, and Madewell for fashion
+- [struggles-to-resist-convenience-store-snacks-despite-wanting-to-eat-healthily](user/struggles-to-resist-convenience-store-snacks-despite-wanting-to-eat-healthily.md) — Struggles to resist convenience store snacks despite wanting to eat healthily
+- [sunday-meal-prep-using-customizable-quinoa-salad-jars-for-week-long-lunches](user/sunday-meal-prep-using-customizable-quinoa-salad-jars-for-week-long-lunches.md) — Sunday meal prep using customizable quinoa salad jars for week-long lunches

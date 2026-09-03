@@ -1,0 +1,19 @@
+## Session sharegpt_Vg8LBOH_18 — 2023/05/21 (Sun) 21:09
+user: Given the above rewritten parts of article, suggest an SEO optimised title.
+assistant: "Construction Project Success: The Importance of Effective Contract Administration in Melbourne, Australia"
+user: Now given all that, write a Meta Title for the NSW homeowner. Do not exceed 70 characters (counting spaces and punctuation marks).
+assistant: "Construction Project Success: Best Practices & Importance of Contract Administration - For NSW Homeowners"
+user: Now write the corresponding Meta Description, not exceeding 155 characters (counting spaces and punctuation marks).
+assistant: Ensure the success of your NSW construction project with effective contract administration. Learn about best practices and how a construction lawyer can help. Contact us today.
+user: Now write an OG Title, that is as close as possible to the Meta Title, but limited to only 60 characters (counting spaces and punctuation marks)
+assistant: "Contract Administration for Homeowners in NSW | Best Practices & Tips"
+user: Now write the OG Description, but limited to only 110 characters (counting spaces and punctuation marks)
+assistant: "Learn how effective contract administration can ensure successful construction projects. Contact a construction lawyer in Melbourne for guidance and support."
+user: Suggest a URL suggestion: https://constructionlawyermelbourne.com.au/
+assistant: Here are a few URL suggestions based on the rewritten article:
+
+1. <https://constructionlawyermelbourne.com.au/importance-of-effective-contract-administration-for-construction-projects/>
+2. <https://constructionlawyermelbourne.com.au/best-practices-for-contract-administration-in-construction/>
+3. <https://constructionlawyermelbourne.com.au/why-you-need-a-construction-lawyer-for-your-next-project/>
+
+Note: The suggested URLs are just examples and may need to be modified based on the specific requirements of the website.

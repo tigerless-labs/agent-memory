@@ -4,13 +4,15 @@ from __future__ import annotations
 
 import datetime as dt
 
+from . import timestamp
+
 
 class Clock:
     def now(self) -> dt.datetime:
         return dt.datetime.now(dt.UTC)
 
-    def today(self) -> str:
-        return self.now().date().isoformat()
+    def timestamp(self) -> str:
+        return timestamp.render(self.now())
 
     def stamp(self) -> str:
         return self.now().strftime("%Y%m%dT%H%M%S%f")

@@ -1,0 +1,25 @@
+## Session sharegpt_3Pz6Ryc_0 — 2023/05/20 (Sat) 22:10
+user: . It must be borne in mind that…
+A. the driving forces or push in all research is the existence of a problem and the urge 
+to solve it. 
+B. the driving forces or push in all research is collection of data on educational 
+phenomena
+C. the driving forces or push in all research is to determine educational phenomena
+D. the driving forces or push in all research is to state educational phenomena
+assistant: A. The driving forces or push in all research is the existence of a problem and the urge to solve it.
+
+Research is typically motivated by the desire to understand and solve problems or answer questions about a particular topic or phenomenon. This may involve collecting and analyzing data, testing hypotheses or theories, and seeking new insights or solutions. The driving force behind research is often the curiosity and desire to learn more about a particular subject or issue, and to find ways to address problems or challenges that exist in the world.
+user: in scientific inquiry, researchers must be ready to…………….. findings based on proven facts 
+or evidences.
+assistant: In scientific inquiry, researchers must be ready to accept or reject findings based on proven facts or evidence. The scientific method is a systematic process for gathering and evaluating evidence that is used to test hypotheses or theories about how the world works. This process involves forming a hypothesis, collecting data through observation and experimentation, analyzing the data, and drawing conclusions based on the results. In order to ensure that research findings are reliable and accurate, scientists must be willing to accept or reject their hypotheses based on the evidence that they have collected, rather than simply trying to confirm their preexisting beliefs. This approach helps to ensure that scientific research is objective and unbiased, and that it reflects a true understanding of the world.
+user: what is reliability coefficient
+assistant: Reliability coefficient is a statistical measure that indicates the degree of consistency or dependability of a research instrument, such as a survey or test. It is used to assess the stability or repeatability of the results obtained using the instrument, and to determine whether the results are likely to be consistent if the instrument is used again in the future.
+
+There are several different types of reliability coefficients that can be used, including:
+
+1. Test-retest reliability: This measures the consistency of results obtained when the same instrument is used on different occasions.
+2. Internal consistency reliability: This measures the consistency of results obtained when different items or questions on the same instrument are compared.
+3. Inter-rater reliability: This measures the consistency of results obtained when different raters or evaluators are used to score the same instrument.
+4. Inter-method reliability: This measures the consistency of results obtained when different methods or instruments are used to measure the same thing.
+
+Reliability coefficients are typically expressed as a decimal or percentage, with higher values indicating greater reliability. A reliability coefficient of 0.7 or higher is generally considered acceptable, although this can vary depending on the specific research context and the purpose of the study.

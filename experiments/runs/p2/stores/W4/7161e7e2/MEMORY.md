@@ -1,0 +1,15 @@
+# MEMORY.md
+
+- [attended-nfl-playoff-game-viewing-at-sports-bar-on-2023-01-15](experience/attended-nfl-playoff-game-viewing-at-sports-bar-on-2023-01-15.md) — Attended NFL playoff game viewing at sports bar on 2023-01-15
+- [creates-book-related-social-media-content-and-participates-in-book-community-dis](user/creates-book-related-social-media-content-and-participates-in-book-community-dis.md) — Creates book-related social media content and participates in book community discussions
+- [familiar-with-detailed-ai-image-generation-prompts-and-professional-photography](user/familiar-with-detailed-ai-image-generation-prompts-and-professional-photography.md) — Familiar with detailed AI image generation prompts and professional photography terminology
+- [gm-social-media-team-shift-rotation-7-agents-across-4-shifts-with-2-days-off-per](project/gm-social-media-team-shift-rotation-7-agents-across-4-shifts-with-2-days-off-per.md) — GM social media team shift rotation: 7 agents across 4 shifts with 2 days off per agent weekly
+- [interested-in-biblical-theology-particularly-faith-healing-and-worship-service-p](user/interested-in-biblical-theology-particularly-faith-healing-and-worship-service-p.md) — Interested in biblical theology, particularly faith healing and worship service planning
+- [lives-in-kansas-city-missouri](user/lives-in-kansas-city-missouri.md) — Lives in Kansas City, Missouri
+- [maintains-20-gallon-aquarium-with-established-3-month-old-cycle-upgrading-to-hyd](user/maintains-20-gallon-aquarium-with-established-3-month-old-cycle-upgrading-to-hyd.md) — Maintains 20-gallon aquarium with established 3-month-old cycle, upgrading to Hydor Professional filter
+- [musical-theater-enthusiast-with-favorites-including-the-book-of-mormon-and-inter](user/musical-theater-enthusiast-with-favorites-including-the-book-of-mormon-and-inter.md) — Musical theater enthusiast with favorites including The Book of Mormon and interest in improv
+- [silver-honda-civic-3-years-with-geico-insurance](user/silver-honda-civic-3-years-with-geico-insurance.md) — Silver Honda Civic; 3 years with Geico insurance
+- [soapstone-carving-hobby-interested-in-bird-carvings](user/soapstone-carving-hobby-interested-in-bird-carvings.md) — Soapstone carving hobby; interested in bird carvings
+- [sports-interests-fantasy-basketball-nfl-chiefs-fan-formula-1-new-learner](user/sports-interests-fantasy-basketball-nfl-chiefs-fan-formula-1-new-learner.md) — Sports interests: fantasy basketball, NFL (Chiefs fan), Formula 1 (new learner)
+- [summer-2023-europe-trip-planned-nyc-to-frankfurt-july-august-solo-economy-travel](user/summer-2023-europe-trip-planned-nyc-to-frankfurt-july-august-solo-economy-travel.md) — Summer 2023 Europe trip planned: NYC to Frankfurt, July-August, solo economy travel
+- [values-sustainable-and-responsible-tourism-with-focus-on-environmental-and-commu](user/values-sustainable-and-responsible-tourism-with-focus-on-environmental-and-commu.md) — Values sustainable and responsible tourism with focus on environmental and community impact

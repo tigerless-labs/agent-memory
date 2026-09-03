@@ -1,0 +1,32 @@
+# MEMORY.md
+
+- [balances-luggage-capacity-with-cost-when-choosing-airport-transportation](user/balances-luggage-capacity-with-cost-when-choosing-airport-transportation.md) — Balances luggage capacity with cost when choosing airport transportation
+- [interest-in-visiting-finnish-architectural-sites-and-experiencing-wood-based-tra](user/interest-in-visiting-finnish-architectural-sites-and-experiencing-wood-based-tra.md) — Interest in visiting Finnish architectural sites and experiencing wood-based traditional design
+- [interested-in-forensic-nursing-victim-support-and-how-to-support-sexual-assault](user/interested-in-forensic-nursing-victim-support-and-how-to-support-sexual-assault.md) — Interested in forensic nursing, victim support, and how to support sexual assault survivors
+- [planning-to-make-a-sourdough-dessert-for-a-dinner-party](project/planning-to-make-a-sourdough-dessert-for-a-dinner-party.md) — Planning to make a sourdough dessert for a dinner party
+- [appreciates-classical-guitar-music-and-composers](user/appreciates-classical-guitar-music-and-composers.md) — Appreciates classical guitar music and composers
+- [birthday-celebration-with-30-instagram-story-replies-from-friends-and-family](experience/birthday-celebration-with-30-instagram-story-replies-from-friends-and-family.md) — Birthday celebration with 30 Instagram story replies from friends and family
+- [cat-lola-3-year-old-domestic-shorthair-10-pounds-no-known-allergies](user/cat-lola-3-year-old-domestic-shorthair-10-pounds-no-known-allergies.md) — Cat Lola: 3-year-old domestic shorthair, 10 pounds, no known allergies
+- [dog-bed-recommendations](reference/dog-bed-recommendations.md) — Dog bed recommendations
+- [dog-max-old-needs-new-dog-bed](user/dog-max-old-needs-new-dog-bed.md) — Dog Max: old, needs new dog bed
+- [experimenting-with-sourdough-bread-baking-interested-in-flavor-combinations](user/experimenting-with-sourdough-bread-baking-interested-in-flavor-combinations.md) — Experimenting with sourdough bread baking, interested in flavor combinations
+- [flea-and-tick-prevention-options-for-cats](reference/flea-and-tick-prevention-options-for-cats.md) — Flea and tick prevention options for cats
+- [hiked-to-mount-everest-base-camp-and-shared-photos-on-social-media](experience/hiked-to-mount-everest-base-camp-and-shared-photos-on-social-media.md) — Hiked to Mount Everest Base Camp and shared photos on social media
+- [interested-in-films-and-directors-with-unique-visual-narrative-styles-and-charac](user/interested-in-films-and-directors-with-unique-visual-narrative-styles-and-charac.md) — Interested in films and directors with unique visual/narrative styles and character-driven stories
+- [job-search-and-career-resources-for-refugees-in-the-us](reference/job-search-and-career-resources-for-refugees-in-the-us.md) — Job search and career resources for refugees in the US
+- [key-organizations-supporting-forensic-nurses-and-sexual-assault-survivors](reference/key-organizations-supporting-forensic-nurses-and-sexual-assault-survivors.md) — Key organizations supporting forensic nurses and sexual assault survivors
+- [lemon-tahini-vinaigrette-recipe-lemon-juice-tahini-garlic-olive-oilcreamy-citrus](reference/lemon-tahini-vinaigrette-recipe-lemon-juice-tahini-garlic-olive-oilcreamy-citrus.md) — Lemon-Tahini Vinaigrette recipe: lemon juice, tahini, garlic, olive oil—creamy citrusy dressing
+- [litter-box-maintenance-and-odor-control-tips](reference/litter-box-maintenance-and-odor-control-tips.md) — Litter box maintenance and odor control tips
+- [makes-homemade-sushi-started-with-classic-salmon-and-avocado-rolls](user/makes-homemade-sushi-started-with-classic-salmon-and-avocado-rolls.md) — Makes homemade sushi, started with classic salmon and avocado rolls
+- [owns-or-uses-xiaomi-360-camera](user/owns-or-uses-xiaomi-360-camera.md) — Owns or uses Xiaomi 360 camera
+- [prefers-flea-tick-prevention-without-monthly-application](user/prefers-flea-tick-prevention-without-monthly-application.md) — Prefers flea/tick prevention without monthly application
+- [prefers-light-refreshing-dressings-and-flavors-that-pair-well-with-herbal-tea](user/prefers-light-refreshing-dressings-and-flavors-that-pair-well-with-herbal-tea.md) — Prefers light, refreshing dressings and flavors that pair well with herbal tea
+- [procedure-connect-xiaomi-360-camera-to-google-cloud-storage](reference/procedure-connect-xiaomi-360-camera-to-google-cloud-storage.md) — Procedure: connect Xiaomi 360 camera to Google Cloud Storage
+- [recommended-filmmakers-with-unique-styles-and-visions-coogler-peele-gerwig-and-f](reference/recommended-filmmakers-with-unique-styles-and-visions-coogler-peele-gerwig-and-f.md) — Recommended filmmakers with unique styles and visions: Coogler, Peele, Gerwig, and five lesser-known directors
+- [refugee-in-the-us-seeking-employment-and-career-development](user/refugee-in-the-us-seeking-employment-and-career-development.md) — Refugee in the US seeking employment and career development
+- [replaced-lola-s-litter-box-with-new-one-from-petco-for-20](user/replaced-lola-s-litter-box-with-new-one-from-petco-for-20.md) — Replaced Lola's litter box with new one from Petco for $20
+- [simple-grilled-chicken-breast-olive-oil-salt-pepper-optional-lemon-zest-grill-5](reference/simple-grilled-chicken-breast-olive-oil-salt-pepper-optional-lemon-zest-grill-5.md) — Simple grilled chicken breast: olive oil, salt, pepper, optional lemon zest; grill 5-6 min per side at 400°F
+- [struggles-to-stick-to-daily-social-media-time-limits-especially-on-twitter](user/struggles-to-stick-to-daily-social-media-time-limits-especially-on-twitter.md) — Struggles to stick to daily social media time limits, especially on Twitter
+- [switched-from-coffee-to-herbal-tea-in-afternoons-helps-with-relaxation-and-focus](user/switched-from-coffee-to-herbal-tea-in-afternoons-helps-with-relaxation-and-focus.md) — Switched from coffee to herbal tea in afternoons; helps with relaxation and focus at work
+- [uses-facebook-instagram-twitter-linkedin-and-whatsapp-regularly](user/uses-facebook-instagram-twitter-linkedin-and-whatsapp-regularly.md) — Uses Facebook, Instagram, Twitter, LinkedIn, and WhatsApp regularly
+- [work-project-required-intensive-whatsapp-coordination-with-team](project/work-project-required-intensive-whatsapp-coordination-with-team.md) — Work project required intensive WhatsApp coordination with team

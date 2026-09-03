@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [aquarium-canister-filter-recommendations-for-20-gallon-tank](reference/aquarium-canister-filter-recommendations-for-20-gallon-tank.md) — Aquarium canister filter recommendations for 20-gallon tank
+- [attended-nfl-playoff-game-at-kansas-city-sports-bar-on-january-15-2023](experience/attended-nfl-playoff-game-at-kansas-city-sports-bar-on-january-15-2023.md) — Attended NFL playoff game at Kansas City sports bar on January 15, 2023
+- [creates-book-related-instagram-twitter-content-participates-in-weekly-bookclubch](project/creates-book-related-instagram-twitter-content-participates-in-weekly-bookclubch.md) — Creates book-related Instagram/Twitter content; participates in weekly #BookClubChat
+- [enjoys-musical-theater-watching-productions-and-listening-to-soundtracks](user/enjoys-musical-theater-watching-productions-and-listening-to-soundtracks.md) — Enjoys musical theater - watching productions and listening to soundtracks
+- [fish-food-brand-recommendations-including-frozen-brine-shrimp](reference/fish-food-brand-recommendations-including-frozen-brine-shrimp.md) — Fish food brand recommendations including frozen brine shrimp
+- [flight-comparison-lufthansa-vs-norwegian-air-for-new-york-frankfurt-route](reference/flight-comparison-lufthansa-vs-norwegian-air-for-new-york-frankfurt-route.md) — Flight comparison: Lufthansa vs Norwegian Air for New York-Frankfurt route
+- [formula-1-2023-season-information-and-viewing-party-ideas](reference/formula-1-2023-season-information-and-viewing-party-ideas.md) — Formula 1 2023 season information and viewing party ideas
+- [interested-in-biblical-study-sermon-preparation-and-worship-planning](user/interested-in-biblical-study-sermon-preparation-and-worship-planning.md) — Interested in biblical study, sermon preparation, and worship planning
+- [interested-in-sports-fantasy-basketball-nfl-formula-1](user/interested-in-sports-fantasy-basketball-nfl-formula-1.md) — Interested in sports - fantasy basketball, NFL, Formula 1
+- [interested-in-taking-improv-classes-or-workshops](user/interested-in-taking-improv-classes-or-workshops.md) — Interested in taking improv classes or workshops
+- [lives-in-kansas-city-missouri](user/lives-in-kansas-city-missouri.md) — Lives in Kansas City, Missouri
+- [maintains-20-gallon-aquarium-with-varied-diet-for-fish](user/maintains-20-gallon-aquarium-with-varied-diet-for-fish.md) — Maintains 20-gallon aquarium with varied diet for fish
+- [musical-theater-recommendations-and-cast-recording-information](reference/musical-theater-recommendations-and-cast-recording-information.md) — Musical theater recommendations and cast recording information
+- [recently-started-soapstone-carving-interested-in-bird-carvings](user/recently-started-soapstone-carving-interested-in-bird-carvings.md) — Recently started soapstone carving; interested in bird carvings
+- [silver-honda-civic-considering-insurance-switch-from-geico](user/silver-honda-civic-considering-insurance-switch-from-geico.md) — Silver Honda Civic; considering insurance switch from Geico
+- [sports-bars-in-kansas-city-missouri-area](reference/sports-bars-in-kansas-city-missouri-area.md) — Sports bars in Kansas City, Missouri area
+- [summer-europe-trip-flights-new-york-to-frankfurt](user/summer-europe-trip-flights-new-york-to-frankfurt.md) — Summer Europe trip: flights New York to Frankfurt
+- [values-sustainable-tourism-and-cultural-exchange-through-travel](user/values-sustainable-tourism-and-cultural-exchange-through-travel.md) — Values sustainable tourism and cultural exchange through travel
+- [works-at-gm-managing-social-media-team-with-7-agents](user/works-at-gm-managing-social-media-team-with-7-agents.md) — Works at GM managing social media team with 7 agents

@@ -1,0 +1,102 @@
+## Session sharegpt_35udPn0_1 — 2023/05/25 (Thu) 08:55
+assistant: What is Strike and what is its relationship with Bitcoin's Lightning Network?
+
+Strike is a mobile application that combines the traditional financial system with Bitcoin's Lightning Network capabilities. It allows users to send money instantly and almost free of charge around the world, without the need for the sender or the recipient to handle Bitcoin the asset. Strike uses Bitcoin the network, or rather the Lightning Network built on top of Bitcoin, to send and convert the funds. Strike works by connecting the user's conventional bank account to the app, then debiting the funds and converting them into Bitcoin on the Lightning Network, which is then sent to the recipient's account in their local currency. Strike leverages the Lightning Network's capabilities without exposing users to Bitcoin the asset unless they choose to use it. Strike paves the way for the future of remittance payments, effectively driving the cost of sending cross-border payments to zero.
+user: I want to the same for my company called zizuh, competitor of Strike. What approach the code should have? What would be like the function 'sendRemittance(amount, originWallet, destinationWallet)'?
+assistant: To create a remittance function for your company, Zizuh, you can follow a similar approach as described for the Strike example. Here are the steps you can take:
+
+1. Define the function: `sendRemittance(amount, originWallet, destinationWallet)`. This function will take three parameters:
+	* `amount`: The amount of money to be transferred.
+	* `originWallet`: The wallet from which the money will be transferred.
+	* `destinationWallet`: The wallet to which the money will be transferred.
+2. Verify the transaction: Before sending the remittance, you should verify that the origin wallet has sufficient funds to complete the transaction. You can use a simple if statement to check the balance of the origin wallet:
+```python
+if originWallet.balance >= amount:
+    # Send the remittance
+else:
+    # Raise an exception or return an error message
+```
+3. Deduct the amount from the origin wallet: Once you have verified that the origin wallet has sufficient funds, you can deduct the amount from the wallet:
+```python
+originWallet.balance -= amount
+```
+4. Add the amount to the destination wallet: Finally, you can add the amount to the destination wallet:
+```python
+destinationWallet.balance += amount
+```
+5. Return a success message: After the transaction is complete, you can return a success message to the user.
+```python
+return "Remittance successful"
+```
+
+Overall, the function should look something like this:
+```python
+def sendRemittance(amount, originWallet, destinationWallet):
+    if originWallet.balance >= amount:
+        originWallet.balance -= amount
+        destinationWallet.balance += amount
+        return "Remittance successful"
+    else:
+        return "Insufficient funds"
+```
+This function will deduct the specified amount from the origin wallet and add it to the destination wallet, assuming the origin wallet has sufficient funds. If the origin wallet does not have sufficient funds, the function will return an error message.
+user: How do i implement it in Go, using Bitcoin Lightning Network?
+assistant: To implement a remittance service using Bitcoin Lightning Network in Go, you can follow these steps:
+
+1. Setup a Bitcoin Lightning Network node: You can set up a node on the Lightning Network using any of the available implementations, such as LND, c-lightning or Eclair. Each of these implementations have their own API and SDKs that you can use to interact with the Lightning Network.
+2. Generate Lightning Network invoice: To receive payments over the Lightning Network, you will need to generate an invoice. The invoice will include a payment request string, a payment hash, and the amount of the payment.
+3. Generate Payment request: The payer will generate a payment request using the invoice generated in the previous step. The payment request will include the payment hash and the amount to be paid.
+4. Send Payment: The payer will send the payment request to the payer's Lightning Network node, which will route the payment to the receiver's node.
+5. Verify Payment: Once the payment has been received, the receiver's Lightning Network node will verify that the payment was successful using the payment hash.
+
+Here is an example of a function to send remittance using Bitcoin Lightning Network in Go:
+```go
+package main
+
+import (
+    "github.com/lightningnetwork/lnd/lnrpc"
+    "google.golang.org/grpc"
+    "golang.org/x/net/context"
+    "fmt"
+)
+
+func sendRemittance(amount int64, invoice string, nodeAddress string) error {
+    // Connect to the Lightning Network node
+    conn, err := grpc.Dial(nodeAddress, grpc.WithInsecure())
+    if err != nil {
+        return err
+    }
+    defer conn.Close()
+    client := lnrpc.NewLightningClient(conn)
+
+    // Decode the invoice to get the payment hash
+    response, err := client.DecodePayReq(context.Background(), &lnrpc.PayReqString{PayReq: invoice})
+    if err != nil {
+        return err
+    }
+
+    // Send the payment
+    paymentRequest := &lnrpc.SendRequest{
+        PaymentRequest: invoice,
+    }
+    stream, err := client.SendPaymentSync(context.Background(), paymentRequest)
+    if err != nil {
+        return err
+    }
+    for {
+        response, err := stream.Recv()
+        if err != nil {
+            return err
+        }
+        // Check the payment status
+        if response.PaymentError != "" {
+            return fmt.Errorf("payment failed: %s", response.PaymentError)
+        }
+        if response.PaymentHash == response.PaymentPreimage {
+            // Payment successful
+            return nil
+        }
+    }
+}
+```
+This function takes the amount to be sent, the Lightning Network invoice, and the address of the Lightning Network node as input. It then connects to the Lightning Network node, decodes the invoice to get the payment hash, and sends the payment request to the node. It then checks the payment status and returns an error if the payment fails, or nil if the payment is successful.

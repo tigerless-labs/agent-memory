@@ -1,0 +1,17 @@
+# MEMORY.md
+
+- [attended-austin-film-festival-screenwriting-workshop-led-by-jim-uhls-in-may-2023](experience/attended-austin-film-festival-screenwriting-workshop-led-by-jim-uhls-in-may-2023.md) — Attended Austin Film Festival screenwriting workshop led by Jim Uhls in May 2023
+- [bot-trading-course-structure-10-weeks-and-bitcoin-trading-bot-example](reference/bot-trading-course-structure-10-weeks-and-bitcoin-trading-bot-example.md) — Bot trading course structure (10 weeks) and Bitcoin trading bot example
+- [enjoys-finding-old-vinyl-records-while-thrift-shopping](user/enjoys-finding-old-vinyl-records-while-thrift-shopping.md) — Enjoys finding old vinyl records while thrift shopping
+- [gr-90-hiking-trail-in-natural-park-of-moncayo-mountain-aragon](reference/gr-90-hiking-trail-in-natural-park-of-moncayo-mountain-aragon.md) — GR-90 hiking trail in Natural Park of Moncayo mountain, Aragón
+- [interest-in-screenwriting-film-production-and-industry-workshops](user/interest-in-screenwriting-film-production-and-industry-workshops.md) — Interest in screenwriting, film production, and industry workshops
+- [interested-in-algorithmic-trading-and-cryptocurrency-bots](user/interested-in-algorithmic-trading-and-cryptocurrency-bots.md) — Interested in algorithmic trading and cryptocurrency bots
+- [interested-in-camping-and-expanding-outdoor-cooking-skills](user/interested-in-camping-and-expanding-outdoor-cooking-skills.md) — Interested in camping and expanding outdoor cooking skills
+- [interested-in-printmaking-abstract-art-and-intersection-of-art-with-science](user/interested-in-printmaking-abstract-art-and-intersection-of-art-with-science.md) — Interested in printmaking, abstract art, and intersection of art with science
+- [pittsburgh-attractions-and-accommodations-recommendations](reference/pittsburgh-attractions-and-accommodations-recommendations.md) — Pittsburgh attractions and accommodations recommendations
+- [planning-trip-to-zion-national-park-decided-to-purchase-merrell-moab-2-mid-water](project/planning-trip-to-zion-national-park-decided-to-purchase-merrell-moab-2-mid-water.md) — Planning trip to Zion National Park; decided to purchase Merrell Moab 2 Mid Waterproof boots
+- [project-involving-organizing-90-000-100-000-documents-about-international-crime](project/project-involving-organizing-90-000-100-000-documents-about-international-crime.md) — Project involving organizing 90,000-100,000 documents about international crime, terrorism, and politics
+- [solo-camping-trip-to-big-sur-stayed-at-pfeiffer-big-sur-state-park-maiden-voyage](experience/solo-camping-trip-to-big-sur-stayed-at-pfeiffer-big-sur-state-park-maiden-voyage.md) — Solo camping trip to Big Sur; stayed at Pfeiffer Big Sur State Park; maiden voyage of portable camping stove
+- [struggles-with-time-management-calendar-use-and-saying-no-at-work](user/struggles-with-time-management-calendar-use-and-saying-no-at-work.md) — Struggles with time management, calendar use, and saying no at work
+- [travel-enthusiast-interested-in-hiking-and-cultural-exploration](user/travel-enthusiast-interested-in-hiking-and-cultural-exploration.md) — Travel enthusiast interested in hiking and cultural exploration
+- [visited-natural-history-museum-with-niece-on-2023-02-08-niece-loved-dinosaur-exh](experience/visited-natural-history-museum-with-niece-on-2023-02-08-niece-loved-dinosaur-exh.md) — Visited Natural History Museum with niece on 2023-02-08; niece loved dinosaur exhibit

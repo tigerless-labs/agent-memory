@@ -1,0 +1,99 @@
+## Session sharegpt_ic6rkHc_0 — 2023/05/21 (Sun) 23:17
+user: I received this below sales email, what does it do well?
+
+[Subject: Don't hire a Development Director
+
+Hi Ken
+ 
+I hope all is well! I had a chance to review the Development Director job description and learn about Sustaining Action's mission and impactful programming in Jacksonville. Though this position fits what are seen as common best practices in our sector, in this environment it will be tough to set your new Development Director up for long-term, sustainable success. 
+ 
+The low retention rate of fundraisers is driven by new contributors being overloaded and then departing early because they feel second-guessed, micromanaged and not trusted. This happens because a culture of philanthropy has not been intentionally cultivated and advanced across the enterprise prior to their arrival. These hiring decisions cost money. According to the research, the average amount of time a fundraiser stays at his or her job: 16 months. The direct and indirect costs of finding a replacement: $127,650. 
+ 
+This doesn't have to be the case. I have an idea that will help Sustaining Action be stronger and even more ready to fully delegate work that accelerates fundraising for your Development Director. It may not be a fit. However, once this internal work is complete, your future Development Director will be empowered, focused, and poised to execute on advancing your fundraising efforts.
+ 
+A few executive leaders are opting for an unusual (but effective) approach of postponing hires and reallocating budget to build internal fundraising momentum and structure long-term success.
+
+Does this sound interesting enough to justify a short email conversation?
+
+Let me know what you decide, Ken?]
+assistant: There are a few things that this sales email does well:
+
+1. It addresses the recipient by name, which personalizes the email and shows that the sender has taken the time to research who they are contacting.
+2. It demonstrates the sender's knowledge and understanding of the recipient's organization and the specific position they are hiring for.
+3. It presents a problem that the recipient may be facing (high turnover and difficulty retaining fundraisers) and offers a solution (building internal fundraising momentum and structure).
+4. It offers to have a conversation to further discuss the idea and see if it might be a good fit for the recipient's organization.
+
+Overall, the email is well-written and effectively presents the sender's solution as a potential solution to a common problem that organizations in the non-profit sector may face.
+user: Now let's assume that someone booked a conversation with me based on this email. What confirmation email would I send, what prep might ask them to do and what questions might ask them to mull over or data I might ask them to review or have on hand prior to our conversation.
+assistant: Here is a sample confirmation email you could send:
+
+"Hi [Name],
+
+Thank you for booking a conversation with me. I am looking forward to discussing how we can help your organization build internal fundraising momentum and structure.
+
+In preparation for our conversation, it would be helpful if you could have the following information on hand:
+
+* Current fundraising goals and objectives
+* Any data or reports on past fundraising efforts, including successes and challenges
+* A list of current fundraising staff and their roles and responsibilities
+
+It would also be helpful if you could consider the following questions before our conversation:
+
+* What specific challenges are you facing with fundraising and retention of fundraisers?
+* What has your organization done in the past to try to address these challenges?
+* What long-term goals do you have for your fundraising efforts?
+
+I look forward to discussing these topics and more with you.
+
+Best regards,
+[Your Name]"
+
+This confirmation email reaffirms the purpose of the conversation and provides the recipient with some information and questions to consider beforehand. Having this information and giving some thought to the questions beforehand will help make the conversation more productive and focused.
+user: This conversation will be 30 minutes can you provide me with an agenda points where the sales person listens intently with time allotments that leads them to saying yes in conducting a Fundraising Zen Assessment as an upsell?
+[Fundraising Zen Assessment
+A professional assessment is a data-driven and visual deliverable that provides a contextual history on giving provides results and cursory insights for all three components of the revenue program with a deep dive and action plan for the agreed upon focus area. 
+
+Focus Area A. Relationship Based Giving (Key Funder Engagement and Advancement, Community Giving Clubs and Societies, Honor Giving, Final Giving, Tribute Giving ). 
+
+Focus Area B. Mass Market Fundraising (Monthly Giving, Traffic Engineering and Paid Advertising, Content Strategy, Conversion, Offer, and Call-To-Action Optimization, and Journey Mapping and Persona Development). 
+
+Focus Area C. Employer Enabled Support (Employer Patrons, Employee Champions, Workplace Campaigns) 
+
+The assessment provides an evaluation of performance, analysis of fundraising and revenue results, objective feedback on current efforts, data analysis to assemble relevant insights and answers to prioritized questions and obstacles, surfacing of financial relationships that should be prioritized through predictive modeling and wealth screening, review of fundraising systems and processes (technical & non-technical), assessment of your value proposition positioning to the philanthropic landscape, collection of insights from staff, board members, and key funders. Situational history writing, archiving, and documentation is a key component of the Research and Intelligence core hub. Prioritizing resources to milestone the historical fundraising story will provide value by enabling the enterprise to have visibility, clarity, and alignment on the historical revenue streams and potential streams of the future.
+
+Fundraising Strategy Deliverables
+a) review of historical giving segments and concentration risk assessment
+b) the development of key performance indicators and data entry and collection operational strategy for reports and dashboards
+c) new revenue growth plan
+d) upcoming performance campaign design and results forecasting
+e) functional delegation calendar of internal relationship and publishing actions and related work sessions and upcoming agenda schedules]
+assistant: Here is an agenda for the 30-minute conversation:
+
+* Introduction (5 minutes): Introduce yourself and provide a brief overview of your organization and the Fundraising Zen Assessment.
+* Listen intently (10 minutes): Allow the recipient to share their current fundraising goals and challenges, as well as their past efforts to address these challenges. Take notes and ask clarifying questions as needed.
+* Present the Fundraising Zen Assessment (10 minutes): Explain the purpose and scope of the Fundraising Zen Assessment, including the three focus areas (Relationship Based Giving, Mass Market Fundraising, and Employer Enabled Support). Outline the deliverables of the assessment, including the review of historical giving segments, development of key performance indicators, and the creation of a new revenue growth plan.
+* Upsell (5 minutes): Discuss the benefits of conducting a Fundraising Zen Assessment and how it can help the recipient's organization achieve its fundraising goals. Offer to schedule a follow-up conversation to discuss the assessment in more detail and answer any additional questions.
+* Conclusion (5 minutes): Thank the recipient for their time and ask if they have any final questions. Follow up with any next steps, such as scheduling a follow-up conversation or providing additional information about the Fundraising Zen Assessment.
+user: Can you turn this into a conversation script workflow
+assistant: Certainly! Here is a conversation script workflow for the 30-minute conversation:
+
+1. Introduction (5 minutes)
+* Begin the conversation by introducing yourself and your organization.
+* Provide a brief overview of the Fundraising Zen Assessment and its purpose.
+* Ask if the recipient has any specific goals or challenges they are currently facing with their fundraising efforts.
+2. Listen intently (10 minutes)
+* Allow the recipient to share their current fundraising goals and challenges in more detail.
+* Take notes and ask clarifying questions as needed to better understand their needs and priorities.
+* Encourage the recipient to share any past efforts they have made to address these challenges.
+3. Present the Fundraising Zen Assessment (10 minutes)
+* Explain the scope of the Fundraising Zen Assessment and the three focus areas: Relationship Based Giving, Mass Market Fundraising, and Employer Enabled Support.
+* Outline the deliverables of the assessment, including the review of historical giving segments, development of key performance indicators, and the creation of a new revenue growth plan.
+* Emphasize the value of conducting a professional assessment to gain a deeper understanding of the recipient's fundraising efforts and identify areas for improvement.
+4. Upsell (5 minutes)
+* Discuss the benefits of conducting a Fundraising Zen Assessment and how it can help the recipient's organization achieve its fundraising goals.
+* Offer to schedule a follow-up conversation to discuss the assessment in more detail and answer any additional questions.
+* If the recipient expresses interest in the assessment, provide them with next steps for moving forward, such as scheduling a follow-up conversation or providing additional information.
+5. Conclusion (5 minutes)
+* Thank the recipient for their time and ask if they have any final questions.
+* Follow up with any next steps, such as scheduling a follow-up conversation or providing additional information about the Fundraising Zen Assessment.
+* End the conversation by thanking the recipient again and expressing your hope to work with them in the future.

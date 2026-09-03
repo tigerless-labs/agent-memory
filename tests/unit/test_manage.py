@@ -1,6 +1,5 @@
 """M6 — unattended Manage adds and amends; anything that loses a distinction is a proposal."""
 
-import datetime as dt
 import shutil
 
 import pytest
@@ -143,15 +142,6 @@ def test_trigger_needs_both_elapsed_time_and_new_sessions(seeded, clock):
     assert not Manage(seeded).due(sessions_since=seeded.config.manage.trigger_min_sessions)
     clock.advance(hours=seeded.config.manage.trigger_min_hours + 1)
     assert Manage(seeded, clock).due(sessions_since=seeded.config.manage.trigger_min_sessions)
-
-
-def test_dates_are_normalised_to_calendar_days(seeded):
-    target = seeded.find("file-truth-invariant")
-    target.updated = dt.datetime(2026, 1, 15, 9, 30, tzinfo=dt.UTC).isoformat()
-    target.path.write_text(target.to_text(), encoding="utf-8")
-    seeded.sync_index()
-    Manage(seeded).sleep()
-    assert seeded.find("file-truth-invariant").updated == "2026-01-15"
 
 
 def _twins(store):

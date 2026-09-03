@@ -1,0 +1,14 @@
+# MEMORY.md
+
+- [active-catholic-faith-practice-using-technology-for-spiritual-connection](user/active-catholic-faith-practice-using-technology-for-spiritual-connection.md) — Active Catholic faith practice using technology for spiritual connection
+- [completed-art-of-communication-course-covering-confidence-public-speaking-and-co](experience/completed-art-of-communication-course-covering-confidence-public-speaking-and-co.md) — Completed Art of Communication course covering confidence, public speaking, and communication skills
+- [content-project-building-contract-repudiation-for-multiple-personas](project/content-project-building-contract-repudiation-for-multiple-personas.md) — Content project: building contract repudiation for multiple personas
+- [cooking-at-home-and-reducing-processed-foods-for-health](user/cooking-at-home-and-reducing-processed-foods-for-health.md) — Cooking at home and reducing processed foods for health
+- [interested-in-low-light-indoor-plants-particularly-zz-plants-and-snake-plants](user/interested-in-low-light-indoor-plants-particularly-zz-plants-and-snake-plants.md) — Interested in low-light indoor plants, particularly ZZ Plants and Snake Plants
+- [planning-home-office-nook-in-spare-bedroom-with-minimalist-design-and-natural-wo](project/planning-home-office-nook-in-spare-bedroom-with-minimalist-design-and-natural-wo.md) — Planning home office nook in spare bedroom with minimalist design and natural wood accents
+- [planning-to-start-journaling-for-self-reflection-and-progress-tracking](user/planning-to-start-journaling-for-self-reflection-and-progress-tracking.md) — Planning to start journaling for self-reflection and progress tracking
+- [recent-home-decoration-updates-bedroom-repainted-lighter-gray-added-kitchen-gree](experience/recent-home-decoration-updates-bedroom-repainted-lighter-gray-added-kitchen-gree.md) — Recent home decoration updates: bedroom repainted lighter gray, added kitchen greenery
+- [recovered-from-serious-bronchitis-after-initial-misdiagnosis-as-cold](experience/recovered-from-serious-bronchitis-after-initial-misdiagnosis-as-cold.md) — Recovered from serious bronchitis after initial misdiagnosis as cold
+- [saturday-morning-yoga-classes-for-stress-reduction-and-flexibility](user/saturday-morning-yoga-classes-for-stress-reduction-and-flexibility.md) — Saturday morning yoga classes for stress reduction and flexibility
+- [studying-ayn-rand-s-philosophy-altruism-vs-selfishness-debate](reference/studying-ayn-rand-s-philosophy-altruism-vs-selfishness-debate.md) — Studying Ayn Rand's philosophy: altruism vs selfishness debate
+- [travel-interest-nanjing-jiangsu-province-for-couples-trips-in-summer-and-winter](user/travel-interest-nanjing-jiangsu-province-for-couples-trips-in-summer-and-winter.md) — Travel interest: Nanjing, Jiangsu Province for couples' trips in summer and winter

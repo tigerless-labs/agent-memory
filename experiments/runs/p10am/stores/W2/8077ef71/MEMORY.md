@@ -1,0 +1,18 @@
+# MEMORY.md
+
+- [contributed-30-to-group-gift-for-friend-s-new-apartment-housewarming](experience/contributed-30-to-group-gift-for-friend-s-new-apartment-housewarming.md) — Contributed $30 to group gift for friend's new apartment housewarming
+- [cozy-candle-scents-for-movie-nights-vanilla-cinnamon-lavender-caramel-woodland-b](reference/cozy-candle-scents-for-movie-nights-vanilla-cinnamon-lavender-caramel-woodland-b.md) — Cozy candle scents for movie nights: Vanilla, Cinnamon, Lavender, Caramel, Woodland Berries
+- [does-laundry-as-part-of-weekend-self-care-routine](user/does-laundry-as-part-of-weekend-self-care-routine.md) — Does laundry as part of weekend self-care routine
+- [enjoys-cozy-movie-nights-with-dimmed-lights-candles-fireplace-conversation-circl](user/enjoys-cozy-movie-nights-with-dimmed-lights-candles-fireplace-conversation-circl.md) — Enjoys cozy movie nights with dimmed lights, candles, fireplace, conversation-circle seating, throws and blankets
+- [feels-drained-after-networking-events-and-social-activities](user/feels-drained-after-networking-events-and-social-activities.md) — Feels drained after networking events and social activities
+- [finds-exercising-energizing-and-uses-it-to-recharge](user/finds-exercising-energizing-and-uses-it-to-recharge.md) — Finds exercising energizing and uses it to recharge
+- [finds-meal-prepping-energizing-and-uses-it-to-stay-motivated](user/finds-meal-prepping-energizing-and-uses-it-to-stay-motivated.md) — Finds meal-prepping energizing and uses it to stay motivated
+- [friend-spilled-red-wine-on-living-room-carpet-late-february-2022-cleaned-up-quic](experience/friend-spilled-red-wine-on-living-room-carpet-late-february-2022-cleaned-up-quic.md) — Friend spilled red wine on living room carpet late February 2022; cleaned up quickly
+- [gave-silver-necklace-with-tiny-pendant-to-sister-for-25th-birthday-40](experience/gave-silver-necklace-with-tiny-pendant-to-sister-for-25th-birthday-40.md) — Gave silver necklace with tiny pendant to sister for 25th birthday, $40
+- [has-extra-chairs-and-ottomans-for-flexible-seating-arrangements](user/has-extra-chairs-and-ottomans-for-flexible-seating-arrangements.md) — Has extra chairs and ottomans for flexible seating arrangements
+- [implemented-expense-tracking-using-spreadsheet-and-google-calendar](project/implemented-expense-tracking-using-spreadsheet-and-google-calendar.md) — Implemented expense tracking using spreadsheet and Google Calendar
+- [living-room-swapped-couch-and-armchair-to-create-socializing-space-calls-it-game](user/living-room-swapped-couch-and-armchair-to-create-socializing-space-calls-it-game.md) — Living room: swapped couch and armchair to create socializing space, calls it game-changer
+- [prefers-watching-tv-shows-for-relaxation-and-downtime](user/prefers-watching-tv-shows-for-relaxation-and-downtime.md) — Prefers watching TV shows for relaxation and downtime
+- [purchased-baby-onesie-and-baby-blocks-for-colleague-s-wife-s-baby-shower-20](experience/purchased-baby-onesie-and-baby-blocks-for-colleague-s-wife-s-baby-shower-20.md) — Purchased baby onesie and baby blocks for colleague's wife's baby shower, $20
+- [red-wine-pairings-pinot-noir-beaujolais-valpolicella-recommended-for-movie-night](reference/red-wine-pairings-pinot-noir-beaujolais-valpolicella-recommended-for-movie-night.md) — Red wine pairings: Pinot Noir, Beaujolais, Valpolicella recommended for movie night snacks
+- [regularly-buys-groceries-for-elderly-neighbor-mrs-johnson](user/regularly-buys-groceries-for-elderly-neighbor-mrs-johnson.md) — Regularly buys groceries for elderly neighbor Mrs. Johnson

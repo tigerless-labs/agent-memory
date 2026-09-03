@@ -1,0 +1,29 @@
+## Session sharegpt_WQun2Qq_0 — 2023/04/14 (Fri) 22:42
+user: When you say that the rate of CGT is reduced to 10% on the first million pounds of qualifying gains can you elaborate? Would the million pounds be an individual allowance, or combined for the whole company?
+assistant: The £1 million lifetime limit for Business Asset Disposal Relief (BADR) applies on an individual basis, not at the company level. This means that each individual shareholder who qualifies for the relief has their own separate £1 million allowance.
+
+In your case, both you and your brother, if you both qualify for BADR, would each have a separate £1 million allowance for the relief. This means that you could potentially reduce the rate of Capital Gains Tax (CGT) to 10% on up to £1 million of qualifying gains each.
+
+Please note that the £1 million limit is a lifetime limit, and it covers all qualifying disposals you make throughout your life. If you have previously claimed BADR on other disposals, you would need to consider any remaining balance in your lifetime limit before determining how much relief you can claim in the current situation.
+
+As always, it is essential to consult with a qualified tax advisor to discuss your specific circumstances and determine your eligibility for BADR, as well as to understand how the relief would apply to your situation.
+user: Is it possible for a single shareholder to dispose of his shareas and claim BADR even if the businesss continues to trade?
+assistant: Yes, it is possible for a single shareholder to dispose of their shares and claim Business Asset Disposal Relief (BADR) even if the business continues to trade. The relief applies to individual shareholders who meet the qualifying conditions, and the disposal of shares does not require the business to cease trading for the shareholder to be eligible.
+
+To qualify for BADR, the individual shareholder must meet the following conditions:
+
+1. The company must be a trading company or the holding company of a trading group.
+2. The shareholder must hold at least 5% of the ordinary shares and voting rights in the company for at least 24 months before the disposal.
+3. The shareholder must be an officer or employee of the company or a member of its trading group for at least 24 months before the disposal.
+
+As long as these conditions are met, the individual shareholder may be eligible for BADR on the disposal of their shares, even if the business continues to operate. However, it's essential to consult with a qualified tax advisor to discuss your specific circumstances and ensure that you meet all the conditions for BADR.
+user: Would the position of company Secretary be sufficient to meet the criterion for being an officer of the company?
+assistant: Yes, the position of a company secretary is generally considered sufficient to meet the criterion for being an officer of the company when claiming Business Asset Disposal Relief (BADR). A company secretary is a recognized officer of a company under UK law and has various legal responsibilities and duties.
+
+To recap, in order to qualify for BADR, the individual shareholder must meet the following conditions:
+
+1. The company must be a trading company or the holding company of a trading group.
+2. The shareholder must hold at least 5% of the ordinary shares and voting rights in the company for at least 24 months before the disposal.
+3. The shareholder must be an officer or employee of the company or a member of its trading group for at least 24 months before the disposal.
+
+As a company secretary, you would typically satisfy the third condition as an officer of the company, assuming you meet the other qualifying conditions. However, it's always recommended to consult with a qualified tax advisor to discuss your specific circumstances and ensure that you meet all the conditions for BADR.

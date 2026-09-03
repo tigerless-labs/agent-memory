@@ -1,0 +1,95 @@
+## Session sharegpt_iF4hlNs_5 — 2023/05/21 (Sun) 16:07
+assistant: ​
+user: write for me a movie trailer depicting this character
+assistant: Here's a movie trailer for a character who is a specialist in ansibles and is determined to uncover the secrets behind their functioning:
+
+[Fade in: The camera opens on a dark, eerie space station, with flashing lights and buzzing sounds.]
+
+Narrator (Voiceover): In a future where humanity has colonized the stars, communication is the key to survival. But one man is on a mission to unlock the mysteries of faster-than-light communication.
+
+[Cut to a close-up of the protagonist, a determined young man in a space suit, looking out into the vast emptiness of space through a porthole.]
+
+Narrator (Voiceover): He is a specialist in ansibles, the devices that have changed the course of human history, and he is determined to uncover their secrets.
+
+[Cut to a montage of the protagonist working in a laboratory, surrounded by complex machinery and flashing screens. We see him studying schematics, making calculations, and tinkering with prototypes.]
+
+Narrator (Voiceover): For years, he has dedicated himself to the problem, but no one understands the science behind it. And yet, he refuses to give up.
+
+[Cut to a shot of the protagonist staring at a holographic projection of an ansible, deep in thought.]
+
+Narrator (Voiceover): But when a sudden and devastating attack strikes the Co-Op space, he realizes that the ansibles may hold the key to the fate of humanity.
+
+[Cut to a montage of intense space battles, as ships collide and explode in a dazzling display of special effects.]
+
+Narrator (Voiceover): Now, he must race against time to uncover the truth, battling his own demons and facing the consequences of his own obsession.
+
+[Cut to a final shot of the protagonist standing in front of a large, glowing ansible, with a determined look on his face.]
+
+Narrator (Voiceover): In a world of uncertainty, one man will do whatever it takes to unlock the secrets of the ansibles.
+
+[Fade to black, and the words "The Ansible Specialist" appear on the screen, followed by the release date.]
+
+[End of trailer]
+user: What Enneagram type would you imagine R'Kesh is? Val is a 5.
+assistant: Based on what you've described of R'Kesh, it's difficult to say for certain which Enneagram type he might be without more information. However, I can offer a few possibilities based on his behavior and traits.
+
+If R'Kesh is fiercely independent and values his freedom above all else, he may be an Enneagram Type 8, also known as "The Challenger." Type 8s are assertive and have a strong sense of justice. They don't like to be controlled by others and often take charge of situations themselves. They can be confrontational at times, but they are also fiercely loyal to those they care about.
+
+If R'Kesh is introspective and thoughtful, he may be an Enneagram Type 4, also known as "The Individualist." Type 4s are creative, artistic, and often feel misunderstood. They can be moody and may struggle with feelings of envy, but they also have a deep appreciation for beauty and authenticity. They tend to be introspective and may be drawn to the darker aspects of life.
+
+If R'Kesh is focused on achieving success and reaching his goals, he may be an Enneagram Type 3, also known as "The Achiever." Type 3s are ambitious and driven, and they work hard to achieve their goals. They can be competitive and may be preoccupied with their image or reputation. They are often charismatic and may have a natural talent for leadership.
+
+Of course, these are just possibilities, and there are many other Enneagram types that R'Kesh could be. Without more information, it's difficult to say for certain.
+user: write this up using 2d20 system
+assistant: To write up a character using the 2d20 system, you'll need to decide on the setting and ruleset you're using within that system. However, I can give you a general overview of how character creation and gameplay works in the 2d20 system.
+
+Character creation in the 2d20 system typically involves choosing a race, class, attributes, skills, and other traits that determine a character's abilities and weaknesses. Once your character is created, you'll use the 2d20 system to resolve actions and combat.
+
+To resolve an action or combat in the 2d20 system, you'll typically roll two 20-sided dice and compare the result to a difficulty number determined by the game master. If the roll meets or exceeds the difficulty number, the action is successful. Some versions of the 2d20 system use a "momentum" mechanic, where successful rolls generate points that can be used to gain additional benefits or bonuses.
+
+To give you an example of how this might look, here's a possible character sheet for R'Kesh in a science fiction or fantasy setting using the 2d20 system:
+
+Name: R'Kesh
+Race: Xel'Naga
+Class: Warrior
+
+Attributes:
+
+* Strength: 12
+* Dexterity: 14
+* Constitution: 16
+* Intelligence: 10
+* Wisdom: 8
+* Charisma: 6
+
+Skills:
+
+* Melee Combat: 4
+* Ranged Combat: 2
+* Athletics: 3
+* Endurance: 4
+* Survival: 2
+
+Traits:
+
+* Natural Weapons: R'Kesh has sharp claws and teeth that can deal additional damage in combat.
+* Toughness: R'Kesh has a high constitution, giving him more health and resistance to damage.
+
+Using this character sheet, R'Kesh's player would roll two 20-sided dice when attempting to perform an action, such as attacking an enemy or climbing a wall. The game master would set a difficulty number based on the situation, and if the roll meets or exceeds that number, the action is successful.
+
+For example, if R'Kesh was attacking an enemy with his claws, his player would roll 2d20 and add his Melee Combat skill of 4 to the result. If the total meets or exceeds the enemy's defense, R'Kesh's attack is successful and he would roll damage dice to determine how much damage he dealt. If R'Kesh's player rolls particularly well, they might generate momentum points that could be spent to gain additional bonuses, such as gaining extra damage or knocking the enemy prone.
+user: What are some characteritic of the relationship between r'kesh and Val?
+assistant: R'Kesh and Val have a complex relationship that evolves over the course of their interactions. Some possible characteristics of their relationship are:
+
+1. Mutual Respect: Despite their differences, R'Kesh and Val respect each other's abilities and perspectives. They recognize that they have different strengths and weaknesses, and they learn to work together to complement each other.
+2. Companionship: R'Kesh and Val develop a bond of companionship as they face challenges and dangers together. They learn to rely on each other and trust each other, and they become loyal friends over time.
+3. Conflict: R'Kesh and Val's relationship is not always smooth, and they sometimes have conflicts due to their different personalities and beliefs. However, they learn to resolve their disagreements through communication and compromise, and they become better allies as a result.
+4. Learning from each other: R'Kesh and Val have different life experiences and perspectives, and they learn from each other over the course of their interactions. They challenge each other's assumptions and broaden each other's horizons, which helps them both grow as individuals.
+
+Overall, R'Kesh and Val's relationship is characterized by a mix of tension and cooperation, conflict and companionship, and mutual respect and learning.
+user: R'Kesh was the mate of Val Renberg. she met him when she was 21, working on the massive container ship. She was lonely and not fond of the hookup lifestyle or the orgies or group marriages of her fellow humans. She and R'Kesh formed a bond of mutual respect that grew into attraction, despite being different species.
+assistant: The relationship between R'Kesh and Val Renberg is characterized by mutual respect, trust, and love that transcends differences in species. Val was initially drawn to R'Kesh's calm and dignified presence, which contrasted with the chaotic and promiscuous culture on the container ship. R'Kesh, in turn, appreciated Val's intelligence and individuality, which set her apart from the conformist attitudes of many of her human peers.
+
+Over time, their shared values and experiences brought them closer together, and their attraction to each other deepened into a romantic bond. Despite the challenges that come with being a mixed-species couple in a galaxy where such relationships are still stigmatized by some, R'Kesh and Val remained committed to each other and built a life together.
+
+Their relationship is also marked by a sense of adventure and discovery, as they explore the galaxy together and encounter new cultures and civilizations. Their differences in perspective and experience have enriched their understanding of the universe and themselves, making their partnership stronger and more resilient.

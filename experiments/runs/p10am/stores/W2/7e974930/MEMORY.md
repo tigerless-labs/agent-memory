@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [bass-lure-recommendations-for-lake-fishing](reference/bass-lure-recommendations-for-lake-fishing.md) — Bass lure recommendations for lake fishing
+- [beach-trip-with-friends-early-february-2023-took-sunset-photos-sparked-return-to](experience/beach-trip-with-friends-early-february-2023-took-sunset-photos-sparked-return-to.md) — Beach trip with friends early February 2023; took sunset photos; sparked return to photography hobby
+- [chose-fujifilm-x-t30-ii-mirrorless-camera-for-landscape-nature-photography-1-500](project/chose-fujifilm-x-t30-ii-mirrorless-camera-for-landscape-nature-photography-1-500.md) — Chose Fujifilm X-T30 II mirrorless camera for landscape/nature photography; $1,500 budget
+- [completed-30-day-daily-yoga-challenge-in-april-2023](experience/completed-30-day-daily-yoga-challenge-in-april-2023.md) — Completed 30-day daily yoga challenge in April 2023
+- [creative-writing-project-mk-imprisoned-by-wukong-seeking-diamond-snare](experience/creative-writing-project-mk-imprisoned-by-wukong-seeking-diamond-snare.md) — Creative writing project: MK imprisoned by Wukong, seeking diamond snare
+- [current-office-chair-from-ergohuman-brand](user/current-office-chair-from-ergohuman-brand.md) — Current office chair from ERGOhuman brand
+- [ecocriticism-scholars-lawrence-buell-cheryll-glotfelty-jonathan-bate-eric-d-wils](reference/ecocriticism-scholars-lawrence-buell-cheryll-glotfelty-jonathan-bate-eric-d-wils.md) — Ecocriticism scholars: Lawrence Buell, Cheryll Glotfelty, Jonathan Bate, Eric D. Wilson
+- [enjoys-live-music-and-comedy-shows](user/enjoys-live-music-and-comedy-shows.md) — Enjoys live music and comedy shows
+- [exploring-lucy-dacus-phoebe-bridgers-and-julien-baker-discographies](user/exploring-lucy-dacus-phoebe-bridgers-and-julien-baker-discographies.md) — Exploring Lucy Dacus, Phoebe Bridgers, and Julien Baker discographies
+- [fishing-knots-improved-clinch-knot-palomar-knot-loop-perfection-knot](reference/fishing-knots-improved-clinch-knot-palomar-knot-loop-perfection-knot.md) — Fishing knots: Improved Clinch Knot, Palomar Knot, Loop/Perfection Knot
+- [fishing-trip-to-nearby-lake-planned-for-early-april-2023-a-few-weeks-from-2023-0](project/fishing-trip-to-nearby-lake-planned-for-early-april-2023-a-few-weeks-from-2023-0.md) — Fishing trip to nearby lake planned for early April 2023 (a few weeks from 2023-03-20); interested in both traditional lures and fly fishing for bass
+- [fitness-and-yoga-tracking-apps-strava-swim-com-garmin-yogaglo-peloton-down-dog](reference/fitness-and-yoga-tracking-apps-strava-swim-com-garmin-yogaglo-peloton-down-dog.md) — Fitness and yoga tracking apps: Strava, Swim.com, Garmin, YogaGlo, Peloton, Down Dog
+- [fitness-progress-lost-5-pounds-and-resting-heart-rate-decreased-10-bpm](user/fitness-progress-lost-5-pounds-and-resting-heart-rate-decreased-10-bpm.md) — Fitness progress: lost 5 pounds and resting heart rate decreased 10 BPM
+- [fly-fishing-techniques-for-bass-strip-retrieve-twitch-retrieve-drag-free-retriev](reference/fly-fishing-techniques-for-bass-strip-retrieve-twitch-retrieve-drag-free-retriev.md) — Fly fishing techniques for bass: strip retrieve, twitch retrieve, drag-free retrieve, targeting structure (rocks, weed beds, logs)
+- [fly-patterns-for-bass-streamers-poppers-nymphs-dry-flies](reference/fly-patterns-for-bass-streamers-poppers-nymphs-dry-flies.md) — Fly patterns for bass: streamers, poppers, nymphs, dry flies
+- [fly-rod-and-reel-setup-for-lake-bass-fishing-9-10-foot-rod-6-8-weight-weight-for](reference/fly-rod-and-reel-setup-for-lake-bass-fishing-9-10-foot-rod-6-8-weight-weight-for.md) — Fly rod and reel setup for lake bass fishing: 9-10 foot rod, 6-8 weight, weight-forward floating line, 9-12 foot leader
+- [get-new-coffee-table-for-living-room](project/get-new-coffee-table-for-living-room.md) — Get new coffee table for living room
+- [get-new-office-chair-for-guest-room](project/get-new-office-chair-for-guest-room.md) — Get new office chair for guest room
+- [harmony-sofa-in-dark-gray-velvet-from-west-elm](user/harmony-sofa-in-dark-gray-velvet-from-west-elm.md) — Harmony Sofa in dark gray velvet from West Elm
+- [interested-in-bass-fishing-and-fly-fishing](user/interested-in-bass-fishing-and-fly-fishing.md) — Interested in bass fishing and fly fishing
+- [interested-in-ecocriticism-and-environmental-humanities](user/interested-in-ecocriticism-and-environmental-humanities.md) — Interested in ecocriticism and environmental humanities
+- [interested-in-how-landscape-architecture-intersects-with-ecocriticism](user/interested-in-how-landscape-architecture-intersects-with-ecocriticism.md) — Interested in how landscape architecture intersects with ecocriticism
+- [interested-in-landscape-and-nature-photography](user/interested-in-landscape-and-nature-photography.md) — Interested in landscape and nature photography
+- [interested-in-singer-songwriter-and-folk-influenced-genre-music](user/interested-in-singer-songwriter-and-folk-influenced-genre-music.md) — Interested in Singer-Songwriter and Folk-Influenced genre music
+- [julien-baker-discography-popular-tracks-and-albums](reference/julien-baker-discography-popular-tracks-and-albums.md) — Julien Baker discography: popular tracks and albums
+- [lucy-dacus-discography-popular-tracks-and-albums](reference/lucy-dacus-discography-popular-tracks-and-albums.md) — Lucy Dacus discography: popular tracks and albums
+- [micke-desk-from-ikea-assembled-last-weekend](user/micke-desk-from-ikea-assembled-last-weekend.md) — MICKE desk from IKEA, assembled last weekend
+- [organizing-music-library-on-computer-and-spotify](project/organizing-music-library-on-computer-and-spotify.md) — Organizing music library on computer and Spotify
+- [phoebe-bridgers-discography-popular-tracks-and-albums](reference/phoebe-bridgers-discography-popular-tracks-and-albums.md) — Phoebe Bridgers discography: popular tracks and albums
+- [prefers-west-elm-crate-barrel-and-ikea-for-furniture-shopping](user/prefers-west-elm-crate-barrel-and-ikea-for-furniture-shopping.md) — Prefers West Elm, Crate & Barrel, and IKEA for furniture shopping
+- [ran-marathon-on-april-15-2023-with-personal-best-time](experience/ran-marathon-on-april-15-2023-with-personal-best-time.md) — Ran marathon on April 15, 2023 with personal best time
+- [recently-rearranged-living-room-furniture-for-conversational-layout](experience/recently-rearranged-living-room-furniture-for-conversational-layout.md) — Recently rearranged living room furniture for conversational layout
+- [saved-10-songs-from-discover-weekly-playlist-on-2023-03-13](experience/saved-10-songs-from-discover-weekly-playlist-on-2023-03-13.md) — Saved ~10 songs from Discover Weekly playlist on 2023-03-13
+- [singer-songwriter-and-folk-influenced-artists-recommendations](reference/singer-songwriter-and-folk-influenced-artists-recommendations.md) — Singer-Songwriter and Folk-Influenced artists recommendations
+- [training-for-sprint-triathlon](project/training-for-sprint-triathlon.md) — Training for sprint triathlon
+- [upgrade-dining-table-from-small-round-to-reclaimed-wood](project/upgrade-dining-table-from-small-round-to-reclaimed-wood.md) — Upgrade dining table from small round to reclaimed wood
+- [ursula-k-le-guin-major-works-with-environmental-and-political-themes](reference/ursula-k-le-guin-major-works-with-environmental-and-political-themes.md) — Ursula K. Le Guin: major works with environmental and political themes
+- [uses-spreadsheet-to-track-triathlon-training-progress](user/uses-spreadsheet-to-track-triathlon-training-progress.md) — Uses spreadsheet to track triathlon training progress
+- [yoga-practice-twice-weekly-since-march-1-2023](project/yoga-practice-twice-weekly-since-march-1-2023.md) — Yoga practice twice weekly since March 1, 2023

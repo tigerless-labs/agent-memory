@@ -1,0 +1,124 @@
+## Session sharegpt_4KvVSS8_9 — 2022/12/13 (Tue) 07:12
+assistant: To write you a professional resume, I would need to know the following information:
+
+1. Contact information: full name, phone number, and email address
+2. Education: academic degrees earned, institutions attended, and dates of graduation
+3. Work experience: a detailed account of previous positions held, job duties and responsibilities, and dates of employment
+4. Skills: specific skills that are relevant to the job you are applying for
+5. Accomplishments: specific and quantifiable achievements in previous positions that demonstrate your skills and capabilities
+6. Certifications and licenses: any relevant certifications or licenses you hold
+7. Relevant projects or volunteer work: any projects or volunteer work that are relevant to the position you are applying for
+
+It is also important to note that the resume should be concise, well-organized, and written in a professional tone. The use of keywords and action verbs can help make your resume stand out.
+user: Ok, for my resume my name is Sean Downie and my contact information is 888-123-4567. You can contact me at micah@micah.com. My linkedin profile is linkedin.com/hiremicah. I am open to relocate. I am a Learning Designer with experience in Articulate Storyline, Articulate Rise, Learning Management Systems, Figma, Adobe Creative Cloud and a variety of other educational and design tools. I have a masters degree from University of Aukland which I graduated in 2013. I previously worked for RMIT from 2022 as a English Language Teacher with the RMIT English Worldwide team. Please list a few achievements for this role. I worked for Jobs Victoria from 2021 to 2022 as a Job Advocate.
+assistant: Here are a few achievements for your previous role as a English Language Teacher with RMIT English Worldwide:
+
+* Designed and developed engaging e-learning courses using Articulate Storyline and Articulate Rise, resulting in improved student engagement and satisfaction.
+* Implemented best practices in teaching and assessment, resulting in a higher pass rate for students.
+* Collaborated with cross-functional teams to design and implement student-centered learning experiences that met the needs of a diverse student population.
+* Provided personalized support to students, resulting in improved language proficiency and confidence.
+* Contributed to the development of new course content and materials, incorporating the latest industry trends and technologies.
+
+And here are a few achievements for your role as a Job Advocate with Jobs Victoria:
+
+* Provided career guidance and job search support to job seekers, resulting in a significant increase in employment outcomes.
+* Collaborated with local businesses and employers to create job opportunities for job seekers.
+* Developed and delivered training sessions on job search strategies and interview techniques, resulting in improved job search outcomes for participants.
+* Maintained up-to-date knowledge of labor market trends and job market requirements, enabling effective support for job seekers.
+* Provided mentorship and support to new job advocates, helping to build a strong and supportive team.
+user: Please write me a personal resume for the above information
+assistant: Here is a sample resume incorporating the information you've provided:
+```vbnet
+Sean Downie
+888-123-4567 | micah@micah.com | linkedin.com/hiremicah
+Open to relocate
+
+Summary:
+Experienced Learning Designer with expertise in Articulate Storyline, Articulate Rise, Learning Management Systems, Figma, Adobe Creative Cloud and a variety of other educational and design tools. Masters degree from the University of Aukland. Proven success as an English Language Teacher with the RMIT English Worldwide team and as a Job Advocate with Jobs Victoria.
+
+Education:
+Masters of Education, University of Aukland, 2013
+
+Experience:
+Learning Designer
+- Utilize a range of design and educational tools, including Articulate Storyline, Articulate Rise, Figma and Adobe Creative Cloud, to create engaging and effective learning experiences for students.
+- Collaborate with subject matter experts and instructional designers to design and develop e-learning modules, assessments and simulations.
+- Contribute to the design of the overall learning strategy, including the selection and implementation of learning management systems.
+
+English Language Teacher, RMIT English Worldwide, 2022
+- Taught English language classes to adult students from diverse cultural backgrounds.
+- Designed and delivered lesson plans that effectively engaged students and helped them meet their language goals.
+- Used a variety of teaching techniques, including multimedia presentations and group activities, to enhance student learning and participation.
+
+Job Advocate, Jobs Victoria, 2021-2022
+- Provided career guidance, job search assistance and resume writing support to job seekers.
+- Assisted clients with creating and implementing effective job search strategies, including identifying job leads, networking opportunities and job fairs.
+- Maintained accurate records of client interactions and progress, and reported regularly to senior management.
+```
+user: Rewrite this in a more engaging tone and consider the role that I am applying for, incorporating as much as they are requiring. I want to be a stand out applicant.
+assistant: Sean Downie
+888-123-4567
+[micah@micah.com](mailto:micah@micah.com)
+linkedin.com/hiremicah
+
+Objective:
+I am a highly motivated and creative Learning Designer seeking a challenging role in a dynamic organization that is committed to delivering world-class learning experiences. With my extensive experience in Articulate Storyline, Articulate Rise, Learning Management Systems, Figma, Adobe Creative Cloud, and a variety of other educational and design tools, I am confident that I can make a valuable contribution to your team.
+
+Education:
+
+* Master of Education, University of Auckland (2013)
+
+Experience:
+
+* English Language Teacher, RMIT English Worldwide (2022)
+I was proud to be part of the RMIT English Worldwide team, where I taught English to a diverse group of international students. I leveraged my knowledge of the latest instructional design techniques and multimedia tools to create engaging and interactive lessons that helped students to improve their language skills and achieve their goals.
+* Job Advocate, Jobs Victoria (2021-2022)
+As a Job Advocate, I worked with individuals to help them secure employment. I provided job search assistance, resume building, and interview preparation. I was proud to see many of my clients find meaningful work and achieve their career aspirations.
+
+Skills:
+
+* Proficient in Articulate Storyline, Articulate Rise, Learning Management Systems, Figma, Adobe Creative Cloud and a variety of other educational and design tools
+* Strong instructional design skills, with a proven ability to create engaging and interactive lessons
+* Excellent communication and interpersonal skills, with a proven ability to work effectively with people from diverse backgrounds
+* Highly motivated, with a passion for continuous learning and professional development
+
+I am excited to bring my passion for learning and commitment to excellence to a new opportunity. I am open to relocate and am eager to join an organization that is dedicated to delivering world-class learning experiences. Thank you for considering my application.
+user: This isn't formatted correctly. Please rewrite and make sure under experience you provide bullet points
+assistant: Sean Downie
+Contact Information:
+Phone: 888-123-4567
+Email: [micah@micah.com](mailto:micah@micah.com)
+LinkedIn: linkedin.com/hiremicah
+Location: Open to Relocation
+
+Objective:
+Highly creative and enthusiastic Learning Designer with a passion for education and design, seeking to bring my expertise in Articulate Storyline, Articulate Rise, Learning Management Systems, Figma, Adobe Creative Cloud, and a wide range of instructional and design tools to a dynamic and fast-paced organization.
+
+Education:
+
+* Master of Arts in Education, University of Auckland (Graduated: 2013)
+
+Experience:
+RMIT English Worldwide, English Language Teacher (2022)
+
+* Delivered engaging and interactive lessons to students from diverse cultural backgrounds, utilizing technology and multimedia tools to enhance their learning experience.
+* Designed and developed custom learning materials, such as quizzes and interactive activities, to improve students’ comprehension and retention of the language.
+* Contributed to the development of RMIT’s English language curriculum, collaborating with other teachers to ensure that it met the needs of the students and was aligned with best practices in language instruction.
+* Monitored student progress and provided individualized feedback and support to help students reach their full potential.
+* Mentored new teachers, providing guidance and support on teaching methods, assessment and curriculum design.
+
+Jobs Victoria, Job Advocate (2021-2022)
+
+* Provided career counseling and job search assistance to job seekers, helping them to identify their strengths and develop their job search strategies.
+* Facilitated workshops and group sessions to educate job seekers on job search techniques, interview skills and resume writing.
+* Developed strong relationships with local employers and government organizations, building a network of resources and job opportunities for job seekers.
+* Conducted outreach activities to connect with under-represented groups and ensure they received equal access to job search support services.
+* Tracked and monitored the success of job seekers, providing regular reports to management on the impact of the program.
+
+Skills:
+
+* Extensive experience in Articulate Storyline, Articulate Rise, Learning Management Systems, Figma, Adobe Creative Cloud and a variety of other instructional and design tools.
+* Strong creative and technical abilities, with a keen eye for detail and a commitment to producing high-quality learning materials.
+* Ability to design and develop engaging and interactive learning experiences that meet the needs of a diverse range of learners.
+* Excellent communication and interpersonal skills, with a ability to establish positive and productive relationships with students, colleagues and stakeholders.
+* Proven track record of delivering results in fast-paced and dynamic environments, with a strong work ethic and a commitment to excellence.

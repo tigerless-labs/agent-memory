@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [ankle-boots-with-worn-heel-needing-cobbler-repair](user/ankle-boots-with-worn-heel-needing-cobbler-repair.md) — Ankle boots with worn heel needing cobbler repair
+- [attended-austin-film-festival-on-2023-05-21-watched-12-films-including-the-frenc](experience/attended-austin-film-festival-on-2023-05-21-watched-12-films-including-the-frenc.md) — Attended Austin Film Festival on 2023-05-21, watched 12 films including The French Dispatch and The Power of the Dog
+- [attended-concerts-at-outdoors-pavilion-and-coffee-house-on-main-street-singer-so](user/attended-concerts-at-outdoors-pavilion-and-coffee-house-on-main-street-singer-so.md) — Attended concerts at Outdoors Pavilion and Coffee House on Main Street (singer-songwriter night)
+- [exploring-local-music-venue-scene-particularly-smaller-and-low-key-intimate-venu](project/exploring-local-music-venue-scene-particularly-smaller-and-low-key-intimate-venu.md) — Exploring local music venue scene, particularly smaller and low-key intimate venues
+- [favorite-film-critics-and-publications-rogerebert-com-the-a-v-club-the-film-comm](user/favorite-film-critics-and-publications-rogerebert-com-the-a-v-club-the-film-comm.md) — Favorite film critics and publications: RogerEbert.com, The A.V. Club, The Film Comment
+- [geochemical-xrf-analysis-25-samples-na2ofeo-composition-2020-12-18-noc-dataset](reference/geochemical-xrf-analysis-25-samples-na2ofeo-composition-2020-12-18-noc-dataset.md) — Geochemical XRF analysis: 25 samples, Na2O–FeO composition, 2020_12_18_noc dataset
+- [h-m-sandals-recently-purchased-pairs-with-yellow-sundress](user/h-m-sandals-recently-purchased-pairs-with-yellow-sundress.md) — H&M sandals, recently purchased, pairs with yellow sundress
+- [holiday-shopping-planning-and-budget-tracking-strategy-started-may-2023](project/holiday-shopping-planning-and-budget-tracking-strategy-started-may-2023.md) — Holiday shopping planning and budget tracking strategy started May 2023
+- [interest-in-volunteering-at-more-community-driven-music-and-arts-events](project/interest-in-volunteering-at-more-community-driven-music-and-arts-events.md) — Interest in volunteering at more community-driven music and arts events
+- [interested-in-cinematography-and-film-techniques](user/interested-in-cinematography-and-film-techniques.md) — Interested in cinematography and film techniques
+- [learning-about-cinematography-techniques](project/learning-about-cinematography-techniques.md) — Learning about cinematography techniques
+- [learning-about-film-criticism-and-analysis](project/learning-about-film-criticism-and-analysis.md) — Learning about film criticism and analysis
+- [passionate-about-diversity-and-inclusion-in-film-industry-especially-behind-the](user/passionate-about-diversity-and-inclusion-in-film-industry-especially-behind-the.md) — Passionate about diversity and inclusion in film industry, especially behind-the-camera representation (directors, writers)
+- [prefers-boho-chic-fashion-style](user/prefers-boho-chic-fashion-style.md) — Prefers Boho Chic fashion style
+- [prefers-indie-and-rock-music-genres](user/prefers-indie-and-rock-music-genres.md) — Prefers indie and rock music genres
+- [strategies-for-managing-interruptions-in-team-meetings](reference/strategies-for-managing-interruptions-in-team-meetings.md) — Strategies for managing interruptions in team meetings
+- [ternary-plot-with-color-coding-for-geochemical-oxide-compositions](project/ternary-plot-with-color-coding-for-geochemical-oxide-compositions.md) — Ternary plot with color coding for geochemical oxide compositions
+- [volunteered-at-music-for-a-cause-benefit-concert-at-community-center-in-april-20](experience/volunteered-at-music-for-a-cause-benefit-concert-at-community-center-in-april-20.md) — Volunteered at Music for a Cause benefit concert at Community Center in April 2023, which raised money for local children's hospital
+- [worked-in-a-team-where-members-kept-interrupting-each-other-during-meetings](experience/worked-in-a-team-where-members-kept-interrupting-each-other-during-meetings.md) — Worked in a team where members kept interrupting each other during meetings
+- [yellow-sundress-from-asos-ordered-may-2023](user/yellow-sundress-from-asos-ordered-may-2023.md) — Yellow sundress from ASOS, ordered May 2023

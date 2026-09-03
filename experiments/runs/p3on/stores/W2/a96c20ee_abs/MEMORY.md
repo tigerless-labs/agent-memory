@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [15-mile-single-track-bike-ride-to-wilder-ranch-state-park-with-mike-may-2023](experience/15-mile-single-track-bike-ride-to-wilder-ranch-state-park-with-mike-may-2023.md) — 15-mile single-track bike ride to Wilder Ranch State Park with Mike (May 2023)
+- [alex-drifting-mentor-who-provided-speed-and-angle-control-tips](reference/alex-drifting-mentor-who-provided-speed-and-angle-control-tips.md) — Alex: drifting mentor who provided speed and angle control tips
+- [attended-first-research-conference-at-harvard-university-and-explored-ai-in-educ](experience/attended-first-research-conference-at-harvard-university-and-explored-ai-in-educ.md) — Attended first research conference at Harvard University and explored AI in education projects
+- [blue-cheese-chocolate-chip-cookie-recipe-for-blog](reference/blue-cheese-chocolate-chip-cookie-recipe-for-blog.md) — Blue Cheese Chocolate Chip Cookie recipe for blog
+- [chose-therm-a-rest-neoair-xlite-sleeping-pad-for-camping-prioritizes-comfort-ove](user/chose-therm-a-rest-neoair-xlite-sleeping-pad-for-camping-prioritizes-comfort-ove.md) — Chose Therm-a-Rest NeoAir XLite sleeping pad for camping; prioritizes comfort over weight
+- [enjoys-cooking-with-ground-beef-and-chicken-breasts-interested-in-meal-planning](user/enjoys-cooking-with-ground-beef-and-chicken-breasts-interested-in-meal-planning.md) — Enjoys cooking with ground beef and chicken breasts; interested in meal planning and recipe variety
+- [friend-alex-camping-and-outdoor-equipment-lending](user/friend-alex-camping-and-outdoor-equipment-lending.md) — Friend Alex: camping and outdoor equipment lending
+- [getting-started-with-djing-steps-and-resources](reference/getting-started-with-djing-steps-and-resources.md) — Getting started with DJing: steps and resources
+- [interested-in-djing-as-a-hobby](user/interested-in-djing-as-a-hobby.md) — Interested in DJing as a hobby
+- [interested-in-portable-power-banks-for-travel-and-festivals](user/interested-in-portable-power-banks-for-travel-and-festivals.md) — Interested in portable power banks for travel and festivals
+- [maintains-phone-screen-in-pristine-conditionno-scratches-or-cracks-despite-exten](user/maintains-phone-screen-in-pristine-conditionno-scratches-or-cracks-despite-exten.md) — Maintains phone screen in pristine condition—no scratches or cracks despite extended use
+- [neighbor-mike-regular-bike-riding-partner](user/neighbor-mike-regular-bike-riding-partner.md) — Neighbor Mike: regular bike riding partner
+- [owns-nissan-gt-r-with-recently-installed-coilovers](user/owns-nissan-gt-r-with-recently-installed-coilovers.md) — Owns Nissan GT-R with recently installed coilovers
+- [plan-to-upgrade-gt-r-with-racing-specific-brake-pads-staggered-wheel-tire-setup](project/plan-to-upgrade-gt-r-with-racing-specific-brake-pads-staggered-wheel-tire-setup.md) — Plan to upgrade GT-R with racing-specific brake pads, staggered wheel/tire setup, and full exhaust system
+- [practices-drifting-at-local-parking-lot](user/practices-drifting-at-local-parking-lot.md) — Practices drifting at local parking lot
+- [research-interest-ai-powered-adaptive-learning-systems-and-their-role-in-student](user/research-interest-ai-powered-adaptive-learning-systems-and-their-role-in-student.md) — Research interest: AI-powered adaptive learning systems and their role in student outcomes
+- [solo-day-hike-to-mission-peak-fremont-april-10-2023-enjoyed-planning-to-repeat](experience/solo-day-hike-to-mission-peak-fremont-april-10-2023-enjoyed-planning-to-repeat.md) — Solo day hike to Mission Peak, Fremont (April 10, 2023); enjoyed, planning to repeat
+- [thesis-research-on-ai-powered-adaptive-learning-systems-in-math-and-reading-comp](project/thesis-research-on-ai-powered-adaptive-learning-systems-in-math-and-reading-comp.md) — Thesis research on AI-powered adaptive learning systems in math and reading comprehension — presented at summer 2023 conference
+- [yosemite-camping-trip-fresno-diner-stop-with-memorable-breakfast-burrito-may-202](experience/yosemite-camping-trip-fresno-diner-stop-with-memorable-breakfast-burrito-may-202.md) — Yosemite camping trip; Fresno diner stop with memorable breakfast burrito (May 2023)

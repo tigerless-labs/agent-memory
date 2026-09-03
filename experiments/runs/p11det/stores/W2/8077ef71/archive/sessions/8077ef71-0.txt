@@ -1,0 +1,17 @@
+## Session sharegpt_6oXLF8d_0 — 2022/02/08 (Tue) 03:32
+user: Write a maths school report for Stuart. It should be about 3 sentences long. His strength is expanding brackets. His target it area and perimeter.
+assistant: Stuart has shown excellent understanding and proficiency in expanding brackets. He consistently performs well in this area and demonstrates a solid grasp of the concept. Moving forward, his target should be to focus on improving his understanding of area and perimeter, in order to achieve greater success in these areas.
+user: Make it a bit longer
+assistant: Stuart has demonstrated a keen understanding of expanding brackets and is able to confidently apply this skill to a range of mathematical problems. He has consistently achieved high scores in this area and demonstrates a solid grasp of the underlying principles.
+
+In order to continue his academic progress, Stuart should focus on improving his understanding of area and perimeter. This will enable him to apply mathematical principles to a wider range of problems, as well as developing his problem-solving skills. With continued effort and focus, there is no doubt that Stuart will continue to excel in mathematics and achieve his academic goals.
+user: Include that works well as a group, but doesn't always hand his homework in on time.
+assistant: Stuart is a strong member of his group, working collaboratively and effectively with his peers to solve mathematical problems. However, there is room for improvement in his individual study habits, as he has demonstrated a tendency to occasionally miss homework deadlines.
+
+It is important for Stuart to recognize the value of completing homework on time, as it is an integral component of his academic progress. By consistently meeting homework deadlines, he can reinforce his understanding of mathematical concepts and develop his skills and confidence. With continued effort and focus on both individual and group work, Stuart has the potential to excel in all areas of mathematics.
+user: Rewrite all as a single report.
+assistant: Stuart has demonstrated a keen understanding of expanding brackets and is able to confidently apply this skill to a range of mathematical problems. He consistently performs well in this area and demonstrates a solid grasp of the underlying principles. Stuart is a strong member of his group, working collaboratively and effectively with his peers to solve mathematical problems.
+
+However, there is room for improvement in Stuart's individual study habits, as he has demonstrated a tendency to occasionally miss homework deadlines. It is important for him to recognize the value of completing homework on time, as it is an integral component of his academic progress. By consistently meeting homework deadlines, he can reinforce his understanding of mathematical concepts and develop his skills and confidence.
+
+Moving forward, Stuart should focus on improving his understanding of area and perimeter. This will enable him to apply mathematical principles to a wider range of problems, as well as developing his problem-solving skills. With continued effort and focus on both individual and group work, there is no doubt that Stuart has the potential to excel in all areas of mathematics and achieve his academic goals.

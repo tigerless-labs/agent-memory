@@ -1,0 +1,37 @@
+# MEMORY.md
+
+- [ahmedabad-must-visit-historical-and-cultural-sites](reference/ahmedabad-must-visit-historical-and-cultural-sites.md) — Ahmedabad must-visit historical and cultural sites
+- [allocates-5-10-hours-per-week-to-candle-business-administrative-tasks](project/allocates-5-10-hours-per-week-to-candle-business-administrative-tasks.md) — Allocates 5-10 hours per week to candle business administrative tasks
+- [ancestors-from-gujarat-recently-discovered-ancestral-village-location-there](user/ancestors-from-gujarat-recently-discovered-ancestral-village-location-there.md) — Ancestors from Gujarat; recently discovered ancestral village location there
+- [attended-cousin-s-wedding-with-traditional-indian-customs-and-elements](experience/attended-cousin-s-wedding-with-traditional-indian-customs-and-elements.md) — Attended cousin's wedding with traditional Indian customs and elements
+- [brown-leather-boots-scuffed-at-office-party-on-february-5th](experience/brown-leather-boots-scuffed-at-office-party-on-february-5th.md) — Brown leather boots scuffed at office party on February 5th
+- [chose-simple-tiered-pricing-for-wholesale-candles](project/chose-simple-tiered-pricing-for-wholesale-candles.md) — Chose simple tiered pricing for wholesale candles
+- [colleague-rachel-recommended-a-shoe-brand-with-black-stilettos-at-office-party-o](user/colleague-rachel-recommended-a-shoe-brand-with-black-stilettos-at-office-party-o.md) — Colleague Rachel recommended a shoe brand with black stilettos at office party on February 5th
+- [emerging-jazz-artists-to-explore-nubya-garcia-joel-ross-ashley-henry-georgia-ann](reference/emerging-jazz-artists-to-explore-nubya-garcia-joel-ross-ashley-henry-georgia-ann.md) — Emerging jazz artists to explore: Nubya Garcia, Joel Ross, Ashley Henry, Georgia Anne Muldrow, Marquis Hill
+- [experimenting-with-different-bbq-sauce-flavors-and-heat-levels](user/experimenting-with-different-bbq-sauce-flavors-and-heat-levels.md) — Experimenting with different BBQ sauce flavors and heat levels
+- [financial-goal-save-800-dollars-for-camera-within-4-months-set-2023-02-03](user/financial-goal-save-800-dollars-for-camera-within-4-months-set-2023-02-03.md) — Financial goal: save 800 dollars for camera within 4 months (set 2023-02-03)
+- [gujarat-festivals-and-cultural-events](reference/gujarat-festivals-and-cultural-events.md) — Gujarat festivals and cultural events
+- [gujarati-cuisine-must-try-dishes-and-restaurants-in-ahmedabad](reference/gujarati-cuisine-must-try-dishes-and-restaurants-in-ahmedabad.md) — Gujarati cuisine: must-try dishes and restaurants in Ahmedabad
+- [handmade-candle-business-with-wholesale-opportunity](project/handmade-candle-business-with-wholesale-opportunity.md) — Handmade candle business with wholesale opportunity
+- [has-a-sister](user/has-a-sister.md) — Has a sister
+- [has-credit-card-debt-and-wants-to-create-repayment-plan](user/has-credit-card-debt-and-wants-to-create-repayment-plan.md) — Has credit card debt and wants to create repayment plan
+- [home-cleaning-methods-for-sneakers-and-tips-for-professional-cleaning](reference/home-cleaning-methods-for-sneakers-and-tips-for-professional-cleaning.md) — Home cleaning methods for sneakers and tips for professional cleaning
+- [hot-sauce-and-spicy-ingredient-recommendations-for-bbq](reference/hot-sauce-and-spicy-ingredient-recommendations-for-bbq.md) — Hot sauce and spicy ingredient recommendations for BBQ
+- [improving-candle-display-and-marketing-materials](project/improving-candle-display-and-marketing-materials.md) — Improving candle display and marketing materials
+- [income-structure-bi-weekly-paychecks-plus-occasional-freelance-work](user/income-structure-bi-weekly-paychecks-plus-occasional-freelance-work.md) — Income structure: bi-weekly paychecks plus occasional freelance work
+- [interested-in-authentic-gujarati-cuisine-and-trying-new-traditional-dishes](user/interested-in-authentic-gujarati-cuisine-and-trying-new-traditional-dishes.md) — Interested in authentic Gujarati cuisine and trying new traditional dishes
+- [interested-in-jazz-music-and-emerging-artists-exploring-genre-boundaries](user/interested-in-jazz-music-and-emerging-artists-exploring-genre-boundaries.md) — Interested in jazz music and emerging artists exploring genre boundaries
+- [korean-style-bbq-chicken-recipe-soy-sauce-brown-sugar-garlic-ginger-gochujang](reference/korean-style-bbq-chicken-recipe-soy-sauce-brown-sugar-garlic-ginger-gochujang.md) — Korean-Style BBQ Chicken recipe: soy sauce, brown sugar, garlic, ginger, gochujang
+- [modern-jazz-labels-following-blue-note-model-ecm-records-ropeadope-records-reviv](reference/modern-jazz-labels-following-blue-note-model-ecm-records-ropeadope-records-reviv.md) — Modern jazz labels following Blue Note model: ECM Records, Ropeadope Records, Revive Music Group
+- [planning-trip-to-ahmedabad-gujarat-for-4-5-days-to-connect-with-roots-and-explor](project/planning-trip-to-ahmedabad-gujarat-for-4-5-days-to-connect-with-roots-and-explor.md) — Planning trip to Ahmedabad, Gujarat for 4-5 days to connect with roots and explore family history
+- [prefers-google-sheets-for-personal-finance-tracking](user/prefers-google-sheets-for-personal-finance-tracking.md) — Prefers Google Sheets for personal finance tracking
+- [prioritizes-mental-health-and-mindfulness-over-social-media-validation](user/prioritizes-mental-health-and-mindfulness-over-social-media-validation.md) — Prioritizes mental health and mindfulness over social media validation
+- [purchased-adidas-running-shoes-on-january-10th-at-outlet-mall-for-eighty-dollars](experience/purchased-adidas-running-shoes-on-january-10th-at-outlet-mall-for-eighty-dollars.md) — Purchased Adidas running shoes on January 10th at outlet mall for eighty dollars
+- [recommended-leather-conditioner-and-waterproofing-brands-for-boot-care](reference/recommended-leather-conditioner-and-waterproofing-brands-for-boot-care.md) — Recommended leather conditioner and waterproofing brands for boot care
+- [rosalynn-mcclenagan-will-and-estate-details](reference/rosalynn-mcclenagan-will-and-estate-details.md) — Rosalynn McClenagan will and estate details
+- [sneakers-got-dirty-playing-basketball-with-friends-on-february-1st](experience/sneakers-got-dirty-playing-basketball-with-friends-on-february-1st.md) — Sneakers got dirty playing basketball with friends on February 1st
+- [taking-telugu-language-classes-wants-to-practice-with-locals](user/taking-telugu-language-classes-wants-to-practice-with-locals.md) — Taking Telugu language classes; wants to practice with locals
+- [technique-for-perfect-grill-marks-on-chicken-breasts](reference/technique-for-perfect-grill-marks-on-chicken-breasts.md) — Technique for perfect grill marks on chicken breasts
+- [tips-for-cooking-chicken-breasts-to-avoid-overcooking](reference/tips-for-cooking-chicken-breasts-to-avoid-overcooking.md) — Tips for cooking chicken breasts to avoid overcooking
+- [tips-for-finding-a-reliable-cobbler-for-shoe-repair](reference/tips-for-finding-a-reliable-cobbler-for-shoe-repair.md) — Tips for finding a reliable cobbler for shoe repair
+- [won-portable-power-bank-auction-on-ebay-on-2023-02-03](experience/won-portable-power-bank-auction-on-ebay-on-2023-02-03.md) — Won portable power bank auction on eBay on 2023-02-03

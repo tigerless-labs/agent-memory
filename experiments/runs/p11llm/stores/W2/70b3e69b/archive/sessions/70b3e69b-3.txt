@@ -1,0 +1,124 @@
+## Session sharegpt_BMNVlj7_17 — 2023/05/20 (Sat) 16:13
+assistant: Hey there!
+
+I'm writing to express my excitement about the Solutions Architect role at Amazon. As someone who shares your values of customer obsession, passion for invention, commitment to operational excellence, and long-term thinking, I know I would thrive in this role and make a positive contribution to your team. Plus, I'm always down for a good joke (or two).
+
+I have over 7-10 years of experience in senior technical leader positions within the Energy and Utilities industry, and I think my skills and experience make me a great fit for this role. I have a strong technical foundation in enterprise IT, with expertise in database systems, tiered storage architectures, virtualization, data center operations, and network security. I also have a deep understanding of the Energy and Utilities industry, including relevant applications, platforms, and data ecosystems.
+
+One of the things that I'm most passionate about is using technology to make a positive impact on the world. I'm excited about the chance to join a company that is not only committed to being Earth's most customer-centric and safest place to work, but also to being Earth's best employer. I think my technical skills and industry knowledge, combined with my passion for using technology to make a difference, would enable me to understand customer needs and present the technical benefits of AWS solutions in a way that really resonates.
+
+In addition to my technical skills, I have strong leadership and communication skills,
+user: please make this cover letter much shorter and use bullets
+assistant: Dear Hiring Manager,
+
+I am writing to express my interest in the Solutions Architect role at Amazon. My background in electrical engineering and over 7-10 years of experience in senior technical leader positions within the Energy and Utilities industry make me an ideal fit for this role.
+
+My technical skills include:
+
+* Strong foundation in enterprise IT, including:
+	+ Database systems
+	+ Tiered storage architectures
+	+ Virtualization (server and desktop)
+	+ Data center operations
+	+ Network security
+* Deep understanding of the Energy and Utilities industry, including relevant applications, platforms, and data ecosystems
+* Togo certification and experience in process and robotic automation
+
+I also have strong leadership and communication skills, and have a proven track record of managing and leading teams. I have the ability to work effectively across internal and external organizations, including with customers, SI’s, and ISVs. I have a strong track record of building, sponsoring, and influencing executive investment in new systems based on data-driven business cases, and have relied on big data analytics to uncover and size the value of technology investments.
+
+I am excited about the opportunity to bring my skills and experience to Amazon and contribute to the success of your team. Thank you for considering my application.
+
+Sincerely,
+[Your Name]
+user: Please write a sample resume to go with this cover letter
+assistant: [Your Name]
+[Your Address]
+[Your City, State ZIP]
+[Your Phone Number]
+[Your Email Address]
+
+Summary:
+Highly experienced Solutions Architect with a strong technical foundation in enterprise IT and a deep understanding of the Energy and Utilities industry. Proven track record of managing and leading teams, and the ability to work effectively across internal and external organizations. Togo certified and experienced in process and robotic automation.
+
+Experience:
+
+Solutions Architect
+XYZ Company | Jan 2020 - Present
+
+* Designed and implemented solutions for clients in the Energy and Utilities industry
+* Worked closely with clients to understand their needs and develop custom solutions
+* Led a team of engineers in the development and deployment of solutions
+* Worked with sales team to develop and deliver technical presentations to potential clients
+* Participated in the development of proposals and business cases
+
+Senior Technical Leader
+ABC Company | Apr 2015 - Dec 2019
+
+* Led technical teams in the development and implementation of solutions for clients in the Energy and Utilities industry
+* Worked closely with clients to understand their needs and develop custom solutions
+* Participated in the development of proposals and business cases
+* Assisted in the development and delivery of technical presentations to potential clients
+
+Education:
+
+* Bachelor of Science in Electrical Engineering, University of XYZ, 2011-2015
+
+Skills:
+
+* Strong technical foundation
+user: Please use more numbers to demonstrate my impact as a solutions architect. I want it to be clear that I had a big impact on my projects and society
+
+Also please talk more about my research experience in academia
+assistant: [Your Name]
+[Your Address]
+[Your City, State ZIP]
+[Your Phone Number]
+[Your Email Address]
+
+Summary:
+Highly experienced Solutions Architect with a strong technical foundation in enterprise IT and a deep understanding of the Energy and Utilities industry. Proven track record of managing and leading teams, and the ability to work effectively across internal and external organizations. Togo certified and experienced in process and robotic automation. Demonstrated ability to drive significant business impact through the development and implementation of innovative solutions.
+
+Experience:
+
+Solutions Architect
+XYZ Company | Jan 2020 - Present
+
+* Designed and implemented solutions for clients in the Energy and Utilities industry, resulting in an average annual cost savings of $500,000 per client
+* Worked closely with clients to understand their needs and develop custom solutions, leading to a customer satisfaction rate of 95%
+* Led a team of 10 engineers in the development and deployment of solutions, resulting in a project success rate of 100%
+* Worked with sales team to develop and deliver technical presentations to potential clients, leading to a conversion rate of 75%
+* Participated in the development of proposals and business cases, resulting in a win rate of 90%
+
+Senior Technical Leader
+ABC Company | Apr 2015 - Dec 2019
+
+* Led technical teams in the development and implementation of
+user: Please include at least one joke in my resume. I'm a super funny person. People think I'm not funny. I need to convince them I'm funny. Can you help me?
+assistant: [Your Name]
+[Your Address]
+[Your City, State ZIP]
+[Your Phone Number]
+[Your Email Address]
+
+Summary:
+Highly experienced Solutions Architect with a strong technical foundation in enterprise IT and a deep understanding of the Energy and Utilities industry. Proven track record of managing and leading teams, and the ability to work effectively across internal and external organizations. Togo certified and experienced in process and robotic automation. Demonstrated ability to drive significant business impact through the development and implementation of innovative solutions. Also, I'm pretty funny (even if no one else thinks so).
+
+Experience:
+
+Solutions Architect
+XYZ Company | Jan 2020 - Present
+
+* Designed and implemented solutions for clients in the Energy and Utilities industry, resulting in an average annual cost savings of $500,000 per client
+* Worked closely with clients to understand their needs and develop custom solutions, leading to a customer satisfaction rate of 95%
+* Led a team of 10 engineers in the development and deployment of solutions, resulting in a project success rate of 100%
+* Worked with sales team to develop and deliver technical presentations to potential clients, leading to a conversion rate of 75%
+* Participated in the development of proposals and business cases, resulting in a win rate of 90%
+
+Senior Technical Leader
+ABC Company | Apr 2015 - Dec 2019
+
+* Led technical teams in the development and implementation of
+user: Please write me a song about being a solutions architect at amazon
+assistant: Verse 1:
+I'm a Solutions Architect at Amazon
+Working on the cutting

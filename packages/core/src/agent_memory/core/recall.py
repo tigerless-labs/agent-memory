@@ -6,6 +6,7 @@ import dataclasses
 import datetime as dt
 import sqlite3
 
+from . import timestamp
 from .access_log import KIND_RECALL, AccessEntry, AccessLog
 from .config import Config
 from .database import Database
@@ -106,7 +107,7 @@ class Recall:
         return path.startswith(scope.strip("/"))
 
     def _current_at(self, row: sqlite3.Row, by_name: dict[str, sqlite3.Row], as_of: str) -> bool:
-        if _as_date(str(row["valid_from"])) > _as_date(as_of):
+        if timestamp.parse(str(row["valid_from"])) > timestamp.parse(as_of):
             return False
         successor_name = row["superseded_by"]
         if not successor_name:
@@ -114,7 +115,7 @@ class Recall:
         successor = by_name.get(str(successor_name))
         if successor is None:
             return True
-        return _as_date(str(successor["valid_from"])) > _as_date(as_of)
+        return timestamp.parse(str(successor["valid_from"])) > timestamp.parse(as_of)
 
     def _rank(
         self,
@@ -131,7 +132,7 @@ class Recall:
             if current is None or weighted > current[0]:
                 best[candidate.name] = (weighted, candidate.anchor, candidate.heading)
 
-        reference = _as_date(as_of) if as_of else self._store.clock.now().date()
+        reference = timestamp.parse(as_of) if as_of else self._store.clock.now()
         hits: list[Hit] = []
         for name, (relevance, anchor, heading) in best.items():
             row = eligible[name]
@@ -190,16 +191,11 @@ class Recall:
             return self._config.index.bm25_abstract_weight
         return self._config.index.bm25_body_weight
 
-    def _recency(self, updated: str, reference: dt.date) -> float:
-        age_days = max(0.0, (reference - _as_date(updated)).days)
+    def _recency(self, updated: str, reference: dt.datetime) -> float:
+        age_days = max(0.0, timestamp.days_between(reference, timestamp.parse(updated)))
         decayed = self._config.recall.recency_decay_base ** (
             age_days / self._config.recall.recency_half_life_days
         )
         return max(self._config.recall.recency_floor, decayed)
 
 
-def _as_date(value: str) -> dt.date:
-    try:
-        return dt.date.fromisoformat(value)
-    except ValueError:
-        return dt.datetime.fromisoformat(value).date()

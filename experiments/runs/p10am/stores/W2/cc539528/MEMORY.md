@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [attended-colleague-lisa-s-baby-shower-baby-olivia-expected-july-2023](experience/attended-colleague-lisa-s-baby-shower-baby-olivia-expected-july-2023.md) — Attended colleague Lisa's baby shower - baby Olivia expected July 2023
+- [baby-gift-basket-for-colleague-lisa-princess-theme-for-olivia](project/baby-gift-basket-for-colleague-lisa-princess-theme-for-olivia.md) — Baby gift basket for colleague Lisa - Princess theme for Olivia
+- [dry-cleaners-on-main-st-provide-good-service](user/dry-cleaners-on-main-st-provide-good-service.md) — Dry cleaners on Main St. provide good service
+- [explores-christian-theology-and-philosophical-objections-to-christianity](user/explores-christian-theology-and-philosophical-objections-to-christianity.md) — Explores Christian theology and philosophical objections to Christianity
+- [get-black-leather-jacket-cleaned-and-conditioned](project/get-black-leather-jacket-cleaned-and-conditioned.md) — Get black leather jacket cleaned and conditioned
+- [get-winter-coat-altered](project/get-winter-coat-altered.md) — Get winter coat altered
+- [hip-hop-dance-online-tutorials-and-learning-platforms](reference/hip-hop-dance-online-tutorials-and-learning-platforms.md) — Hip-hop dance online tutorials and learning platforms
+- [interested-in-learning-hip-hop-dance-and-footwork-beginner-not-a-hip-hop-music-f](user/interested-in-learning-hip-hop-dance-and-footwork-beginner-not-a-hip-hop-music-f.md) — Interested in learning hip-hop dance and footwork; beginner, not a hip-hop music fan
+- [interested-in-trying-pour-over-coffee-brewing-to-experience-flavors-of-quality-c](user/interested-in-trying-pour-over-coffee-brewing-to-experience-flavors-of-quality-c.md) — Interested in trying pour-over coffee brewing to experience flavors of quality coffee beans
+- [online-stores-for-personalized-baby-blankets-and-customized-baby-gifts](reference/online-stores-for-personalized-baby-blankets-and-customized-baby-gifts.md) — Online stores for personalized baby blankets and customized baby gifts
+- [owns-a-black-leather-jacket](user/owns-a-black-leather-jacket.md) — Owns a black leather jacket
+- [owns-a-winter-coat-in-need-of-alteration](user/owns-a-winter-coat-in-need-of-alteration.md) — Owns a winter coat in need of alteration
+- [prefers-coffee-shops-with-better-atmosphere-and-service-willing-to-pay-more-for](user/prefers-coffee-shops-with-better-atmosphere-and-service-willing-to-pay-more-for.md) — Prefers coffee shops with better atmosphere and service, willing to pay more for quality experience
+- [recently-rearranged-bathroom-cabinets-to-organize-skincare-products](project/recently-rearranged-bathroom-cabinets-to-organize-skincare-products.md) — Recently rearranged bathroom cabinets to organize skincare products
+- [reconnected-with-old-friend-from-high-school-on-bus-2023-05-19-exchanged-contact](user/reconnected-with-old-friend-from-high-school-on-bus-2023-05-19-exchanged-contact.md) — Reconnected with old friend from high school on bus 2023-05-19, exchanged contact information
+- [replaced-leaky-sink-faucet-with-diy-installation-from-home-depot-april-2023](experience/replaced-leaky-sink-faucet-with-diy-installation-from-home-depot-april-2023.md) — Replaced leaky sink faucet with DIY installation from Home Depot (April 2023)
+- [takes-daily-bus-commute-uses-time-for-productivity-podcasts-work-and-exploring-c](user/takes-daily-bus-commute-uses-time-for-productivity-podcasts-work-and-exploring-c.md) — Takes daily bus commute, uses time for productivity (podcasts, work) and exploring coffee shops
+- [test-entry](user/test-entry.md) — Test entry
+- [test-ref](reference/test-ref.md) — Test ref
+- [toilet-clog-from-flushing-too-much-toilet-paper-called-plumber-to-unclog-may-202](experience/toilet-clog-from-flushing-too-much-toilet-paper-called-plumber-to-unclog-may-202.md) — Toilet clog from flushing too much toilet paper, called plumber to unclog (May 2023)

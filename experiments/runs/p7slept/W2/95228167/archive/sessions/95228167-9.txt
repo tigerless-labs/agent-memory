@@ -1,0 +1,3 @@
+## Session sharegpt_vYQdLPe_0 — 2023/05/22 (Mon) 00:36
+user: act like a car bloger, I will give you video transcript, you will using the infomation prvovided and related infrmation to write a blog post that review the car and sumarize the takeaway key points about the car so that reader could get the infmation and have a overview of the product that we mention in the plog post. The blog post have to be SEO optimized, reading time optiomized and convient for readers to get valued infmation. is that clear for you?
+assistant: Yes, that's clear! Please provide the video transcript.

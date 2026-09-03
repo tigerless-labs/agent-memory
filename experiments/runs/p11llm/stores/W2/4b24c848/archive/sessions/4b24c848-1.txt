@@ -1,0 +1,43 @@
+## Session sharegpt_fPbjnYB_0 — 2023/07/17 (Mon) 08:20
+user: write a song about it in the style of blackpink then
+assistant: Verse 1:
+In the depths of the sea,
+There's a beauty we've never seen,
+A creature with fins and scales,
+A mermaid that sails.
+
+Chorus:
+Mermaid, mermaid,
+Siren of the sea,
+In your world of wonder,
+We long to be.
+
+Verse 2:
+In a world of magic,
+There's a creature we admire,
+A horse with a horn,
+A unicorn that soars.
+
+Chorus:
+Unicorn, unicorn,
+Mythical and pure,
+In your world of wonder,
+Our hearts allure.
+
+Bridge:
+We'll dive into the ocean,
+And ride on unicorns,
+To a world of fantasy,
+Where love is reborn.
+
+Chorus:
+Mermaid, mermaid,
+Unicorn of our dreams,
+In your world of wonder,
+We'll make it our theme.
+
+Outro:
+Mermaids and unicorns,
+A fantasy we adore,
+In our hearts forevermore,
+We'll believe in them even more.

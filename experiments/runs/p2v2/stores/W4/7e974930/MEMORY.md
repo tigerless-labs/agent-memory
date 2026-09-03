@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [artists-to-explore-lucy-dacus-phoebe-bridgers-julien-baker](reference/artists-to-explore-lucy-dacus-phoebe-bridgers-julien-baker.md) — Artists to explore: Lucy Dacus, Phoebe Bridgers, Julien Baker
+- [earned-420-at-downtown-farmers-market-recent-visit](experience/earned-420-at-downtown-farmers-market-recent-visit.md) — Earned $420 at Downtown Farmers Market - recent visit
+- [event-interests-live-music-and-comedy-shows](user/event-interests-live-music-and-comedy-shows.md) — Event interests: live music and comedy shows
+- [fitness-progress-5-pounds-lost-resting-heart-rate-10-bpm](user/fitness-progress-5-pounds-lost-resting-heart-rate-10-bpm.md) — Fitness progress: 5 pounds lost, resting heart rate -10 bpm
+- [furniture-shopping-preferences-ikea-west-elm-crate-barrel](user/furniture-shopping-preferences-ikea-west-elm-crate-barrel.md) — Furniture shopping preferences: IKEA, West Elm, Crate & Barrel
+- [furniture-upgrade-plans-dining-table-office-chair-coffee-table](project/furniture-upgrade-plans-dining-table-office-chair-coffee-table.md) — Furniture upgrade plans: dining table, office chair, coffee table
+- [implementing-a-points-based-loyalty-program-with-tiered-rewards](project/implementing-a-points-based-loyalty-program-with-tiered-rewards.md) — Implementing a points-based loyalty program with tiered rewards
+- [marathon-personal-best-on-april-15-2023](experience/marathon-personal-best-on-april-15-2023.md) — Marathon personal best on April 15, 2023
+- [music-taste-singer-songwriter-and-folk-influenced-indie](user/music-taste-singer-songwriter-and-folk-influenced-indie.md) — Music taste: Singer-Songwriter and Folk-Influenced indie
+- [owns-ergohuman-office-chair](user/owns-ergohuman-office-chair.md) — Owns ERGOhuman office chair
+- [owns-ikea-micke-desk](user/owns-ikea-micke-desk.md) — Owns IKEA MICKE desk
+- [owns-small-round-dining-table](user/owns-small-round-dining-table.md) — Owns small round dining table
+- [owns-west-elm-harmony-sofa-in-dark-gray-velvet](user/owns-west-elm-harmony-sofa-in-dark-gray-velvet.md) — Owns West Elm Harmony Sofa in dark gray velvet
+- [planning-bass-fishing-trip-to-nearby-lake](project/planning-bass-fishing-trip-to-nearby-lake.md) — Planning bass fishing trip to nearby lake
+- [prefers-reclaimed-wood-over-minimalist-design](user/prefers-reclaimed-wood-over-minimalist-design.md) — Prefers reclaimed wood over minimalist design
+- [regular-yoga-practice-for-training-and-recovery](user/regular-yoga-practice-for-training-and-recovery.md) — Regular yoga practice for training and recovery
+- [small-business-selling-homemade-artisanal-soaps-candles-and-jams](project/small-business-selling-homemade-artisanal-soaps-candles-and-jams.md) — Small business selling homemade artisanal soaps, candles, and jams
+- [spotify-discovery-discover-weekly-saved-10-songs-on-march-13-2023](user/spotify-discovery-discover-weekly-saved-10-songs-on-march-13-2023.md) — Spotify discovery: Discover Weekly saved 10 songs on March 13, 2023
+- [training-for-sprint-triathlon-with-focus-on-swimming-improvement](project/training-for-sprint-triathlon-with-focus-on-swimming-improvement.md) — Training for sprint triathlon with focus on swimming improvement

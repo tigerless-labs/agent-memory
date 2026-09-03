@@ -7,12 +7,16 @@ benchmarks/
 __pycache__/
 *.pyc
 .coverage
-experiments/data/
-# Run records are the evidence and are committed. Everything else a run leaves behind —
-# stores, working directories, progress logs — is regenerable and large, so the rule is a
-# whitelist: nothing under runs/ is tracked unless it is named here.
-experiments/runs/**
-!experiments/runs/**/
-!experiments/runs/*/runs.jsonl
-!experiments/runs/*/questions.json
-!experiments/runs/*-report.txt
+# Experiment data is evidence and is committed: run records, question sets, reports, and the
+# stores' truth files (memories, archives, config). Rebuildable caches are not — every index
+# is a projection of the truth files (Invariant 1) — nor are working directories and logs.
+experiments/data/longmemeval_s.json
+experiments/runs/**/.index/
+experiments/runs/**/index/
+experiments/runs/**/wal.log
+experiments/runs/**/graph.idx
+experiments/runs/**/.daemon.*
+experiments/runs/**/models
+experiments/runs/cwd/
+experiments/runs/*.log
+experiments/runs/*.out

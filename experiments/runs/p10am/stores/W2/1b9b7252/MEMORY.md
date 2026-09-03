@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [10-day-social-media-break-february-15-25-2023-reset-online-habits](experience/10-day-social-media-break-february-15-25-2023-reset-online-habits.md) — 10-day social media break (February 15-25, 2023) reset online habits
+- [attended-5-book-readings-in-past-3-months-actively-pursuing-literary-events](user/attended-5-book-readings-in-past-3-months-actively-pursuing-literary-events.md) — Attended 5 book readings in past 3 months; actively pursuing literary events
+- [daily-gratitude-journal-three-things-grateful-for-each-day](user/daily-gratitude-journal-three-things-grateful-for-each-day.md) — Daily gratitude journal: three things grateful for each day
+- [feeds-whiskers-twice-daily-morning-and-evening-water-bowl-always-full](user/feeds-whiskers-twice-daily-morning-and-evening-water-bowl-always-full.md) — Feeds Whiskers twice daily (morning and evening), water bowl always full
+- [finding-a-running-coach-with-multi-sport-experience-on-training-peaks](project/finding-a-running-coach-with-multi-sport-experience-on-training-peaks.md) — Finding a running coach with multi-sport experience on Training Peaks
+- [getting-back-into-reading-short-fiction-and-poetry](user/getting-back-into-reading-short-fiction-and-poetry.md) — Getting back into reading short fiction and poetry
+- [goodreads-reading-challenge-2023-goal-of-20-books](project/goodreads-reading-challenge-2023-goal-of-20-books.md) — Goodreads Reading Challenge 2023: goal of 20 books
+- [gps-running-watches-garmin-forerunner-945-apple-watch-series-7-polar-vantage-v-s](reference/gps-running-watches-garmin-forerunner-945-apple-watch-series-7-polar-vantage-v-s.md) — GPS running watches: Garmin Forerunner 945, Apple Watch Series 7, Polar Vantage V, Suunto 3 Fitness, Fitbit Ionic
+- [has-a-kitten-named-whiskers](user/has-a-kitten-named-whiskers.md) — Has a kitten named Whiskers
+- [healthy-social-media-boundaries-specific-times-website-blockers-unfollow-account](project/healthy-social-media-boundaries-specific-times-website-blockers-unfollow-account.md) — Healthy social media boundaries: specific times, website blockers, unfollow accounts, Sunday social media-free day
+- [historical-fiction-the-song-of-achilles-and-the-red-tent](reference/historical-fiction-the-song-of-achilles-and-the-red-tent.md) — Historical fiction: The Song of Achilles and The Red Tent
+- [immigration-memoirs-and-fiction-to-read](reference/immigration-memoirs-and-fiction-to-read.md) — Immigration memoirs and fiction to read
+- [interested-in-immigration-and-immigrant-experience-literature](user/interested-in-immigration-and-immigrant-experience-literature.md) — Interested in immigration and immigrant experience literature
+- [literary-magazines-and-journals-for-short-fiction-and-poetry](reference/literary-magazines-and-journals-for-short-fiction-and-poetry.md) — Literary magazines and journals for short fiction and poetry
+- [multi-sport-athlete-runs-marathons-plays-soccer-and-tennis](user/multi-sport-athlete-runs-marathons-plays-soccer-and-tennis.md) — Multi-sport athlete: runs marathons, plays soccer and tennis
+- [online-coaching-platforms-for-runners-and-multi-sport-athletes-training-peaks-co](reference/online-coaching-platforms-for-runners-and-multi-sport-athletes-training-peaks-co.md) — Online coaching platforms for runners and multi-sport athletes: Training Peaks, Coach.me, Runcoach, Vdot Coaching, Nike Run Club Coaching
+- [outward-hound-brick-puzzle-feeder-slow-feeder-bowl-with-brick-design-for-cats-su](reference/outward-hound-brick-puzzle-feeder-slow-feeder-bowl-with-brick-design-for-cats-su.md) — Outward Hound Brick Puzzle Feeder: slow-feeder bowl with brick design for cats; suitable for kittens with gradual introduction
+- [summer-road-trip-to-city-for-literary-exploration](project/summer-road-trip-to-city-for-literary-exploration.md) — Summer road trip to city for literary exploration
+- [testing-goodreads-and-libib-for-reading-tracking](project/testing-goodreads-and-libib-for-reading-tracking.md) — Testing Goodreads and Libib for reading tracking
+- [the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid](reference/the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid.md) — The Seven Husbands of Evelyn Hugo by Taylor Jenkins Reid
+- [wants-balanced-training-across-running-soccer-and-tennis-without-overtraining](user/wants-balanced-training-across-running-soccer-and-tennis-without-overtraining.md) — Wants balanced training across running, soccer, and tennis without overtraining
+- [whiskers-care-plan-increase-litter-box-cleaning-frequency-watch-for-uti-signs-tr](project/whiskers-care-plan-increase-litter-box-cleaning-frequency-watch-for-uti-signs-tr.md) — Whiskers care plan: increase litter box cleaning frequency, watch for UTI signs, try slow-feeder bowl
+- [whiskers-having-accidents-outside-litter-box-investigating-food-portion-digestiv](project/whiskers-having-accidents-outside-litter-box-investigating-food-portion-digestiv.md) — Whiskers having accidents outside litter box; investigating food portion, digestive quality, litter box maintenance, and potential medical issues
+- [whiskers-loves-feather-wand-toys-and-laser-pointers](user/whiskers-loves-feather-wand-toys-and-laser-pointers.md) — Whiskers loves feather wand toys and laser pointers

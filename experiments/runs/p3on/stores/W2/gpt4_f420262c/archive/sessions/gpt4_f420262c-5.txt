@@ -1,0 +1,133 @@
+## Session sharegpt_Cc6jYfq_63 — 2022/10/29 (Sat) 15:29
+assistant: Certainly! Here is the definition of a non-deterministic matrix semantics in the beamer style, using the definition given by Arnon Avron, and adapted to include a set of connectives that are being interpreted by the interpretation multi-function:
+
+\begin{frame}
+\frametitle{Non-Deterministic Matrix Semantics (Avron)}
+\begin{definition}
+A \emph{non-deterministic logical matrix} is a tuple $(X, Y, V, C, \cdot)$, where:
+\begin{itemize}
+\item $X$ is a set of truth-values.
+\item $Y \subseteq X$ is a set of \emph{designated truth-values}.
+\item $V$ is a set of propositions called the \emph{universe of discourse}.
+\item $C$ is a set of logical connectives.
+\item $\cdot: V \cup C \rightarrow \mathcal{P}(X)$ is a function that assigns a set of truth-values in $X$ to each proposition in $V$ and logical connective in $C$.
+\end{itemize}
+\end{definition}
+\end{frame}
+
+I hope this helps! Please let me know if you have any further questions.
+user: Can you give an example of a Non-Deterministic Matrix using 3 values (1,2,3) with (2,3) designated, and the only connectives is \neg and it as a paraconsistent behaviour?
+assistant: Certainly! Here is an example of a non-deterministic matrix using 3 values (1, 2, 3) with (2, 3) designated, and the only connective being negation with a paraconsistent behavior:
+
+Example:
+
+* $X = {1, 2, 3}$
+* $Y = {2, 3}$
+* $V = {\text{p}, \text{q}}$
+* $C = {\neg}$
+* $\cdot(\text{p}) = {2, 3}$
+* $\cdot(\text{q}) = {2, 3}$
+* $\cdot(\neg\text{p}) = {1, 2, 3}$
+* $\cdot(\neg\text{q}) = {1, 2, 3}$
+
+In this non-deterministic matrix, both propositions $\text{p}$ and $\text{q}$ can be either 2 or 3, depending on the context in which they are being considered. However, the negation of either proposition can be any of the 3 truth-values, resulting in a paraconsistent behavior where the negation of a proposition does not always result in the opposite truth-value.
+
+I hope this helps! Please let me know if you have any further questions.
+user: I'm still not happy with the definition of Non-Deterministic Matrix because it does not take into account the arity of the connectives, can you correct it?
+assistant: Certainly! Here is a revised definition of a non-deterministic matrix semantics that takes into account the arity of the connectives:
+
+\begin{frame}
+\frametitle{Revised Non-Deterministic Matrix Semantics}
+\begin{definition}
+A \emph{non-deterministic logical matrix} is a tuple $(X, Y, V, C, \cdot)$, where:
+\begin{itemize}
+\item $X$ is a set of truth-values.
+\item $Y \subseteq X$ is a set of \emph{designated truth-values}.
+\item $V$ is a set of propositions called the \emph{universe of discourse}.
+\item $C$ is a set of logical connectives, each with a specified arity.
+\item $\cdot: V \cup C \rightarrow \mathcal{P}(X^{arity})$ is a function that assigns a set of $arity$-tuples of truth-values in $X$ to each proposition in $V$ and logical connective in $C$.
+\end{itemize}
+\end{definition}
+\end{frame}
+
+This revised definition takes into account the arity of the connectives, meaning that the interpretation function assigns a set of $arity$-tuples of truth-values to each connective, rather than a single truth-value. This allows for a more flexible and expressive definition of non-deterministic matrix semantics.
+
+I hope this helps! Please let me know if you have any further questions.
+user: That was not the answer I was hoping, the interpretation should be "\cdot: C\times X^{arity(C)}\to \wp(X)"
+assistant: I apologize for the misunderstanding. Here is a revised definition of a non-deterministic matrix semantics that takes into account the arity of the connectives, as requested:
+
+\begin{frame}
+\frametitle{Revised Non-Deterministic Matrix Semantics}
+\begin{definition}
+A \emph{non-deterministic logical matrix} is a tuple $(X, Y, V, C, \cdot)$, where:
+\begin{itemize}
+\item $X$ is a set of truth-values.
+\item $Y \subseteq X$ is a set of \emph{designated truth-values}.
+\item $V$ is a set of propositions called the \emph{universe of discourse}.
+\item $C$ is a set of logical connectives, each with a specified arity.
+\item $\cdot: C \times X^{arity} \rightarrow \mathcal{P}(X)$ is a function that assigns a set of truth-values in $X$ to each logical connective in $C$ and a tuple of truth-values in $X$.
+\end{itemize}
+\end{definition}
+\end{frame}
+
+This revised definition takes into account the arity of the connectives, meaning that the interpretation function assigns a set of truth-values to each connective and a tuple of truth-values, rather than a single truth-value. This allows for a more flexible and expressive definition of non-deterministic matrix semantics.
+
+I hope this helps! Please let me know if you have any further questions.
+user: Can you now give an example of a Revised Non-Deterministic Matrix? (note that we have not yet defined the semantics, which is how to obtain a consequence relation from a Revised Non-Deterministic Matrix)
+assistant: Certainly! Here is an example of a revised non-deterministic matrix:
+
+Example:
+
+* $X = {1, 2, 3}$
+* $Y = {2, 3}$
+* $V = {\text{p}, \text{q}}$
+* $C = {\neg, \text{and}}$
+* $arity(\neg) = 1$
+* $arity(\text{and}) = 2$
+* $\cdot(\neg, 1) = {2, 3}$
+* $\cdot(\neg, 2) = {1, 3}$
+* $\cdot(\neg, 3) = {1, 2}$
+* $\cdot(\text{and}, 1, 1) = {1}$
+* $\cdot(\text{and}, 1, 2) = {1}$
+* $\cdot(\text{and}, 1, 3) = {1}$
+* $\cdot(\text{and}, 2, 2) = {2}$
+* $\cdot(\text{and}, 2, 3) = {2}$
+* $\cdot(\text{and}, 3, 3) = {3}$
+* $\cdot(\text{and}, 2, 1) = {1, 2}$
+* $\cdot(\text{and}, 3, 1) = {1, 3}$
+* $\cdot(\text{and}, 3, 2) = {2, 3}$
+
+In this revised non-deterministic matrix, the negation connective has a truth-value of 2 or 3 when applied to the truth-value 1, and a truth-value of 1, 2, or 3 when applied to the truth-values 2 or 3. The "and" connective has a truth-value of 1 when applied to the truth-values 1 and 1, and a truth-value of 2 or 3 when applied to the truth-values 2 and 2 or 3
+user: Can you find a real situation modelled by this non-deterministic matrix?
+assistant: It is difficult to find a real-world situation that would be accurately modeled by this specific non-deterministic matrix, as the truth-values and connectives used in the matrix are not based on any real-world concepts.
+
+In general, non-deterministic matrix semantics can be used to model situations where there is uncertainty or multiple possible outcomes. For example, consider a situation where a person is deciding whether or not to go to a party. There are two possible actions they can take: go to the party or stay home. The person may be uncertain about which action to take, and so the truth-value of the proposition "go to the party" may be 2 (indicating that it is possible but not certain) while the truth-value of the proposition "stay home" may be 3 (indicating that it is possible but not certain).
+
+However, this is just one possible example and the specific details of the situation would depend on the particular interpretation of the truth-values and connectives used in the non-deterministic matrix.
+
+I hope this helps! Please let me know if you have any further questions.
+user: the real situation you explained seems a nice one! Can you adapt the specific non-deterministic matrix to better model this real situation?
+assistant: Certainly! Here is a revised version of the non-deterministic matrix that could be used to model the situation of a person deciding whether or not to go to a party:
+
+Example:
+
+* $X = {0, 1, 2}$
+* $Y = {1, 2}$
+* $V = {\text{go}, \text{stay}}$
+* $C = {\neg, \text{or}}$
+* $arity(\neg) = 1$
+* $arity(\text{or}) = 2$
+* $\cdot(\neg, 0) = {1, 2}$
+* $\cdot(\neg, 1) = {0, 2}$
+* $\cdot(\neg, 2) = {0, 1}$
+* $\cdot(\text{or}, 0, 0) = {0}$
+* $\cdot(\text{or}, 0, 1) = {1}$
+* $\cdot(\text{or}, 0, 2) = {2}$
+* $\cdot(\text{or}, 1, 1) = {1}$
+* $\cdot(\text{or}, 1, 2) = {1, 2}$
+* $\cdot(\text{or}, 2, 2) = {2}$
+* $\cdot(\text{or}, 1, 0) = {1, 2}$
+* $\cdot(\text{or}, 2, 0) = {2}$
+* $\cdot(\text{or}, 2, 1) = {1, 2}$
+
+In this revised non-deterministic matrix, the truth-value 0 represents certainty that the proposition is false, the truth-value 1 represents a possibility that the proposition is true, and the truth-value 2 represents a possibility that the proposition is false. The negation connective flips the truth-value of the proposition it is applied to (e.g., $\neg 0 = {1,

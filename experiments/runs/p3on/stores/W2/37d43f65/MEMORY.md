@@ -1,0 +1,19 @@
+# MEMORY.md
+
+- [1tb-western-digital-portable-external-hard-drive-for-file-backups](user/1tb-western-digital-portable-external-hard-drive-for-file-backups.md) — 1TB Western Digital portable external hard drive for file backups
+- [24-inch-4k-lg-monitor-upgrade-from-previous-1080p-monitor](user/24-inch-4k-lg-monitor-upgrade-from-previous-1080p-monitor.md) — 24-inch 4K LG monitor upgrade from previous 1080p monitor
+- [coordinates-gaming-sessions-at-least-twice-weekly-with-friend-in-another-city](user/coordinates-gaming-sessions-at-least-twice-weekly-with-friend-in-another-city.md) — Coordinates gaming sessions at least twice weekly with friend in another city
+- [dell-inspiron-15-5000-2018-with-16gb-ram-battery-life-decreased-from-6-7-hours-t](user/dell-inspiron-15-5000-2018-with-16gb-ram-battery-life-decreased-from-6-7-hours-t.md) — Dell Inspiron 15 5000 (2018) with 16GB RAM; battery life decreased from 6-7 hours to 4-5 hours after RAM upgrade
+- [green-card-interview-scheduled-for-2023-05-24-marriage-based-application-submitt](experience/green-card-interview-scheduled-for-2023-05-24-marriage-based-application-submitt.md) — Green card interview scheduled for 2023-05-24; marriage-based application submitted ~2022-11-20
+- [grilled-chicken-marinade-recipe-with-exact-measurements-and-cooking-instructions](reference/grilled-chicken-marinade-recipe-with-exact-measurements-and-cooking-instructions.md) — Grilled chicken marinade recipe with exact measurements and cooking instructions
+- [interested-in-uk-politics-house-of-lords-composition-and-institutional-diversity](user/interested-in-uk-politics-house-of-lords-composition-and-institutional-diversity.md) — Interested in UK politics, House of Lords composition, and institutional diversity
+- [interested-in-upgrading-desktop-graphics-card-budget-conscious-about-rtx-3070](user/interested-in-upgrading-desktop-graphics-card-budget-conscious-about-rtx-3070.md) — Interested in upgrading desktop graphics card; budget-conscious about RTX 3070
+- [interior-design-and-home-decor-retailers](reference/interior-design-and-home-decor-retailers.md) — Interior design and home decor retailers
+- [living-room-workspace-and-reading-nook-preferences](user/living-room-workspace-and-reading-nook-preferences.md) — Living room workspace and reading nook preferences
+- [low-maintenance-houseplants-suitable-for-bright-windows](reference/low-maintenance-houseplants-suitable-for-bright-windows.md) — Low-maintenance houseplants suitable for bright windows
+- [married-for-over-2-years-together-for-about-4-years-total](user/married-for-over-2-years-together-for-about-4-years-total.md) — Married for over 2 years; together for about 4 years total
+- [prefers-streaming-services-over-cable-tv-has-not-watched-cable-in-months](user/prefers-streaming-services-over-cable-tv-has-not-watched-cable-in-months.md) — Prefers streaming services over cable TV; has not watched cable in months
+- [scientific-studies-on-big-five-personality-test-with-doi-links](reference/scientific-studies-on-big-five-personality-test-with-doi-links.md) — Scientific studies on Big Five Personality Test with DOI links
+- [uk-house-of-lords-non-uk-citizens-can-become-life-peers-if-they-are-commonwealth](reference/uk-house-of-lords-non-uk-citizens-can-become-life-peers-if-they-are-commonwealth.md) — UK House of Lords: non-UK citizens can become life peers if they are Commonwealth/Irish citizens with permanent residence
+- [uses-google-calendar-for-scheduling-and-coordinating-across-time-zones](user/uses-google-calendar-for-scheduling-and-coordinating-across-time-zones.md) — Uses Google Calendar for scheduling and coordinating across time zones
+- [zoom-google-calendar-integration-one-click-meeting-scheduling-and-joining](reference/zoom-google-calendar-integration-one-click-meeting-scheduling-and-joining.md) — Zoom Google Calendar integration: one-click meeting scheduling and joining

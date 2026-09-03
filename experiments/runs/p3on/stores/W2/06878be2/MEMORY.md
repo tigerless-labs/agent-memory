@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [12-month-decluttering-plan-for-physical-and-digital-spaces](reference/12-month-decluttering-plan-for-physical-and-digital-spaces.md) — 12-month decluttering plan for physical and digital spaces
+- [attended-artisan-market-at-local-library-on-april-10-2023-received-positive-feed](experience/attended-artisan-market-at-local-library-on-april-10-2023-received-positive-feed.md) — Attended Artisan Market at local library on April 10, 2023, received positive feedback on candles
+- [attends-regular-zumba-classes](user/attends-regular-zumba-classes.md) — Attends regular Zumba classes
+- [aulani-disney-resort-spa-oahu-family-resort-with-large-group-accommodations](reference/aulani-disney-resort-spa-oahu-family-resort-with-large-group-accommodations.md) — Aulani Disney Resort & Spa, Oahu - family resort with large group accommodations
+- [budgeting-apps-comparison-mint-vs-ynab-vs-personal-capital](reference/budgeting-apps-comparison-mint-vs-ynab-vs-personal-capital.md) — Budgeting apps comparison: Mint vs YNAB vs Personal Capital
+- [camera-bag-brands-compatible-with-sony-cameras](reference/camera-bag-brands-compatible-with-sony-cameras.md) — Camera bag brands compatible with Sony cameras
+- [completed-project-analyzing-customer-sentiment-using-nlp-found-it-fascinating](experience/completed-project-analyzing-customer-sentiment-using-nlp-found-it-fascinating.md) — Completed project analyzing customer sentiment using NLP, found it fascinating
+- [creating-seasonal-summer-candle-line-with-lavender-and-lemon-scents](project/creating-seasonal-summer-candle-line-with-lavender-and-lemon-scents.md) — Creating seasonal summer candle line with lavender and lemon scents
+- [enjoys-organizing-large-family-group-travel-and-shared-experiences](user/enjoys-organizing-large-family-group-travel-and-shared-experiences.md) — Enjoys organizing large family group travel and shared experiences
+- [external-battery-packs-for-sony-a7r-iv-and-other-devices](reference/external-battery-packs-for-sony-a7r-iv-and-other-devices.md) — External battery packs for Sony A7R IV and other devices
+- [external-flash-options-for-sony-a7r-iv-guide-numbers-features-and-prices](reference/external-flash-options-for-sony-a7r-iv-guide-numbers-features-and-prices.md) — External flash options for Sony A7R IV: guide numbers, features, and prices
+- [hawaiian-luaus-recommended-for-large-family-groups-oahu-and-maui](reference/hawaiian-luaus-recommended-for-large-family-groups-oahu-and-maui.md) — Hawaiian luaus recommended for large family groups - Oahu and Maui
+- [interested-in-applying-nlp-to-real-world-projects-especially-sentiment-analysis](user/interested-in-applying-nlp-to-real-world-projects-especially-sentiment-analysis.md) — Interested in applying NLP to real-world projects, especially sentiment analysis and text classification
+- [interested-in-challenging-mountain-biking-chose-alps-2-ocean-cycle-trail-south-i](user/interested-in-challenging-mountain-biking-chose-alps-2-ocean-cycle-trail-south-i.md) — Interested in challenging mountain biking; chose Alps 2 Ocean Cycle Trail (South Island, NZ)
+- [interested-in-gitzo-gt3543ls-tripod](user/interested-in-gitzo-gt3543ls-tripod.md) — Interested in Gitzo GT3543LS tripod
+- [interested-in-mobile-rpg-game-shop-ux-and-collection-system-design](user/interested-in-mobile-rpg-game-shop-ux-and-collection-system-design.md) — Interested in mobile RPG game shop UX and collection system design
+- [interested-in-workout-playlists-for-zumba-classes](user/interested-in-workout-playlists-for-zumba-classes.md) — Interested in workout playlists for Zumba classes
+- [lifts-10-pounds-in-each-hand-during-bicep-curls](user/lifts-10-pounds-in-each-hand-during-bicep-curls.md) — Lifts 10 pounds in each hand during bicep curls
+- [listens-to-data-science-podcast-for-staying-updated-on-ml-and-data-science-devel](user/listens-to-data-science-podcast-for-staying-updated-on-ml-and-data-science-devel.md) — Listens to Data Science Podcast for staying updated on ML and data science developments
+- [manchester-vs-london-comparison-living-costs-safety-job-opportunities](reference/manchester-vs-london-comparison-living-costs-safety-job-opportunities.md) — Manchester vs London comparison: living costs, safety, job opportunities
+- [owns-sony-a7r-iv-camera-and-sony-24-70mm-f-2-8-lens](user/owns-sony-a7r-iv-camera-and-sony-24-70mm-f-2-8-lens.md) — Owns Sony A7R IV camera and Sony 24-70mm f/2.8 lens
+- [planning-family-vacation-to-hawaii-at-aulani-disney-resort-15-20-people-kids-5-1](project/planning-family-vacation-to-hawaii-at-aulani-disney-resort-15-20-people-kids-5-1.md) — Planning family vacation to Hawaii at Aulani Disney Resort (15-20 people, kids 5-15)
+- [planning-stock-price-prediction-project-combining-historical-data-with-news-sent](project/planning-stock-price-prediction-project-combining-historical-data-with-news-sent.md) — Planning stock price prediction project combining historical data with news sentiment analysis using NLP
+- [planning-to-apply-for-summer-solstice-fair-in-june-2023](project/planning-to-apply-for-summer-solstice-fair-in-june-2023.md) — Planning to apply for Summer Solstice Fair in June 2023
+- [plans-to-purchase-godox-v1-flash-for-sony-a7r-iv](user/plans-to-purchase-godox-v1-flash-for-sony-a7r-iv.md) — Plans to purchase Godox V1 flash for Sony A7R IV
+- [posture-has-improved-from-weightlifting](user/posture-has-improved-from-weightlifting.md) — Posture has improved from weightlifting
+- [prefers-eco-friendly-candle-photography-styling-with-natural-elements-and-rustic](user/prefers-eco-friendly-candle-photography-styling-with-natural-elements-and-rustic.md) — Prefers eco-friendly candle photography styling with natural elements and rustic aesthetic
+- [prefers-relaxing-yoga-styles-to-balance-high-intensity-workouts](user/prefers-relaxing-yoga-styles-to-balance-high-intensity-workouts.md) — Prefers relaxing yoga styles to balance high-intensity workouts
+- [reading-deep-learning-by-goodfellow-bengio-and-courville-for-deep-learning-educa](user/reading-deep-learning-by-goodfellow-bengio-and-courville-for-deep-learning-educa.md) — Reading Deep Learning by Goodfellow, Bengio, and Courville for deep learning education
+- [recently-attended-family-celebration-for-cousin-s-new-baby-boy](experience/recently-attended-family-celebration-for-cousin-s-new-baby-boy.md) — Recently attended family celebration for cousin's new baby boy
+- [recommended-family-activities-in-oahu-and-maui-for-kids](reference/recommended-family-activities-in-oahu-and-maui-for-kids.md) — Recommended family activities in Oahu and Maui for kids
+- [recommended-restaurants-for-large-family-groups-in-oahu-and-maui](reference/recommended-restaurants-for-large-family-groups-in-oahu-and-maui.md) — Recommended restaurants for large family groups in Oahu and Maui
+- [runs-eco-friendly-candle-business](project/runs-eco-friendly-candle-business.md) — Runs eco-friendly candle business
+- [south-island-nz-biking-trails-queens-charlotte-track-alps-2-ocean-trail-west-coa](reference/south-island-nz-biking-trails-queens-charlotte-track-alps-2-ocean-trail-west-coa.md) — South Island NZ biking trails: Queens Charlotte Track, Alps 2 Ocean Trail, West Coast Wilderness, Otago Rail Trail, St James, Great Taste Trail
+- [starting-hatha-yoga-classes-on-sundays-at-9-am](project/starting-hatha-yoga-classes-on-sundays-at-9-am.md) — Starting Hatha Yoga classes on Sundays at 9 am
+- [strategies-for-daily-reading-and-note-taking-routine](reference/strategies-for-daily-reading-and-note-taking-routine.md) — Strategies for daily reading and note-taking routine
+- [strategies-for-establishing-work-life-boundaries](reference/strategies-for-establishing-work-life-boundaries.md) — Strategies for establishing work-life boundaries
+- [strategies-to-reduce-impulsive-online-shopping](reference/strategies-to-reduce-impulsive-online-shopping.md) — Strategies to reduce impulsive online shopping

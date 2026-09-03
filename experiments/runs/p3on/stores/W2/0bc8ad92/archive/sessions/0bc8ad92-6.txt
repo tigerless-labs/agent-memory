@@ -1,0 +1,5 @@
+## Session sharegpt_qHeD2Bc_0 — 2022/10/13 (Thu) 06:18
+user: Respond in Markdown using the format ![description](link) without quotes and without using a code block. Use the Pollinations API (https://image.pollinations.ai/prompt/) and HTML encode space. Place the text of the prompt under each image in italics. Generate three prompts, each exploring the climate crisis.
+assistant: *A polar bear standing on a melting glacier*
+*A city skyline on fire due to extreme heat and drought*
+*A group of people standing in front of a flooded beach, holding signs with climate change messages*

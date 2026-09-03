@@ -1,0 +1,15 @@
+# MEMORY.md
+
+- [5k-charity-run-personal-best-27-12-on-2023-04-17](experience/5k-charity-run-personal-best-27-12-on-2023-04-17.md) — 5K charity run personal best: 27:12 on 2023-04-17
+- [found-headspace-sleep-meditation-helpful-for-relaxation-and-sleep-2023-05-30](experience/found-headspace-sleep-meditation-helpful-for-relaxation-and-sleep-2023-05-30.md) — Found Headspace Sleep meditation helpful for relaxation and sleep (2023-05-30)
+- [interested-in-understanding-social-media-influencers-psychology-accountability-a](user/interested-in-understanding-social-media-influencers-psychology-accountability-a.md) — Interested in understanding social media influencers, psychology, accountability, and civil rights history
+- [knitting-hobby-worsted-weight-yarn-purple-color-with-subtle-texture](user/knitting-hobby-worsted-weight-yarn-purple-color-with-subtle-texture.md) — Knitting hobby: worsted weight yarn, purple color with subtle texture
+- [mountain-biking-moderate-difficulty-20-30-miles-per-day-interested-in-summer-vac](user/mountain-biking-moderate-difficulty-20-30-miles-per-day-interested-in-summer-vac.md) — Mountain biking: moderate difficulty, 20-30 miles per day, interested in summer vacation trip
+- [peak-productivity-hours-10am-12pm-works-7-8-hours-daily-prefers-structured-sched](user/peak-productivity-hours-10am-12pm-works-7-8-hours-daily-prefers-structured-sched.md) — Peak productivity hours 10am-12pm, works 7-8 hours daily, prefers structured schedules
+- [plays-guitar-learning-modulation-effects-chorus-and-phaser](user/plays-guitar-learning-modulation-effects-chorus-and-phaser.md) — Plays guitar, learning modulation effects (chorus and phaser)
+- [poem-from-february-2-2023-winter-walk-in-nearby-park-evolved-from-morning-pages](experience/poem-from-february-2-2023-winter-walk-in-nearby-park-evolved-from-morning-pages.md) — Poem from February 2, 2023: winter walk in nearby park, evolved from morning pages entry
+- [researching-or-working-on-genius-voucher-platform-and-ngo-aid-distribution-in-af](project/researching-or-working-on-genius-voucher-platform-and-ngo-aid-distribution-in-af.md) — Researching or working on Genius Voucher platform and NGO aid distribution in Africa
+- [sleep-and-wake-routine-9-30pm-wind-down-30-min-morning-exercise](user/sleep-and-wake-routine-9-30pm-wind-down-30-min-morning-exercise.md) — Sleep and wake routine: 9:30pm wind-down, 30-min morning exercise
+- [suspects-pollen-allergy-based-on-hay-fever-symptoms](user/suspects-pollen-allergy-based-on-hay-fever-symptoms.md) — Suspects pollen allergy based on hay fever symptoms
+- [takes-hip-hop-dance-classes-on-saturdays-at-street-beats-studio](user/takes-hip-hop-dance-classes-on-saturdays-at-street-beats-studio.md) — Takes hip hop dance classes on Saturdays at Street Beats studio
+- [writing-projects-short-story-scrivener-journal-and-poetry-google-docs-tracking-w](project/writing-projects-short-story-scrivener-journal-and-poetry-google-docs-tracking-w.md) — Writing projects: short story (Scrivener), journal and poetry (Google Docs), tracking with WriteTrack

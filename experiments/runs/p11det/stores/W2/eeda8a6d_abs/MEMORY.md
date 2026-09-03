@@ -1,0 +1,28 @@
+# MEMORY.md
+
+- [add-live-aquatic-plants-to-20-gallon-tank](project/add-live-aquatic-plants-to-20-gallon-tank.md) — Add live aquatic plants to 20-gallon tank
+- [add-schooling-fish-to-20-gallon-tank-to-reduce-gourami-aggression](project/add-schooling-fish-to-20-gallon-tank-to-reduce-gourami-aggression.md) — Add schooling fish to 20-gallon tank to reduce gourami aggression
+- [gouramis-show-aggression-during-feeding-times-in-20-gallon-tank](user/gouramis-show-aggression-during-feeding-times-in-20-gallon-tank.md) — Gouramis show aggression during feeding times in 20-gallon tank
+- [upgraded-to-20-gallon-aquarium-tank](user/upgraded-to-20-gallon-aquarium-tank.md) — Upgraded to 20-gallon aquarium tank
+- [20-gallon-aquarium-with-neon-tetras-golden-honey-gouramis-and-pleco-catfish](user/20-gallon-aquarium-with-neon-tetras-golden-honey-gouramis-and-pleco-catfish.md) — 20-gallon aquarium with neon tetras, golden honey gouramis, and pleco catfish
+- [15-article-content-strategy-for-defects-liability-period-in-building-contracts-a](project/15-article-content-strategy-for-defects-liability-period-in-building-contracts-a.md) — 15-article content strategy for Defects Liability Period in Building Contracts Australia
+- [bash-script-to-automate-aws-ec2-instance-launch-with-security-group-ebs-volume-a](project/bash-script-to-automate-aws-ec2-instance-launch-with-security-group-ebs-volume-a.md) — Bash script to automate AWS EC2 instance launch with security group, EBS volume, and SSH access
+- [bathroom-sink-slow-drainongoing-3-weeks-tried-drain-cleaner-and-plumbing-snake](project/bathroom-sink-slow-drainongoing-3-weeks-tried-drain-cleaner-and-plumbing-snake.md) — Bathroom sink slow drain—ongoing 3 weeks, tried drain cleaner and plumbing snake
+- [betta-fish-named-bubbles](user/betta-fish-named-bubbles.md) — Betta fish named Bubbles
+- [bought-a-book-from-barnes-noble-on-wednesday-may-17-2023](experience/bought-a-book-from-barnes-noble-on-wednesday-may-17-2023.md) — Bought a book from Barnes & Noble on Wednesday, May 17, 2023
+- [bought-sneakers-from-amazon-on-monday-may-15-2023](experience/bought-sneakers-from-amazon-on-monday-may-15-2023.md) — Bought sneakers from Amazon on Monday, May 15, 2023
+- [considering-adding-lemon-tetras-or-zebra-danios-to-20-gallon-tank](project/considering-adding-lemon-tetras-or-zebra-danios-to-20-gallon-tank.md) — Considering adding lemon tetras or zebra danios to 20-gallon tank
+- [interviewed-for-junior-policy-assistant-role-at-ised-biomanufacturing-program](experience/interviewed-for-junior-policy-assistant-role-at-ised-biomanufacturing-program.md) — Interviewed for Junior Policy Assistant role at ISED biomanufacturing program
+- [ised-biomanufacturing-and-life-sciences-support-initiative](reference/ised-biomanufacturing-and-life-sciences-support-initiative.md) — ISED biomanufacturing and life sciences support initiative
+- [key-nuclear-and-arms-control-treaties](reference/key-nuclear-and-arms-control-treaties.md) — Key nuclear and arms control treaties
+- [planning-city-area-with-treasure-chest-artificial-coral-and-rocks-decorations](project/planning-city-area-with-treasure-chest-artificial-coral-and-rocks-decorations.md) — Planning 'city' area with treasure chest, artificial coral, and rocks decorations
+- [planning-to-add-java-moss-and-anacharis-live-plants-to-aquarium](project/planning-to-add-java-moss-and-anacharis-live-plants-to-aquarium.md) — Planning to add Java Moss and Anacharis live plants to aquarium
+- [plans-to-take-cinque-terre-train-in-italy](project/plans-to-take-cinque-terre-train-in-italy.md) — Plans to take Cinque Terre Train in Italy
+- [prefers-shopping-online-on-sundays-when-relaxed-and-have-free-time](user/prefers-shopping-online-on-sundays-when-relaxed-and-have-free-time.md) — Prefers shopping online on Sundays when relaxed and have free time
+- [purchased-kitchen-utensil-set-from-target-in-april-2023-described-it-as-a-game-c](experience/purchased-kitchen-utensil-set-from-target-in-april-2023-described-it-as-a-game-c.md) — Purchased kitchen utensil set from Target in April 2023; described it as a game-changer
+- [replacing-toilet-flappernot-flushing-properly](project/replacing-toilet-flappernot-flushing-properly.md) — Replacing toilet flapper—not flushing properly
+- [scenic-train-rides-with-mountains-and-coastal-villages-appeal-to-them](user/scenic-train-rides-with-mountains-and-coastal-villages-appeal-to-them.md) — Scenic train rides with mountains and coastal villages appeal to them
+- [spends-2-3-hours-per-week-browsing-online-shopping-websites-prefers-shopping-dur](user/spends-2-3-hours-per-week-browsing-online-shopping-websites-prefers-shopping-dur.md) — Spends 2-3 hours per week browsing online shopping websites, prefers shopping during sales events or when needs something specific
+- [tips-for-cinque-terre-train-seating-timing-activities-and-packing](reference/tips-for-cinque-terre-train-seating-timing-activities-and-packing.md) — Tips for Cinque Terre Train: seating, timing, activities, and packing
+- [upgrade-tank-decorations-with-artificial-coral-and-rocks](project/upgrade-tank-decorations-with-artificial-coral-and-rocks.md) — Upgrade tank decorations with artificial coral and rocks
+- [working-on-cloud-based-proxmox-node-deployment-using-aws-ec2](project/working-on-cloud-based-proxmox-node-deployment-using-aws-ec2.md) — Working on cloud-based Proxmox node deployment using AWS EC2

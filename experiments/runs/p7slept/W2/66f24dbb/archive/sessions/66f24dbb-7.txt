@@ -1,0 +1,308 @@
+## Session sharegpt_y8kXaF9_0 — 2023/05/22 (Mon) 04:32
+user: I need two input fields one is called MID and the other is called Descriptor. They are side by side in HTML.
+assistant: You can create two input fields side by side in HTML using a combination of HTML and CSS. Here is an example of how to do it:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Two Input Fields Side by Side</title>
+	<style>
+		form {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		
+		label {
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<label for="MID">MID:</label>
+		<input type="text" id="MID" name="MID">
+		<label for="Descriptor">Descriptor:</label>
+		<input type="text" id="Descriptor" name="Descriptor">
+	</form>
+</body>
+</html>
+```
+In this example, the form is styled using CSS `flexbox` to display the input fields side by side. The `label` element is used to provide a text label for each input field. The `for` attribute of the `label` element is used to associate the label with the corresponding input field using the `id` attribute.
+
+You can modify the styling to suit your specific requirements.
+user: Now I'd like to be able to press a button to clone those two input fields if the user needs to add more rows
+assistant: You can use JavaScript to add a button that allows the user to clone the input fields if they need to add more rows. Here is an example of how to do it:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clone Input Fields</title>
+	<style>
+		form {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		
+		label {
+			margin-right: 10px;
+		}
+		
+		#button-container {
+			margin-top: 10px;
+		}
+		
+		#add-row-button {
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<div class="input-container">
+			<label for="MID">MID:</label>
+			<input type="text" id="MID" name="MID">
+			<label for="Descriptor">Descriptor:</label>
+			<input type="text" id="Descriptor" name="Descriptor">
+		</div>
+		<div id="button-container">
+			<button id="add-row-button" type="button">Add Row</button>
+		</div>
+	</form>
+	
+	<script>
+		// Select the button and the input container
+		const addRowButton = document.getElementById("add-row-button");
+		const inputContainer = document.querySelector(".input-container");
+		
+		// Add event listener to the button
+		addRowButton.addEventListener("click", function() {
+			// Clone the input container
+			const clonedInputContainer = inputContainer.cloneNode(true);
+			
+			// Clear the values of the cloned input fields
+			const clonedInputs = clonedInputContainer.querySelectorAll("input");
+			clonedInputs.forEach(function(input) {
+				input.value = "";
+			});
+			
+			// Insert the cloned input container after the original input container
+			inputContainer.parentNode.insertBefore(clonedInputContainer, inputContainer.nextSibling);
+		});
+	</script>
+</body>
+</html>
+```
+In this example, a button with the id `add-row-button` is added below the input fields. When the button is clicked, JavaScript code is executed that clones the `div` element with the class `input-container`, which contains the two input fields. The cloned `div` element is then inserted after the original `div` element.
+
+The cloned input fields are cleared of their values, so that the user can enter new data. This allows the user to add more rows with the same input fields as many times as they want.
+user: Now how can I paste two columns from Excel into the first input fields and have it auto create more inputs based on the excel data I pasted
+assistant: To allow the user to paste two columns from Excel into the input fields and auto-create more inputs based on the Excel data, you can use JavaScript to parse the pasted data and create new input fields based on the number of rows in the pasted data. Here is an example of how to do it:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paste from Excel</title>
+	<style>
+		form {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		
+		label {
+			margin-right: 10px;
+		}
+		
+		.input-container {
+			margin-bottom: 10px;
+		}
+		
+		#button-container {
+			margin-top: 10px;
+		}
+		
+		#add-row-button {
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<div class="input-container">
+			<label for="MID">MID:</label>
+			<input type="text" id="MID" name="MID">
+			<label for="Descriptor">Descriptor:</label>
+			<input type="text" id="Descriptor" name="Descriptor">
+		</div>
+		<div id="button-container">
+			<button id="add-row-button" type="button">Add Row</button>
+		</div>
+	</form>
+	
+	<script>
+		// Select the button and the input container
+		const addRowButton = document.getElementById("add-row-button");
+		const inputContainer = document.querySelector(".input-container");
+		
+		// Add event listener to the button
+		addRowButton.addEventListener("click", function() {
+			// Clone the input container
+			const clonedInputContainer = inputContainer.cloneNode(true);
+			
+			// Clear the values of the cloned input fields
+			const clonedInputs = clonedInputContainer.querySelectorAll("input");
+			clonedInputs.forEach(function(input) {
+				input.value = "";
+			});
+			
+			// Insert the cloned input container after the original input container
+			inputContainer.parentNode.insertBefore(clonedInputContainer, inputContainer.nextSibling);
+		});
+		
+		// Add event listener to the input fields for pasting
+		const MIDInput = document.getElementById("MID");
+		const DescriptorInput = document.getElementById("Descriptor");
+		
+		MIDInput.addEventListener("paste", function(event) {
+			// Prevent the default paste behavior
+			event.preventDefault();
+			
+			// Get the pasted data
+			const pastedData = event.clipboardData.getData("text");
+			
+			// Split the pasted data into rows
+			const rows = pastedData.split("\n");
+			
+			// Loop through the rows and create new input fields
+			rows.forEach(function(row) {
+				// Split the row into cells
+				const cells = row.split("\t");
+				
+				// If the row has exactly 2 cells, create new input fields
+				if (cells.length === 2) {
+					// Clone the input container
+					const clonedInputContainer = inputContainer.cloneNode(true);
+					
+					// Set the values of the input fields
+					const clonedInputs = clonedInputContainer.querySelectorAll("input");
+					clonedInputs[0].value = cells[0];
+					clonedInputs[1].value = cells[1];
+					
+					// Insert the cloned input container after the original input container
+					inputContainer.parentNode.insertBefore(clonedInputContainer, inputContainer.nextSibling);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
+```
+In this example, an event listener is added to the `MID` input field for the `paste` event
+user: Now use JQUERY instead
+assistant: Sure, here's how to implement the same functionality using jQuery:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paste from Excel with jQuery</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		form {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		
+		label {
+			margin-right: 10px;
+		}
+		
+		.input-container {
+			margin-bottom: 10px;
+		}
+		
+		#button-container {
+			margin-top: 10px;
+		}
+		
+		#add-row-button {
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<div class="input-container">
+			<label for="MID">MID:</label>
+			<input type="text" class="MID" name="MID[]">
+			<label for="Descriptor">Descriptor:</label>
+			<input type="text" class="Descriptor" name="Descriptor[]">
+		</div>
+		<div id="button-container">
+			<button id="add-row-button" type="button">Add Row</button>
+		</div>
+	</form>
+	
+	<script>
+		$(document).ready(function() {
+			// Select the button and the input container
+			const addRowButton = $("#add-row-button");
+			const inputContainer = $(".input-container");
+			
+			// Add event listener to the button
+			addRowButton.click(function() {
+				// Clone the input container
+				const clonedInputContainer = inputContainer.last().clone(true);
+				
+				// Clear the values of the cloned input fields
+				const clonedInputs = clonedInputContainer.find("input");
+				clonedInputs.val("");
+				
+				// Insert the cloned input container after the original input container
+				clonedInputContainer.insertAfter(inputContainer.last());
+			});
+			
+			// Add event listener to the input fields for pasting
+			const MIDInput = $(".MID");
+			const DescriptorInput = $(".Descriptor");
+			
+			MIDInput.on("paste", function(event) {
+				// Prevent the default paste behavior
+				event.preventDefault();
+				
+				// Get the pasted data
+				const pastedData = event.originalEvent.clipboardData.getData("text");
+				
+				// Split the pasted data into rows
+				const rows = pastedData.split("\n");
+				
+				// Loop through the rows and create new input fields
+				rows.forEach(function(row) {
+					// Split the row into cells
+					const cells = row.split("\t");
+					
+					// If the row has exactly 2 cells, create new input fields
+					if (cells.length === 2) {
+						// Clone the input container
+						const clonedInputContainer = inputContainer.last().clone(true);
+						
+						// Set the values of the input fields
+						const clonedInputs = clonedInputContainer.find("input");
+						clonedInputs.eq(0).val(cells[0]);
+						clonedInputs.eq(1).val(cells[1]);
+						
+						// Insert the cloned input container after the original input container
+						clonedInputContainer.insertAfter(inputContainer.last());
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>
+```
+In this example, we first include the jQuery library, and then we use the `$` function to select the elements and attach event listeners.
+
+We also use the `last` function to select the last input container, since that is the one that we want to clone when the user clicks the "

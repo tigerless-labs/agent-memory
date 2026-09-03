@@ -1,0 +1,42 @@
+# MEMORY.md
+
+- [beach-vacation-2023-and-wildlife-outing-with-200-photos](experience/beach-vacation-2023-and-wildlife-outing-with-200-photos.md) — Beach vacation 2023 and wildlife outing with 200+ photos
+- [benefits-of-blockchain-and-iot-in-supply-chain-management](reference/benefits-of-blockchain-and-iot-in-supply-chain-management.md) — Benefits of blockchain and IoT in supply chain management
+- [bike-maintenance-products-cleaning-and-waterproofing-recommendations](project/bike-maintenance-products-cleaning-and-waterproofing-recommendations.md) — Bike maintenance products: cleaning and waterproofing recommendations
+- [black-converse-chuck-taylor-all-star-sneakers-purchased-worn-4-times-including-t](user/black-converse-chuck-taylor-all-star-sneakers-purchased-worn-4-times-including-t.md) — Black Converse Chuck Taylor All Star sneakers purchased; worn 4 times including to friend's birthday party (2023-05-27)
+- [book-club-membership-didn-t-work-out-may-2023](experience/book-club-membership-didn-t-work-out-may-2023.md) — Book club membership didn't work out (May 2023)
+- [brown-leather-boots-need-heel-repair-loose-heel](user/brown-leather-boots-need-heel-repair-loose-heel.md) — Brown leather boots need heel repair (loose heel)
+- [cannondale-synapse-road-bike](user/cannondale-synapse-road-bike.md) — Cannondale Synapse road bike
+- [captured-sunset-shots-at-red-rock-canyon-on-april-12-2023](experience/captured-sunset-shots-at-red-rock-canyon-on-april-12-2023.md) — Captured sunset shots at Red Rock Canyon on April 12, 2023
+- [chose-coach-parker-bag-for-sister-birthday-gift](project/chose-coach-parker-bag-for-sister-birthday-gift.md) — Chose Coach Parker bag for sister birthday gift
+- [coach-handbag-purchased-at-tj-maxx-60-percent-off](user/coach-handbag-purchased-at-tj-maxx-60-percent-off.md) — Coach handbag purchased at TJ Maxx 60 percent off
+- [companies-implementing-blockchain-and-iot-in-supply-chains](reference/companies-implementing-blockchain-and-iot-in-supply-chains.md) — Companies implementing blockchain and IoT in supply chains
+- [considering-vans-old-skool-sneakers-for-casual-wear](user/considering-vans-old-skool-sneakers-for-casual-wear.md) — Considering Vans Old Skool sneakers for casual wear
+- [conversation-strategies-for-approaching-people-at-social-meetups-and-events](reference/conversation-strategies-for-approaching-people-at-social-meetups-and-events.md) — Conversation strategies for approaching people at social meetups and events
+- [dad-s-bbq-sauce-with-smoked-paprika-was-a-family-success-at-april-2023-camping-t](experience/dad-s-bbq-sauce-with-smoked-paprika-was-a-family-success-at-april-2023-camping-t.md) — Dad's BBQ sauce with smoked paprika was a family success at April 2023 camping trip
+- [endangered-language-classification-criteria-and-preservation-methods](reference/endangered-language-classification-criteria-and-preservation-methods.md) — Endangered language classification criteria and preservation methods
+- [honda-civic-for-bike-transportation](user/honda-civic-for-bike-transportation.md) — Honda Civic for bike transportation
+- [ideas-for-making-in-person-meetups-more-meaningful-and-memorable](reference/ideas-for-making-in-person-meetups-more-meaningful-and-memorable.md) — Ideas for making in-person meetups more meaningful and memorable
+- [industries-beyond-supply-chain-that-could-benefit-from-blockchain-and-iot](reference/industries-beyond-supply-chain-that-could-benefit-from-blockchain-and-iot.md) — Industries beyond supply chain that could benefit from blockchain and IoT
+- [interest-in-bbq-cooking-and-recipe-experimentation](user/interest-in-bbq-cooking-and-recipe-experimentation.md) — Interest in BBQ cooking and recipe experimentation
+- [interest-in-endangered-languages-and-language-preservation-efforts](user/interest-in-endangered-languages-and-language-preservation-efforts.md) — Interest in endangered languages and language preservation efforts
+- [interested-in-planning-intentional-social-activities-like-game-nights-and-potluc](user/interested-in-planning-intentional-social-activities-like-game-nights-and-potluc.md) — Interested in planning intentional social activities like game nights and potluck dinners
+- [introvert-who-genuinely-prefers-own-company-and-needs-solitude-to-recharge](user/introvert-who-genuinely-prefers-own-company-and-needs-solitude-to-recharge.md) — Introvert who genuinely prefers own company and needs solitude to recharge
+- [mom-makes-homemade-marshmallows-from-scratch](user/mom-makes-homemade-marshmallows-from-scratch.md) — Mom makes homemade marshmallows from scratch
+- [new-black-converse-6-wears-as-of-2023-05-30-planning-waterproofing-spray](user/new-black-converse-6-wears-as-of-2023-05-30-planning-waterproofing-spray.md) — New black Converse — 6 wears as of 2023-05-30, planning waterproofing spray
+- [owns-50mm-f-1-8-prime-lens-purchased-april-10-2023](user/owns-50mm-f-1-8-prime-lens-purchased-april-10-2023.md) — Owns 50mm f/1.8 prime lens, purchased April 10, 2023
+- [owns-brown-leather-boots-in-need-of-repair](user/owns-brown-leather-boots-in-need-of-repair.md) — Owns brown leather boots in need of repair
+- [owns-canon-eos-80d-camera](user/owns-canon-eos-80d-camera.md) — Owns Canon EOS 80D camera
+- [photography-workshop-on-street-photography-and-approaching-strangers-may-1-2-202](experience/photography-workshop-on-street-photography-and-approaching-strangers-may-1-2-202.md) — Photography workshop on street photography and approaching strangers, May 1-2, 2023
+- [planned-shoe-care-purchases](user/planned-shoe-care-purchases.md) — Planned shoe care purchases
+- [rachel-neighbor-borrowed-cannondale-synapse-road-bike-feb-20-mar-1-2023](experience/rachel-neighbor-borrowed-cannondale-synapse-road-bike-feb-20-mar-1-2023.md) — Rachel (neighbor) borrowed Cannondale Synapse road bike, Feb 20 - Mar 1, 2023
+- [risks-of-blockchain-and-iot-implementation-to-mitigate](reference/risks-of-blockchain-and-iot-implementation-to-mitigate.md) — Risks of blockchain and IoT implementation to mitigate
+- [saris-bones-2-bike-trunk-rack-for-honda-civic](reference/saris-bones-2-bike-trunk-rack-for-honda-civic.md) — Saris Bones 2-Bike Trunk Rack for Honda Civic
+- [shoe-care-product-recommendations-and-cobbler-search-methods](reference/shoe-care-product-recommendations-and-cobbler-search-methods.md) — Shoe care product recommendations and cobbler search methods
+- [shoe-cleaning-methods-canvas-sneakers-white-leather-and-brown-leather-boots](reference/shoe-cleaning-methods-canvas-sneakers-white-leather-and-brown-leather-boots.md) — Shoe cleaning methods: canvas sneakers, white leather, and brown leather boots
+- [shoe-closet-organization-by-type-and-color](user/shoe-closet-organization-by-type-and-color.md) — Shoe closet organization: by type and color
+- [sister-handbag-style-classic-elegant-neutral-colors](user/sister-handbag-style-classic-elegant-neutral-colors.md) — Sister handbag style: classic elegant neutral colors
+- [strategies-for-reducing-social-media-use-while-maintaining-real-world-connection](reference/strategies-for-reducing-social-media-use-while-maintaining-real-world-connection.md) — Strategies for reducing social media use while maintaining real-world connections
+- [street-photography-practice-candid-shots-of-people-in-public-spaces-especially-m](user/street-photography-practice-candid-shots-of-people-in-public-spaces-especially-m.md) — Street photography practice: candid shots of people in public spaces, especially morning commutes
+- [struggled-with-excessive-social-media-use-causing-feeling-of-disconnection-and-f](experience/struggled-with-excessive-social-media-use-causing-feeling-of-disconnection-and-f.md) — Struggled with excessive social media use causing feeling of disconnection and FOMO (May 2023)
+- [trek-fx-2-hybrid-bike-for-trail-riding-tire-pressure-65-psi-for-rough-trails](user/trek-fx-2-hybrid-bike-for-trail-riding-tire-pressure-65-psi-for-rough-trails.md) — Trek FX 2 hybrid bike for trail riding, tire pressure 65 PSI for rough trails

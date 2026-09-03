@@ -56,3 +56,37 @@ def seeded(store):
         name="file-truth-invariant",
     )
     return store
+
+
+FAKE_MEMCORE = """#!/usr/bin/env bash
+set -eu
+log() { if [ -n "${MEMCORE_DIR:-}" ]; then echo "$*" >> "$MEMCORE_DIR/calls.log"; fi; }
+case "$1" in
+  --version) echo "memcore 0.0-fake" ;;
+  init) shift; shift; mkdir -p "$1/memories" ;;
+  create) log "create $2"; cat > "$MEMCORE_DIR/memories/$2.md" ;;
+  recall) log "recall"; ls "$MEMCORE_DIR/memories" 2>/dev/null | sed 's/\\.md$//' ;;
+  get) log "get $2"; cat "$MEMCORE_DIR/memories/$2.md" ;;
+  stop) log "stop" ;;
+  *) log "$*" ;;
+esac
+"""
+FAKE_MEMCORE_SKILL = (
+    "# MemCore skill\nUse memcore recall before acting and memcore create while acting."
+)
+
+
+@pytest.fixture
+def memcore_home(tmp_path):
+    """A MemCore checkout in release layout, with a shell script standing in for the binary."""
+    import stat
+
+    home = tmp_path / "memcli"
+    home.mkdir()
+    binary = home / "memcore"
+    binary.write_text(FAKE_MEMCORE, encoding="utf-8")
+    binary.chmod(binary.stat().st_mode | stat.S_IEXEC)
+    (home / "SKILL.md").write_text(FAKE_MEMCORE_SKILL, encoding="utf-8")
+    (home / "models").mkdir()
+    (home / "models" / "config.json").write_text("{}", encoding="utf-8")
+    return home

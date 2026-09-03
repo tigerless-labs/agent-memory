@@ -1,0 +1,36 @@
+# MEMORY.md
+
+- [alternative-bitter-liqueurs-to-campari-for-negroni-recipes](reference/alternative-bitter-liqueurs-to-campari-for-negroni-recipes.md) — Alternative bitter liqueurs to Campari for Negroni recipes
+- [bought-pump-and-tool-set](project/bought-pump-and-tool-set.md) — Bought pump and tool set
+- [career-transition-target-content-marketing-strategist-or-digital-marketing-consu](project/career-transition-target-content-marketing-strategist-or-digital-marketing-consu.md) — Career transition target: Content Marketing Strategist or Digital Marketing Consultant
+- [caught-3-pound-trout-at-lake-tahoe-with-silver-lure](experience/caught-3-pound-trout-at-lake-tahoe-with-silver-lure.md) — Caught 3-pound trout at Lake Tahoe with silver lure
+- [chicken-coop-maintenance-tasks-clean-order-fencing-schedule-vet-visit](project/chicken-coop-maintenance-tasks-clean-order-fencing-schedule-vet-visit.md) — Chicken coop maintenance tasks: clean, order fencing, schedule vet visit
+- [citrus-fruits-for-gin-and-lavender-cocktails-orange-yuzu-kumquat-satsuma-bergamo](reference/citrus-fruits-for-gin-and-lavender-cocktails-orange-yuzu-kumquat-satsuma-bergamo.md) — Citrus fruits for gin and lavender cocktails (orange, yuzu, kumquat, satsuma, bergamot)
+- [content-creation-focus-fashion-and-skincare-across-multiple-platforms](user/content-creation-focus-fashion-and-skincare-across-multiple-platforms.md) — Content creation focus: fashion and skincare across multiple platforms
+- [emma-taught-negroni-making-has-practiced-10-times-as-of-late-2023](experience/emma-taught-negroni-making-has-practiced-10-times-as-of-late-2023.md) — Emma taught Negroni-making; has practiced 10 times as of late 2023
+- [emma-taught-negroni-making-has-practiced-5-times](experience/emma-taught-negroni-making-has-practiced-5-times.md) — Emma taught Negroni-making; has practiced 5 times
+- [enjoys-hendrick-s-gin-in-cocktails](user/enjoys-hendrick-s-gin-in-cocktails.md) — Enjoys Hendrick's gin in cocktails
+- [equipment-purchases-flotec-pump-and-craftsman-tools-for-farm-work](project/equipment-purchases-flotec-pump-and-craftsman-tools-for-farm-work.md) — Equipment purchases: Flotec pump and Craftsman tools for farm work
+- [essay-miss-stapleton-s-moral-responsibility-in-the-hound-of-the-baskervilles](reference/essay-miss-stapleton-s-moral-responsibility-in-the-hound-of-the-baskervilles.md) — Essay: Miss Stapleton's moral responsibility in The Hound of the Baskervilles
+- [experimenting-with-lemon-based-recipes](user/experimenting-with-lemon-based-recipes.md) — Experimenting with lemon-based recipes
+- [farm-social-media-startup-planned](project/farm-social-media-startup-planned.md) — Farm social media startup planned
+- [fly-rod-recommendations-for-trout-fishing](reference/fly-rod-recommendations-for-trout-fishing.md) — Fly rod recommendations for trout fishing
+- [has-a-garden-with-fresh-herbs](user/has-a-garden-with-fresh-herbs.md) — Has a garden with fresh herbs
+- [interested-in-botanical-cocktails-with-lavender-citrus-and-herbs](user/interested-in-botanical-cocktails-with-lavender-citrus-and-herbs.md) — Interested in botanical cocktails with lavender, citrus, and herbs
+- [interested-in-learning-fly-fishing](user/interested-in-learning-fly-fishing.md) — Interested in learning fly fishing
+- [lavender-syrup-recipe-and-cocktail-recommendations-lavender-gin-fizz-lavender-dr](reference/lavender-syrup-recipe-and-cocktail-recommendations-lavender-gin-fizz-lavender-dr.md) — Lavender syrup recipe and cocktail recommendations (Lavender Gin Fizz, Lavender Dream, Lavender Bee's Knees)
+- [made-pasta-from-beginner-s-cooking-class-family-loved-it](experience/made-pasta-from-beginner-s-cooking-class-family-loved-it.md) — Made pasta from beginner's cooking class; family loved it
+- [mobile-photo-editing-apps-for-on-the-go-adjustments](reference/mobile-photo-editing-apps-for-on-the-go-adjustments.md) — Mobile photo editing apps for on-the-go adjustments
+- [negroni-recipe-uses-carpano-antica-vermouth-and-hendrick-s-gin](user/negroni-recipe-uses-carpano-antica-vermouth-and-hendrick-s-gin.md) — Negroni recipe uses Carpano Antica vermouth and Hendrick's gin
+- [photography-interests-and-current-practices](user/photography-interests-and-current-practices.md) — Photography interests and current practices
+- [pigpen-expansion-project-clearing-land-near-barn-cousin-helping-weekend-of-2023](project/pigpen-expansion-project-clearing-land-near-barn-cousin-helping-weekend-of-2023.md) — Pigpen expansion project: clearing land near barn, cousin helping weekend of 2023-08-19
+- [planned-8-10-guest-dinner-party-with-multi-cuisine-menu](project/planned-8-10-guest-dinner-party-with-multi-cuisine-menu.md) — Planned 8-10 guest dinner party with multi-cuisine menu
+- [planned-content-on-sustainable-skincare-for-youtube-and-instagram](project/planned-content-on-sustainable-skincare-for-youtube-and-instagram.md) — Planned content on sustainable skincare for YouTube and Instagram
+- [planning-to-enter-fishing-tournament-at-joe-s-tackle-on-main-st-in-september-202](project/planning-to-enter-fishing-tournament-at-joe-s-tackle-on-main-st-in-september-202.md) — Planning to enter fishing tournament at Joe's Tackle on Main St. in September 2023
+- [plans-to-experiment-with-infusing-gin-with-cucumber-and-mint-interested-in-tryin](user/plans-to-experiment-with-infusing-gin-with-cucumber-and-mint-interested-in-tryin.md) — Plans to experiment with infusing gin with cucumber and mint; interested in trying Pimm's Cup and Bee's Knees
+- [served-cranberry-sparkler-at-dinner-party-huge-hit-with-guests](experience/served-cranberry-sparkler-at-dinner-party-huge-hit-with-guests.md) — Served Cranberry Sparkler at dinner party; huge hit with guests
+- [social-media-platforms-and-engagement-facebook-had-low-engagement-pinterest-grow](user/social-media-platforms-and-engagement-facebook-had-low-engagement-pinterest-grow.md) — Social media platforms and engagement: Facebook had low engagement, Pinterest growing steadily
+- [sold-excess-roosters-to-neighbor-on-2023-08-14-good-deal-planning-to-reinvest-pr](experience/sold-excess-roosters-to-neighbor-on-2023-08-14-good-deal-planning-to-reinvest-pr.md) — Sold excess roosters to neighbor on 2023-08-14, good deal, planning to reinvest proceeds in farm
+- [starting-seasonal-photography-project-in-natural-setting](project/starting-seasonal-photography-project-in-natural-setting.md) — Starting seasonal photography project in natural setting
+- [took-cooking-classes-indian-naan-sushi-making-pastry-making-croissants](user/took-cooking-classes-indian-naan-sushi-making-pastry-making-croissants.md) — Took cooking classes: Indian (naan), sushi-making, pastry-making (croissants)
+- [white-negroni-recipe-with-suze-and-dolin-dry-vermouth](reference/white-negroni-recipe-with-suze-and-dolin-dry-vermouth.md) — White Negroni recipe with Suze and Dolin Dry Vermouth

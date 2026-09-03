@@ -146,9 +146,10 @@ def manage_review(proposals: str, entries: str) -> str:
     return MANAGE_REVIEW.format(proposals=proposals.strip(), entries=entries.strip())
 
 
-def distill(segment: str, command_hint: str) -> str:
+def distill(segment: str, command_hint: str, discipline: str = WRITE_DISCIPLINE) -> str:
+    """The task is one text; the discipline slot is what a memory system brings of its own."""
     return DISTILL_INSTRUCTION.format(
-        discipline=WRITE_DISCIPLINE, command_hint=command_hint, segment=segment
+        discipline=discipline, command_hint=command_hint, segment=segment
     )
 
 

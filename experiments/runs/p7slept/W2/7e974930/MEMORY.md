@@ -1,0 +1,43 @@
+# MEMORY.md
+
+- [earned-420-dollars-in-sales-at-downtown-farmers-market](experience/earned-420-dollars-in-sales-at-downtown-farmers-market.md) — Earned 420 dollars in sales at Downtown Farmers Market
+- [sells-homemade-jams-candles-and-soaps-at-farmers-markets](project/sells-homemade-jams-candles-and-soaps-at-farmers-markets.md) — Sells homemade jams, candles, and soaps at farmers markets
+- [considering-expanding-product-line-to-include-gift-baskets](project/considering-expanding-product-line-to-include-gift-baskets.md) — Considering expanding product line to include gift baskets
+- [key-ecocritics-and-foundational-ideas-in-ecocriticism](reference/key-ecocritics-and-foundational-ideas-in-ecocriticism.md) — Key ecocritics and foundational ideas in ecocriticism
+- [actively-exploring-discographies-of-lucy-dacus-phoebe-bridgers-and-julien-baker](user/actively-exploring-discographies-of-lucy-dacus-phoebe-bridgers-and-julien-baker.md) — Actively exploring discographies of Lucy Dacus, Phoebe Bridgers, and Julien Baker
+- [almost-sold-out-of-candle-supplies-needs-restocking](project/almost-sold-out-of-candle-supplies-needs-restocking.md) — Almost sold out of candle supplies, needs restocking
+- [attended-foodie-festival-and-cleared-old-stock](experience/attended-foodie-festival-and-cleared-old-stock.md) — Attended Foodie Festival and cleared old stock
+- [bass-and-fly-fishing-recommendations-for-lake-fishing](reference/bass-and-fly-fishing-recommendations-for-lake-fishing.md) — Bass and fly fishing recommendations for lake fishing
+- [beach-trip-with-friends-took-sunset-photography](experience/beach-trip-with-friends-took-sunset-photography.md) — Beach trip with friends, took sunset photography
+- [camera-upgrade-budget-1500-dollars](project/camera-upgrade-budget-1500-dollars.md) — Camera upgrade budget 1500 dollars
+- [completed-30-day-daily-yoga-challenge-in-april-2023](experience/completed-30-day-daily-yoga-challenge-in-april-2023.md) — Completed 30-day daily yoga challenge in April 2023
+- [decided-to-order-100-business-cards-as-starting-quantity](project/decided-to-order-100-business-cards-as-starting-quantity.md) — Decided to order 100 business cards as starting quantity
+- [event-discovery-platforms-for-finding-local-live-music-and-comedy-events](reference/event-discovery-platforms-for-finding-local-live-music-and-comedy-events.md) — Event discovery platforms for finding local live music and comedy events
+- [expanding-product-line-with-more-artisanal-soap-varieties](project/expanding-product-line-with-more-artisanal-soap-varieties.md) — Expanding product line with more artisanal soap varieties
+- [fujifilm-x-t30-ii-specifications-and-features](reference/fujifilm-x-t30-ii-specifications-and-features.md) — Fujifilm X-T30 II specifications and features
+- [goal-organize-music-library-on-computer-and-spotify](user/goal-organize-music-library-on-computer-and-spotify.md) — Goal: Organize music library on computer and Spotify
+- [implementing-points-based-loyalty-program-with-tiered-rewards](project/implementing-points-based-loyalty-program-with-tiered-rewards.md) — Implementing points-based loyalty program with tiered rewards
+- [interdisciplinary-vs-transdisciplinary-scholarship-definitions](reference/interdisciplinary-vs-transdisciplinary-scholarship-definitions.md) — Interdisciplinary vs transdisciplinary scholarship definitions
+- [interested-in-bass-and-fly-fishing](user/interested-in-bass-and-fly-fishing.md) — Interested in bass and fly fishing
+- [interested-in-discovering-and-attending-live-music-and-comedy-events](user/interested-in-discovering-and-attending-live-music-and-comedy-events.md) — Interested in discovering and attending live music and comedy events
+- [interested-in-singer-songwriter-and-folk-influenced-music-genre](user/interested-in-singer-songwriter-and-folk-influenced-music-genre.md) — Interested in Singer-Songwriter and Folk-Influenced music genre
+- [just-purchased-west-elm-harmony-sofa-in-dark-gray-velvet-for-living-room](user/just-purchased-west-elm-harmony-sofa-in-dark-gray-velvet-for-living-room.md) — Just purchased West Elm Harmony Sofa in dark gray velvet for living room
+- [mk-captivity-narrative-human-imprisoned-by-wukong-searching-for-diamond-snare](project/mk-captivity-narrative-human-imprisoned-by-wukong-searching-for-diamond-snare.md) — MK captivity narrative: human imprisoned by Wukong searching for diamond snare
+- [owns-and-is-satisfied-with-ergohuman-office-chair-considering-another-for-guest](user/owns-and-is-satisfied-with-ergohuman-office-chair-considering-another-for-guest.md) — Owns and is satisfied with ERGOhuman office chair; considering another for guest room
+- [owns-ikea-micke-desk-assembled-2023-03-05-satisfied-with-performance-and-value](user/owns-ikea-micke-desk-assembled-2023-03-05-satisfied-with-performance-and-value.md) — Owns IKEA MICKE desk (assembled ~2023-03-05); satisfied with performance and value
+- [photographs-landscape-and-nature](user/photographs-landscape-and-nature.md) — Photographs landscape and nature
+- [practices-yoga-twice-weekly-started-march-1-2023](user/practices-yoga-twice-weekly-started-march-1-2023.md) — Practices yoga twice weekly, started March 1, 2023
+- [prefers-reclaimed-wood-dining-table-over-minimalist-design-concerned-about-maint](user/prefers-reclaimed-wood-dining-table-over-minimalist-design-concerned-about-maint.md) — Prefers reclaimed wood dining table over minimalist design; concerned about maintenance but reassured by protective finishes
+- [prefers-west-elm-and-crate-barrel-for-furniture-positive-experiences-with-both-r](user/prefers-west-elm-and-crate-barrel-for-furniture-positive-experiences-with-both-r.md) — Prefers West Elm and Crate & Barrel for furniture; positive experiences with both retailers
+- [purchasing-fujifilm-x-t30-ii-mirrorless-camera](project/purchasing-fujifilm-x-t30-ii-mirrorless-camera.md) — Purchasing Fujifilm X-T30 II mirrorless camera
+- [ran-marathon-on-april-15-2023-with-personal-best-time](experience/ran-marathon-on-april-15-2023-with-personal-best-time.md) — Ran marathon on April 15, 2023 with personal best time
+- [recently-rearranged-living-room-furniture-for-conversational-layout-shopping-for](user/recently-rearranged-living-room-furniture-for-conversational-layout-shopping-for.md) — Recently rearranged living room furniture for conversational layout; shopping for new coffee table
+- [researching-ecocriticism-and-environmental-literature](user/researching-ecocriticism-and-environmental-literature.md) — Researching ecocriticism and environmental literature
+- [returned-to-photography-as-a-hobby](user/returned-to-photography-as-a-hobby.md) — Returned to photography as a hobby
+- [saved-10-songs-from-spotify-discover-weekly-playlist-on-2023-03-13](experience/saved-10-songs-from-spotify-discover-weekly-playlist-on-2023-03-13.md) — Saved ~10 songs from Spotify Discover Weekly playlist on 2023-03-13
+- [swim-tracking-apps-strava-swim-com-garmin](reference/swim-tracking-apps-strava-swim-com-garmin.md) — Swim tracking apps: Strava, Swim.com, Garmin
+- [tracks-triathlon-training-progress-on-a-spreadsheet](user/tracks-triathlon-training-progress-on-a-spreadsheet.md) — Tracks triathlon training progress on a spreadsheet
+- [training-for-a-sprint-triathlon](user/training-for-a-sprint-triathlon.md) — Training for a sprint triathlon
+- [ursula-k-le-guin-major-works-in-ecocriticism-context](reference/ursula-k-le-guin-major-works-in-ecocriticism-context.md) — Ursula K. Le Guin major works in ecocriticism context
+- [weight-loss-of-5-pounds-and-resting-heart-rate-decreased-10-bpm-as-of-march-2023](experience/weight-loss-of-5-pounds-and-resting-heart-rate-decreased-10-bpm-as-of-march-2023.md) — Weight loss of 5 pounds and resting heart rate decreased 10 bpm as of March 2023
+- [yoga-apps-for-triathlon-training-yogaglo-peloton-down-dog](reference/yoga-apps-for-triathlon-training-yogaglo-peloton-down-dog.md) — Yoga apps for triathlon training: YogaGlo, Peloton, Down Dog

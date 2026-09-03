@@ -1,0 +1,16 @@
+---
+name: interested-in-chase-sapphire-preferred-for-travel-rewards-diversification
+abstract: Interested in Chase Sapphire Preferred for travel rewards diversification
+type: preference
+status: active
+created: 2026-09-02
+updated: 2026-09-02
+valid_from: 2023-01-15
+superseded_by: null
+weight: 1.0
+author: cli
+links: []
+provenance: []
+---
+
+Considering applying for Chase Sapphire Preferred credit card. Benefits: 60,000-point sign-up bonus after $4,000 spend in 3 months, 2X points on travel and dining, 25% bonus when redeemed through Chase Ultimate Rewards portal, transfer partners include United, American, Delta, British Airways, Air France, Marriott, IHG, Hyatt. No foreign transaction fees. Travel insurance: Trip cancellation/interruption up to $10,000 per person, travel delay reimbursement up to $500, 24/7 travel assistance. Pursuing this as a way to earn transferable points and diversify airline miles.

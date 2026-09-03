@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [attended-hunting-seminar-at-local-outdoors-store-in-may-2023](project/attended-hunting-seminar-at-local-outdoors-store-in-may-2023.md) — Attended hunting seminar at local outdoors store in May 2023
+- [beginner-guitarist-learning-from-youtube-tutorials](user/beginner-guitarist-learning-from-youtube-tutorials.md) — Beginner guitarist learning from YouTube tutorials
+- [camping-trip-to-pfeiffer-big-sur-state-park-two-nights-hiked-mcway-falls-and-pfe](experience/camping-trip-to-pfeiffer-big-sur-state-park-two-nights-hiked-mcway-falls-and-pfe.md) — Camping trip to Pfeiffer Big Sur State Park: two nights, hiked McWay Falls and Pfeiffer Beach
+- [cleaned-out-tackle-box-in-mid-may-2023](project/cleaned-out-tackle-box-in-mid-may-2023.md) — Cleaned out tackle box in mid-May 2023
+- [considering-upgrade-to-new-efficient-compact-portable-stove](user/considering-upgrade-to-new-efficient-compact-portable-stove.md) — Considering upgrade to new efficient compact portable stove
+- [exploring-pond-s-man-it-feels-like-space-again-album-psychedelic-rock](project/exploring-pond-s-man-it-feels-like-space-again-album-psychedelic-rock.md) — Exploring Pond's 'Man It Feels Like Space Again' album - psychedelic rock
+- [has-kayaking-experience-and-interest-in-water-based-activities](user/has-kayaking-experience-and-interest-in-water-based-activities.md) — Has kayaking experience and interest in water-based activities
+- [interested-in-exploring-kacey-musgraves-music-and-genre-blends](user/interested-in-exploring-kacey-musgraves-music-and-genre-blends.md) — Interested in exploring Kacey Musgraves' music and genre blends
+- [interested-in-improving-hunting-skills-with-tree-stands-and-trail-cameras](user/interested-in-improving-hunting-skills-with-tree-stands-and-trail-cameras.md) — Interested in improving hunting skills with tree stands and trail cameras
+- [interested-in-trout-fishing-with-streamers-specifically-woolly-bugger](user/interested-in-trout-fishing-with-streamers-specifically-woolly-bugger.md) — Interested in trout fishing with streamers, specifically Woolly Bugger
+- [interested-in-waterproof-action-camera-for-kayaking-and-water-based-activities](user/interested-in-waterproof-action-camera-for-kayaking-and-water-based-activities.md) — Interested in waterproof action camera for kayaking and water-based activities
+- [kacey-musgraves-award-winning-country-artist-blending-traditional-country-with-m](reference/kacey-musgraves-award-winning-country-artist-blending-traditional-country-with-m.md) — Kacey Musgraves: award-winning country artist blending traditional country with modern pop
+- [likes-psychedelic-dreamy-atmospheric-rock-tame-impala-raveena-billie-eilish](user/likes-psychedelic-dreamy-atmospheric-rock-tame-impala-raveena-billie-eilish.md) — Likes psychedelic, dreamy, atmospheric rock - Tame Impala, Raveena, Billie Eilish
+- [netflix-music-documentaries-similar-to-miss-americana-taylor-swift](reference/netflix-music-documentaries-similar-to-miss-americana-taylor-swift.md) — Netflix music documentaries similar to 'Miss Americana' (Taylor Swift)
+- [owns-merrell-moab-2-mid-waterproof-hiking-boots-recently-acquired](user/owns-merrell-moab-2-mid-waterproof-hiking-boots-recently-acquired.md) — Owns Merrell Moab 2 Mid Waterproof hiking boots (recently acquired)
+- [portable-power-bank-valued-for-camping-trips-charging-navigation-photography](user/portable-power-bank-valued-for-camping-trips-charging-navigation-photography.md) — Portable power bank valued for camping trips (charging, navigation, photography)
+- [psychedelic-rock-artists-similar-to-tame-impala-with-mellow-atmospheric-sound](reference/psychedelic-rock-artists-similar-to-tame-impala-with-mellow-atmospheric-sound.md) — Psychedelic rock artists similar to Tame Impala with mellow, atmospheric sound
+- [recover-grandmother-s-silver-necklace-with-small-pendant-lost-at-beach](project/recover-grandmother-s-silver-necklace-with-small-pendant-lost-at-beach.md) — Recover grandmother's silver necklace with small pendant lost at beach
+- [watched-miss-americana-taylor-swift-documentary-on-netflix](experience/watched-miss-americana-taylor-swift-documentary-on-netflix.md) — Watched 'Miss Americana' Taylor Swift documentary on Netflix
+- [youtube-guitar-tutorial-channels-for-beginner-guitarists](reference/youtube-guitar-tutorial-channels-for-beginner-guitarists.md) — YouTube guitar tutorial channels for beginner guitarists

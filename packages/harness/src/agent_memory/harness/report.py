@@ -11,12 +11,15 @@ import dataclasses
 import math
 
 from .metrics import STATUS_OK
+from .systems import NATIVE
 
 PERCENT = 100.0
+LABEL_SEPARATOR = "/"
 
 
 @dataclasses.dataclass(frozen=True)
 class ArmSummary:
+    system: str
     arm: str
     graded: int
     failed: int
@@ -26,6 +29,10 @@ class ArmSummary:
     experience_seconds: float
     exam_seconds: float
     memories: float
+
+    @property
+    def label(self) -> str:
+        return f"{self.system}{LABEL_SEPARATOR}{self.arm}"
 
 
 @dataclasses.dataclass(frozen=True)
@@ -37,6 +44,11 @@ class Report:
 
     def attribution_is_licensed(self) -> bool:
         return len(self.recall_fingerprints) == 1 and len(self.episode_fingerprints) == 1
+
+    def label_of(self, summary: ArmSummary) -> str:
+        """Arms are named by W alone until a second system makes that ambiguous."""
+        multiple = len({row.system for row in self.arms}) > 1
+        return summary.label if multiple else summary.arm
 
 
 @dataclasses.dataclass(frozen=True)
@@ -61,7 +73,8 @@ def pairwise(records: list[dict[str, object]]) -> list[Comparison]:
     for record in records:
         if record["status"] != STATUS_OK:
             continue
-        outcomes.setdefault(label(record), {})[str(record["episode_id"])] = bool(record["correct"])
+        name = _system_of(record) + LABEL_SEPARATOR + arm_of(record)
+        outcomes.setdefault(name, {})[str(record["episode_id"])] = bool(record["correct"])
     labels = sorted(outcomes)
     return [
         _compare(left, right, outcomes[left], outcomes[right])
@@ -96,20 +109,23 @@ def _exact_mcnemar(left_only: int, right_only: int) -> float:
     return min(1.0, 2.0 * tail / 2**discordant)
 
 
-def label(record: dict[str, object]) -> str:
+def arm_of(record: dict[str, object]) -> str:
+    """A write option under one sleep. Two copies of one store tree slept differently are the
+    same W arm and different rows, which is what asking what a sleep was worth requires."""
     managed = str(record.get("manage") or "")
     return f"{record['arm']}+{managed}" if managed else str(record["arm"])
 
 
 def summarise(records: list[dict[str, object]]) -> Report:
-    arms = sorted({label(record) for record in records})
+    keys = sorted({(_system_of(record), arm_of(record)) for record in records})
     summaries: list[ArmSummary] = []
-    for arm in arms:
-        rows = [record for record in records if label(record) == arm]
+    for system, arm in keys:
+        rows = [r for r in records if _system_of(r) == system and arm_of(r) == arm]
         graded = [row for row in rows if row["status"] == STATUS_OK]
         correct = [row for row in graded if row["correct"]]
         summaries.append(
             ArmSummary(
+                system=system,
                 arm=arm,
                 graded=len(graded),
                 failed=len(rows) - len(graded),
@@ -122,56 +138,40 @@ def summarise(records: list[dict[str, object]]) -> Report:
             )
         )
 
-    by_type: dict[str, dict[str, float]] = {}
-    for question_type in sorted({str(record["question_type"]) for record in records}):
-        by_type[question_type] = {
-            arm: _ratio(
-                len(
-                    [
-                        record
-                        for record in records
-                        if label(record) == arm
-                        and record["question_type"] == question_type
-                        and record["status"] == STATUS_OK
-                        and record["correct"]
-                    ]
-                ),
-                len(
-                    [
-                        record
-                        for record in records
-                        if label(record) == arm
-                        and record["question_type"] == question_type
-                        and record["status"] == STATUS_OK
-                    ]
-                ),
-            )
-            for arm in arms
-        }
-
-    return Report(
+    report = Report(
         arms=tuple(summaries),
-        by_question_type=by_type,
+        by_question_type={},
         recall_fingerprints=tuple(sorted({str(r["recall_fingerprint"]) for r in records})),
         episode_fingerprints=tuple(sorted({str(r["episode_fingerprint"]) for r in records})),
     )
+    by_type: dict[str, dict[str, float]] = {}
+    for question_type in sorted({str(record["question_type"]) for record in records}):
+        by_type[question_type] = {
+            report.label_of(summary): _accuracy_of(
+                records, summary.system, summary.arm, question_type
+            )
+            for summary in summaries
+        }
+    return dataclasses.replace(report, by_question_type=by_type)
 
 
 def render(report: Report) -> str:
-    lines = ["| arm | graded | correct | accuracy | blocking s | exam s | memories |",
-             "|---|---|---|---|---|---|---|"]
+    lines = [
+        "| system | arm | graded | correct | accuracy | blocking s | exam s | memories |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
     for summary in report.arms:
         lines.append(
-            f"| {summary.arm} | {summary.graded} | {summary.correct} | "
+            f"| {summary.system} | {summary.arm} | {summary.graded} | {summary.correct} | "
             f"{summary.accuracy:.1f}% | {summary.blocking_seconds:.1f} | "
             f"{summary.exam_seconds:.1f} | {summary.memories:.1f} |"
         )
     lines.append("")
-    header = " | ".join(summary.arm for summary in report.arms)
-    lines.append(f"| question type | {header} |")
-    lines.append("|---" * (len(report.arms) + 1) + "|")
+    labels = [report.label_of(summary) for summary in report.arms]
+    lines.append(f"| question type | {' | '.join(labels)} |")
+    lines.append("|---" * (len(labels) + 1) + "|")
     for question_type, scores in report.by_question_type.items():
-        cells = " | ".join(f"{scores[summary.arm]:.1f}%" for summary in report.arms)
+        cells = " | ".join(f"{scores[label]:.1f}%" for label in labels)
         lines.append(f"| {question_type} | {cells} |")
     lines.append("")
     lines.append(
@@ -195,6 +195,24 @@ def render_comparisons(comparisons: list[Comparison]) -> str:
         for comparison in comparisons
     )
     return "\n".join(lines)
+
+
+def _accuracy_of(
+    records: list[dict[str, object]], system: str, arm: str, question_type: str
+) -> float:
+    graded = [
+        record
+        for record in records
+        if _system_of(record) == system
+        and arm_of(record) == arm
+        and record["question_type"] == question_type
+        and record["status"] == STATUS_OK
+    ]
+    return _ratio(len([record for record in graded if record["correct"]]), len(graded))
+
+
+def _system_of(record: dict[str, object]) -> str:
+    return str(record.get("system", NATIVE))
 
 
 def _ratio(part: int, whole: int) -> float:

@@ -1,0 +1,25 @@
+# MEMORY.md
+
+- [10-persona-credit-card-customer-segmentation-framework](project/10-persona-credit-card-customer-segmentation-framework.md) — 10-persona credit card customer segmentation framework
+- [bike-light-brands-cygolite-planet-bike-niterider-helmet-brands-bell-helmets-spec](reference/bike-light-brands-cygolite-planet-bike-niterider-helmet-brands-bell-helmets-spec.md) — Bike light brands: Cygolite, Planet Bike, NiteRider; helmet brands: Bell Helmets, Specialized, Giro
+- [bike-lock-brands-kryptonite-abus-for-u-locks-registration-via-bikeindex-and-nati](reference/bike-lock-brands-kryptonite-abus-for-u-locks-registration-via-bikeindex-and-nati.md) — Bike lock brands: Kryptonite, Abus for U-locks; registration via BikeIndex and National Bike Registry
+- [earned-personal-training-session-through-fitness-app-as-of-may-2023](experience/earned-personal-training-session-through-fitness-app-as-of-may-2023.md) — Earned personal training session through fitness app as of May 2023
+- [engagement-strategies-and-functional-value-drivers-for-each-credit-card-customer](project/engagement-strategies-and-functional-value-drivers-for-each-credit-card-customer.md) — Engagement strategies and functional value drivers for each credit card customer persona
+- [fitness-tracking-uses-fitness-app-plans-to-use-workout-log](user/fitness-tracking-uses-fitness-app-plans-to-use-workout-log.md) — Fitness tracking: uses fitness app, plans to use workout log
+- [grows-cherry-tomatoes-in-the-garden](user/grows-cherry-tomatoes-in-the-garden.md) — Grows cherry tomatoes in the garden
+- [grows-pepper-plants-in-the-garden](user/grows-pepper-plants-in-the-garden.md) — Grows pepper plants in the garden
+- [interested-in-biological-pest-control-using-beneficial-insects-for-garden](user/interested-in-biological-pest-control-using-beneficial-insects-for-garden.md) — Interested in biological pest control using beneficial insects for garden
+- [interested-in-digestive-health-and-prebiotic-probiotic-foods](user/interested-in-digestive-health-and-prebiotic-probiotic-foods.md) — Interested in digestive health and prebiotic/probiotic foods
+- [interested-in-visiting-tokyo-during-cherry-blossom-season-late-march-to-early-ap](user/interested-in-visiting-tokyo-during-cherry-blossom-season-late-march-to-early-ap.md) — Interested in visiting Tokyo during cherry blossom season (late March to early April)
+- [learning-basic-japanese-phrases-for-travel](user/learning-basic-japanese-phrases-for-travel.md) — Learning basic Japanese phrases for travel
+- [loves-yogurt-as-a-food](user/loves-yogurt-as-a-food.md) — Loves yogurt as a food
+- [neem-oil-did-not-work-for-aphid-control-on-pepper-plants](experience/neem-oil-did-not-work-for-aphid-control-on-pepper-plants.md) — Neem oil did not work for aphid control on pepper plants
+- [night-boat-to-tangier-by-kevin-barry-novel-exploring-philosophical-themes-of-sin](reference/night-boat-to-tangier-by-kevin-barry-novel-exploring-philosophical-themes-of-sin.md) — Night Boat to Tangier by Kevin Barry: novel exploring philosophical themes of sin, fate, tragedy, redemption, hope, failure, and existentialism
+- [planning-to-buy-a-commuter-bike-for-daily-work-commute-to-reduce-public-transpor](user/planning-to-buy-a-commuter-bike-for-daily-work-commute-to-reduce-public-transpor.md) — Planning to buy a commuter bike for daily work commute to reduce public transport reliance
+- [reading-interests-historical-fiction-mythology-retellings-character-driven-narra](user/reading-interests-historical-fiction-mythology-retellings-character-driven-narra.md) — Reading interests: historical fiction, mythology retellings, character-driven narratives, WWI history
+- [route-planning-tools-google-maps-mapmyride-ride-with-gps-prioritize-bike-lanes-l](reference/route-planning-tools-google-maps-mapmyride-ride-with-gps-prioritize-bike-lanes-l.md) — Route planning tools: Google Maps, MapMyRide, Ride with GPS; prioritize bike lanes, lighting, minimal traffic
+- [shinjuku-tokyo-restaurants-recommended-for-traditional-japanese-cuisine](reference/shinjuku-tokyo-restaurants-recommended-for-traditional-japanese-cuisine.md) — Shinjuku Tokyo restaurants recommended for traditional Japanese cuisine
+- [taking-zumba-classes-for-a-few-months-with-improved-cardio](experience/taking-zumba-classes-for-a-few-months-with-improved-cardio.md) — Taking Zumba classes for a few months with improved cardio
+- [yoga-class-on-wednesday-evenings-at-7-30-pm](user/yoga-class-on-wednesday-evenings-at-7-30-pm.md) — Yoga class on Wednesday evenings at 7:30 pm
+- [zumba-music-preferences-upbeat-latin-rhythms-reggaeton-high-energy-fast-paced-so](user/zumba-music-preferences-upbeat-latin-rhythms-reggaeton-high-energy-fast-paced-so.md) — Zumba music preferences: upbeat Latin rhythms, reggaeton, high-energy fast-paced songs
+- [zumba-workout-playlist-recommendations-latin-pop-reggaeton-salsa-merengue-artist](reference/zumba-workout-playlist-recommendations-latin-pop-reggaeton-salsa-merengue-artist.md) — Zumba workout playlist recommendations: Latin pop, reggaeton, salsa, merengue artists

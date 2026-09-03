@@ -1,0 +1,13 @@
+# MEMORY.md
+
+- [busy-schedule-interested-in-indoor-plants-for-low-light-spaces](user/busy-schedule-interested-in-indoor-plants-for-low-light-spaces.md) — Busy schedule; interested in indoor plants for low-light spaces
+- [chicago-trip-stayed-at-hilton-downtown-participated-in-industry-conference](experience/chicago-trip-stayed-at-hilton-downtown-participated-in-industry-conference.md) — Chicago trip, stayed at Hilton downtown, participated in industry conference
+- [completed-art-of-communication-course-may-2023](experience/completed-art-of-communication-course-may-2023.md) — Completed Art of Communication course (May 2023)
+- [daily-cleaning-routine-improves-mental-clarity-and-sleep-quality](user/daily-cleaning-routine-improves-mental-clarity-and-sleep-quality.md) — Daily cleaning routine improves mental clarity and sleep quality
+- [home-design-minimalist-aesthetic-with-natural-wood-accents-and-greenery](user/home-design-minimalist-aesthetic-with-natural-wood-accents-and-greenery.md) — Home design: minimalist aesthetic with natural wood accents and greenery
+- [improving-company-social-media-strategy-through-ai-powered-content-creation-and](project/improving-company-social-media-strategy-through-ai-powered-content-creation-and.md) — Improving company social media strategy through AI-powered content creation and research tools
+- [planning-content-series-on-building-contract-repudiation-targeting-developers-ho](project/planning-content-series-on-building-contract-repudiation-targeting-developers-ho.md) — Planning content series on building contract repudiation targeting developers, homeowners, builders, contractors
+- [practices-catholic-faith-actively-uses-apps-online-masses-follows-social-media](user/practices-catholic-faith-actively-uses-apps-online-masses-follows-social-media.md) — Practices Catholic faith actively; uses apps, online masses, follows social media
+- [prefers-couple-s-travel-interested-in-winter-trips-to-nanjing-with-cultural-hist](user/prefers-couple-s-travel-interested-in-winter-trips-to-nanjing-with-cultural-hist.md) — Prefers couple's travel; interested in winter trips to Nanjing with cultural/historical sites
+- [recovered-from-bronchitis-diagnosed-may-2023-now-attending-saturday-morning-yoga](user/recovered-from-bronchitis-diagnosed-may-2023-now-attending-saturday-morning-yoga.md) — Recovered from bronchitis diagnosed May 2023; now attending Saturday morning yoga classes
+- [working-on-philosophical-writing-about-ayn-rand-common-error-ayn-land-ayn-rand](user/working-on-philosophical-writing-about-ayn-rand-common-error-ayn-land-ayn-rand.md) — Working on philosophical writing about Ayn Rand; common error: 'Ayn Land' → 'Ayn Rand'

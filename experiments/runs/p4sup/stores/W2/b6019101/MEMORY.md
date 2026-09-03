@@ -1,0 +1,23 @@
+# MEMORY.md
+
+- [bought-dangling-silver-hoops-with-small-crystals-on-2023-02-02](user/bought-dangling-silver-hoops-with-small-crystals-on-2023-02-02.md) — Bought dangling silver hoops with small crystals on 2023-02-02
+- [classic-family-movie-recommendations-the-goonies-the-neverending-story-and-8-oth](reference/classic-family-movie-recommendations-the-goonies-the-neverending-story-and-8-oth.md) — Classic family movie recommendations: The Goonies, The NeverEnding Story, and 8 others
+- [committed-to-purchasing-ethically-sourced-and-fair-trade-products](user/committed-to-purchasing-ethically-sourced-and-fair-trade-products.md) — Committed to purchasing ethically sourced and fair trade products
+- [considering-getting-mother-s-old-diamond-ring-appraised](user/considering-getting-mother-s-old-diamond-ring-appraised.md) — Considering getting mother's old diamond ring appraised
+- [decided-to-see-hadestown-on-broadway](project/decided-to-see-hadestown-on-broadway.md) — Decided to see Hadestown on Broadway
+- [enjoys-classic-movies-from-childhood-for-family-viewing](user/enjoys-classic-movies-from-childhood-for-family-viewing.md) — Enjoys classic movies from childhood for family viewing
+- [enjoys-singer-songwriter-and-folk-influenced-indie-music-interested-in-phoebe-br](user/enjoys-singer-songwriter-and-folk-influenced-indie-music-interested-in-phoebe-br.md) — Enjoys Singer-Songwriter and Folk-Influenced indie music; interested in Phoebe Bridgers, Julien Baker, Lucy Dacus
+- [enjoys-theater-and-broadway-musicals-drawn-to-emotional-resonance-and-themes-of](user/enjoys-theater-and-broadway-musicals-drawn-to-emotional-resonance-and-themes-of.md) — Enjoys theater and Broadway musicals; drawn to emotional resonance and themes of love and sacrifice
+- [hadestown-broadway-musical-anais-mitchell-composer-lyricist-rachel-chavkin-direc](reference/hadestown-broadway-musical-anais-mitchell-composer-lyricist-rachel-chavkin-direc.md) — Hadestown: Broadway musical, Anaïs Mitchell composer/lyricist, Rachel Chavkin director, 8 Tony Awards 2019
+- [inherited-vintage-brooches-and-pendants-from-grandmother-including-floral-brooch](user/inherited-vintage-brooches-and-pendants-from-grandmother-including-floral-brooch.md) — Inherited vintage brooches and pendants from grandmother, including floral brooch
+- [interested-in-supporting-tibetan-buddhist-rights-and-religious-freedom-in-china](user/interested-in-supporting-tibetan-buddhist-rights-and-religious-freedom-in-china.md) — Interested in supporting Tibetan Buddhist rights and religious freedom in China
+- [julien-baker-discography-recommendations-sprained-ankle-2015-turn-out-the-lights](reference/julien-baker-discography-recommendations-sprained-ankle-2015-turn-out-the-lights.md) — Julien Baker discography recommendations: Sprained Ankle (2015), Turn Out the Lights (2017)
+- [lost-favorite-silver-necklace-with-small-pendant-on-2023-01-10-at-friend-s-party](experience/lost-favorite-silver-necklace-with-small-pendant-on-2023-01-10-at-friend-s-party.md) — Lost favorite silver necklace with small pendant on 2023-01-10 at friend's party
+- [lucy-dacus-discography-recommendations-no-burden-2016-historian-2018-home-video](reference/lucy-dacus-discography-recommendations-no-burden-2016-historian-2018-home-video.md) — Lucy Dacus discography recommendations: No Burden (2016), Historian (2018), Home Video (2021)
+- [organizations-supporting-tibetan-buddhist-rights-and-ethical-sourcing](reference/organizations-supporting-tibetan-buddhist-rights-and-ethical-sourcing.md) — Organizations supporting Tibetan Buddhist rights and ethical sourcing
+- [phoebe-bridgers-discography-recommendations-stranger-in-the-alps-2017-punisher-2](reference/phoebe-bridgers-discography-recommendations-stranger-in-the-alps-2017-punisher-2.md) — Phoebe Bridgers discography recommendations: Stranger in the Alps (2017), Punisher (2020)
+- [planned-family-movie-marathon-for-upcoming-long-weekend-may-2023](experience/planned-family-movie-marathon-for-upcoming-long-weekend-may-2023.md) — Planned family movie marathon for upcoming long weekend (May 2023)
+- [plans-to-organize-jewelry-collection](user/plans-to-organize-jewelry-collection.md) — Plans to organize jewelry collection
+- [prefers-silver-metal-tone-and-plans-to-build-silver-jewelry-collection](user/prefers-silver-metal-tone-and-plans-to-build-silver-jewelry-collection.md) — Prefers silver metal tone and plans to build silver jewelry collection
+- [test-simple-entry](user/test-simple-entry.md) — Test simple entry
+- [watched-12-films-in-3-months-may-2023-including-5-mcu-films](user/watched-12-films-in-3-months-may-2023-including-5-mcu-films.md) — Watched 12 films in 3 months (May 2023), including 5 MCU films

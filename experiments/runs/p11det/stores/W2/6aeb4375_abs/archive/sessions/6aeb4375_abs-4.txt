@@ -1,0 +1,44 @@
+## Session sharegpt_DqroNxI_0 — 2023/04/23 (Sun) 20:13
+user: what is preslae engineer in hitech doing saas software cloud doing
+assistant: A presales engineer in the hi-tech industry, specifically in SaaS software and cloud computing, is typically responsible for providing technical expertise and support to sales teams during the sales process. Their main goal is to help potential customers understand the technical capabilities and benefits of the software or cloud service being offered, and to demonstrate how it can meet their specific business needs.
+
+Some common responsibilities of a presales engineer in this field may include:
+
+1. Collaborating with sales teams to understand customer requirements and develop customized solutions that meet their needs.
+2. Conducting product demos, proof-of-concepts, and other technical presentations for potential customers.
+3. Providing technical advice and guidance to customers on the implementation, configuration, and use of the software or cloud service.
+4. Responding to customer inquiries and providing technical support during the sales process.
+5. Working with product development teams to provide feedback on customer requirements and help shape product development roadmaps.
+
+Overall, the role of a presales engineer in SaaS software and cloud computing is critical in helping to bridge the gap between the technical capabilities of the software or service and the needs and requirements of potential customers.
+user: give me titiles for presale engineer that doing the same up
+assistant: Here are some possible titles for a presales engineer in the SaaS software and cloud computing industry:
+
+1. Solutions Engineer
+2. Technical Sales Engineer
+3. Cloud Solutions Architect
+4. Sales Consultant
+5. Pre-Sales Consultant
+6. Technical Solutions Specialist
+7. Business Development Engineer
+8. Cloud Sales Engineer
+9. Product Specialist
+10. Technical Account Manager
+user: can you be more pre-sale OR sales engineer - oriented
+assistant: Sure! Here are some job titles that are more specifically focused on either pre-sales or sales engineering roles:
+
+Pre-Sales Engineer:
+
+1. Pre-Sales Solutions Engineer
+2. Technical Pre-Sales Consultant
+3. Pre-Sales Technical Specialist
+4. Pre-Sales Cloud Architect
+5. Pre-Sales Support Engineer
+
+Sales Engineer:
+
+1. Sales Solutions Engineer
+2. Technical Sales Consultant
+3. Sales Technical Specialist
+4. Sales Cloud Architect
+5. Sales Support Engineer

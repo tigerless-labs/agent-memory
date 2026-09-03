@@ -6,6 +6,8 @@ import dataclasses
 import json
 import pathlib
 
+from .systems import NATIVE as NATIVE_SYSTEM
+
 STATUS_OK = "ok"
 STATUS_FAILED = "failed"
 RECORDS_FILENAME = "runs.jsonl"
@@ -32,6 +34,7 @@ class RunRecord:
     episode_fingerprint: str
     error: str = ""
     manage: str = ""
+    system: str = NATIVE_SYSTEM
 
     def as_dict(self) -> dict[str, object]:
         return dataclasses.asdict(self)

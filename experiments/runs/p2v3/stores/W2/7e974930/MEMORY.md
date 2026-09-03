@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [attended-foodie-festival-and-cleared-out-old-stock](experience/attended-foodie-festival-and-cleared-out-old-stock.md) — Attended Foodie Festival and cleared out old stock
+- [bass-fishing-and-fly-fishing-techniques-lures-flies-knots-rod-setup-and-presenta](reference/bass-fishing-and-fly-fishing-techniques-lures-flies-knots-rod-setup-and-presenta.md) — Bass fishing and fly fishing techniques: lures, flies, knots, rod setup, and presentations
+- [collaborative-narrative-wukong-holds-mk-prisoner-searching-for-diamond-snare](project/collaborative-narrative-wukong-holds-mk-prisoner-searching-for-diamond-snare.md) — Collaborative narrative: Wukong holds MK prisoner searching for diamond snare
+- [considering-expansion-of-artisanal-soap-product-line-based-on-customer-demand](project/considering-expansion-of-artisanal-soap-product-line-based-on-customer-demand.md) — Considering expansion of artisanal soap product line based on customer demand
+- [currently-owns-small-round-dining-table-considering-upgrade](user/currently-owns-small-round-dining-table-considering-upgrade.md) — Currently owns small round dining table, considering upgrade
+- [decided-to-purchase-fujifilm-x-t30-ii-mirrorless-camera-for-landscape-photograph](project/decided-to-purchase-fujifilm-x-t30-ii-mirrorless-camera-for-landscape-photograph.md) — Decided to purchase Fujifilm X-T30 II mirrorless camera for landscape photography
+- [downtown-farmers-market-recent-visit-earned-420-in-sales](experience/downtown-farmers-market-recent-visit-earned-420-in-sales.md) — Downtown Farmers Market recent visit: earned $420 in sales
+- [event-discovery-platforms-songkick-bandsintown-eventbrite-meetup](reference/event-discovery-platforms-songkick-bandsintown-eventbrite-meetup.md) — Event discovery platforms: Songkick, Bandsintown, Eventbrite, Meetup
+- [expanding-product-line-to-include-gift-baskets](project/expanding-product-line-to-include-gift-baskets.md) — Expanding product line to include gift baskets
+- [fitness-progress-5-lbs-weight-loss-resting-heart-rate-decreased-10-bpm](user/fitness-progress-5-lbs-weight-loss-resting-heart-rate-decreased-10-bpm.md) — Fitness progress: 5 lbs weight loss, resting heart rate decreased 10 bpm
+- [flexbox-approach-for-displaying-condensed-link-lists](reference/flexbox-approach-for-displaying-condensed-link-lists.md) — Flexbox approach for displaying condensed link lists
+- [fram-ship-arctic-cargo-operations-loading-unloading-safety-procedures-crew-durat](reference/fram-ship-arctic-cargo-operations-loading-unloading-safety-procedures-crew-durat.md) — Fram ship Arctic cargo operations: loading, unloading, safety procedures, crew duration
+- [fujifilm-x-t30-ii-camera-specifications-and-autofocus-details](reference/fujifilm-x-t30-ii-camera-specifications-and-autofocus-details.md) — Fujifilm X-T30 II camera specifications and autofocus details
+- [interest-in-arctic-exploration-and-maritime-logistics](user/interest-in-arctic-exploration-and-maritime-logistics.md) — Interest in Arctic exploration and maritime logistics
+- [interested-in-bass-fishing-and-fly-fishing-for-lake-trips](user/interested-in-bass-fishing-and-fly-fishing-for-lake-trips.md) — Interested in bass fishing and fly fishing for lake trips
+- [interested-in-live-music-and-comedy-shows](user/interested-in-live-music-and-comedy-shows.md) — Interested in live music and comedy shows
+- [key-ecocriticism-scholars-and-foundational-concepts](reference/key-ecocriticism-scholars-and-foundational-concepts.md) — Key ecocriticism scholars and foundational concepts
+- [learning-interest-in-ecocriticism-and-environmental-literature](user/learning-interest-in-ecocriticism-and-environmental-literature.md) — Learning interest in ecocriticism and environmental literature
+- [marathon-pr-on-april-15-2023](experience/marathon-pr-on-april-15-2023.md) — Marathon PR on April 15, 2023
+- [music-recommendations-for-singer-songwriter-folk-artists-lucy-dacus-phoebe-bridg](reference/music-recommendations-for-singer-songwriter-folk-artists-lucy-dacus-phoebe-bridg.md) — Music recommendations for Singer-Songwriter/Folk artists: Lucy Dacus, Phoebe Bridgers, Julien Baker
+- [music-taste-singer-songwriter-and-folk-influenced-genres-with-interest-in-lucy-d](user/music-taste-singer-songwriter-and-folk-influenced-genres-with-interest-in-lucy-d.md) — Music taste: Singer-Songwriter and Folk-Influenced genres, with interest in Lucy Dacus, Phoebe Bridgers, Julien Baker
+- [owns-ergohuman-office-chair-satisfied-with-brand](user/owns-ergohuman-office-chair-satisfied-with-brand.md) — Owns ERGOhuman office chair, satisfied with brand
+- [owns-ikea-micke-desk-in-home-office](user/owns-ikea-micke-desk-in-home-office.md) — Owns IKEA MICKE desk in home office
+- [photography-hobby-landscape-and-nature-enthusiast](user/photography-hobby-landscape-and-nature-enthusiast.md) — Photography hobby: landscape and nature enthusiast
+- [planning-dining-table-upgrade-leaning-toward-reclaimed-wood](project/planning-dining-table-upgrade-leaning-toward-reclaimed-wood.md) — Planning dining table upgrade, leaning toward reclaimed wood
+- [planning-to-implement-points-based-loyalty-program-with-tier-system-and-sign-up](project/planning-to-implement-points-based-loyalty-program-with-tier-system-and-sign-up.md) — Planning to implement points-based loyalty program with tier system and sign-up bonus
+- [planning-to-restock-candle-supplies-and-prioritize-strawberry-jam-restocking](project/planning-to-restock-candle-supplies-and-prioritize-strawberry-jam-restocking.md) — Planning to restock candle supplies and prioritize strawberry jam restocking
+- [prefers-warm-character-filled-aesthetic-with-reclaimed-wood-elements](user/prefers-warm-character-filled-aesthetic-with-reclaimed-wood-elements.md) — Prefers warm, character-filled aesthetic with reclaimed wood elements
+- [recently-purchased-west-elm-harmony-sofa-in-dark-gray-velvet](user/recently-purchased-west-elm-harmony-sofa-in-dark-gray-velvet.md) — Recently purchased West Elm Harmony Sofa in dark gray velvet
+- [recently-rearranged-living-room-furniture-for-conversational-layout](experience/recently-rearranged-living-room-furniture-for-conversational-layout.md) — Recently rearranged living room furniture for conversational layout
+- [runs-small-business-selling-artisanal-soaps-and-candles-at-local-markets](project/runs-small-business-selling-artisanal-soaps-and-candles-at-local-markets.md) — Runs small business selling artisanal soaps and candles at local markets
+- [sales-from-spring-2023-markets-and-events](project/sales-from-spring-2023-markets-and-events.md) — Sales from spring 2023 markets and events
+- [saved-10-songs-from-discover-weekly-playlist-on-2023-03-13-found-it-particularly](experience/saved-10-songs-from-discover-weekly-playlist-on-2023-03-13-found-it-particularly.md) — Saved ~10 songs from Discover Weekly playlist on 2023-03-13, found it particularly great
+- [shopping-for-coffee-table-to-anchor-living-room](project/shopping-for-coffee-table-to-anchor-living-room.md) — Shopping for coffee table to anchor living room
+- [shopping-for-office-chair-for-guest-room](project/shopping-for-office-chair-for-guest-room.md) — Shopping for office chair for guest room
+- [specific-product-idea-downtown-farmers-market-themed-gift-basket](project/specific-product-idea-downtown-farmers-market-themed-gift-basket.md) — Specific product idea: Downtown Farmers Market themed gift basket
+- [strawberry-jam-is-best-selling-flavor-product](project/strawberry-jam-is-best-selling-flavor-product.md) — Strawberry jam is best-selling flavor/product
+- [training-for-sprint-triathlon-swimming-endurance-focus](project/training-for-sprint-triathlon-swimming-endurance-focus.md) — Training for sprint triathlon; swimming endurance focus
+- [trusted-furniture-retailers-ikea-west-elm-crate-barrel](user/trusted-furniture-retailers-ikea-west-elm-crate-barrel.md) — Trusted furniture retailers: IKEA, West Elm, Crate & Barrel

@@ -1,0 +1,23 @@
+# MEMORY.md
+
+- [attended-street-photography-workshop-may-1-2-2023](experience/attended-street-photography-workshop-may-1-2-2023.md) — Attended street photography workshop May 1-2, 2023
+- [considering-purchasing-vans-old-skool-sneakers](user/considering-purchasing-vans-old-skool-sneakers.md) — Considering purchasing Vans Old Skool sneakers
+- [dad-s-bbq-sauce-recipe-with-smoked-paprika](reference/dad-s-bbq-sauce-recipe-with-smoked-paprika.md) — Dad's BBQ sauce recipe with smoked paprika
+- [has-brown-leather-boots-with-loose-heel-requiring-cobbler-repair](user/has-brown-leather-boots-with-loose-heel-requiring-cobbler-repair.md) — Has brown leather boots with loose heel requiring cobbler repair
+- [interested-in-bbq-recipes-marinades-and-grilling-techniques](user/interested-in-bbq-recipes-marinades-and-grilling-techniques.md) — Interested in BBQ recipes, marinades, and grilling techniques
+- [interested-in-shoe-care-products-waterproofing-spray-cedar-shoe-tree-leather-cle](user/interested-in-shoe-care-products-waterproofing-spray-cedar-shoe-tree-leather-cle.md) — Interested in shoe care products: waterproofing spray, cedar shoe tree, leather cleaning kit
+- [mom-makes-homemade-marshmallows-from-scratch](user/mom-makes-homemade-marshmallows-from-scratch.md) — Mom makes homemade marshmallows from scratch
+- [owns-50mm-f-1-8-prime-lens-purchased-april-10-2023](user/owns-50mm-f-1-8-prime-lens-purchased-april-10-2023.md) — Owns 50mm f/1.8 prime lens, purchased April 10, 2023
+- [owns-black-converse-chuck-taylor-all-star-sneakers-worn-6-times-including-friend](user/owns-black-converse-chuck-taylor-all-star-sneakers-worn-6-times-including-friend.md) — Owns black Converse Chuck Taylor All Star sneakers, worn 6+ times including friend's birthday party
+- [owns-cannondale-synapse-road-bike-loaned-to-neighbor-rachel-february-march-2023](user/owns-cannondale-synapse-road-bike-loaned-to-neighbor-rachel-february-march-2023.md) — Owns Cannondale Synapse road bike, loaned to neighbor Rachel February-March 2023
+- [owns-canon-eos-80d-camera-experiments-with-different-photography-modes-and-setti](user/owns-canon-eos-80d-camera-experiments-with-different-photography-modes-and-setti.md) — Owns Canon EOS 80D camera; experiments with different photography modes and settings
+- [owns-honda-civic-planning-to-add-saris-bones-2-bike-trunk-rack](user/owns-honda-civic-planning-to-add-saris-bones-2-bike-trunk-rack.md) — Owns Honda Civic, planning to add Saris Bones 2-Bike Trunk Rack
+- [owns-trek-fx-2-hybrid-bike-uses-for-trail-riding](user/owns-trek-fx-2-hybrid-bike-uses-for-trail-riding.md) — Owns Trek FX 2 hybrid bike, uses for trail riding
+- [owns-white-adidas-superstars-wore-to-gym-in-may-2023-and-cleaned-with-toothbrush](user/owns-white-adidas-superstars-wore-to-gym-in-may-2023-and-cleaned-with-toothbrush.md) — Owns white Adidas Superstars, wore to gym in May 2023 and cleaned with toothbrush and soap
+- [photographed-sunset-at-red-rock-canyon-on-april-12-2023](experience/photographed-sunset-at-red-rock-canyon-on-april-12-2023.md) — Photographed sunset at Red Rock Canyon on April 12, 2023
+- [prefers-smaller-low-key-social-gatherings-and-solo-time-finds-large-events-drain](user/prefers-smaller-low-key-social-gatherings-and-solo-time-finds-large-events-drain.md) — Prefers smaller, low-key social gatherings and solo time; finds large events draining
+- [prefers-to-organize-shoes-by-type-then-by-color-within-each-group](user/prefers-to-organize-shoes-by-type-then-by-color-within-each-group.md) — Prefers to organize shoes by type, then by color within each group
+- [purchased-coach-handbag-at-tj-maxx-with-60-percent-discount](experience/purchased-coach-handbag-at-tj-maxx-with-60-percent-discount.md) — Purchased Coach handbag at TJ Maxx with 60 percent discount
+- [sister-s-handbag-preference-classic-elegant-style-neutral-colors-beige-and-black](user/sister-s-handbag-preference-classic-elegant-style-neutral-colors-beige-and-black.md) — Sister's handbag preference: classic elegant style, neutral colors beige and black
+- [uses-adobe-lightroom-for-photo-organization-and-editing](user/uses-adobe-lightroom-for-photo-organization-and-editing.md) — Uses Adobe Lightroom for photo organization and editing
+- [weekend-bike-maintenance-plan-clean-trek-fx-and-apply-waterproofing-to-chain-and](project/weekend-bike-maintenance-plan-clean-trek-fx-and-apply-waterproofing-to-chain-and.md) — Weekend bike maintenance plan: clean Trek FX and apply waterproofing to chain and gears

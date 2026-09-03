@@ -1,0 +1,38 @@
+# MEMORY.md
+
+- [maintains-20-spotify-playlists-organized-by-mood-and-activity](user/maintains-20-spotify-playlists-organized-by-mood-and-activity.md) — Maintains 20 Spotify playlists organized by mood and activity
+- [participated-in-walk-for-cancer-fundraiser-on-2023-05-15](experience/participated-in-walk-for-cancer-fundraiser-on-2023-05-15.md) — Participated in Walk for Cancer fundraiser on 2023-05-15
+- [planning-to-organize-a-charity-event-at-workplace](project/planning-to-organize-a-charity-event-at-workplace.md) — Planning to organize a charity event at workplace
+- [writing-tools-evernote-pomodoro-timer-app-writing-journal](user/writing-tools-evernote-pomodoro-timer-app-writing-journal.md) — Writing tools: Evernote, Pomodoro timer app, writing journal
+- [actively-participates-in-charity-work-and-fundraising-events](user/actively-participates-in-charity-work-and-fundraising-events.md) — Actively participates in charity work and fundraising events
+- [attending-tameca-jones-live-concert-in-june-2023](experience/attending-tameca-jones-live-concert-in-june-2023.md) — Attending Tameca Jones live concert in June 2023
+- [bird-sanctuaries-and-hotspots-in-illinois](reference/bird-sanctuaries-and-hotspots-in-illinois.md) — Bird sanctuaries and hotspots in Illinois
+- [bird-watching-hobby-weekly-outings-for-6-months](user/bird-watching-hobby-weekly-outings-for-6-months.md) — Bird watching hobby - weekly outings for 6+ months
+- [bought-10-piece-cooking-utensil-set-from-williams-sonoma-120-as-friend-s-housewa](experience/bought-10-piece-cooking-utensil-set-from-williams-sonoma-120-as-friend-s-housewa.md) — Bought 10-piece cooking utensil set from Williams-Sonoma ($120) as friend's housewarming gift
+- [bought-samsung-galaxy-smartphone-from-best-buy-799-as-father-s-day-gift](experience/bought-samsung-galaxy-smartphone-from-best-buy-799-as-father-s-day-gift.md) — Bought Samsung Galaxy smartphone from Best Buy ($799) as Father's Day gift
+- [bought-screen-protector-and-phone-case-50-as-accessories-for-father-s-day-smartp](experience/bought-screen-protector-and-phone-case-50-as-accessories-for-father-s-day-smartp.md) — Bought screen protector and phone case ($50) as accessories for Father's Day smartphone gift
+- [bought-silver-necklace-with-small-diamond-pendant-from-tiffany-s-250-for-sister](experience/bought-silver-necklace-with-small-diamond-pendant-from-tiffany-s-250-for-sister.md) — Bought silver necklace with small diamond pendant from Tiffany's ($250) for sister's birthday
+- [charity-vetting-websites](reference/charity-vetting-websites.md) — Charity vetting websites
+- [creating-new-relaxing-music-playlist-combining-lo-fi-hip-hop-and-mellow-artists](project/creating-new-relaxing-music-playlist-combining-lo-fi-hip-hop-and-mellow-artists.md) — Creating new relaxing music playlist combining Lo-Fi hip hop and mellow artists
+- [daily-writing-habit-1-hour-weekdays-2-hours-weekends](user/daily-writing-habit-1-hour-weekdays-2-hours-weekends.md) — Daily writing habit: 1 hour weekdays, 2 hours weekends
+- [enjoys-tameca-jones-soulful-bluesy-genre-bending-music](user/enjoys-tameca-jones-soulful-bluesy-genre-bending-music.md) — Enjoys Tameca Jones, soulful bluesy genre-bending music
+- [expanding-500-word-lost-in-the-woods-story-into-longer-exploration-of-identity-a](project/expanding-500-word-lost-in-the-woods-story-into-longer-exploration-of-identity-a.md) — Expanding 500-word 'lost in the woods' story into longer exploration of identity and purpose
+- [goal-to-reach-50-bird-species-by-end-of-summer-2023](project/goal-to-reach-50-bird-species-by-end-of-summer-2023.md) — Goal to reach 50 bird species by end of summer 2023
+- [hopes-to-spot-osprey-during-birding](user/hopes-to-spot-osprey-during-birding.md) — Hopes to spot Osprey during birding
+- [interested-in-meditation-practice-with-breathing-meditation](user/interested-in-meditation-practice-with-breathing-meditation.md) — Interested in meditation practice with breathing meditation
+- [interested-in-multicultural-latino-cuisines-fusion-recipes-and-food-as-cultural](user/interested-in-multicultural-latino-cuisines-fusion-recipes-and-food-as-cultural.md) — Interested in multicultural Latino cuisines, fusion recipes, and food as cultural identity expression
+- [japan-trip-itinerary-tokyo-kyoto-osaka-in-march-with-restaurant-and-attraction-r](reference/japan-trip-itinerary-tokyo-kyoto-osaka-in-march-with-restaurant-and-attraction-r.md) — Japan trip itinerary: Tokyo, Kyoto, Osaka in March with restaurant and attraction recommendations
+- [lives-in-illinois-midwest](user/lives-in-illinois-midwest.md) — Lives in Illinois, Midwest
+- [looking-for-beginner-yoga-classes-in-local-area](user/looking-for-beginner-yoga-classes-in-local-area.md) — Looking for beginner yoga classes in local area
+- [meditation-types-and-beginner-practice-recommendations](reference/meditation-types-and-beginner-practice-recommendations.md) — Meditation types and beginner practice recommendations
+- [new-writing-project-started-february-10-2023](project/new-writing-project-started-february-10-2023.md) — New writing project started February 10, 2023
+- [participated-in-charity-yoga-event-in-april-2023](experience/participated-in-charity-yoga-event-in-april-2023.md) — Participated in charity yoga event in April 2023
+- [platforms-to-track-donations-and-volunteer-hours](reference/platforms-to-track-donations-and-volunteer-hours.md) — Platforms to track donations and volunteer hours
+- [recently-changed-name-and-set-up-new-email-address-with-new-last-name](user/recently-changed-name-and-set-up-new-email-address-with-new-last-name.md) — Recently changed name and set up new email address with new last name
+- [recently-started-collecting-vinyl-records](user/recently-started-collecting-vinyl-records.md) — Recently started collecting vinyl records
+- [recipe-and-content-website-targeting-english-preferring-hispanic-women-focusing](project/recipe-and-content-website-targeting-english-preferring-hispanic-women-focusing.md) — Recipe and content website targeting English-preferring Hispanic women focusing on cultural identity through food
+- [seen-32-bird-species-as-of-may-20-2023](user/seen-32-bird-species-as-of-may-20-2023.md) — Seen 32 bird species as of May 20, 2023
+- [the-feathered-flock-podcast-birding-recommendations-and-sanctuaries](reference/the-feathered-flock-podcast-birding-recommendations-and-sanctuaries.md) — The Feathered Flock podcast - birding recommendations and sanctuaries
+- [tracks-gift-spending-by-store-and-occasion-shops-at-tiffany-s-best-buy-and-willi](user/tracks-gift-spending-by-store-and-occasion-shops-at-tiffany-s-best-buy-and-willi.md) — Tracks gift spending by store and occasion; shops at Tiffany's, Best Buy, and Williams-Sonoma for gifts
+- [uses-ikea-place-ar-app-for-furniture-visualization](user/uses-ikea-place-ar-app-for-furniture-visualization.md) — Uses IKEA Place AR app for furniture visualization
+- [wants-centralized-platform-to-track-charitable-donations-and-volunteer-hours](user/wants-centralized-platform-to-track-charitable-donations-and-volunteer-hours.md) — Wants centralized platform to track charitable donations and volunteer hours

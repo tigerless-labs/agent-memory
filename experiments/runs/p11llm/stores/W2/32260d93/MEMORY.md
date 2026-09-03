@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [attended-photography-workshop-downtown-tried-remote-shutter-release-and-other-eq](experience/attended-photography-workshop-downtown-tried-remote-shutter-release-and-other-eq.md) — Attended photography workshop downtown, tried remote shutter release and other equipment
+- [interested-in-advance-prepared-breakfast-options](user/interested-in-advance-prepared-breakfast-options.md) — Interested in advance-prepared breakfast options
+- [interested-in-meal-prepping-for-time-and-cost-savings](user/interested-in-meal-prepping-for-time-and-cost-savings.md) — Interested in meal prepping for time and cost savings
+- [post-apocalyptic-survival-game-combat-system-requires-stopping-mid-quest-to-dete](project/post-apocalyptic-survival-game-combat-system-requires-stopping-mid-quest-to-dete.md) — Post-apocalyptic survival game: combat system requires stopping mid-quest to determine success/failure; losing items or death possible on combat loss
+- [interested-in-bird-watching-and-attracting-birds-to-yard](user/interested-in-bird-watching-and-attracting-birds-to-yard.md) — Interested in bird-watching and attracting birds to yard
+- [bird-friendly-plants-and-flowers-that-attract-hummingbirds](reference/bird-friendly-plants-and-flowers-that-attract-hummingbirds.md) — Bird-friendly plants and flowers that attract hummingbirds
+- [establish-weekly-snack-planning-with-sunday-prep-routine](project/establish-weekly-snack-planning-with-sunday-prep-routine.md) — Establish weekly snack planning with Sunday prep routine
+- [exploring-alternative-healthy-oils-and-nut-butters-for-cooking-and-recipes](user/exploring-alternative-healthy-oils-and-nut-butters-for-cooking-and-recipes.md) — Exploring alternative healthy oils and nut butters for cooking and recipes
+- [gets-sweet-cravings-around-3-pm-daily](user/gets-sweet-cravings-around-3-pm-daily.md) — Gets sweet cravings around 3 pm daily
+- [interested-in-trying-normandy-apple-desserts](user/interested-in-trying-normandy-apple-desserts.md) — Interested in trying Normandy apple desserts
+- [interested-in-trying-smoked-paprika-and-cayenne-pepper-flavor-combinations-in-sn](user/interested-in-trying-smoked-paprika-and-cayenne-pepper-flavor-combinations-in-sn.md) — Interested in trying smoked paprika and cayenne pepper flavor combinations in snacks
+- [mindfulness-app-recommendations-headspace-calm-insight-timer-mindfulness-studio](reference/mindfulness-app-recommendations-headspace-calm-insight-timer-mindfulness-studio.md) — Mindfulness app recommendations: Headspace, Calm, Insight Timer, Mindfulness Studio, Buddhify, 10% Happier, Simple Habit
+- [nikon-mc-36a-multi-function-remote-cord-official-d500-remote-shutter-release](reference/nikon-mc-36a-multi-function-remote-cord-official-d500-remote-shutter-release.md) — Nikon MC-36a Multi-Function Remote Cord - official D500 remote shutter release
+- [not-very-experienced-at-baking-appreciates-detailed-tips](user/not-very-experienced-at-baking-appreciates-detailed-tips.md) — Not very experienced at baking; appreciates detailed tips
+- [other-traditional-normandy-desserts-teurgoule-and-calvados-souffle](reference/other-traditional-normandy-desserts-teurgoule-and-calvados-souffle.md) — Other traditional Normandy desserts: Teurgoule and Calvados Soufflé
+- [owns-nikon-d500-camera](user/owns-nikon-d500-camera.md) — Owns Nikon D500 camera
+- [plans-to-make-grilled-chicken-fajitas-and-chicken-and-avocado-salad](user/plans-to-make-grilled-chicken-fajitas-and-chicken-and-avocado-salad.md) — Plans to make Grilled Chicken Fajitas and Chicken and Avocado Salad
+- [plans-to-make-homemade-granola-with-custom-flavoring-options](user/plans-to-make-homemade-granola-with-custom-flavoring-options.md) — Plans to make homemade granola with custom flavoring options
+- [platforms-and-startups-for-buying-selling-small-businesses-us-and-europe](reference/platforms-and-startups-for-buying-selling-small-businesses-us-and-europe.md) — Platforms and startups for buying/selling small businesses (US and Europe)
+- [post-apocalyptic-survival-game-progress-completed-quest-8-current-inventory-incl](project/post-apocalyptic-survival-game-progress-completed-quest-8-current-inventory-incl.md) — Post-apocalyptic survival game progress: completed Quest #8, current inventory includes rare armor, rifle, machete, supplies
+- [prefers-explicit-hp-decrease-notifications-during-post-apocalyptic-game-quests](user/prefers-explicit-hp-decrease-notifications-during-post-apocalyptic-game-quests.md) — Prefers explicit HP decrease notifications during post-apocalyptic game quests
+- [ruby-throated-hummingbird-sighting-in-yard-second-sighting-by-may-2023](experience/ruby-throated-hummingbird-sighting-in-yard-second-sighting-by-may-2023.md) — Ruby-throated Hummingbird sighting in yard (second sighting by May 2023)
+- [seasonal-bird-visitors-to-feeders](reference/seasonal-bird-visitors-to-feeders.md) — Seasonal bird visitors to feeders
+- [squirrel-and-raccoon-deterrents-for-bird-feeders](reference/squirrel-and-raccoon-deterrents-for-bird-feeders.md) — Squirrel and raccoon deterrents for bird feeders
+- [starting-headspace-take10-meditation-program-to-complement-daily-podcast-routine](project/starting-headspace-take10-meditation-program-to-complement-daily-podcast-routine.md) — Starting Headspace Take10 meditation program to complement daily podcast routine
+- [tarte-aux-pommes-recipe-and-baking-guide](reference/tarte-aux-pommes-recipe-and-baking-guide.md) — Tarte aux Pommes recipe and baking guide
+- [uses-cashback-reward-apps-ibotta-and-fetch-rewards-2-5-cashback](user/uses-cashback-reward-apps-ibotta-and-fetch-rewards-2-5-cashback.md) — Uses cashback reward apps: Ibotta and Fetch Rewards (2-5% cashback)
+- [uses-shipt-for-online-grocery-shopping](user/uses-shipt-for-online-grocery-shopping.md) — Uses Shipt for online grocery shopping
+- [yellowstone-photography-trip-gear-plan-decided-2023-05-22](project/yellowstone-photography-trip-gear-plan-decided-2023-05-22.md) — Yellowstone photography trip gear plan decided 2023-05-22

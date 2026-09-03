@@ -1,0 +1,3 @@
+## Session sharegpt_2SnITOv_0 — 2023/05/25 (Thu) 11:35
+user: What is the philosophical view that the only person you trust is conscious is yourself?
+assistant: The philosophical view that the only person you can truly trust is yourself is known as solipsism. Solipsism is the idea that only one's own mind is certain to exist, and that all external realities, including other minds, are uncertain and may not exist. This means that according to solipsism, the only person you can trust to have a truly conscious and real existence is yourself. Other people and external objects may be mere illusions or figments of your imagination.

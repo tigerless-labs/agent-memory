@@ -30,11 +30,14 @@
 | `core/watermark`·`adapters/*` | `tests/unit/test_write_triggers.py` |
 | `core/manage`·`core/ledger` | `tests/unit/test_manage.py` |
 | `core/reasoning`·`core/prompts`(M 复核) | `tests/unit/test_manage_reasoning.py` |
+| `core/timestamp`·`core/clock` | `tests/unit/test_timestamps.py`(UTC 时刻格式、时区无关、旧日期升级、恶意载荷拒收) |
 | `mcp/server`·`mcp/tools`(三入口一致性) | `tests/system/test_entry_equivalence.py` |
 | 红队(poisoning / 恶意 frontmatter / 越界写) | `tests/redteam/test_poisoning.py` |
 | `executor/*`(宿主方言、凭据、两种推理者) | `tests/unit/test_host_dialects.py`·`tests/unit/test_credentials.py`·`tests/unit/test_reasoners.py` |
 | `harness/locomo`(第二套件转换) | `tests/system/test_locomo.py` |
 | `harness/*`(回放驱动器、隔离闸、写入路径闸、指标、报表) | `tests/system/test_harness.py` |
+| `harness/systems`(记忆系统方言:本系统、MemCore) | `tests/unit/test_memory_systems.py` |
+| `harness/coverage`(写入覆盖率探针) | `tests/unit/test_coverage.py` |
 
 ## 判分器是仪器,仪器要标定
 

@@ -1,0 +1,35 @@
+# MEMORY.md
+
+- [7-point-strategy-for-entering-indian-ev-component-market](project/7-point-strategy-for-entering-indian-ev-component-market.md) — 7-point strategy for entering Indian EV component market
+- [audiobook-platform-recommendations-and-services](reference/audiobook-platform-recommendations-and-services.md) — Audiobook platform recommendations and services
+- [audiobook-preferences-prefers-full-cast-narrations-listens-during-daily-commute](user/audiobook-preferences-prefers-full-cast-narrations-listens-during-daily-commute.md) — Audiobook preferences: prefers full-cast narrations, listens during daily commute
+- [bikes-to-grocery-store-on-weekends-instead-of-driving](user/bikes-to-grocery-store-on-weekends-instead-of-driving.md) — Bikes to grocery store on weekends instead of driving
+- [company-manufactures-high-voltage-fuses-for-electric-vehicles-based-in-japan](project/company-manufactures-high-voltage-fuses-for-electric-vehicles-based-in-japan.md) — Company manufactures high-voltage fuses for electric vehicles, based in Japan
+- [completed-audiobooks-sapiens-and-daisy-jones-and-the-six](experience/completed-audiobooks-sapiens-and-daisy-jones-and-the-six.md) — Completed audiobooks: 'Sapiens' and 'Daisy Jones and The Six'
+- [does-morning-yoga-with-light-poses-to-improve-flexibility](user/does-morning-yoga-with-light-poses-to-improve-flexibility.md) — Does morning yoga with light poses to improve flexibility
+- [fitness-routine-strength-training-2-3x-week-kickboxing-tue-thu-weekend-outdoor-a](user/fitness-routine-strength-training-2-3x-week-kickboxing-tue-thu-weekend-outdoor-a.md) — Fitness routine: strength training 2-3x/week, kickboxing Tue/Thu, weekend outdoor activities
+- [has-a-bookstagram-account-where-they-post-reviews-and-book-photos](user/has-a-bookstagram-account-where-they-post-reviews-and-book-photos.md) — Has a bookstagram account where they post reviews and book photos
+- [interested-in-anime-manga-and-light-novels](user/interested-in-anime-manga-and-light-novels.md) — Interested in anime, manga, and light novels
+- [interested-in-home-strength-training-with-household-items](user/interested-in-home-strength-training-with-household-items.md) — Interested in home strength training with household items
+- [interested-in-intersection-of-politics-and-pop-culture](user/interested-in-intersection-of-politics-and-pop-culture.md) — Interested in intersection of politics and pop culture
+- [interested-in-russian-music-and-songs](user/interested-in-russian-music-and-songs.md) — Interested in Russian music and songs
+- [interested-in-tarot-reading-and-spreads](user/interested-in-tarot-reading-and-spreads.md) — Interested in tarot reading and spreads
+- [interested-in-winter-landscape-photography-and-snowshoeing](user/interested-in-winter-landscape-photography-and-snowshoeing.md) — Interested in winter landscape photography and snowshoeing
+- [joined-a-gym-for-structured-strength-training](user/joined-a-gym-for-structured-strength-training.md) — Joined a gym for structured strength training
+- [jony-russian-song-about-lost-love-memory-and-transience](reference/jony-russian-song-about-lost-love-memory-and-transience.md) — JONY - Аллея — Russian song about lost love, memory, and transience
+- [listens-to-audiobooks-during-daily-commute](user/listens-to-audiobooks-during-daily-commute.md) — Listens to audiobooks during daily commute
+- [love-live-school-idol-project-anime-series-with-songs-including-kageno-love-life](reference/love-live-school-idol-project-anime-series-with-songs-including-kageno-love-life.md) — Love Live! School Idol Project — anime series with songs including Kageno Love Life
+- [loves-musicals-with-hip-hop-and-theater-fusion](user/loves-musicals-with-hip-hop-and-theater-fusion.md) — Loves musicals with hip-hop and theater fusion
+- [maintains-a-reading-log-to-track-progress-and-reflect-on-books](user/maintains-a-reading-log-to-track-progress-and-reflect-on-books.md) — Maintains a reading log to track progress and reflect on books
+- [mind-body-spirit-tarot-spread-on-2023-05-30-two-of-pentacles-reversed-mind-hiero](experience/mind-body-spirit-tarot-spread-on-2023-05-30-two-of-pentacles-reversed-mind-hiero.md) — Mind-Body-Spirit tarot spread on 2023-05-30: Two of Pentacles reversed (mind), Hierophant reversed (body), Empress reversed (spirit)
+- [paper-detecting-gravitational-waves-using-earth-moon-binary-system-with-retroref](reference/paper-detecting-gravitational-waves-using-earth-moon-binary-system-with-retroref.md) — Paper: Detecting gravitational waves using Earth-Moon binary system with retroreflectors (Blas & Jenkins)
+- [part-of-volleyball-team-the-spikers-won-recreational-tournament-2-3-matches](user/part-of-volleyball-team-the-spikers-won-recreational-tournament-2-3-matches.md) — Part of volleyball team 'The Spikers'; won recreational tournament 2/3 matches
+- [plan-to-invite-spikers-teammates-to-join-weekend-bike-rides-and-hikes](project/plan-to-invite-spikers-teammates-to-join-weekend-bike-rides-and-hikes.md) — Plan to invite Spikers teammates to join weekend bike rides and hikes
+- [reading-preferences-diverse-genres-including-character-driven-narratives-histori](user/reading-preferences-diverse-genres-including-character-driven-narratives-histori.md) — Reading preferences: diverse genres including character-driven narratives, historical fiction, psychological thrillers, social justice themes
+- [recently-finished-books-fiction-narrative-non-fiction-and-audiobooks](reference/recently-finished-books-fiction-narrative-non-fiction-and-audiobooks.md) — Recently finished books: fiction, narrative non-fiction, and audiobooks
+- [recently-watched-hamilton-on-disney-and-la-la-land](experience/recently-watched-hamilton-on-disney-and-la-la-land.md) — Recently watched Hamilton on Disney+ and La La Land
+- [simple-butternut-squash-soup-recipe-4-6-servings](reference/simple-butternut-squash-soup-recipe-4-6-servings.md) — Simple butternut squash soup recipe (4-6 servings)
+- [strava-app-for-tracking-cycling-and-hiking-activities](reference/strava-app-for-tracking-cycling-and-hiking-activities.md) — Strava app for tracking cycling and hiking activities
+- [takes-short-walks-during-lunch-break-at-work](user/takes-short-walks-during-lunch-break-at-work.md) — Takes short walks during lunch break at work
+- [the-eminence-in-shadow-japanese-light-novel-series-by-daisuke-aizawa](reference/the-eminence-in-shadow-japanese-light-novel-series-by-daisuke-aizawa.md) — The Eminence in Shadow — Japanese light novel series by Daisuke Aizawa
+- [twisted-ankle-playing-basketball-on-2023-05-16](experience/twisted-ankle-playing-basketball-on-2023-05-16.md) — Twisted ankle playing basketball on 2023-05-16

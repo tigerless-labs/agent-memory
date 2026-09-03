@@ -1,0 +1,24 @@
+## Session sharegpt_UyBTuTv_0 — 2023/06/30 (Fri) 00:17
+user: Web search results:
+
+[1] "With this Onboarding Policy template you can: Create your own process to formally welcome people into the organisation Set up a checklist for documents to be collected from new joiners Provide joiners inputs to various internal departments for their necessary action In just a few minutes you will be able to create a onboarding policy."
+URL: https://www.greythr.com/downloadable-resource/onboarding-policy/
+
+[2] "How to Create an Effective Onboarding Program A well-planned onboarding program can boost engagement and improve retention. You may be trying to access this site from a secured browser on the..."
+URL: https://www.shrm.org/hr-today/news/hr-magazine/summer2020/pages/creating-an-effective-onboarding-program.aspx
+
+[3] "New Employee Onboarding Guide How employers handle the first few days and months of a new employees experience through the onboarding process is crucial to ensuring high retention. How..."
+URL: https://www.shrm.org/resourcesandtools/hr-topics/talent-acquisition/pages/new-employee-onboarding-guide.aspx
+Current date: 3/13/2023
+
+Instructions: Using the provided web search results, write a comprehensive reply to the given query. Make sure to cite results using [[number](URL)] notation after the reference. If the provided search results refer to multiple subjects with the same name, write separate answers for each subject.
+Query: create policy for onboarding
+assistant: Onboarding is a crucial process in any organization as it sets the tone for new employees' experience and helps them integrate into the company culture. Creating a policy for onboarding can ensure consistency and effectiveness in the process, resulting in better employee engagement and retention.
+
+There are various resources available online to help create an onboarding policy. One such resource is the Onboarding Policy template provided by Greythr, which allows you to create your own process to formally welcome people into the organization, set up a checklist for documents to be collected from new joiners, and provide joiners inputs to various internal departments for their necessary action [[1](https://www.greythr.com/downloadable-resource/onboarding-policy/)].
+
+Another resource is an article by SHRM that provides tips on how to create an effective onboarding program, which can boost engagement and improve retention. The article discusses the importance of having a well-planned onboarding program, which includes pre-boarding, orientation, training, and follow-up. It also provides best practices for each phase of the onboarding process [[2](https://www.shrm.org/hr-today/news/hr-magazine/summer2020/pages/creating-an-effective-onboarding-program.aspx)].
+
+Additionally, SHRM has a New Employee Onboarding Guide that provides a comprehensive overview of the onboarding process, from the pre-boarding stage to the employee's first year with the company. The guide includes a checklist of tasks and activities for each stage of onboarding and provides tips for creating a successful onboarding program [[3](https://www.shrm.org/resourcesandtools/hr-topics/talent-acquisition/pages/new-employee-onboarding-guide.aspx)].
+
+Overall, creating a policy for onboarding can significantly impact the success of the process and the retention of new employees. Utilizing resources such as the Onboarding Policy template, SHRM's article on creating an effective onboarding program, and their New Employee Onboarding Guide can provide valuable insights and best practices for creating a successful onboarding policy.

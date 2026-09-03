@@ -1,0 +1,16 @@
+---
+name: plays-tennis-with-a-coach-and-working-on-improving-backhand-slice
+abstract: Plays tennis with a coach and working on improving backhand slice
+type: preference
+status: active
+created: 2026-09-02
+updated: 2026-09-02
+valid_from: 2026-09-02
+superseded_by: null
+weight: 1.0
+author: cli
+links: []
+provenance: []
+---
+
+Takes tennis seriously with regular coaching. Currently working on improving backhand slice technique with coach. Interested in incorporating more cardio training to improve match endurance.

@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [attended-photography-workshop-on-may-1-2-2023](experience/attended-photography-workshop-on-may-1-2-2023.md) — Attended photography workshop on May 1-2, 2023
+- [bike-maintenance-regular-cleaning-and-waterproofing](user/bike-maintenance-regular-cleaning-and-waterproofing.md) — Bike maintenance: regular cleaning and waterproofing
+- [blockchain-and-iot-implementation-examples-in-supply-chain-and-cross-industry-ap](reference/blockchain-and-iot-implementation-examples-in-supply-chain-and-cross-industry-ap.md) — Blockchain and IoT implementation examples in supply chain and cross-industry applications
+- [brown-leather-boots-need-cobbler-repair-for-loose-heel-will-research-local-cobbl](project/brown-leather-boots-need-cobbler-repair-for-loose-heel-will-research-local-cobbl.md) — Brown leather boots need cobbler repair for loose heel; will research local cobblers
+- [cannondale-synapse-returned-with-flat-tire-on-march-1-2023](experience/cannondale-synapse-returned-with-flat-tire-on-march-1-2023.md) — Cannondale Synapse returned with flat tire on March 1, 2023
+- [captured-sunset-photos-at-red-rock-canyon-on-april-12-2023](experience/captured-sunset-photos-at-red-rock-canyon-on-april-12-2023.md) — Captured sunset photos at Red Rock Canyon on April 12, 2023
+- [coach-warranty-monogramming-and-gift-wrapping-options](reference/coach-warranty-monogramming-and-gift-wrapping-options.md) — Coach warranty, monogramming, and gift wrapping options
+- [dad-s-smoked-paprika-bbq-sauce-was-a-family-hit-at-summer-camping-trip](experience/dad-s-smoked-paprika-bbq-sauce-was-a-family-hit-at-summer-camping-trip.md) — Dad's smoked paprika BBQ sauce was a family hit at summer camping trip
+- [decided-on-saris-bones-2-bike-trunk-rack-for-honda-civic](project/decided-on-saris-bones-2-bike-trunk-rack-for-honda-civic.md) — Decided on Saris Bones 2-Bike Trunk Rack for Honda Civic
+- [endangered-languages-3-000-as-of-2021-classification-criteria-and-preservation-m](reference/endangered-languages-3-000-as-of-2021-classification-criteria-and-preservation-m.md) — Endangered languages: ~3,000 as of 2021, classification criteria and preservation methods
+- [henri-cartier-bresson-s-concept-of-the-decisive-moment-in-photography](reference/henri-cartier-bresson-s-concept-of-the-decisive-moment-in-photography.md) — Henri Cartier-Bresson's concept of the decisive moment in photography
+- [interest-in-endangered-languages-and-linguistic-cultural-preservation](user/interest-in-endangered-languages-and-linguistic-cultural-preservation.md) — Interest in endangered languages and linguistic/cultural preservation
+- [interested-in-emerging-technologies-and-their-cross-industry-applications](user/interested-in-emerging-technologies-and-their-cross-industry-applications.md) — Interested in emerging technologies and their cross-industry applications
+- [interested-in-leather-shoe-care-waterproofing-spray-cleaning-kits-cedar-shoe-tre](user/interested-in-leather-shoe-care-waterproofing-spray-cleaning-kits-cedar-shoe-tre.md) — Interested in leather shoe care: waterproofing spray, cleaning kits, cedar shoe trees
+- [introvert-who-prefers-smaller-gatherings-and-solitude](user/introvert-who-prefers-smaller-gatherings-and-solitude.md) — Introvert who prefers smaller gatherings and solitude
+- [korean-style-bbq-marinade-recipe-gochujang-base](reference/korean-style-bbq-marinade-recipe-gochujang-base.md) — Korean-style BBQ marinade recipe (gochujang base)
+- [neighbor-rachel-borrowed-cannondale-synapse-feb-20-mar-1-2023](reference/neighbor-rachel-borrowed-cannondale-synapse-feb-20-mar-1-2023.md) — Neighbor Rachel - borrowed Cannondale Synapse Feb 20 - Mar 1, 2023
+- [organize-garage-bike-storage](project/organize-garage-bike-storage.md) — Organize garage bike storage
+- [organize-shoes-by-type-then-color-store-out-of-season-shoes-in-bins](user/organize-shoes-by-type-then-color-store-out-of-season-shoes-in-bins.md) — Organize shoes by type, then color; store out-of-season shoes in bins
+- [organized-beach-vacation-photos-in-lightroom-with-smart-collection-for-sunrise-s](experience/organized-beach-vacation-photos-in-lightroom-with-smart-collection-for-sunrise-s.md) — Organized beach vacation photos in Lightroom with smart collection for sunrise/sunset
+- [organizes-shoes-by-type-and-color-for-easy-access](user/organizes-shoes-by-type-and-color-for-easy-access.md) — Organizes shoes by type and color for easy access
+- [owns-a-50mm-f-1-8-prime-lens-purchased-april-10-2023](user/owns-a-50mm-f-1-8-prime-lens-purchased-april-10-2023.md) — Owns a 50mm f/1.8 prime lens (purchased April 10, 2023)
+- [owns-black-converse-chuck-taylor-all-star-sneakers-purchased-recently-frequently](user/owns-black-converse-chuck-taylor-all-star-sneakers-purchased-recently-frequently.md) — Owns black Converse Chuck Taylor All Star sneakers, purchased recently, frequently worn
+- [owns-brown-leather-boots-black-converse-plans-vans-old-skool-purchase](user/owns-brown-leather-boots-black-converse-plans-vans-old-skool-purchase.md) — Owns brown leather boots, black Converse, plans Vans Old Skool purchase
+- [owns-cannondale-synapse-road-bike](user/owns-cannondale-synapse-road-bike.md) — Owns Cannondale Synapse road bike
+- [owns-canon-eos-80d-camera-for-photography](user/owns-canon-eos-80d-camera-for-photography.md) — Owns Canon EOS 80D camera for photography
+- [owns-honda-civic](user/owns-honda-civic.md) — Owns Honda Civic
+- [owns-trek-fx-2-hybrid-bike](user/owns-trek-fx-2-hybrid-bike.md) — Owns Trek FX 2 hybrid bike
+- [owns-white-adidas-superstars-used-for-gym-and-athletic-activities](user/owns-white-adidas-superstars-used-for-gym-and-athletic-activities.md) — Owns white Adidas Superstars used for gym and athletic activities
+- [primary-photography-interest-is-street-photography-and-candid-portraiture](user/primary-photography-interest-is-street-photography-and-candid-portraiture.md) — Primary photography interest is street photography and candid portraiture
+- [purchased-coach-parker-handbag-as-sister-s-birthday-gift-with-monogramming](experience/purchased-coach-parker-handbag-as-sister-s-birthday-gift-with-monogramming.md) — Purchased Coach Parker handbag as sister's birthday gift with monogramming
+- [shoe-cleaning-and-care-methods-canvas-sneakers-leather-boots-white-sneakers](reference/shoe-cleaning-and-care-methods-canvas-sneakers-leather-boots-white-sneakers.md) — Shoe cleaning and care methods: canvas sneakers, leather boots, white sneakers
+- [sister-s-style-preferences-classic-elegant-neutral-colors-beige-black](user/sister-s-style-preferences-classic-elegant-neutral-colors-beige-black.md) — Sister's style preferences: classic, elegant, neutral colors (beige, black)
+- [struggles-with-social-media-addiction-and-fomo](user/struggles-with-social-media-addiction-and-fomo.md) — Struggles with social media addiction and FOMO
+- [takes-active-care-of-shoes-through-regular-cleaning-and-maintenance](user/takes-active-care-of-shoes-through-regular-cleaning-and-maintenance.md) — Takes active care of shoes through regular cleaning and maintenance
+- [took-200-photos-of-scenery-and-wildlife-organized-into-lightroom-collections](experience/took-200-photos-of-scenery-and-wildlife-organized-into-lightroom-collections.md) — Took 200+ photos of scenery and wildlife; organized into Lightroom collections
+- [tory-burch-warranty-monogramming-and-care-program-options](reference/tory-burch-warranty-monogramming-and-care-program-options.md) — Tory Burch warranty, monogramming, and care program options
+- [tried-joining-a-book-club-but-it-didn-t-work-out](experience/tried-joining-a-book-club-but-it-didn-t-work-out.md) — Tried joining a book club but it didn't work out
+- [uses-adobe-lightroom-for-photo-management-and-editing](user/uses-adobe-lightroom-for-photo-management-and-editing.md) — Uses Adobe Lightroom for photo management and editing

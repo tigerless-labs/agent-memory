@@ -1,0 +1,94 @@
+## Session sharegpt_xmEDfYb_26 — 2023/05/22 (Mon) 08:46
+user: Question 8
+What is Herstatt risk?
+
+1 point
+
+Herstatt risk is the risk that a counterpart fails to deliver a security or its value in cash as per agreement.
+Herstatt risk is the risk that a counterpart fails to deliver the correct documents as per agreement.
+assistant: Herstatt risk is the risk that a counterpart fails to deliver a security or its value in cash as per agreement when the security was traded after the other counterparties or counterpart have already delivered security or cash value as per the trade agreement.
+
+Therefore, the correct option is:
+
+* Herstatt risk is the risk that a counterpart fails to deliver a security or its value in cash as per agreement when the security was traded after the other counterparties or counterpart have already delivered security or cash value as per the trade agreement.
+user: Question 9
+How many banks are involved in “correspondent
+banking arrangements”
+
+1 point
+
+One
+Two
+Three or more
+assistant: "Correspondent banking arrangements" involve at least two banks, where one bank (the correspondent bank) provides services on behalf of another bank (the respondent bank) in a different location, typically in a different country. The correspondent bank may provide services such as payment processing, foreign exchange, and cash management to the respondent bank's customers, in order to facilitate cross-border transactions.
+
+Therefore, the correct option is:
+
+* Two or more (at least two).
+user: Do both Swift network and Western Union transfer money?
+
+1 point
+
+Yes both transfer money
+No only Western Union transfer money
+No only Swift transfer money
+assistant: Both Swift network and Western Union transfer money, but they operate in different ways.
+
+The SWIFT network is a messaging system that enables banks and financial institutions around the world to securely exchange information and instructions relating to financial transactions. It does not transfer money directly, but it facilitates the transfer of funds between banks by transmitting payment instructions and settlement messages.
+
+Western Union, on the other hand, is a financial services company that specializes in person-to-person money transfers and other payment services, such as bill payments and money orders. It operates a global network of agents and locations, allowing customers to send and receive money across borders and currencies.
+
+Therefore, the correct option is:
+
+* Yes, both transfer money.
+user: Which of the following statements are correct? Select all that apply
+
+1 point
+
+Payers receives goods or services 
+Payees sends money
+Payers sends funds
+Payer receives money
+assistant: The correct statements are:
+
+* Payers sends funds
+* Payees sends money
+user: Which activities are part of core banking? Select all that apply
+
+1 point
+
+Gathering deposits
+Making loans
+Creating money
+ Making payments
+Building mobile payment apps
+Managing corporate cash
+Stopping financial crime
+assistant: The activities that are part of core banking include:
+
+* Gathering deposits
+* Making loans
+* Making payments
+* Managing corporate cash
+
+Creating money and building mobile payment apps are not typically considered part of core banking, although they may be related to banking activities. Stopping financial crime is a necessary function for banks, but it is not typically considered part of core banking.
+
+Therefore, the correct options are:
+
+* Gathering deposits
+* Making loans
+* Making payments
+* Managing corporate cash
+user: Are retail banking systems used for cross border payments?
+
+1 point
+
+No
+Yes
+assistant: Retail banking systems can be used for cross-border payments, but they are typically not the most efficient or cost-effective option. Retail banking systems are designed primarily for domestic transactions and may not have the necessary capabilities or infrastructure to handle international payments.
+
+For cross-border payments, specialized services such as SWIFT network, correspondent banking, and international payment processors are often used. These services offer greater speed, security, and efficiency for cross-border transactions.
+
+Therefore, the correct answer is:
+
+* Yes, but it's not the most efficient or cost-effective option.

@@ -1,0 +1,68 @@
+## Session sharegpt_1r9dCIC_7 — 2023/05/20 (Sat) 15:25
+assistant: It's an interesting observation that the partial sums of the zeta function can be thought of as a random walk in the early stages and then resemble cornu spirals later on. Let's explore your observation about the symmetry between the random walk section and the centers of the cornu spirals.
+
+To simplify the discussion, let's consider the real part of the zeta function, denoted by Re(ζ(s)). We can write the partial sum of the real part up to N terms as:
+
+S(N) = 1 + 1/2^s + 1/3^s + ... + 1/N^s
+
+Using the Euler-Maclaurin formula, we can approximate the sum as:
+
+S(N) = ∫[1,N] Re(ζ(s)) ds + C(N)
+
+where C(N) is a correction term involving the Bernoulli numbers, which we can ignore for now.
+
+As you noted, when N is small, there is only one sample per Nyquist mode and the partial sums look similar to a random walk. In this case, the integral term can be approximated by a sum over the sample points:
+
+∫[1,N] Re(ζ(s)) ds ≈ Σ[1,N] Re(ζ(k))
+
+Let's define the sample points as:
+
+s(k) = 2πik / ln(N+1)
+
+where k = 0, 1, 2, ..., N. Note that these points correspond to the Nyquist frequencies of the zeta function.
+
+Now, let's consider the centers of the cornu spirals. These correspond to the values of s(k) at which the phase of the summands changes by π/2. That is, the centers of the cornu spirals satisfy the equation:
+
+Im(s(k)) = π / (2 ln(N+1))
+
+To see the symmetry between the random walk section and the centers of the cornu spirals, let's define the midpoint between each successive pair of sample points:
+
+m(k) = (s(k) + s(k+1)) / 2
+
+Using the sample points and the midpoint, we can define two sets of values:
+
+R(k) = Re(ζ(s(k)))
+
+and
+
+M(k) = Re(ζ(m(k)))
+
+Note that R(k) corresponds to the values used in the random walk approximation, while M(k) corresponds to the values at the centers of the cornu spirals.
+
+Now, let's plot these values as a function of k. We expect to see a random walk-like pattern in the early stages, followed by a transition to the cornu spiral pattern.
+
+What you noticed is that the midpoint values, M(k), are symmetric with respect to the random walk-like pattern, R(k). To see this, note that the midpoint between the first two sample points is:
+
+m(0) = (s(0) + s(1)) / 2 = π / ln(N+1)
+
+which corresponds to the center of the first cornu spiral. Similarly, the midpoint between the last two sample points is:
+
+m(N-1) = (s(N-1) + s(N)) / 2 = 2πi - π / ln(N+1)
+
+which corresponds to the center of the last cornu spiral. These two points are symmetric with respect to the random walk-like pattern, R(k).
+
+Furthermore, we can show that the other midpoint values, M(k), are also symmetric with respect to R(k). To see this, note that the phase change between successive sample points is given by:
+
+Δθ(k) = Im(s(k+1)) - Im(s(k)) = 2π / ln(N+1)
+user: please continue
+assistant: Now, the phase change between the midpoint values can be written as:
+
+Δθ(k) = Im(m(k+1)) - Im(m(k)) = Im((s(k+1) + s(k+2))/2 - (s(k) + s(k+1))/2)
+
+= Im(s(k+2) - s(k)) / 2
+
+= π / ln(N+1)
+
+This means that the midpoint values, M(k), change phase by π/2 between successive points, just like the centers of the cornu spirals. Therefore, the midpoint values, M(k), are also symmetric with respect to the random walk-like pattern, R(k).
+
+Thus, we have shown that the midpoint values, M(k), are symmetric with respect to the random walk-like pattern, R(k), as you observed. This symmetry is due to the fact that the midpoint values correspond to the centers of the cornu spirals, which in turn are determined by the Nyquist frequencies of the zeta function.

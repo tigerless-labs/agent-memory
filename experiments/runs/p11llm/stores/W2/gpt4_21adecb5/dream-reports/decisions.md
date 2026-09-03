@@ -1,0 +1,9 @@
+# proposal decisions
+
+- 51d7443ec895 rejected 2026-09-02T22:57:43.367863+00:00
+- fc933f32063c rejected 2026-09-02T22:57:43.373324+00:00
+- 607b15361564 rejected 2026-09-02T22:57:43.378418+00:00
+- c90501f38a53 rejected 2026-09-02T22:57:43.383482+00:00
+- a5b52d9158d0 rejected 2026-09-02T22:57:43.388510+00:00
+- 9cb3f095adf4 accepted 2026-09-02T22:57:43.401444+00:00 — kept spanish-book-recommendations-for-beginners-learning-language
+- d0ae1b85bf94 rejected 2026-09-02T22:57:43.411329+00:00
