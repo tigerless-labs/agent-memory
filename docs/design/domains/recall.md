@@ -40,3 +40,90 @@ agent 用得好;不知道的 agent 自驱检索会把同一个库的得分在重
    recall 结果携带路径与时间戳,可解释可溯源。
 7. **Risks** — 「BM25 够用」是可测赌注:benchmark 有/无向量插件对照,
    paraphrase 类查询漏得多则插件转正(P2 顺带产出)。
+
+## 8. Progressive raw-trace Read experiment (proposed)
+
+### Problem and hypothesis
+
+Current evidence points first to Write coverage: when the answer reached a memory file, normal
+recall often finds it. This experiment therefore does not change retrieval. It tests the narrower
+hypothesis that distillation can preserve the durable state while dropping a date, number, path,
+error, quotation, or decision history that still exists in the archived trace.
+
+The authority rule is:
+
+> Memory says what is currently believed; raw trace is evidence of what happened then.
+
+An active memory may support a current fact. A superseded or retired memory may support a
+historical answer only. Raw trace may recover detail or history, but must not override an eligible
+current memory. If neither surface directly supports the answer, the host abstains rather than
+completing it from a related passage. `stale` remains eligible today and its status is carried on
+the recall hit; this experiment does not silently promote it or change that existing policy.
+
+### Current implementation facts
+
+- `Recall.recall` queries SQLite FTS5 over abstract/body chunks, qualifies records by scope,
+  archived/retired state, supersede chain, and optional `as_of`, then applies relevance × weight ×
+  recency. `Hit` contains name, absolute path, abstract/snippet, anchor, heading, domain, type,
+  updated, status, weight, relevance, recency, score, and source.
+- `--deep` currently widens the limit, admits archived/retired memories, and—when `raw_enabled`—
+  globally searches a separate FTS5 `raw_chunks` table. Raw chunks are non-overlapping groups of
+  nonblank transcript lines, identified by session-derived name/path and a numeric chunk anchor.
+  They are appended to memory hits, down-weighted by `raw_relevance_factor`, sorted, and truncated.
+  This is global raw RAG, not a provenance-guided fallback.
+- `Store.read` still exposes `abstract`, mechanically computed `outline`, and `full`. `mem recall`
+  returns the list, `mem read` opens one memory, and `mem context` calls the separate
+  `core.context` builder. The builder opens the first `context_full_text_entries` hits fully and
+  renders the rest as abstracts. With deep recall, a raw hit happens to be opened through
+  `Store.read`; that fails and is swallowed, so only the raw snippet carried in the hit is shown.
+- Session traces are append-only `.txt` files under `archive/sessions/`; retirement moves memory
+  Markdown under `archive/retired/`. Superseding leaves the predecessor on disk and excludes it
+  from current recall; `as_of` can select it before its successor becomes valid, while `deep` does
+  not override the supersede filter. Manage marks idle active records stale and retirement is
+  explicit T2. Raw sessions have no status/supersede coupling and are not deleted by these
+  operations. They therefore remain evidence, never an alternate active set.
+- A memory's `provenance` field deterministically names excerpt files under
+  `archive/provenance/<memory>/`. Those files contain recorded time, writer agent as `source`, and
+  excerpt text. They do **not** contain session ID, raw path, chunk anchor, or offsets. Thus a memory
+  can reach its stored excerpt exactly, but cannot deterministically reach the containing raw
+  session/span. A verbatim excerpt can be matched back against existing sessions at read/index
+  time when unique; zero or multiple matches must remain unresolved.
+
+### Minimal Read flow
+
+```text
+query -> normal eligible memory recall -> selected memory abstract/outline/full
+      -> only if a requested detail is still absent
+      -> that memory's provenance excerpt
+      -> uniquely derived containing raw chunk plus at most one adjacent chunk, if needed
+      -> answer under the authority rule, or abstain
+```
+
+R0 is today's normal memory-only Context path (`deep=false`). R1 changes the disclosure path, not
+BM25 memory candidate generation or ranking: it runs that same normal recall first, then treats an
+explicit `deep` request/arm as permission for linked fallback rather than mixing a global raw
+search into the first result list. Teach the shared Context/read contract to perform that fallback.
+Agentic hosts may also continue down this ladder when the opened memory lacks the requested
+specific. A small deterministic lexical hint (dates, numbers, paths, error text, or requested
+wording) may later bound eligible cases, but is not required for the first paired test. There is no
+runtime LLM sufficiency judge, router, or new query classifier.
+
+The first implementation should expose provenance through the existing Read/Context surface and
+use the provenance path already stored on `MemoryRecord`. Prefer exact excerpt-to-session matching
+against existing raw files/index metadata. If benchmark stores prove that mapping ambiguous, the
+smallest unavoidable addition is a source-session locator written beside the provenance excerpt;
+do not introduce a provenance graph. Because old stores lack it, fallback must degrade to the
+excerpt and remain backward compatible.
+
+### Non-goals and expected touchpoints
+
+No Write redesign; no new Recall subsystem or Retriever rewrite; no vector/index implementation;
+no graph retrieval; no runtime LLM router/judge; no filesystem/Markdown truth change; and no schema
+or config expansion unless real stores prove session derivation unavoidable. Existing stale,
+supersede, retirement, and raw append-only behavior stays authoritative.
+
+Likely implementation touchpoints are `core/context.py` (the host-neutral policy), `core/store.py`
+or a small archive reader (linked evidence), `core/raw_index.py` only if exact/nearby lookup can
+reuse it, CLI/MCP response rendering, and their existing recall/context/entry-equivalence tests.
+`core/recall.py` may need to keep global raw hits out of the progressive path, but should not gain
+another retrieval pipeline.

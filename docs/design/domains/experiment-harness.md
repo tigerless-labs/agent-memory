@@ -63,3 +63,71 @@ skill,与它的钩子注入一致。系统对系统的行是端到端结论:两�
    每次 run 独立盘,互通测试用专用盘。
 7. **Risks** — Hermes provider 接口/日志格式待核验;MemGym 任务形态与驱动器适配为
    P1 前置调研;benchmark 判分依赖 LLM judge 时的 judge 模型成本与偏差。
+
+## 8. Progressive raw-trace Read ablation (proposed)
+
+This is a read-side replay over fixed stores; experience/Write is skipped. Use one stratified
+12–24-question development panel to reject weak designs, then—only after a stable directional
+signal—the full benchmark with the repeated-replay and paired-test requirements in
+`docs/experiments.md`.
+
+| Arm | Exact definition |
+|---|---|
+| R0 | Current-main normal memory-only Context behavior (`deep=false`) on the frozen stores |
+| R1 | The same normal memory recall and disclosure, then explicit `deep` provenance-guided raw evidence fallback when a selected memory lacks the requested detail; no global raw search in the initial list |
+
+Both arms use the same dataset and episode order, byte-identical stores, host/model, exam mode,
+judge/rubric/votes, limits, and all recall knobs. Store reuse is mandatory and Write never reruns.
+Record the parent store run and full config because exam mode is not in the current recall
+fingerprint. Prefer fixed exam to isolate Read policy; run an agentic confirmation only as a
+separate paired comparison because it additionally measures host tool discipline.
+
+### Existing observation and the minimum gap
+
+Today `runs.jsonl` already records query identity indirectly via episode ID plus the persisted
+`questions.json`, final answer excerpt, expected answer, correctness, host, arm, status, timings,
+memory count, fingerprints, and errors. `exam_seconds` supplies end-to-end exam latency. The store's
+`access_log` records one recall row per returned hit (query, hit name, time, kind, agent) and a read
+row (name, time, kind, agent). Recall output itself contains rankable scores and raw-vs-memory
+`source`, but neither scores nor ordering are persisted in `access_log`. Read rows omit level and
+query. `RunRecord` does not snapshot retrieval/read events, raw trigger/source/span, token usage, or
+judge identity/settings; host execution captures elapsed time but no token accounting.
+
+Consequently current artifacts can recover the question, final answer, correctness, approximate
+hit membership, opened memory names, and latency, but not reliably reconstruct ranks/scores, read
+level, which recall/read belongs to a run under concurrency, or whether a raw hit was actually
+disclosed. Do not duplicate existing fields. For this experiment, persist one per-question Read
+trace alongside the run: ordered recall hit identifiers/scores/sources, opened memory and level,
+fallback trigger, provenance path, resolved raw path/chunk anchor, and outcome. In the preferred
+fixed exam, return this trace from the Context builder and serialize it with the run; this needs no
+store schema or runtime config. Agentic tracing can follow later only if the fixed result warrants
+it; do not add a correlation field merely for the development panel. Add token/context delta only
+if the selected host already reports it; otherwise measure rendered context bytes and do not claim
+token cost.
+
+The analysis funnel is offline, not a runtime decision engine:
+
+```text
+gold evidence in memory/raw store?
+  -> recalled? -> disclosed/read? -> raw fallback triggered and resolved? -> correct?
+```
+
+Classify failures as store/Write miss, retrieval miss, read/disclosure miss, raw recovery
+success/failure, or host synthesis miss. Report E2E accuracy, trigger rate, recovered answers,
+triggered-but-still-wrong count, context-byte delta, available latency, and funnel counts.
+
+### Codex compatibility
+
+Codex is already a first-class executor dialect (`codex exec`), appears in `--host`, receives the
+same memory prompts and `mem` tool surface, writes its last message to a file, disables user config,
+and has hook event mappings/setup paths. The Driver, MemorySystem, fixed Context builder, and judge
+interface are host-neutral. Remaining minimum gaps are operational: `mem-exp` defaults to Claude,
+constructs the judge with a hard-coded Claude Code host/binary even when the exam host is Codex,
+and `--judge-model` selects only that Claude judge. Read semantics must stay in core Context/Store,
+not a Claude prompt branch. The experiment only needs an explicit Codex exam host/model plus a
+fixed, recorded judge choice; general Host abstraction refactoring is out of scope.
+
+Expected harness touchpoints after approval: `harness/driver.py` and `metrics.py` for run-correlated
+Read traces, `harness/exam.py`/`systems.py` to select R0 versus R1 without changing stores,
+`harness/main.py` to record the arm, parent run, exam mode, and judge settings, and existing harness
+tests. No new runtime decision model or broad host abstraction is required.
