@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [apartment-hunting-websites-and-apps](reference/apartment-hunting-websites-and-apps.md) — Apartment hunting websites and apps
+- [asylum-application-approved-after-over-one-year-of-waiting](experience/asylum-application-approved-after-over-one-year-of-waiting.md) — Asylum application approved after over one year of waiting
+- [beginner-friendly-orchid-species-recommendations](reference/beginner-friendly-orchid-species-recommendations.md) — Beginner-friendly orchid species recommendations
+- [berry-tart-with-shortcrust-pastry-anti-soggy-techniques-and-flavor-pairings](reference/berry-tart-with-shortcrust-pastry-anti-soggy-techniques-and-flavor-pairings.md) — Berry tart with shortcrust pastry – anti-soggy techniques and flavor pairings
+- [considering-getting-an-orchid-concerned-about-humidity-requirements](user/considering-getting-an-orchid-concerned-about-humidity-requirements.md) — Considering getting an orchid; concerned about humidity requirements
+- [gemcad-5-0-format-for-gemstone-cut-design-defines-facets-by-angle-height-ratio-r](reference/gemcad-5-0-format-for-gemstone-cut-design-defines-facets-by-angle-height-ratio-r.md) — GemCad 5.0 format for gemstone cut design: defines facets by angle, height ratio, refractive index, pavilion angle
+- [has-had-success-propagating-snake-plants-in-the-past](experience/has-had-success-propagating-snake-plants-in-the-past.md) — Has had success propagating snake plants in the past
+- [hosting-dinner-party-on-may-21-2023-planning-berry-tart-dessert-with-shortcrust](project/hosting-dinner-party-on-may-21-2023-planning-berry-tart-dessert-with-shortcrust.md) — Hosting dinner party on May 21, 2023; planning berry tart dessert with shortcrust pastry
+- [housing-amenities-considers-gym-pool-in-unit-laundry-community-garden-security-f](user/housing-amenities-considers-gym-pool-in-unit-laundry-community-garden-security-f.md) — Housing amenities: considers gym, pool, in-unit laundry, community garden, security features
+- [housing-search-800-month-budget-needs-public-transportation-and-refugee-non-prof](project/housing-search-800-month-budget-needs-public-transportation-and-refugee-non-prof.md) — Housing search: $800/month budget, needs public transportation and refugee non-profit access
+- [lifepo4-battery-cell-compression-fixture-20517472mm-cell-300kgf-fixturing-force](project/lifepo4-battery-cell-compression-fixture-20517472mm-cell-300kgf-fixturing-force.md) — LiFePO4 battery cell compression fixture: 205×174×72mm cell, 300kgf fixturing force, torque spec 17.27 ft-lbs per 1/4\" rod
+- [owns-a-snake-plant](user/owns-a-snake-plant.md) — Owns a snake plant
+- [owns-a-spider-plant](user/owns-a-spider-plant.md) — Owns a spider plant
+- [pittsburgh-attractions-interested-in-strip-district-street-food-and-mount-washin](user/pittsburgh-attractions-interested-in-strip-district-street-food-and-mount-washin.md) — Pittsburgh attractions: interested in Strip District street food and Mount Washington views
+- [pittsburgh-weekend-getaway-2-3-days-500-700-budget](project/pittsburgh-weekend-getaway-2-3-days-500-700-budget.md) — Pittsburgh weekend getaway: 2-3 days, $500-700 budget
+- [planning-to-propagate-snake-plant](project/planning-to-propagate-snake-plant.md) — Planning to propagate snake plant
+- [prefers-shortcrust-pastry-for-tarts-has-prior-experience-finds-it-forgiving-comp](user/prefers-shortcrust-pastry-for-tarts-has-prior-experience-finds-it-forgiving-comp.md) — Prefers shortcrust pastry for tarts; has prior experience; finds it forgiving compared to puff pastry
+- [prefers-template-structure-explanations-over-full-direct-copies-when-learning-fo](user/prefers-template-structure-explanations-over-full-direct-copies-when-learning-fo.md) — Prefers template/structure explanations over full direct copies when learning formats
+- [purchased-pastries-from-bakery-on-may-14-2023-found-them-delicious-inspired-dinn](experience/purchased-pastries-from-bakery-on-may-14-2023-found-them-delicious-inspired-dinn.md) — Purchased pastries from bakery on May 14, 2023; found them delicious; inspired dinner party dessert
+- [travel-history-boston-chicago-2-10-2023-la-san-diego-april-2023](user/travel-history-boston-chicago-2-10-2023-la-san-diego-april-2023.md) — Travel history: Boston, Chicago (2/10/2023), LA, San Diego (April 2023)
+- [travel-style-flexible-dates-off-peak-seasons-budget-conscious-weekend-getaways](user/travel-style-flexible-dates-off-peak-seasons-budget-conscious-weekend-getaways.md) — Travel style: flexible dates, off-peak seasons, budget-conscious weekend getaways
+- [vfx-workflows-key-concepts-pre-production-asset-creation-animation-compositing-r](reference/vfx-workflows-key-concepts-pre-production-asset-creation-animation-compositing-r.md) — VFX workflows: key concepts (pre-production, asset creation, animation, compositing, rendering, review, delivery)
+- [volunteering-at-refugee-non-profit-organization](project/volunteering-at-refugee-non-profit-organization.md) — Volunteering at refugee non-profit organization
+- [will-use-tray-with-pebbles-and-water-method-to-increase-humidity-for-orchid](project/will-use-tray-with-pebbles-and-water-method-to-increase-humidity-for-orchid.md) — Will use tray with pebbles and water method to increase humidity for orchid

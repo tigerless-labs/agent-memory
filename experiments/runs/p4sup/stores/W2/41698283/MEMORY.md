@@ -1,0 +1,30 @@
+# MEMORY.md
+
+- [10-techniques-for-achieving-lighter-airier-sourdough-crumb](reference/10-techniques-for-achieving-lighter-airier-sourdough-crumb.md) — 10 techniques for achieving lighter, airier sourdough crumb
+- [achieved-personal-best-on-road-bike-60-miles-at-18-5-mph-average](experience/achieved-personal-best-on-road-bike-60-miles-at-18-5-mph-average.md) — Achieved personal best on road bike: 60 miles at 18.5 mph average
+- [composited-niece-s-witch-costume-photo-with-spooky-castle-illustration-in-gimp-f](experience/composited-niece-s-witch-costume-photo-with-spooky-castle-illustration-in-gimp-f.md) — Composited niece's witch costume photo with spooky castle illustration in GIMP (Feb 2023)
+- [considering-upgrading-to-full-frame-camera-body-nikon-z6-or-canon-eos-r](project/considering-upgrading-to-full-frame-camera-body-nikon-z6-or-canon-eos-r.md) — Considering upgrading to full-frame camera body: Nikon Z6 or Canon EOS R
+- [considering-wide-angle-lens-14-24mm-or-16-35mm-to-expand-photography-range](project/considering-wide-angle-lens-14-24mm-or-16-35mm-to-expand-photography-range.md) — Considering wide-angle lens (14-24mm or 16-35mm) to expand photography range
+- [decided-on-think-tank-urban-disguise-40l-camera-bag-for-street-and-travel-photog](project/decided-on-think-tank-urban-disguise-40l-camera-bag-for-street-and-travel-photog.md) — Decided on Think Tank Urban Disguise 40L camera bag for street and travel photography
+- [evaluating-premium-tripods-gitzo-vs-really-right-stuff-rrs](project/evaluating-premium-tripods-gitzo-vs-really-right-stuff-rrs.md) — Evaluating premium tripods: Gitzo vs Really Right Stuff (RRS)
+- [has-a-niece](user/has-a-niece.md) — Has a niece
+- [imperial-remnant-republic-ceasefire-proposal-partition-warlord-zsinj-s-empire-to](project/imperial-remnant-republic-ceasefire-proposal-partition-warlord-zsinj-s-empire-to.md) — Imperial Remnant-Republic ceasefire proposal: partition Warlord Zsinj's empire to reclaim Sith Worlds
+- [interested-in-photo-compositing-and-image-editing](user/interested-in-photo-compositing-and-image-editing.md) — Interested in photo compositing and image editing
+- [interested-in-savory-bread-baking-experiments-with-different-flour-types-in-brea](user/interested-in-savory-bread-baking-experiments-with-different-flour-types-in-brea.md) — Interested in savory bread baking; experiments with different flour types in bread
+- [king-arthur-flour-s-classic-sourdough-reciperecommended-for-beginners](reference/king-arthur-flour-s-classic-sourdough-reciperecommended-for-beginners.md) — King Arthur Flour's Classic Sourdough Recipe—recommended for beginners
+- [met-jam-maker-at-farmer-s-market-on-saturday-morning-received-flavor-combination](experience/met-jam-maker-at-farmer-s-market-on-saturday-morning-received-flavor-combination.md) — Met jam maker at farmer's market on Saturday morning, received flavor combination recommendations
+- [met-personal-trainer-at-gym-planning-to-stay-in-touch](experience/met-personal-trainer-at-gym-planning-to-stay-in-touch.md) — Met personal trainer at gym, planning to stay in touch
+- [met-woman-at-networking-event-who-provided-valuable-job-related-insights-and-res](experience/met-woman-at-networking-event-who-provided-valuable-job-related-insights-and-res.md) — Met woman at networking event who provided valuable job-related insights and resources
+- [owns-a-honda-civic](user/owns-a-honda-civic.md) — Owns a Honda Civic
+- [owns-a-trek-emonda-road-bike](user/owns-a-trek-emonda-road-bike.md) — Owns a Trek Emonda road bike
+- [owns-nikon-d5600-70-200mm-zoom-lens-remote-flash-triggers-from-workshop](user/owns-nikon-d5600-70-200mm-zoom-lens-remote-flash-triggers-from-workshop.md) — Owns Nikon D5600, 70-200mm zoom lens, remote flash triggers from workshop
+- [planning-small-farm-with-nigerian-dwarf-goats-sheep-and-integrated-chicken-coop](user/planning-small-farm-with-nigerian-dwarf-goats-sheep-and-integrated-chicken-coop.md) — Planning small farm with Nigerian Dwarf goats, sheep, and integrated chicken coop
+- [planning-to-host-a-dinner-party-soon-experimenting-with-jam-and-cheese-pairings](project/planning-to-host-a-dinner-party-soon-experimenting-with-jam-and-cheese-pairings.md) — Planning to host a dinner party soon, experimenting with jam and cheese pairings
+- [planning-to-purchase-saris-bones-2-bike-trunk-rack-for-honda-civic](project/planning-to-purchase-saris-bones-2-bike-trunk-rack-for-honda-civic.md) — Planning to purchase Saris Bones 2-Bike Trunk Rack for Honda Civic
+- [plans-to-get-neutral-density-nd-filter-for-creative-photography-effects](project/plans-to-get-neutral-density-nd-filter-for-creative-photography-effects.md) — Plans to get neutral density (ND) filter for creative photography effects
+- [plans-to-get-remote-shutter-release-for-low-light-and-portrait-work](project/plans-to-get-remote-shutter-release-for-low-light-and-portrait-work.md) — Plans to get remote shutter release for low-light and portrait work
+- [premium-tripod-recommendations-with-load-capacity-and-pricing](reference/premium-tripod-recommendations-with-load-capacity-and-pricing.md) — Premium tripod recommendations with load capacity and pricing
+- [recently-purchased-kryptonite-u-lock](user/recently-purchased-kryptonite-u-lock.md) — Recently purchased Kryptonite U-Lock
+- [rosemary-and-olive-oil-focaccia-recipe](reference/rosemary-and-olive-oil-focaccia-recipe.md) — Rosemary and Olive Oil Focaccia recipe
+- [star-wars-fanfiction-lizzie-o-muirgheasa-nekomimi-grand-admiral-and-alyssa-drago](project/star-wars-fanfiction-lizzie-o-muirgheasa-nekomimi-grand-admiral-and-alyssa-drago.md) — Star Wars fanfiction: Lizzie Ó Muirgheasa (Nekomimi Grand Admiral) and Alyssa (Dragonkin Captain) romantic storyline
+- [upcoming-40-mile-charity-ride-event](project/upcoming-40-mile-charity-ride-event.md) — Upcoming 40-mile charity ride event

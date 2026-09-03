@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [attended-frightfest-in-london-and-asian-american-international-film-festival-in](experience/attended-frightfest-in-london-and-asian-american-international-film-festival-in.md) — Attended FrightFest in London and Asian American International Film Festival in NYC (May 2023)
+- [bay-area-hiking-trail-recommendations](reference/bay-area-hiking-trail-recommendations.md) — Bay Area hiking trail recommendations
+- [buying-customized-cheese-knife-gift-for-friend](user/buying-customized-cheese-knife-gift-for-friend.md) — Buying customized cheese knife gift for friend
+- [ceramics-and-pottery-learning-resources-for-coiling-scoring-glazing-techniques](reference/ceramics-and-pottery-learning-resources-for-coiling-scoring-glazing-techniques.md) — Ceramics and pottery learning resources for coiling, scoring, glazing techniques
+- [considering-nas-device-for-central-backup-and-storage-security-is-priority-conce](user/considering-nas-device-for-central-backup-and-storage-security-is-priority-conce.md) — Considering NAS device for central backup and storage; security is priority concern
+- [eco-friendly-travel-resources-airlines-accommodations-apps-and-gear](reference/eco-friendly-travel-resources-airlines-accommodations-apps-and-gear.md) — Eco-friendly travel resources: airlines, accommodations, apps, and gear
+- [enjoys-horror-films-especially-folk-horror-and-horror-comedies-attends-film-fest](user/enjoys-horror-films-especially-folk-horror-and-horror-comedies-attends-film-fest.md) — Enjoys horror films, especially folk horror and horror-comedies; attends film festivals
+- [favorite-wildlife-bald-eagles-interested-in-wildlife-viewing-during-outdoor-acti](user/favorite-wildlife-bald-eagles-interested-in-wildlife-viewing-during-outdoor-acti.md) — Favorite wildlife: bald eagles; interested in wildlife viewing during outdoor activities
+- [flagstaff-az-restaurants-and-accommodations-for-grand-canyon-base-camp](reference/flagstaff-az-restaurants-and-accommodations-for-grand-canyon-base-camp.md) — Flagstaff, AZ restaurants and accommodations for Grand Canyon base camp
+- [horror-film-and-tv-recommendations-folk-horror-horror-comedy-recent-releases](reference/horror-film-and-tv-recommendations-folk-horror-horror-comedy-recent-releases.md) — Horror film and TV recommendations (folk horror, horror-comedy, recent releases)
+- [interested-in-ceramics-and-sculpture-working-on-clay-vase-with-coiling-and-scori](user/interested-in-ceramics-and-sculpture-working-on-clay-vase-with-coiling-and-scori.md) — Interested in ceramics and sculpture; working on clay vase with coiling and scoring techniques
+- [interested-in-ethiopia-travel-wants-to-experience-local-culture-festivals-cuisin](user/interested-in-ethiopia-travel-wants-to-experience-local-culture-festivals-cuisin.md) — Interested in Ethiopia travel; wants to experience local culture, festivals, cuisine
+- [kayak-canoe-rental-options-in-hague-virginia-area](reference/kayak-canoe-rental-options-in-hague-virginia-area.md) — Kayak/canoe rental options in Hague, Virginia area
+- [modern-sculptors-anish-kapoor-rachel-whiteread-richard-serra-and-others](reference/modern-sculptors-anish-kapoor-rachel-whiteread-richard-serra-and-others.md) — Modern sculptors: Anish Kapoor, Rachel Whiteread, Richard Serra, and others
+- [owns-road-bike-and-mountain-bike-plans-long-rides-60-miles](user/owns-road-bike-and-mountain-bike-plans-long-rides-60-miles.md) — Owns road bike and mountain bike; plans long rides (60+ miles)
+- [planned-sierra-nevada-backpacking-trip-to-vogelsang-high-sierra-camp-september-2](project/planned-sierra-nevada-backpacking-trip-to-vogelsang-high-sierra-camp-september-2.md) — Planned Sierra Nevada backpacking trip to Vogelsang High Sierra Camp (September 2023)
+- [planning-to-upgrade-road-bike-pedals-to-shimano-ultegra-clipless-pedals](user/planning-to-upgrade-road-bike-pedals-to-shimano-ultegra-clipless-pedals.md) — Planning to upgrade road bike pedals to Shimano Ultegra clipless pedals
+- [prefers-hiking-and-backcountry-camping-in-sierra-nevada-and-bay-area](user/prefers-hiking-and-backcountry-camping-in-sierra-nevada-and-bay-area.md) — Prefers hiking and backcountry camping in Sierra Nevada and Bay Area
+- [prioritizes-eco-friendly-and-sustainable-travel-practices](user/prioritizes-eco-friendly-and-sustainable-travel-practices.md) — Prioritizes eco-friendly and sustainable travel practices
+- [rv-grand-canyon-trip-winter-2023](project/rv-grand-canyon-trip-winter-2023.md) — RV Grand Canyon trip winter 2023
+- [sister-turned-25-on-may-15-2023](user/sister-turned-25-on-may-15-2023.md) — Sister turned 25 on May 15, 2023
+- [user-is-in-a-long-distance-relationship](user/user-is-in-a-long-distance-relationship.md) — User is in a long-distance relationship
+- [user-travels-frequently-recent-solo-drive-to-san-francisco-for-music-festival](user/user-travels-frequently-recent-solo-drive-to-san-francisco-for-music-festival.md) — User travels frequently; recent solo drive to San Francisco for music festival
+- [working-on-black-mirror-ish-video-scene-girl-disappearing-into-computer](project/working-on-black-mirror-ish-video-scene-girl-disappearing-into-computer.md) — Working on Black Mirror-ish video scene - girl disappearing into computer

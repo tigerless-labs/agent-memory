@@ -1,0 +1,34 @@
+# MEMORY.md
+
+- [50-30-20-grocery-budget-allocation-rule](reference/50-30-20-grocery-budget-allocation-rule.md) — 50/30/20 grocery budget allocation rule
+- [apps-and-tools-for-expense-tracking-budgeting-and-meal-planning](reference/apps-and-tools-for-expense-tracking-budgeting-and-meal-planning.md) — Apps and tools for expense tracking, budgeting, and meal planning
+- [attended-photography-workshop-on-2023-02-08-covering-composition-and-natural-lig](experience/attended-photography-workshop-on-2023-02-08-covering-composition-and-natural-lig.md) — Attended photography workshop on 2023-02-08 covering composition and natural light
+- [cityscape-composition-techniques-rule-of-thirds-leading-lines-depth-framing](reference/cityscape-composition-techniques-rule-of-thirds-leading-lines-depth-framing.md) — Cityscape composition techniques: rule of thirds, leading lines, depth, framing
+- [deep-cleaned-oven-on-2023-05-21](experience/deep-cleaned-oven-on-2023-05-21.md) — Deep cleaned oven on 2023-05-21
+- [eco-friendly-furniture-retailers-greenington-vivaterra-joybird](reference/eco-friendly-furniture-retailers-greenington-vivaterra-joybird.md) — Eco-friendly furniture retailers: Greenington, Vivaterra, Joybird
+- [expanding-home-cleaning-and-organization-to-bedrooms-and-bathroom](project/expanding-home-cleaning-and-organization-to-bedrooms-and-bathroom.md) — Expanding home cleaning and organization to bedrooms and bathroom
+- [fitness-frenzy-gym-loyalty-program-with-milestone-based-rewards](user/fitness-frenzy-gym-loyalty-program-with-milestone-based-rewards.md) — Fitness Frenzy gym loyalty program with milestone-based rewards
+- [friday-evening-dusting-routine-for-living-room-and-dining-room-10-15-minutes](user/friday-evening-dusting-routine-for-living-room-and-dining-room-10-15-minutes.md) — Friday evening dusting routine for living room and dining room (10-15 minutes)
+- [generated-4-midjourney-prompts-for-american-flag-themed-tabbard-designs-classic](project/generated-4-midjourney-prompts-for-american-flag-themed-tabbard-designs-classic.md) — Generated 4 Midjourney prompts for American flag-themed tabbard designs: Classic, Heraldic, Medieval-inspired, Modern
+- [has-active-loyalty-programs-at-sephora-page-co-pet-palooza-and-freshmart](user/has-active-loyalty-programs-at-sephora-page-co-pet-palooza-and-freshmart.md) — Has active loyalty programs at Sephora, Page & Co, Pet Palooza, and FreshMart
+- [has-friends-alex-and-rachel](user/has-friends-alex-and-rachel.md) — Has friends Alex and Rachel
+- [hosted-successful-dinner-party-with-roast-chicken-roasted-vegetables-and-quinoa](experience/hosted-successful-dinner-party-with-roast-chicken-roasted-vegetables-and-quinoa.md) — Hosted successful dinner party with roast chicken, roasted vegetables, and quinoa
+- [implementing-one-touch-rule-for-closet-organization-with-storage-solutions](project/implementing-one-touch-rule-for-closet-organization-with-storage-solutions.md) — Implementing one-touch rule for closet organization with storage solutions
+- [interested-in-cityscape-photography-day-and-night-compositions-people-and-crowds](user/interested-in-cityscape-photography-day-and-night-compositions-people-and-crowds.md) — Interested in cityscape photography: day and night compositions, people and crowds, city energy and movement
+- [interested-in-diy-home-decor-with-recycled-materialswine-cork-bulletin-board-and](user/interested-in-diy-home-decor-with-recycled-materialswine-cork-bulletin-board-and.md) — Interested in DIY home decor with recycled materials—wine cork bulletin board and bottle cap coasters
+- [interested-in-meal-planning-and-prep-has-been-meaning-to-try-it](user/interested-in-meal-planning-and-prep-has-been-meaning-to-try-it.md) — Interested in meal planning and prep; has been meaning to try it
+- [interested-in-slow-cooker-recipes-for-beginners](user/interested-in-slow-cooker-recipes-for-beginners.md) — Interested in slow cooker recipes for beginners
+- [joined-the-daily-grind-loyalty-program-around-may-2023](user/joined-the-daily-grind-loyalty-program-around-may-2023.md) — Joined The Daily Grind loyalty program around May 2023
+- [located-in-virginia-beach-virginia-area](user/located-in-virginia-beach-virginia-area.md) — Located in Virginia Beach, Virginia area
+- [oscillates-between-luxury-and-budget-shopping-seeks-balanced-approach-to-clothin](user/oscillates-between-luxury-and-budget-shopping-seeks-balanced-approach-to-clothin.md) — Oscillates between luxury and budget shopping; seeks balanced approach to clothing purchases
+- [owns-a-new-wide-angle-lens-for-photography-tested-on-2023-05-17-during-state-par](user/owns-a-new-wide-angle-lens-for-photography-tested-on-2023-05-17-during-state-par.md) — Owns a new wide-angle lens for photography, tested on 2023-05-17 during state park hike
+- [planning-to-make-chicken-fajitas-as-first-slow-cooker-recipe](project/planning-to-make-chicken-fajitas-as-first-slow-cooker-recipe.md) — Planning to make Chicken Fajitas as first slow cooker recipe
+- [planning-to-make-chocolate-lava-cake-in-slow-cooker-for-dessert](project/planning-to-make-chocolate-lava-cake-in-slow-cooker-for-dessert.md) — Planning to make Chocolate Lava Cake in slow cooker for dessert
+- [prefers-sustainable-and-eco-friendly-elements-in-home-decor](user/prefers-sustainable-and-eco-friendly-elements-in-home-decor.md) — Prefers sustainable and eco-friendly elements in home decor
+- [prefers-theme-parks-and-halloween-themed-venues-for-celebrations](user/prefers-theme-parks-and-halloween-themed-venues-for-celebrations.md) — Prefers theme parks and Halloween-themed venues for celebrations
+- [purchased-designer-handbag-from-saks-fifth-avenue](experience/purchased-designer-handbag-from-saks-fifth-avenue.md) — Purchased designer handbag from Saks Fifth Avenue
+- [purchased-slow-cooker-during-amazon-prime-day-2023](user/purchased-slow-cooker-during-amazon-prime-day-2023.md) — Purchased slow cooker during Amazon Prime Day 2023
+- [sunday-afternoon-laundry-routine-1-2-loads](user/sunday-afternoon-laundry-routine-1-2-loads.md) — Sunday afternoon laundry routine (1-2 loads)
+- [theme-parks-and-halloween-attractions-near-virginia-beach](reference/theme-parks-and-halloween-attractions-near-virginia-beach.md) — Theme parks and Halloween attractions near Virginia Beach
+- [wants-to-reduce-grocery-spending-without-sacrificing-quality](user/wants-to-reduce-grocery-spending-without-sacrificing-quality.md) — Wants to reduce grocery spending without sacrificing quality
+- [wide-angle-lens-recommendations-for-cityscape-photography-focal-lengths-and-key](reference/wide-angle-lens-recommendations-for-cityscape-photography-focal-lengths-and-key.md) — Wide-angle lens recommendations for cityscape photography: focal lengths and key techniques

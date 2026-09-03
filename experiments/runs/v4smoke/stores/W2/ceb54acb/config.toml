@@ -1,0 +1,62 @@
+[storage]
+domains = ["user", "project", "reference", "experience"]
+domain_types = {user = ["fact", "preference"], project = ["fact", "decision", "procedure"], reference = ["reference"], experience = ["experience", "procedure"]}
+max_depth_below_domain = 1
+slug_max_length = 80
+abstract_max_chars = 240
+archive_sessions_enabled = true
+lock_timeout_seconds = 30.0
+lock_poll_seconds = 0.02
+
+[index]
+hash_prefix_length = 16
+chunk_min_chars = 200
+raw_chunk_chars = 1200
+bm25_abstract_weight = 2.0
+bm25_body_weight = 1.0
+
+[memory_md]
+budget_bytes = 8192
+max_lines = 120
+header = "# MEMORY.md"
+
+[weight]
+initial = 1.0
+floor = 0.05
+ceiling = 5.0
+boost_step = 0.5
+decay_step = 0.1
+decay_after_days = 30.0
+demote_penalty = 0.5
+
+[recall]
+default_limit = 8
+candidate_pool_multiplier = 10
+deep_limit_multiplier = 2
+recency_half_life_days = 180.0
+recency_decay_base = 0.5
+recency_floor = 0.25
+retrieval_weight_floor = 0.15
+memory_md_weight_floor = 0.75
+raw_relevance_factor = 0.4
+injection_enabled = true
+injection_budget_bytes = 8192
+anchor_context_chars = 160
+snippet_max_chars = 400
+
+[manage]
+trigger_min_hours = 24.0
+trigger_min_sessions = 3
+cluster_min_files = 5
+cluster_min_shared_tokens = 2
+stale_after_days = 365.0
+merge_proposal_similarity = 0.75
+link_cooccurrence_min = 2
+abstract_min_words = 3
+max_boosts_per_sleep = 3
+dream_report_dirname = "dream-reports"
+
+[write]
+watermark_dirname = "watermarks"
+session_archive_enabled = true
+hook_timeout_seconds = 20.0

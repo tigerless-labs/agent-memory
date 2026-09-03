@@ -1,0 +1,192 @@
+## Session sharegpt_2yVrL3l_45 — 2023/05/21 (Sun) 07:48
+assistant: Sure, here is a list of the top 20 international film festivals, including a maximum of 5 from the US:
+
+1. Cannes Film Festival (France)
+2. Berlin International Film Festival (Germany)
+3. Venice Film Festival (Italy)
+4. Toronto International Film Festival (Canada)
+5. Sundance Film Festival (US)
+6. BFI London Film Festival (UK)
+7. Rotterdam International Film Festival (Netherlands)
+8. San Sebastián International Film Festival (Spain)
+9. Hong Kong International Film Festival (China)
+10. Busan International Film Festival (South Korea)
+11. Locarno International Film Festival (Switzerland)
+12. Sydney Film Festival (Australia)
+13. Moscow International Film Festival (Russia)
+14. Shanghai International Film Festival (China)
+15. Dubai International Film Festival (United Arab Emirates)
+16. Karlovy Vary International Film Festival (Czech Republic)
+17. Jerusalem Film Festival (Israel)
+18. Vienna International Film Festival (Austria)
+19. Sarajevo Film Festival (Bosnia and Herzegovina)
+20. Marrakech International Film Festival (Morocco)
+user: Not including any of the festivals above. Please let the next 100 most well-known festival in the US
+assistant: Sure, here is a list of the next 100 most well-known film festivals in the US, not including any of the festivals listed above:
+
+1. Slamdance Film Festival
+2. Tribeca Film Festival
+3. Los Angeles Film Festival
+4. Seattle International Film Festival
+5. Miami International Film Festival
+6. Atlanta Film Festival
+7. Nashville Film Festival
+8. Denver Film Festival
+9. DC Independent Film Festival
+10. Austin Film Festival
+11. Philadelphia Film Festival
+12. Sundance Institute Screenwriters Lab
+13. Slamdance Screenplay Competition
+14. AFI Fest Screenplay Competition
+15. Austin Film Festival Screenplay Competition
+16. Rhode Island International Film Festival
+17. Savannah Film Festival
+18. Cinequest Film & VR Festival
+19. Heartland Film Festival
+20. Provincetown International Film Festival
+21. Mill Valley Film Festival
+22. St. Louis International Film Festival
+23. The Hamptons International Film Festival
+24. New Orleans Film Festival
+25. Portland International Film Festival
+26. San Diego Film Festival
+27. Dallas International Film Festival
+28. Kansas International Film Festival
+29. Santa Barbara International Film Festival
+30. Aspen Shortsfest
+31. Ann Arbor Film Festival
+32. Gen Art Film Festival
+33. BlackStar Film Festival
+34. Sarasota Film Festival
+35. Cleveland International Film Festival
+36. Nashville Film Festival Screenplay Competition
+37. Heartland Film Festival Screenplay Competition
+38. Austin Film Festival Screenplay Competition
+39. St. Louis International Film Festival Screenplay Competition
+40. Rhode Island International Film Festival Screenplay Competition
+41. Savannah Film Festival Screenplay Competition
+42. Cinequest Film & VR Festival Screenplay Competition
+43. Mill Valley Film Festival Screenplay Competition
+44. San Diego Film Festival Screenplay Competition
+45. Dallas International Film Festival Screenplay Competition
+46. Kansas International Film Festival Screenplay Competition
+47. Santa Barbara International Film Festival Screenplay Competition
+48. Aspen Shortsfest Screenplay Competition
+49. Ann Arbor Film Festival Screenplay Competition
+50. Gen Art Film Festival Screenplay Competition
+51. BlackStar Film Festival Screenplay Competition
+52. Sarasota Film Festival Screenplay Competition
+53. Cleveland International Film Festival Screenplay Competition
+54. Florida Film Festival
+55. Fargo Film Festival
+56. Napa Valley Film Festival
+57. Crossroads Film Festival
+58. CineSoul Black Film Festival
+59. San Luis Obispo International Film Festival
+60. Sidewalk Film Festival
+61. Starz Denver Film Festival
+62. Traverse City Film Festival
+63. Maryland Film Festival
+64. Beloit International Film Festival
+65. Santa Fe Independent Film Festival
+66. Woods Hole Film Festival
+67. Brooklyn Film Festival
+68. DeadCenter Film Festival
+69. FilmColumbia
+70. BendFilm Festival
+71. New Haven Documentary Film Festival
+72. Indy Film Fest
+73. Thin Line Film Fest
+74. Montclair Film Festival
+75. Ashland Independent Film Festival
+76. RiverRun International Film Festival
+77. Nashville Film Festival Screenplay Competition
+78. Heartland Film Festival Screenplay Competition
+79. Austin Film Festival Screenplay Competition
+80. St. Louis International Film Festival Screenplay Competition
+81. Rhode Island International Film Festival Screenplay Competition
+82. Savannah Film Festival Screenplay Competition
+83. Cinequest Film & VR Festival Screenplay Competition
+84. Mill Valley Film Festival Screenplay Competition
+85. San Diego Film Festival Screenplay Competition
+86. Dallas International Film Festival Screenplay Competition
+87. Kansas International Film Festival Screenplay Competition
+88. Santa Barbara International Film
+user: Can you complete the list above? It stopped at number 88.
+assistant: Sure, here's the completed list:
+
+88. Santa Barbara International Film Festival Screenplay Competition
+89. Aspen Shortsfest Screenplay Competition
+90. Ann Arbor Film Festival Screenplay Competition
+91. Gen Art Film Festival Screenplay Competition
+92. BlackStar Film Festival Screenplay Competition
+93. Sarasota Film Festival Screenplay Competition
+94. Cleveland International Film Festival Screenplay Competition
+95. Arizona International Film Festival
+96. Sidewalk Moving Picture Festival
+97. Sedona International Film Festival
+98. Beverly Hills Film Festival
+99. Napa Valley Film Festival Screenplay Competition
+100. Crossroads Film Festival Screenplay Competition
+user: Not including the festivals above, what are the topic 75 international film festivals? Please do not include any in the US.
+assistant: Sure, here is a list of the next 75 international film festivals, not including any in the US:
+
+1. Cannes Film Festival (France)
+2. Berlin International Film Festival (Germany)
+3. Venice Film Festival (Italy)
+4. BFI London Film Festival (UK)
+5. Rotterdam International Film Festival (Netherlands)
+6. San Sebastián International Film Festival (Spain)
+7. Hong Kong International Film Festival (China)
+8. Busan International Film Festival (South Korea)
+9. Locarno International Film Festival (Switzerland)
+10. Sydney Film Festival (Australia)
+11. Moscow International Film Festival (Russia)
+12. Shanghai International Film Festival (China)
+13. Dubai International Film Festival (United Arab Emirates)
+14. Karlovy Vary International Film Festival (Czech Republic)
+15. Jerusalem Film Festival (Israel)
+16. Vienna International Film Festival (Austria)
+17. Sarajevo Film Festival (Bosnia and Herzegovina)
+18. Marrakech International Film Festival (Morocco)
+19. Clermont-Ferrand International Short Film Festival (France)
+20. Taipei Golden Horse Film Festival (Taiwan)
+21. International Film Festival Rotterdam (Netherlands)
+22. Shanghai International Film Festival (China)
+23. Tokyo International Film Festival (Japan)
+24. International Film Festival of India (India)
+25. Festival de Cannes (France)
+26. International Film Festival of Marrakech (Morocco)
+27. International Film Festival of Kerala (India)
+28. International Documentary Film Festival Amsterdam (Netherlands)
+29. International Film Festival of Mumbai (India)
+30. International Short Film Festival Oberhausen (Germany)
+31. International Film Festival of Gijón (Spain)
+32. International Short Film Festival in Drama (Greece)
+33. International Short Film Festival in Uppsala (Sweden)
+34. International Short Film Festival in Tampere (Finland)
+35. International Film Festival in Istanbul (Turkey)
+36. International Short Film Festival in Leuven (Belgium)
+37. International Short Film Festival in São Paulo (Brazil)
+38. International Short Film Festival in Tirana (Albania)
+39. International Film Festival of Morelia (Mexico)
+40. International Film Festival of Huesca (Spain)
+41. International Short Film Festival in Hamburg (Germany)
+42. International Short Film Festival in Bratislava (Slovakia)
+43. International Film Festival of Goa (India)
+44. International Film Festival of Fribourg (Switzerland)
+45. International Film Festival of Namur (Belgium)
+46. International Short Film Festival in Tampere (Finland)
+47. International Short Film Festival in Uppsala (Sweden)
+48. International Short Film Festival in Leuven (Belgium)
+49. International Short Film Festival in São Paulo (Brazil)
+50. International Film Festival of Gijón (Spain)
+51. International Short Film Festival Oberhausen (Germany)
+52. International Film Festival of Mumbai (India)
+53. International Documentary Film Festival Amsterdam (Netherlands)
+54. International Film Festival of Kerala (India)
+55. International Film Festival of Marrakech (Morocco)
+56. Festival de Cannes (France)
+57. International Film Festival of India (India)
+58. Tokyo International Film Festival (Japan)
+59. Shanghai International Film Festival (China)

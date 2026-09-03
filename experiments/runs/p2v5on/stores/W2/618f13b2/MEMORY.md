@@ -1,0 +1,32 @@
+# MEMORY.md
+
+- [attended-street-photography-workshop-may-1-2-2023](experience/attended-street-photography-workshop-may-1-2-2023.md) — Attended street photography workshop May 1-2, 2023
+- [beach-vacation-with-extensive-photo-documentation](experience/beach-vacation-with-extensive-photo-documentation.md) — Beach vacation with extensive photo documentation
+- [bike-cleaning-product-recommendations](reference/bike-cleaning-product-recommendations.md) — Bike cleaning product recommendations
+- [bike-storage-solution-brands](reference/bike-storage-solution-brands.md) — Bike storage solution brands
+- [chain-and-gear-waterproofing-product-recommendations](reference/chain-and-gear-waterproofing-product-recommendations.md) — Chain and gear waterproofing product recommendations
+- [chose-adobe-lightroom-for-photo-organization-and-editing-workflow](project/chose-adobe-lightroom-for-photo-organization-and-editing-workflow.md) — Chose Adobe Lightroom for photo organization and editing workflow
+- [coach-handbag-purchased-at-tj-maxx-near-home-60-discount](experience/coach-handbag-purchased-at-tj-maxx-near-home-60-discount.md) — Coach handbag purchased at TJ Maxx near home, 60% discount
+- [dad-s-bbq-sauce-with-smoked-paprika-was-a-hit-at-family-camping-trip](experience/dad-s-bbq-sauce-with-smoked-paprika-was-a-hit-at-family-camping-trip.md) — Dad's BBQ sauce with smoked paprika was a hit at family camping trip
+- [endangered-languages-statistics-criteria-for-classification-preservation-methods](reference/endangered-languages-statistics-criteria-for-classification-preservation-methods.md) — Endangered languages: statistics, criteria for classification, preservation methods and challenges
+- [interest-in-language-preservation-linguistic-diversity-and-cultural-heritage-top](user/interest-in-language-preservation-linguistic-diversity-and-cultural-heritage-top.md) — Interest in language preservation, linguistic diversity, and cultural heritage topics
+- [interested-in-bbq-sauce-recipes-korean-marinades-and-grilling-techniques](user/interested-in-bbq-sauce-recipes-korean-marinades-and-grilling-techniques.md) — Interested in BBQ sauce recipes, Korean marinades, and grilling techniques
+- [interested-in-street-photography-and-candid-portrait-work](user/interested-in-street-photography-and-candid-portrait-work.md) — Interested in street photography and candid portrait work
+- [introvert-recharges-alone-prefers-smaller-gatherings-leaves-large-events-early-w](user/introvert-recharges-alone-prefers-smaller-gatherings-leaves-large-events-early-w.md) — Introvert; recharges alone; prefers smaller gatherings; leaves large events early without feeling obligated
+- [mom-makes-homemade-marshmallows](user/mom-makes-homemade-marshmallows.md) — Mom makes homemade marshmallows
+- [owns-50mm-f-1-8-prime-lens-purchased-april-10-2023](user/owns-50mm-f-1-8-prime-lens-purchased-april-10-2023.md) — Owns 50mm f/1.8 prime lens (purchased April 10, 2023)
+- [owns-cannondale-synapse-road-bike-loaned-to-neighbor-rachel-feb-20-mar-1-2023](user/owns-cannondale-synapse-road-bike-loaned-to-neighbor-rachel-feb-20-mar-1-2023.md) — Owns Cannondale Synapse road bike; loaned to neighbor Rachel Feb 20 – Mar 1, 2023
+- [owns-honda-civic-considering-saris-bones-2-bike-trunk-rack](user/owns-honda-civic-considering-saris-bones-2-bike-trunk-rack.md) — Owns Honda Civic; considering Saris Bones 2-Bike Trunk Rack
+- [owns-trek-fx-2-hybrid-bike](user/owns-trek-fx-2-hybrid-bike.md) — Owns Trek FX 2 hybrid bike
+- [photo-management-software-options-reviewed](reference/photo-management-software-options-reviewed.md) — Photo management software options reviewed
+- [shoe-care-and-repair-guidance-cleaning-techniques-cobbler-finding-strategy-leath](reference/shoe-care-and-repair-guidance-cleaning-techniques-cobbler-finding-strategy-leath.md) — Shoe care and repair guidance: cleaning techniques, cobbler-finding strategy, leather maintenance
+- [shoe-collection-black-converse-chuck-taylor-all-stars-brown-leather-boots-white](user/shoe-collection-black-converse-chuck-taylor-all-stars-brown-leather-boots-white.md) — Shoe collection: black Converse Chuck Taylor All Stars, brown leather boots, white Adidas Superstars
+- [sister-s-birthday-gift-coach-parker-handbag-classic-style-monogrammed](user/sister-s-birthday-gift-coach-parker-handbag-classic-style-monogrammed.md) — Sister's birthday gift: Coach Parker handbag, classic style, monogrammed
+- [street-photography-techniques-building-rapport-and-capturing-candid-moments](reference/street-photography-techniques-building-rapport-and-capturing-candid-moments.md) — Street photography techniques: building rapport and capturing candid moments
+- [struggles-with-social-media-fomo-and-endless-scrolling-wants-to-limit-use-but-fe](user/struggles-with-social-media-fomo-and-endless-scrolling-wants-to-limit-use-but-fe.md) — Struggles with social media FOMO and endless scrolling; wants to limit use but fears missing out
+- [sunset-photography-shoot-at-red-rock-canyon-on-april-12-2023](experience/sunset-photography-shoot-at-red-rock-canyon-on-april-12-2023.md) — Sunset photography shoot at Red Rock Canyon on April 12, 2023
+- [trek-fx-2-tire-pressure-specifications](reference/trek-fx-2-tire-pressure-specifications.md) — Trek FX 2 tire pressure specifications
+- [tried-joining-a-book-club-it-didn-t-work-out](experience/tried-joining-a-book-club-it-didn-t-work-out.md) — Tried joining a book club; it didn't work out
+- [uses-canon-eos-80d-camera](user/uses-canon-eos-80d-camera.md) — Uses Canon EOS 80D camera
+- [values-meaningful-in-person-gatherings-interested-in-planning-game-nights-and-po](user/values-meaningful-in-person-gatherings-interested-in-planning-game-nights-and-po.md) — Values meaningful in-person gatherings; interested in planning game nights and potluck dinners; likes setting intentions before meetups
+- [wildlife-outing-with-200-scenery-and-wildlife-photos](experience/wildlife-outing-with-200-scenery-and-wildlife-photos.md) — Wildlife outing with 200+ scenery and wildlife photos

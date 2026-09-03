@@ -1,0 +1,26 @@
+# MEMORY.md
+
+- [building-wooden-pedestal-with-rounded-base-for-f-16-model-display](project/building-wooden-pedestal-with-rounded-base-for-f-16-model-display.md) — Building wooden pedestal with rounded base for F-16 model display
+- [charity-5k-run-with-personal-best-time-of-24-12-beating-previous-record-by-42-se](experience/charity-5k-run-with-personal-best-time-of-24-12-beating-previous-record-by-42-se.md) — Charity 5K run with personal best time of 24:12, beating previous record by 42 seconds
+- [completed-f-16-scale-model-with-detailed-cockpit-and-weathering-effects](user/completed-f-16-scale-model-with-detailed-cockpit-and-weathering-effects.md) — Completed F-16 scale model with detailed cockpit and weathering effects
+- [evaluating-nvivo-vs-atlas-ti-for-qualitative-data-analysis-in-thesis](project/evaluating-nvivo-vs-atlas-ti-for-qualitative-data-analysis-in-thesis.md) — Evaluating NVivo vs Atlas.ti for qualitative data analysis in thesis
+- [finds-password-and-mfa-authentication-inconvenient-prefers-ease-of-access-over-s](user/finds-password-and-mfa-authentication-inconvenient-prefers-ease-of-access-over-s.md) — Finds password and MFA authentication inconvenient; prefers ease of access over strict security measures
+- [follows-adriene-s-youtube-yoga-videos-for-beginner-instruction](user/follows-adriene-s-youtube-yoga-videos-for-beginner-instruction.md) — Follows Adriene's YouTube yoga videos for beginner instruction
+- [habtain-gulf-arabic-word-meanings](reference/habtain-gulf-arabic-word-meanings.md) — حبتين (habtain) — Gulf Arabic word meanings
+- [interested-in-astronomy-and-space-travel-topics](user/interested-in-astronomy-and-space-travel-topics.md) — Interested in astronomy and space travel topics
+- [interested-in-learning-woodworking-starting-with-model-display-pedestal](user/interested-in-learning-woodworking-starting-with-model-display-pedestal.md) — Interested in learning woodworking; starting with model display pedestal
+- [interested-in-yoga-specific-trackers-for-real-time-feedback-and-form-correction](user/interested-in-yoga-specific-trackers-for-real-time-feedback-and-form-correction.md) — Interested in yoga-specific trackers for real-time feedback and form correction
+- [lakers-basketball-fan-who-watches-games-with-friends-at-sports-bars](user/lakers-basketball-fan-who-watches-games-with-friends-at-sports-bars.md) — Lakers basketball fan who watches games with friends at sports bars
+- [leftover-fajita-chicken-quesadilla-casserole-recipe](reference/leftover-fajita-chicken-quesadilla-casserole-recipe.md) — Leftover Fajita Chicken Quesadilla Casserole recipe
+- [participate-in-20-mile-coastal-cycling-event](project/participate-in-20-mile-coastal-cycling-event.md) — Participate in 20-mile coastal cycling event
+- [philippines-vat-12-rate-php-3-million-registration-threshold](reference/philippines-vat-12-rate-php-3-million-registration-threshold.md) — Philippines VAT: 12% rate, PHP 3 million registration threshold
+- [plays-tennis-with-a-coach-and-working-on-improving-backhand-slice](user/plays-tennis-with-a-coach-and-working-on-improving-backhand-slice.md) — Plays tennis with a coach and working on improving backhand slice
+- [prefers-citrus-herb-vinaigrette-for-salads](user/prefers-citrus-herb-vinaigrette-for-salads.md) — Prefers Citrus-Herb Vinaigrette for salads
+- [proposed-interstellar-travel-concepts-fusion-based-antimatter-warp-drive-wormhol](reference/proposed-interstellar-travel-concepts-fusion-based-antimatter-warp-drive-wormhol.md) — Proposed interstellar travel concepts: fusion-based, antimatter, warp drive, wormholes
+- [proxima-centauri-closest-star-at-4-24-light-years-distance](reference/proxima-centauri-closest-star-at-4-24-light-years-distance.md) — Proxima Centauri: closest star at 4.24 light years distance
+- [purchased-new-yoga-mat-online-on-2023-05-21](user/purchased-new-yoga-mat-online-on-2023-05-21.md) — Purchased new yoga mat online on 2023-05-21
+- [robot-education-model-d-steamrobot-with-sdgs-and-empathy-learning](project/robot-education-model-d-steamrobot-with-sdgs-and-empathy-learning.md) — Robot education model: D-SteamRobot with SDGs and empathy learning
+- [sunday-meal-prep-with-chicken-fajitas-and-leftover-repurposing](project/sunday-meal-prep-with-chicken-fajitas-and-leftover-repurposing.md) — Sunday meal prep with chicken fajitas and leftover repurposing
+- [thesis-on-social-media-use-and-mental-health-with-thematic-analysis-methodology](project/thesis-on-social-media-use-and-mental-health-with-thematic-analysis-methodology.md) — Thesis on social media use and mental health with thematic analysis methodology
+- [uses-cycling-as-cross-training-to-improve-cardiovascular-endurance-for-tennis](user/uses-cycling-as-cross-training-to-improve-cardiovascular-endurance-for-tennis.md) — Uses cycling as cross-training to improve cardiovascular endurance for tennis
+- [uses-fitbit-charge-3-to-track-daily-steps-and-exercise](user/uses-fitbit-charge-3-to-track-daily-steps-and-exercise.md) — Uses Fitbit Charge 3 to track daily steps and exercise

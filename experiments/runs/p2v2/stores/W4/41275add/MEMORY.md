@@ -1,0 +1,15 @@
+# MEMORY.md
+
+- [considering-ram-upgrade-from-32gb-to-64gb](project/considering-ram-upgrade-from-32gb-to-64gb.md) — Considering RAM upgrade from 32GB to 64GB
+- [decision-to-pursue-marketing-consulting-as-independent-business](project/decision-to-pursue-marketing-consulting-as-independent-business.md) — Decision to pursue marketing consulting as independent business
+- [employment-marketing-specialist-at-xyz-corporation-for-2-years-9-months-led-prod](user/employment-marketing-specialist-at-xyz-corporation-for-2-years-9-months-led-prod.md) — Employment: Marketing specialist at XYZ Corporation for 2 years 9 months, led product launch team
+- [family-picnic-planned-for-june-2023-with-siblings-mom-and-cousin-emma-with-newbo](user/family-picnic-planned-for-june-2023-with-siblings-mom-and-cousin-emma-with-newbo.md) — Family picnic planned for June 2023 with siblings, mom, and cousin Emma with newborn baby
+- [interested-in-meditation-practice-considering-a-few-times-per-week-frequency](user/interested-in-meditation-practice-considering-a-few-times-per-week-frequency.md) — Interested in meditation practice, considering a few times per week frequency
+- [laptop-bag-preferences-15-inch-backpack-style-with-padding](user/laptop-bag-preferences-15-inch-backpack-style-with-padding.md) — Laptop bag preferences: 15-inch backpack style with padding
+- [pc-hardware-amd-ryzen-9-5900x-nvidia-geforce-rtx-3080-32gb-ram](user/pc-hardware-amd-ryzen-9-5900x-nvidia-geforce-rtx-3080-32gb-ram.md) — PC hardware: AMD Ryzen 9 5900X, NVIDIA GeForce RTX 3080, 32GB RAM
+- [planning-pc-cooling-system-upgrade-with-liquid-cooler-options](project/planning-pc-cooling-system-upgrade-with-liquid-cooler-options.md) — Planning PC cooling system upgrade with liquid cooler options
+- [plans-to-reduce-online-shopping-and-implement-one-in-one-out-policy-for-purchase](user/plans-to-reduce-online-shopping-and-implement-one-in-one-out-policy-for-purchase.md) — Plans to reduce online shopping and implement one-in-one-out policy for purchases
+- [purchased-wireless-charging-pad-from-amazon-on-2023-05-15-for-approximately-25-u](user/purchased-wireless-charging-pad-from-amazon-on-2023-05-15-for-approximately-25-u.md) — Purchased wireless charging pad from Amazon on 2023-05-15 for approximately 25 USD
+- [starting-youtube-channel-for-gameplay-recording](project/starting-youtube-channel-for-gameplay-recording.md) — Starting YouTube channel for gameplay recording
+- [vintage-collectibles-collection-omega-seamaster-fender-jazzmaster-sony-walkman-a](user/vintage-collectibles-collection-omega-seamaster-fender-jazzmaster-sony-walkman-a.md) — Vintage collectibles collection: Omega Seamaster, Fender Jazzmaster, Sony Walkman, Avengers comic, Batman figure, Cuban peso note
+- [went-shopping-with-mom-on-2023-05-05-and-bought-matching-yellow-shirts-and-white](user/went-shopping-with-mom-on-2023-05-05-and-bought-matching-yellow-shirts-and-white.md) — Went shopping with mom on 2023-05-05 and bought matching yellow shirts and white pants for family

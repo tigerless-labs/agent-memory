@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [45-day-reading-streak-20-minutes-daily-as-of-may-2023](user/45-day-reading-streak-20-minutes-daily-as-of-may-2023.md) — 45-day reading streak: 20 minutes daily as of May 2023
+- [atomic-habits-by-james-clear-4-laws-framework-and-habit-stacking-strategy](reference/atomic-habits-by-james-clear-4-laws-framework-and-habit-stacking-strategy.md) — Atomic Habits by James Clear: 4 Laws framework and habit stacking strategy
+- [book-reflection-formats-and-structures-for-deepening-reading-comprehension](reference/book-reflection-formats-and-structures-for-deepening-reading-comprehension.md) — Book reflection formats and structures for deepening reading comprehension
+- [chophouse-nocatee-retail-expansion-in-nocatee-town-center-florida](reference/chophouse-nocatee-retail-expansion-in-nocatee-town-center-florida.md) — Chophouse Nocatee retail expansion in Nocatee Town Center, Florida
+- [completed-5-non-fiction-self-help-books-since-january-2023](user/completed-5-non-fiction-self-help-books-since-january-2023.md) — Completed 5 non-fiction self-help books since January 2023
+- [frankfurt-to-speyer-transportation-options-and-travel-times](reference/frankfurt-to-speyer-transportation-options-and-travel-times.md) — Frankfurt to Speyer transportation options and travel times
+- [has-had-a-peace-lily-for-about-2-years-recently-purchased-new-pot-and-potting-mi](user/has-had-a-peace-lily-for-about-2-years-recently-purchased-new-pot-and-potting-mi.md) — Has had a peace lily for about 2 years; recently purchased new pot and potting mix for repotting
+- [improve-chicken-flock-egg-production-through-diet-supplementation](project/improve-chicken-flock-egg-production-through-diet-supplementation.md) — Improve chicken flock egg production through diet supplementation
+- [interested-in-habit-stacking-and-building-reading-reflection-habit](user/interested-in-habit-stacking-and-building-reading-reflection-habit.md) — Interested in habit stacking and building reading + reflection habit
+- [interested-in-staying-updated-on-city-art-gallery-exhibitions-and-art-events](user/interested-in-staying-updated-on-city-art-gallery-exhibitions-and-art-events.md) — Interested in staying updated on City Art Gallery exhibitions and art events
+- [keeps-a-backyard-chicken-flock-for-egg-production](user/keeps-a-backyard-chicken-flock-for-egg-production.md) — Keeps a backyard chicken flock for egg production
+- [notable-exhibitions-at-city-art-gallery-mentioned-by-ms-johnson](reference/notable-exhibitions-at-city-art-gallery-mentioned-by-ms-johnson.md) — Notable exhibitions at City Art Gallery mentioned by Ms. Johnson
+- [online-resources-for-finding-art-events-exhibitions-and-galleries](reference/online-resources-for-finding-art-events-exhibitions-and-galleries.md) — Online resources for finding art events, exhibitions, and galleries
+- [owns-a-fiddle-leaf-fig-tree-and-exploring-humidifier-options-to-increase-humidit](user/owns-a-fiddle-leaf-fig-tree-and-exploring-humidifier-options-to-increase-humidit.md) — Owns a fiddle leaf fig tree and exploring humidifier options to increase humidity
+- [positive-curator-led-tour-at-city-art-gallery-with-ms-johnson](experience/positive-curator-led-tour-at-city-art-gallery-with-ms-johnson.md) — Positive curator-led tour at City Art Gallery with Ms. Johnson
+- [recently-purchased-aloe-vera-succulent-from-farmers-market-watering-once-weekly](user/recently-purchased-aloe-vera-succulent-from-farmers-market-watering-once-weekly.md) — Recently purchased aloe vera succulent from farmers' market, watering once weekly
+- [self-help-book-recommendations-for-habit-and-personal-development-may-2023](reference/self-help-book-recommendations-for-habit-and-personal-development-may-2023.md) — Self-help book recommendations for habit and personal development (May 2023)
+- [snake-plant-leaf-drop-resolved-by-reducing-watering-frequency-from-every-4-days](experience/snake-plant-leaf-drop-resolved-by-reducing-watering-frequency-from-every-4-days.md) — Snake plant leaf drop resolved by reducing watering frequency from every 4 days to every 7-10 days
+- [speyer-tourism-board-contact-details](reference/speyer-tourism-board-contact-details.md) — Speyer tourism board contact details
+- [wrote-blog-post-announcing-chophouse-nocatee-retail-expansion-and-steakhouse-ope](experience/wrote-blog-post-announcing-chophouse-nocatee-retail-expansion-and-steakhouse-ope.md) — Wrote blog post announcing Chophouse Nocatee retail expansion and steakhouse opening

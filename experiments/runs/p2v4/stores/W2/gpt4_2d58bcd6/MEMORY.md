@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [bilingual-in-english-and-italian-can-read-and-work-with-both-languages](user/bilingual-in-english-and-italian-can-read-and-work-with-both-languages.md) — Bilingual in English and Italian; can read and work with both languages
+- [butternut-squash-soup-recipe-roasted-squash-cream-cumin-paprika](reference/butternut-squash-soup-recipe-roasted-squash-cream-cumin-paprika.md) — Butternut Squash Soup recipe — roasted squash, cream, cumin, paprika
+- [camera-settings-for-winter-landscape-photography-iso-100400-f-8f-11-1-1251-250s](reference/camera-settings-for-winter-landscape-photography-iso-100400-f-8f-11-1-1251-250s.md) — Camera settings for winter landscape photography — ISO 100–400, f/8–f/11, 1/125–1/250s
+- [enjoys-winter-snowshoeing-combined-with-landscape-photography](user/enjoys-winter-snowshoeing-combined-with-landscape-photography.md) — Enjoys winter snowshoeing combined with landscape photography
+- [fitness-routine-morning-yoga-gym-membership-lunch-walks-weekend-bike-rides-home](user/fitness-routine-morning-yoga-gym-membership-lunch-walks-weekend-bike-rides-home.md) — Fitness routine: morning yoga, gym membership, lunch walks, weekend bike rides, home strength training
+- [fitness-routine-strength-training-2-3x-weekly-kickboxing-tuesdays-thursdays-week](user/fitness-routine-strength-training-2-3x-weekly-kickboxing-tuesdays-thursdays-week.md) — Fitness routine: strength training 2-3x weekly, kickboxing Tuesdays/Thursdays, weekend bike rides/hikes
+- [has-a-bookstagram-account-for-sharing-book-reviews-and-photos](user/has-a-bookstagram-account-for-sharing-book-reviews-and-photos.md) — Has a bookstagram account for sharing book reviews and photos
+- [how-to-enable-thrive-on-higher-logic](reference/how-to-enable-thrive-on-higher-logic.md) — How to enable Thrive on Higher Logic
+- [injury-prevention-strategies-warm-up-cool-down-stretching-core-ankle-strengtheni](reference/injury-prevention-strategies-warm-up-cool-down-stretching-core-ankle-strengtheni.md) — Injury prevention strategies: warm-up/cool-down, stretching, core/ankle strengthening, proper gear, gradual progression
+- [interested-in-anime-and-light-novels-particularly-the-eminence-in-shadow-series](user/interested-in-anime-and-light-novels-particularly-the-eminence-in-shadow-series.md) — Interested in anime and light novels, particularly The Eminence in Shadow series
+- [interested-in-card-games-and-game-design](user/interested-in-card-games-and-game-design.md) — Interested in card games and game design
+- [keeps-a-reading-log-to-track-progress-and-reflect-on-books](user/keeps-a-reading-log-to-track-progress-and-reflect-on-books.md) — Keeps a reading log to track progress and reflect on books
+- [listens-to-audiobooks-during-daily-commute](user/listens-to-audiobooks-during-daily-commute.md) — Listens to audiobooks during daily commute
+- [listens-to-the-west-wing-weekly-podcast-interested-in-politics-and-pop-culture](user/listens-to-the-west-wing-weekly-podcast-interested-in-politics-and-pop-culture.md) — Listens to The West Wing Weekly podcast; interested in politics and pop culture
+- [market-entry-strategy-for-indian-ev-market-high-voltage-fuses-manufacturer](project/market-entry-strategy-for-indian-ev-market-high-voltage-fuses-manufacturer.md) — Market entry strategy for Indian EV market: high-voltage fuses manufacturer
+- [passionate-about-musicals-that-fuse-hip-hop-with-theater](user/passionate-about-musicals-that-fuse-hip-hop-with-theater.md) — Passionate about musicals that fuse hip-hop with theater
+- [planning-christmas-trip-to-the-mountains-with-snowshoeing-and-winter-photography](project/planning-christmas-trip-to-the-mountains-with-snowshoeing-and-winter-photography.md) — Planning Christmas trip to the mountains with snowshoeing and winter photography
+- [practices-tarot-reading-and-card-interpretation](user/practices-tarot-reading-and-card-interpretation.md) — Practices tarot reading and card interpretation
+- [reading-interests-character-driven-fiction-emotional-depth-self-help-variety-of](user/reading-interests-character-driven-fiction-emotional-depth-self-help-variety-of.md) — Reading interests: character-driven fiction, emotional depth, self-help, variety of genres
+- [recently-read-seven-husbands-of-evelyn-hugo-the-silent-patient-the-nightingale-d](user/recently-read-seven-husbands-of-evelyn-hugo-the-silent-patient-the-nightingale-d.md) — Recently read: Seven Husbands of Evelyn Hugo, The Silent Patient, The Nightingale, Daisy Jones and The Six, Sapiens
+- [rewatched-la-la-land-on-amazon-prime](experience/rewatched-la-la-land-on-amazon-prime.md) — Rewatched La La Land on Amazon Prime
+- [twisted-ankle-playing-basketball-recovered-within-days-resumed-gym-routine](experience/twisted-ankle-playing-basketball-recovered-within-days-resumed-gym-routine.md) — Twisted ankle playing basketball, recovered within days, resumed gym routine
+- [uses-strava-app-to-track-cycling-and-hiking-activities](user/uses-strava-app-to-track-cycling-and-hiking-activities.md) — Uses Strava app to track cycling and hiking activities
+- [watched-hamilton-on-disney-and-became-obsessed-with-the-soundtrack](experience/watched-hamilton-on-disney-and-became-obsessed-with-the-soundtrack.md) — Watched Hamilton on Disney+ and became obsessed with the soundtrack
+- [won-2-of-3-matches-in-recreational-volleyball-tournament-with-team-the-spikers](experience/won-2-of-3-matches-in-recreational-volleyball-tournament-with-team-the-spikers.md) — Won 2 of 3 matches in recreational volleyball tournament with team The Spikers

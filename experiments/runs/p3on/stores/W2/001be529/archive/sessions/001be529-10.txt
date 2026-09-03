@@ -1,0 +1,11 @@
+## Session sharegpt_HbIK81o_0 — 2023/05/21 (Sun) 12:21
+user: Write me an Excel formula that highlights the highest value and the lowest value.
+assistant: To highlight the highest value in a range of cells, use the following formula in conditional formatting:
+
+=MAX($A$1:$A$10)=A1
+
+To highlight the lowest value, use this formula:
+
+=MIN($A$1:$A$10)=A1
+
+Replace $A$1:$A$10 with your desired range of cells, and A1 with the cell you want to apply the formatting to. The formula will compare the value of A1 to the minimum or maximum value in the specified range, and highlight the cell if it's the lowest or highest value, respectively.

@@ -1,0 +1,24 @@
+# MEMORY.md
+
+- [biga-preferment-recipe-and-pizza-dough-with-biga-24-hour-fermentation-example](reference/biga-preferment-recipe-and-pizza-dough-with-biga-24-hour-fermentation-example.md) — Biga preferment recipe and pizza dough with biga: 24-hour fermentation example
+- [candle-display-setup-wooden-crate-tiered-display-with-eucalyptus-pinecones-stone](user/candle-display-setup-wooden-crate-tiered-display-with-eucalyptus-pinecones-stone.md) — Candle display setup: wooden crate tiered display with eucalyptus, pinecones, stones, ribbons, and lanterns
+- [currently-playing-through-resident-evil-village](experience/currently-playing-through-resident-evil-village.md) — Currently playing through Resident Evil Village
+- [displayed-items-at-artisan-s-fair-at-local-park](experience/displayed-items-at-artisan-s-fair-at-local-park.md) — Displayed items at Artisan's Fair at local park
+- [gaming-keyboard-models-recommended-for-fps-gaming-with-customizable-backlighting](reference/gaming-keyboard-models-recommended-for-fps-gaming-with-customizable-backlighting.md) — Gaming keyboard models recommended for FPS gaming with customizable backlighting and macro keys
+- [instagram-ad-taglines-for-new-era-clothing-sales](reference/instagram-ad-taglines-for-new-era-clothing-sales.md) — Instagram ad taglines for New Era clothing sales
+- [interested-in-catalan-literature-and-music-exploring-political-identity-and-dive](user/interested-in-catalan-literature-and-music-exploring-political-identity-and-dive.md) — Interested in Catalan literature and music exploring political identity and diverse perspectives on independence
+- [interested-in-education-policy-reform-and-educational-equity](user/interested-in-education-policy-reform-and-educational-equity.md) — Interested in education policy reform and educational equity
+- [interested-in-mellotron-and-appreciates-vintage-instruments-for-adding-character](user/interested-in-mellotron-and-appreciates-vintage-instruments-for-adding-character.md) — Interested in Mellotron and appreciates vintage instruments for adding character to modern music
+- [makes-and-sells-handmade-candles](user/makes-and-sells-handmade-candles.md) — Makes and sells handmade candles
+- [making-crispy-homemade-pizza-achieved-success-on-second-attempt](user/making-crispy-homemade-pizza-achieved-success-on-second-attempt.md) — Making crispy homemade pizza; achieved success on second attempt
+- [pizza-dough-experiments-bread-flour-high-protein-and-biga-preferment-fermentatio](user/pizza-dough-experiments-bread-flour-high-protein-and-biga-preferment-fermentatio.md) — Pizza dough experiments: bread flour (high protein) and biga preferment fermentation
+- [planned-pizza-recipe-bbq-chicken-with-spicy-sauce-grilled-chicken-red-onion-cila](user/planned-pizza-recipe-bbq-chicken-with-spicy-sauce-grilled-chicken-red-onion-cila.md) — Planned pizza recipe: BBQ chicken with spicy sauce, grilled chicken, red onion, cilantro
+- [plays-multiplayer-fps-and-co-op-games-with-friends-online-main-focus-on-overwatc](user/plays-multiplayer-fps-and-co-op-games-with-friends-online-main-focus-on-overwatc.md) — Plays multiplayer FPS and co-op games with friends online, main focus on Overwatch
+- [pursuing-solutions-architect-role-at-amazon](project/pursuing-solutions-architect-role-at-amazon.md) — Pursuing Solutions Architect role at Amazon
+- [reached-level-45-in-overwatch-account-and-unlocked-new-reaper-skin](experience/reached-level-45-in-overwatch-account-and-unlocked-new-reaper-skin.md) — Reached level 45 in Overwatch account and unlocked new Reaper skin
+- [recently-completed-assassin-s-creed-valhalla-main-storyline](experience/recently-completed-assassin-s-creed-valhalla-main-storyline.md) — Recently completed Assassin's Creed Valhalla main storyline
+- [recommended-catalan-and-spanish-literary-works-and-artists-exploring-identity-an](reference/recommended-catalan-and-spanish-literary-works-and-artists-exploring-identity-an.md) — Recommended Catalan and Spanish literary works and artists exploring identity and political perspectives
+- [successful-candle-display-at-summer-vibes-market](experience/successful-candle-display-at-summer-vibes-market.md) — Successful candle display at Summer Vibes Market
+- [techniques-for-crispy-pizza-crust-high-protein-flour-temperature-hydration-pre-b](reference/techniques-for-crispy-pizza-crust-high-protein-flour-temperature-hydration-pre-b.md) — Techniques for crispy pizza crust: high-protein flour, temperature, hydration, pre-baking, topping balance
+- [values-conveying-humor-and-personality-in-professional-materials-self-identifies](user/values-conveying-humor-and-personality-in-professional-materials-self-identifies.md) — Values conveying humor and personality in professional materials; self-identifies as funny despite others not perceiving it
+- [wants-to-try-playing-a-mellotron](user/wants-to-try-playing-a-mellotron.md) — Wants to try playing a Mellotron

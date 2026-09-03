@@ -1,0 +1,170 @@
+## Session sharegpt_0mXdmE3_0 — 2023/05/23 (Tue) 11:02
+user: can you tell me which of these functions are common to ERC-721 and which are custom?
+
+the contract would have this functions
+
+e4b8c38d => buyAlbum(bytes32[])
+8d0eb9f7 => buySong(bytes32[])
+26092b83 => publicMint()
+e64e51dc => destroyPublic(uint256,uint256)
+692b15a3 => claimAlbum(uint256,uint256)
+c87b56dd => tokenURI(uint256)
+4f1c3244 => setImportantURIs(string,string)
+e0052d7c => reclaimERC20Token(address)
+6b7d2470 => reclaimERC721(address,uint256)
+9ee64d6b => setStartTimes(uint256,uint256,uint256,uint256)
+75edcbe0 => setMerkleRoot(bytes32,bytes32)
+fce57fd9 => setArtistWallet(address)
+a7ccabdf => setNFTContract(address)
+8f2fc60b => setRoyalty(address,uint96)
+c1ba4e59 => setQuorum(uint256)
+ac1251e0 => setPricePerToken(uint256,uint256)
+613e9ee4 => setSplitsWallet(address)
+3bb16654 => withdrawToSplits()
+7d48441f => \_isContract(address)
+98995f77 => \_startTokenId()
+01ffc9a7 => supportsInterface(bytes4)
+280527e8 => isProofValid(address,uint256,bytes32[])
+8e4a8ebf => isProofValid2(address,uint256,bytes32[])
+
+' -- vars --
+ +[[string]] baseURI
+ +[[string]] imageURL
+ +[[string]] contractURI
+ +[[bytes32]] root
+ +[[bytes32]] root2
+ +[[uint256]] ablumSaleStartTime
+ +[[uint256]] songSaleStartTime
+ +[[uint256]] publicStartTime
+ +[[uint256]] destroyExperienceStartTime
+ +[[uint256]] albumPrice
+ +[[uint256]] songPrice
+ +[[mapping uint256=>bool ]] belongsToAlbum
+ +{static}[[uint256]] MAX\_SUPPLY
+ +[[uint256]] quorum
+ +[[uint256]] songCounter
+ +[[mapping uint256=>TokenTypes ]] tokenTypesMap
+ +[[mapping uint256=>uint256 ]] destoryExperinceVotes
+ +[[mapping uint256=>bool ]] isRestricted
+ +[[address]] splitsWallet
+ +[[IERC721]] nftContract
+ +[[address]] artistWallet
+assistant: ERC-721 is a standard for non-fungible tokens (NFTs) on the Ethereum blockchain. It defines a set of required and optional functions that a contract implementing the ERC-721 standard should have.
+
+The functions `buyAlbum`, `buySong`, `publicMint`, `destroyPublic`, `claimAlbum`, `tokenURI`, `setImportantURIs`, `reclaimERC20Token`, `reclaimERC721`, `setStartTimes`, `setMerkleRoot`, `setArtistWallet`, `setNFTContract`, `setRoyalty`, `setQuorum`, `setPricePerToken`, `setSplitsWallet`, `withdrawToSplits`, `_isContract`, `_startTokenId`, `supportsInterface`, `isProofValid`, `isProofValid2` are not part of the ERC-721 standard. They are likely custom functions added to the contract for specific purposes.
+
+The ERC-721 standard defines the following required functions:
+
+* `name`: returns the name of the token.
+* `symbol`: returns the symbol of the token.
+* `totalSupply`: returns the total supply of tokens.
+* `balanceOf`: returns the balance of tokens owned by a given address.
+* `ownerOf`: returns the owner of a given token.
+* `approve`: allows a given address to transfer a specific token.
+* `getApproved`: returns the address that is approved to transfer a specific token.
+* `setApprovalForAll`: allows an owner to set or cancel an operator's approval to transfer all of the owner's tokens.
+* `isApprovedForAll`: returns whether an operator is approved to transfer all tokens of an owner.
+* `transferFrom`: transfers a specific token from one address to another.
+
+The ERC-721 standard also defines the following optional functions:
+
+* `mint`: mints a new token and assigns it to an owner.
+* `burn`: destroys a specific token and removes it from circulation.
+* `metadata`: returns metadata about a specific token.
+* `enumerable`: returns whether a contract implements the optional `Enumerable` interface.
+
+It is possible that the contract you are looking at has implemented some of these functions in addition to the custom functions mentioned above.
+user: can you put all of these functions in a table with a column to indicate whether it is standard or custom?
+assistant: Sure! Here is a table with all of the functions you listed, with a column indicating whether each function is a part of the ERC-721 standard or a custom function added to the contract:
+
+| Function | Standard |
+| --- | --- |
+| buyAlbum | Custom |
+| buySong | Custom |
+| publicMint | Custom |
+| destroyPublic | Custom |
+| claimAlbum | Custom |
+| tokenURI | Custom |
+| setImportantURIs | Custom |
+| reclaimERC20Token | Custom |
+| reclaimERC721 | Custom |
+| setStartTimes | Custom |
+| setMerkleRoot | Custom |
+| setArtistWallet | Custom |
+| setNFTContract | Custom |
+| setRoyalty | Custom |
+| setQuorum | Custom |
+| setPricePerToken | Custom |
+| setSplitsWallet | Custom |
+| withdrawToSplits | Custom |
+| \_isContract | Custom |
+| \_startTokenId | Custom |
+| supportsInterface | Custom |
+| isProofValid | Custom |
+| isProofValid2 | Custom |
+| name | Standard |
+| symbol | Standard |
+| totalSupply | Standard |
+| balanceOf | Standard |
+| ownerOf | Standard |
+| approve | Standard |
+| getApproved | Standard |
+| setApprovalForAll | Standard |
+| isApprovedForAll | Standard |
+| transferFrom | Standard |
+| mint | Optional |
+| burn | Optional |
+| metadata | Optional |
+| enumerable | Optional |
+
+I hope this helps! Let me know if you have any other questions.
+user: why is tokenURI custom? isn't that part of a standard?
+assistant: `tokenURI` is not a part of the ERC-721 standard. The ERC-721 standard does not define a function for retrieving a URI (Uniform Resource Identifier) for a specific token.
+
+The ERC-721 standard does, however, include an optional `metadata` function that can be used to return metadata about a specific token. This metadata can include a URI for the token, but the ERC-721 standard does not specify the format or content of the URI. It is up to the contract implementer to decide how to use the `metadata` function and what information to include in the metadata.
+
+In the contract you listed, it looks like the `tokenURI` function has been added as a custom function to retrieve a URI for a specific token. The implementation of this function will depend on how the contract has been implemented and how the URI for each token has been stored.
+user: ok in that table, can you give a brief description of what the function does? to the extent that you know. you can add that brief description in a separate column
+assistant: Sure! Here is the same table as before, but with a column added for a brief description of each function:
+
+| Function | Standard | Description |
+| --- | --- | --- |
+| buyAlbum | Custom | Function for buying an album |
+| buySong | Custom | Function for buying a song |
+| publicMint | Custom | Function for minting new tokens |
+| destroyPublic | Custom | Function for destroying a specific token |
+| claimAlbum | Custom | Function for claiming an album |
+| tokenURI | Custom | Function for retrieving a URI for a specific token |
+| setImportantURIs | Custom | Function for setting important URIs |
+| reclaimERC20Token | Custom | Function for reclaiming an ERC-20 token |
+| reclaimERC721 | Custom | Function for reclaiming an ERC-721 token |
+| setStartTimes | Custom | Function for setting start times |
+| setMerkleRoot | Custom | Function for setting the Merkle root |
+| setArtistWallet | Custom | Function for setting the artist wallet address |
+| setNFTContract | Custom | Function for setting the address of the NFT contract |
+| setRoyalty | Custom | Function for setting royalties for a specific address |
+| setQuorum | Custom | Function for setting the quorum |
+| setPricePerToken | Custom | Function for setting the price per token |
+| setSplitsWallet | Custom | Function for setting the splits wallet address |
+| withdrawToSplits | Custom | Function for withdrawing funds to the splits wallet |
+| \_isContract | Custom | Function for checking if an address is a contract |
+| \_startTokenId | Custom | Function for retrieving the start token ID |
+| supportsInterface | Custom | Function for checking if a contract supports a specific interface |
+| isProofValid | Custom | Function for checking if a proof is valid |
+| isProofValid2 | Custom | Function for checking if a proof is valid |
+| name | Standard | Function for retrieving the name of the token |
+| symbol | Standard | Function for retrieving the symbol of the token |
+| totalSupply | Standard | Function for retrieving the total supply of tokens |
+| balanceOf | Standard | Function for retrieving the balance of tokens owned by a given address |
+| ownerOf | Standard | Function for retrieving the owner of a specific token |
+| approve | Standard | Function for approving a given address to transfer a specific token |
+| getApproved | Standard | Function for retrieving the address that is approved to transfer a specific token |
+| setApprovalForAll | Standard | Function for setting or canceling an operator's approval to transfer all of an owner's tokens |
+| isApprovedForAll | Standard | Function for checking if an operator is approved to transfer all tokens of an owner |
+| transferFrom | Standard | Function for transferring a specific token from one address to another |
+| mint | Optional | Function for minting a new token and assigning it to an owner |
+| burn | Optional | Function for destroying a specific token and removing it from circulation |
+| metadata | Optional | Function for retrieving metadata about a specific token |
+| enumerable | Optional | Function for checking if a contract implements the optional `Enumerable` interface |
+
+I hope this helps! Let me know if you have any other questions.

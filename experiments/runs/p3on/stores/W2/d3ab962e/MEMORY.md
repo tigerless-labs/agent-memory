@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [18-55mm-kit-lens-with-autofocus-malfunction-planning-to-sell](user/18-55mm-kit-lens-with-autofocus-malfunction-planning-to-sell.md) — 18-55mm kit lens with autofocus malfunction, planning to sell
+- [camera-bag-research-lowepro-protactic-450-aw-vs-think-tank-urban-disguise-40l](reference/camera-bag-research-lowepro-protactic-450-aw-vs-think-tank-urban-disguise-40l.md) — Camera bag research: Lowepro ProTactic 450 AW vs Think Tank Urban Disguise 40L
+- [commutes-by-bike-three-times-per-week-interested-in-bike-maintenance](user/commutes-by-bike-three-times-per-week-interested-in-bike-maintenance.md) — Commutes by bike three times per week; interested in bike maintenance
+- [completed-3-mile-loop-trail-at-valley-of-fire-state-park](experience/completed-3-mile-loop-trail-at-valley-of-fire-state-park.md) — Completed 3-mile loop trail at Valley of Fire State Park
+- [completed-moving-and-organizing-home-finished-unpacking-all-boxes-on-or-around-2](experience/completed-moving-and-organizing-home-finished-unpacking-all-boxes-on-or-around-2.md) — Completed moving and organizing home, finished unpacking all boxes on or around 2022-09-24
+- [considering-full-frame-camera-upgrade-nikon-z6-or-canon-eos-r](user/considering-full-frame-camera-upgrade-nikon-z6-or-canon-eos-r.md) — Considering full-frame camera upgrade: Nikon Z6 or Canon EOS R
+- [considering-upgrade-to-gitzo-systematic-series-tripod](user/considering-upgrade-to-gitzo-systematic-series-tripod.md) — Considering upgrade to Gitzo Systematic series tripod
+- [crispr-cas9-genetically-modified-crops-examples-of-successful-modifications](reference/crispr-cas9-genetically-modified-crops-examples-of-successful-modifications.md) — CRISPR-Cas9 genetically modified crops: examples of successful modifications
+- [css-responsive-design-patterns-media-queries-background-gradients-chat-interface](reference/css-responsive-design-patterns-media-queries-background-gradients-chat-interface.md) — CSS responsive design patterns: media queries, background gradients, chat interfaces
+- [current-tripod-manfrotto-befree-with-wear-on-leg-locks](user/current-tripod-manfrotto-befree-with-wear-on-leg-locks.md) — Current tripod: Manfrotto BeFree with wear on leg locks
+- [denti-ai-hygenius-chat-dialog-interface-with-sender-receiver-messages](project/denti-ai-hygenius-chat-dialog-interface-with-sender-receiver-messages.md) — Denti.AI Hygenius: chat dialog interface with sender/receiver messages
+- [finished-listening-to-the-power-by-naomi-alderman-on-2022-09-24-which-sparked-in](experience/finished-listening-to-the-power-by-naomi-alderman-on-2022-09-24-which-sparked-in.md) — Finished listening to The Power by Naomi Alderman on 2022-09-24, which sparked interest in power dynamics in sci-fi
+- [gave-liam-personalized-baby-blanket-with-his-name-for-one-month-celebration](experience/gave-liam-personalized-baby-blanket-with-his-name-for-one-month-celebration.md) — Gave Liam personalized baby blanket with his name for one-month celebration
+- [has-a-sister-liam-s-mother](user/has-a-sister-liam-s-mother.md) — Has a sister (Liam's mother)
+- [has-nephew-liam-born-in-august-2022](user/has-nephew-liam-born-in-august-2022.md) — Has nephew Liam born in August 2022
+- [interested-in-yoga-classes-for-flexibility-and-stress-relief](user/interested-in-yoga-classes-for-flexibility-and-stress-relief.md) — Interested in yoga classes for flexibility and stress relief
+- [january-road-trip-itinerary-grand-canyon-south-rim-monument-valley-four-corners](project/january-road-trip-itinerary-grand-canyon-south-rim-monument-valley-four-corners.md) — January road trip itinerary: Grand Canyon South Rim → Monument Valley → Four Corners
+- [newsletter-structure-template-community-in-startup-building](reference/newsletter-structure-template-community-in-startup-building.md) — Newsletter structure template: community in startup building
+- [paris-landmarks-and-dining-recommendations](reference/paris-landmarks-and-dining-recommendations.md) — Paris landmarks and dining recommendations
+- [plans-to-read-provenance-by-ann-leckie-interested-in-how-she-explores-power-iden](user/plans-to-read-provenance-by-ann-leckie-interested-in-how-she-explores-power-iden.md) — Plans to read Provenance by Ann Leckie; interested in how she explores power, identity, and inheritance in sci-fi
+- [prefers-color-based-background-solutions-over-image-patterns](user/prefers-color-based-background-solutions-over-image-patterns.md) — Prefers color-based background solutions over image patterns
+- [prefers-early-morning-or-late-evening-visits-to-landmarks-to-avoid-crowds](user/prefers-early-morning-or-late-evening-visits-to-landmarks-to-avoid-crowds.md) — Prefers early morning or late evening visits to landmarks to avoid crowds
+- [prefers-merkur-hd-safety-razor-for-eco-friendly-shaving](user/prefers-merkur-hd-safety-razor-for-eco-friendly-shaving.md) — Prefers Merkur HD safety razor for eco-friendly shaving
+- [prefers-modern-minimalist-furniture-with-neutral-tones-metal-and-glass-over-recl](user/prefers-modern-minimalist-furniture-with-neutral-tones-metal-and-glass-over-recl.md) — Prefers modern, minimalist furniture with neutral tones; metal and glass over reclaimed wood
+- [prefers-small-functional-storage-over-large-compartments-in-furniture](user/prefers-small-functional-storage-over-large-compartments-in-furniture.md) — Prefers small, functional storage over large compartments in furniture
+- [purchased-50mm-prime-lens-on-june-15-2022](user/purchased-50mm-prime-lens-on-june-15-2022.md) — Purchased 50mm prime lens on June 15, 2022
+- [purchased-west-elm-glass-and-metal-coffee-table-for-399-usd-in-september-2022](user/purchased-west-elm-glass-and-metal-coffee-table-for-399-usd-in-september-2022.md) — Purchased West Elm Glass and Metal Coffee Table for 399 USD in September 2022
+- [reading-interests-science-fiction-power-dynamics-social-hierarchy-historical-fic](user/reading-interests-science-fiction-power-dynamics-social-hierarchy-historical-fic.md) — Reading interests: science fiction (power dynamics, social hierarchy), historical fiction, mythology, character-driven narratives; interested in Ann Leckie
+- [recently-moved-to-new-apartment](user/recently-moved-to-new-apartment.md) — Recently moved to new apartment

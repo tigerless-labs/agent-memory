@@ -1,0 +1,20 @@
+# MEMORY.md
+
+- [all2trade-business-model-free-platform-for-users-system-profits-from-trades-and](project/all2trade-business-model-free-platform-for-users-system-profits-from-trades-and.md) — All2Trade business model: free platform for users, system profits from trades and shares percentage with users who provided opinions
+- [all2trade-cryptocurrency-trading-system-using-user-opinions-built-with-python-3](project/all2trade-cryptocurrency-trading-system-using-user-opinions-built-with-python-3.md) — All2Trade: cryptocurrency trading system using user opinions, built with Python 3, Flask, MySQL backend
+- [all2trade-database-schema-users-table-id-username-password-email-name-opinions-u](project/all2trade-database-schema-users-table-id-username-password-email-name-opinions-u.md) — All2Trade database schema: Users table (id, username, password, email, name); Opinions (user_id, currency, trend, timestamp); Trades (currency, trend, buy_price, sell_price, profit, timestamp); Payouts (user_id, amount, timestamp)
+- [all2trade-tech-stack-python-3-flask-mysql-ccxt-for-exchange-integration-celery-f](project/all2trade-tech-stack-python-3-flask-mysql-ccxt-for-exchange-integration-celery-f.md) — All2Trade tech stack: Python 3, Flask, MySQL; CCXT for exchange integration, Celery for task automation, TensorFlow/PyTorch/Keras for deep learning predictions
+- [beginner-guitarist-learning-psychedelic-rock](project/beginner-guitarist-learning-psychedelic-rock.md) — Beginner guitarist learning psychedelic rock
+- [eating-more-plant-based-meals-vegetarian-and-vegan](user/eating-more-plant-based-meals-vegetarian-and-vegan.md) — Eating more plant-based meals, vegetarian and vegan
+- [enjoys-kacey-musgraves-musicunique-blend-of-country-and-pop-styles-recommended-s](user/enjoys-kacey-musgraves-musicunique-blend-of-country-and-pop-styles-recommended-s.md) — Enjoys Kacey Musgraves music—unique blend of country and pop styles; recommended songs: Merry Go Round, Follow Your Arrow, Butterflies, Rainbow
+- [enjoys-psychedelic-rock-tame-impala-raveena-billie-eilish](user/enjoys-psychedelic-rock-tame-impala-raveena-billie-eilish.md) — Enjoys psychedelic rock: Tame Impala, Raveena, Billie Eilish
+- [guava-oatmeal-recipe-1-2-cup-oats-1-4-cup-diced-guava-1-2-cup-almond-milk-1-tbsp](user/guava-oatmeal-recipe-1-2-cup-oats-1-4-cup-diced-guava-1-2-cup-almond-milk-1-tbsp.md) — Guava oatmeal recipe: 1/2 cup oats, 1/4 cup diced guava, 1/2 cup almond milk, 1 tbsp chia seeds, 1-2 tbsp hemp seeds, honey optional
+- [how-to-soak-and-blend-cashews-for-yogurt-base](reference/how-to-soak-and-blend-cashews-for-yogurt-base.md) — How to soak and blend cashews for yogurt base
+- [lost-sentimental-silver-necklace-from-grandmother-at-beach-may-2023](experience/lost-sentimental-silver-necklace-from-grandmother-at-beach-may-2023.md) — Lost sentimental silver necklace from grandmother at beach, May 2023
+- [making-yogurt-from-scratch-using-slow-cooker](user/making-yogurt-from-scratch-using-slow-cooker.md) — Making yogurt from scratch using slow cooker
+- [psychedelic-rock-bands-like-tame-impala-with-atmospheric-sound](reference/psychedelic-rock-bands-like-tame-impala-with-atmospheric-sound.md) — Psychedelic rock bands like Tame Impala with atmospheric sound
+- [recently-learned-slow-cooker-cooking-made-beef-stew](user/recently-learned-slow-cooker-cooking-made-beef-stew.md) — Recently learned slow cooker cooking, made beef stew
+- [slow-cooker-yogurt-recipe-from-scratch](reference/slow-cooker-yogurt-recipe-from-scratch.md) — Slow cooker yogurt recipe from scratch
+- [strength-training-routine-upper-body-tues-thurs-lower-body-wed-fri-added-2023-05](user/strength-training-routine-upper-body-tues-thurs-lower-body-wed-fri-added-2023-05.md) — Strength training routine: upper body Tues/Thurs, lower body Wed/Fri, added 2023-05-21
+- [vegan-yogurt-alternatives-for-slow-cooker](reference/vegan-yogurt-alternatives-for-slow-cooker.md) — Vegan yogurt alternatives for slow cooker
+- [youtube-guitar-tutorial-channels-for-beginners](reference/youtube-guitar-tutorial-channels-for-beginners.md) — YouTube guitar tutorial channels for beginners

@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [served-as-vice-president-of-acm-student-chapter-at-university-of-michigan-for-on](experience/served-as-vice-president-of-acm-student-chapter-at-university-of-michigan-for-on.md) — Served as Vice President of ACM Student Chapter at University of Michigan for one year
+- [tanqueray-s-spiritual-life-treatise-second-part-first-book-purgative-way-and-beg](reference/tanqueray-s-spiritual-life-treatise-second-part-first-book-purgative-way-and-beg.md) — Tanqueray's Spiritual Life treatise - second part, first book: purgative way and beginner's prayer
+- [energy-efficient-bulb-in-bedside-lamp-failed-after-only-6-months](experience/energy-efficient-bulb-in-bedside-lamp-failed-after-only-6-months.md) — Energy-efficient bulb in bedside lamp failed after only 6 months
+- [verde-fashion-co-sustainable-fashion-brand-website-launched-first-email-subscrib](project/verde-fashion-co-sustainable-fashion-brand-website-launched-first-email-subscrib.md) — Verde Fashion Co. sustainable fashion brand - website launched, first email subscribers
+- [3-year-anniversary-at-xyz-corp-on-2023-05-22](experience/3-year-anniversary-at-xyz-corp-on-2023-05-22.md) — 3-year anniversary at XYZ Corp on 2023-05-22
+- [attended-data-science-conference-around-2023-05-15](experience/attended-data-science-conference-around-2023-05-15.md) — Attended data science conference around 2023-05-15
+- [bachelor-of-science-in-computer-science-from-university-of-michigan-gpa-3-4](user/bachelor-of-science-in-computer-science-from-university-of-michigan-gpa-3-4.md) — Bachelor of Science in Computer Science from University of Michigan, GPA 3.4
+- [certified-data-scientist-from-data-science-council-of-america-dasca](user/certified-data-scientist-from-data-science-council-of-america-dasca.md) — Certified Data Scientist from Data Science Council of America (DASCA)
+- [comic-relief-s-pandemic-adaptation-shift-to-digital-fundraising-and-virtual-even](reference/comic-relief-s-pandemic-adaptation-shift-to-digital-fundraising-and-virtual-even.md) — Comic Relief's pandemic adaptation: shift to digital fundraising and virtual events
+- [considering-minimalist-window-shade-upgrade-for-living-room](project/considering-minimalist-window-shade-upgrade-for-living-room.md) — Considering minimalist window shade upgrade for living room
+- [considering-yamaha-yas-209-soundbar-299-for-bedroom](project/considering-yamaha-yas-209-soundbar-299-for-bedroom.md) — Considering Yamaha YAS-209 soundbar ($299) for bedroom
+- [current-project-data-visualization-and-dashboards-for-major-bank](project/current-project-data-visualization-and-dashboards-for-major-bank.md) — Current project: Data visualization and dashboards for major bank
+- [interested-in-playing-and-recording-saxophone](user/interested-in-playing-and-recording-saxophone.md) — Interested in playing and recording saxophone
+- [interested-in-smart-home-automation-with-programmable-lighting](user/interested-in-smart-home-automation-with-programmable-lighting.md) — Interested in smart home automation with programmable lighting
+- [learning-ableton-live-for-drum-pattern-and-melody-creation](project/learning-ableton-live-for-drum-pattern-and-melody-creation.md) — Learning Ableton Live for drum pattern and melody creation
+- [learning-goal-datacamp-data-visualization-with-python-course](user/learning-goal-datacamp-data-visualization-with-python-course.md) — Learning goal: DataCamp Data Visualization with Python course
+- [loves-chick-fil-a-chicken-sandwiches](user/loves-chick-fil-a-chicken-sandwiches.md) — Loves Chick-fil-A chicken sandwiches
+- [master-of-science-in-data-science-at-new-york-university-in-progress](user/master-of-science-in-data-science-at-new-york-university-in-progress.md) — Master of Science in Data Science at New York University, in progress
+- [password-manager-alternatives-1password-dashlane-bitwarden-keepass-nordpass](reference/password-manager-alternatives-1password-dashlane-bitwarden-keepass-nordpass.md) — Password manager alternatives: 1Password, Dashlane, Bitwarden, KeePass, NordPass
+- [plays-ukulele-recently-resumed-practicing-fingerpicking-patterns-and-new-chords](user/plays-ukulele-recently-resumed-practicing-fingerpicking-patterns-and-new-chords.md) — Plays ukulele, recently resumed practicing fingerpicking patterns and new chords
+- [prefers-building-skills-on-personal-projects-before-applying-to-work-projects](user/prefers-building-skills-on-personal-projects-before-applying-to-work-projects.md) — Prefers building skills on personal projects before applying to work projects
+- [prefers-small-delicate-silver-charm-pendants-for-necklaces](user/prefers-small-delicate-silver-charm-pendants-for-necklaces.md) — Prefers small, delicate silver charm pendants for necklaces
+- [prefers-soundbars-with-clear-dialogue-and-easy-hdmi-arc-tv-connection](user/prefers-soundbars-with-clear-dialogue-and-easy-hdmi-arc-tv-connection.md) — Prefers soundbars with clear dialogue and easy HDMI ARC TV connection
+- [prefers-warm-soft-glow-lighting-for-bedroom](user/prefers-warm-soft-glow-lighting-for-bedroom.md) — Prefers warm, soft glow lighting for bedroom
+- [recently-purchased-graphic-t-shirts-from-h-m](user/recently-purchased-graphic-t-shirts-from-h-m.md) — Recently purchased graphic t-shirts from H&M
+- [recently-purchased-sneakers-from-foot-locker](user/recently-purchased-sneakers-from-foot-locker.md) — Recently purchased sneakers from Foot Locker
+- [recently-purchased-versatile-coach-handbag-at-outlet](user/recently-purchased-versatile-coach-handbag-at-outlet.md) — Recently purchased versatile Coach handbag at outlet
+- [recommended-learning-resources-datacamp-coursera-data-science-specialization-kdn](reference/recommended-learning-resources-datacamp-coursera-data-science-specialization-kdn.md) — Recommended learning resources: DataCamp, Coursera Data Science Specialization, KDNuggets
+- [relocating-desk-lamp-to-reduce-computer-screen-glare](project/relocating-desk-lamp-to-reduce-computer-screen-glare.md) — Relocating desk lamp to reduce computer screen glare
+- [senior-data-analyst-at-xyz-corp](user/senior-data-analyst-at-xyz-corp.md) — Senior Data Analyst at XYZ Corp
+- [set-up-new-wi-fi-router-eliminated-streaming-buffering](experience/set-up-new-wi-fi-router-eliminated-streaming-buffering.md) — Set up new Wi-Fi router; eliminated streaming buffering
+- [setting-up-home-music-room-with-optimized-acoustics-and-recording-studio](project/setting-up-home-music-room-with-optimized-acoustics-and-recording-studio.md) — Setting up home music room with optimized acoustics and recording studio
+- [soundbar-options-for-bedroom-sonos-beam-yamaha-yas-209-and-others](reference/soundbar-options-for-bedroom-sonos-beam-yamaha-yas-209-and-others.md) — Soundbar options for bedroom: Sonos Beam, Yamaha YAS-209, and others
+- [update-online-profiles-with-educational-background-summary](project/update-online-profiles-with-educational-background-summary.md) — Update online profiles with educational background summary
+- [using-lastpass-exploring-alternative-password-managers](user/using-lastpass-exploring-alternative-password-managers.md) — Using LastPass; exploring alternative password managers
+- [verde-fashion-co-4-email-welcome-series-introduction-sustainability-products-exc](project/verde-fashion-co-4-email-welcome-series-introduction-sustainability-products-exc.md) — Verde Fashion Co. 4-email welcome series - introduction, sustainability, products, exclusive offer
+- [verde-fashion-co-social-media-strategy-instagram-and-facebook-for-sustainability](project/verde-fashion-co-social-media-strategy-instagram-and-facebook-for-sustainability.md) — Verde Fashion Co. social media strategy - Instagram and Facebook for sustainability, BTS, customer showcase
+- [wants-to-explore-tableau-and-power-bi-for-data-visualization](user/wants-to-explore-tableau-and-power-bi-for-data-visualization.md) — Wants to explore Tableau and Power BI for data visualization

@@ -1,0 +1,24 @@
+# MEMORY.md
+
+- [ai-research-findings-systems-improve-outcomes-but-require-careful-implementation](project/ai-research-findings-systems-improve-outcomes-but-require-careful-implementation.md) — AI research findings: systems improve outcomes but require careful implementation, teacher training, curriculum alignment
+- [bike-ride-with-neighbor-mike-to-wilder-ranch-state-park-15-miles-of-single-track](experience/bike-ride-with-neighbor-mike-to-wilder-ranch-state-park-15-miles-of-single-track.md) — Bike ride with neighbor Mike to Wilder Ranch State Park, 15 miles of single-track
+- [blue-cheese-chocolate-chip-cookies-recipe](reference/blue-cheese-chocolate-chip-cookies-recipe.md) — Blue Cheese Chocolate Chip Cookies recipe
+- [considering-portable-power-bank-for-travel-and-festivals](user/considering-portable-power-bank-for-travel-and-festivals.md) — Considering portable power bank for travel and festivals
+- [current-research-interests-real-time-feedback-collaborative-problem-solving-crit](project/current-research-interests-real-time-feedback-collaborative-problem-solving-crit.md) — Current research interests: real-time feedback, collaborative problem-solving, critical thinking with AI
+- [friend-alex-drifting-mentor-at-parking-lot](user/friend-alex-drifting-mentor-at-parking-lot.md) — Friend Alex - drifting mentor at parking lot
+- [ground-beef-and-chicken-breasts-bogo-at-publix-on-may-20-2023](user/ground-beef-and-chicken-breasts-bogo-at-publix-on-may-20-2023.md) — Ground beef and chicken breasts BOGO at Publix on May 20, 2023
+- [gt-r-brake-pad-upgrade-planning-racing-specific-pads](project/gt-r-brake-pad-upgrade-planning-racing-specific-pads.md) — GT-R brake pad upgrade - planning racing-specific pads
+- [gt-r-full-exhaust-system-planned](project/gt-r-full-exhaust-system-planned.md) — GT-R full exhaust system planned
+- [gt-r-staggered-wheel-setup-planned](project/gt-r-staggered-wheel-setup-planned.md) — GT-R staggered wheel setup planned
+- [interested-in-learning-djing](user/interested-in-learning-djing.md) — Interested in learning DJing
+- [organize-and-clean-cluttered-contact-list](project/organize-and-clean-cluttered-contact-list.md) — Organize and clean cluttered contact list
+- [owns-a-nissan-gt-r](user/owns-a-nissan-gt-r.md) — Owns a Nissan GT-R
+- [phone-screen-pristine-without-screen-protector-careful-maintenance](user/phone-screen-pristine-without-screen-protector-careful-maintenance.md) — Phone screen pristine without screen protector; careful maintenance
+- [planning-camping-trip-with-therm-a-rest-neoair-xlite-sleeping-pad](project/planning-camping-trip-with-therm-a-rest-neoair-xlite-sleeping-pad.md) — Planning camping trip with Therm-a-Rest NeoAir XLite sleeping pad
+- [practices-drifting-at-local-parking-lot](user/practices-drifting-at-local-parking-lot.md) — Practices drifting at local parking lot
+- [presented-thesis-research-at-first-research-conference-summer-2023-positive-feed](project/presented-thesis-research-at-first-research-conference-summer-2023-positive-feed.md) — Presented thesis research at first research conference, summer 2023; positive feedback from stakeholders
+- [solo-hike-to-mission-peak-in-fremont-on-april-10-2023](experience/solo-hike-to-mission-peak-in-fremont-on-april-10-2023.md) — Solo hike to Mission Peak in Fremont on April 10, 2023
+- [therm-a-rest-neoair-xlite-sleeping-pad-12-5-oz-2-8-inches-balance-of-weight-and](reference/therm-a-rest-neoair-xlite-sleeping-pad-12-5-oz-2-8-inches-balance-of-weight-and.md) — Therm-a-Rest NeoAir XLite sleeping pad: 12.5 oz, 2.8 inches, balance of weight and comfort
+- [thesis-research-on-ai-powered-adaptive-learning-systems-for-education-focusing-o](project/thesis-research-on-ai-powered-adaptive-learning-systems-for-education-focusing-o.md) — Thesis research on AI-powered adaptive learning systems for education, focusing on math and reading comprehension
+- [visited-harvard-university-to-attend-research-conference-on-ai-in-education](experience/visited-harvard-university-to-attend-research-conference-on-ai-in-education.md) — Visited Harvard University to attend research conference on AI in education
+- [yosemite-trip-with-stop-in-fresno-had-large-breakfast-burrito](experience/yosemite-trip-with-stop-in-fresno-had-large-breakfast-burrito.md) — Yosemite trip with stop in Fresno, had large breakfast burrito

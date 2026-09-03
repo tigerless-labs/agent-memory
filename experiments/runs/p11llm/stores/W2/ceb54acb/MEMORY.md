@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [10-closing-interview-questions-for-promotion-to-manager-role](reference/10-closing-interview-questions-for-promotion-to-manager-role.md) — 10 closing interview questions for promotion to manager role
+- [current-audiobook-listening-plan-start-with-the-long-way-to-a-small-angry-planet](project/current-audiobook-listening-plan-start-with-the-long-way-to-a-small-angry-planet.md) — Current audiobook listening plan: Start with 'The Long Way to a Small, Angry Planet' (fantasy/sci-fi) then move to 'The 7 Habits of Highly Effective People' (non-fiction)
+- [philippine-government-agencies-for-document-verification-bir-for-income-tax-retu](reference/philippine-government-agencies-for-document-verification-bir-for-income-tax-retu.md) — Philippine government agencies for document verification: BIR for income tax returns, Office of Permits and Licenses for business permits
+- [4800-tweet-dataset-about-academic-writing-anxiety-analyzed-with-lda-topic-modeli](project/4800-tweet-dataset-about-academic-writing-anxiety-analyzed-with-lda-topic-modeli.md) — 4800-tweet dataset about academic writing anxiety analyzed with LDA topic modeling
+- [audiobook-recommendations-for-sci-fi-fantasy-and-non-fiction-from-may-2023](reference/audiobook-recommendations-for-sci-fi-fantasy-and-non-fiction-from-may-2023.md) — Audiobook recommendations for sci-fi, fantasy, and non-fiction from May 2023
+- [document-verification-system-with-ocr-nlp-ml-and-blockchain-for-government-docum](project/document-verification-system-with-ocr-nlp-ml-and-blockchain-for-government-docum.md) — Document verification system with OCR, NLP, ML and blockchain for government documents
+- [interviewed-for-promotion-to-manager-of-information-desk-at-small-private-colleg](experience/interviewed-for-promotion-to-manager-of-information-desk-at-small-private-colleg.md) — Interviewed for promotion to Manager of Information Desk at small private college in May 2023
+- [jupyter-notebook-output-clearing-and-warning-suppression-techniques](reference/jupyter-notebook-output-clearing-and-warning-suppression-techniques.md) — Jupyter notebook output clearing and warning suppression techniques
+- [listens-to-audiobooks-via-libro-fm-on-daily-commute-1-hour-each-way-exploring-sc](user/listens-to-audiobooks-via-libro-fm-on-daily-commute-1-hour-each-way-exploring-sc.md) — Listens to audiobooks via Libro.fm on daily commute (~1 hour each way); exploring sci-fi and fantasy genres; interested in self-improvement and productivity non-fiction
+- [prefers-spreadsheet-based-loyalty-program-tracking-with-phone-reminders](user/prefers-spreadsheet-based-loyalty-program-tracking-with-phone-reminders.md) — Prefers spreadsheet-based loyalty program tracking with phone reminders
+- [research-focus-computational-social-science-with-twitter-analysis-and-topic-mode](user/research-focus-computational-social-science-with-twitter-analysis-and-topic-mode.md) — Research focus: computational social science with Twitter analysis and topic modeling
+- [sell-1960s-leica-camera](project/sell-1960s-leica-camera.md) — Sell 1960s Leica camera
+- [sell-rare-coin-collection](project/sell-rare-coin-collection.md) — Sell rare coin collection
+- [sell-rare-first-edition-book](project/sell-rare-first-edition-book.md) — Sell rare first edition book
+- [sell-vintage-pearl-necklace-from-1920s-found-in-attic](project/sell-vintage-pearl-necklace-from-1920s-found-in-attic.md) — Sell vintage pearl necklace from 1920s found in attic
+- [sell-vintage-typewriter](project/sell-vintage-typewriter.md) — Sell vintage typewriter
+- [sell-vintage-vinyl-records-collection](project/sell-vintage-vinyl-records-collection.md) — Sell vintage vinyl records collection
+- [tiktok-ad-keywords-for-men-s-fashion-clothing](reference/tiktok-ad-keywords-for-men-s-fashion-clothing.md) — TikTok ad keywords for men's fashion clothing
+- [usa-real-estate-agent-performance-marketing-saas-persona-based-on-nar-statistics](reference/usa-real-estate-agent-performance-marketing-saas-persona-based-on-nar-statistics.md) — USA real estate agent performance marketing SaaS persona based on NAR statistics

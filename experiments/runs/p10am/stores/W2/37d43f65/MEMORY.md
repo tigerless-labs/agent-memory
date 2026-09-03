@@ -1,0 +1,15 @@
+# MEMORY.md
+
+- [big-five-personality-test-peer-reviewed-studies](reference/big-five-personality-test-peer-reviewed-studies.md) — Big Five Personality Test peer-reviewed studies
+- [concerned-about-technology-reliance-and-losing-touch-with-human-intuition-and-in](user/concerned-about-technology-reliance-and-losing-touch-with-human-intuition-and-in.md) — Concerned about technology reliance and losing touch with human intuition and instincts
+- [emerging-neuroscience-research-areas-gut-brain-axis-brain-computer-interfaces-bc](reference/emerging-neuroscience-research-areas-gut-brain-axis-brain-computer-interfaces-bc.md) — Emerging neuroscience research areas: gut-brain axis, brain-computer interfaces (BCIs), genetic basis of mental disorders
+- [interested-in-advancements-in-neuroscience-and-psychology-and-their-broader-soci](user/interested-in-advancements-in-neuroscience-and-psychology-and-their-broader-soci.md) — Interested in advancements in neuroscience and psychology and their broader societal impacts
+- [interested-in-how-technology-and-research-can-promote-empathy-open-mindedness-an](user/interested-in-how-technology-and-research-can-promote-empathy-open-mindedness-an.md) — Interested in how technology and research can promote empathy, open-mindedness, and diverse perspectives
+- [interested-in-mental-health-care-access-and-disparities-particularly-in-developi](user/interested-in-mental-health-care-access-and-disparities-particularly-in-developi.md) — Interested in mental health care access and disparities, particularly in developing countries
+- [living-room-workspace-reading-nook-design-projectmay-2023](project/living-room-workspace-reading-nook-design-projectmay-2023.md) — Living room workspace/reading nook design project—May 2023
+- [low-maintenance-houseplants-for-bright-indirect-light](reference/low-maintenance-houseplants-for-bright-indirect-light.md) — Low-maintenance houseplants for bright indirect light
+- [non-uk-citizens-can-become-uk-life-peers-requirements-and-examples](reference/non-uk-citizens-can-become-uk-life-peers-requirements-and-examples.md) — Non-UK citizens can become UK life peers - requirements and examples
+- [prefers-compact-clutter-free-interior-design-with-warm-ambiance-and-visual-inter](user/prefers-compact-clutter-free-interior-design-with-warm-ambiance-and-visual-inter.md) — Prefers compact, clutter-free interior design with warm ambiance and visual interest
+- [prefers-streaming-services-over-cable-tv](user/prefers-streaming-services-over-cable-tv.md) — Prefers streaming services over cable TV
+- [side-dish-pairings-for-grilled-chicken-vegetables-salad-corn-sweet-potato-quinoa](reference/side-dish-pairings-for-grilled-chicken-vegetables-salad-corn-sweet-potato-quinoa.md) — Side dish pairings for grilled chicken: vegetables, salad, corn, sweet potato, quinoa
+- [skeptical-of-social-media-platforms-prioritizing-profits-over-user-safety-and-co](user/skeptical-of-social-media-platforms-prioritizing-profits-over-user-safety-and-co.md) — Skeptical of social media platforms prioritizing profits over user safety and community-building

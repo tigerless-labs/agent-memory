@@ -1,0 +1,274 @@
+## Session sharegpt_ErOTMZ3_223 — 2023/05/20 (Sat) 07:48
+assistant: 1. What is African geomancy?
+a. A divination system practiced in Africa
+b. A type of dance in Africa
+c. A type of food in Africa
+d. A type of clothing in Africa
+Answer: a. A divination system practiced in Africa
+Explanation: African geomancy is a divination system that has been practiced in various African cultures for centuries.
+2. What are the four elements used in African geomancy?
+a. Fire, Water, Earth, Air
+b. Earth, Water, Light, Darkness
+c. Sun, Moon, Stars, Earth
+d. None of the above
+Answer: b. Earth, Water, Light, Darkness
+Explanation: In African geomancy, the four elements used are Earth, Water, Light, and Darkness.
+3. What are the 12 houses of African geomancy called in Yoruba?
+a. Odu
+b. Ikin
+c. Ifa
+d. Orisha
+Answer: a. Odu
+Explanation: The 12 houses of African geomancy in Yoruba are called Odu.
+4. What is the name of the figure that represents the Earth element in African geomancy?
+a. Iwori
+b. Oyeku
+c. Obara
+d. Osa
+Answer: c. Obara
+Explanation: Obara represents the Earth element in African geomancy.
+5. What is the name of the figure that represents the Water element in African geomancy?
+a. Oyeku
+b. Odi
+c. Ogbe
+d. Osa
+Answer: b. Odi
+Explanation: Odi represents the Water element in African geomancy.
+6. What is the name of the figure that represents the Light element in African geomancy?
+a. Iwori
+b. Ogunda
+c. Oyeku
+d. Irete
+Answer: c. Oyeku
+Explanation: Oyeku represents the Light element in African geomancy.
+7. What is the name of the figure that represents the Darkness element in African geomancy?
+a. Ogbe
+b. Irosun
+c. Otura
+d. Oyeku
+Answer: b. Irosun
+Explanation: Irosun represents the Darkness element in African geomancy.
+8. What is the name of the figure that represents the Fire element in African geomancy?
+a. Obara
+b. Ogbe
+c. Oyeku
+d. Osa
+Answer: d. Osa
+Explanation: Osa represents the Fire element in African geomancy.
+9. What is the name of the figure that represents the Air element in African geomancy?
+a. Iwori
+b. Otura
+c. Irete
+d. Oyeku
+Answer: c. Irete
+Explanation: Irete represents the Air element in African geomancy.
+10. What is the name of the figure that represents the Sun in African geomancy?
+a. Ogbe
+b. Otura
+c. Iwori
+d. Oyeku
+Answer: a. Ogbe
+Explanation: Ogbe represents the Sun in African geomancy.
+11. What is the name of the figure that represents the Moon in African geomancy?
+a. Osa
+b. Odi
+c. Otura
+d. Ogunda
+Answer: b. Odi
+Explanation: Odi represents the Moon in African geomancy.
+12. What is the name of the figure that represents the Stars in African geomancy?
+a. Iwori
+b. Obara
+c. Otura
+d. Oyeku
+Answer: c. Otura
+Explanation
+user: continue :For a quiz for 50 questions from the the answers you provided above in our project developüpment: Create your questions based on the information in your lists, and provide multiple-choice answers for each question. Make sure to include the correct answer for each question, as well as explanations for each answer
+assistant: Sure, here are some more questions for the geomancy quiz:
+
+26. Which figure is associated with the house of Wealth?
+A) Albus
+B) Populus
+C) Fortuna Minor
+D) Carcer
+Answer: C) Fortuna Minor
+Explanation: Fortuna Minor is associated with the house of Wealth, which represents financial gain and material prosperity.
+27. Which figure is associated with the house of Death?
+A) Carcer
+B) Caput Draconis
+C) Acquisitio
+D) Rubeus
+Answer: A) Carcer
+Explanation: Carcer is associated with the house of Death, which represents endings, transformation, and the unknown.
+28. Which figure represents a blockage or obstacle?
+A) Populus
+B) Laetitia
+C) Rubeus
+D) Tristitia
+Answer: C) Rubeus
+Explanation: Rubeus represents a blockage or obstacle that must be overcome in order to achieve success or progress.
+29. Which figure is associated with the planet Mars?
+A) Carcer
+B) Fortuna Minor
+C) Puer
+D) Albus
+Answer: C) Puer
+Explanation: Puer is associated with the planet Mars, which represents aggression, energy, and passion.
+30. Which figure is associated with the element Earth?
+A) Via
+B) Populus
+C) Laetitia
+D) Caput Draconis
+Answer: A) Via
+Explanation: Via is associated with the element Earth, which represents stability, grounding, and material possessions.
+31. Which figure represents success and achievement?
+A) Fortuna Major
+B) Cauda Draconis
+C) Tristitia
+D) Acquisitio
+Answer: A) Fortuna Major
+Explanation: Fortuna Major represents success, achievement, and good luck.
+32. Which figure represents learning and knowledge?
+A) Albus
+B) Puer
+C) Laetitia
+D) Populus
+Answer: A) Albus
+Explanation: Albus represents learning, knowledge, and wisdom.
+33. Which figure represents love and relationships?
+A) Carcer
+B) Amor
+C) Fortuna Major
+D) Caput Draconis
+Answer: B) Amor
+Explanation: Amor represents love, relationships, and emotional connections.
+34. Which figure represents spirituality and inner growth?
+A) Fortuna Minor
+B) Populus
+C) Via
+D) Cauda Draconis
+Answer: D) Cauda Draconis
+Explanation: Cauda Draconis represents spirituality, inner growth, and transformation.
+35. Which figure represents new beginnings and opportunities?
+A) Caput Draconis
+B) Rubeus
+C) Tristitia
+D) Fortuna Minor
+Answer: A) Caput Draconis
+Explanation: Caput Draconis represents new beginnings, opportunities, and potential for growth.
+
+I hope these additional questions are helpful for your quiz!
+user: continue: For a quiz for 50 questions from the the answers you provided above in our project developpment: Create your questions based on the information in your lists, and provide multiple-choice answers for each question. Make sure to include the correct answer for each question, as well as explanations for each answer
+assistant: 21. What is the name of the figure in Bambara geomancy that represents the idea of "solutions"?
+
+A) Kanyi
+B) Tugu
+C) Yenye
+D) Teme
+
+Correct answer: A) Kanyi
+
+Explanation: Kanyi represents the idea of solutions, particularly in regards to solving problems and overcoming obstacles.
+
+22. Which house in the Bambara geomancy system is associated with agriculture and farming?
+
+A) Faden
+B) Basen
+C) Sisi
+D) Wurude
+
+Correct answer: B) Basen
+
+Explanation: Basen is the house associated with agriculture and farming in Bambara geomancy.
+
+23. What characteristic is represented by the figure called Tulu in Bambara geomancy?
+
+A) Wealth
+B) Success
+C) Disagreement
+D) Change
+
+Correct answer: C) Disagreement
+
+Explanation: Tulu represents the idea of disagreement or conflict in Bambara geomancy.
+
+24. Which combination of figures in Bambara geomancy is associated with the idea of progress or growth?
+
+A) Kanyi + Teme
+B) Sisi + Wurude
+C) Tulu + Yenye
+D) Faden + Basen
+
+Correct answer: B) Sisi + Wurude
+
+Explanation: The combination of Sisi and Wurude is associated with the idea of progress or growth, particularly in regards to agriculture and farming.
+
+25. What is the name of the figure in Bambara geomancy that represents the idea of "movement"?
+
+A) Tulu
+B) Kanyi
+C) Yenye
+D) Teme
+
+Correct answer: D) Teme
+
+Explanation: Teme represents the idea of movement or change, particularly in regards to travel or physical movement.
+
+26. Which house in the Bambara geomancy system is associated with the idea of love and relationships?
+
+A) Basen
+B) Faden
+C) Sisi
+D) Wurude
+
+Correct answer: B) Faden
+
+Explanation: Faden is the house associated with love and relationships in Bambara geomancy.
+
+27. What characteristic is represented by the figure called Teme in Bambara geomancy?
+
+A) Wealth
+B) Movement
+C) Success
+D) Change
+
+Correct answer: D) Change
+
+Explanation: Teme represents the idea of change or transformation in Bambara geomancy.
+
+28. Which combination of figures in Bambara geomancy is associated with the idea of protection?
+
+A) Tulu + Yenye
+B) Faden + Basen
+C) Kanyi + Teme
+D) Sisi + Wurude
+
+Correct answer: A) Tulu + Yenye
+
+Explanation: The combination of Tulu and Yenye is associated with the idea of protection in Bambara geomancy.
+
+29. What is the name of the figure in Bambara geomancy that represents the idea of "completion"?
+
+A) Tulu
+B) Kanyi
+C) Yenye
+D) Faden
+
+Correct answer: A) Tulu
+
+Explanation: Tulu represents the idea of completion or fulfillment in Bambara geomancy.
+
+30. Which house in the Bambara geomancy system is associated with the idea of health and wellness?
+
+A) Sisi
+B) Faden
+C) Basen
+D) Wurude
+
+Correct answer: A) Sisi
+
+Explanation: Sisi is the house associated with health and wellness in Bambara geomancy.
+
+31. What characteristic is represented by the figure called Kanyi in Bambara geomancy?
+
+A)

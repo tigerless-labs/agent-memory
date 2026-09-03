@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [attended-frightfest-in-london-saw-the-cabin-in-the-woods-sneak-peek](experience/attended-frightfest-in-london-saw-the-cabin-in-the-woods-sneak-peek.md) — Attended FrightFest in London; saw 'The Cabin in the Woods' sneak peek
+- [bay-area-hiking-tilden-regional-park-trail-options](reference/bay-area-hiking-tilden-regional-park-trail-options.md) — Bay Area hiking: Tilden Regional Park trail options
+- [ceramic-and-pottery-learning-resources-online-courses-youtube-channels-books](reference/ceramic-and-pottery-learning-resources-online-courses-youtube-channels-books.md) — Ceramic and pottery learning resources: online courses, YouTube channels, books
+- [chose-vogelsang-high-sierra-camp-route-for-september-2023-backpacking-trip](project/chose-vogelsang-high-sierra-camp-route-for-september-2023-backpacking-trip.md) — Chose Vogelsang High Sierra Camp route for September 2023 backpacking trip
+- [considering-shimano-ultegra-clipless-pedals-for-road-bike-interested-in-long-dis](user/considering-shimano-ultegra-clipless-pedals-for-road-bike-interested-in-long-dis.md) — Considering Shimano Ultegra clipless pedals for road bike; interested in long-distance rides
+- [eco-friendly-travel-resources-and-apps](reference/eco-friendly-travel-resources-and-apps.md) — Eco-friendly travel resources and apps
+- [enjoys-outdoor-activities-hiking-backpacking-kayaking-canoeing](user/enjoys-outdoor-activities-hiking-backpacking-kayaking-canoeing.md) — Enjoys outdoor activities: hiking, backpacking, kayaking/canoeing
+- [favorite-animal-bald-eagles](user/favorite-animal-bald-eagles.md) — Favorite animal: bald eagles
+- [flagstaff-restaurants-and-accommodations-near-grand-canyon](reference/flagstaff-restaurants-and-accommodations-near-grand-canyon.md) — Flagstaff restaurants and accommodations near Grand Canyon
+- [grand-canyon-national-park-campgrounds-with-electric-hookups-for-rvs](reference/grand-canyon-national-park-campgrounds-with-electric-hookups-for-rvs.md) — Grand Canyon National Park campgrounds with electric hookups for RVs
+- [has-a-cousin-who-shares-interest-in-horror-films](user/has-a-cousin-who-shares-interest-in-horror-films.md) — Has a cousin who shares interest in horror films
+- [home-backup-external-hard-drive-evaluating-nas-device-for-central-backup](user/home-backup-external-hard-drive-evaluating-nas-device-for-central-backup.md) — Home backup: external hard drive; evaluating NAS device for central backup
+- [horror-anthology-films-recommended](reference/horror-anthology-films-recommended.md) — Horror anthology films recommended
+- [horror-film-and-tv-enthusiast-attends-film-festivals](user/horror-film-and-tv-enthusiast-attends-film-festivals.md) — Horror film and TV enthusiast; attends film festivals
+- [horror-film-recommendations-folk-horror-and-atmospheric-titles](reference/horror-film-recommendations-folk-horror-and-atmospheric-titles.md) — Horror film recommendations: folk horror and atmospheric titles
+- [horror-film-recommendations-horror-comedy-blend-cabin-in-the-woods-style](reference/horror-film-recommendations-horror-comedy-blend-cabin-in-the-woods-style.md) — Horror film recommendations: horror-comedy blend (Cabin in the Woods style)
+- [horror-tv-series-recommendations](reference/horror-tv-series-recommendations.md) — Horror TV series recommendations
+- [interested-in-modern-sculpture-anish-kapoor-s-work-clay-modeling-and-ceramic-gla](user/interested-in-modern-sculpture-anish-kapoor-s-work-clay-modeling-and-ceramic-gla.md) — Interested in modern sculpture, Anish Kapoor's work, clay modeling, and ceramic glazing techniques
+- [interested-in-sustainable-and-eco-friendly-travel](user/interested-in-sustainable-and-eco-friendly-travel.md) — Interested in sustainable and eco-friendly travel
+- [kayak-canoe-rental-options-in-hague-virginia-area](reference/kayak-canoe-rental-options-in-hague-virginia-area.md) — Kayak/canoe rental options in Hague, Virginia area
+- [modern-sculptors-anish-kapoor-rachel-whiteread-richard-serra-jeff-koons-and-othe](reference/modern-sculptors-anish-kapoor-rachel-whiteread-richard-serra-jeff-koons-and-othe.md) — Modern sculptors: Anish Kapoor, Rachel Whiteread, Richard Serra, Jeff Koons, and others
+- [online-retailers-for-customized-and-personalized-items](reference/online-retailers-for-customized-and-personalized-items.md) — Online retailers for customized and personalized items
+- [owns-road-bike-and-mountain-bike-recently-repaired-mountain-bike-flat-tire](user/owns-road-bike-and-mountain-bike-recently-repaired-mountain-bike-flat-tire.md) — Owns road bike and mountain bike; recently repaired mountain bike flat tire
+- [planning-rv-road-trip-to-grand-canyon-with-friends-over-winter-holidays](project/planning-rv-road-trip-to-grand-canyon-with-friends-over-winter-holidays.md) — Planning RV road trip to Grand Canyon with friends over winter holidays
+- [sierra-nevada-backpacking-alternatives-if-primary-route-too-difficult](reference/sierra-nevada-backpacking-alternatives-if-primary-route-too-difficult.md) — Sierra Nevada backpacking alternatives if primary route too difficult
+- [sister-turned-25-on-2023-05-15-received-silver-necklace-from-zara](user/sister-turned-25-on-2023-05-15-received-silver-necklace-from-zara.md) — Sister turned 25 on 2023-05-15, received silver necklace from Zara
+- [solo-road-trip-to-san-francisco-for-music-festival-in-golden-gate-park](experience/solo-road-trip-to-san-francisco-for-music-festival-in-golden-gate-park.md) — Solo road trip to San Francisco for music festival in Golden Gate Park
+- [travel-plan-ethiopia-to-experience-culture-festivals-and-cuisine](user/travel-plan-ethiopia-to-experience-culture-festivals-and-cuisine.md) — Travel plan: Ethiopia to experience culture, festivals, and cuisine
+- [winter-rv-travel-tips-for-grand-canyon-trip](reference/winter-rv-travel-tips-for-grand-canyon-trip.md) — Winter RV travel tips for Grand Canyon trip

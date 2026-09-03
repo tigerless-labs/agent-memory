@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [active-on-social-media-builds-connections-around-shared-interests-interested-in](user/active-on-social-media-builds-connections-around-shared-interests-interested-in.md) — Active on social media; builds connections around shared interests; interested in organization systems for managing conversations
+- [collects-art-prints-and-posters-owns-mondo-hogwarts-castle-poster](user/collects-art-prints-and-posters-owns-mondo-hogwarts-castle-poster.md) — Collects art prints and posters: owns Mondo Hogwarts castle poster
+- [collects-funko-pop-figures-complete-mcu-set](user/collects-funko-pop-figures-complete-mcu-set.md) — Collects Funko POP figures: complete MCU set
+- [collects-vintage-cameras-17-total-as-of-may-2023-including-brownie-hawkeye](user/collects-vintage-cameras-17-total-as-of-may-2023-including-brownie-hawkeye.md) — Collects vintage cameras: 17 total as of May 2023, including Brownie Hawkeye
+- [collects-vinyl-records-owns-rare-1978-fleetwood-mac-s-rumours](user/collects-vinyl-records-owns-rare-1978-fleetwood-mac-s-rumours.md) — Collects vinyl records: owns rare 1978 Fleetwood Mac's Rumours
+- [considering-upgrading-laptop-ram-from-8gb-to-16gb](project/considering-upgrading-laptop-ram-from-8gb-to-16gb.md) — Considering upgrading laptop RAM from 8GB to 16GB
+- [dad-has-a-home-theater-setup-at-his-house](user/dad-has-a-home-theater-setup-at-his-house.md) — Dad has a home theater setup at his house
+- [friend-sarah-recently-turned-30-lives-in-same-city](user/friend-sarah-recently-turned-30-lives-in-same-city.md) — Friend Sarah recently turned 30; lives in same city
+- [has-a-grandmother-interested-in-improving-her-nutrition-for-cognitive-health](user/has-a-grandmother-interested-in-improving-her-nutrition-for-cognitive-health.md) — Has a grandmother; interested in improving her nutrition for cognitive health
+- [interested-in-hiking-seeking-5-7-mile-trails-and-weather-forecasting-tools](user/interested-in-hiking-seeking-5-7-mile-trails-and-weather-forecasting-tools.md) — Interested in hiking; seeking 5-7 mile trails and weather forecasting tools
+- [memorable-movie-lunch-with-sister-emma-on-2023-05-07](experience/memorable-movie-lunch-with-sister-emma-on-2023-05-07.md) — Memorable movie lunch with sister Emma on 2023-05-07
+- [mom-is-an-excellent-baker](user/mom-is-an-excellent-baker.md) — Mom is an excellent baker
+- [owns-laptop-with-8gb-ram-8-9-hours-battery-life-calibrated-battery-2-weeks-ago](user/owns-laptop-with-8gb-ram-8-9-hours-battery-life-calibrated-battery-2-weeks-ago.md) — Owns laptop with 8GB RAM, 8-9 hours battery life; calibrated battery 2 weeks ago
+- [planning-to-replace-old-imac-desktop-evaluating-imac-vs-windows-pc-options](project/planning-to-replace-old-imac-desktop-evaluating-imac-vs-windows-pc-options.md) — Planning to replace old iMac desktop; evaluating iMac vs Windows PC options
+- [prefers-proper-storage-maintenance-and-display-for-collectible-items](user/prefers-proper-storage-maintenance-and-display-for-collectible-items.md) — Prefers proper storage, maintenance, and display for collectible items
+- [sister-s-name-is-emma](user/sister-s-name-is-emma.md) — Sister's name is Emma
+- [teaches-classroom-courses-and-interested-in-student-leadership-development](user/teaches-classroom-courses-and-interested-in-student-leadership-development.md) — Teaches classroom courses and interested in student leadership development
+- [uses-note-taking-strategies-for-book-preparation-summaries-character-maps-quoted](user/uses-note-taking-strategies-for-book-preparation-summaries-character-maps-quoted.md) — Uses note-taking strategies for book preparation: summaries, character maps, quoted passages, questions
+- [values-ethical-true-crime-narratives-that-prioritize-justice-and-victim-dignity](user/values-ethical-true-crime-narratives-that-prioritize-justice-and-victim-dignity.md) — Values ethical true crime narratives that prioritize justice and victim dignity over sensationalism
+- [won-instagram-book-club-giveaway-actively-participating-in-book-club-discussions](experience/won-instagram-book-club-giveaway-actively-participating-in-book-club-discussions.md) — Won Instagram book club giveaway; actively participating in book club discussions

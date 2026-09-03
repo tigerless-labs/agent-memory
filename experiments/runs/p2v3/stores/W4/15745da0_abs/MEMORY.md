@@ -1,0 +1,33 @@
+# MEMORY.md
+
+- [battery-life-extension-tips-15-practical-strategies-for-laptops](reference/battery-life-extension-tips-15-practical-strategies-for-laptops.md) — Battery life extension tips: 15 practical strategies for laptops
+- [beginner-tips-for-printmaking](reference/beginner-tips-for-printmaking.md) — Beginner tips for printmaking
+- [brayer-selection-factors-in-printmaking](reference/brayer-selection-factors-in-printmaking.md) — Brayer selection factors in printmaking
+- [collecting-funko-pop-figures-complete-marvel-cinematic-universe-set](user/collecting-funko-pop-figures-complete-marvel-cinematic-universe-set.md) — Collecting Funko POP! figures - complete Marvel Cinematic Universe set
+- [collecting-vintage-cameras-17-cameras-including-brownie-hawkeye](user/collecting-vintage-cameras-17-cameras-including-brownie-hawkeye.md) — Collecting vintage cameras - 17 cameras including Brownie Hawkeye
+- [educator-focused-on-developing-students-leadership-skills-through-collaborative](user/educator-focused-on-developing-students-leadership-skills-through-collaborative.md) — Educator focused on developing students' leadership skills through collaborative and role-based learning
+- [ethical-framework-for-consuming-true-crime-narratives-prioritizing-victims-justi](reference/ethical-framework-for-consuming-true-crime-narratives-prioritizing-victims-justi.md) — Ethical framework for consuming true crime narratives: prioritizing victims, justice, and social consciousness
+- [father-has-home-theater-setup](project/father-has-home-theater-setup.md) — Father has home theater setup
+- [foods-supplements-and-snacks-for-elderly-cognitive-health](reference/foods-supplements-and-snacks-for-elderly-cognitive-health.md) — Foods, supplements, and snacks for elderly cognitive health
+- [friend-sarah-turned-30-around-2023-lives-in-same-city-source-for-local-hiking-re](user/friend-sarah-turned-30-around-2023-lives-in-same-city-source-for-local-hiking-re.md) — Friend Sarah, turned 30 around 2023, lives in same city, source for local hiking recommendations
+- [has-an-old-imac-desktop-computer-considering-replacement-or-upgrade](user/has-an-old-imac-desktop-computer-considering-replacement-or-upgrade.md) — Has an old iMac desktop computer considering replacement or upgrade
+- [imac-vs-windows-pc-comparison-cost-customization-ecosystem-gaming-security](reference/imac-vs-windows-pc-comparison-cost-customization-ecosystem-gaming-security.md) — iMac vs Windows PC comparison: cost, customization, ecosystem, gaming, security
+- [interest-in-shakespeare-s-plays-hamlet-the-tempest-the-winter-s-tale](user/interest-in-shakespeare-s-plays-hamlet-the-tempest-the-winter-s-tale.md) — Interest in Shakespeare's plays: Hamlet, The Tempest, The Winter's Tale
+- [interested-in-hiking-and-planning-outdoor-trail-activities-prefers-5-7-mile-hike](user/interested-in-hiking-and-planning-outdoor-trail-activities-prefers-5-7-mile-hike.md) — Interested in hiking and planning outdoor trail activities, prefers 5-7 mile hikes
+- [interested-in-learning-printmaking-as-a-beginner](user/interested-in-learning-printmaking-as-a-beginner.md) — Interested in learning printmaking as a beginner
+- [laptop-has-8gb-ram-achieves-8-9-hours-battery-life-considering-upgrade-to-16gb](user/laptop-has-8gb-ram-achieves-8-9-hours-battery-life-considering-upgrade-to-16gb.md) — Laptop has 8GB RAM, achieves 8-9 hours battery life, considering upgrade to 16GB
+- [mac-to-windows-file-transfer-methods-compatibility-considerations-file-system-di](reference/mac-to-windows-file-transfer-methods-compatibility-considerations-file-system-di.md) — Mac to Windows file transfer: methods, compatibility considerations, file system differences
+- [mother-is-an-excellent-baker](user/mother-is-an-excellent-baker.md) — Mother is an excellent baker
+- [participates-in-instagram-book-club-community-builds-connections-through-social](user/participates-in-instagram-book-club-community-builds-connections-through-social.md) — Participates in Instagram book club community, builds connections through social media around shared reading interests
+- [poster-and-art-print-collection-including-mondo-hogwarts-poster](user/poster-and-art-print-collection-including-mondo-hogwarts-poster.md) — Poster and art print collection including Mondo Hogwarts poster
+- [prefers-ethical-true-crime-narratives-centered-on-victims-and-justice-rejects-se](user/prefers-ethical-true-crime-narratives-centered-on-victims-and-justice-rejects-se.md) — Prefers ethical true crime narratives centered on victims and justice, rejects sensationalism and exploitation
+- [property-appraisal-complexity-assessment-framework-with-5-categories-and-apprais](project/property-appraisal-complexity-assessment-framework-with-5-categories-and-apprais.md) — Property appraisal complexity assessment framework with 5 categories and appraiser evaluation guidance
+- [ram-upgrade-impact-analysis-8gb-to-16gb-affects-multitasking-and-future-proofing](reference/ram-upgrade-impact-analysis-8gb-to-16gb-affects-multitasking-and-future-proofing.md) — RAM upgrade impact analysis: 8GB to 16GB affects multitasking and future-proofing, minimal direct battery impact
+- [role-playing-and-collaborative-learning-strategies-for-developing-student-leader](reference/role-playing-and-collaborative-learning-strategies-for-developing-student-leader.md) — Role-playing and collaborative learning strategies for developing student leadership skills
+- [sister-emma](user/sister-emma.md) — Sister Emma
+- [surprise-birthday-party-for-sister-emma](project/surprise-birthday-party-for-sister-emma.md) — Surprise birthday party for sister Emma
+- [vinyl-record-collection-including-rare-1978-fleetwood-mac-rumours-pressing](user/vinyl-record-collection-including-rare-1978-fleetwood-mac-rumours-pressing.md) — Vinyl record collection including rare 1978 Fleetwood Mac Rumours pressing
+- [watched-movie-with-sister-emma-on-2023-05-08](experience/watched-movie-with-sister-emma-on-2023-05-08.md) — Watched movie with sister Emma on 2023-05-08
+- [weather-and-hiking-trail-apps-recommended-dark-sky-mountain-weather-forecast-all](reference/weather-and-hiking-trail-apps-recommended-dark-sky-mountain-weather-forecast-all.md) — Weather and hiking trail apps recommended: Dark Sky, Mountain Weather Forecast, AllTrails, TrailLink, Hiking Project
+- [won-book-club-giveaway-on-instagram-2023-05-20](experience/won-book-club-giveaway-on-instagram-2023-05-20.md) — Won book club giveaway on Instagram (2023-05-20)
+- [working-on-improving-grandmother-s-cognitive-health-through-nutrition](user/working-on-improving-grandmother-s-cognitive-health-through-nutrition.md) — Working on improving grandmother's cognitive health through nutrition

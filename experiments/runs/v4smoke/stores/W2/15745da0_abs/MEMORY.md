@@ -1,0 +1,29 @@
+# MEMORY.md
+
+- [acquired-brownie-hawkeye-vintage-camera-may-2023](user/acquired-brownie-hawkeye-vintage-camera-may-2023.md) — Acquired Brownie Hawkeye vintage camera, May 2023
+- [battery-calibration-by-full-discharge-and-charge-cycle-improved-laptop-battery-l](experience/battery-calibration-by-full-discharge-and-charge-cycle-improved-laptop-battery-l.md) — Battery calibration by full discharge and charge cycle improved laptop battery life
+- [beginner-tips-and-material-guidance-for-printmaking](reference/beginner-tips-and-material-guidance-for-printmaking.md) — Beginner tips and material guidance for printmaking
+- [considering-upgrading-laptop-ram-from-8gb-to-16gb](project/considering-upgrading-laptop-ram-from-8gb-to-16gb.md) — Considering upgrading laptop RAM from 8GB to 16GB
+- [essay-hamlet-the-tempest-and-the-winter-s-tale-analyzed](reference/essay-hamlet-the-tempest-and-the-winter-s-tale-analyzed.md) — Essay: Hamlet, The Tempest, and The Winter's Tale analyzed
+- [ethical-true-crime-consumption-prioritizes-victim-centered-narratives-and-holds](user/ethical-true-crime-consumption-prioritizes-victim-centered-narratives-and-holds.md) — Ethical true crime consumption: prioritizes victim-centered narratives and holds self accountable as consumer
+- [family-sister-emma-dad-with-home-theater-mom-is-excellent-baker](user/family-sister-emma-dad-with-home-theater-mom-is-excellent-baker.md) — Family: sister Emma, dad with home theater, mom is excellent baker
+- [foods-and-supplements-recommended-for-cognitive-function-in-elderly-individuals](reference/foods-and-supplements-recommended-for-cognitive-function-in-elderly-individuals.md) — Foods and supplements recommended for cognitive function in elderly individuals
+- [friend-sarah-turned-30-in-may-2023-shares-same-city](user/friend-sarah-turned-30-in-may-2023-shares-same-city.md) — Friend Sarah; turned 30 in May 2023; shares same city
+- [interested-in-hiking-trails-57-miles-long-uses-weather-forecasts-for-trail-plann](user/interested-in-hiking-trails-57-miles-long-uses-weather-forecasts-for-trail-plann.md) — Interested in hiking trails 5–7 miles long; uses weather forecasts for trail planning
+- [interested-in-learning-printmaking](user/interested-in-learning-printmaking.md) — Interested in learning printmaking
+- [laptop-has-8gb-ram-achieves-8-9-hours-battery-life](user/laptop-has-8gb-ram-achieves-8-9-hours-battery-life.md) — Laptop has 8GB RAM, achieves 8-9 hours battery life
+- [large-funko-pop-collection-including-complete-marvel-cinematic-universe-set](user/large-funko-pop-collection-including-complete-marvel-cinematic-universe-set.md) — Large Funko POP! collection including complete Marvel Cinematic Universe set
+- [mondo-poster-of-hogwarts-castle-from-harry-potter-acquired-may-2023](user/mondo-poster-of-hogwarts-castle-from-harry-potter-acquired-may-2023.md) — Mondo poster of Hogwarts castle from Harry Potter, acquired May 2023
+- [participates-in-instagram-book-club-won-giveaway-and-actively-discusses-current](user/participates-in-instagram-book-club-won-giveaway-and-actively-discusses-current.md) — Participates in Instagram book club; won giveaway and actively discusses current reads
+- [plan-surprise-movie-night-birthday-party-for-sister-emma-at-dad-s-home-theater](project/plan-surprise-movie-night-birthday-party-for-sister-emma-at-dad-s-home-theater.md) — Plan surprise movie night birthday party for sister Emma at dad's home theater
+- [planning-to-replace-old-imac-desktop-with-newer-imac-or-windows-pc](project/planning-to-replace-old-imac-desktop-with-newer-imac-or-windows-pc.md) — Planning to replace old iMac desktop with newer iMac or Windows PC
+- [prioritizes-laptop-battery-life-and-interested-in-performance-optimization](user/prioritizes-laptop-battery-life-and-interested-in-performance-optimization.md) — Prioritizes laptop battery life and interested in performance optimization
+- [rare-1978-pressing-of-fleetwood-mac-s-rumours-vinyl-record](user/rare-1978-pressing-of-fleetwood-mac-s-rumours-vinyl-record.md) — Rare 1978 pressing of Fleetwood Mac's Rumours vinyl record
+- [rewrote-menu-descriptions-for-villa-gennaro-italian-restaurant-parts-2-4](project/rewrote-menu-descriptions-for-villa-gennaro-italian-restaurant-parts-2-4.md) — Rewrote menu descriptions for Villa Gennaro Italian restaurant (parts 2-4)
+- [sister-emma-enjoys-movies-and-has-a-favorite-movie](user/sister-emma-enjoys-movies-and-has-a-favorite-movie.md) — Sister Emma: enjoys movies and has a favorite movie
+- [teacher-interested-in-developing-student-leadership-through-collaborative-and-ro](user/teacher-interested-in-developing-student-leadership-through-collaborative-and-ro.md) — Teacher interested in developing student leadership through collaborative and role-playing activities
+- [tips-for-making-healthy-foods-appealing-to-elderly-individuals](reference/tips-for-making-healthy-foods-appealing-to-elderly-individuals.md) — Tips for making healthy foods appealing to elderly individuals
+- [user-has-a-grandmother-interested-in-improving-her-cognitive-function-through-nu](user/user-has-a-grandmother-interested-in-improving-her-cognitive-function-through-nu.md) — User has a grandmother; interested in improving her cognitive function through nutrition
+- [values-proper-storage-preservation-and-attractive-display-of-collectibles](user/values-proper-storage-preservation-and-attractive-display-of-collectibles.md) — Values proper storage, preservation, and attractive display of collectibles
+- [vintage-camera-collection-17-cameras-3-month-collection-hobby](user/vintage-camera-collection-17-cameras-3-month-collection-hobby.md) — Vintage camera collection: 17 cameras, 3-month collection hobby
+- [weather-apps-for-hiking-dark-sky-and-mountain-weather-forecast](reference/weather-apps-for-hiking-dark-sky-and-mountain-weather-forecast.md) — Weather apps for hiking: Dark Sky and Mountain Weather Forecast

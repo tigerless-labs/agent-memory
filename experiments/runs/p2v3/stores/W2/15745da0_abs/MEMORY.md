@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [beginner-interest-in-learning-printmaking](user/beginner-interest-in-learning-printmaking.md) — Beginner interest in learning printmaking
+- [book-note-taking-and-summarization-strategies-for-book-club-preparation](reference/book-note-taking-and-summarization-strategies-for-book-club-preparation.md) — Book note-taking and summarization strategies for book club preparation
+- [collects-funko-pop-figures-including-complete-marvel-cinematic-universe-set](user/collects-funko-pop-figures-including-complete-marvel-cinematic-universe-set.md) — Collects Funko POP! figures including complete Marvel Cinematic Universe set
+- [collects-posters-and-art-prints-recently-acquired-mondo-poster-of-hogwarts-castl](user/collects-posters-and-art-prints-recently-acquired-mondo-poster-of-hogwarts-castl.md) — Collects posters and art prints; recently acquired Mondo poster of Hogwarts castle from Harry Potter
+- [collects-vintage-cameras-17-total-organized-by-type-era-on-shelf-recently-acquir](user/collects-vintage-cameras-17-total-organized-by-type-era-on-shelf-recently-acquir.md) — Collects vintage cameras (17 total), organized by type/era on shelf, recently acquired Brownie Hawkeye
+- [collects-vinyl-records-recently-acquired-rare-1978-pressing-of-fleetwood-mac-s-r](user/collects-vinyl-records-recently-acquired-rare-1978-pressing-of-fleetwood-mac-s-r.md) — Collects vinyl records; recently acquired rare 1978 pressing of Fleetwood Mac's Rumours
+- [dad-has-a-great-home-theater-setup](user/dad-has-a-great-home-theater-setup.md) — Dad has a great home theater setup
+- [desktop-old-imac-considering-replacement-with-newer-imac-or-windows-pc](user/desktop-old-imac-considering-replacement-with-newer-imac-or-windows-pc.md) — Desktop: old iMac, considering replacement with newer iMac or Windows PC
+- [educator-interested-in-role-playing-and-collaborative-learning-for-student-leade](user/educator-interested-in-role-playing-and-collaborative-learning-for-student-leade.md) — Educator; interested in role-playing and collaborative learning for student leadership development
+- [friend-sarah-turned-30-in-may-2023](user/friend-sarah-turned-30-in-may-2023.md) — Friend Sarah turned 30 in May 2023
+- [grandmother-s-nutrition-for-cognitive-health-implementing-dietary-improvements](user/grandmother-s-nutrition-for-cognitive-health-implementing-dietary-improvements.md) — Grandmother's nutrition for cognitive health - implementing dietary improvements
+- [interest-in-shakespeare-s-plays-and-classic-dramatic-literature](user/interest-in-shakespeare-s-plays-and-classic-dramatic-literature.md) — Interest in Shakespeare's plays and classic dramatic literature
+- [interested-in-volcano-photography-and-visiting-active-volcanic-sites-like-mount](user/interested-in-volcano-photography-and-visiting-active-volcanic-sites-like-mount.md) — Interested in volcano photography and visiting active volcanic sites like Mount Sakurajima
+- [laptop-specs-8gb-ram-8-9-hours-battery-life-considering-upgrade-to-16gb-ram](user/laptop-specs-8gb-ram-8-9-hours-battery-life-considering-upgrade-to-16gb-ram.md) — Laptop specs: 8GB RAM, 8-9 hours battery life, considering upgrade to 16GB RAM
+- [mom-is-an-excellent-baker](user/mom-is-an-excellent-baker.md) — Mom is an excellent baker
+- [planning-surprise-movie-night-birthday-party-for-emma](project/planning-surprise-movie-night-birthday-party-for-emma.md) — Planning surprise movie-night birthday party for Emma
+- [preference-for-ethical-true-crime-narratives-focused-on-justice-over-sensational](user/preference-for-ethical-true-crime-narratives-focused-on-justice-over-sensational.md) — Preference for ethical true crime narratives focused on justice over sensationalization
+- [printmaking-materials-effects-and-beginner-techniques](reference/printmaking-materials-effects-and-beginner-techniques.md) — Printmaking materials, effects, and beginner techniques
+- [property-appraisal-complexity-assessment-framework-to-counter-appraiser-fee-infl](project/property-appraisal-complexity-assessment-framework-to-counter-appraiser-fee-infl.md) — Property appraisal complexity assessment framework to counter appraiser fee inflation bias
+- [sister-emma-enjoys-movies](user/sister-emma-enjoys-movies.md) — Sister Emma enjoys movies
+- [social-media-engagement-and-relationship-management-strategies](reference/social-media-engagement-and-relationship-management-strategies.md) — Social media engagement and relationship management strategies
+- [villa-gennaro-restaurant-menu-rewrite-project](project/villa-gennaro-restaurant-menu-rewrite-project.md) — Villa Gennaro restaurant menu rewrite project
+- [watched-movie-with-sister-emma-at-lunch-on-2023-05-08](experience/watched-movie-with-sister-emma-at-lunch-on-2023-05-08.md) — Watched movie with sister Emma at lunch on 2023-05-08
+- [weather-and-hiking-forecast-apps-recommended-for-trail-planning](reference/weather-and-hiking-forecast-apps-recommended-for-trail-planning.md) — Weather and hiking forecast apps recommended for trail planning
+- [won-an-instagram-book-club-giveaway-and-actively-participates-in-their-discussio](experience/won-an-instagram-book-club-giveaway-and-actively-participates-in-their-discussio.md) — Won an Instagram book club giveaway and actively participates in their discussions

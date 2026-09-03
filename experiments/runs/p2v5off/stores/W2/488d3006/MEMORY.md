@@ -1,0 +1,36 @@
+# MEMORY.md
+
+- [attended-austin-film-festival-in-april-2023-jim-uhls-screenwriting-workshop](experience/attended-austin-film-festival-in-april-2023-jim-uhls-screenwriting-workshop.md) — Attended Austin Film Festival in April 2023, Jim Uhls screenwriting workshop
+- [bear-resistant-food-storage-container-and-bag-recommendations](reference/bear-resistant-food-storage-container-and-bag-recommendations.md) — Bear-resistant food storage container and bag recommendations
+- [blue-cheese-chocolate-chip-cookie-recipe](reference/blue-cheese-chocolate-chip-cookie-recipe.md) — Blue Cheese Chocolate Chip Cookie Recipe
+- [bot-trading-10-week-course-curriculum](reference/bot-trading-10-week-course-curriculum.md) — Bot trading 10-week course curriculum
+- [calendar-and-productivity-tools-evaluated-google-calendar-outlook-apple-calendar](reference/calendar-and-productivity-tools-evaluated-google-calendar-outlook-apple-calendar.md) — Calendar and productivity tools evaluated: Google Calendar, Outlook, Apple Calendar, Any.do, Trello
+- [camping-breakfast-recipes-and-cooking-tips](reference/camping-breakfast-recipes-and-cooking-tips.md) — Camping breakfast recipes and cooking tips
+- [considering-pittsburgh-weekend-trip-interested-in-strip-district-mount-washingto](project/considering-pittsburgh-weekend-trip-interested-in-strip-district-mount-washingto.md) — Considering Pittsburgh weekend trip - interested in Strip District, Mount Washington views, walkable neighborhoods
+- [developed-blue-cheese-chocolate-chip-cookie-recipe-through-experimentation-and-i](experience/developed-blue-cheese-chocolate-chip-cookie-recipe-through-experimentation-and-i.md) — Developed blue cheese chocolate chip cookie recipe through experimentation and iteration
+- [document-organization-approach-for-90-100k-unstructured-reports-on-crime-terrori](project/document-organization-approach-for-90-100k-unstructured-reports-on-crime-terrori.md) — Document organization approach for 90-100k unstructured reports on crime, terrorism, politics
+- [enjoys-vintage-thrift-shopping-and-hunting-for-vinyl-records](user/enjoys-vintage-thrift-shopping-and-hunting-for-vinyl-records.md) — Enjoys vintage/thrift shopping and hunting for vinyl records
+- [forgets-to-maintain-calendar-chronically-runs-late-or-misses-deadlines](user/forgets-to-maintain-calendar-chronically-runs-late-or-misses-deadlines.md) — Forgets to maintain calendar; chronically runs late or misses deadlines
+- [frequently-feels-time-constrained-struggles-with-daily-time-management](user/frequently-feels-time-constrained-struggles-with-daily-time-management.md) — Frequently feels time-constrained; struggles with daily time management
+- [hiking-boots-recommendations-for-rugged-terrain](reference/hiking-boots-recommendations-for-rugged-terrain.md) — Hiking boots recommendations for rugged terrain
+- [interested-in-art-and-science-intersection](user/interested-in-art-and-science-intersection.md) — Interested in art and science intersection
+- [interested-in-film-production-working-as-extra-or-production-assistant](user/interested-in-film-production-working-as-extra-or-production-assistant.md) — Interested in film production, working as extra or production assistant
+- [interested-in-learning-abstract-art-and-printmaking](user/interested-in-learning-abstract-art-and-printmaking.md) — Interested in learning abstract art and printmaking
+- [interested-in-screenwriting-and-film-industry-education](user/interested-in-screenwriting-and-film-industry-education.md) — Interested in screenwriting and film industry education
+- [interested-in-zion-national-park-hiking](user/interested-in-zion-national-park-hiking.md) — Interested in Zion National Park hiking
+- [learning-bot-trading-with-structured-curriculum](user/learning-bot-trading-with-structured-curriculum.md) — Learning bot trading with structured curriculum
+- [likes-hiking](user/likes-hiking.md) — Likes hiking
+- [museums-and-galleries-featuring-abstract-art-printmaking-and-art-science-moma-ta](reference/museums-and-galleries-featuring-abstract-art-printmaking-and-art-science-moma-ta.md) — Museums and galleries featuring abstract art, printmaking, and art+science: MoMA, Tate Modern, SFMOMA
+- [online-learning-platforms-for-abstract-art-and-printmaking-skillshare-craftsy-cr](reference/online-learning-platforms-for-abstract-art-and-printmaking-skillshare-craftsy-cr.md) — Online learning platforms for abstract art and printmaking: Skillshare, Craftsy, Creativebug
+- [pittsburgh-weekend-destinations-accommodation-and-transportation-options-neighbo](reference/pittsburgh-weekend-destinations-accommodation-and-transportation-options-neighbo.md) — Pittsburgh weekend destinations: accommodation and transportation options, neighborhood guides (Oakland, Shadyside, North Shore)
+- [planning-to-attend-film-festival-in-chicago-soon](user/planning-to-attend-film-festival-in-chicago-soon.md) — Planning to attend film festival in Chicago soon
+- [planning-to-purchase-merrell-moab-2-mid-waterproof-hiking-boots](user/planning-to-purchase-merrell-moab-2-mid-waterproof-hiking-boots.md) — Planning to purchase Merrell Moab 2 Mid Waterproof hiking boots
+- [porto-alegre-vintage-thrift-shops-with-vinyl-record-selections](reference/porto-alegre-vintage-thrift-shops-with-vinyl-record-selections.md) — Porto Alegre vintage/thrift shops with vinyl record selections
+- [prefers-weekend-getaways-2-3-days-budget-500-700-for-flights-and-accommodations](user/prefers-weekend-getaways-2-3-days-budget-500-700-for-flights-and-accommodations.md) — Prefers weekend getaways 2-3 days, budget 500-700 for flights and accommodations, flexible travel dates
+- [recent-travels-to-la-san-diego-and-boston-planning-ongoing-us-exploration](experience/recent-travels-to-la-san-diego-and-boston-planning-ongoing-us-exploration.md) — Recent travels to LA, San Diego, and Boston; planning ongoing US exploration
+- [simple-python-bitcoin-trading-bot-example-using-ccxt-and-bitmex](reference/simple-python-bitcoin-trading-bot-example-using-ccxt-and-bitmex.md) — Simple Python Bitcoin trading bot example using ccxt and Bitmex
+- [solo-camping-trip-to-big-sur-at-pfeiffer-big-sur-state-park-with-portable-campin](experience/solo-camping-trip-to-big-sur-at-pfeiffer-big-sur-state-park-with-portable-campin.md) — Solo camping trip to Big Sur at Pfeiffer Big Sur State Park with portable camping stove
+- [son-is-a-picky-eater-who-loved-the-blue-cheese-chocolate-chip-cookies](user/son-is-a-picky-eater-who-loved-the-blue-cheese-chocolate-chip-cookies.md) — Son is a picky eater who loved the blue cheese chocolate chip cookies
+- [struggles-with-saying-no-to-work-requests-tends-to-overcommit](user/struggles-with-saying-no-to-work-requests-tends-to-overcommit.md) — Struggles with saying 'no' to work requests; tends to overcommit
+- [visited-natural-history-museum-with-niece-on-2023-02-08-niece-loved-dinosaur-exh](experience/visited-natural-history-museum-with-niece-on-2023-02-08-niece-loved-dinosaur-exh.md) — Visited Natural History Museum with niece on 2023-02-08, niece loved dinosaur exhibit
+- [zion-national-park-attractions-and-hiking-trails](reference/zion-national-park-attractions-and-hiking-trails.md) — Zion National Park attractions and hiking trails

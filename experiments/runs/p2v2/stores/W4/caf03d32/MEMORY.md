@@ -1,0 +1,17 @@
+# MEMORY.md
+
+- [all2trade-cryptocurrency-trading-app-using-user-opinions-and-deep-learning](project/all2trade-cryptocurrency-trading-app-using-user-opinions-and-deep-learning.md) — All2Trade: cryptocurrency trading app using user opinions and deep learning
+- [attended-hunting-seminar-at-local-outdoors-storelearned-about-tree-stands-and-tr](experience/attended-hunting-seminar-at-local-outdoors-storelearned-about-tree-stands-and-tr.md) — Attended hunting seminar at local outdoors store—learned about tree stands and trail cameras
+- [beginner-guitarist-learning-from-youtube-tutorials](user/beginner-guitarist-learning-from-youtube-tutorials.md) — Beginner guitarist learning from YouTube tutorials
+- [camped-at-pfeiffer-big-sur-state-park2-nights-hiked-mcway-falls-and-pfeiffer-bea](experience/camped-at-pfeiffer-big-sur-state-park2-nights-hiked-mcway-falls-and-pfeiffer-bea.md) — Camped at Pfeiffer Big Sur State Park—2 nights, hiked McWay Falls and Pfeiffer Beach, first time cooking camping food, portable power bank was helpful
+- [cooking-interests-slow-cooker-recipes-plant-based-meals-yogurt-making](user/cooking-interests-slow-cooker-recipes-plant-based-meals-yogurt-making.md) — Cooking interests: slow cooker recipes, plant-based meals, yogurt making
+- [interest-in-criminal-justice-reform-and-social-justicewar-on-drugs-impact-on-com](user/interest-in-criminal-justice-reform-and-social-justicewar-on-drugs-impact-on-com.md) — Interest in criminal justice reform and social justice—war on drugs impact on communities of color
+- [jewelry-collection-owner-interested-in-organization-and-cleaning](user/jewelry-collection-owner-interested-in-organization-and-cleaning.md) — Jewelry collection owner interested in organization and cleaning
+- [lost-silver-necklace-with-small-pendant-from-grandmother-at-beach](experience/lost-silver-necklace-with-small-pendant-from-grandmother-at-beach.md) — Lost silver necklace with small pendant from grandmother at beach
+- [music-interest-kacey-musgraves-unique-blend-of-country-and-pop](user/music-interest-kacey-musgraves-unique-blend-of-country-and-pop.md) — Music interest: Kacey Musgraves, unique blend of country and pop
+- [music-taste-psychedelic-rock-tame-impala-experimental-sounds](user/music-taste-psychedelic-rock-tame-impala-experimental-sounds.md) — Music taste: psychedelic rock, Tame Impala, experimental sounds
+- [outdoor-activities-hunting-fishing-hiking-camping-kayaking-astrophotography](user/outdoor-activities-hunting-fishing-hiking-camping-kayaking-astrophotography.md) — Outdoor activities: hunting, fishing, hiking, camping, kayaking, astrophotography
+- [preferred-guava-oatmeal-breakfast-recipe-with-hemp-seeds](user/preferred-guava-oatmeal-breakfast-recipe-with-hemp-seeds.md) — Preferred guava oatmeal breakfast recipe with hemp seeds
+- [recently-cleaned-out-tackle-box-got-rid-of-old-unused-lures-planning-to-try-wool](user/recently-cleaned-out-tackle-box-got-rid-of-old-unused-lures-planning-to-try-wool.md) — Recently cleaned out tackle box, got rid of old unused lures, planning to try Woolly Bugger and Muddler Minnow for trout fishing
+- [recently-got-merrell-moab-2-mid-waterproof-hiking-boots](user/recently-got-merrell-moab-2-mid-waterproof-hiking-boots.md) — Recently got Merrell Moab 2 Mid Waterproof hiking boots
+- [strength-training-routine-upper-body-tuesday-thursday-lower-body-wednesday-frida](user/strength-training-routine-upper-body-tuesday-thursday-lower-body-wednesday-frida.md) — Strength training routine: upper body Tuesday/Thursday, lower body Wednesday/Friday

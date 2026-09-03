@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [applying-to-master-s-in-data-science-at-stanford-uc-berkeley-and-carnegie-mellon](project/applying-to-master-s-in-data-science-at-stanford-uc-berkeley-and-carnegie-mellon.md) — Applying to Master's in Data Science at Stanford, UC Berkeley, and Carnegie Mellon University
+- [bachelor-s-in-computer-science-from-ucla-graduated-2018-gre-score-320](user/bachelor-s-in-computer-science-from-ucla-graduated-2018-gre-score-320.md) — Bachelor's in Computer Science from UCLA, graduated 2018; GRE score 320
+- [backpack-purchased-feb-10-2023-outlet-mall-40-multiple-compartments](user/backpack-purchased-feb-10-2023-outlet-mall-40-multiple-compartments.md) — Backpack purchased Feb 10 2023 outlet mall $40 multiple compartments
+- [coffee-shop-5-gift-card-from-january-15-2023-still-unused](user/coffee-shop-5-gift-card-from-january-15-2023-still-unused.md) — Coffee shop $5 gift card from January 15 2023 still unused
+- [committed-to-participating-in-at-least-one-charity-event-per-month](user/committed-to-participating-in-at-least-one-charity-event-per-month.md) — Committed to participating in at least one charity event per month
+- [completed-run-for-hunger-5k-charity-run-on-march-12-2023-trained-6-weeks-raised](experience/completed-run-for-hunger-5k-charity-run-on-march-12-2023-trained-6-weeks-raised.md) — Completed Run for Hunger 5K charity run on March 12, 2023; trained 6 weeks, raised $250 for local food bank
+- [effective-fundraising-through-personal-networks-and-social-media](user/effective-fundraising-through-personal-networks-and-social-media.md) — Effective fundraising through personal networks and social media
+- [favors-innovation-and-boundary-pushing-in-artistic-composition-over-strict-adher](user/favors-innovation-and-boundary-pushing-in-artistic-composition-over-strict-adher.md) — Favors innovation and boundary-pushing in artistic composition over strict adherence to tradition
+- [focused-on-supporting-local-causes-where-direct-impact-is-visible](user/focused-on-supporting-local-causes-where-direct-impact-is-visible.md) — Focused on supporting local causes where direct impact is visible
+- [getting-cat-tree-and-additional-scratching-posts-for-luna-placed-near-windows](project/getting-cat-tree-and-additional-scratching-posts-for-luna-placed-near-windows.md) — Getting cat tree and additional scratching posts for Luna, placed near windows
+- [glute-strengthening-for-back-pain-gluteal-amnesia-concept-and-clamshell-bridge-e](reference/glute-strengthening-for-back-pain-gluteal-amnesia-concept-and-clamshell-bridge-e.md) — Glute strengthening for back pain: gluteal amnesia concept and clamshell/bridge exercises
+- [google-places-autocomplete-in-react-native-configuration-with-env-api-key](reference/google-places-autocomplete-in-react-native-configuration-with-env-api-key.md) — Google Places Autocomplete in React Native: configuration with .env API key
+- [has-a-cat-named-luna](user/has-a-cat-named-luna.md) — Has a cat named Luna
+- [how-to-demonstrate-data-science-skills-for-grad-school-applications](reference/how-to-demonstrate-data-science-skills-for-grad-school-applications.md) — How to demonstrate data science skills for grad school applications
+- [interested-in-charity-bike-rides-and-animal-shelter-volunteering](user/interested-in-charity-bike-rides-and-animal-shelter-volunteering.md) — Interested in charity bike rides and animal shelter volunteering
+- [interested-in-insulated-lunch-bags](user/interested-in-insulated-lunch-bags.md) — Interested in insulated lunch bags
+- [looking-for-luggage-tags-for-suitcase](user/looking-for-luggage-tags-for-suitcase.md) — Looking for luggage tags for suitcase
+- [luna-loves-playing-with-laser-pointer-toy](user/luna-loves-playing-with-laser-pointer-toy.md) — Luna loves playing with laser pointer toy
+- [luna-s-favorite-scratching-surface-is-tall-sisal-rope-post-was-wearing-out-in-mi](user/luna-s-favorite-scratching-surface-is-tall-sisal-rope-post-was-wearing-out-in-mi.md) — Luna's favorite scratching surface is tall sisal rope post; was wearing out in mid-May 2023
+- [master-s-in-data-science-program-comparison-stanford-uc-berkeley-carnegie-mellon](reference/master-s-in-data-science-program-comparison-stanford-uc-berkeley-carnegie-mellon.md) — Master's in Data Science program comparison: Stanford, UC Berkeley, Carnegie Mellon
+- [proficient-in-python-r-and-machine-learning-with-scikit-learn-and-tensorflow](user/proficient-in-python-r-and-machine-learning-with-scikit-learn-and-tensorflow.md) — Proficient in Python, R, and machine learning with scikit-learn and TensorFlow
+- [react-native-dispatch-redux-action-and-navigate-on-favorite-location-selection](reference/react-native-dispatch-redux-action-and-navigate-on-favorite-location-selection.md) — React Native: dispatch Redux action and navigate on favorite location selection
+- [react-native-uber-like-navigation-app-with-google-maps](project/react-native-uber-like-navigation-app-with-google-maps.md) — React Native Uber-like navigation app with Google Maps
+- [setting-up-photo-studio-in-living-room-for-luna-photography-project](project/setting-up-photo-studio-in-living-room-for-luna-photography-project.md) — Setting up photo studio in living room for Luna photography project
+- [transitioning-luna-to-new-food-brand-for-digestive-health](project/transitioning-luna-to-new-food-brand-for-digestive-health.md) — Transitioning Luna to new food brand for digestive health

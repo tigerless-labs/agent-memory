@@ -1,0 +1,28 @@
+# MEMORY.md
+
+- [1979-dracula-john-badham-frank-langella-most-faithful-film-adaptation-of-the-ori](reference/1979-dracula-john-badham-frank-langella-most-faithful-film-adaptation-of-the-ori.md) — 1979 Dracula (John Badham, Frank Langella) — most faithful film adaptation of the original novel
+- [3-day-lisbon-itinerary-early-april](reference/3-day-lisbon-itinerary-early-april.md) — 3-day Lisbon itinerary (early April)
+- [atlantic-bluefin-tuna-life-cycle-biology-and-conservation-significance](reference/atlantic-bluefin-tuna-life-cycle-biology-and-conservation-significance.md) — Atlantic Bluefin tuna: life cycle, biology, and conservation significance
+- [attended-music-festival-with-friends-saw-the-lumineers-and-the-1975](experience/attended-music-festival-with-friends-saw-the-lumineers-and-the-1975.md) — Attended music festival with friends, saw The Lumineers and The 1975
+- [brand-positioning-hire-humans-first-technologists-second-eq-over-iq-in-software](project/brand-positioning-hire-humans-first-technologists-second-eq-over-iq-in-software.md) — Brand positioning: hire humans first, technologists second; EQ over IQ in software hiring
+- [challenges-to-atlantic-bluefin-tuna-farming-and-aquaculture](reference/challenges-to-atlantic-bluefin-tuna-farming-and-aquaculture.md) — Challenges to Atlantic Bluefin tuna farming and aquaculture
+- [chose-bamboo-cutting-board-for-smith-couple-s-wedding-75](user/chose-bamboo-cutting-board-for-smith-couple-s-wedding-75.md) — Chose bamboo cutting board for Smith couple's wedding (~$75)
+- [content-strategy-7-pillar-approach-focused-on-team-building-hiring-practices-and](project/content-strategy-7-pillar-approach-focused-on-team-building-hiring-practices-and.md) — Content strategy: 7-pillar approach focused on team building, hiring practices, and EQ development
+- [created-spotify-playlist-summer-vibes-with-chill-tracks](user/created-spotify-playlist-summer-vibes-with-chill-tracks.md) — Created Spotify playlist 'Summer Vibes' with chill tracks
+- [enjoys-ambient-and-lo-fi-music-interested-in-business-and-entrepreneurial-podcas](user/enjoys-ambient-and-lo-fi-music-interested-in-business-and-entrepreneurial-podcas.md) — Enjoys ambient and lo-fi music; interested in business and entrepreneurial podcasts
+- [enjoys-small-group-family-activities-chose-two-truths-and-a-lie-game](user/enjoys-small-group-family-activities-chose-two-truths-and-a-lie-game.md) — Enjoys small-group family activities; chose 'Two Truths and a Lie' game
+- [family-composition-25-cousins-17-female-8-male](user/family-composition-25-cousins-17-female-8-male.md) — Family composition: 25 cousins (17 female, 8 male)
+- [gambian-visual-art-forms-used-to-preserve-cultural-traditions](reference/gambian-visual-art-forms-used-to-preserve-cultural-traditions.md) — Gambian visual art forms used to preserve cultural traditions
+- [gave-silver-necklace-to-best-friend-for-birthday-april-2023-70](user/gave-silver-necklace-to-best-friend-for-birthday-april-2023-70.md) — Gave silver necklace to best friend for birthday (April 2023, ~$70)
+- [getting-back-into-guitar-exploring-online-resources-to-improve-skills](user/getting-back-into-guitar-exploring-online-resources-to-improve-skills.md) — Getting back into guitar, exploring online resources to improve skills
+- [interest-in-gambian-cultural-traditions-and-visual-arts](user/interest-in-gambian-cultural-traditions-and-visual-arts.md) — Interest in Gambian cultural traditions and visual arts
+- [interest-in-genetics-dna-sequencing-and-medical-technology-applications](user/interest-in-genetics-dna-sequencing-and-medical-technology-applications.md) — Interest in genetics, DNA sequencing, and medical technology applications
+- [interested-in-dracula-adaptations-and-vampire-fiction](user/interested-in-dracula-adaptations-and-vampire-fiction.md) — Interested in Dracula adaptations and vampire fiction
+- [observed-family-gender-dynamics-female-cousins-more-dominant-in-conversations-ma](experience/observed-family-gender-dynamics-female-cousins-more-dominant-in-conversations-ma.md) — Observed family gender dynamics: female cousins more dominant in conversations, males more laid-back
+- [prefers-lisbon-over-porto-for-a-3-day-trip-to-portugal](user/prefers-lisbon-over-porto-for-a-3-day-trip-to-portugal.md) — Prefers Lisbon over Porto for a 3-day trip to Portugal
+- [received-positive-feedback-from-thesis-advisor-on-2023-05-13](experience/received-positive-feedback-from-thesis-advisor-on-2023-05-13.md) — Received positive feedback from thesis advisor on 2023-05-13
+- [recent-divorce-and-legal-name-change-from-emily-wilson-to-emily-rose-thompson](user/recent-divorce-and-legal-name-change-from-emily-wilson-to-emily-rose-thompson.md) — Recent divorce and legal name change from Emily Wilson to Emily Rose Thompson
+- [recommended-vampire-movies-and-tv-shows](reference/recommended-vampire-movies-and-tv-shows.md) — Recommended vampire movies and TV shows
+- [sentence-correction-expressing-less-natural-than-that-said-in-tweet-context](reference/sentence-correction-expressing-less-natural-than-that-said-in-tweet-context.md) — Sentence correction: 'expressing' less natural than 'that said' in tweet context
+- [thesis-topic-impact-of-social-media-on-mental-health-in-young-adults](project/thesis-topic-impact-of-social-media-on-mental-health-in-young-adults.md) — Thesis topic: impact of social media on mental health in young adults
+- [why-atlantic-bluefin-tuna-are-vulnerable-to-overfishing](reference/why-atlantic-bluefin-tuna-are-vulnerable-to-overfishing.md) — Why Atlantic Bluefin tuna are vulnerable to overfishing

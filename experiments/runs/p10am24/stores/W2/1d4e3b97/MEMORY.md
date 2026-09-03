@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [2021-benoit-landron-naturlich-pet-nat-80-semillon-from-organic-bergerac-frost-da](reference/2021-benoit-landron-naturlich-pet-nat-80-semillon-from-organic-bergerac-frost-da.md) — 2021 Benoit Landron Naturlich pet-nat: 80% Semillon from organic Bergerac (frost damage), fleshy stone-fruit notes, served by glass at 161
+- [amanda-van-west-gangster-nickname](reference/amanda-van-west-gangster-nickname.md) — Amanda Van West gangster nickname
+- [bathroom-spa-inspired-retreat-renovation-5x8-feet-with-freestanding-tub-and-walk](project/bathroom-spa-inspired-retreat-renovation-5x8-feet-with-freestanding-tub-and-walk.md) — Bathroom spa-inspired retreat renovation: 5x8 feet with freestanding tub and walk-in shower
+- [benefits-of-writing-your-own-book-vs-ghostwritten-or-ai-created-alternatives](reference/benefits-of-writing-your-own-book-vs-ghostwritten-or-ai-created-alternatives.md) — Benefits of writing your own book vs ghostwritten or AI-created alternatives
+- [budget-friendly-vr-gaming-pc-component-recommendations](reference/budget-friendly-vr-gaming-pc-component-recommendations.md) — Budget-friendly VR gaming PC component recommendations
+- [cement-based-grout-mixing-and-application-procedures-for-tile-installations](reference/cement-based-grout-mixing-and-application-procedures-for-tile-installations.md) — Cement-based grout mixing and application procedures for tile installations
+- [considering-writing-a-book-exploring-self-writing-vs-ghostwriting-vs-ai-creation](user/considering-writing-a-book-exploring-self-writing-vs-ghostwriting-vs-ai-creation.md) — Considering writing a book; exploring self-writing vs ghostwriting vs AI creation
+- [does-marketing-for-a-natural-wine-importer-distributor](user/does-marketing-for-a-natural-wine-importer-distributor.md) — Does marketing for a natural wine importer/distributor
+- [enjoys-creative-wordplay-and-1920s-prohibition-era-themes](user/enjoys-creative-wordplay-and-1920s-prohibition-era-themes.md) — Enjoys creative wordplay and 1920s Prohibition-era themes
+- [established-bedtime-routine-for-sleep-reads-20-30-minutes-before-bed-listens-to](user/established-bedtime-routine-for-sleep-reads-20-30-minutes-before-bed-listens-to.md) — Established bedtime routine for sleep: reads 20-30 minutes before bed, listens to calming music or nature sounds, gets ready for bed earlier
+- [expert-knowledge-of-natural-wine-industry-and-spanish-producers-values-quality-s](user/expert-knowledge-of-natural-wine-industry-and-spanish-producers-values-quality-s.md) — Expert knowledge of natural wine industry and Spanish producers; values quality sourcing and minimal intervention winemaking
+- [fixed-leaky-faucet-diy-repair-project-late-january-2024](experience/fixed-leaky-faucet-diy-repair-project-late-january-2024.md) — Fixed leaky faucet DIY repair project, late January 2024
+- [friend-amanda-van-west](user/friend-amanda-van-west.md) — Friend: Amanda Van West
+- [herbal-teas-recommended-for-sleep-and-relaxation](reference/herbal-teas-recommended-for-sleep-and-relaxation.md) — Herbal teas recommended for sleep and relaxation
+- [high-end-vr-gaming-pc-component-recommendations](reference/high-end-vr-gaming-pc-component-recommendations.md) — High-end VR gaming PC component recommendations
+- [limits-caffeine-intake-in-afternoons-stopped-drinking-coffee-or-tea-at-4-5-pm-be](user/limits-caffeine-intake-in-afternoons-stopped-drinking-coffee-or-tea-at-4-5-pm-be.md) — Limits caffeine intake in afternoons — stopped drinking coffee or tea at 4-5 PM because it was affecting sleep
+- [lost-city-of-eldorado-campaign-unique-puzzle-designs](project/lost-city-of-eldorado-campaign-unique-puzzle-designs.md) — Lost City of Eldorado campaign: unique puzzle designs
+- [nature-sounds-and-music-for-sleep](reference/nature-sounds-and-music-for-sleep.md) — Nature sounds and music for sleep
+- [online-retailers-for-pc-components-and-vr-gaming-parts](reference/online-retailers-for-pc-components-and-vr-gaming-parts.md) — Online retailers for PC components and VR gaming parts
+- [plan-to-build-a-vr-gaming-pc](project/plan-to-build-a-vr-gaming-pc.md) — Plan to build a VR gaming PC
+- [rearranged-bathroom-cabinets-with-tile-work-experience-early-february-2024](experience/rearranged-bathroom-cabinets-with-tile-work-experience-early-february-2024.md) — Rearranged bathroom cabinets with tile work experience, early February 2024
+- [runs-161-a-natural-wine-bar-in-sydenham-south-east-london](user/runs-161-a-natural-wine-bar-in-sydenham-south-east-london.md) — Runs 161, a natural wine bar in Sydenham, South East London
+- [takes-melatonin-supplement-to-help-with-sleep-1-dose-30-minutes-before-bed-usual](user/takes-melatonin-supplement-to-help-with-sleep-1-dose-30-minutes-before-bed-usual.md) — Takes melatonin supplement to help with sleep — 1 dose, 30 minutes before bed, usually falls asleep within 15-20 minutes, started early February 2024
+- [trainee-survey-system-user-stories-beginning-and-end-of-course-with-progress-com](project/trainee-survey-system-user-stories-beginning-and-end-of-course-with-progress-com.md) — Trainee survey system user stories: beginning and end of course with progress comparison
+- [uses-white-noise-machine-to-block-outside-noise-while-sleeping](user/uses-white-noise-machine-to-block-outside-noise-while-sleeping.md) — Uses white noise machine to block outside noise while sleeping

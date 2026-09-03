@@ -1,0 +1,27 @@
+# MEMORY.md
+
+- [10-day-rv-road-trip-to-yellowstone-from-california-with-family-of-five-november](experience/10-day-rv-road-trip-to-yellowstone-from-california-with-family-of-five-november.md) — 10-day RV road trip to Yellowstone from California with family of five, November 2022
+- [amazon-detailing-spray-for-tar-bug-stains-20-effective](user/amazon-detailing-spray-for-tar-bug-stains-20-effective.md) — Amazon detailing spray for tar/bug stains - $20; effective
+- [car-fuel-efficiency-28-mpg-city-down-from-30-mpg](user/car-fuel-efficiency-28-mpg-city-down-from-30-mpg.md) — Car fuel efficiency: 28 MPG city, down from 30 MPG
+- [car-wax-recommendations-meguiar-s-gold-class-chemical-guys-turtle-wax-p21s-conco](reference/car-wax-recommendations-meguiar-s-gold-class-chemical-guys-turtle-wax-p21s-conco.md) — Car wax recommendations: Meguiar's Gold Class, Chemical Guys, Turtle Wax, P21S Concours
+- [currently-reading-the-song-of-achilles-by-madeline-miller-about-50-through-as-of](project/currently-reading-the-song-of-achilles-by-madeline-miller-about-50-through-as-of.md) — Currently reading The Song of Achilles by Madeline Miller, about 50% through, as of 2023-01-10
+- [currently-reading-the-star-touched-queen-by-roshani-chokshi-as-of-2023-01-10](project/currently-reading-the-star-touched-queen-by-roshani-chokshi-as-of-2023-01-10.md) — Currently reading The Star-Touched Queen by Roshani Chokshi as of 2023-01-10
+- [enjoys-reading-historical-fiction-mythology-retellings-folklore-from-non-western](user/enjoys-reading-historical-fiction-mythology-retellings-folklore-from-non-western.md) — Enjoys reading historical fiction, mythology retellings, folklore from non-Western cultures, with strong female leads
+- [erin-condren-lifeplanner-paper-quality-layouts-features](reference/erin-condren-lifeplanner-paper-quality-layouts-features.md) — Erin Condren LifePlanner paper quality, layouts, features
+- [family-of-five-with-children](user/family-of-five-with-children.md) — Family of five with children
+- [interested-in-anastasia-beverly-hills-modern-renaissance-palette](user/interested-in-anastasia-beverly-hills-modern-renaissance-palette.md) — Interested in Anastasia Beverly Hills Modern Renaissance Palette
+- [interested-in-erin-condren-lifeplanner](user/interested-in-erin-condren-lifeplanner.md) — Interested in Erin Condren LifePlanner
+- [new-floor-mats-purchased-december-15-2022](user/new-floor-mats-purchased-december-15-2022.md) — New floor mats purchased December 15, 2022
+- [normal-to-combination-skin-type](user/normal-to-combination-skin-type.md) — Normal to combination skin type
+- [planning-future-yellowstone-national-park-trip-with-family-of-five](project/planning-future-yellowstone-national-park-trip-with-family-of-five.md) — Planning future Yellowstone National Park trip with family of five
+- [prefers-strong-female-protagonists-in-literature](user/prefers-strong-female-protagonists-in-literature.md) — Prefers strong female protagonists in literature
+- [purchased-travel-sized-drunk-elephant-skincare-products](user/purchased-travel-sized-drunk-elephant-skincare-products.md) — Purchased travel-sized Drunk Elephant skincare products
+- [purchased-urban-decay-naked-heat-eyeshadow-palette-loves-it](user/purchased-urban-decay-naked-heat-eyeshadow-palette-loves-it.md) — Purchased Urban Decay Naked Heat eyeshadow palette; loves it
+- [read-and-enjoyed-the-poppy-war-by-r-f-kuang](experience/read-and-enjoyed-the-poppy-war-by-r-f-kuang.md) — Read and enjoyed The Poppy War by R.F. Kuang
+- [read-and-enjoyed-the-power-by-naomi-alderman-specifically-for-feminist-themes-an](experience/read-and-enjoyed-the-power-by-naomi-alderman-specifically-for-feminist-themes-an.md) — Read and enjoyed The Power by Naomi Alderman, specifically for feminist themes and dystopian setting
+- [recently-ordered-custom-planner-from-etsy](user/recently-ordered-custom-planner-from-etsy.md) — Recently ordered custom planner from Etsy
+- [schedule-oil-change-appointment-overdue-by-1000-miles](project/schedule-oil-change-appointment-overdue-by-1000-miles.md) — Schedule oil change appointment - overdue by ~1000 miles
+- [started-reading-the-nightingale-by-kristin-hannah-on-2023-01-10](experience/started-reading-the-nightingale-by-kristin-hannah-on-2023-01-10.md) — Started reading The Nightingale by Kristin Hannah on 2023-01-10
+- [strong-advocate-for-healthcare-equity-believes-systemic-change-addressing-root-c](user/strong-advocate-for-healthcare-equity-believes-systemic-change-addressing-root-c.md) — Strong advocate for healthcare equity; believes systemic change addressing root causes (poverty, discrimination, education) is essential; frustrated by reactive crisis-driven government action
+- [tar-and-bug-stain-remover-products-meguiar-s-chemical-guys-3m-gtechniq](reference/tar-and-bug-stain-remover-products-meguiar-s-chemical-guys-3m-gtechniq.md) — Tar and bug stain remover products: Meguiar's, Chemical Guys, 3M, Gtechniq
+- [waterproof-car-cover-purchased-for-120-reduces-dust-and-dirt](user/waterproof-car-cover-purchased-for-120-reduces-dust-and-dirt.md) — Waterproof car cover purchased for $120; reduces dust and dirt

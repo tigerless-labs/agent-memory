@@ -1,0 +1,28 @@
+# MEMORY.md
+
+- [acquired-brownie-hawkeye-vintage-camera-in-may-2023](user/acquired-brownie-hawkeye-vintage-camera-in-may-2023.md) — Acquired Brownie Hawkeye vintage camera in May 2023
+- [battery-life-extension-tips-for-laptops](reference/battery-life-extension-tips-for-laptops.md) — Battery life extension tips for laptops
+- [building-social-media-connections-and-engagement](user/building-social-media-connections-and-engagement.md) — Building social media connections and engagement
+- [collects-vintage-cameras-vinyl-records-funko-pop-figures-and-art-prints-values-p](user/collects-vintage-cameras-vinyl-records-funko-pop-figures-and-art-prints-values-p.md) — Collects vintage cameras, vinyl records, Funko POP! figures, and art prints; values proper storage and organized display
+- [considering-replacing-old-imac-desktop-with-a-newer-imac-or-windows-pc](user/considering-replacing-old-imac-desktop-with-a-newer-imac-or-windows-pc.md) — Considering replacing old iMac desktop with a newer iMac or Windows PC
+- [considering-upgrading-laptop-ram-from-8gb-to-16gb](user/considering-upgrading-laptop-ram-from-8gb-to-16gb.md) — Considering upgrading laptop RAM from 8GB to 16GB
+- [dad-has-home-theater-setup](user/dad-has-home-theater-setup.md) — Dad has home theater setup
+- [developing-book-summarization-and-note-taking-skills-for-book-club](user/developing-book-summarization-and-note-taking-skills-for-book-club.md) — Developing book summarization and note-taking skills for book club
+- [emma-birthday-party-planned](project/emma-birthday-party-planned.md) — Emma birthday party planned
+- [has-a-friend-sarah-who-turned-30-in-2023](user/has-a-friend-sarah-who-turned-30-in-2023.md) — Has a friend Sarah who turned 30 in 2023
+- [imac-vs-windows-pc-desktop-upgrade-considerations](reference/imac-vs-windows-pc-desktop-upgrade-considerations.md) — iMac vs Windows PC desktop upgrade considerations
+- [interested-in-learning-printmaking](user/interested-in-learning-printmaking.md) — Interested in learning printmaking
+- [laptop-battery-calibrated-on-may-7-2023-by-draining-to-0-and-charging-to-100](user/laptop-battery-calibrated-on-may-7-2023-by-draining-to-0-and-charging-to-100.md) — Laptop battery calibrated on ~May 7, 2023 by draining to 0% and charging to 100%
+- [laptop-currently-gets-89-hours-of-battery-life-on-a-single-charge](user/laptop-currently-gets-89-hours-of-battery-life-on-a-single-charge.md) — Laptop currently gets 8–9 hours of battery life on a single charge
+- [large-funko-pop-collection-including-complete-marvel-cinematic-universe-set](user/large-funko-pop-collection-including-complete-marvel-cinematic-universe-set.md) — Large Funko POP! collection including complete Marvel Cinematic Universe set
+- [mom-is-an-excellent-baker](user/mom-is-an-excellent-baker.md) — Mom is an excellent baker
+- [owns-17-vintage-cameras-as-of-may-2023](user/owns-17-vintage-cameras-as-of-may-2023.md) — Owns 17 vintage cameras as of May 2023
+- [owns-mondo-poster-of-hogwarts-castle-from-harry-potter](user/owns-mondo-poster-of-hogwarts-castle-from-harry-potter.md) — Owns Mondo poster of Hogwarts castle from Harry Potter
+- [owns-rare-1978-pressing-of-fleetwood-mac-s-rumours-album](user/owns-rare-1978-pressing-of-fleetwood-mac-s-rumours-album.md) — Owns rare 1978 pressing of Fleetwood Mac's Rumours album
+- [participates-in-book-club-discussions-on-instagram](user/participates-in-book-club-discussions-on-instagram.md) — Participates in book club discussions on Instagram
+- [prefers-5-7-mile-hiking-trails](user/prefers-5-7-mile-hiking-trails.md) — Prefers 5-7 mile hiking trails
+- [prefers-ethically-told-true-crime-narratives-that-prioritize-victims-and-social](user/prefers-ethically-told-true-crime-narratives-that-prioritize-victims-and-social.md) — Prefers ethically-told true crime narratives that prioritize victims and social justice over sensationalism
+- [sister-named-emma](user/sister-named-emma.md) — Sister named Emma
+- [uses-laptop-for-both-work-and-personal-tasks](user/uses-laptop-for-both-work-and-personal-tasks.md) — Uses laptop for both work and personal tasks
+- [villa-gennaro-menu-rewrite-enhanced-descriptions-for-classics-entrees-and-pasta](project/villa-gennaro-menu-rewrite-enhanced-descriptions-for-classics-entrees-and-pasta.md) — Villa Gennaro menu rewrite: enhanced descriptions for Classics, Entrees, and Pasta sections (2023)
+- [watched-movie-with-emma-during-lunch-on-2023-05-08](experience/watched-movie-with-emma-during-lunch-on-2023-05-08.md) — Watched movie with Emma during lunch on 2023-05-08

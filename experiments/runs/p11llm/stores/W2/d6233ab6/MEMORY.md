@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [attended-khalid-concert-at-greek-theatre-in-berkeley-with-sister-sophia-on-2023](experience/attended-khalid-concert-at-greek-theatre-in-berkeley-with-sister-sophia-on-2023.md) — Attended Khalid concert at Greek Theatre in Berkeley with sister Sophia on 2023-05-20
+- [considering-economics-major-positive-high-school-debate-team-and-ap-economics-ex](user/considering-economics-major-positive-high-school-debate-team-and-ap-economics-ex.md) — Considering Economics major; positive high school debate team and AP economics experience
+- [exploring-data-science-skills-via-online-courses-before-committing-to-master-s-d](project/exploring-data-science-skills-via-online-courses-before-committing-to-master-s-d.md) — Exploring data science skills via online courses before committing to Master's degree
+- [prefers-mozart-s-music-for-meditation-and-emotional-resonance-would-choose-mozar](user/prefers-mozart-s-music-for-meditation-and-emotional-resonance-would-choose-mozar.md) — Prefers Mozart's music for meditation and emotional resonance; would choose Mozart if limited to one composer
+- [social-media-boundaries-specific-check-times-website-blockers-during-work-unfoll](user/social-media-boundaries-specific-check-times-website-blockers-during-work-unfoll.md) — Social media boundaries: specific check times, website blockers during work, unfollow negative accounts, Sunday social media-free day
+- [took-10-day-social-media-break-from-feb-15-25-2023-that-helped-reset-online-habi](experience/took-10-day-social-media-break-from-feb-15-25-2023-that-helped-reset-online-habi.md) — Took 10-day social media break from Feb 15-25, 2023 that helped reset online habits
+- [completed-online-certification-courses-in-python-programming-and-data-visualizat](user/completed-online-certification-courses-in-python-programming-and-data-visualizat.md) — Completed online certification courses in Python programming and data visualization; reading ML and AI books
+- [daily-gratitude-journaling-habit-write-three-things-grateful-for-each-day-in-phy](user/daily-gratitude-journaling-habit-write-three-things-grateful-for-each-day-in-phy.md) — Daily gratitude journaling habit - write three things grateful for each day in physical journal
+- [economics-and-introductory-data-science-courses-recommended](reference/economics-and-introductory-data-science-courses-recommended.md) — Economics and introductory data science courses recommended
+- [goodreads-reading-challenge-goal-20-books-in-2023](project/goodreads-reading-challenge-goal-20-books-in-2023.md) — Goodreads Reading Challenge goal: 20 books in 2023
+- [interested-in-building-skills-specifically-in-machine-learning-and-deep-learning](user/interested-in-building-skills-specifically-in-machine-learning-and-deep-learning.md) — Interested in building skills specifically in machine learning and deep learning
+- [into-r-b-soul-music-similar-to-khalid](user/into-r-b-soul-music-similar-to-khalid.md) — Into R&B/soul music similar to Khalid
+- [low-sugar-dessert-recipes-and-snack-ideas](reference/low-sugar-dessert-recipes-and-snack-ideas.md) — Low-sugar dessert recipes and snack ideas
+- [machine-learning-and-deep-learning-courses-and-certifications-recommended](reference/machine-learning-and-deep-learning-courses-and-certifications-recommended.md) — Machine learning and deep learning courses and certifications recommended
+- [prefers-vibrant-statement-piece-fashion-over-neutral-colors](user/prefers-vibrant-statement-piece-fashion-over-neutral-colors.md) — Prefers vibrant, statement-piece fashion over neutral colors
+- [similar-artists-to-khalid-r-b-soul-recommendations](reference/similar-artists-to-khalid-r-b-soul-recommendations.md) — Similar artists to Khalid: R&B/soul recommendations
+- [sister-named-sophia](user/sister-named-sophia.md) — Sister named Sophia
+- [taylor-swift-concert-tickets-for-levi-s-stadium-in-santa-clara-on-august-20-2026](project/taylor-swift-concert-tickets-for-levi-s-stadium-in-santa-clara-on-august-20-2026.md) — Taylor Swift concert tickets for Levi's Stadium in Santa Clara on August 20, 2026
+- [the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid-first-book-for-2023-rea](reference/the-seven-husbands-of-evelyn-hugo-by-taylor-jenkins-reid-first-book-for-2023-rea.md) — The Seven Husbands of Evelyn Hugo by Taylor Jenkins Reid - first book for 2023 reading goal

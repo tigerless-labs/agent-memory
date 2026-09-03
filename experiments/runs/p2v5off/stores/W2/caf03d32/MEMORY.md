@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [artists-similar-to-raveena-kali-uchis-kelela-shura-mild-high-club-yumi-zouma](reference/artists-similar-to-raveena-kali-uchis-kelela-shura-mild-high-club-yumi-zouma.md) — Artists similar to Raveena: Kali Uchis, Kelela, Shura, Mild High Club, Yumi Zouma
+- [camped-at-pfeiffer-big-sur-state-park-with-hikes-to-mcway-falls-and-pfeiffer-bea](experience/camped-at-pfeiffer-big-sur-state-park-with-hikes-to-mcway-falls-and-pfeiffer-bea.md) — Camped at Pfeiffer Big Sur State Park with hikes to McWay Falls and Pfeiffer Beach
+- [considering-buying-a-waterproof-action-camera](user/considering-buying-a-waterproof-action-camera.md) — Considering buying a waterproof action camera
+- [considering-upgrading-to-a-new-portable-stove](user/considering-upgrading-to-a-new-portable-stove.md) — Considering upgrading to a new portable stove
+- [emerging-technologies-for-data-privacy-homomorphic-encryption-differential-priva](reference/emerging-technologies-for-data-privacy-homomorphic-encryption-differential-priva.md) — Emerging technologies for data privacy: homomorphic encryption, differential privacy, federated learning, blockchain
+- [guava-oatmeal-breakfast-plan-with-hemp-seeds](project/guava-oatmeal-breakfast-plan-with-hemp-seeds.md) — Guava oatmeal breakfast plan with hemp seeds
+- [high-protein-diet-preference-for-fitness-goals-interested-in-unconventional-prot](user/high-protein-diet-preference-for-fitness-goals-interested-in-unconventional-prot.md) — High-protein diet preference for fitness goals; interested in unconventional protein sources
+- [hikes-regularly-at-locations-including-mount-tamalpais-state-park](user/hikes-regularly-at-locations-including-mount-tamalpais-state-park.md) — Hikes regularly at locations including Mount Tamalpais State Park
+- [interested-in-criminal-justice-reform-and-racial-justice-issues](user/interested-in-criminal-justice-reform-and-racial-justice-issues.md) — Interested in criminal justice reform and racial justice issues
+- [interested-in-data-privacy-and-privacy-enhancing-technologies](user/interested-in-data-privacy-and-privacy-enhancing-technologies.md) — Interested in data privacy and privacy-enhancing technologies
+- [interested-in-kayaking-trips](user/interested-in-kayaking-trips.md) — Interested in kayaking trips
+- [interested-in-making-homemade-slow-cooker-yogurt-especially-cashew-based-vegan-y](user/interested-in-making-homemade-slow-cooker-yogurt-especially-cashew-based-vegan-y.md) — Interested in making homemade slow cooker yogurt, especially cashew-based vegan yogurt
+- [kacey-musgraves-songs-to-explore](reference/kacey-musgraves-songs-to-explore.md) — Kacey Musgraves songs to explore
+- [learning-astrophotography-and-night-photography](user/learning-astrophotography-and-night-photography.md) — Learning astrophotography and night photography
+- [learning-guitar-as-a-beginner](user/learning-guitar-as-a-beginner.md) — Learning guitar as a beginner
+- [likes-music-with-unique-blends-of-different-styles](user/likes-music-with-unique-blends-of-different-styles.md) — Likes music with unique blends of different styles
+- [lost-silver-necklace-with-small-pendant-grandmother-s-gift-at-beach](experience/lost-silver-necklace-with-small-pendant-grandmother-s-gift-at-beach.md) — Lost silver necklace with small pendant (grandmother's gift) at beach
+- [music-documentaries-on-netflix-recommendations-similar-to-taylor-swift](reference/music-documentaries-on-netflix-recommendations-similar-to-taylor-swift.md) — Music documentaries on Netflix: recommendations similar to Taylor Swift
+- [prefers-delicate-minimalist-gold-jewelry-interested-in-jewelry-organization](user/prefers-delicate-minimalist-gold-jewelry-interested-in-jewelry-organization.md) — Prefers delicate, minimalist gold jewelry; interested in jewelry organization
+- [prefers-psychedelic-rock-with-mellow-and-atmospheric-sound-tame-impala-pond-simi](user/prefers-psychedelic-rock-with-mellow-and-atmospheric-sound-tame-impala-pond-simi.md) — Prefers psychedelic rock with mellow and atmospheric sound (Tame Impala, Pond, similar)
+- [psychedelic-rock-bands-recommended-pond-unknown-mortal-orchestra-temples-and-oth](reference/psychedelic-rock-bands-recommended-pond-unknown-mortal-orchestra-temples-and-oth.md) — Psychedelic rock bands recommended: Pond, Unknown Mortal Orchestra, Temples, and others with starting albums
+- [recently-learned-slow-cooker-cooking-wants-to-explore-more-recipes](user/recently-learned-slow-cooker-cooking-wants-to-explore-more-recipes.md) — Recently learned slow cooker cooking, wants to explore more recipes
+- [recently-purchased-merrell-moab-2-mid-waterproof-hiking-boots](user/recently-purchased-merrell-moab-2-mid-waterproof-hiking-boots.md) — Recently purchased Merrell Moab 2 Mid Waterproof hiking boots
+- [strength-training-routine-schedule](project/strength-training-routine-schedule.md) — Strength training routine schedule
+- [tech-companies-leading-in-data-privacy-apple-microsoft-google-mozilla-protonmail](reference/tech-companies-leading-in-data-privacy-apple-microsoft-google-mozilla-protonmail.md) — Tech companies leading in data privacy: Apple, Microsoft, Google, Mozilla, ProtonMail
+- [trying-to-eat-more-plant-based-and-vegan-meals](user/trying-to-eat-more-plant-based-and-vegan-meals.md) — Trying to eat more plant-based and vegan meals
+- [user-fishes-for-trout-in-rivers-using-fly-fishing-streamers](user/user-fishes-for-trout-in-rivers-using-fly-fishing-streamers.md) — User fishes for trout in rivers using fly fishing streamers
+- [user-is-interested-in-hunting-with-focus-on-tree-stands-and-deer-scouting](user/user-is-interested-in-hunting-with-focus-on-tree-stands-and-deer-scouting.md) — User is interested in hunting with focus on tree stands and deer scouting
+- [uses-portable-power-bank-for-camping-trips](user/uses-portable-power-bank-for-camping-trips.md) — Uses portable power bank for camping trips

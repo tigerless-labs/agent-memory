@@ -1,0 +1,50 @@
+---
+name: blue-cheese-chocolate-chip-cookie-recipe-with-savory-sweet-flavor-profile
+abstract: Blue cheese chocolate chip cookie recipe with savory-sweet flavor profile
+type: reference
+status: active
+created: 2026-09-01
+updated: 2026-09-01
+valid_from: 2026-09-01
+superseded_by: null
+weight: 1.0
+author: cli
+links: []
+provenance: []
+---
+
+Recipe created by user combining sweet and savory elements.
+
+**Origin story:**
+- Inspired by a blue cheese and dark chocolate truffle from a local chocolate shop
+- First attempts failed (blue cheese flavor too strong)
+- Final version balances sweet and savory effectively
+
+**Recipe:**
+
+**Ingredients:**
+- 2 1/4 cups all-purpose flour
+- 1 teaspoon baking soda
+- 1 teaspoon salt
+- 1 cup unsalted butter, at room temperature
+- 1 cup granulated sugar
+- 1/2 cup blue cheese, crumbled
+- 2 large eggs
+- 2 teaspoons vanilla extract
+- 2 cups semisweet chocolate chips
+
+**Instructions:**
+1. Preheat oven to 375°F (190°C). Line baking sheet with parchment paper.
+2. Whisk together flour, baking soda, and salt in a bowl.
+3. In separate bowl, cream butter, sugar, and blue cheese until light and fluffy.
+4. Beat in eggs and vanilla extract.
+5. Gradually mix in flour mixture.
+6. Fold in chocolate chips.
+7. Drop dough by tablespoonfuls onto prepared baking sheet.
+8. Bake 12-15 minutes until edges are lightly golden.
+9. Cool on baking sheet 5 minutes, then transfer to wire rack.
+
+**Serving notes:**
+- Pairs well with red wine or dark beer
+- Perfect for sophisticated desserts or unexpected twist on classic chocolate chip cookies
+- Son enjoyed this recipe and requested multiple servings

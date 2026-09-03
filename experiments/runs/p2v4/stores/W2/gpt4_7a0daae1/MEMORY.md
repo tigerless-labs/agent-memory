@@ -1,0 +1,34 @@
+# MEMORY.md
+
+- [30-minute-running-routine-working-on-cardiovascular-endurance](user/30-minute-running-routine-working-on-cardiovascular-endurance.md) — 30-minute running routine, working on cardiovascular endurance
+- [back-health-constraint-requires-comfortable-bike-seat-and-upright-handlebars-for](user/back-health-constraint-requires-comfortable-bike-seat-and-upright-handlebars-for.md) — Back health constraint: requires comfortable bike seat and upright handlebars for cycling activities
+- [barcelona-airport-bcn-to-eixample-transportation-aerobus-r2-nord-train-taxi-metr](reference/barcelona-airport-bcn-to-eixample-transportation-aerobus-r2-nord-train-taxi-metr.md) — Barcelona airport (BCN) to Eixample transportation: Aerobús, R2 Nord train, taxi, metro options
+- [barcelona-bike-friendly-cafes-and-restaurants-can-culleretes-el-xampanyet-la-pub](reference/barcelona-bike-friendly-cafes-and-restaurants-can-culleretes-el-xampanyet-la-pub.md) — Barcelona bike-friendly cafes and restaurants: Can Culleretes, El Xampanyet, La Pubilla, Bicioci, Can Solé
+- [barcelona-bike-rental-companies-offering-comfort-bikes-with-baskets-racks-barcel](reference/barcelona-bike-rental-companies-offering-comfort-bikes-with-baskets-racks-barcel.md) — Barcelona bike rental companies offering comfort bikes with baskets/racks: Barcelona Bike Tours, Fat Tire Tours, Bicitours Barcelona, Donkey Republic
+- [barcelona-eco-friendly-accommodations-hotel-omm-casa-fuster-yok-casa-cultura-esp](reference/barcelona-eco-friendly-accommodations-hotel-omm-casa-fuster-yok-casa-cultura-esp.md) — Barcelona eco-friendly accommodations: Hotel Omm, Casa Fuster, Yök Casa + Cultura, España Ramblas, Hostal Orleans
+- [barcelona-trip-booked-eixample-hostel-30-40-night-free-breakfast-kitchen](project/barcelona-trip-booked-eixample-hostel-30-40-night-free-breakfast-kitchen.md) — Barcelona trip: booked Eixample hostel (30-40/night, free breakfast + kitchen)
+- [barcelona-trip-planned-with-focus-on-eco-friendly-accommodations-and-bike-tour](project/barcelona-trip-planned-with-focus-on-eco-friendly-accommodations-and-bike-tour.md) — Barcelona trip planned with focus on eco-friendly accommodations and bike tour
+- [currently-evaluating-multiple-suppliers-for-product-sourcing](project/currently-evaluating-multiple-suppliers-for-product-sourcing.md) — Currently evaluating multiple suppliers for product sourcing
+- [document-organization-project-90k-100k-reports-on-crime-terrorism-politics](project/document-organization-project-90k-100k-reports-on-crime-terrorism-politics.md) — Document organization project: 90k-100k reports on crime, terrorism, politics
+- [eco-friendly-travel-practices-carries-reusable-water-bottle-in-carry-on-to-reduc](user/eco-friendly-travel-practices-carries-reusable-water-bottle-in-carry-on-to-reduc.md) — Eco-friendly travel practices: carries reusable water bottle in carry-on to reduce plastic waste and save money
+- [fitness-focus-tennis-running-cycling-interested-in-reaction-time-endurance-group](user/fitness-focus-tennis-running-cycling-interested-in-reaction-time-endurance-group.md) — Fitness focus: tennis, running, cycling; interested in reaction time, endurance, group activities
+- [hokkaido-restaurants-and-food-markets](reference/hokkaido-restaurants-and-food-markets.md) — Hokkaido restaurants and food markets
+- [homemade-naan-bread-recipe](reference/homemade-naan-bread-recipe.md) — Homemade naan bread recipe
+- [implementing-formal-supplier-management-process-with-five-key-phases](project/implementing-formal-supplier-management-process-with-five-key-phases.md) — Implementing formal supplier management process with five key phases
+- [interested-in-indian-inspired-cooking-specifically-madras-curry-with-tofu](user/interested-in-indian-inspired-cooking-specifically-madras-curry-with-tofu.md) — Interested in Indian-inspired cooking, specifically Madras curry with tofu
+- [joining-a-local-cycling-group-to-cycle-more-frequently](project/joining-a-local-cycling-group-to-cycle-more-frequently.md) — Joining a local cycling group to cycle more frequently
+- [linkin-park-s-mental-health-advocacy-music-for-relief-and-philanthropy](reference/linkin-park-s-mental-health-advocacy-music-for-relief-and-philanthropy.md) — Linkin Park's mental health advocacy, Music for Relief, and philanthropy
+- [madras-curry-powder-brand-recommendations](reference/madras-curry-powder-brand-recommendations.md) — Madras curry powder brand recommendations
+- [madras-curry-sauce-recipe-with-tofu](reference/madras-curry-sauce-recipe-with-tofu.md) — Madras curry sauce recipe with tofu
+- [must-try-hokkaido-dishes](reference/must-try-hokkaido-dishes.md) — Must-try Hokkaido dishes
+- [new-tennis-racket-purchased-online-trying-out-saturday](user/new-tennis-racket-purchased-online-trying-out-saturday.md) — New tennis racket purchased online, trying out Saturday
+- [new-tennis-racket-received-2023-03-17](experience/new-tennis-racket-received-2023-03-17.md) — New tennis racket received 2023-03-17
+- [polestar-primary-driver-module-vehicle-owner-and-user-management-service-design](project/polestar-primary-driver-module-vehicle-owner-and-user-management-service-design.md) — Polestar primary driver module: Vehicle owner and user management service design and DynamoDB schema
+- [solo-cycling-on-friday-evenings-along-the-river](user/solo-cycling-on-friday-evenings-along-the-river.md) — Solo cycling on Friday evenings along the river
+- [strength-training-plan-core-and-legs-2-3-times-per-week-with-48-72h-recovery](project/strength-training-plan-core-and-legs-2-3-times-per-week-with-48-72h-recovery.md) — Strength training plan: core and legs, 2-3 times per week with 48-72h recovery
+- [supplier-contract-template-sections-and-supplier-evaluation-framework](reference/supplier-contract-template-sections-and-supplier-evaluation-framework.md) — Supplier contract template sections and supplier evaluation framework
+- [tennis-lessons-on-saturdays](user/tennis-lessons-on-saturdays.md) — Tennis lessons on Saturdays
+- [tennis-training-focus-serve-technique-flexibility-endurance-plyometrics-and-net](user/tennis-training-focus-serve-technique-flexibility-endurance-plyometrics-and-net.md) — Tennis training focus: serve technique, flexibility, endurance, plyometrics, and net strategy
+- [transportation-options-for-hokkaido](reference/transportation-options-for-hokkaido.md) — Transportation options for Hokkaido
+- [wants-to-make-homemade-naan-bread-from-scratch](user/wants-to-make-homemade-naan-bread-from-scratch.md) — Wants to make homemade naan bread from scratch
+- [wants-to-visit-hokkaido-and-try-regional-cuisine](user/wants-to-visit-hokkaido-and-try-regional-cuisine.md) — Wants to visit Hokkaido and try regional cuisine

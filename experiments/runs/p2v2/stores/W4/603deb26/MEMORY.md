@@ -1,0 +1,22 @@
+# MEMORY.md
+
+- [career-goals-transition-to-content-marketing-strategist-or-digital-marketing-con](user/career-goals-transition-to-content-marketing-strategist-or-digital-marketing-con.md) — Career goals - transition to Content Marketing Strategist or Digital Marketing Consultant, expected by 2023
+- [caught-3-pound-trout-at-lake-tahoe-using-silver-lure](experience/caught-3-pound-trout-at-lake-tahoe-using-silver-lure.md) — Caught 3-pound trout at Lake Tahoe using silver lure
+- [classic-gin-cocktails-to-try-bee-s-knees-pimm-s-cup-lavender-gin-fizz-and-others](reference/classic-gin-cocktails-to-try-bee-s-knees-pimm-s-cup-lavender-gin-fizz-and-others.md) — Classic gin cocktails to try - Bee's Knees, Pimm's Cup, Lavender Gin Fizz, and others
+- [cocktail-making-hobby-gin-focused-with-interest-in-infusions-and-classic-recipes](user/cocktail-making-hobby-gin-focused-with-interest-in-infusions-and-classic-recipes.md) — Cocktail making hobby - gin-focused with interest in infusions and classic recipes
+- [experimenting-with-lemon-based-recipes](user/experimenting-with-lemon-based-recipes.md) — Experimenting with lemon-based recipes
+- [friend-emma-taught-negroni-recipe-in-2023](user/friend-emma-taught-negroni-recipe-in-2023.md) — Friend Emma - taught Negroni recipe in 2023
+- [hendrick-s-gin-recently-acquired-preferred-gin-brand](user/hendrick-s-gin-recently-acquired-preferred-gin-brand.md) — Hendrick's gin - recently acquired, preferred gin brand
+- [honey-syrup-recipe-for-cocktails-1-1-ratio-of-honey-to-water](reference/honey-syrup-recipe-for-cocktails-1-1-ratio-of-honey-to-water.md) — Honey syrup recipe for cocktails - 1:1 ratio of honey to water
+- [interested-in-creating-social-media-presence-for-farm](user/interested-in-creating-social-media-presence-for-farm.md) — Interested in creating social media presence for farm
+- [interested-in-fly-fishing-bought-beginner-s-kit](user/interested-in-fly-fishing-bought-beginner-s-kit.md) — Interested in fly fishing; bought beginner's kit
+- [negroni-mastery-practice-10-attempts-by-nov-2023-learning-from-friend-emma](experience/negroni-mastery-practice-10-attempts-by-nov-2023-learning-from-friend-emma.md) — Negroni mastery practice - 10 attempts by Nov 2023, learning from friend Emma
+- [owns-and-operates-a-farm-with-chickens](user/owns-and-operates-a-farm-with-chickens.md) — Owns and operates a farm with chickens
+- [planning-dinner-party-for-8-10-guests-with-diverse-cuisines](project/planning-dinner-party-for-8-10-guests-with-diverse-cuisines.md) — Planning dinner party for 8-10 guests with diverse cuisines
+- [planning-to-clear-land-for-pigpen-expansion-with-cousin-s-help](project/planning-to-clear-land-for-pigpen-expansion-with-cousin-s-help.md) — Planning to clear land for pigpen expansion with cousin's help
+- [planning-to-enter-fishing-tournament-at-joe-s-tackle-on-main-st](project/planning-to-enter-fishing-tournament-at-joe-s-tackle-on-main-st.md) — Planning to enter fishing tournament at Joe's Tackle on Main St.
+- [purchased-craftsman-10-piece-combination-wrench-set-for-farm](project/purchased-craftsman-10-piece-combination-wrench-set-for-farm.md) — Purchased Craftsman 10-Piece Combination Wrench Set for farm
+- [purchased-flotec-fp4012-submersible-water-pump-for-farm](project/purchased-flotec-fp4012-submersible-water-pump-for-farm.md) — Purchased Flotec FP4012 submersible water pump for farm
+- [sold-excess-roosters-to-neighbor](experience/sold-excess-roosters-to-neighbor.md) — Sold excess roosters to neighbor
+- [spirit-infusion-techniques-cucumber-mint-lavender-grapefruit-gin-and-vodka](reference/spirit-infusion-techniques-cucumber-mint-lavender-grapefruit-gin-and-vodka.md) — Spirit infusion techniques - cucumber, mint, lavender, grapefruit gin and vodka
+- [taking-cooking-classes-indian-sushi-making-and-pastry-making](user/taking-cooking-classes-indian-sushi-making-and-pastry-making.md) — Taking cooking classes: Indian, sushi-making, and pastry-making

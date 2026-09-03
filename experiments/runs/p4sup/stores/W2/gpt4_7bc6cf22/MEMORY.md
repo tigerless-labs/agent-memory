@@ -1,0 +1,29 @@
+# MEMORY.md
+
+- [amazon-product-copywriting-silicone-nipple-covers-with-40-keyword-optimization](experience/amazon-product-copywriting-silicone-nipple-covers-with-40-keyword-optimization.md) — Amazon product copywriting: silicone nipple covers with 40+ keyword optimization
+- [attended-3-day-theater-workshop-april-15-17-2023-learning-improvisation-techniqu](experience/attended-3-day-theater-workshop-april-15-17-2023-learning-improvisation-techniqu.md) — Attended 3-day theater workshop April 15-17, 2023 learning improvisation techniques
+- [cancel-people-magazine-subscription-received-as-gift-from-sister](project/cancel-people-magazine-subscription-received-as-gift-from-sister.md) — Cancel People Magazine subscription received as gift from sister
+- [cat-as-jazz-slang-for-a-skilled-musician-example-sentences](reference/cat-as-jazz-slang-for-a-skilled-musician-example-sentences.md) — "Cat" as jazz slang for a skilled musician; example sentences
+- [cherokee-nation-initiatives-for-culture-preservation-during-pandemic-technology](reference/cherokee-nation-initiatives-for-culture-preservation-during-pandemic-technology.md) — Cherokee Nation initiatives for culture preservation during pandemic: technology, digital resources, and community support methods
+- [decided-to-purchase-garmin-dash-cam-66w-for-honda-civic-with-parking-mode](project/decided-to-purchase-garmin-dash-cam-66w-for-honda-civic-with-parking-mode.md) — Decided to purchase Garmin Dash Cam 66W for Honda Civic with parking mode
+- [enjoys-news-and-politics-podcaststhe-daily-and-pod-save-america](user/enjoys-news-and-politics-podcaststhe-daily-and-pod-save-america.md) — Enjoys news and politics podcasts—The Daily and Pod Save America
+- [enjoys-the-new-york-times-daily-briefing-for-news-summaries](user/enjoys-the-new-york-times-daily-briefing-for-news-summaries.md) — Enjoys The New York Times daily briefing for news summaries
+- [follows-the-economist-for-global-news-and-politics-coverage](user/follows-the-economist-for-global-news-and-politics-coverage.md) — Follows The Economist for global news and politics coverage
+- [has-amazon-prime-membership](user/has-amazon-prime-membership.md) — Has Amazon Prime membership
+- [interested-in-amazon-prime-rewards-visa-signature-card](user/interested-in-amazon-prime-rewards-visa-signature-card.md) — Interested in Amazon Prime Rewards Visa Signature Card
+- [interested-in-irish-culture-connacht-history-and-considering-a-trip-to-ireland-t](user/interested-in-irish-culture-connacht-history-and-considering-a-trip-to-ireland-t.md) — Interested in Irish culture, Connacht history, and considering a trip to Ireland to attend cultural festivals
+- [interested-in-supporting-cherokee-and-indigenous-culture-preservation-efforts](user/interested-in-supporting-cherokee-and-indigenous-culture-preservation-efforts.md) — Interested in supporting Cherokee and indigenous culture preservation efforts
+- [irish-cultural-events-and-festivals-galway-clifden-connemara-rose-of-tralee-st-p](reference/irish-cultural-events-and-festivals-galway-clifden-connemara-rose-of-tralee-st-p.md) — Irish cultural events and festivals: Galway, Clifden, Connemara, Rose of Tralee, St. Patrick's Day
+- [makes-3-4-online-purchases-per-week](user/makes-3-4-online-purchases-per-week.md) — Makes 3-4 online purchases per week
+- [not-very-tech-savvy-prefers-step-by-step-guidance](user/not-very-tech-savvy-prefers-step-by-step-guidance.md) — Not very tech-savvy; prefers step-by-step guidance
+- [owns-a-new-honda-civic](user/owns-a-new-honda-civic.md) — Owns a new Honda Civic
+- [planning-to-purchase-new-laptop-with-8gb-ram-and-ssd](project/planning-to-purchase-new-laptop-with-8gb-ram-and-ssd.md) — Planning to purchase new laptop with 8GB RAM and SSD
+- [podcast-recommendations-across-news-politics-interviews-and-culture](reference/podcast-recommendations-across-news-politics-interviews-and-culture.md) — Podcast recommendations across news, politics, interviews, and culture
+- [practices-solo-improvisation-exercises-to-improve-theater-skills](user/practices-solo-improvisation-exercises-to-improve-theater-skills.md) — Practices solo improvisation exercises to improve theater skills
+- [prepare-for-upcoming-audition-using-improvisation-techniques](project/prepare-for-upcoming-audition-using-improvisation-techniques.md) — Prepare for upcoming audition using improvisation techniques
+- [reads-articles-from-the-new-yorker-for-in-depth-coverage](user/reads-articles-from-the-new-yorker-for-in-depth-coverage.md) — Reads articles from The New Yorker for in-depth coverage
+- [renewed-car-license-plate-online-on-february-20-2023-avoiding-late-fees](experience/renewed-car-license-plate-online-on-february-20-2023-avoiding-late-fees.md) — Renewed car license plate online on February 20, 2023, avoiding late fees
+- [slow-internet-speeds-with-tp-link-archer-ax50-especially-evenings-with-multiple](experience/slow-internet-speeds-with-tp-link-archer-ax50-especially-evenings-with-multiple.md) — Slow internet speeds with TP-Link Archer AX50, especially evenings with multiple devices
+- [tp-link-archer-ax50-router-access-and-firmware-update](reference/tp-link-archer-ax50-router-access-and-firmware-update.md) — TP-Link Archer AX50 router access and firmware update
+- [tp-link-archer-ax50-router-purchased-from-amazon-for-about-150-dollars](user/tp-link-archer-ax50-router-purchased-from-amazon-for-about-150-dollars.md) — TP-Link Archer AX50 router purchased from Amazon for about 150 dollars
+- [watched-a-midsummer-night-s-dream-play-on-april-8-2023-for-improvisation-inspira](experience/watched-a-midsummer-night-s-dream-play-on-april-8-2023-for-improvisation-inspira.md) — Watched 'A Midsummer Night's Dream' play on April 8, 2023 for improvisation inspiration

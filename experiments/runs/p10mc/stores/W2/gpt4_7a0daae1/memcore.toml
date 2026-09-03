@@ -1,0 +1,22 @@
+[index]
+engine = "usearch"
+metric = "cosine"
+ef_construction = 128
+m = 16
+
+[weight]
+boost_amount = 0.10000000149011612
+penalty_factor = 0.800000011920929
+warn_threshold = 0.10000000149011612
+
+[recall]
+default_depth = 1
+
+[inspect]
+max_cluster_full_scan = 100
+similarity_top_pairs = 50
+
+[daemon]
+idle_timeout_minutes = 30
+bind_host = "127.0.0.1"
+port = 0

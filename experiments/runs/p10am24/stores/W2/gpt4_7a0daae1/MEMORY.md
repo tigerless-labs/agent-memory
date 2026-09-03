@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [attends-tennis-lessons-on-saturdays](user/attends-tennis-lessons-on-saturdays.md) — Attends tennis lessons on Saturdays
+- [barbecue-side-dishes-and-desserts-easy-recipes-and-crowd-pleasing-classics](reference/barbecue-side-dishes-and-desserts-easy-recipes-and-crowd-pleasing-classics.md) — Barbecue side dishes and desserts: easy recipes and crowd-pleasing classics
+- [barcelona-eco-friendly-travel-guide-hotels-bike-infrastructure-tours-rental-shop](reference/barcelona-eco-friendly-travel-guide-hotels-bike-infrastructure-tours-rental-shop.md) — Barcelona eco-friendly travel guide: hotels, bike infrastructure, tours, rental shops, and cafes
+- [board-game-recommendations-for-family-gatherings-ages-6-10](reference/board-game-recommendations-for-family-gatherings-ages-6-10.md) — Board game recommendations for family gatherings (ages 6-10+)
+- [cardio-and-endurance-training-for-tennis-via-running-and-cycling](project/cardio-and-endurance-training-for-tennis-via-running-and-cycling.md) — Cardio and endurance training for tennis via running and cycling
+- [carries-reusable-water-bottle-when-traveling-to-reduce-plastic-waste-and-save-mo](user/carries-reusable-water-bottle-when-traveling-to-reduce-plastic-waste-and-save-mo.md) — Carries reusable water bottle when traveling to reduce plastic waste and save money
+- [comprehensive-strength-training-and-fitness-routine-plan-for-improving-tennis-an](project/comprehensive-strength-training-and-fitness-routine-plan-for-improving-tennis-an.md) — Comprehensive strength training and fitness routine plan for improving tennis and running performance
+- [cycles-solo-on-friday-evenings-along-the-river](user/cycles-solo-on-friday-evenings-along-the-river.md) — Cycles solo on Friday evenings along the river
+- [data-organization-methodology-for-unstructured-document-collections](reference/data-organization-methodology-for-unstructured-document-collections.md) — Data organization methodology for unstructured document collections
+- [document-collection-90-000-100-000-documents-on-international-crime-terrorism-po](project/document-collection-90-000-100-000-documents-on-international-crime-terrorism-po.md) — Document collection: 90,000-100,000 documents on international crime, terrorism, politics
+- [enjoys-meal-prep-with-large-batches-that-last-multiple-days](user/enjoys-meal-prep-with-large-batches-that-last-multiple-days.md) — Enjoys meal prep with large batches that last multiple days
+- [experimenting-with-spice-blends-and-indian-cuisine](user/experimenting-with-spice-blends-and-indian-cuisine.md) — Experimenting with spice blends and Indian cuisine
+- [family-game-night-this-week-week-of-2023-03-03-ticket-to-ride-and-pictionary](project/family-game-night-this-week-week-of-2023-03-03-ticket-to-ride-and-pictionary.md) — Family game night this week (week of 2023-03-03): Ticket to Ride and Pictionary
+- [hokkaido-must-try-dishes](reference/hokkaido-must-try-dishes.md) — Hokkaido must-try dishes
+- [hokkaido-restaurants-and-markets-for-food-exploration](reference/hokkaido-restaurants-and-markets-for-food-exploration.md) — Hokkaido restaurants and markets for food exploration
+- [host-casual-barbecue-at-home-with-set-menu-and-activities](project/host-casual-barbecue-at-home-with-set-menu-and-activities.md) — Host casual barbecue at home with set menu and activities
+- [interested-in-joining-local-cycling-group-for-social-and-motivated-riding](user/interested-in-joining-local-cycling-group-for-social-and-motivated-riding.md) — Interested in joining local cycling group for social and motivated riding
+- [interested-in-visiting-hokkaido-to-experience-regional-cuisine-and-food-culture](user/interested-in-visiting-hokkaido-to-experience-regional-cuisine-and-food-culture.md) — Interested in visiting Hokkaido to experience regional cuisine and food culture
+- [lake-house-family-trip-2023-03-04-relaxed-time-lounging-by-lake-board-games-with](experience/lake-house-family-trip-2023-03-04-relaxed-time-lounging-by-lake-board-games-with.md) — Lake house family trip 2023-03-04: relaxed time lounging by lake, board games with siblings, barbecue lunch
+- [linkin-park-metal-health-advocacy-and-philanthropy](reference/linkin-park-metal-health-advocacy-and-philanthropy.md) — Linkin Park: metal health advocacy and philanthropy
+- [loves-linkin-park-music](user/loves-linkin-park-music.md) — Loves Linkin Park music
+- [madras-curry-powder-brands-penzeys-spices-the-spice-house-mccormick](reference/madras-curry-powder-brands-penzeys-spices-the-spice-house-mccormick.md) — Madras curry powder brands: Penzeys Spices, The Spice House, McCormick
+- [madras-curry-sauce-from-scratch-recipe](reference/madras-curry-sauce-from-scratch-recipe.md) — Madras curry sauce from scratch recipe
+- [making-homemade-naan-bread-from-scratch-instead-of-store-bought](project/making-homemade-naan-bread-from-scratch-instead-of-store-bought.md) — Making homemade naan bread from scratch instead of store-bought
+- [naan-bread-recipe-from-scratch](reference/naan-bread-recipe-from-scratch.md) — Naan bread recipe from scratch
+- [net-play-and-volley-strategy-for-exploiting-weak-returns](project/net-play-and-volley-strategy-for-exploiting-weak-returns.md) — Net play and volley strategy for exploiting weak returns
+- [planning-eco-friendly-trip-to-barcelona-with-focus-on-bike-tours-and-sustainable](project/planning-eco-friendly-trip-to-barcelona-with-focus-on-bike-tours-and-sustainable.md) — Planning eco-friendly trip to Barcelona with focus on bike tours and sustainable accommodations
+- [planning-to-make-madras-curry-with-tofu-from-scratch](project/planning-to-make-madras-curry-with-tofu-from-scratch.md) — Planning to make Madras curry with tofu from scratch
+- [plays-tennis-lessons-on-saturdays](user/plays-tennis-lessons-on-saturdays.md) — Plays tennis lessons on Saturdays
+- [plyometric-exercises-for-tennis-power-speed-and-agility](project/plyometric-exercises-for-tennis-power-speed-and-agility.md) — Plyometric exercises for tennis power speed and agility
+- [polestar-primary-driver-module-system-design-and-dynamodb-schema](reference/polestar-primary-driver-module-system-design-and-dynamodb-schema.md) — Polestar Primary Driver module - system design and DynamoDB schema
+- [prefers-casual-laid-back-vibes-for-gatherings](user/prefers-casual-laid-back-vibes-for-gatherings.md) — Prefers casual, laid-back vibes for gatherings
+- [purchased-new-tennis-racket-online-on-2023-03-10-planning-to-try-during-saturday](user/purchased-new-tennis-racket-online-on-2023-03-10-planning-to-try-during-saturday.md) — Purchased new tennis racket online on 2023-03-10; planning to try during Saturday tennis lessons
+- [quality-control-process-7-steps-including-defining-standards-identifying-control](reference/quality-control-process-7-steps-including-defining-standards-identifying-control.md) — Quality control process: 7 steps including defining standards, identifying control points, implementing checks, corrective actions, performance monitoring
+- [received-new-tennis-racket-on-2023-03-17](user/received-new-tennis-racket-on-2023-03-17.md) — Received new tennis racket on 2023-03-17
+- [requires-ergonomic-bike-setup-with-upright-handlebars-and-cushioned-seat-due-to](user/requires-ergonomic-bike-setup-with-upright-handlebars-and-cushioned-seat-due-to.md) — Requires ergonomic bike setup with upright handlebars and cushioned seat due to past back issues
+- [sourcing-suppliers-for-products-researching-contracts-pricing-evaluation-onboard](project/sourcing-suppliers-for-products-researching-contracts-pricing-evaluation-onboard.md) — Sourcing suppliers for products; researching contracts, pricing, evaluation, onboarding, quality control
+- [summer-barbecue-beverage-ideas-refreshing-cold-drinks-for-parties](reference/summer-barbecue-beverage-ideas-refreshing-cold-drinks-for-parties.md) — Summer barbecue beverage ideas: refreshing cold drinks for parties

@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [2018-honda-civic-floor-mats-worn-out-and-stained-considering-replacement](user/2018-honda-civic-floor-mats-worn-out-and-stained-considering-replacement.md) — 2018 Honda Civic floor mats worn out and stained, considering replacement
+- [all-season-tire-models-recommended-for-honda-civic](reference/all-season-tire-models-recommended-for-honda-civic.md) — All-season tire models recommended for Honda Civic
+- [bakes-vegan-pancakes-on-sundays-with-oat-milk](user/bakes-vegan-pancakes-on-sundays-with-oat-milk.md) — Bakes vegan pancakes on Sundays with oat milk
+- [became-vegetarian-in-november-2022](user/became-vegetarian-in-november-2022.md) — Became vegetarian in November 2022
+- [car-detailing-spray-recommendations](reference/car-detailing-spray-recommendations.md) — Car detailing spray recommendations
+- [career-goal-pursue-it-vocational-training-and-build-a-career-in-technology](user/career-goal-pursue-it-vocational-training-and-build-a-career-in-technology.md) — Career goal: pursue IT vocational training and build a career in technology
+- [cautious-driver-who-prioritizes-safe-driving](user/cautious-driver-who-prioritizes-safe-driving.md) — Cautious driver who prioritizes safe driving
+- [changed-morning-wake-up-time-from-7-30-am-to-7-15-am-to-reduce-morning-rush](user/changed-morning-wake-up-time-from-7-30-am-to-7-15-am-to-reduce-morning-rush.md) — Changed morning wake-up time from 7:30 AM to 7:15 AM to reduce morning rush
+- [chiang-mai-4-day-itinerary-with-attractions-google-ratings-and-drive-times](reference/chiang-mai-4-day-itinerary-with-attractions-google-ratings-and-drive-times.md) — Chiang Mai 4-day itinerary with attractions, Google ratings, and drive times
+- [collects-vintage-barbie-dolls-from-the-1960s](user/collects-vintage-barbie-dolls-from-the-1960s.md) — Collects vintage Barbie dolls from the 1960s
+- [collects-vintage-collectibles-including-toys-coins-and-dolls](user/collects-vintage-collectibles-including-toys-coins-and-dolls.md) — Collects vintage collectibles including toys, coins, and dolls
+- [crusty-vegan-bread-with-oat-flour-and-sesame-seeds-recipe](reference/crusty-vegan-bread-with-oat-flour-and-sesame-seeds-recipe.md) — Crusty vegan bread with oat flour and sesame seeds recipe
+- [database-design-fundamentals-data-abstraction-levels-normalization-schemas](project/database-design-fundamentals-data-abstraction-levels-normalization-schemas.md) — Database design fundamentals: data abstraction levels, normalization, schemas
+- [does-meal-prep-with-rice-and-roasted-vegetables-on-sundays](user/does-meal-prep-with-rice-and-roasted-vegetables-on-sundays.md) — Does meal prep with rice and roasted vegetables on Sundays
+- [experiencing-burnout-prioritizing-self-care-and-healthy-boundary-setting](user/experiencing-burnout-prioritizing-self-care-and-healthy-boundary-setting.md) — Experiencing burnout, prioritizing self-care and healthy boundary-setting
+- [exploring-gender-identity-and-expression-learning-about-gender-fluidity](user/exploring-gender-identity-and-expression-learning-about-gender-fluidity.md) — Exploring gender identity and expression, learning about gender fluidity
+- [gps-navigation-malfunction-on-drive-to-cousin-s-house-resolved-with-phone-gps-an](experience/gps-navigation-malfunction-on-drive-to-cousin-s-house-resolved-with-phone-gps-an.md) — GPS navigation malfunction on drive to cousin's house, resolved with phone GPS and software update
+- [has-children-who-enjoy-cooking-together](user/has-children-who-enjoy-cooking-together.md) — Has children who enjoy cooking together
+- [in-demand-it-skills-as-of-may-2023](reference/in-demand-it-skills-as-of-may-2023.md) — In-demand IT skills as of May 2023
+- [interested-in-daily-creative-practices-journaling-drawing-to-break-creative-rut](user/interested-in-daily-creative-practices-journaling-drawing-to-break-creative-rut.md) — Interested in daily creative practices (journaling, drawing) to break creative rut
+- [interested-in-daily-mindfulness-and-self-care-podcasts-short-format-5-20-min-for](user/interested-in-daily-mindfulness-and-self-care-podcasts-short-format-5-20-min-for.md) — Interested in daily mindfulness and self-care podcasts, short format (5-20 min) for commute
+- [interested-in-vegan-tofu-recipes-with-middle-eastern-flavors](user/interested-in-vegan-tofu-recipes-with-middle-eastern-flavors.md) — Interested in vegan tofu recipes with Middle Eastern flavors
+- [keeps-log-of-gas-mileage-to-track-fuel-efficiency](user/keeps-log-of-gas-mileage-to-track-fuel-efficiency.md) — Keeps log of gas mileage to track fuel efficiency
+- [non-binary-influencers-artists-and-lgbtq-resources-for-creative-inspiration](reference/non-binary-influencers-artists-and-lgbtq-resources-for-creative-inspiration.md) — Non-binary influencers, artists, and LGBTQ+ resources for creative inspiration
+- [oat-milk-creamy-tomato-soup-recipe](reference/oat-milk-creamy-tomato-soup-recipe.md) — Oat milk creamy tomato soup recipe
+- [oat-milk-is-favorite-plant-based-milk](user/oat-milk-is-favorite-plant-based-milk.md) — Oat milk is favorite plant-based milk
+- [owns-17-star-wars-action-figures-from-the-1980s-including-a-rare-boba-fett-figur](user/owns-17-star-wars-action-figures-from-the-1980s-including-a-rare-boba-fett-figur.md) — Owns 17 Star Wars action figures from the 1980s, including a rare Boba Fett figure
+- [owns-2018-honda-civic-purchased-around-2020](user/owns-2018-honda-civic-purchased-around-2020.md) — Owns 2018 Honda Civic, purchased around 2020
+- [owns-a-honda-civic](user/owns-a-honda-civic.md) — Owns a Honda Civic
+- [plan-to-reach-out-to-local-it-companies-for-job-shadowing-and-mentorship-opportu](project/plan-to-reach-out-to-local-it-companies-for-job-shadowing-and-mentorship-opportu.md) — Plan to reach out to local IT companies for job shadowing and mentorship opportunities (May 2023)
+- [planning-online-course-on-android-open-source-topics](project/planning-online-course-on-android-open-source-topics.md) — Planning online course on Android open source topics
+- [planning-to-document-and-insure-collectibles-with-photos-spreadsheet-and-profess](user/planning-to-document-and-insure-collectibles-with-photos-spreadsheet-and-profess.md) — Planning to document and insure collectibles with photos, spreadsheet, and professional appraisals
+- [prefers-brief-step-by-step-answers-will-ask-for-details-if-needed](user/prefers-brief-step-by-step-answers-will-ask-for-details-if-needed.md) — Prefers brief, step-by-step answers; will ask for details if needed
+- [prefers-quick-and-easy-dinners-that-can-be-made-in-under-30-minutes](user/prefers-quick-and-easy-dinners-that-can-be-made-in-under-30-minutes.md) — Prefers quick and easy dinners that can be made in under 30 minutes
+- [received-asylum-approval-approximately-february-2023-approximately-3-months-befo](user/received-asylum-approval-approximately-february-2023-approximately-3-months-befo.md) — Received asylum approval approximately February 2023, approximately 3 months before May 20, 2023
+- [received-scholarship-for-it-vocational-training-from-local-non-profit-assisting](project/received-scholarship-for-it-vocational-training-from-local-non-profit-assisting.md) — Received scholarship for IT vocational training from local non-profit assisting refugees (May 2023)
+- [recently-adopted-more-aggressive-driving-to-arrive-at-work-on-time](user/recently-adopted-more-aggressive-driving-to-arrive-at-work-on-time.md) — Recently adopted more aggressive driving to arrive at work on time
+- [recently-purchased-an-1893-morgan-dollar-coin](user/recently-purchased-an-1893-morgan-dollar-coin.md) — Recently purchased an 1893 Morgan dollar coin
+- [tools-for-creating-online-course-content-with-consistent-design-themes](reference/tools-for-creating-online-course-content-with-consistent-design-themes.md) — Tools for creating online course content with consistent design themes

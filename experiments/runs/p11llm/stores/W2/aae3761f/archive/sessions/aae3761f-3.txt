@@ -1,0 +1,78 @@
+## Session sharegpt_Ktz3pBy_0 — 2023/05/21 (Sun) 05:51
+user: Can you draw ascii art for a car?
+assistant: Certainly! Here is an ASCII art of a car:
+```
+   ________
+  /        \
+ /          \
+/            \
+|            |
+|            |
+ \          /
+  \________/
+  /          \
+ /            \
+/______________\
+```
+user: Can you show the car from the side?
+assistant: Certainly! Here is an ASCII art of a car from the side:
+```
+   ________
+  /        \
+ /          \
+/            \
+|            |
+|            |
+|            |
+|            |
+ \          /
+  \________/
+```
+user: Can you add an arrow pointing to its wheel?
+assistant: Certainly! Here is an ASCII art of a car with an arrow pointing to one of its wheels:
+```
+   ________
+  /        \
+ /          \
+/            \
+|            |
+|            |
+|            |
+|            |
+ \          /
+  \________/
+       |
+       v
+  ________
+ /        \
+/          \
+|          |
+ \        /
+  \______/
+```
+user: Can you draw an ascii art of a flower?
+assistant: Certainly! Here is an ASCII art of a flower:
+```
+   /\
+  /  \
+ /    \
+ \    /
+  \  /
+   \/
+```
+user: What about a skull?
+assistant: Certainly! Here is an ASCII art of a skull:
+```
+   _________
+ /         \
+/           \
+\           /
+ \_________/
+   |     |
+   |     |
+   |     |
+   |     |
+   |     |
+   |     |
+   |_____|
+```

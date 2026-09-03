@@ -1,0 +1,42 @@
+# MEMORY.md
+
+- [2023-earnings-1-280-total-from-six-markets-through-may-20](project/2023-earnings-1-280-total-from-six-markets-through-may-20.md) — 2023 earnings: $1,280 total from six markets through May 20
+- [artists-to-explore-lucy-dacus-phoebe-bridgers-julien-baker](reference/artists-to-explore-lucy-dacus-phoebe-bridgers-julien-baker.md) — Artists to explore: Lucy Dacus, Phoebe Bridgers, Julien Baker
+- [bass-fishing-guide-lures-flies-knots-rod-setup-and-presentation-techniques](reference/bass-fishing-guide-lures-flies-knots-rod-setup-and-presentation-techniques.md) — Bass fishing guide: lures, flies, knots, rod setup, and presentation techniques
+- [beach-trip-with-friends-rekindled-photography-hobby](experience/beach-trip-with-friends-rekindled-photography-hobby.md) — Beach trip with friends rekindled photography hobby
+- [completed-marathon-with-personal-best-on-april-15-2023](experience/completed-marathon-with-personal-best-on-april-15-2023.md) — Completed marathon with personal best on April 15, 2023
+- [considering-expansion-of-artisanal-soap-product-line](project/considering-expansion-of-artisanal-soap-product-line.md) — Considering expansion of artisanal soap product line
+- [creative-writing-mk-imprisoned-by-wukong-scenes-exploring-captivity-survival-and](reference/creative-writing-mk-imprisoned-by-wukong-scenes-exploring-captivity-survival-and.md) — Creative writing: MK imprisoned by Wukong; scenes exploring captivity, survival, and legend vs reality
+- [current-inventory-candles-nearly-sold-out-need-to-restock-strawberry-jam](project/current-inventory-candles-nearly-sold-out-need-to-restock-strawberry-jam.md) — Current inventory: candles nearly sold out, need to restock strawberry jam
+- [downtown-farmers-market-sales-on-2026-09-02](experience/downtown-farmers-market-sales-on-2026-09-02.md) — Downtown Farmers Market sales on 2026-09-02
+- [foodie-festival-visit-cleared-old-inventory-stock](experience/foodie-festival-visit-cleared-old-inventory-stock.md) — Foodie Festival visit cleared old inventory stock
+- [fram-ship-arctic-cargo-operations-loading-unloading-and-crew-conditions](reference/fram-ship-arctic-cargo-operations-loading-unloading-and-crew-conditions.md) — Fram ship Arctic cargo operations - loading, unloading, and crew conditions
+- [furniture-stores-prefers-west-elm-crate-barrel-ikea](user/furniture-stores-prefers-west-elm-crate-barrel-ikea.md) — Furniture stores: prefers West Elm, Crate & Barrel, IKEA
+- [html-css-flexbox-pattern-for-condensed-responsive-link-display](reference/html-css-flexbox-pattern-for-condensed-responsive-link-display.md) — HTML/CSS flexbox pattern for condensed responsive link display
+- [ikea-micke-desk-assembled-and-installed](user/ikea-micke-desk-assembled-and-installed.md) — IKEA MICKE desk assembled and installed
+- [implementing-points-based-loyalty-program-with-tiers](project/implementing-points-based-loyalty-program-with-tiers.md) — Implementing points-based loyalty program with tiers
+- [interested-in-bass-fishing-both-traditional-lure-fishing-and-fly-fishing](user/interested-in-bass-fishing-both-traditional-lure-fishing-and-fly-fishing.md) — Interested in bass fishing: both traditional lure fishing and fly fishing
+- [interested-in-live-music-and-comedy-shows](user/interested-in-live-music-and-comedy-shows.md) — Interested in live music and comedy shows
+- [key-ecocriticism-scholars-and-central-concepts](reference/key-ecocriticism-scholars-and-central-concepts.md) — Key ecocriticism scholars and central concepts
+- [live-music-and-comedy-venues-for-event-discovery](reference/live-music-and-comedy-venues-for-event-discovery.md) — Live music and comedy venues for event discovery
+- [living-room-redesign-rearranged-for-conversational-layout-shopping-for-dining-ta](user/living-room-redesign-rearranged-for-conversational-layout-shopping-for-dining-ta.md) — Living room redesign: rearranged for conversational layout, shopping for dining table and coffee table
+- [music-genre-preferences-singer-songwriter-folk-influenced-indie-rock](user/music-genre-preferences-singer-songwriter-folk-influenced-indie-rock.md) — Music genre preferences: Singer-Songwriter, Folk-Influenced, Indie Rock
+- [office-chair-ergohuman-models-preferred](user/office-chair-ergohuman-models-preferred.md) — Office chair: ERGOhuman models preferred
+- [ordered-100-business-cards-as-starting-quantity](project/ordered-100-business-cards-as-starting-quantity.md) — Ordered 100 business cards as starting quantity
+- [photography-hobby-landscape-and-nature-focus-considering-fujifilm-x-t30-ii-upgra](user/photography-hobby-landscape-and-nature-focus-considering-fujifilm-x-t30-ii-upgra.md) — Photography hobby: landscape and nature focus, considering Fujifilm X-T30 II upgrade
+- [physical-fitness-improvements-5-lbs-weight-loss-10-bpm-resting-heart-rate-decrea](user/physical-fitness-improvements-5-lbs-weight-loss-10-bpm-resting-heart-rate-decrea.md) — Physical fitness improvements: 5 lbs weight loss, 10 bpm resting heart rate decrease
+- [planning-gift-basket-product-line-expansion-with-downtown-farmers-market-themed](project/planning-gift-basket-product-line-expansion-with-downtown-farmers-market-themed.md) — Planning gift basket product line expansion with Downtown Farmers Market themed bundles
+- [prefers-condensed-responsive-link-display-using-flexbox](user/prefers-condensed-responsive-link-display-using-flexbox.md) — Prefers condensed, responsive link display using flexbox
+- [prefers-using-spreadsheets-to-track-training-progress](user/prefers-using-spreadsheets-to-track-training-progress.md) — Prefers using spreadsheets to track training progress
+- [reclaimed-wood-table-maintenance-tips-and-care](reference/reclaimed-wood-table-maintenance-tips-and-care.md) — Reclaimed wood table maintenance tips and care
+- [research-interests-in-ecocriticism-literature-and-environmental-theory](user/research-interests-in-ecocriticism-literature-and-environmental-theory.md) — Research interests in ecocriticism, literature, and environmental theory
+- [research-methodologies-in-ecocriticism-and-landscape-architecture](reference/research-methodologies-in-ecocriticism-and-landscape-architecture.md) — Research methodologies in ecocriticism and landscape architecture
+- [runs-small-business-selling-artisanal-soaps-and-candles-at-farmers-markets-and-c](project/runs-small-business-selling-artisanal-soaps-and-candles-at-farmers-markets-and-c.md) — Runs small business selling artisanal soaps and candles at farmers markets and community events
+- [saved-10-songs-from-discover-weekly-playlist-on-2023-03-13](experience/saved-10-songs-from-discover-weekly-playlist-on-2023-03-13.md) — Saved ~10 songs from Discover Weekly playlist on 2023/03/13
+- [sells-at-downtown-farmers-market-and-participates-in-food-events](user/sells-at-downtown-farmers-market-and-participates-in-food-events.md) — Sells at Downtown Farmers Market and participates in food events
+- [sells-homemade-jams-candles-and-soaps](user/sells-homemade-jams-candles-and-soaps.md) — Sells homemade jams, candles, and soaps
+- [strawberry-jam-is-best-selling-flavor](user/strawberry-jam-is-best-selling-flavor.md) — Strawberry jam is best-selling flavor
+- [training-for-sprint-triathlon](project/training-for-sprint-triathlon.md) — Training for sprint triathlon
+- [ursula-k-le-guin-major-works-with-environmental-and-ecological-themes](reference/ursula-k-le-guin-major-works-with-environmental-and-ecological-themes.md) — Ursula K. Le Guin major works with environmental and ecological themes
+- [west-elm-harmony-sofa-in-dark-gray-velvet-purchased](user/west-elm-harmony-sofa-in-dark-gray-velvet-purchased.md) — West Elm Harmony Sofa in dark gray velvet purchased
+- [yoga-practice-routine-twice-weekly-since-march-1-2023-30-day-challenge-in-april](project/yoga-practice-routine-twice-weekly-since-march-1-2023-30-day-challenge-in-april.md) — Yoga practice routine: twice weekly since March 1, 2023; 30-day challenge in April

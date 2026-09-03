@@ -1,0 +1,32 @@
+# MEMORY.md
+
+- [amsterdam-bakeries-with-gluten-free-and-vegan-options](reference/amsterdam-bakeries-with-gluten-free-and-vegan-options.md) — Amsterdam bakeries with gluten-free and vegan options
+- [art-of-imperfection-framework-with-five-key-components-for-promoting-acceptance](project/art-of-imperfection-framework-with-five-key-components-for-promoting-acceptance.md) — Art of Imperfection framework with five key components for promoting acceptance and inclusion
+- [based-in-sf-bay-area-prefers-hiking-within-30-45-minutes-of-city-center](user/based-in-sf-bay-area-prefers-hiking-within-30-45-minutes-of-city-center.md) — Based in SF Bay Area, prefers hiking within 30-45 minutes of city center
+- [budget-conscious-gift-shopping-in-the-20-50-dollar-range](user/budget-conscious-gift-shopping-in-the-20-50-dollar-range.md) — Budget-conscious gift shopping in the 20-50 dollar range
+- [chose-wix-unlimited-plan-for-freelance-website](project/chose-wix-unlimited-plan-for-freelance-website.md) — Chose Wix Unlimited plan for freelance website
+- [city-view-rooftop-events-contact-samantha](reference/city-view-rooftop-events-contact-samantha.md) — City View Rooftop events contact: Samantha
+- [effective-task-delegation-and-team-management-strategies-for-engineering-leads](reference/effective-task-delegation-and-team-management-strategies-for-engineering-leads.md) — Effective task delegation and team management strategies for engineering leads
+- [friend-rachel-felt-marginalized-in-the-lgbtq-community](user/friend-rachel-felt-marginalized-in-the-lgbtq-community.md) — Friend Rachel felt marginalized in the LGBTQ+ community
+- [has-nieces-and-nephews-ages-5-12](user/has-nieces-and-nephews-ages-5-12.md) — Has nieces and nephews ages 5-12
+- [has-several-beginner-photography-enthusiast-friends](user/has-several-beginner-photography-enthusiast-friends.md) — Has several beginner photography enthusiast friends
+- [health-platform-with-ai-chatbot-music-therapy-nft-fundraising-and-mental-health](project/health-platform-with-ai-chatbot-music-therapy-nft-fundraising-and-mental-health.md) — Health platform with AI chatbot, music therapy, NFT fundraising, and mental health screening integration
+- [interested-in-creating-lgbtq-inclusive-gym-environments-and-fitness-spaces](user/interested-in-creating-lgbtq-inclusive-gym-environments-and-fitness-spaces.md) — Interested in creating LGBTQ+-inclusive gym environments and fitness spaces
+- [interested-in-vegan-food-and-dessert-options](user/interested-in-vegan-food-and-dessert-options.md) — Interested in vegan food and dessert options
+- [interested-in-wes-anderson-films-and-his-distinctive-visual-style](user/interested-in-wes-anderson-films-and-his-distinctive-visual-style.md) — Interested in Wes Anderson films and his distinctive visual style
+- [is-a-freelancer-building-professional-online-presence](user/is-a-freelancer-building-professional-online-presence.md) — Is a freelancer building professional online presence
+- [linkedin-engagement-metrics-20-likes-and-5-comments-on-digital-marketing-trend-a](project/linkedin-engagement-metrics-20-likes-and-5-comments-on-digital-marketing-trend-a.md) — LinkedIn engagement metrics: 20 likes and 5 comments on digital marketing trend articles
+- [loves-the-grand-budapest-hotel-for-its-candy-colored-hotel-scenes-and-masterful](user/loves-the-grand-budapest-hotel-for-its-candy-colored-hotel-scenes-and-masterful.md) — Loves The Grand Budapest Hotel for its candy-colored hotel scenes and masterful color grading
+- [manager-is-named-rachel](user/manager-is-named-rachel.md) — Manager is named Rachel
+- [mount-tamalpais-state-park-and-bay-area-hiking-recommendations-for-team-outings](reference/mount-tamalpais-state-park-and-bay-area-hiking-recommendations-for-team-outings.md) — Mount Tamalpais State Park and Bay Area hiking recommendations for team outings
+- [participates-in-online-freelancer-communities-for-support-and-networking](user/participates-in-online-freelancer-communities-for-support-and-networking.md) — Participates in online freelancer communities for support and networking
+- [plan-team-outing-for-5-people-at-city-view-rooftop-with-outdoor-games](project/plan-team-outing-for-5-people-at-city-view-rooftop-with-outdoor-games.md) — Plan team outing for 5 people at City View Rooftop with outdoor games
+- [planning-series-of-social-media-engagement-posts-across-linkedin-instagram-twitt](project/planning-series-of-social-media-engagement-posts-across-linkedin-instagram-twitt.md) — Planning series of social media engagement posts across LinkedIn, Instagram, Twitter, Facebook
+- [plans-to-add-blog-to-wix-website-for-sharing-freelancer-experiences](project/plans-to-add-blog-to-wix-website-for-sharing-freelancer-experiences.md) — Plans to add blog to Wix website for sharing freelancer experiences
+- [prefers-experience-gifts-for-children-with-small-gifts-to-open](user/prefers-experience-gifts-for-children-with-small-gifts-to-open.md) — Prefers experience gifts for children with small gifts to open
+- [senior-software-engineer-leading-a-team-of-4-engineers](user/senior-software-engineer-leading-a-team-of-4-engineers.md) — Senior Software Engineer leading a team of 4 engineers
+- [senior-software-engineer-leading-a-team-of-5-engineers](user/senior-software-engineer-leading-a-team-of-5-engineers.md) — Senior Software Engineer leading a team of 5 engineers
+- [social-media-engagement-strategy-catchy-titles-content-formats-analytics-sharing](reference/social-media-engagement-strategy-catchy-titles-content-formats-analytics-sharing.md) — Social media engagement strategy: catchy titles, content formats, analytics sharing
+- [team-outing-hiking-at-mount-tamalpais-state-park-with-scavenger-hunt](project/team-outing-hiking-at-mount-tamalpais-state-park-with-scavenger-hunt.md) — Team outing: hiking at Mount Tamalpais State Park with scavenger hunt
+- [trying-to-reduce-gluten-consumption](user/trying-to-reduce-gluten-consumption.md) — Trying to reduce gluten consumption
+- [works-on-medical-content-and-graphic-design-for-health-platforms](user/works-on-medical-content-and-graphic-design-for-health-platforms.md) — Works on medical content and graphic design for health platforms

@@ -1,0 +1,35 @@
+## Session sharegpt_SM5D9NQ_0 — 2023/03/24 (Fri) 20:14
+user: I have data which is a list of links. There are plenty of them. Create a reactive html and css to display them in condensed form. Use flexbox.
+assistant: Here is an example of HTML and CSS that uses flexbox to display a list of links in a condensed form:
+
+HTML:
+```
+<div class="container">
+  <div class="link-container">
+    <a href="#" class="link">Link 1</a>
+    <a href="#" class="link">Link 2</a>
+    <a href="#" class="link">Link 3</a>
+    <!-- Add more links here -->
+  </div>
+</div>
+```
+CSS:
+```
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.link {
+  flex-basis: 30%;
+  margin: 5px;
+  text-align: center;
+}
+```
+This will create a container that uses flexbox to display the links in a row, wrapping them to the next line as needed, and using `justify-content: space-between;` to distribute the links evenly across the row. Each link will take up 30% of the available space, and have a 5px margin around it.

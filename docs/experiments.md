@@ -46,7 +46,7 @@
 | config 全量快照 | **recall 指纹不能跨 config schema 反解**:加或移一个 knob 会改变所有指纹,旧运行的配置无法用当前 config 空间搜回来 |
 | 考试模式、宿主与模型、judge 设置 | 都不在指纹里 |
 | 父 run(重放来源) | 否则「写侧构造上相同」无从核验 |
-| 逐题记录 | 结论的可复核性;它是唯一入 git 的证据 |
+| 逐题记录 | 结论的可复核性;连同 store 真源一起入 git |
 
 ## 五、命名
 
@@ -57,16 +57,17 @@
 
 ## 六、数据:什么入 git,什么不能删
 
-- 入 git 的白名单:逐题记录、题目集、报表,以及 `experiments/results/` 下的 write-up。
-  其余(store、工作目录、进度日志)不入。
+- 实验数据即证据,**入 git**:逐题记录、题目集、报表、write-up,以及每个 run 的 store 真源
+  (记忆文件、archive、config)。不入的只有可重建的缓存(索引、向量、WAL、模型软链——
+  不变量 1:索引是真源的投影)、工作目录与进度日志。原始 LongMemEval-S 以 gzip 入库,
+  超过 GitHub 单文件上限;用前解压。
 - **实验产物只落主工作区,绝不落在 worktree 内。** worktree 是代码的隔离区,不是数据的:
   worktree 路径与 run 产物都被 gitignore,而 `git worktree remove` **不因忽略文件而拒绝**
   (status 为空,不加 force 即删),再叠上「分支落地即删 worktree」的规矩,语料会随分支蒸发。
   在 worktree 里跑实验时,写入路径用绝对路径指回主工作区;harness 对落在 worktree 下的
   写入型路径拒绝启动。
-- **冻结语料不可删**:被任何读侧结果锚定的 store 树。清单与理由见
-  [experiments/README.md](../experiments/README.md)。删掉它丢的不是结论,
-  是「再跑一条臂来比」的能力。
+- **冻结语料不可删**:被任何读侧结果锚定的 store 树,它们的真源已在 git 里,但本地缓存删了
+  要 `mem rebuild` 才能重放。清单与理由见 [experiments/README.md](../experiments/README.md)。
 - benchmark 数据不混入真实用户库;每个 run 独立库;互通测试用专用库。
 
 ## 七、失败处理

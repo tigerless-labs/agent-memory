@@ -1,0 +1,24 @@
+# MEMORY.md
+
+- [attended-niece-s-high-school-graduation-ceremony-at-local-convention-center-on-j](experience/attended-niece-s-high-school-graduation-ceremony-at-local-convention-center-on-j.md) — Attended niece's high school graduation ceremony at local convention center on June 10, 2023
+- [chose-gott-s-roadside-for-colleague-son-middle-school-graduation-celebration-lun](project/chose-gott-s-roadside-for-colleague-son-middle-school-graduation-celebration-lun.md) — Chose Gott's Roadside for colleague son middle school graduation celebration lunch
+- [collects-autographed-baseballs](user/collects-autographed-baseballs.md) — Collects autographed baseballs
+- [collects-error-coins](user/collects-error-coins.md) — Collects error coins
+- [collects-stamps-and-plans-to-attend-stamp-shows](user/collects-stamps-and-plans-to-attend-stamp-shows.md) — Collects stamps and plans to attend stamp shows
+- [collects-vintage-cameras-planning-to-sell-leica-camera-with-original-lens-and-ac](user/collects-vintage-cameras-planning-to-sell-leica-camera-with-original-lens-and-ac.md) — Collects vintage cameras, planning to sell Leica camera with original lens and accessories
+- [community-group-speaker-guidelines-prioritize-knowledge-sharing-and-community-bu](project/community-group-speaker-guidelines-prioritize-knowledge-sharing-and-community-bu.md) — Community group speaker guidelines: prioritize knowledge sharing and community building over product promotion
+- [expanding-vinyl-record-collection-with-international-pressings-especially-from-j](user/expanding-vinyl-record-collection-with-international-pressings-especially-from-j.md) — Expanding vinyl record collection with international pressings, especially from Japan
+- [greythr-onboarding-policy-template-for-creating-formal-welcome-processes](reference/greythr-onboarding-policy-template-for-creating-formal-welcome-processes.md) — Greythr Onboarding Policy template for creating formal welcome processes
+- [grows-3-cucumber-plants-in-garden-with-daily-harvest](user/grows-3-cucumber-plants-in-garden-with-daily-harvest.md) — Grows 3 cucumber plants in garden with daily harvest
+- [interested-in-making-small-batch-dill-pickles-using-lacto-fermentation](user/interested-in-making-small-batch-dill-pickles-using-lacto-fermentation.md) — Interested in making small-batch dill pickles using lacto-fermentation
+- [interested-in-nlp-deep-learning-and-language-modeling-for-text-generation-and-un](user/interested-in-nlp-deep-learning-and-language-modeling-for-text-generation-and-un.md) — Interested in NLP, deep learning, and language modeling for text generation and understanding
+- [interested-in-pursuing-a-data-science-certification](user/interested-in-pursuing-a-data-science-certification.md) — Interested in pursuing a data science certification
+- [marketplace-platforms-for-selling-vintage-cameras](reference/marketplace-platforms-for-selling-vintage-cameras.md) — Marketplace platforms for selling vintage cameras
+- [nlp-libraries-and-online-communities-for-learning-and-staying-updated](reference/nlp-libraries-and-online-communities-for-learning-and-staying-updated.md) — NLP libraries and online communities for learning and staying updated
+- [recommended-books-for-nlp-learning](reference/recommended-books-for-nlp-learning.md) — Recommended books for NLP learning
+- [recommended-research-papers-on-language-modeling-and-transformers](reference/recommended-research-papers-on-language-modeling-and-transformers.md) — Recommended research papers on language modeling and transformers
+- [shrm-article-on-creating-an-effective-onboarding-program-for-employee-engagement](reference/shrm-article-on-creating-an-effective-onboarding-program-for-employee-engagement.md) — SHRM article on creating an effective onboarding program for employee engagement and retention
+- [shrm-new-employee-onboarding-guide-covering-first-days-through-first-year](reference/shrm-new-employee-onboarding-guide-covering-first-days-through-first-year.md) — SHRM New Employee Onboarding Guide covering first days through first year
+- [simple-lacto-fermented-dill-pickle-recipe-for-small-batches](reference/simple-lacto-fermented-dill-pickle-recipe-for-small-batches.md) — Simple lacto-fermented dill pickle recipe for small batches
+- [stanford-natural-language-processing-with-deep-learning-specialization-on-course](reference/stanford-natural-language-processing-with-deep-learning-specialization-on-course.md) — Stanford Natural Language Processing with Deep Learning Specialization on Coursera—5 courses, prerequisites, and project-based learning
+- [weekly-time-commitment-5-hours-sunday-web-development-3-hours-nlp-specialization](user/weekly-time-commitment-5-hours-sunday-web-development-3-hours-nlp-specialization.md) — Weekly time commitment: 5 hours Sunday web development, 3 hours NLP specialization (Tues/Thurs)

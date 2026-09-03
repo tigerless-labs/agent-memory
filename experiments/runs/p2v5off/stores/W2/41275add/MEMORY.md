@@ -1,0 +1,38 @@
+# MEMORY.md
+
+- [beginner-meditation-techniques-mindfulness-guided-loving-kindness](reference/beginner-meditation-techniques-mindfulness-guided-loving-kindness.md) — Beginner meditation techniques: mindfulness, guided, loving-kindness
+- [career-goal-start-a-marketing-consulting-business](user/career-goal-start-a-marketing-consulting-business.md) — Career goal: start a marketing consulting business
+- [committed-to-social-justice-and-allyship-through-proactive-accountability-and-da](user/committed-to-social-justice-and-allyship-through-proactive-accountability-and-da.md) — Committed to social justice and allyship through proactive accountability and daily action
+- [considering-cpu-liquid-cooler-and-ram-upgrade-32gb-to-64gb](user/considering-cpu-liquid-cooler-and-ram-upgrade-32gb-to-64gb.md) — Considering CPU liquid cooler and RAM upgrade (32GB to 64GB)
+- [considering-farm-expansion-to-include-sheep](project/considering-farm-expansion-to-include-sheep.md) — Considering farm expansion to include sheep
+- [cousin-emma-has-a-baby](user/cousin-emma-has-a-baby.md) — Cousin Emma has a baby
+- [current-employment-xyz-corporation-marketing-specialist-2y9m-tenure](user/current-employment-xyz-corporation-marketing-specialist-2y9m-tenure.md) — Current employment: XYZ Corporation, marketing specialist, 2y9m tenure
+- [enjoys-family-events-combining-music-outdoor-games-and-kids-activities](user/enjoys-family-events-combining-music-outdoor-games-and-kids-activities.md) — Enjoys family events combining music, outdoor games, and kids' activities
+- [goal-to-cut-down-on-online-shopping-due-to-expenses-adding-up](user/goal-to-cut-down-on-online-shopping-due-to-expenses-adding-up.md) — Goal to cut down on online shopping due to expenses adding up
+- [has-photography-expertise-learning-to-photograph-high-end-collectibles](user/has-photography-expertise-learning-to-photograph-high-end-collectibles.md) — Has photography expertise, learning to photograph high-end collectibles
+- [implementing-one-in-one-out-policy-for-purchases-to-reduce-clutter-and-be-more-m](user/implementing-one-in-one-out-policy-for-purchases-to-reduce-clutter-and-be-more-m.md) — Implementing 'one in, one out' policy for purchases to reduce clutter and be more mindful
+- [interest-in-lds-religious-content-and-elder-jeffrey-r-holland-s-rhetorical-style](user/interest-in-lds-religious-content-and-elder-jeffrey-r-holland-s-rhetorical-style.md) — Interest in LDS religious content and Elder Jeffrey R Holland's rhetorical style
+- [interest-in-young-women-under-18-who-made-historical-contributions-particularly](user/interest-in-young-women-under-18-who-made-historical-contributions-particularly.md) — Interest in young women (under 18) who made historical contributions, particularly diverse global representation
+- [interested-in-immune-boosting-supplements-for-horses-before-vaccinations](user/interested-in-immune-boosting-supplements-for-horses-before-vaccinations.md) — Interested in immune-boosting supplements for horses before vaccinations
+- [kid-friendly-songs-for-jam-sessions-and-family-events](reference/kid-friendly-songs-for-jam-sessions-and-family-events.md) — Kid-friendly songs for jam sessions and family events
+- [list-of-50-young-women-under-18-who-made-important-historical-contributionsdiver](reference/list-of-50-young-women-under-18-who-made-important-historical-contributionsdiver.md) — List of 50 young women (under 18) who made important historical contributions—diverse cultures and periods
+- [marketing-consulting-service-offerings-and-target-market-ideas](reference/marketing-consulting-service-offerings-and-target-market-ideas.md) — Marketing consulting service offerings and target market ideas
+- [meditation-apps-headspace-and-calm](reference/meditation-apps-headspace-and-calm.md) — Meditation apps: Headspace and Calm
+- [meditation-prefers-flexible-frequency-few-times-per-week-acceptable](user/meditation-prefers-flexible-frequency-few-times-per-week-acceptable.md) — Meditation: prefers flexible frequency (few times per week acceptable)
+- [owns-first-edition-the-avengers-1-from-1963](user/owns-first-edition-the-avengers-1-from-1963.md) — Owns first edition The Avengers #1 from 1963
+- [owns-near-mint-condition-1960s-batman-action-figure](user/owns-near-mint-condition-1960s-batman-action-figure.md) — Owns near-mint condition 1960s Batman action figure
+- [owns-rare-1950s-era-cuban-peso-note](user/owns-rare-1950s-era-cuban-peso-note.md) — Owns rare 1950s-era Cuban peso note
+- [owns-rare-1980s-era-sony-walkman-professional](user/owns-rare-1980s-era-sony-walkman-professional.md) — Owns rare 1980s-era Sony Walkman Professional
+- [owns-vintage-1960s-fender-jazzmaster-guitar-valued-at-around-3000-dollars](user/owns-vintage-1960s-fender-jazzmaster-guitar-valued-at-around-3000-dollars.md) — Owns vintage 1960s Fender Jazzmaster guitar valued at around 3000 dollars
+- [owns-vintage-1960s-omega-seamaster-watch-valued-at-around-5000-dollars](user/owns-vintage-1960s-omega-seamaster-watch-valued-at-around-5000-dollars.md) — Owns vintage 1960s Omega Seamaster watch valued at around 5000 dollars
+- [pc-hardware-nvidia-geforce-rtx-3080-amd-ryzen-9-5900x-32gb-ram](user/pc-hardware-nvidia-geforce-rtx-3080-amd-ryzen-9-5900x-32gb-ram.md) — PC hardware: NVIDIA GeForce RTX 3080, AMD Ryzen 9 5900X, 32GB RAM
+- [picnic-games-and-activities-for-family-events](reference/picnic-games-and-activities-for-family-events.md) — Picnic games and activities for family events
+- [plan-to-sell-vintage-collectibles-collection-through-specialized-online-platform](project/plan-to-sell-vintage-collectibles-collection-through-specialized-online-platform.md) — Plan to sell vintage collectibles collection through specialized online platforms
+- [planning-to-start-recording-gameplay-for-youtube-channel](project/planning-to-start-recording-gameplay-for-youtube-channel.md) — Planning to start recording gameplay for YouTube channel
+- [prefers-organic-feed-for-chickens](user/prefers-organic-feed-for-chickens.md) — Prefers organic feed for chickens
+- [purchased-wireless-charging-pad-from-amazon-on-may-15th-for-around-25-dollars](user/purchased-wireless-charging-pad-from-amazon-on-may-15th-for-around-25-dollars.md) — Purchased wireless charging pad from Amazon on May 15th for around 25 dollars
+- [screen-recording-software-options-for-youtube-gaming-obs-studio-chosen](reference/screen-recording-software-options-for-youtube-gaming-obs-studio-chosen.md) — Screen recording software options for YouTube gaming: OBS Studio chosen
+- [siblings-play-musical-instruments-and-enjoy-jamming-together](user/siblings-play-musical-instruments-and-enjoy-jamming-together.md) — Siblings play musical instruments and enjoy jamming together
+- [targus-citygear-15-6-laptop-backpack-recommended-and-selected-for-purchase-aroun](reference/targus-citygear-15-6-laptop-backpack-recommended-and-selected-for-purchase-aroun.md) — Targus CityGear 15.6 Laptop Backpack recommended and selected for purchase around 55 dollars
+- [tends-to-shop-online-more-on-weekends-when-free-time-available](user/tends-to-shop-online-more-on-weekends-when-free-time-available.md) — Tends to shop online more on weekends when free time available
+- [user-owns-and-manages-a-farm-with-horses-and-chickens](user/user-owns-and-manages-a-farm-with-horses-and-chickens.md) — User owns and manages a farm with horses and chickens

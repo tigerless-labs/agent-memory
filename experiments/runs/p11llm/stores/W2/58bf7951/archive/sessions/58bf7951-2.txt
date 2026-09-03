@@ -1,0 +1,104 @@
+## Session sharegpt_LG0uJvY_0 — 2023/05/20 (Sat) 10:45
+user: We had a call with our client. Our client, Hopper, has an issue creating ads on a global level. In the meeting, we have three user acquisition managers, which all independently manage their region (APAC, LatAM + Canada and Europe). We talk with them to go through their content needs. The challenges for us are: casting creators on a global level and creating the operational process around that. I'm meeting with our ops team tomorrow to discuss how we can structure this project. Could you give me an agenda for this call? The GOAL of the call is to identify a process through which we can create high quality content for all regions. I've got the following stakeholders on the call: Jes | Head of ops
+Owns the process + the ClickUp instance and ensures that things are getting delivered on time with the right quality standard.
+
+Etienne | Creative strategist
+Researches and scopes different ad concepts, creates briefs, and defines discovery criteria
+
+Ali | Paid Media Director. Responsible for account growth
+assistant: Meeting Agenda: Structuring the Global Content Creation Process for Hopper
+
+Date: [Insert Date]
+Time: [Insert Time]
+Duration: [Estimated Duration]
+Location: [Call/Meeting Platform]
+
+Objective: Identify a process through which we can create high quality content for all regions (APAC, LatAM + Canada, and Europe) to address Hopper's global ad creation needs.
+
+Attendees:
+
+1. Jes | Head of ops
+2. Etienne | Creative strategist
+3. Ali | Paid Media Director
+
+Agenda:
+
+1. Welcome and Introductions (5 minutes)
+	* Briefly introduce the purpose of the call and the attendees
+2. Overview of Hopper's Global Content Needs (10 minutes)
+	* Recap the challenges faced by the three regional user acquisition managers
+	* Outline the specific content needs for each region
+3. Casting Creators on a Global Level (15 minutes)
+	* Discuss strategies for identifying and selecting creators for each region
+	* Share ideas on building a diverse and representative pool of creators
+	* Brainstorm ways to streamline the casting process
+4. Creating an Operational Process for Global Content Creation (20 minutes)
+	* Jes to share their thoughts on structuring the process and managing the ClickUp instance
+	* Etienne to discuss researching ad concepts, creating briefs, and defining discovery criteria for each region
+	* Ali to provide input on ensuring content aligns with account growth objectives and targeting strategies
+	* Explore collaboration and communication tools to facilitate efficient global teamwork
+5. Identifying Potential Challenges and Solutions (15 minutes)
+	* Discuss potential hurdles in implementing the new process
+	* Collaboratively brainstorm solutions to address these challenges
+6. Establishing Timeline and Next Steps (10 minutes)
+	* Define key milestones and deadlines for the project
+	* Assign responsibilities to each stakeholder
+	* Determine follow-up meetings and checkpoints to ensure progress
+7. Open Discussion and Q&A (5 minutes)
+	* Address any questions or concerns from the attendees
+	* Encourage input and feedback on the proposed process
+8. Closing Remarks and Adjournment (5 minutes)
+	* Recap the main points discussed during the call
+	* Thank everyone for their participation and close the meeting
+user: Add Daniel, Content production manager as a stakeholder. Daniel will be chipping in on voiceover and content ops. Kat as top creator community manager. Also add Kat and Flor as SPMs on the project. Flor will manage LatAm and Canada and Kat will manage Europe.
+assistant: Meeting Agenda: Structuring the Global Content Creation Process for Hopper
+
+Date: [Insert Date]
+Time: [Insert Time]
+Duration: [Estimated Duration]
+Location: [Call/Meeting Platform]
+
+Objective: Identify a process through which we can create high-quality content for all regions (APAC, LatAM + Canada, and Europe) to address Hopper's global ad creation needs.
+
+Attendees:
+
+1. Jes | Head of ops
+2. Etienne | Creative strategist
+3. Ali | Paid Media Director
+4. Daniel | Content Production Manager
+5. Kat | Creator Community Manager & Senior Project Manager (Europe)
+6. Flor | Senior Project Manager (LatAM & Canada)
+
+Agenda:
+
+1. Welcome and Introductions (5 minutes)
+	* Briefly introduce the purpose of the call and the attendees
+2. Overview of Hopper's Global Content Needs (10 minutes)
+	* Recap the challenges faced by the three regional user acquisition managers
+	* Outline the specific content needs for each region
+3. Casting Creators on a Global Level (15 minutes)
+	* Discuss strategies for identifying and selecting creators for each region
+	* Share ideas on building a diverse and representative pool of creators
+	* Brainstorm ways to streamline the casting process
+4. Creating an Operational Process for Global Content Creation (20 minutes)
+	* Jes to share their thoughts on structuring the process and managing the ClickUp instance
+	* Etienne to discuss researching ad concepts, creating briefs, and defining discovery criteria for each region
+	* Ali to provide input on ensuring content aligns with account growth objectives and targeting strategies
+	* Daniel to discuss voiceover and content operations
+	* Kat and Flor to share their insights as Senior Project Managers overseeing Europe, LatAM, and Canada
+	* Explore collaboration and communication tools to facilitate efficient global teamwork
+5. Identifying Potential Challenges and Solutions (15 minutes)
+	* Discuss potential hurdles in implementing the new process
+	* Collaboratively brainstorm solutions to address these challenges
+6. Establishing Timeline and Next Steps (10 minutes)
+	* Define key milestones and deadlines for the project
+	* Assign responsibilities to each stakeholder
+	* Determine follow-up meetings and checkpoints to ensure progress
+7. Open Discussion and Q&A (5 minutes)
+	* Address any questions or concerns from the attendees
+	* Encourage input and feedback on the proposed process
+8. Closing Remarks and Adjournment (5 minutes)
+	* Recap the main points discussed during the call
+	* Thank everyone for their participation and close the meeting
+user: What is the goal of the call?
+assistant: The goal of the call is to identify a process through which high-quality content can be created for all regions (APAC, LatAM + Canada, and Europe) in order to address Hopper's global ad creation needs. This includes discussing strategies for casting creators on a global level, structuring the operational process for global content creation, and addressing potential challenges and solutions.

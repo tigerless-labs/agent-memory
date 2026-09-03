@@ -1,0 +1,12 @@
+## Session sharegpt_63f5dJO_0 — 2023/05/20 (Sat) 19:03
+user: where to find environmental engineering datasets?
+assistant: There are several sources where you can find environmental engineering datasets. Some popular options include:
+
+1. National Oceanic and Atmospheric Administration (NOAA) - offers a wide range of datasets related to climate, weather, and oceanography.
+2. Environmental Protection Agency (EPA) - provides datasets on air and water quality, hazardous waste, and other environmental topics.
+3. United States Geological Survey (USGS) - offers datasets on water resources, geology, and natural hazards.
+4. Data.gov - a government-run website that provides access to a wide variety of datasets from various federal agencies, including those related to the environment.
+5. World Bank - provides datasets on various environmental and development topics, including water and sanitation, air pollution, and climate change.
+6. Kaggle - is a website that hosts a variety of datasets, including those related to environmental engineering and science.
+
+These are some of the popular sources, there are also many other sources available on internet you can find it with little more research.

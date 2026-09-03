@@ -75,6 +75,7 @@ class Dialect:
         max_turns: int,
         store_root: pathlib.Path | None,
         answer_file: pathlib.Path,
+        tool_pattern: str = MEM_TOOL_PATTERN,
     ) -> list[str]:
         raise NotImplementedError
 
@@ -91,7 +92,10 @@ class Dialect:
 class ClaudeCodeDialect(Dialect):
     """Its memory is the Write tool aimed at ~/.claude/projects/<cwd>/memory/."""
 
-    def command(self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file):
+    def command(
+        self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file,
+        tool_pattern=MEM_TOOL_PATTERN,
+    ):
         command = [
             spec.binary, "-p",
             "--model", spec.model,
@@ -99,7 +103,7 @@ class ClaudeCodeDialect(Dialect):
             "--disallowedTools", CLAUDE_NATIVE_TOOLS,
         ]
         if tools_enabled:
-            command += ["--allowedTools", MEM_TOOL_PATTERN]
+            command += ["--allowedTools", tool_pattern]
         return command + ["--system-prompt", system_prompt or BARE_SYSTEM_PROMPT]
 
     def disables_native_memory(self, rendered_command: str) -> bool:
@@ -110,7 +114,10 @@ class CodexDialect(Dialect):
     """No system-prompt flag, so it rides in the prompt; and stdout carries the whole session
     transcript, so the final message is read from the file the host writes it to."""
 
-    def command(self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file):
+    def command(
+        self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file,
+        tool_pattern=MEM_TOOL_PATTERN,
+    ):
         command = [
             spec.binary, "exec",
             "--model", spec.model,
@@ -145,7 +152,10 @@ class HermesDialect(Dialect):
 
     prompt_on_stdin = False
 
-    def command(self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file):
+    def command(
+        self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file,
+        tool_pattern=MEM_TOOL_PATTERN,
+    ):
         command = [spec.binary, "-z", PROMPT_PLACEHOLDER, "--model", self.routed_model(spec)]
         if spec.provider:
             command += ["--provider", spec.provider]
@@ -191,11 +201,14 @@ class Host:
         system_prompt: str = "",
         max_turns: int = 8,
         workdir: pathlib.Path | None = None,
+        environment: dict[str, str] | None = None,
+        tool_pattern: str = MEM_TOOL_PATTERN,
     ) -> HostResult:
         last = HostResult(text="", ok=False, seconds=0.0, error="not attempted")
         for attempt in range(self.spec.attempts):
             last = self._attempt(
-                prompt, store_root, tools_enabled, system_prompt, max_turns, workdir
+                prompt, store_root, tools_enabled, system_prompt, max_turns, workdir,
+                environment or {}, tool_pattern,
             )
             if last.ok:
                 return last
@@ -211,6 +224,8 @@ class Host:
         system_prompt: str,
         max_turns: int,
         workdir: pathlib.Path | None,
+        environment: dict[str, str],
+        tool_pattern: str,
     ) -> HostResult:
         with tempfile.TemporaryDirectory() as scratch:
             answer_file = pathlib.Path(scratch) / ANSWER_FILENAME
@@ -221,13 +236,14 @@ class Host:
                 max_turns=max_turns,
                 store_root=store_root,
                 answer_file=answer_file,
+                tool_pattern=tool_pattern,
             )
             payload = self.dialect.stdin(prompt, system_prompt)
             if not self.dialect.prompt_on_stdin:
                 command = [payload if part == PROMPT_PLACEHOLDER else part for part in command]
                 payload = ""
             return self._invoke(
-                command, payload, self._environment(store_root), workdir, answer_file
+                command, payload, self._environment(store_root, environment), workdir, answer_file
             )
 
     def _invoke(
@@ -260,10 +276,14 @@ class Host:
             return HostResult("", False, elapsed, detail or "non-zero exit with no output")
         return HostResult(self.dialect.answer(completed.stdout, answer_file), True, elapsed)
 
-    def _environment(self, store_root: pathlib.Path | None) -> dict[str, str]:
+    def _environment(
+        self, store_root: pathlib.Path | None, extra: dict[str, str]
+    ) -> dict[str, str]:
+        """The memory system's own variables win; the store root is the native default."""
         environment = dict(os.environ)
         if store_root is not None:
             environment["AGENT_MEMORY_STORE"] = str(store_root)
+        environment.update(extra)
         for binary in (self.spec.binary, "mem"):
             found = shutil.which(binary)
             if found:

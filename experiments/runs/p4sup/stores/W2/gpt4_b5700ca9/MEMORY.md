@@ -1,0 +1,24 @@
+# MEMORY.md
+
+- [attended-maundy-thursday-service-at-episcopal-church-on-april-6-2023-found-it-be](experience/attended-maundy-thursday-service-at-episcopal-church-on-april-6-2023-found-it-be.md) — Attended Maundy Thursday service at Episcopal Church on April 6, 2023; found it beautiful and moving
+- [completed-the-last-of-us-part-ii-video-game](experience/completed-the-last-of-us-part-ii-video-game.md) — Completed The Last of Us Part II video game
+- [feeding-america-national-hunger-relief-organization-network](reference/feeding-america-national-hunger-relief-organization-network.md) — Feeding America: national hunger-relief organization network
+- [food-bank-volunteer-opportunity-evening-shifts-sorting-packing-distribution-back](reference/food-bank-volunteer-opportunity-evening-shifts-sorting-packing-distribution-back.md) — Food Bank volunteer opportunity - evening shifts, sorting/packing/distribution, background check required
+- [has-allergies](user/has-allergies.md) — Has allergies
+- [high-systolic-blood-pressure-lately-tracking-with-monitor](user/high-systolic-blood-pressure-lately-tracking-with-monitor.md) — High systolic blood pressure lately, tracking with monitor
+- [incorporating-avocados-and-healthy-high-fat-foods-into-daily-meals-for-nutrition](user/incorporating-avocados-and-healthy-high-fat-foods-into-daily-meals-for-nutrition.md) — Incorporating avocados and healthy high-fat foods into daily meals for nutrition and weight management
+- [interested-in-d-d-5e-language-phonetics-and-world-building](user/interested-in-d-d-5e-language-phonetics-and-world-building.md) — Interested in D&D 5e language phonetics and world-building
+- [interested-in-learning-russian-language](user/interested-in-learning-russian-language.md) — Interested in learning Russian language
+- [organizing-church-group-to-volunteer-at-food-bank-exploring-project-adoption-foo](project/organizing-church-group-to-volunteer-at-food-bank-exploring-project-adoption-foo.md) — Organizing church group to volunteer at Food Bank; exploring project adoption (food drive, events, garden, backpack program)
+- [owns-digital-thermometer-and-blood-pressure-monitor](user/owns-digital-thermometer-and-blood-pressure-monitor.md) — Owns digital thermometer and blood pressure monitor
+- [owns-fitbit-charge-3-for-health-tracking](user/owns-fitbit-charge-3-for-health-tracking.md) — Owns Fitbit Charge 3 for health tracking
+- [planning-to-purchase-akracing-core-series-gaming-chair](project/planning-to-purchase-akracing-core-series-gaming-chair.md) — Planning to purchase AKRacing Core Series gaming chair
+- [planning-to-purchase-arozzi-verona-pro-gaming-desk](project/planning-to-purchase-arozzi-verona-pro-gaming-desk.md) — Planning to purchase Arozzi Verona Pro gaming desk
+- [planning-to-purchase-new-air-purifier-due-to-old-unit-and-allergies](project/planning-to-purchase-new-air-purifier-due-to-old-unit-and-allergies.md) — Planning to purchase new air purifier due to old unit and allergies
+- [planning-to-purchase-new-yoga-mat-to-replace-worn-out-current-mat](project/planning-to-purchase-new-yoga-mat-to-replace-worn-out-current-mat.md) — Planning to purchase new yoga mat to replace worn-out current mat
+- [plays-overwatch-online-with-friends-and-watches-twitch-streams-for-strategies](user/plays-overwatch-online-with-friends-and-watches-twitch-streams-for-strategies.md) — Plays Overwatch online with friends and watches Twitch streams for strategies
+- [prefers-weekday-evening-volunteering-for-community-service-seeks-regular-ongoing](user/prefers-weekday-evening-volunteering-for-community-service-seeks-regular-ongoing.md) — Prefers weekday evening volunteering for community service; seeks regular ongoing commitments helping underprivileged
+- [prioritizes-ergonomic-design-comfortable-cushioning-and-durability-in-gaming-fur](user/prioritizes-ergonomic-design-comfortable-cushioning-and-durability-in-gaming-fur.md) — Prioritizes ergonomic design, comfortable cushioning, and durability in gaming furniture
+- [taking-omega-3-supplements-daily-with-noticeable-skin-and-hair-improvements](user/taking-omega-3-supplements-daily-with-noticeable-skin-and-hair-improvements.md) — Taking omega-3 supplements daily with noticeable skin and hair improvements
+- [volunteered-at-easter-egg-hunt-event-on-march-30-2023-sparked-interest-in-contin](experience/volunteered-at-easter-egg-hunt-event-on-march-30-2023-sparked-interest-in-contin.md) — Volunteered at Easter Egg Hunt event on March 30, 2023; sparked interest in continued community service
+- [walk-for-hunger-event-on-may-15-2022-raised-1-500-for-local-food-bank](experience/walk-for-hunger-event-on-may-15-2022-raised-1-500-for-local-food-bank.md) — Walk for Hunger event on May 15, 2022: raised $1,500 for local food bank

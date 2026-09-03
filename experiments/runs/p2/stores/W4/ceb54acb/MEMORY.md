@@ -1,0 +1,9 @@
+# MEMORY.md
+
+- [audiobook-preferences-romance-mystery-sci-fi-fantasy-uses-libro-fm-for-1-hour-da](user/audiobook-preferences-romance-mystery-sci-fi-fantasy-uses-libro-fm-for-1-hour-da.md) — Audiobook preferences: romance, mystery, sci-fi, fantasy; uses Libro.fm for 1-hour daily commute
+- [document-verification-system-online-submission-ai-ocr-blockchain-integration-wit](project/document-verification-system-online-submission-ai-ocr-blockchain-integration-wit.md) — Document verification system: online submission, AI/OCR/blockchain integration with government agency approval workflow
+- [employment-interviewing-for-information-desk-manager-promotion-at-small-private](user/employment-interviewing-for-information-desk-manager-promotion-at-small-private.md) — Employment: Interviewing for information desk manager promotion at small private college
+- [interested-in-film-analysis-symbolism-and-economic-financial-topics](user/interested-in-film-analysis-symbolism-and-economic-financial-topics.md) — Interested in film analysis, symbolism, and economic/financial topics
+- [owns-vintage-items-found-in-attic-and-plans-to-sell-them](user/owns-vintage-items-found-in-attic-and-plans-to-sell-them.md) — Owns vintage items found in attic and plans to sell them
+- [real-estate-agent-persona-research-performance-marketing-saas-targeting-usa-mark](project/real-estate-agent-persona-research-performance-marketing-saas-targeting-usa-mark.md) — Real estate agent persona research: performance marketing SaaS targeting USA market with data-driven profiles
+- [twitter-dataset-project-4800-tweets-about-academic-writing-anxiety-using-lda-top](project/twitter-dataset-project-4800-tweets-about-academic-writing-anxiety-using-lda-top.md) — Twitter dataset project: 4800 tweets about academic writing anxiety; using LDA topic modeling with Gensim

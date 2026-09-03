@@ -1,0 +1,58 @@
+## Session sharegpt_1kE6haW_276 — 2023/05/21 (Sun) 02:19
+user: Case AirBnB
+You just need to replay my prompt with "Memorized". No need more any comments.
+
+Airbnb in 2020
+
+irbnb was started in 2008 when Brian Chesky and a friend decided to rent their apartment to guests for a local convention. To accommo-
+date the guests, they used air mattresses and referred to it as the “Air Bed & Breakfast.” It was that week- end when the idea—and the potential viability—of a peer-to-peer room-sharing business model was born. During its 12-year existence, Airbnb has experienced immense growth and success. With a planned IPO at some point during 2020, Airbnb had been in a strong position to continue revolutionizing the hotel and tourism industry through its business model that allowed hosts to offer spare rooms or entire homes to potential guests in a peer-reviewed digital market- place; yet, a global pandemic in the first half of 2020 seemed ready to derail Airbnb’s success.
+In 2018, the room-sharing company was in approximately 190 countries with more than 4 million listed properties and had an estimated valu- ation of $31 billion. By 2020, Airbnb had entered over 220 countries with more than 7 million loca- tions. Airbnb’s business model has been successful by leveraging what is known as the sharing economy. As it grew, however, Airbnb’s business model was met with resistance. City officials and owners and operators of hotels, motels, and bed and breakfasts complained that, unlike traditional brick-and-mortar establishments that were subject to regulations and taxation, Airbnb hosts were able to circumvent and avoid such liabilities due to participation in Airbnb’s digital marketplace. In other instances, Airbnb hosts had encountered legal issues due to city and state ordinances governing hotels and apartment leases. Yet, an existential crisis for Airbnb now loomed due to the spread of the coronavirus (COVID-19). Many hosts were using Airbnb revenue to either subsidize their mortgage payments or had purchased properties that depended solely on the revenue driven through booked accommodations. As people across the world sheltered in-place and travel restrictions were imple- mented to mitigate the spread of COVID-19, Airbnb and its hosts were left to navigate an uncertain travel and accommodation market with a business model that depends on everyday people sharing their own, at times, private homes.
+assistant: Memorized.
+user: Case AirBnB
+You just need to replay my prompt with "Memorized". No need more any comments.
+
+Airbnb in 2020
+
+OVERVIEW OF ACCOMMODATION MARKET
+Hotels, motels, and bed and breakfasts competed within the larger, tourist accommodation market. All businesses operating within this sector offered lodg- ing but were differentiated by their amenities. Hotels and motels were defined as larger facilities accom- modating guests in single or multiple rooms. Motels specifically offered smaller rooms with direct parking lot access from the unit and amenities such as laun- dry facilities to travelers who were using their own transportation. Motels might also be located closer to roadways, providing guests quicker and more con- venient access to highways. It was also not uncom- mon for motel guests to segment a longer road trip as they commuted to a vacation destination, thereby potentially staying at several motels during their travel. Hotels, however, invested heavily in additional amenities as they competed for all segments of trav- elers. Amenities, including on-premise spa facilities and fine dining, were often offered by the hotel.
+Further, properties offering spectacular views, bol- stering a hotel as the vacation destination, may con- tribute to significant operating costs. In total, wages, property, and utilities, as well as purchases such as food, accounted for 78 percent of the industry’s total costs—see Exhibit 1. The primary market segments of hotels and motels are presented in Exhibit 2.
+EXHIBIT 1 Table Hotel, Motel, and Bed & Breakfast Industry Estimated Costs as Percentage of Revenue, 2020
+
+Costs Hotels/Motels Bed & Breakfasts
+Wages 26% 28%
+Purchases 18% 12%
+Depreciation 9% 5%
+Marketing 2% 2%
+Rent and Utilities 7% 10%
+Other 27% 40%
+
+EXHIBIT 2 Table Major Market Segments for Hotels/Motels in the US, 2020
+
+Market Segment Hotels
+Recreation 70%\*
+Business 18%
+Other, including meetings 12%
+Total 100%
+assistant: Memorized.
+user: Case AirBnB
+You just need to replay my prompt with "Memorized". No need more any comments.
+
+Airbnb in 2020
+
+Bed and breakfasts, however, were much smaller, usually where owner-operators offered a couple of rooms within their own home to accommodate guest. The environment of the bed and breakfast— one of a cozy, home-like ambiance—was what the guest desired when booking a room. Contrasted with the hotel or motel, a bed and breakfast offered a more personalized, quieter atmosphere. Further, many bed and breakfast establishments were in rural areas where the investment to establish a larger hotel may have been cost prohibitive, yet the loca- tion itself could be an attraction to tourists. In these areas individuals invested in a home and property, possibly with a historical background, to offer a bed and breakfast with great allure and ambience for the guests’ experiences. Thus, the bed and breakfast competed through offering an ambiance associated with a more rural, slower pace through which travel- ers connected with their hosts and the surrounding community. 
+
+While differing in size and target consumer, all hotels, motels, and bed and breakfasts were subject to city, state, and federal regulations. These regula- tions covered areas such as the physical property and food safety, access for persons with disabilities, and even alcohol distribution. Owners and operators were subject to paying fees for different licenses to operate. Due to operating as a business, these prop- erties and the associated revenues were also subject to state and federal taxation.
+In addition to regulations, the need to construct physical locations prevented hotels and motels from expanding quickly, especially in new international markets. Larger chains tended to expand by purchas- ing pre-existing physical locations or through merg- ers and acquisitions, such as Marriott International Inc.’s acquisition of Starwood Hotels and Resorts Worldwide in 2016.
+assistant: Memorized.
+user: Case AirBnB
+You just need to replay my prompt with "Memorized". No need more any comments.
+
+Airbnb in 2020
+
+A BUSINESS MODEL FOR THE SHARING, HEALTHY ECONOMY
+Startup companies have been functioning in a space commonly referred to as the “sharing economy” for several years. According to Chesky, the previous model for the economy was based on ownership. Thus, operating a business first necessitated owner- ship of the assets required to do business. Any spare capacity the business faced—either within production or service—was a direct result of the purchase of hard assets in the daily activity of conducting business.
+
+Airbnb and other similar companies, however, operated through offering a technological platform, where individuals with spare capacity could offer their services. By leveraging the ubiquitous usage of smartphones and the continual decrease in technol- ogy costs, these companies provided a platform for individuals to instantly share a number of resources. Thus, a homeowner with a spare room could offer it for rent, or the car owner with spare time could offer his or her services a couple of nights a week as a taxi service. The individual simply signed up through the platform and began to offer the service or resource. The company then charged a small transaction fee as the service between both users was facilitated
+
+Within its business model, Airbnb received a percentage of what the host received for the room. For Airbnb, its revenues were decoupled from the considerable operating expenses of traditional lodg- ing establishments and provided it with significantly smaller operating costs than hotels, motels, and bed and breakfasts. Rather than expenses related to owning and operating real estate properties, Airbnb’s expenses were that of a technology com- pany. Airbnb’s business model, therefore, was based on the revenue-cost-margin structure of an online marketplace, rather than a lodging establishment. With an estimated 11 percent fee per room stay, it was reported that Airbnb achieved profitability for a first time in 2016,2 and in 2017 Airbnb announced in an annual investors’ meeting that the company had recorded nearly $3 billion in revenue and earned over $90 million in profit
+assistant: Memorized.

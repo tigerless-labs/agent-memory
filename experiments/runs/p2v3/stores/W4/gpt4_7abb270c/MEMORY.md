@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [anker-wireless-charging-pad-purchased-march-10-2022](user/anker-wireless-charging-pad-purchased-march-10-2022.md) — Anker wireless charging pad purchased March 10, 2022
+- [art-blogs-and-websites-recommended-for-staying-updated-on-trends-and-exhibitions](reference/art-blogs-and-websites-recommended-for-staying-updated-on-trends-and-exhibitions.md) — Art blogs and websites recommended for staying updated on trends and exhibitions
+- [art-conservation-resources-and-books-recommended](reference/art-conservation-resources-and-books-recommended.md) — Art conservation resources and books recommended
+- [attended-behind-the-scenes-conservation-lab-tour-at-museum-of-history-tried-basi](experience/attended-behind-the-scenes-conservation-lab-tour-at-museum-of-history-tried-basi.md) — Attended behind-the-scenes conservation lab tour at Museum of History, tried basic conservation techniques
+- [attended-feminist-art-lecture-with-dr-maria-rodriguez-at-museum-of-contemporary](experience/attended-feminist-art-lecture-with-dr-maria-rodriguez-at-museum-of-contemporary.md) — Attended feminist art lecture with Dr. Maria Rodriguez at Museum of Contemporary Art (2023-02-20)
+- [attended-guided-tour-of-abstract-expressionism-at-modern-art-museum-led-by-dr-pa](experience/attended-guided-tour-of-abstract-expressionism-at-modern-art-museum-led-by-dr-pa.md) — Attended guided tour of abstract expressionism at Modern Art Museum led by Dr. Patel (2023-02-20)
+- [attended-lecture-by-dr-maria-rodriguez-on-feminist-art-in-the-1970s-at-museum-of](experience/attended-lecture-by-dr-maria-rodriguez-on-feminist-art-in-the-1970s-at-museum-of.md) — Attended lecture by Dr. Maria Rodriguez on feminist art in the 1970s at Museum of Contemporary Art
+- [book-recommendations-for-relaxing-reading-nature-writing-poetry-light-fiction](reference/book-recommendations-for-relaxing-reading-nature-writing-poetry-light-fiction.md) — Book recommendations for relaxing reading: nature writing, poetry, light fiction
+- [books-and-documentaries-recommended-on-feminist-art](reference/books-and-documentaries-recommended-on-feminist-art.md) — Books and documentaries recommended on feminist art
+- [considering-4k-oled-tv-upgrade-interested-in-lg-and-sony-models](user/considering-4k-oled-tv-upgrade-interested-in-lg-and-sony-models.md) — Considering 4K OLED TV upgrade; interested in LG and Sony models
+- [enjoys-creative-writing-combining-contrasting-aesthetics-with-linguistic-playful](user/enjoys-creative-writing-combining-contrasting-aesthetics-with-linguistic-playful.md) — Enjoys creative writing combining contrasting aesthetics with linguistic playfulness and absurdist humor
+- [establishing-consistent-sleep-schedule-with-wind-down-routine-before-bed](user/establishing-consistent-sleep-schedule-with-wind-down-routine-before-bed.md) — Establishing consistent sleep schedule with wind-down routine before bed
+- [family-appreciates-culinary-and-skincare-gifts](user/family-appreciates-culinary-and-skincare-gifts.md) — Family appreciates culinary and skincare gifts
+- [family-easter-visit-in-april-april-10-2023](user/family-easter-visit-in-april-april-10-2023.md) — Family Easter visit in April (April 10, 2023)
+- [fiddle-leaf-fig-care-lighting-watering-humidity-and-maintenance](reference/fiddle-leaf-fig-care-lighting-watering-humidity-and-maintenance.md) — Fiddle leaf fig care: lighting, watering, humidity, and maintenance
+- [flight-booking-and-travel-deal-websites](reference/flight-booking-and-travel-deal-websites.md) — Flight booking and travel deal websites
+- [gallery-wall-arrangement-principles-and-tips](reference/gallery-wall-arrangement-principles-and-tips.md) — Gallery wall arrangement principles and tips
+- [interest-in-ancient-egyptian-history-symbolism-and-cultural-artifacts](user/interest-in-ancient-egyptian-history-symbolism-and-cultural-artifacts.md) — Interest in ancient Egyptian history, symbolism, and cultural artifacts
+- [interested-in-abstract-expressionism-particularly-pollock-and-rothko](user/interested-in-abstract-expressionism-particularly-pollock-and-rothko.md) — Interested in abstract expressionism, particularly Pollock and Rothko
+- [interested-in-art-conservation-as-a-hobby](user/interested-in-art-conservation-as-a-hobby.md) — Interested in art conservation as a hobby
+- [interested-in-feminist-art-from-the-1970s](user/interested-in-feminist-art-from-the-1970s.md) — Interested in feminist art from the 1970s
+- [interested-in-feminist-art-particularly-1970s-feminist-art-movements](user/interested-in-feminist-art-particularly-1970s-feminist-art-movements.md) — Interested in feminist art, particularly 1970s feminist art movements
+- [interested-in-interactive-and-immersive-art-installations-exploring-identity-mem](user/interested-in-interactive-and-immersive-art-installations-exploring-identity-mem.md) — Interested in interactive and immersive art installations exploring identity, memory, and human experience
+- [interested-in-learning-about-the-history-of-space-exploration](user/interested-in-learning-about-the-history-of-space-exploration.md) — Interested in learning about the history of space exploration
+- [living-room-color-palette-earthy-tones](user/living-room-color-palette-earthy-tones.md) — Living room color palette: Earthy Tones
+- [made-artistic-connections-and-received-curatorial-advice-at-moca-reception-on-20](experience/made-artistic-connections-and-received-curatorial-advice-at-moca-reception-on-20.md) — Made artistic connections and received curatorial advice at MoCA reception on 2023-01-22
+- [moroccan-inspired-berber-rug-with-natural-beige-color](user/moroccan-inspired-berber-rug-with-natural-beige-color.md) — Moroccan-inspired Berber rug with natural beige color
+- [museum-visiting-tips-and-recommended-museums](reference/museum-visiting-tips-and-recommended-museums.md) — Museum visiting tips and recommended museums
+- [ordered-prints-from-society6-for-living-room-gallery-wall](user/ordered-prints-from-society6-for-living-room-gallery-wall.md) — Ordered prints from Society6 for living room gallery wall
+- [owns-a-snake-plant](user/owns-a-snake-plant.md) — Owns a snake plant
+- [planning-to-purchase-a-fiddle-leaf-fig-for-living-room](user/planning-to-purchase-a-fiddle-leaf-fig-for-living-room.md) — Planning to purchase a fiddle leaf fig for living room
+- [planning-to-purchase-dell-xps-laptop-is-a-student-eligible-for-discounts](user/planning-to-purchase-dell-xps-laptop-is-a-student-eligible-for-discounts.md) — Planning to purchase Dell XPS laptop; is a student eligible for discounts
+- [plans-to-purchase-otterbox-defender-series-case-for-samsung-galaxy-s22-ultra](user/plans-to-purchase-otterbox-defender-series-case-for-samsung-galaxy-s22-ultra.md) — Plans to purchase OtterBox Defender Series case for Samsung Galaxy S22 Ultra
+- [prefers-guided-tours-for-learning-about-art](user/prefers-guided-tours-for-learning-about-art.md) — Prefers guided tours for learning about art
+- [prefers-healthy-lunch-options-that-don-t-cause-afternoon-sleepiness](user/prefers-healthy-lunch-options-that-don-t-cause-afternoon-sleepiness.md) — Prefers healthy lunch options that don't cause afternoon sleepiness
+- [reading-interests-nature-writing-poetry-especially-mary-oliver](user/reading-interests-nature-writing-poetry-especially-mary-oliver.md) — Reading interests: nature writing, poetry, especially Mary Oliver
+- [recommended-abstract-expressionist-and-related-artists](reference/recommended-abstract-expressionist-and-related-artists.md) — Recommended abstract expressionist and related artists
+- [recommended-art-movements-and-key-artists-to-explore](reference/recommended-art-movements-and-key-artists-to-explore.md) — Recommended art movements and key artists to explore
+- [recommended-feminist-artists-judy-chicago-miriam-schapiro-carolee-schneemann-gue](reference/recommended-feminist-artists-judy-chicago-miriam-schapiro-carolee-schneemann-gue.md) — Recommended feminist artists: Judy Chicago, Miriam Schapiro, Carolee Schneemann, Guerrilla Girls, Barbara Kruger, Cindy Sherman, Laurie Anderson

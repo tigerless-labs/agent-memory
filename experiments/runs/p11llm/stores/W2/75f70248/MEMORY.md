@@ -1,0 +1,38 @@
+# MEMORY.md
+
+- [abuela-moved-in-daily-spanish-conversation-practice](user/abuela-moved-in-daily-spanish-conversation-practice.md) — Abuela moved in, daily Spanish conversation practice
+- [chicago-guitar-lessons-for-indie-folk-old-town-school-of-folk-music-the-guitar-w](reference/chicago-guitar-lessons-for-indie-folk-old-town-school-of-folk-music-the-guitar-w.md) — Chicago guitar lessons for indie folk: Old Town School of Folk Music, The Guitar Workshop, Fretboard Music, The Music Room
+- [chicago-indie-folk-venues-the-hideout-the-whistler-uncommon-ground-the-elbo-room](reference/chicago-indie-folk-venues-the-hideout-the-whistler-uncommon-ground-the-elbo-room.md) — Chicago indie folk venues: The Hideout, The Whistler, Uncommon Ground, The Elbo Room, Lincoln Hall, Schubas Tavern
+- [extended-list-of-artists-and-artworks-critiquing-capitalism-and-consumerism](reference/extended-list-of-artists-and-artworks-critiquing-capitalism-and-consumerism.md) — Extended list of artists and artworks critiquing capitalism and consumerism
+- [has-a-shedding-cat-requiring-household-management](user/has-a-shedding-cat-requiring-household-management.md) — Has a shedding cat requiring household management
+- [purchasing-spider-plant-or-snake-plant-for-air-purification](project/purchasing-spider-plant-or-snake-plant-for-air-purification.md) — Purchasing spider plant or snake plant for air purification
+- [air-purifying-indoor-plants-for-homes-with-pets](reference/air-purifying-indoor-plants-for-homes-with-pets.md) — Air-purifying indoor plants for homes with pets
+- [active-member-of-book-lovers-unite-community-on-facebook-for-book-recommendation](user/active-member-of-book-lovers-unite-community-on-facebook-for-book-recommendation.md) — Active member of Book Lovers Unite community on Facebook for book recommendations and discussion
+- [canvas-tote-bag-recommendations-for-daily-errands-and-grocery-shopping](reference/canvas-tote-bag-recommendations-for-daily-errands-and-grocery-shopping.md) — Canvas tote bag recommendations for daily errands and grocery shopping
+- [career-financial-analyst-in-chicago-2-years-now-data-scientist-at-startup-in-san](user/career-financial-analyst-in-chicago-2-years-now-data-scientist-at-startup-in-san.md) — Career: financial analyst in Chicago 2 years, now Data Scientist at startup in San Francisco
+- [certified-financial-modeling-cfm-certification-by-financial-modeling-institute-f](reference/certified-financial-modeling-cfm-certification-by-financial-modeling-institute-f.md) — Certified Financial Modeling (CFM) Certification by Financial Modeling Institute (FMI)
+- [chicago-vinyl-record-stores-reckless-records-permanent-records-laurie-s-planet-o](reference/chicago-vinyl-record-stores-reckless-records-permanent-records-laurie-s-planet-o.md) — Chicago vinyl record stores: Reckless Records, Permanent Records, Laurie's Planet of Sound, Saki, The Vinyl Conflict, Crossroads Music
+- [chose-todoist-for-task-management-and-calendar-integration](project/chose-todoist-for-task-management-and-calendar-integration.md) — Chose Todoist for task management and calendar integration
+- [conceptual-and-contemporary-artists-working-with-anti-capitalist-consumerism-mot](reference/conceptual-and-contemporary-artists-working-with-anti-capitalist-consumerism-mot.md) — Conceptual and contemporary artists working with anti-capitalist/consumerism motifs
+- [endgame-cryptocurrency-token-project-with-treasury-referral-and-tax-systems](project/endgame-cryptocurrency-token-project-with-treasury-referral-and-tax-systems.md) — Endgame: cryptocurrency/token project with treasury, referral, and tax systems
+- [family-reunion-summer-2024-with-nephew-s-high-school-graduation-celebration](project/family-reunion-summer-2024-with-nephew-s-high-school-graduation-celebration.md) — Family reunion summer 2024 with nephew's high school graduation celebration
+- [indie-folk-artists-recommended-similar-to-bon-iver-and-fleet-foxes](reference/indie-folk-artists-recommended-similar-to-bon-iver-and-fleet-foxes.md) — Indie folk artists recommended similar to Bon Iver and Fleet Foxes
+- [indoor-plant-care-drainage-potting-mix-and-fertilization](reference/indoor-plant-care-drainage-potting-mix-and-fertilization.md) — Indoor plant care: drainage, potting mix, and fertilization
+- [interested-in-indie-folk-music-similar-to-bon-iver-and-fleet-foxes](user/interested-in-indie-folk-music-similar-to-bon-iver-and-fleet-foxes.md) — Interested in indie folk music similar to Bon Iver and Fleet Foxes
+- [learning-french-using-spaced-repetition-for-vocabulary-structured-grammar-resour](user/learning-french-using-spaced-repetition-for-vocabulary-structured-grammar-resour.md) — Learning French using spaced repetition for vocabulary, structured grammar resources
+- [lives-in-chicago](user/lives-in-chicago.md) — Lives in Chicago and interested in exploring the local music scene
+- [luggage-tag-brand-recommendations-and-diy-methods](reference/luggage-tag-brand-recommendations-and-diy-methods.md) — Luggage tag brand recommendations and DIY methods
+- [lunch-break-at-12-30-pm](user/lunch-break-at-12-30-pm.md) — Lunch break at 12:30 pm
+- [most-productive-between-9-00-am-and-11-00-am](user/most-productive-between-9-00-am-and-11-00-am.md) — Most productive between 9:00 am and 11:00 am
+- [music-festival-safety-and-packing-tips](reference/music-festival-safety-and-packing-tips.md) — Music festival safety and packing tips
+- [owns-brown-fjallraven-cross-body-bag-for-carrying-essentials](user/owns-brown-fjallraven-cross-body-bag-for-carrying-essentials.md) — Owns brown Fjallraven cross-body bag for carrying essentials
+- [plan-to-make-diy-luggage-tag-after-losing-old-one](project/plan-to-make-diy-luggage-tag-after-losing-old-one.md) — Plan to make DIY luggage tag after losing old one
+- [plan-to-purchase-sustainable-canvas-tote-bag-for-daily-errands-and-grocery-shopp](project/plan-to-purchase-sustainable-canvas-tote-bag-for-daily-errands-and-grocery-shopp.md) — Plan to purchase sustainable canvas tote bag for daily errands and grocery shopping
+- [planning-to-attend-another-music-festival-soon-with-packing-essentials](project/planning-to-attend-another-music-festival-soon-with-packing-essentials.md) — Planning to attend another music festival soon with packing essentials
+- [popular-book-recommendations-from-may-2023](reference/popular-book-recommendations-from-may-2023.md) — Popular book recommendations from May 2023
+- [portfolio-manager-vs-financial-analyst-key-roles-responsibilities-and-transition](reference/portfolio-manager-vs-financial-analyst-key-roles-responsibilities-and-transition.md) — Portfolio Manager vs Financial Analyst: key roles, responsibilities, and transition path
+- [recommended-online-courses-and-resources-for-finance-and-data-science-developmen](reference/recommended-online-courses-and-resources-for-finance-and-data-science-developmen.md) — Recommended online courses and resources for finance and data science development
+- [scheduled-creative-project-meeting-at-9-00-am](project/scheduled-creative-project-meeting-at-9-00-am.md) — Scheduled creative project meeting at 9:00 am
+- [the-plastic-wasteland-exhibition](project/the-plastic-wasteland-exhibition.md) — The Plastic Wasteland exhibition
+- [top-vacuum-cleaners-for-pet-owners-with-shedding-cats](reference/top-vacuum-cleaners-for-pet-owners-with-shedding-cats.md) — Top vacuum cleaners for pet owners with shedding cats
+- [uses-goodreads-to-track-and-manage-reading-list-and-connect-with-reading-friends](user/uses-goodreads-to-track-and-manage-reading-list-and-connect-with-reading-friends.md) — Uses Goodreads to track and manage reading list and connect with reading friends

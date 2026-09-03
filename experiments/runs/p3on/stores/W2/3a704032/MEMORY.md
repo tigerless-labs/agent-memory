@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [acquired-peace-lily-from-nursery-on-2023-05-06](user/acquired-peace-lily-from-nursery-on-2023-05-06.md) — Acquired peace lily from nursery on 2023-05-06
+- [acquired-succulent-from-nursery-on-2023-05-06](user/acquired-succulent-from-nursery-on-2023-05-06.md) — Acquired succulent from nursery on 2023-05-06
+- [affordable-sustainable-clothing-brands-pact-h-m-conscious-everlane-patagonia-lev](reference/affordable-sustainable-clothing-brands-pact-h-m-conscious-everlane-patagonia-lev.md) — Affordable sustainable clothing brands: Pact, H&M Conscious, Everlane, Patagonia, Levi's
+- [basil-plant-on-balcony-struggling-with-direct-sunlight-moving-to-shadier-spot](user/basil-plant-on-balcony-struggling-with-direct-sunlight-moving-to-shadier-spot.md) — Basil plant on balcony struggling with direct sunlight; moving to shadier spot
+- [contemporary-art-exhibition-at-modern-art-museum-with-emerging-artists-installat](experience/contemporary-art-exhibition-at-modern-art-museum-with-emerging-artists-installat.md) — Contemporary Art Exhibition at Modern Art Museum with emerging artists installations
+- [contemporary-fiction-recommendations-with-strong-female-protagonists](reference/contemporary-fiction-recommendations-with-strong-female-protagonists.md) — Contemporary fiction recommendations with strong female protagonists
+- [creating-a-digital-literacy-curriculum-for-6th-grade-elementary-school-students](project/creating-a-digital-literacy-curriculum-for-6th-grade-elementary-school-students.md) — Creating a digital literacy curriculum for 6th-grade elementary school students
+- [edtech-tools-for-facilitating-classroom-discussion-and-reflection-padlet-nearpod](reference/edtech-tools-for-facilitating-classroom-discussion-and-reflection-padlet-nearpod.md) — Edtech tools for facilitating classroom discussion and reflection: Padlet, Nearpod, Flipgrid, Google Jamboard
+- [enjoys-contemporary-fiction-exploring-identity-intersectionality-and-complex-fem](user/enjoys-contemporary-fiction-exploring-identity-intersectionality-and-complex-fem.md) — Enjoys contemporary fiction exploring identity, intersectionality, and complex female relationships
+- [fern-infested-with-tiny-moving-dots-spider-mites-treating-with-neem-oil-and-incr](experience/fern-infested-with-tiny-moving-dots-spider-mites-treating-with-neem-oil-and-incr.md) — Fern infested with tiny moving dots (spider mites); treating with neem oil and increased misting
+- [gallery-opening-at-contemporary-art-space-october-2022](experience/gallery-opening-at-contemporary-art-space-october-2022.md) — Gallery opening at Contemporary Art Space, October 2022
+- [graphic-novel-recommendations-similar-to-saga-by-brian-k-vaughan](reference/graphic-novel-recommendations-similar-to-saga-by-brian-k-vaughan.md) — Graphic novel recommendations similar to Saga by Brian K. Vaughan
+- [humidifier-models-recommended-for-indoor-plants](reference/humidifier-models-recommended-for-indoor-plants.md) — Humidifier models recommended for indoor plants
+- [interested-in-contemporary-art-exhibitions-and-emerging-artists](user/interested-in-contemporary-art-exhibitions-and-emerging-artists.md) — Interested in contemporary art exhibitions and emerging artists
+- [interested-in-sustainable-and-ethical-fashion-prefers-affordable-options](user/interested-in-sustainable-and-ethical-fashion-prefers-affordable-options.md) — Interested in sustainable and ethical fashion, prefers affordable options
+- [keeps-peace-lily-at-65f-to-70f-18c-to-21c](user/keeps-peace-lily-at-65f-to-70f-18c-to-21c.md) — Keeps peace lily at 65°F to 70°F (18°C to 21°C)
+- [kimchi-flavor-balancing-tips-and-best-practices](reference/kimchi-flavor-balancing-tips-and-best-practices.md) — Kimchi flavor balancing tips and best practices
+- [korean-chili-flakes-gochugaru-measurement-guide-for-kimchi](reference/korean-chili-flakes-gochugaru-measurement-guide-for-kimchi.md) — Korean chili flakes (gochugaru) measurement guide for kimchi
+- [learning-music-programming-starting-with-sonic-pi](user/learning-music-programming-starting-with-sonic-pi.md) — Learning music programming; starting with Sonic Pi
+- [maintains-active-houseplant-collection-peace-lily-snake-plant-succulents-orchid](user/maintains-active-houseplant-collection-peace-lily-snake-plant-succulents-orchid.md) — Maintains active houseplant collection: peace lily, snake plant, succulents, orchid, fern, African violets, spider plant
+- [mists-fern-every-other-day](user/mists-fern-every-other-day.md) — Mists fern every other day
+- [music-programming-languages-sonic-pi-chuck-max-msp-pure-data-supercollider-csoun](reference/music-programming-languages-sonic-pi-chuck-max-msp-pure-data-supercollider-csoun.md) — Music programming languages: Sonic Pi, ChucK, Max/MSP, Pure Data, SuperCollider, Csound, Python, Swift
+- [online-platforms-for-discovering-contemporary-art-and-emerging-artists](reference/online-platforms-for-discovering-contemporary-art-and-emerging-artists.md) — Online platforms for discovering contemporary art and emerging artists
+- [owns-a-kala-ka-ce15s-ukulele](user/owns-a-kala-ka-ce15s-ukulele.md) — Owns a Kala KA-CE15S ukulele
+- [peace-lily-care-guidelines-lighting-watering-humidity-temperature-fertilization](reference/peace-lily-care-guidelines-lighting-watering-humidity-temperature-fertilization.md) — Peace lily care guidelines: lighting, watering, humidity, temperature, fertilization
+- [peace-lily-experienced-leaf-loss-after-being-brought-home-to-new-environment](experience/peace-lily-experienced-leaf-loss-after-being-brought-home-to-new-environment.md) — Peace lily experienced leaf loss after being brought home to new environment
+- [perfecting-kimchi-recipe-after-first-batch-was-too-spicy-and-salty](project/perfecting-kimchi-recipe-after-first-batch-was-too-spicy-and-salty.md) — Perfecting kimchi recipe after first batch was too spicy and salty
+- [plan-to-sell-fender-deluxe-90-guitar-amp](project/plan-to-sell-fender-deluxe-90-guitar-amp.md) — Plan to sell Fender Deluxe 90 guitar amp
+- [plan-to-sell-yamaha-psr-e263-keyboard](project/plan-to-sell-yamaha-psr-e263-keyboard.md) — Plan to sell Yamaha PSR-E263 keyboard
+- [plant-fertilizer-product-recommendations-by-species-type](reference/plant-fertilizer-product-recommendations-by-species-type.md) — Plant fertilizer product recommendations by species type
+- [potting-mix-brands-recommended-for-houseplants](reference/potting-mix-brands-recommended-for-houseplants.md) — Potting mix brands recommended for houseplants
+- [preparing-garlic-and-ginger-for-kimchi](reference/preparing-garlic-and-ginger-for-kimchi.md) — Preparing garlic and ginger for kimchi
+- [reading-interests-historical-fiction-mythology-character-driven-narratives-conte](user/reading-interests-historical-fiction-mythology-character-driven-narratives-conte.md) — Reading interests: historical fiction, mythology, character-driven narratives, contemporary fiction, graphic novels
+- [recording-ukulele-videos-for-online-sharing](project/recording-ukulele-videos-for-online-sharing.md) — Recording ukulele videos for online sharing
+- [rose-bush-produced-new-buds-within-one-month-of-pruning-on-2023-04-20](experience/rose-bush-produced-new-buds-within-one-month-of-pruning-on-2023-04-20.md) — Rose bush produced new buds within one month of pruning on 2023-04-20
+- [rose-bush-pruning-and-deadheading-recommendations](reference/rose-bush-pruning-and-deadheading-recommendations.md) — Rose bush pruning and deadheading recommendations
+- [sarah-johnson-emerging-artist-with-climate-change-installation](reference/sarah-johnson-emerging-artist-with-climate-change-installation.md) — Sarah Johnson - emerging artist with climate change installation
+- [session-10-of-digital-literacy-curriculum-evaluating-online-information-using-cr](project/session-10-of-digital-literacy-curriculum-evaluating-online-information-using-cr.md) — Session 10 of digital literacy curriculum: Evaluating Online Information using CRAAP Test

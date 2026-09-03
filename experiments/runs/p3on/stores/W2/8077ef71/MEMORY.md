@@ -1,0 +1,17 @@
+# MEMORY.md
+
+- [actively-participates-in-charity-events-wants-to-track-donations-and-volunteer-h](user/actively-participates-in-charity-events-wants-to-track-donations-and-volunteer-h.md) — Actively participates in charity events; wants to track donations and volunteer hours
+- [buys-groceries-for-elderly-neighbor-mrs-johnson-as-ongoing-charitable-giving](user/buys-groceries-for-elderly-neighbor-mrs-johnson-as-ongoing-charitable-giving.md) — Buys groceries for elderly neighbor Mrs. Johnson as ongoing charitable giving
+- [cast-iron-cleaning-prioritizes-convenience-over-seasoning-maintenance](user/cast-iron-cleaning-prioritizes-convenience-over-seasoning-maintenance.md) — Cast iron cleaning: prioritizes convenience over seasoning maintenance
+- [exercise-and-meal-prepping-energize-and-motivate](user/exercise-and-meal-prepping-energize-and-motivate.md) — Exercise and meal-prepping energize and motivate
+- [gave-gifts-silver-necklace-to-sister-40-dollars-baby-shower-gift-20-dollars-hous](user/gave-gifts-silver-necklace-to-sister-40-dollars-baby-shower-gift-20-dollars-hous.md) — Gave gifts: silver necklace to sister (40 dollars), baby shower gift (20 dollars), housewarming group gift (30 dollars)
+- [interested-in-learning-yoga-seeking-beginner-level-classes](user/interested-in-learning-yoga-seeking-beginner-level-classes.md) — Interested in learning yoga; seeking beginner-level classes
+- [maui-pet-friendly-beaches-blog-with-three-locations-and-24-hour-adventure-format](project/maui-pet-friendly-beaches-blog-with-three-locations-and-24-hour-adventure-format.md) — Maui pet-friendly beaches blog with three locations and 24-hour adventure format
+- [maui-pet-friendly-beaches-recommendations-restaurants-activities-and-attractions](reference/maui-pet-friendly-beaches-recommendations-restaurants-activities-and-attractions.md) — Maui pet-friendly beaches recommendations: restaurants, activities, and attractions
+- [participated-in-charity-yoga-event-in-april-2021-found-it-fun-and-stays-motivate](experience/participated-in-charity-yoga-event-in-april-2021-found-it-fun-and-stays-motivate.md) — Participated in charity yoga event in April 2021; found it fun and stays motivated
+- [participated-in-walk-for-cancer-charity-event-on-may-15-2021](experience/participated-in-walk-for-cancer-charity-event-on-may-15-2021.md) — Participated in 'Walk for Cancer' charity event on May 15, 2021
+- [planning-to-organize-charity-fundraising-event-at-workplace](project/planning-to-organize-charity-fundraising-event-at-workplace.md) — Planning to organize charity fundraising event at workplace
+- [prefers-balanced-schedules-actively-avoids-overcommitting](user/prefers-balanced-schedules-actively-avoids-overcommitting.md) — Prefers balanced schedules; actively avoids overcommitting
+- [social-events-drain-energy-needs-recovery-time-after-networking](user/social-events-drain-energy-needs-recovery-time-after-networking.md) — Social events drain energy; needs recovery time after networking
+- [tracks-expenses-using-spreadsheet-with-category-breakdown-gifts-charitable-givin](user/tracks-expenses-using-spreadsheet-with-category-breakdown-gifts-charitable-givin.md) — Tracks expenses using spreadsheet with category breakdown (Gifts, Charitable Giving, etc.)
+- [uses-google-calendar-to-set-event-reminders-with-notes-for-gift-planning-and-bud](user/uses-google-calendar-to-set-event-reminders-with-notes-for-gift-planning-and-bud.md) — Uses Google Calendar to set event reminders with notes for gift planning and budgeting

@@ -1,0 +1,38 @@
+# MEMORY.md
+
+- [beginner-meditation-apps-and-methods-headspace-calm-mindfulness-guided-loving-ki](reference/beginner-meditation-apps-and-methods-headspace-calm-mindfulness-guided-loving-ki.md) — Beginner meditation apps and methods: Headspace, Calm, Mindfulness, Guided, Loving Kindness
+- [career-direction-starting-marketing-consulting-business](user/career-direction-starting-marketing-consulting-business.md) — Career direction: Starting marketing consulting business
+- [carries-15-inch-laptop-tablet-and-water-bottle-purchased-targus-citygear-backpac](user/carries-15-inch-laptop-tablet-and-water-bottle-purchased-targus-citygear-backpac.md) — Carries 15-inch laptop, tablet, and water bottle; purchased Targus CityGear backpack
+- [concerned-about-online-shopping-spending-implementing-expense-tracking-budgeting](user/concerned-about-online-shopping-spending-implementing-expense-tracking-budgeting.md) — Concerned about online shopping spending; implementing expense tracking, budgeting, and one-in-one-out policy
+- [cousin-emma-has-a-baby](user/cousin-emma-has-a-baby.md) — Cousin Emma has a baby
+- [cpu-liquid-cooler-recommendations-for-ryzen-9-5900x](reference/cpu-liquid-cooler-recommendations-for-ryzen-9-5900x.md) — CPU liquid cooler recommendations for Ryzen 9 5900X
+- [enjoys-family-centered-activities-with-music-and-games](user/enjoys-family-centered-activities-with-music-and-games.md) — Enjoys family-centered activities with music and games
+- [exploring-sheep-farming-expansion](project/exploring-sheep-farming-expansion.md) — Exploring sheep farming expansion
+- [has-children-in-the-family](user/has-children-in-the-family.md) — Has children in the family
+- [has-extensive-photography-experience-new-to-high-end-product-photography](user/has-extensive-photography-experience-new-to-high-end-product-photography.md) — Has extensive photography experience, new to high-end product photography
+- [has-siblings-who-play-instruments](user/has-siblings-who-play-instruments.md) — Has siblings who play instruments
+- [interest-in-lds-church-content-and-elder-jeffrey-r-holland-s-speaking-style](user/interest-in-lds-church-content-and-elder-jeffrey-r-holland-s-speaking-style.md) — Interest in LDS Church content and Elder Jeffrey R. Holland's speaking style
+- [interested-in-meditation-practice-for-mental-health-exploring-consistency-over-f](user/interested-in-meditation-practice-for-mental-health-exploring-consistency-over-f.md) — Interested in meditation practice for mental health, exploring consistency over frequency
+- [interested-in-pc-gaming-and-video-content-creation](user/interested-in-pc-gaming-and-video-content-creation.md) — Interested in PC gaming and video content creation
+- [marketing-specialist-at-xyz-corporation-2-years-9-months-tenure-leading-product](user/marketing-specialist-at-xyz-corporation-2-years-9-months-tenure-leading-product.md) — Marketing specialist at XYZ Corporation, 2 years 9 months tenure, leading product launch team
+- [organic-chicken-feed-suppliers-and-brands](reference/organic-chicken-feed-suppliers-and-brands.md) — Organic chicken feed suppliers and brands
+- [owns-1950s-era-cuban-peso-note-estimated-value-several-hundred-dollars](user/owns-1950s-era-cuban-peso-note-estimated-value-several-hundred-dollars.md) — Owns 1950s-era Cuban peso note, estimated value several hundred dollars
+- [owns-farm-with-horses-and-chickens](user/owns-farm-with-horses-and-chickens.md) — Owns farm with horses and chickens
+- [owns-first-edition-the-avengers-1-comic-from-1963](user/owns-first-edition-the-avengers-1-comic-from-1963.md) — Owns first edition The Avengers #1 comic from 1963
+- [owns-near-mint-condition-1960s-batman-action-figure](user/owns-near-mint-condition-1960s-batman-action-figure.md) — Owns near-mint condition 1960s Batman action figure
+- [owns-rare-1980s-sony-walkman-professional](user/owns-rare-1980s-sony-walkman-professional.md) — Owns rare 1980s Sony Walkman Professional
+- [owns-vintage-1960s-fender-jazzmaster-guitar-appraised-at-3000-usd](user/owns-vintage-1960s-fender-jazzmaster-guitar-appraised-at-3000-usd.md) — Owns vintage 1960s Fender Jazzmaster guitar appraised at 3000 USD
+- [owns-vintage-1960s-omega-seamaster-watch-appraised-at-5000-usd](user/owns-vintage-1960s-omega-seamaster-watch-appraised-at-5000-usd.md) — Owns vintage 1960s Omega Seamaster watch appraised at 5000 USD
+- [pc-hardware-amd-ryzen-9-5900x-nvidia-geforce-rtx-3080-32gb-ram](user/pc-hardware-amd-ryzen-9-5900x-nvidia-geforce-rtx-3080-32gb-ram.md) — PC hardware: AMD Ryzen 9 5900X, NVIDIA GeForce RTX 3080, 32GB RAM
+- [picnic-activity-ideas-for-families-with-kids-and-babies](reference/picnic-activity-ideas-for-families-with-kids-and-babies.md) — Picnic activity ideas for families with kids and babies
+- [plan-to-sell-vintage-collectibles-collection-online](project/plan-to-sell-vintage-collectibles-collection-online.md) — Plan to sell vintage collectibles collection online
+- [plans-to-upgrade-ram-for-video-editing-workload](user/plans-to-upgrade-ram-for-video-editing-workload.md) — Plans to upgrade RAM for video editing workload
+- [platforms-and-techniques-for-selling-high-end-vintage-collectibles-online](reference/platforms-and-techniques-for-selling-high-end-vintage-collectibles-online.md) — Platforms and techniques for selling high-end vintage collectibles online
+- [prefers-diverse-globally-representative-historical-narratives-particularly-inter](user/prefers-diverse-globally-representative-historical-narratives-particularly-inter.md) — Prefers diverse, globally representative historical narratives; particularly interested in young women/girls under 18 who made important contributions
+- [prefers-organic-feed-for-farm-animals](user/prefers-organic-feed-for-farm-animals.md) — Prefers organic feed for farm animals
+- [prefers-practical-outdoor-wear-over-white-pants](user/prefers-practical-outdoor-wear-over-white-pants.md) — Prefers practical outdoor wear over white pants
+- [purchased-wireless-charging-pad-from-amazon-on-may-15-2023-for-approximately-25](experience/purchased-wireless-charging-pad-from-amazon-on-may-15-2023-for-approximately-25.md) — Purchased wireless charging pad from Amazon on May 15, 2023 for approximately 25 dollars
+- [resources-for-sheep-management](reference/resources-for-sheep-management.md) — Resources for sheep management
+- [screen-recording-software-recommendations-for-pc-gaming](reference/screen-recording-software-recommendations-for-pc-gaming.md) — Screen recording software recommendations for PC gaming
+- [uses-obs-studio-for-video-recording](user/uses-obs-studio-for-video-recording.md) — Uses OBS Studio for video recording
+- [values-proactive-social-justice-work-personal-accountability-and-being-an-effect](user/values-proactive-social-justice-work-personal-accountability-and-being-an-effect.md) — Values proactive social justice work, personal accountability, and being an effective ally

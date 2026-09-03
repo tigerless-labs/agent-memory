@@ -1,0 +1,32 @@
+# MEMORY.md
+
+- [bathroom-renovation-spa-inspired-retreat-layout-5x8-feet-freestanding-tub-walk-i](project/bathroom-renovation-spa-inspired-retreat-layout-5x8-feet-freestanding-tub-walk-i.md) — Bathroom renovation: spa-inspired retreat layout, 5x8 feet, freestanding tub + walk-in shower
+- [bathroom-tile-and-grout-options-glazed-vs-unglazed-porcelain-ceramic-glass-stone](reference/bathroom-tile-and-grout-options-glazed-vs-unglazed-porcelain-ceramic-glass-stone.md) — Bathroom tile and grout options: glazed vs unglazed porcelain, ceramic, glass, stone, and cement-based vs epoxy vs acrylic vs urethane vs silicone grout
+- [bedtime-routine-reading-calming-audio-for-20-30-min-before-sleep-white-noise-mac](user/bedtime-routine-reading-calming-audio-for-20-30-min-before-sleep-white-noise-mac.md) — Bedtime routine: reading + calming audio for 20-30 min before sleep, white noise machine
+- [bike-helmet-brands-and-models-bell-specialized-giro-trek](reference/bike-helmet-brands-and-models-bell-specialized-giro-trek.md) — Bike helmet brands and models: Bell, Specialized, Giro, Trek
+- [bike-safety-checklist-for-long-rides](reference/bike-safety-checklist-for-long-rides.md) — Bike safety checklist for long rides
+- [budget-friendly-vr-gaming-pc-components-recommended](reference/budget-friendly-vr-gaming-pc-components-recommended.md) — Budget-friendly VR gaming PC components recommended
+- [caffeine-sensitivity-afternoon-coffee-tea-4-5-pm-disrupts-sleep](user/caffeine-sensitivity-afternoon-coffee-tea-4-5-pm-disrupts-sleep.md) — Caffeine sensitivity: afternoon coffee/tea (4-5 PM) disrupts sleep
+- [deep-interest-in-and-knowledge-of-natural-wines-especially-spanish-producers](user/deep-interest-in-and-knowledge-of-natural-wines-especially-spanish-producers.md) — Deep interest in and knowledge of natural wines, especially Spanish producers
+- [diy-capable-with-bathroom-projects-plumbing-repairs-cabinet-work-tile-installati](user/diy-capable-with-bathroom-projects-plumbing-repairs-cabinet-work-tile-installati.md) — DIY-capable with bathroom projects: plumbing repairs, cabinet work, tile installation experience
+- [friend-amanda-van-west](user/friend-amanda-van-west.md) — Friend Amanda Van West
+- [herbal-teas-for-evening-relaxation-and-sleep-10-options-with-properties](reference/herbal-teas-for-evening-relaxation-and-sleep-10-options-with-properties.md) — Herbal teas for evening relaxation and sleep: 10 options with properties
+- [high-end-vr-gaming-pc-components-recommended](reference/high-end-vr-gaming-pc-components-recommended.md) — High-end VR gaming PC components recommended
+- [hydration-strategy-for-long-bike-rides](reference/hydration-strategy-for-long-bike-rides.md) — Hydration strategy for long bike rides
+- [lost-city-of-eldorado-campaign-with-5-unique-puzzle-mechanics](project/lost-city-of-eldorado-campaign-with-5-unique-puzzle-mechanics.md) — Lost City of Eldorado campaign with 5 unique puzzle mechanics
+- [melatonin-supplementation-routine-30-min-before-bed-effective-within-15-20-min-o](user/melatonin-supplementation-routine-30-min-before-bed-effective-within-15-20-min-o.md) — Melatonin supplementation routine: 30 min before bed, effective within 15-20 min of lying down
+- [online-retailers-and-specialty-shops-for-pc-components](reference/online-retailers-and-specialty-shops-for-pc-components.md) — Online retailers and specialty shops for PC components
+- [owns-garmin-bike-computer-for-tracking-cycling-rides](user/owns-garmin-bike-computer-for-tracking-cycling-rides.md) — Owns Garmin bike computer for tracking cycling rides
+- [planning-to-order-specialized-bike-helmet-to-replace-old-one](project/planning-to-order-specialized-bike-helmet-to-replace-old-one.md) — Planning to order Specialized bike helmet to replace old one
+- [preferences-for-cycling-long-distance-rides-route-planning-bike-safety](user/preferences-for-cycling-long-distance-rides-route-planning-bike-safety.md) — Preferences for cycling: long-distance rides, route planning, bike safety
+- [prefers-self-written-content-over-ghost-writing-or-ai-creation-values-authentici](user/prefers-self-written-content-over-ghost-writing-or-ai-creation-values-authentici.md) — Prefers self-written content over ghost-writing or AI creation; values authenticity and control
+- [route-planning-apps-for-bike-friendly-roads](reference/route-planning-apps-for-bike-friendly-roads.md) — Route planning apps for bike-friendly roads
+- [runs-161-a-natural-wine-bar-in-sydenham-south-east-london](user/runs-161-a-natural-wine-bar-in-sydenham-south-east-london.md) — Runs 161, a natural wine bar in Sydenham, South East London
+- [screen-time-reduction-goal-smartphone-laptop-target-evening-wind-down-without-ne](user/screen-time-reduction-goal-smartphone-laptop-target-evening-wind-down-without-ne.md) — Screen time reduction goal: smartphone + laptop, target evening wind-down without Netflix dependence
+- [sleep-environment-optimization-noise-reduction-temperature-and-quiet-space-strat](reference/sleep-environment-optimization-noise-reduction-temperature-and-quiet-space-strat.md) — Sleep environment optimization: noise reduction, temperature, and quiet space strategies
+- [sleep-friendly-music-nature-sounds-genres-and-specific-artists-albums](reference/sleep-friendly-music-nature-sounds-genres-and-specific-artists-albums.md) — Sleep-friendly music: nature sounds, genres, and specific artists/albums
+- [upgraded-bike-chain-and-cassette-on-2024-02-01](experience/upgraded-bike-chain-and-cassette-on-2024-02-01.md) — Upgraded bike chain and cassette on 2024-02-01
+- [user-planning-to-build-a-vr-gaming-pc](project/user-planning-to-build-a-vr-gaming-pc.md) — User planning to build a VR gaming PC
+- [user-stories-for-trainee-survey-system](reference/user-stories-for-trainee-survey-system.md) — User stories for trainee survey system
+- [work-life-balance-avoid-late-night-project-pushes-better-task-prioritization](user/work-life-balance-avoid-late-night-project-pushes-better-task-prioritization.md) — Work-life balance: avoid late-night project pushes, better task prioritization
+- [works-in-marketing-for-a-natural-wine-importer-distributor-in-the-uk](user/works-in-marketing-for-a-natural-wine-importer-distributor-in-the-uk.md) — Works in marketing for a natural wine importer/distributor in the UK

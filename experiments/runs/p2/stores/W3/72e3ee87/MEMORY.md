@@ -1,0 +1,9 @@
+# MEMORY.md
+
+- [daily-schedule-7-30-am-11-30-pm-with-30-min-exercise-30-min-reading-and-1-crash](user/daily-schedule-7-30-am-11-30-pm-with-30-min-exercise-30-min-reading-and-1-crash.md) — Daily schedule: 7:30 AM - 11:30 PM with 30-min exercise, 30-min reading, and 1 Crash Course episode during lunch
+- [entertaining-style-mixing-cuisines-and-diy-cocktail-bars](user/entertaining-style-mixing-cuisines-and-diy-cocktail-bars.md) — Entertaining style: mixing cuisines and DIY cocktail bars
+- [interest-in-automotive-materials-science-and-future-vehicle-technology](user/interest-in-automotive-materials-science-and-future-vehicle-technology.md) — Interest in automotive materials science and future vehicle technology
+- [learning-pursuits-crash-course-science-50-episodes-data-science-with-python-line](user/learning-pursuits-crash-course-science-50-episodes-data-science-with-python-line.md) — Learning pursuits: Crash Course science (50+ episodes), data science with Python, linear algebra, Spanish via Duolingo, Adobe design tools
+- [proven-party-drinks-cucumber-gimlets-with-grilled-pineapple-garnish](user/proven-party-drinks-cucumber-gimlets-with-grilled-pineapple-garnish.md) — Proven party drinks: Cucumber Gimlets with grilled pineapple garnish
+- [reading-interests-historical-fiction-mythology-retellings-character-driven-narra](user/reading-interests-historical-fiction-mythology-retellings-character-driven-narra.md) — Reading interests: historical fiction, mythology retellings, character-driven narratives
+- [three-inherited-valuables-to-be-appraised-and-insured-grandmother-s-diamond-neck](user/three-inherited-valuables-to-be-appraised-and-insured-grandmother-s-diamond-neck.md) — Three inherited valuables to be appraised and insured: grandmother's diamond necklace, great-aunt's music box, mother's glassware

@@ -1,0 +1,41 @@
+# MEMORY.md
+
+- [applying-for-summer-solstice-fair-in-june-2023](project/applying-for-summer-solstice-fair-in-june-2023.md) — Applying for Summer Solstice Fair in June 2023
+- [attended-artisan-market-at-local-library-april-10-2023-received-positive-feedbac](experience/attended-artisan-market-at-local-library-april-10-2023-received-positive-feedbac.md) — Attended Artisan Market at local library April 10 2023; received positive feedback on candles
+- [attends-morning-yoga-classes-looking-for-new-class-with-early-morning-timing](user/attends-morning-yoga-classes-looking-for-new-class-with-early-morning-timing.md) — Attends morning yoga classes; looking for new class with early morning timing
+- [baseline-tennis-player-practicing-net-game-volleys-and-overheads](user/baseline-tennis-player-practicing-net-game-volleys-and-overheads.md) — Baseline tennis player; practicing net game (volleys and overheads)
+- [been-taking-salsa-classes-for-approximately-2-months-as-of-april-2023](user/been-taking-salsa-classes-for-approximately-2-months-as-of-april-2023.md) — Been taking salsa classes for approximately 2 months as of April 2023
+- [bellagio-conservatory-botanical-gardens-24-7-free-admission-5-seasonal-displays](reference/bellagio-conservatory-botanical-gardens-24-7-free-admission-5-seasonal-displays.md) — Bellagio Conservatory & Botanical Gardens: 24/7, free admission, 5 seasonal displays
+- [bellagio-fountains-show-schedule-and-viewing-tips](reference/bellagio-fountains-show-schedule-and-viewing-tips.md) — Bellagio Fountains show schedule and viewing tips
+- [bellagio-restaurant-recommendations-fine-dining-and-casual-options](reference/bellagio-restaurant-recommendations-fine-dining-and-casual-options.md) — Bellagio restaurant recommendations: fine dining and casual options
+- [candle-pricing-guidance-by-size](reference/candle-pricing-guidance-by-size.md) — Candle pricing guidance by size
+- [corepower-yoga-almaden-yoga-studio-near-san-jose](reference/corepower-yoga-almaden-yoga-studio-near-san-jose.md) — CorePower Yoga Almaden - yoga studio near San Jose
+- [craft-fair-sales-at-local-community-center-march-30-2023](experience/craft-fair-sales-at-local-community-center-march-30-2023.md) — Craft fair sales at local community center, March 30 2023
+- [decided-to-purchase-fitbit-charge-3-to-track-dance-workouts-and-daily-activities](project/decided-to-purchase-fitbit-charge-3-to-track-dance-workouts-and-daily-activities.md) — Decided to purchase Fitbit Charge 3 to track dance workouts and daily activities
+- [display-layout-strategy-for-product-events](project/display-layout-strategy-for-product-events.md) — Display layout strategy for product events
+- [doing-well-with-meal-prepping-routine](user/doing-well-with-meal-prepping-routine.md) — Doing well with meal prepping routine
+- [experiences-core-and-leg-soreness-after-salsa-classes-interested-in-targeted-str](user/experiences-core-and-leg-soreness-after-salsa-classes-interested-in-targeted-str.md) — Experiences core and leg soreness after salsa classes; interested in targeted strength training
+- [experimenting-with-different-plant-based-milks-particularly-interested-in-oat-mi](user/experimenting-with-different-plant-based-milks-particularly-interested-in-oat-mi.md) — Experimenting with different plant-based milks; particularly interested in oat milk
+- [fan-of-roger-federer](user/fan-of-roger-federer.md) — Fan of Roger Federer
+- [finished-reading-the-silent-patient-by-alex-michaelides-on-march-15-2023](experience/finished-reading-the-silent-patient-by-alex-michaelides-on-march-15-2023.md) — Finished reading \"The Silent Patient\" by Alex Michaelides on March 15, 2023
+- [handmade-candles-and-knitted-scarves-business](project/handmade-candles-and-knitted-scarves-business.md) — Handmade candles and knitted scarves business
+- [heavy-workload-and-deadlines-on-tuesdays-experiences-sluggishness-that-day](user/heavy-workload-and-deadlines-on-tuesdays-experiences-sluggishness-that-day.md) — Heavy workload and deadlines on Tuesdays; experiences sluggishness that day
+- [interested-in-improving-salsa-dance-technique-via-youtube-tutorials-and-online-c](user/interested-in-improving-salsa-dance-technique-via-youtube-tutorials-and-online-c.md) — Interested in improving salsa dance technique via YouTube tutorials and online classes
+- [interested-in-psychological-thrillers-with-dark-humor-and-complex-characters](user/interested-in-psychological-thrillers-with-dark-humor-and-complex-characters.md) — Interested in psychological thrillers with dark humor and complex characters
+- [interested-in-trying-the-penicillin-cocktail-at-the-dorsey](user/interested-in-trying-the-penicillin-cocktail-at-the-dorsey.md) — Interested in trying The Penicillin cocktail at The Dorsey
+- [interested-in-vegan-cooking-with-plant-based-proteins-tofu-tempeh-seitan](user/interested-in-vegan-cooking-with-plant-based-proteins-tofu-tempeh-seitan.md) — Interested in vegan cooking with plant-based proteins (tofu, tempeh, seitan)
+- [interested-in-visiting-bellagio-conservatory-botanical-gardens](user/interested-in-visiting-bellagio-conservatory-botanical-gardens.md) — Interested in visiting Bellagio Conservatory & Botanical Gardens
+- [jogging-routine-almaden-lake-park-loop-5-1-miles-minimal-traffic-lake-and-hill-v](project/jogging-routine-almaden-lake-park-loop-5-1-miles-minimal-traffic-lake-and-hill-v.md) — Jogging routine: Almaden Lake Park Loop (5.1 miles, minimal traffic, lake and hill views)
+- [kung-pao-tofu-and-tempeh-fish-tacos-recipes-with-marinating-techniques](reference/kung-pao-tofu-and-tempeh-fish-tacos-recipes-with-marinating-techniques.md) — Kung Pao Tofu and Tempeh Fish Tacos recipes with marinating techniques
+- [las-vegas-trip-to-bellagio-may-20-2023-for-concert-with-friends](project/las-vegas-trip-to-bellagio-may-20-2023-for-concert-with-friends.md) — Las Vegas trip to Bellagio May 20, 2023 for concert with friends
+- [lives-in-san-jose-ca-zip-code-95123](user/lives-in-san-jose-ca-zip-code-95123.md) — Lives in San Jose, CA (zip code 95123)
+- [loyalty-and-referral-programs-for-customer-growth](project/loyalty-and-referral-programs-for-customer-growth.md) — Loyalty and referral programs for customer growth
+- [make-oat-milk-at-home](project/make-oat-milk-at-home.md) — Make oat milk at home
+- [morning-routine-waking-up-at-6-30-am-every-day-including-weekends](user/morning-routine-waking-up-at-6-30-am-every-day-including-weekends.md) — Morning routine: waking up at 6:30 am every day including weekends
+- [next-book-to-read-the-last-mrs-parrish-by-liv-constantine](project/next-book-to-read-the-last-mrs-parrish-by-liv-constantine.md) — Next book to read: \"The Last Mrs. Parrish\" by Liv Constantine
+- [nike-court-flex-tennis-socks-available-in-white-black-navy-blue-grey-neon-green](reference/nike-court-flex-tennis-socks-available-in-white-black-navy-blue-grey-neon-green.md) — Nike Court Flex Tennis Socks available in White, Black, Navy Blue, Grey, Neon Green
+- [owns-nike-air-zoom-tennis-shoes](user/owns-nike-air-zoom-tennis-shoes.md) — Owns Nike Air Zoom tennis shoes
+- [planning-seasonal-candle-line-with-lavender-and-lemon-scents-for-summer](project/planning-seasonal-candle-line-with-lavender-and-lemon-scents-for-summer.md) — Planning seasonal candle line with lavender and lemon scents for summer
+- [planning-to-purchase-tennis-bag-considering-babolat-wilson-nike-or-head](project/planning-to-purchase-tennis-bag-considering-babolat-wilson-nike-or-head.md) — Planning to purchase tennis bag (considering Babolat, Wilson, Nike, or Head)
+- [plays-tennis-with-friends-at-local-park-every-other-week-on-sundays](user/plays-tennis-with-friends-at-local-park-every-other-week-on-sundays.md) — Plays tennis with friends at local park every other week on Sundays
+- [plays-weekly-tennis-sessions-with-friends](user/plays-weekly-tennis-sessions-with-friends.md) — Plays weekly tennis sessions with friends

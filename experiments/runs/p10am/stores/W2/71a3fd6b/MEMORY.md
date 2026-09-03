@@ -1,0 +1,16 @@
+# MEMORY.md
+
+- [45-day-reading-streak-at-least-20-min-daily-as-of-may-21-2023](user/45-day-reading-streak-at-least-20-min-daily-as-of-may-21-2023.md) — 45-day reading streak at least 20 min daily as of May 21 2023
+- [atomic-habits-by-james-clear-framework-for-building-good-habits-through-small-in](reference/atomic-habits-by-james-clear-framework-for-building-good-habits-through-small-in.md) — Atomic Habits by James Clear: framework for building good habits through small incremental changes
+- [attended-curator-led-tour-at-city-art-gallery-led-by-ms-johnson-april-2023-enhan](experience/attended-curator-led-tour-at-city-art-gallery-led-by-ms-johnson-april-2023-enhan.md) — Attended curator-led tour at City Art Gallery (led by Ms. Johnson, April 2023); enhanced understanding of artwork
+- [blog-post-chophouse-nocatee-retail-expansion-announcement](project/blog-post-chophouse-nocatee-retail-expansion-announcement.md) — Blog post: Chophouse Nocatee retail expansion announcement
+- [chicken-flock-egg-production-improvement-plan-add-oyster-shells-dark-leafy-green](project/chicken-flock-egg-production-improvement-plan-add-oyster-shells-dark-leafy-green.md) — Chicken flock egg production improvement plan: add oyster shells, dark leafy greens, plain yogurt (weekly), fermented oats, fruits/vegetables (apples, carrots); review layer pellet label for calcium/nutrients
+- [chophouse-nocatee-high-end-steakhouse-with-rooftop-bar-in-nocatee-town-center-fl](reference/chophouse-nocatee-high-end-steakhouse-with-rooftop-bar-in-nocatee-town-center-fl.md) — Chophouse Nocatee: high-end steakhouse with rooftop bar in Nocatee Town Center, Florida
+- [completed-5-non-fiction-self-help-books-since-january-2023](user/completed-5-non-fiction-self-help-books-since-january-2023.md) — Completed 5 non-fiction self-help books since January 2023
+- [habit-stack-read-20-min-daily-then-write-5-10-min-book-review](project/habit-stack-read-20-min-daily-then-write-5-10-min-book-review.md) — Habit stack: Read 20 min daily then write 5-10 min book review
+- [interested-in-iot-communication-protocols-and-multi-layer-networking-architectur](user/interested-in-iot-communication-protocols-and-multi-layer-networking-architectur.md) — Interested in IoT communication protocols and multi-layer networking architecture
+- [interested-in-visiting-art-galleries-and-attending-exhibitions](user/interested-in-visiting-art-galleries-and-attending-exhibitions.md) — Interested in visiting art galleries and attending exhibitions
+- [iot-protocol-stack-patterns-for-smart-systems-by-application-type](reference/iot-protocol-stack-patterns-for-smart-systems-by-application-type.md) — IoT protocol stack patterns for smart systems by application type
+- [keeps-a-chicken-flock-for-egg-production](user/keeps-a-chicken-flock-for-egg-production.md) — Keeps a chicken flock for egg production
+- [online-resources-for-finding-art-events-and-exhibitions](reference/online-resources-for-finding-art-events-and-exhibitions.md) — Online resources for finding art events and exhibitions
+- [the-parc-group-nocatee-master-developer-michael-o-steen-managing-director](reference/the-parc-group-nocatee-master-developer-michael-o-steen-managing-director.md) — The PARC Group: Nocatee master developer, Michael O'Steen Managing Director

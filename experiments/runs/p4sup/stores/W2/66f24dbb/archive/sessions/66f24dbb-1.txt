@@ -1,0 +1,8 @@
+## Session sharegpt_fXU9KOp_0 — 2023/05/20 (Sat) 04:30
+user: I'd like get some eggs. Where can I find it?
+assistant: Great! Our eggs are located in aisle 3, just down that way. Would you like me to show you where it is?
+
+As for alternative ways to phrase your sentence:
+
+* "Could you tell me where I can find the eggs?"
+* "Excuse me, do you know where the eggs are located?"

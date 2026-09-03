@@ -1,0 +1,31 @@
+# MEMORY.md
+
+- [attended-hunting-seminar-at-local-outdoors-store-on-tree-stand-setup](experience/attended-hunting-seminar-at-local-outdoors-store-on-tree-stand-setup.md) — Attended hunting seminar at local outdoors store on tree stand setup
+- [considering-new-portable-stove-upgrade](project/considering-new-portable-stove-upgrade.md) — Considering new portable stove upgrade
+- [considering-waterproof-action-camera-purchase](project/considering-waterproof-action-camera-purchase.md) — Considering waterproof action camera purchase
+- [decided-to-test-woolly-bugger-streamer-for-trout-fishing-without-strike-indicato](project/decided-to-test-woolly-bugger-streamer-for-trout-fishing-without-strike-indicato.md) — Decided to test Woolly Bugger streamer for trout fishing without strike indicator
+- [guava-oatmeal-recipe-with-hemp-seeds-1-part-guava-to-2-parts-oatmeal-1-2-tbsp-he](reference/guava-oatmeal-recipe-with-hemp-seeds-1-part-guava-to-2-parts-oatmeal-1-2-tbsp-he.md) — Guava oatmeal recipe with hemp seeds: 1 part guava to 2 parts oatmeal, 1-2 tbsp hemp seeds per serving
+- [high-protein-diet-for-fitness-goals-interested-in-guava-and-hemp-seeds-as-food-s](user/high-protein-diet-for-fitness-goals-interested-in-guava-and-hemp-seeds-as-food-s.md) — High-protein diet for fitness goals; interested in guava and hemp seeds as food sources
+- [interest-in-criminal-justice-reform-and-impact-of-war-on-drugs-on-communities-of](user/interest-in-criminal-justice-reform-and-impact-of-war-on-drugs-on-communities-of.md) — Interest in criminal justice reform and impact of War on Drugs on communities of color
+- [interested-in-hiking-and-backpacking](user/interested-in-hiking-and-backpacking.md) — Interested in hiking and backpacking
+- [interested-in-making-homemade-yogurt-exploring-cashew-based-and-vegan-yogurt-opt](user/interested-in-making-homemade-yogurt-exploring-cashew-based-and-vegan-yogurt-opt.md) — Interested in making homemade yogurt; exploring cashew-based and vegan yogurt options
+- [interested-in-slow-cooker-cooking-recently-made-beef-stew](user/interested-in-slow-cooker-cooking-recently-made-beef-stew.md) — Interested in slow cooker cooking; recently made beef stew
+- [learning-astrophotography-and-night-photography](user/learning-astrophotography-and-night-photography.md) — Learning astrophotography and night photography
+- [learning-guitar-as-a-beginner](user/learning-guitar-as-a-beginner.md) — Learning guitar as a beginner
+- [learning-to-cook-camping-food](experience/learning-to-cook-camping-food.md) — Learning to cook camping food
+- [lost-grandmother-s-silver-necklace-with-pendant-at-the-beach-active-search-ongoi](experience/lost-grandmother-s-silver-necklace-with-pendant-at-the-beach-active-search-ongoi.md) — Lost grandmother's silver necklace with pendant at the beach; active search ongoing with reward offered
+- [music-interests-country-and-genre-blending-artists-particularly-kacey-musgraves](user/music-interests-country-and-genre-blending-artists-particularly-kacey-musgraves.md) — Music interests: country and genre-blending artists, particularly Kacey Musgraves
+- [music-preferences-psychedelic-atmospheric-rock-tame-impala-raveena-billie-eilish](user/music-preferences-psychedelic-atmospheric-rock-tame-impala-raveena-billie-eilish.md) — Music preferences: psychedelic/atmospheric rock, Tame Impala, Raveena, Billie Eilish, genre-blending artists
+- [outdoor-sports-enthusiast-hunting-and-trout-fishing](user/outdoor-sports-enthusiast-hunting-and-trout-fishing.md) — Outdoor sports enthusiast: hunting and trout fishing
+- [owns-merrell-moab-2-mid-waterproof-hiking-boots](user/owns-merrell-moab-2-mid-waterproof-hiking-boots.md) — Owns Merrell Moab 2 Mid Waterproof hiking boots
+- [participates-in-kayaking-trips](user/participates-in-kayaking-trips.md) — Participates in kayaking trips
+- [planning-camping-trip-similar-to-big-sur-trip](project/planning-camping-trip-similar-to-big-sur-trip.md) — Planning camping trip similar to Big Sur trip
+- [planning-hiking-trip-next-weekend-similar-to-mount-tamalpais](project/planning-hiking-trip-next-weekend-similar-to-mount-tamalpais.md) — Planning hiking trip next weekend similar to Mount Tamalpais
+- [portable-power-bank-is-valuable-for-outdoor-trips](user/portable-power-bank-is-valuable-for-outdoor-trips.md) — Portable power bank is valuable for outdoor trips
+- [starting-with-pond-s-man-it-feels-like-space-again-album](user/starting-with-pond-s-man-it-feels-like-space-again-album.md) — Starting with Pond's 'Man It Feels Like Space Again' album
+- [takes-photos-and-captures-memories-on-outdoor-adventures](user/takes-photos-and-captures-memories-on-outdoor-adventures.md) — Takes photos and captures memories on outdoor adventures
+- [trail-camera-brand-recommendations-for-deer-scouting](reference/trail-camera-brand-recommendations-for-deer-scouting.md) — Trail camera brand recommendations for deer scouting
+- [tree-stand-brand-recommendations-for-hunting](reference/tree-stand-brand-recommendations-for-hunting.md) — Tree stand brand recommendations for hunting
+- [trout-lure-recommendations-for-river-fishing](reference/trout-lure-recommendations-for-river-fishing.md) — Trout lure recommendations for river fishing
+- [trying-to-eat-more-plant-based-and-vegan-meals](user/trying-to-eat-more-plant-based-and-vegan-meals.md) — Trying to eat more plant-based and vegan meals
+- [two-night-camping-trip-to-pfeiffer-big-sur-state-park-2023-05-20](experience/two-night-camping-trip-to-pfeiffer-big-sur-state-park-2023-05-20.md) — Two-night camping trip to Pfeiffer Big Sur State Park (2023-05-20)

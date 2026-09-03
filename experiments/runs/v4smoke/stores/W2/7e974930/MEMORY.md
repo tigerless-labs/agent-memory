@@ -1,0 +1,34 @@
+# MEMORY.md
+
+- [2023-market-earnings-1-280-from-six-events-march-may](project/2023-market-earnings-1-280-from-six-events-march-may.md) — 2023 market earnings: $1,280 from six events (March-May)
+- [artist-exploration-lucy-dacus-phoebe-bridgers-julien-baker](user/artist-exploration-lucy-dacus-phoebe-bridgers-julien-baker.md) — Artist exploration: Lucy Dacus, Phoebe Bridgers, Julien Baker
+- [business-sells-homemade-jams-candles-and-soaps](project/business-sells-homemade-jams-candles-and-soaps.md) — Business sells homemade jams, candles, and soaps
+- [considering-expansion-to-include-more-artisanal-soap-varieties](project/considering-expansion-to-include-more-artisanal-soap-varieties.md) — Considering expansion to include more artisanal soap varieties
+- [creative-fiction-wukong-imprisons-mk-seeking-the-diamond-snare](project/creative-fiction-wukong-imprisons-mk-seeking-the-diamond-snare.md) — Creative fiction: Wukong imprisons MK seeking the diamond snare
+- [earned-420-at-downtown-farmers-market](experience/earned-420-at-downtown-farmers-market.md) — Earned $420 at Downtown Farmers Market
+- [ergohuman-office-chair-in-current-use](user/ergohuman-office-chair-in-current-use.md) — ERGOhuman office chair in current use
+- [fujifilm-x-t30-ii-camera-specifications-and-features](reference/fujifilm-x-t30-ii-camera-specifications-and-features.md) — Fujifilm X-T30 II camera specifications and features
+- [furniture-shopping-preferences-west-elm-crate-barrel-ikea](user/furniture-shopping-preferences-west-elm-crate-barrel-ikea.md) — Furniture shopping preferences: West Elm, Crate & Barrel, IKEA
+- [ikea-micke-desk-assembled-for-home-office](user/ikea-micke-desk-assembled-for-home-office.md) — IKEA MICKE desk assembled for home office
+- [implementing-points-based-loyalty-program-with-tiered-rewards](project/implementing-points-based-loyalty-program-with-tiered-rewards.md) — Implementing points-based loyalty program with tiered rewards
+- [interest-in-bass-fishing-and-fly-fishing](user/interest-in-bass-fishing-and-fly-fishing.md) — Interest in bass fishing and fly fishing
+- [interest-in-connections-between-landscape-architecture-and-ecocriticism](user/interest-in-connections-between-landscape-architecture-and-ecocriticism.md) — Interest in connections between landscape architecture and ecocriticism
+- [interest-in-ecocriticism-and-environmental-humanities](user/interest-in-ecocriticism-and-environmental-humanities.md) — Interest in ecocriticism and environmental humanities
+- [interested-in-live-music-and-comedy-shows](user/interested-in-live-music-and-comedy-shows.md) — Interested in live music and comedy shows
+- [marathon-personal-best-achieved-on-april-15-2026](experience/marathon-personal-best-achieved-on-april-15-2026.md) — Marathon personal best achieved on April 15, 2026
+- [music-genre-preference-singer-songwriter-and-folk-influenced-indie-rock](user/music-genre-preference-singer-songwriter-and-folk-influenced-indie-rock.md) — Music genre preference: Singer-Songwriter and Folk-Influenced indie-rock
+- [music-library-organization-and-discovery-on-spotify](user/music-library-organization-and-discovery-on-spotify.md) — Music library organization and discovery on Spotify
+- [ordered-100-business-cards-as-starting-quantity](project/ordered-100-business-cards-as-starting-quantity.md) — Ordered 100 business cards as starting quantity
+- [photography-hobby-landscape-and-nature-recently-restarted](user/photography-hobby-landscape-and-nature-recently-restarted.md) — Photography hobby: landscape and nature, recently restarted
+- [planning-product-line-expansion-gift-baskets-starting-with-downtown-farmers-mark](project/planning-product-line-expansion-gift-baskets-starting-with-downtown-farmers-mark.md) — Planning product line expansion: gift baskets, starting with Downtown Farmers Market theme
+- [plans-to-purchase-office-chair-for-guest-room](user/plans-to-purchase-office-chair-for-guest-room.md) — Plans to purchase office chair for guest room
+- [plans-to-upgrade-dining-table-to-reclaimed-wood](user/plans-to-upgrade-dining-table-to-reclaimed-wood.md) — Plans to upgrade dining table to reclaimed wood
+- [recently-rearranged-living-room-to-conversational-layout-plans-coffee-table-purc](user/recently-rearranged-living-room-to-conversational-layout-plans-coffee-table-purc.md) — Recently rearranged living room to conversational layout, plans coffee table purchase
+- [selected-fujifilm-x-t30-ii-mirrorless-camera-for-landscape-photography](project/selected-fujifilm-x-t30-ii-mirrorless-camera-for-landscape-photography.md) — Selected Fujifilm X-T30 II mirrorless camera for landscape photography
+- [sprint-triathlon-training-recommendations-swim-workouts-drills-and-cross-trainin](reference/sprint-triathlon-training-recommendations-swim-workouts-drills-and-cross-trainin.md) — Sprint triathlon training recommendations: swim workouts, drills, and cross-training methods
+- [sprint-triathlon-training-underway-with-swimming-running-and-cycling-focus](project/sprint-triathlon-training-underway-with-swimming-running-and-cycling-focus.md) — Sprint triathlon training underway with swimming, running, and cycling focus
+- [strawberry-jam-is-best-selling-flavor-candle-supplies-nearly-depleted](project/strawberry-jam-is-best-selling-flavor-candle-supplies-nearly-depleted.md) — Strawberry jam is best-selling flavor; candle supplies nearly depleted
+- [tracks-fitness-progress-on-spreadsheet-finds-visual-progress-tracking-highly-mot](user/tracks-fitness-progress-on-spreadsheet-finds-visual-progress-tracking-highly-mot.md) — Tracks fitness progress on spreadsheet; finds visual progress tracking highly motivating
+- [ursula-k-le-guin-s-major-works-exploring-environmental-and-political-themes](reference/ursula-k-le-guin-s-major-works-exploring-environmental-and-political-themes.md) — Ursula K. Le Guin's major works exploring environmental and political themes
+- [west-elm-harmony-sofa-in-dark-gray-velvet-purchased](user/west-elm-harmony-sofa-in-dark-gray-velvet-purchased.md) — West Elm Harmony Sofa in dark gray velvet purchased
+- [yoga-practice-twice-weekly-since-march-1-2026-completed-30-day-daily-challenge-i](user/yoga-practice-twice-weekly-since-march-1-2026-completed-30-day-daily-challenge-i.md) — Yoga practice: twice weekly since March 1, 2026; completed 30-day daily challenge in April

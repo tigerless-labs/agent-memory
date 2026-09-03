@@ -1,0 +1,24 @@
+# MEMORY.md
+
+- [board-game-recommendations-for-12-year-olds](reference/board-game-recommendations-for-12-year-olds.md) — Board game recommendations for 12-year-olds
+- [coffee-creme-brulee-strong-coffee-cream-eggs-custard-with-caramelized-sugar-crus](reference/coffee-creme-brulee-strong-coffee-cream-eggs-custard-with-caramelized-sugar-crus.md) — Coffee Crème Brûlée: strong coffee, cream, eggs custard with caramelized sugar crust
+- [collaborative-boxing-narrative-featuring-emaad-shavez-and-mustafa](project/collaborative-boxing-narrative-featuring-emaad-shavez-and-mustafa.md) — Collaborative boxing narrative featuring Emaad, Shavez, and Mustafa
+- [currently-reading-the-silent-patient-physical-and-the-girl-with-the-dragon-tatto](user/currently-reading-the-silent-patient-physical-and-the-girl-with-the-dragon-tatto.md) — Currently reading The Silent Patient (physical) and The Girl with the Dragon Tattoo (audiobook, ch. 10)
+- [has-a-12-year-old-brother](user/has-a-12-year-old-brother.md) — Has a 12-year-old brother
+- [hosts-friday-game-nights-with-friends](user/hosts-friday-game-nights-with-friends.md) — Hosts Friday game nights with friends
+- [interested-in-board-games-especially-social-deduction-games](user/interested-in-board-games-especially-social-deduction-games.md) — Interested in board games, especially social deduction games
+- [interested-in-policy-reform-and-political-systems](user/interested-in-policy-reform-and-political-systems.md) — Interested in policy reform and political systems
+- [listens-to-audiobooks-during-daily-commute](user/listens-to-audiobooks-during-daily-commute.md) — Listens to audiobooks during daily commute
+- [mysterium-board-game-cooperative-social-deduction-game-2-7-players-45-60-min-ave](reference/mysterium-board-game-cooperative-social-deduction-game-2-7-players-45-60-min-ave.md) — Mysterium board game: cooperative social deduction game, 2-7 players, 45-60 min average
+- [planning-dinner-party-with-focus-on-desserts-not-requiring-stand-mixer](project/planning-dinner-party-with-focus-on-desserts-not-requiring-stand-mixer.md) — Planning dinner party with focus on desserts not requiring stand mixer
+- [plans-to-introduce-mysterium-ticket-to-ride-and-sushi-go-to-12-year-old-brother](project/plans-to-introduce-mysterium-ticket-to-ride-and-sushi-go-to-12-year-old-brother.md) — Plans to introduce Mysterium, Ticket to Ride, and Sushi Go! to 12-year-old brother
+- [prefers-dessert-recipes-that-don-t-require-stand-mixer](user/prefers-dessert-recipes-that-don-t-require-stand-mixer.md) — Prefers dessert recipes that don't require stand mixer
+- [psychological-thriller-book-recommendations-similar-to-the-silent-patient](reference/psychological-thriller-book-recommendations-similar-to-the-silent-patient.md) — Psychological thriller book recommendations (similar to The Silent Patient)
+- [reading-interests-expanded-psychological-thrillers-in-addition-to-historical-fic](user/reading-interests-expanded-psychological-thrillers-in-addition-to-historical-fic.md) — Reading interests expanded: psychological thrillers in addition to historical fiction and mythology
+- [returned-the-power-by-naomi-alderman-to-friend-emily](user/returned-the-power-by-naomi-alderman-to-friend-emily.md) — Returned The Power by Naomi Alderman to friend Emily
+- [sister-lent-the-handmaid-s-tale-bookmark-with-reminder-note-still-pending-return](user/sister-lent-the-handmaid-s-tale-bookmark-with-reminder-note-still-pending-return.md) — Sister lent The Handmaid's Tale; bookmark with reminder note still pending return
+- [solipsism-only-one-s-own-mind-can-be-trusted-as-certainly-conscious](reference/solipsism-only-one-s-own-mind-can-be-trusted-as-certainly-conscious.md) — Solipsism — only one's own mind can be trusted as certainly conscious
+- [speculative-fiction-feminist-theme-recommendations-similar-to-the-power-by-naomi](reference/speculative-fiction-feminist-theme-recommendations-similar-to-the-power-by-naomi.md) — Speculative fiction & feminist theme recommendations (similar to The Power by Naomi Alderman)
+- [stand-mixer-broken-april-2023-repaired-after-2-weeks-at-repair-shop](experience/stand-mixer-broken-april-2023-repaired-after-2-weeks-at-repair-shop.md) — Stand mixer broken April 2023, repaired after 2 weeks at repair shop
+- [strike-lightning-network-remittance-app-model-reference-for-zizuh](reference/strike-lightning-network-remittance-app-model-reference-for-zizuh.md) — Strike: Lightning Network remittance app — model reference for Zizuh
+- [zizuh-remittance-project-lightning-network-go-implementation](project/zizuh-remittance-project-lightning-network-go-implementation.md) — Zizuh remittance project — Lightning Network, Go implementation

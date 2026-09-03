@@ -1,0 +1,35 @@
+# MEMORY.md
+
+- [air-purifying-plants-recommended-for-bedroom](reference/air-purifying-plants-recommended-for-bedroom.md) — Air-purifying plants recommended for bedroom
+- [applied-for-senior-quantitative-analyst-model-validation-position-may-2023](experience/applied-for-senior-quantitative-analyst-model-validation-position-may-2023.md) — Applied for Senior Quantitative Analyst - Model Validation position (May 2023)
+- [astrological-sign-is-scorpio](user/astrological-sign-is-scorpio.md) — Astrological sign is Scorpio
+- [back-care-pain-management-and-relaxation-resources-for-herniated-disc-recovery](reference/back-care-pain-management-and-relaxation-resources-for-herniated-disc-recovery.md) — Back care, pain management, and relaxation resources for herniated disc recovery
+- [bought-banana-republic-dress-for-72-at-friends-and-family-sale-originally-120-40](experience/bought-banana-republic-dress-for-72-at-friends-and-family-sale-originally-120-40.md) — Bought Banana Republic dress for $72 at friends and family sale (originally $120, 40% off)
+- [bought-banana-republic-trousers-for-54-at-friends-and-family-sale-originally-90](experience/bought-banana-republic-trousers-for-54-at-friends-and-family-sale-originally-90.md) — Bought Banana Republic trousers for $54 at friends and family sale (originally $90, 40% off)
+- [decided-to-implement-weekly-virtual-coffee-breaks-with-team](project/decided-to-implement-weekly-virtual-coffee-breaks-with-team.md) — Decided to implement weekly virtual coffee breaks with team
+- [downtown-cafe-with-patio-serves-avocado-toast-and-quiche](reference/downtown-cafe-with-patio-serves-avocado-toast-and-quiche.md) — Downtown cafe with patio — serves avocado toast and quiche
+- [enjoys-films-with-strong-female-characters-and-all-female-predominantly-female-c](user/enjoys-films-with-strong-female-characters-and-all-female-predominantly-female-c.md) — Enjoys films with strong female characters and all-female/predominantly female casts
+- [enjoys-spring-themed-entertaining-with-sustainable-flowers-plants-and-botanical](user/enjoys-spring-themed-entertaining-with-sustainable-flowers-plants-and-botanical.md) — Enjoys spring-themed entertaining with sustainable flowers, plants, and botanical cocktails
+- [enjoys-working-from-home-but-values-social-interactions-with-colleagues](user/enjoys-working-from-home-but-values-social-interactions-with-colleagues.md) — Enjoys working from home but values social interactions with colleagues
+- [film-recommendations-for-female-centered-casts-2023](reference/film-recommendations-for-female-centered-casts-2023.md) — Film recommendations for female-centered casts (2023)
+- [flu-illness-with-12-week-recovery-as-of-may-2023](experience/flu-illness-with-12-week-recovery-as-of-may-2023.md) — Flu illness with 12-week recovery as of May 2023
+- [got-grandmother-s-pearl-earrings-resized-at-jewelry-shop-on-2023-02-20](experience/got-grandmother-s-pearl-earrings-resized-at-jewelry-shop-on-2023-02-20.md) — Got grandmother's pearl earrings resized at jewelry shop on 2023-02-20
+- [has-dog-max-5-years-old-and-cat-luna](user/has-dog-max-5-years-old-and-cat-luna.md) — Has dog Max (5 years old) and cat Luna
+- [herniated-disc-diagnosis-and-recovery-plan-with-exercises-and-complementary-ther](experience/herniated-disc-diagnosis-and-recovery-plan-with-exercises-and-complementary-ther.md) — Herniated disc diagnosis and recovery plan with exercises and complementary therapies
+- [humidifier-recommendations-for-orchid-care-in-living-room](reference/humidifier-recommendations-for-orchid-care-in-living-room.md) — Humidifier recommendations for orchid care in living room
+- [is-a-big-sports-fan](user/is-a-big-sports-fan.md) — Is a big sports fan
+- [lent-silver-hoop-earrings-to-roommate-in-early-may-2023-awaiting-return](experience/lent-silver-hoop-earrings-to-roommate-in-early-may-2023-awaiting-return.md) — Lent silver hoop earrings to roommate in early May 2023; awaiting return
+- [lost-a-silver-stud-on-2023-03-01-during-brunch-with-friends](experience/lost-a-silver-stud-on-2023-03-01-during-brunch-with-friends.md) — Lost a silver stud on 2023-03-01 during brunch with friends
+- [orchid-plant-acquired-2023-05-20-placed-in-living-room](user/orchid-plant-acquired-2023-05-20-placed-in-living-room.md) — Orchid plant acquired 2023-05-20, placed in living room
+- [planning-to-get-custom-made-scorpio-necklace-in-silver-with-dark-rich-colors](project/planning-to-get-custom-made-scorpio-necklace-in-silver-with-dark-rich-colors.md) — Planning to get custom-made Scorpio necklace in silver with dark, rich colors
+- [practices-progressive-muscle-relaxation-2-3-times-weekly-for-pain-and-anxiety-ma](user/practices-progressive-muscle-relaxation-2-3-times-weekly-for-pain-and-anxiety-ma.md) — Practices progressive muscle relaxation 2-3 times weekly for pain and anxiety management
+- [prefers-collaborative-approach-to-team-decisions-values-inclusive-decision-makin](user/prefers-collaborative-approach-to-team-decisions-values-inclusive-decision-makin.md) — Prefers collaborative approach to team decisions; values inclusive decision-making
+- [prefers-everlane-for-sustainable-fashion-due-to-transparency-commitment](user/prefers-everlane-for-sustainable-fashion-due-to-transparency-commitment.md) — Prefers Everlane for sustainable fashion due to transparency commitment
+- [prefers-pinot-noir-wine](user/prefers-pinot-noir-wine.md) — Prefers Pinot Noir wine
+- [prefers-silver-metal-for-jewelry-to-maintain-collection-consistency](user/prefers-silver-metal-for-jewelry-to-maintain-collection-consistency.md) — Prefers silver metal for jewelry to maintain collection consistency
+- [purchased-silver-star-pendant-necklace-from-local-boutique-on-2023-02-15](experience/purchased-silver-star-pendant-necklace-from-local-boutique-on-2023-02-15.md) — Purchased silver star pendant necklace from local boutique on 2023-02-15
+- [spider-plant-scheduled-for-repotting-weekend-of-2023-05-27](user/spider-plant-scheduled-for-repotting-weekend-of-2023-05-27.md) — Spider plant scheduled for repotting weekend of 2023-05-27
+- [track-cart-additions-on-server-response-not-button-click-use-client-side-javascr](reference/track-cart-additions-on-server-response-not-button-click-use-client-side-javascr.md) — Track cart additions on server response, not button click; use client-side JavaScript
+- [uses-acupuncture-for-pain-and-stress-management](user/uses-acupuncture-for-pain-and-stress-management.md) — Uses acupuncture for pain and stress management
+- [uses-basil-plant-frequently-for-cooking](user/uses-basil-plant-frequently-for-cooking.md) — Uses basil plant frequently for cooking
+- [watch-needs-battery-replacement-hasn-t-been-worn-since-2023-02-05](project/watch-needs-battery-replacement-hasn-t-been-worn-since-2023-02-05.md) — Watch needs battery replacement; hasn't been worn since 2023-02-05

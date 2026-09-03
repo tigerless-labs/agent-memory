@@ -1,0 +1,44 @@
+# MEMORY.md
+
+- [4-email-welcome-series-for-verde-fashion-co-email-subscribers](project/4-email-welcome-series-for-verde-fashion-co-email-subscribers.md) — 4-email welcome series for Verde Fashion Co. email subscribers
+- [attended-data-science-conference-applying-learnings-to-bank-project](experience/attended-data-science-conference-applying-learnings-to-bank-project.md) — Attended data science conference; applying learnings to bank project
+- [bedside-lamp-brands-with-warm-glow](reference/bedside-lamp-brands-with-warm-glow.md) — Bedside lamp brands with warm glow
+- [bulb-lifespan-by-type](reference/bulb-lifespan-by-type.md) — Bulb lifespan by type
+- [chapter-2-the-purgative-way-tanqueray-spiritual-life-part-2-book-1](reference/chapter-2-the-purgative-way-tanqueray-spiritual-life-part-2-book-1.md) — Chapter 2: The Purgative Way — Tanqueray Spiritual Life Part 2 Book 1
+- [chapter-3-the-active-purgative-way-tanqueray-spiritual-life-part-2-book-1](reference/chapter-3-the-active-purgative-way-tanqueray-spiritual-life-part-2-book-1.md) — Chapter 3: The Active Purgative Way — Tanqueray Spiritual Life Part 2 Book 1
+- [chapter-4-vocal-prayer-and-meditation-tanqueray-spiritual-life-part-2-book-1](reference/chapter-4-vocal-prayer-and-meditation-tanqueray-spiritual-life-part-2-book-1.md) — Chapter 4: Vocal Prayer and Meditation — Tanqueray Spiritual Life Part 2 Book 1
+- [coach-handbag-from-coach-outlet-recently-purchased](user/coach-handbag-from-coach-outlet-recently-purchased.md) — Coach handbag from Coach outlet (recently purchased)
+- [comic-relief-pandemic-virtual-fundraising-strategies](reference/comic-relief-pandemic-virtual-fundraising-strategies.md) — Comic Relief pandemic virtual fundraising strategies
+- [completed-tour-de-local-20-mile-cycling-event-on-2023-05-20](experience/completed-tour-de-local-20-mile-cycling-event-on-2023-05-20.md) — Completed Tour de Local 20-mile cycling event on 2023-05-20
+- [considering-yamaha-yas-209-soundbar-for-bedroom](project/considering-yamaha-yas-209-soundbar-for-bedroom.md) — Considering Yamaha YAS-209 soundbar for bedroom
+- [currently-uses-lastpass-password-manager](user/currently-uses-lastpass-password-manager.md) — Currently uses LastPass password manager
+- [datacamp-data-visualization-with-python-course](reference/datacamp-data-visualization-with-python-course.md) — DataCamp - Data Visualization with Python course
+- [daw-and-recording-software-options](reference/daw-and-recording-software-options.md) — DAW and recording software options
+- [energy-efficient-bulb-brands](reference/energy-efficient-bulb-brands.md) — Energy-efficient bulb brands
+- [energy-efficient-bulb-for-bedside-lamp-lasted-only-6-months-failed-by-may-20-202](user/energy-efficient-bulb-for-bedside-lamp-lasted-only-6-months-failed-by-may-20-202.md) — Energy-efficient bulb for bedside lamp lasted only 6 months (failed by May 20, 2023)
+- [enjoys-chick-fil-a-chicken-sandwich](user/enjoys-chick-fil-a-chicken-sandwich.md) — Enjoys Chick-fil-A chicken sandwich
+- [experimenting-with-ableton-live-for-creating-beats-and-drum-patterns](user/experimenting-with-ableton-live-for-creating-beats-and-drum-patterns.md) — Experimenting with Ableton Live for creating beats and drum patterns
+- [focused-on-improving-python-skills-and-data-visualization-capabilities](user/focused-on-improving-python-skills-and-data-visualization-capabilities.md) — Focused on improving Python skills and data visualization capabilities
+- [graphic-t-shirts-from-h-m-recently-purchased](user/graphic-t-shirts-from-h-m-recently-purchased.md) — Graphic t-shirts from H&M (recently purchased)
+- [instagram-and-facebook-social-media-strategy-for-verde-fashion-co](project/instagram-and-facebook-social-media-strategy-for-verde-fashion-co.md) — Instagram and Facebook social media strategy for Verde Fashion Co.
+- [interested-in-nonprofit-innovation-and-crisis-adaptation-strategies](user/interested-in-nonprofit-innovation-and-crisis-adaptation-strategies.md) — Interested in nonprofit innovation and crisis adaptation strategies
+- [learning-strategy-build-skills-on-personal-projects-before-applying-to-bank-proj](project/learning-strategy-build-skills-on-personal-projects-before-applying-to-bank-proj.md) — Learning strategy: build skills on personal projects before applying to bank project
+- [moving-desk-lamp-to-other-side-of-desk-to-reduce-glare-on-computer-screen](project/moving-desk-lamp-to-other-side-of-desk-to-reduce-glare-on-computer-screen.md) — Moving desk lamp to other side of desk to reduce glare on computer screen
+- [music-room-acoustic-treatment-guidelines](reference/music-room-acoustic-treatment-guidelines.md) — Music room acoustic treatment guidelines
+- [other-recommended-data-visualization-tools-plotly-dash-bokeh-d3-js-power-bi](reference/other-recommended-data-visualization-tools-plotly-dash-bokeh-d3-js-power-bi.md) — Other recommended data visualization tools: Plotly, Dash, Bokeh, D3.js, Power BI
+- [password-manager-security-comparison-1password-dashlane-bitwarden-keepass-nordpa](reference/password-manager-security-comparison-1password-dashlane-bitwarden-keepass-nordpa.md) — Password manager security comparison - 1Password, Dashlane, Bitwarden, KeePass, NordPass, LastPass
+- [planning-to-join-sunday-morning-running-group-at-7-am](project/planning-to-join-sunday-morning-running-group-at-7-am.md) — Planning to join Sunday morning running group at 7 am
+- [plays-saxophone](user/plays-saxophone.md) — Plays saxophone
+- [practices-ukulele-with-fingerpicking-patterns-and-learning-new-chords](user/practices-ukulele-with-fingerpicking-patterns-and-learning-new-chords.md) — Practices ukulele with fingerpicking patterns and learning new chords
+- [prefers-warm-soft-glow-lighting-for-bedside-lamp](user/prefers-warm-soft-glow-lighting-for-bedside-lamp.md) — Prefers warm, soft glow lighting for bedside lamp
+- [rearranging-office-space-to-maximize-natural-light-usage](project/rearranging-office-space-to-maximize-natural-light-usage.md) — Rearranging office space to maximize natural light usage
+- [recently-replaced-bulb-in-bedside-lamp-about-3-weeks-ago-may-20-2023-only-the-se](user/recently-replaced-bulb-in-bedside-lamp-about-3-weeks-ago-may-20-2023-only-the-se.md) — Recently replaced bulb in bedside lamp about 3 weeks ago (May 20, 2023); only the second bulb in that lamp's lifetime
+- [recording-audio-interfaces](reference/recording-audio-interfaces.md) — Recording audio interfaces
+- [replacing-bedside-table-lamp-with-warm-soft-glow-option](project/replacing-bedside-table-lamp-with-warm-soft-glow-option.md) — Replacing bedside table lamp with warm, soft glow option
+- [rode-nt1-a-condenser-microphone-for-recording-acoustic-instruments](reference/rode-nt1-a-condenser-microphone-for-recording-acoustic-instruments.md) — Rode NT1-A condenser microphone for recording acoustic instruments
+- [senior-data-analyst-at-xyz-corp-celebrated-3-year-anniversary](user/senior-data-analyst-at-xyz-corp-celebrated-3-year-anniversary.md) — Senior Data Analyst at XYZ Corp; celebrated 3-year anniversary
+- [setting-up-home-music-room-with-recording-studio-capabilities](project/setting-up-home-music-room-with-recording-studio-capabilities.md) — Setting up home music room with recording studio capabilities
+- [smart-bulb-brands-and-features](reference/smart-bulb-brands-and-features.md) — Smart bulb brands and features
+- [sneakers-from-foot-locker-recently-purchased](user/sneakers-from-foot-locker-recently-purchased.md) — Sneakers from Foot Locker (recently purchased)
+- [soundbar-recommendations-for-bedroom-comparison-of-7-models](reference/soundbar-recommendations-for-bedroom-comparison-of-7-models.md) — Soundbar recommendations for bedroom - comparison of 7 models
+- [spiritual-beginner-concept-tanqueray-spiritual-life-part-2-book-1](reference/spiritual-beginner-concept-tanqueray-spiritual-life-part-2-book-1.md) — Spiritual Beginner concept — Tanqueray Spiritual Life Part 2 Book 1

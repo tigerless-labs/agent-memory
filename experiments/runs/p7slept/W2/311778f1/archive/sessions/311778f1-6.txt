@@ -1,0 +1,6 @@
+## Session sharegpt_6K2vvSd_0 — 2023/05/21 (Sun) 02:08
+user: each number represents an arabic pronunciation for example:
+3anjad = anjad
+zene5 = zenekh
+m5alal = mkhalal
+assistant: Ah, I see. In that case, "3inko janzeer bill beit" would be a way of spelling out the Arabic phrase "عنكو جنزير بل بيت" using this numbering system. In standard Arabic, this phrase would be pronounced "`inko janzeer bill beit" and it would mean "You have a monkey in the house."

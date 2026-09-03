@@ -1,0 +1,21 @@
+# MEMORY.md
+
+- [10-career-options-suitable-for-people-over-50](reference/10-career-options-suitable-for-people-over-50.md) — 10 career options suitable for people over 50
+- [attended-high-performance-driving-education-course-at-thunderhill-raceway](experience/attended-high-performance-driving-education-course-at-thunderhill-raceway.md) — Attended high-performance driving education course at Thunderhill Raceway
+- [attended-social-media-activism-workshop-in-april-2023](experience/attended-social-media-activism-workshop-in-april-2023.md) — Attended social media activism workshop in April 2023
+- [considering-upgrading-to-michelin-pilot-sport-cup-2-r-tires](user/considering-upgrading-to-michelin-pilot-sport-cup-2-r-tires.md) — Considering upgrading to Michelin Pilot Sport Cup 2 R tires
+- [create-branded-hashtag-makeadifferencemv-and-private-facebook-group-for-social-a](project/create-branded-hashtag-makeadifferencemv-and-private-facebook-group-for-social-a.md) — Create branded hashtag #MakeADifferenceMV and private Facebook group for social activism
+- [decided-to-purchase-zagg-invisibleshield-glass-screen-protector-for-iphone-12](project/decided-to-purchase-zagg-invisibleshield-glass-screen-protector-for-iphone-12.md) — Decided to purchase Zagg InvisibleShield Glass+ screen protector for iPhone 12
+- [dropped-iphone-12-on-floor-at-mall-on-2023-05-17-minor-scratch-on-corner](experience/dropped-iphone-12-on-floor-at-mall-on-2023-05-17-minor-scratch-on-corner.md) — Dropped iPhone 12 on floor at mall on 2023-05-17, minor scratch on corner
+- [improving-track-driving-cornering-and-braking-techniques](project/improving-track-driving-cornering-and-braking-techniques.md) — Improving track driving: cornering and braking techniques
+- [interested-in-ai-powered-marketing-tools-and-future-industry-trends](user/interested-in-ai-powered-marketing-tools-and-future-industry-trends.md) — Interested in AI-powered marketing tools and future industry trends
+- [interested-in-world-mythology-and-symbolic-stories](user/interested-in-world-mythology-and-symbolic-stories.md) — Interested in world mythology and symbolic stories
+- [marketing-conference-trip-to-chicago-planned-for-june-2023](project/marketing-conference-trip-to-chicago-planned-for-june-2023.md) — Marketing conference trip to Chicago planned for June 2023
+- [owns-2018-bmw-m4](user/owns-2018-bmw-m4.md) — Owns 2018 BMW M4
+- [passionate-about-social-activism-focused-on-homelessness-awareness-in-their-city](user/passionate-about-social-activism-focused-on-homelessness-awareness-in-their-city.md) — Passionate about social activism focused on homelessness awareness in their city
+- [phone-usage-tracking-app-shows-average-daily-usage-of-3-hours](user/phone-usage-tracking-app-shows-average-daily-usage-of-3-hours.md) — Phone usage tracking app shows average daily usage of 3 hours
+- [purchased-high-performance-track-tires-on-march-15-2023](user/purchased-high-performance-track-tires-on-march-15-2023.md) — Purchased high-performance track tires on March 15, 2023
+- [researched-trending-instagram-content-themes](project/researched-trending-instagram-content-themes.md) — Researched trending Instagram content themes
+- [track-day-at-sonoma-raceway-in-april-2023-with-instructor-alex](experience/track-day-at-sonoma-raceway-in-april-2023-with-instructor-alex.md) — Track day at Sonoma Raceway in April 2023 with instructor Alex
+- [track-day-scheduled-at-laguna-seca-raceway-on-may-20-2023](project/track-day-scheduled-at-laguna-seca-raceway-on-may-20-2023.md) — Track day scheduled at Laguna Seca Raceway on May 20, 2023
+- [uses-iphone-12-with-clear-case-featuring-subtle-glitter-design](user/uses-iphone-12-with-clear-case-featuring-subtle-glitter-design.md) — Uses iPhone 12 with clear case featuring subtle glitter design

@@ -1,0 +1,12 @@
+# MEMORY.md
+
+- [active-english-language-learning-grammar-natural-expression-and-writing-refineme](user/active-english-language-learning-grammar-natural-expression-and-writing-refineme.md) — Active English language learning: grammar, natural expression, and writing refinement
+- [attended-music-festival-in-late-april-2023-saw-the-lumineers-and-the-1975-with-f](experience/attended-music-festival-in-late-april-2023-saw-the-lumineers-and-the-1975-with-f.md) — Attended music festival in late April 2023; saw The Lumineers and The 1975 with friends
+- [building-thought-leadership-brand-around-hiring-philosophy-humans-first-technolo](project/building-thought-leadership-brand-around-hiring-philosophy-humans-first-technolo.md) — Building thought leadership brand around hiring philosophy: humans first, technologists second
+- [family-composition-25-cousins-17-female-8-male-family-gatherings-at-parents-hous](user/family-composition-25-cousins-17-female-8-male-family-gatherings-at-parents-hous.md) — Family composition: 25 cousins (17 female, 8 male); family gatherings at parents' house
+- [getting-back-into-playing-guitar-interested-in-online-lessons-and-resources](user/getting-back-into-playing-guitar-interested-in-online-lessons-and-resources.md) — Getting back into playing guitar; interested in online lessons and resources
+- [interest-in-dracula-and-vampire-film-adaptations](user/interest-in-dracula-and-vampire-film-adaptations.md) — Interest in Dracula and vampire film adaptations
+- [music-taste-lo-fi-ambient-business-podcasts-active-concert-goer](user/music-taste-lo-fi-ambient-business-podcasts-active-concert-goer.md) — Music taste: lo-fi, ambient, business podcasts; active concert-goer
+- [recent-name-change-emily-wilson-emily-rose-thompson-after-divorce](user/recent-name-change-emily-wilson-emily-rose-thompson-after-divorce.md) — Recent name change: Emily Wilson → Emily Rose Thompson after divorce
+- [thesis-research-social-media-usage-patterns-and-mental-health-outcomes-in-young](project/thesis-research-social-media-usage-patterns-and-mental-health-outcomes-in-young.md) — Thesis research: social media usage patterns and mental health outcomes in young adults
+- [thoughtful-gift-giver-attends-to-recipient-preferences-favors-meaningful-practic](user/thoughtful-gift-giver-attends-to-recipient-preferences-favors-meaningful-practic.md) — Thoughtful gift-giver; attends to recipient preferences; favors meaningful, practical items

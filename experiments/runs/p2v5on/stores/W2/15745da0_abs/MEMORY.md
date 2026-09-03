@@ -1,0 +1,30 @@
+# MEMORY.md
+
+- [appraisal-complexity-assessment-guidelines-and-checklist-for-team-fee-determinat](project/appraisal-complexity-assessment-guidelines-and-checklist-for-team-fee-determinat.md) — Appraisal complexity assessment guidelines and checklist for team fee determination
+- [beginner-printmaking-tips](reference/beginner-printmaking-tips.md) — Beginner printmaking tips
+- [builds-connections-through-online-communities-and-social-media](user/builds-connections-through-online-communities-and-social-media.md) — Builds connections through online communities and social media
+- [collects-funko-pop-figures-owns-complete-marvel-cinematic-universe-set](user/collects-funko-pop-figures-owns-complete-marvel-cinematic-universe-set.md) — Collects Funko POP! figures; owns complete Marvel Cinematic Universe set
+- [collects-posters-and-art-prints-owns-mondo-hogwarts-castle-poster-from-harry-pot](user/collects-posters-and-art-prints-owns-mondo-hogwarts-castle-poster-from-harry-pot.md) — Collects posters and art prints; owns Mondo Hogwarts castle poster from Harry Potter
+- [collects-vintage-cameras-has-17-as-of-may-2023-including-brownie-hawkeye](user/collects-vintage-cameras-has-17-as-of-may-2023-including-brownie-hawkeye.md) — Collects vintage cameras; has 17 as of May 2023 including Brownie Hawkeye
+- [collects-vinyl-records-owns-rare-1978-pressing-of-fleetwood-mac-s-rumours](user/collects-vinyl-records-owns-rare-1978-pressing-of-fleetwood-mac-s-rumours.md) — Collects vinyl records; owns rare 1978 pressing of Fleetwood Mac's Rumours
+- [considering-upgrading-laptop-ram-from-8gb-to-16gb](user/considering-upgrading-laptop-ram-from-8gb-to-16gb.md) — Considering upgrading laptop RAM from 8GB to 16GB
+- [dad-has-a-home-theater-setup-at-his-place](user/dad-has-a-home-theater-setup-at-his-place.md) — Dad has a home theater setup at his place
+- [foods-and-supplements-for-cognitive-function-in-elderly-individuals](reference/foods-and-supplements-for-cognitive-function-in-elderly-individuals.md) — Foods and supplements for cognitive function in elderly individuals
+- [friend-sarah-born-1993](user/friend-sarah-born-1993.md) — Friend Sarah born 1993
+- [interest-in-volcano-photography-and-eruption-documentation](user/interest-in-volcano-photography-and-eruption-documentation.md) — Interest in volcano photography and eruption documentation
+- [is-an-educator-planning-to-implement-collaborative-learning-and-role-playing-act](user/is-an-educator-planning-to-implement-collaborative-learning-and-role-playing-act.md) — Is an educator planning to implement collaborative learning and role-playing activities for leadership development
+- [laptop-specs-8gb-ram-8-9-hours-battery-life](user/laptop-specs-8gb-ram-8-9-hours-battery-life.md) — Laptop specs: 8GB RAM, 8-9 hours battery life
+- [learning-printmakingbeginner-interested-in-materials-and-techniques](user/learning-printmakingbeginner-interested-in-materials-and-techniques.md) — Learning printmaking—beginner, interested in materials and techniques
+- [mom-is-an-excellent-baker-bakes-for-family-events](user/mom-is-an-excellent-baker-bakes-for-family-events.md) — Mom is an excellent baker; bakes for family events
+- [owns-an-old-imac-desktop-considering-replacement](user/owns-an-old-imac-desktop-considering-replacement.md) — Owns an old iMac desktop; considering replacement
+- [participates-in-book-clubs-on-instagram](user/participates-in-book-clubs-on-instagram.md) — Participates in book clubs on Instagram
+- [planning-surprise-birthday-party-for-sister-emma-movie-night-theme-at-dad-s-home](project/planning-surprise-birthday-party-for-sister-emma-movie-night-theme-at-dad-s-home.md) — Planning surprise birthday party for sister Emma; movie night theme at dad's home theater
+- [plans-to-migrate-data-from-mac-to-new-computer-concerned-about-mac-to-windows-co](user/plans-to-migrate-data-from-mac-to-new-computer-concerned-about-mac-to-windows-co.md) — Plans to migrate data from Mac to new computer; concerned about Mac-to-Windows compatibility
+- [prefers-ethical-true-crime-narratives-focused-on-justice-and-victims-experiences](user/prefers-ethical-true-crime-narratives-focused-on-justice-and-victims-experiences.md) — Prefers ethical true crime narratives focused on justice and victims' experiences over sensationalism
+- [prefers-hiking-trails-5-7-miles](user/prefers-hiking-trails-5-7-miles.md) — Prefers hiking trails 5-7 miles
+- [rewrote-villa-gennaro-restaurant-menu-descriptions-for-enhanced-marketing-appeal](experience/rewrote-villa-gennaro-restaurant-menu-descriptions-for-enhanced-marketing-appeal.md) — Rewrote Villa Gennaro restaurant menu descriptions for enhanced marketing appeal
+- [safety-precautions-for-visiting-mount-sakurajima-during-volcanic-eruptions](reference/safety-precautions-for-visiting-mount-sakurajima-during-volcanic-eruptions.md) — Safety precautions for visiting Mount Sakurajima during volcanic eruptions
+- [sister-emma-enjoys-watching-movies-has-a-favorite-film](user/sister-emma-enjoys-watching-movies-has-a-favorite-film.md) — Sister Emma enjoys watching movies; has a favorite film
+- [successfully-calibrated-laptop-battery-by-full-drain-and-full-charge](experience/successfully-calibrated-laptop-battery-by-full-drain-and-full-charge.md) — Successfully calibrated laptop battery by full drain and full charge
+- [user-has-a-grandmother-they-are-helping-to-improve-nutrition-and-cognitive-healt](user/user-has-a-grandmother-they-are-helping-to-improve-nutrition-and-cognitive-healt.md) — User has a grandmother they are helping to improve nutrition and cognitive health
+- [watched-a-movie-with-sister-emma-during-lunch-visit](experience/watched-a-movie-with-sister-emma-during-lunch-visit.md) — Watched a movie with sister Emma during lunch visit

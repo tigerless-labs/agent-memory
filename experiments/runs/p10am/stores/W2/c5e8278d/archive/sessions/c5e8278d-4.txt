@@ -1,0 +1,187 @@
+## Session sharegpt_WPGrlAK_0 — 2023/05/21 (Sun) 13:20
+user: Here are the lyrics to the sea shanty song "The Wellerman"
+
+[Verse 1]
+There once was a ship that put to sea
+The name of the ship was the Billy O' Tea
+The winds blew up, her bow dipped down
+O blow, my bully boys, blow (Huh)
+
+[Chorus]
+Soon may the Wellerman come
+To bring us sugar and tea and rum
+One day, when the tonguin' is done
+We'll take our leave and go
+[Verse 2]
+She'd not been two weeks from shore
+When down on her, a right whale bore
+The captain called all hands and swore
+He'd take that whale in tow (Huh)
+
+[Chorus]
+Soon may the Wellerman come
+To bring us sugar and tеa and rum
+One day, when the tonguin' is donе
+We'll take our leave and go
+
+[Post-Chorus]
+Da-da, da-da-da-da
+Da-da-da-da, da-da-da-da-da
+Da-da, da-da-da-da
+Da-da-da-da-da-da
+
+[Verse 3]
+Before the boat had hit the water
+The whale's tail came up and caught her
+All hands to the side, harpooned and fought her
+When she dived down low (Huh)
+
+[Chorus]
+Soon may the Wellerman come
+To bring us sugar and tea and rum
+One day, when the tonguin' is done
+We'll take our leave and go
+You might also like
+Wellerman
+The Longest Johns
+Part of the Band
+The 1975
+The Twelve Days of Christmas
+Christmas Songs
+[Verse 4]
+No line was cut, no whale was freed
+The Captain's mind was not of greed
+And he belonged to the whaleman's creed
+She took that ship in tow (Huh!)
+
+[Chorus]
+Soon may the Wellerman come
+To bring us sugar and tea and rum
+One day, when the tonguin' is done
+We'll take our leave and go
+
+[Post-Chorus]
+Da-da, da-da-da-da
+Da-da-da-da, da-da-da-da-da
+Da-da, da-da-da-da
+Da-da-da-da-da-da
+
+[Verse 5]
+For forty days, or even more
+The line went slack, then tight once more
+All boats were lost, there were only four
+But still that whale did go (Huh)
+
+[Chorus]
+Soon may the Wellerman come
+To bring us sugar and tea and rum
+One day, when the tonguin' is done
+We'll take our leave and go
+[Verse 6]
+As far as I've heard, the fight's still on
+The line's not cut and the whale's not gone
+The Wellerman makes his regular call
+To encourage the Captain, crew, and all (Huh)
+
+[Chorus]
+Soon may the Wellerman come
+To bring us sugar and tea and rum
+One day, when the tonguin' is done
+We'll take our leave and go
+
+[Outro]
+Soon may the Wellerman come
+To bring us sugar and tea and rum
+One day, when the tonguin' is done
+We'll take our leave and go
+assistant: The song "The Wellerman" is a sea shanty, a type of folk song that originated among sailors working on ships. The song tells the story of a ship called the Billy O' Tea and its crew, who are hunting a whale. The chorus repeats the line "Soon may the Wellerman come / To bring us sugar and tea and rum," suggesting that the crew is waiting for a supply ship called the Wellerman to arrive with provisions. The song describes the whale hunt and the struggles of the crew, as they face challenges and continue to search for the whale. In the end, they are still waiting for the Wellerman to come and bring them the supplies they need.
+user: Correct. Now write a parody of "The Wellerman" about an early stage startup waiting for venture capital funding.
+assistant: Verse 1:
+There once was a startup that put to work
+The name of the company was the Venture Jerk
+The investors all said, "It's too risky now"
+O blow, my startup boys, blow
+
+Chorus:
+Soon may the VC come
+To give us cash and freedom and fun
+One day, when the pitchin' is done
+We'll take our leave and grow
+
+Verse 2:
+We'd not been two months from launch
+When down on us, the market crashed
+The CEO called all hands and swore
+We'd make it big, or die in tow
+
+Chorus:
+Soon may the VC come
+To give us cash and freedom and fun
+One day, when the pitchin' is done
+We'll take our leave and grow
+
+Post-Chorus:
+Da-da, da-da-da-da
+Da-da-da-da, da-da-da-da-da
+Da-da, da-da-da-da
+Da-da-da-da-da-da
+
+Verse 3:
+Before the plan had hit the ground
+The competition came up and knocked us down
+All hands to the decks, we hustled and fought her
+When they dived down low
+
+Chorus:
+Soon may the VC come
+To give us cash and freedom and fun
+One day, when the pitchin' is done
+We'll take our leave and grow
+
+Verse 4:
+No deal was made, no money freed
+The CEO's mind was not of greed
+And she belonged to the entrepreneur's creed
+They took our dreams in tow
+
+Chorus:
+Soon may the VC come
+To give us cash and freedom and fun
+One day, when the pitchin' is done
+We'll take our leave and grow
+
+Post-Chorus:
+Da-da, da-da-da-da
+Da-da-da-da, da-da-da-da-da
+Da-da, da-da-da-da
+Da-da-da-da-da-da
+
+Verse 5:
+For one hundred days, or even more
+The funding round went slack, then tight once more
+All pitches were lost, there were only four
+But still our dream did go
+
+Chorus:
+Soon may the VC come
+To give us cash and freedom and fun
+One day, when the pitchin' is done
+We'll take our leave and grow
+
+Verse 6:
+As far as I've heard, the search goes on
+The round's not closed and the dream's not gone
+The VC makes their regular call
+To encourage the CEO, team, and all
+
+Chorus:
+Soon may the VC come
+To give us cash and freedom and fun
+One day, when the pitchin' is done
+We'll take our leave and grow
+
+Outro:
+Soon may the VC come
+To give us cash and freedom and fun
+One day, when the pitchin' is done
+We'll take our leave and grow

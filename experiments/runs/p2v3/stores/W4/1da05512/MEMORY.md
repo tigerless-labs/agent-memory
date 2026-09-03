@@ -1,0 +1,38 @@
+# MEMORY.md
+
+- [3-4-day-backpacking-trip-to-vogelsang-high-sierra-camp-sierra-nevada-in-septembe](project/3-4-day-backpacking-trip-to-vogelsang-high-sierra-camp-sierra-nevada-in-septembe.md) — 3-4 day backpacking trip to Vogelsang High Sierra Camp, Sierra Nevada in September 2023
+- [active-hiker-who-prioritizes-outdoor-adventures-in-free-time-experienced-with-ch](user/active-hiker-who-prioritizes-outdoor-adventures-in-free-time-experienced-with-ch.md) — Active hiker who prioritizes outdoor adventures in free time; experienced with challenging hikes
+- [active-pottery-project-clay-vase-with-coiling-and-scoring-techniques](project/active-pottery-project-clay-vase-with-coiling-and-scoring-techniques.md) — Active pottery project: clay vase with coiling and scoring techniques
+- [attended-frightfest-in-london-aug-2022-and-asian-american-international-film-fes](experience/attended-frightfest-in-london-aug-2022-and-asian-american-international-film-fes.md) — Attended FrightFest in London (Aug 2022) and Asian American International Film Festival in NYC
+- [bald-eagles-are-favorite-wildlife-species](user/bald-eagles-are-favorite-wildlife-species.md) — Bald eagles are favorite wildlife species
+- [ceramics-learning-goals-glazing-firing-and-glaze-formulation](project/ceramics-learning-goals-glazing-firing-and-glaze-formulation.md) — Ceramics learning goals: glazing, firing, and glaze formulation
+- [cloud-gate-the-bean-anish-kapoor-s-chicago-sculpture-details](reference/cloud-gate-the-bean-anish-kapoor-s-chicago-sculpture-details.md) — Cloud Gate (The Bean) - Anish Kapoor's Chicago sculpture details
+- [creative-interest-black-mirror-aesthetic-and-psychological-horror-filmmaking-tec](user/creative-interest-black-mirror-aesthetic-and-psychological-horror-filmmaking-tec.md) — Creative interest: Black Mirror aesthetic and psychological horror filmmaking techniques
+- [cycling-route-planning-and-resource-websites](reference/cycling-route-planning-and-resource-websites.md) — Cycling route planning and resource websites
+- [decided-to-upgrade-road-bike-with-shimano-ultegra-clipless-pedals-plans-to-insta](project/decided-to-upgrade-road-bike-with-shimano-ultegra-clipless-pedals-plans-to-insta.md) — Decided to upgrade road bike with Shimano Ultegra clipless pedals, plans to install himself
+- [enjoys-horror-films-with-humor-horror-blends-and-folk-horror](user/enjoys-horror-films-with-humor-horror-blends-and-folk-horror.md) — Enjoys horror films with humor-horror blends and folk horror
+- [enjoys-solo-and-group-road-trips-scenic-drives-rv-travel-music-festivals](user/enjoys-solo-and-group-road-trips-scenic-drives-rv-travel-music-festivals.md) — Enjoys solo and group road trips, scenic drives, RV travel, music festivals
+- [exploring-black-mirror-style-visual-effects-scene-girl-disappearing-into-compute](project/exploring-black-mirror-style-visual-effects-scene-girl-disappearing-into-compute.md) — Exploring Black Mirror-style visual effects scene: girl disappearing into computer while sitting and about to speak
+- [first-time-interest-in-paddleboarding](user/first-time-interest-in-paddleboarding.md) — First-time interest in paddleboarding
+- [fixed-mountain-bike-flat-tire-replaced-inner-tube-and-cleaned-chain](experience/fixed-mountain-bike-flat-tire-replaced-inner-tube-and-cleaned-chain.md) — Fixed mountain bike flat tire, replaced inner tube and cleaned chain
+- [flagstaff-accommodation-recommendations-for-grand-canyon-trip](reference/flagstaff-accommodation-recommendations-for-grand-canyon-trip.md) — Flagstaff accommodation recommendations for Grand Canyon trip
+- [flagstaff-restaurant-recommendations-for-grand-canyon-trip](reference/flagstaff-restaurant-recommendations-for-grand-canyon-trip.md) — Flagstaff restaurant recommendations for Grand Canyon trip
+- [grand-canyon-campground-options-with-electric-hookups](reference/grand-canyon-campground-options-with-electric-hookups.md) — Grand Canyon campground options with electric hookups
+- [horror-film-and-tv-recommendations](reference/horror-film-and-tv-recommendations.md) — Horror film and TV recommendations
+- [interest-in-modern-sculpture-especially-anish-kapoor-s-reflective-surfaces](user/interest-in-modern-sculpture-especially-anish-kapoor-s-reflective-surfaces.md) — Interest in modern sculpture, especially Anish Kapoor's reflective surfaces
+- [interest-in-romantic-activities-for-long-distance-relationships-wants-to-surpris](user/interest-in-romantic-activities-for-long-distance-relationships-wants-to-surpris.md) — Interest in romantic activities for long-distance relationships; wants to surprise partner
+- [interested-in-african-travel-especially-ethiopia-for-cultural-experiences](user/interested-in-african-travel-especially-ethiopia-for-cultural-experiences.md) — Interested in African travel, especially Ethiopia for cultural experiences
+- [interested-in-nas-device-for-home-network-storage-and-central-backup](user/interested-in-nas-device-for-home-network-storage-and-central-backup.md) — Interested in NAS device for home network storage and central backup
+- [kayak-and-canoe-rentals-near-hague-virginia](reference/kayak-and-canoe-rentals-near-hague-virginia.md) — Kayak and canoe rentals near Hague, Virginia
+- [nas-device-models-recommended-for-home-backup-with-security](reference/nas-device-models-recommended-for-home-backup-with-security.md) — NAS device models recommended for home backup with security
+- [owns-road-bike-and-mountain-bike](user/owns-road-bike-and-mountain-bike.md) — Owns road bike and mountain bike
+- [personalized-gourmet-food-basket-gift-with-engraved-cheese-knife](project/personalized-gourmet-food-basket-gift-with-engraved-cheese-knife.md) — Personalized gourmet food basket gift with engraved cheese knife
+- [planned-solo-day-hike-at-tilden-regional-park-berkeley-hills-in-late-may-2023](project/planned-solo-day-hike-at-tilden-regional-park-berkeley-hills-in-late-may-2023.md) — Planned solo day hike at Tilden Regional Park, Berkeley Hills in late May 2023
+- [planning-grand-canyon-winter-holidays-road-trip-with-friends-rv-rental](project/planning-grand-canyon-winter-holidays-road-trip-with-friends-rv-rental.md) — Planning Grand Canyon winter holidays road trip with friends, RV rental
+- [prefers-to-give-personalized-handmade-gifts](user/prefers-to-give-personalized-handmade-gifts.md) — Prefers to give personalized, handmade gifts
+- [recommended-modern-sculptors-anish-kapoor-rachel-whiteread-richard-serra-jeff-ko](reference/recommended-modern-sculptors-anish-kapoor-rachel-whiteread-richard-serra-jeff-ko.md) — Recommended modern sculptors: Anish Kapoor, Rachel Whiteread, Richard Serra, Jeff Koons, and others
+- [road-bike-brakes-had-spongy-feel-needs-maintenance](user/road-bike-brakes-had-spongy-feel-needs-maintenance.md) — Road bike brakes had spongy feel, needs maintenance
+- [romantic-activities-for-long-distance-couples](reference/romantic-activities-for-long-distance-couples.md) — Romantic activities for long-distance couples
+- [sister-s-birthday-is-may-15](user/sister-s-birthday-is-may-15.md) — Sister's birthday is May 15
+- [solo-road-trip-to-san-francisco-for-golden-gate-park-music-festival](experience/solo-road-trip-to-san-francisco-for-golden-gate-park-music-festival.md) — Solo road trip to San Francisco for Golden Gate Park music festival
+- [strong-interest-in-reducing-carbon-footprint-and-practicing-eco-friendly-travel](user/strong-interest-in-reducing-carbon-footprint-and-practicing-eco-friendly-travel.md) — Strong interest in reducing carbon footprint and practicing eco-friendly travel

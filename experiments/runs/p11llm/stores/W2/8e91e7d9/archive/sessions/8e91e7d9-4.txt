@@ -1,0 +1,193 @@
+## Session sharegpt_1MKqbAt_0 — 2023/05/20 (Sat) 14:20
+user: write a cronus zen script with 5 different mods for call of duty mobile
+assistant: Here is a Cronus Zen script with five different mods for Call of Duty Mobile:
+```
+// Cronus Zen Script for Call of Duty Mobile
+
+// Mod 1: Rapid Fire
+
+// Press and hold the left mouse button to rapidly fire your weapon.
+
+if (GetButtonState(Mouse_Left))
+{
+  SetButtonState(Mouse_Left, false);
+  SetButtonState(Mouse_Left, true);
+}
+
+// Mod 2: Auto Sprint
+
+// Automatically sprint when you move forward.
+
+if (GetButtonState(W))
+{
+  SetButtonState(Sprint, true);
+}
+else
+{
+  SetButtonState(Sprint, false);
+}
+
+// Mod 3: Quick Scope
+
+// Quickly scope in and out with the right mouse button.
+
+if (GetButtonState(Mouse_Right))
+{
+  SetButtonState(Mouse_Right, false);
+  SetButtonState(Scope, true);
+  Sleep(100);
+  SetButtonState(Scope, false);
+}
+
+// Mod 4: Auto Heal
+
+// Automatically use a medkit when your health is low.
+
+if (GetPlayerHealth() < 50)
+{
+  SetButtonState(Use_Medkit, true);
+  Sleep(100);
+  SetButtonState(Use_Medkit, false);
+}
+
+// Mod 5: Jump Shot
+
+// Jump and shoot at the same time with the left mouse button.
+
+if (GetButtonState(Mouse_Left))
+{
+  SetButtonState(Space, true);
+}
+else
+{
+  SetButtonState(Space, false);
+}
+```
+I hope this helps! Let me know if you have any questions or need further assistance.
+user: can you write that same script but for an xbox one controller
+assistant: Certainly! Here is the same Cronus Zen script, modified to work with an Xbox One controller:
+```
+// Cronus Zen Script for Call of Duty Mobile (Xbox One controller)
+
+// Mod 1: Rapid Fire
+
+// Press and hold the left trigger to rapidly fire your weapon.
+
+if (GetButtonState(LT))
+{
+  SetButtonState(LT, false);
+  SetButtonState(LT, true);
+}
+
+// Mod 2: Auto Sprint
+
+// Automatically sprint when you move forward.
+
+if (GetButtonState(DPad_Up))
+{
+  SetButtonState(Sprint, true);
+}
+else
+{
+  SetButtonState(Sprint, false);
+}
+
+// Mod 3: Quick Scope
+
+// Quickly scope in and out with the right trigger.
+
+if (GetButtonState(RT))
+{
+  SetButtonState(RT, false);
+  SetButtonState(Scope, true);
+  Sleep(100);
+  SetButtonState(Scope, false);
+}
+
+// Mod 4: Auto Heal
+
+// Automatically use a medkit when your health is low.
+
+if (GetPlayerHealth() < 50)
+{
+  SetButtonState(X, true);
+  Sleep(100);
+  SetButtonState(X, false);
+}
+
+// Mod 5: Jump Shot
+
+// Jump and shoot at the same time with the left trigger.
+
+if (GetButtonState(LT))
+{
+  SetButtonState(A, true);
+}
+else
+{
+  SetButtonState(A, false);
+}
+```
+I hope this helps! Let me know if you have any questions or need further assistance.
+user: can you add another 5 mods to that script
+assistant: Certainly! Here are five additional mods that you can add to the Cronus Zen script for Call of Duty Mobile on an Xbox One controller:
+```
+// Mod 6: Auto Reload
+
+// Automatically reload when you run out of ammo.
+
+if (GetAmmo() == 0)
+{
+  SetButtonState(X, true);
+  Sleep(100);
+  SetButtonState(X, false);
+}
+
+// Mod 7: Auto Swap
+
+// Automatically swap to your secondary weapon when you run out of ammo.
+
+if (GetAmmo() == 0)
+{
+  SetButtonState(B, true);
+  Sleep(100);
+  SetButtonState(B, false);
+}
+
+// Mod 8: Quick Revive
+
+// Quickly revive a fallen teammate with the left bumper button.
+
+if (GetButtonState(LB))
+{
+  SetButtonState(LB, false);
+  SetButtonState(Y, true);
+  Sleep(100);
+  SetButtonState(Y, false);
+}
+
+// Mod 9: Auto Mantle
+
+// Automatically mantle over objects with the A button.
+
+if (GetButtonState(A))
+{
+  SetButtonState(A, false);
+  SetButtonState(Mantle, true);
+  Sleep(100);
+  SetButtonState(Mantle, false);
+}
+
+// Mod 10: Quick Equip
+
+// Quickly switch your equipped weapon with the right bumper button.
+
+if (GetButtonState(RB))
+{
+  SetButtonState(RB, false);
+  SetButtonState(Dpad_Right, true);
+  Sleep(100);
+  SetButtonState(Dpad_Right, false);
+}
+```
+I hope this helps! Let me know if you have any questions or need further assistance.

@@ -33,6 +33,8 @@
 | `mcp/server`·`mcp/tools`(三入口一致性) | `tests/system/test_entry_equivalence.py` |
 | 红队(poisoning / 恶意 frontmatter / 越界写) | `tests/redteam/test_poisoning.py` |
 | `harness/*`(回放驱动器、隔离闸、写入路径闸、指标、报表) | `tests/system/test_harness.py` |
+| `harness/systems`(记忆系统方言:本系统、MemCore) | `tests/unit/test_memory_systems.py` |
+| `harness/coverage`(写入覆盖率探针) | `tests/unit/test_coverage.py` |
 
 ## 判分器是仪器,仪器要标定
 

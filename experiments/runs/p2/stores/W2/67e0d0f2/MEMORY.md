@@ -1,0 +1,8 @@
+# MEMORY.md
+
+- [best-friend-rachel-going-through-tough-time-planning-journal-from-paper-source-c](user/best-friend-rachel-going-through-tough-time-planning-journal-from-paper-source-c.md) — Best friend Rachel going through tough time; planning journal from Paper Source + coffee shop gift card gift
+- [current-desk-lamp-too-dim-causes-headaches-looking-for-bright-lamp-with-usb-port](user/current-desk-lamp-too-dim-causes-headaches-looking-for-bright-lamp-with-usb-port.md) — Current desk lamp too dim, causes headaches; looking for bright lamp with USB port; saw one at IKEA last weekend
+- [data-analysis-education-12-coursera-courses-completed-planning-datacamp-visualiz](user/data-analysis-education-12-coursera-courses-completed-planning-datacamp-visualiz.md) — Data analysis education: 12 Coursera courses completed, planning DataCamp visualization specialization
+- [gave-sister-emma-a-silver-heart-pendant-necklace-45-dollars-from-downtown-boutiq](user/gave-sister-emma-a-silver-heart-pendant-necklace-45-dollars-from-downtown-boutiq.md) — Gave sister Emma a silver heart-pendant necklace (45 dollars) from downtown boutique; buying matching earrings
+- [pursuing-master-s-degree-in-data-science-8-edx-courses-completed-planning-course](project/pursuing-master-s-degree-in-data-science-8-edx-courses-completed-planning-course.md) — Pursuing Master's degree in data science; 8 edX courses completed; planning Coursera ML course with personal projects
+- [recently-got-coffee-maker-with-built-in-grinder-experimenting-with-cold-brew-usi](user/recently-got-coffee-maker-with-built-in-grinder-experimenting-with-cold-brew-usi.md) — Recently got coffee maker with built-in grinder; experimenting with cold brew using dark roasted beans

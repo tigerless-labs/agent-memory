@@ -1,0 +1,21 @@
+## Session sharegpt_yVJkyYl_0 — 2023/05/21 (Sun) 03:08
+user: WHAT DOES AN ESCALATION ENGINEER II AT AMAZON WEB SERVICES DO?
+assistant: An Escalation Engineer II at Amazon Web Services (AWS) is a technical expert responsible for resolving complex customer issues that have been escalated to the highest level of support. They work closely with AWS customers, providing technical guidance and solutions to help them optimize their use of AWS services.
+
+Some of the key responsibilities of an Escalation Engineer II at AWS include:
+
+1. Troubleshooting and resolving highly complex customer issues: This involves working with customers to identify and diagnose issues, analyzing logs and data, and collaborating with other AWS teams to provide a solution.
+2. Providing technical guidance and support: Escalation Engineers work with customers to understand their technical needs and provide guidance on how to optimize their use of AWS services.
+3. Creating and delivering technical content: Escalation Engineers create and deliver technical content such as whitepapers, how-to guides, and best practices to help customers better understand and use AWS services.
+4. Collaborating with internal teams: Escalation Engineers work closely with other AWS teams such as product development, operations, and security to share customer feedback and drive improvements in AWS services.
+
+Overall, the role of an Escalation Engineer II at AWS requires strong technical skills, excellent communication and problem-solving abilities, and a customer-focused mindset.
+user: WHAT WORK EXPERIENCE WOULD MAKE AN ESCALATION II ENGINEER AT AMAZON SUITABLE FOR A COMPUTER NETWORK AND SYSTEMS ENGINEER DESCRIPTION THAT ENTAILS: Plans, develops, deploys, tests and optimises network and system services, taking responsibility for configuration management and overall operational readiness of network systems, especially environments with multiple operating systems and configurations, and provides troubleshooting and fault-finding services for network problems.
+assistant: To be suitable for a Computer Network and Systems Engineer role that entails planning, developing, deploying, testing, and optimizing network and system services, an Escalation Engineer II at Amazon Web Services (AWS) should have the following work experience:
+
+1. Experience in network and system architecture: The candidate should have a deep understanding of networking protocols and system architecture. They should be familiar with designing and implementing network and system infrastructure that is scalable, secure, and highly available.
+2. Experience in network and system deployment: The candidate should have experience in deploying network and system services, including testing and optimization of those services. This includes experience with configuration management, change management, and overall operational readiness.
+3. Experience in troubleshooting and fault-finding: The candidate should have experience in troubleshooting and fault-finding for network and system problems. They should be able to identify problems quickly and provide solutions that minimize downtime and impact on users.
+4. Experience in multiple operating systems and configurations: The candidate should have experience with multiple operating systems and configurations. They should be able to provide support for a range of environments, including Windows, Linux, and other operating systems.
+
+Overall, the candidate should have a strong technical background in network and system engineering, with experience in designing, deploying, and optimizing network and system services. They should also have excellent communication and problem-solving skills, with the ability to work effectively with a range of stakeholders, including technical and non-technical teams.

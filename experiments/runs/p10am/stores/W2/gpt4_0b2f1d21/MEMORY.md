@@ -1,0 +1,23 @@
+# MEMORY.md
+
+- [black-and-stainless-steel-coffee-maker-purchased-early-may-2023-used-daily](user/black-and-stainless-steel-coffee-maker-purchased-early-may-2023-used-daily.md) — Black and stainless steel coffee maker purchased early May 2023; used daily
+- [board-games-suitable-for-12-year-olds-ticket-to-ride-sushi-go-forbidden-island-c](reference/board-games-suitable-for-12-year-olds-ticket-to-ride-sushi-go-forbidden-island-c.md) — Board games suitable for 12-year-olds: Ticket to Ride, Sushi Go!, Forbidden Island, Carcassonne, Azul, Qwirkle, Codenames
+- [boxing-story-emaad-and-shavez-narrative-project](project/boxing-story-emaad-and-shavez-narrative-project.md) — Boxing story: Emaad and Shavez narrative project
+- [coffee-creme-brulee-recipe-and-technique-for-caramelizing-sugar](reference/coffee-creme-brulee-recipe-and-technique-for-caramelizing-sugar.md) — Coffee Crème Brûlée recipe and technique for caramelizing sugar
+- [coffee-pods-had-50-used-20-by-may-25-2023](user/coffee-pods-had-50-used-20-by-may-25-2023.md) — Coffee pods: had 50, used 20 by May 25, 2023
+- [dinner-party-planned-date-unspecified-soon-as-of-may-25-2023](project/dinner-party-planned-date-unspecified-soon-as-of-may-25-2023.md) — Dinner party planned (date unspecified, soon as of May 25, 2023)
+- [enjoys-psychological-thrillers-with-slow-burn-narratives-and-complex-characters](user/enjoys-psychological-thrillers-with-slow-burn-narratives-and-complex-characters.md) — Enjoys psychological thrillers with slow-burn narratives and complex characters
+- [hosts-friday-game-nights-with-friends](user/hosts-friday-game-nights-with-friends.md) — Hosts Friday game nights with friends
+- [interested-in-cooking-more-at-home-prefers-slow-cooker-recipes-has-made-chili-co](user/interested-in-cooking-more-at-home-prefers-slow-cooker-recipes-has-made-chili-co.md) — Interested in cooking more at home; prefers slow cooker recipes; has made chili con carne before
+- [leftover-peppers-and-onions-from-chicken-fajitas-need-to-be-used-before-they-spo](project/leftover-peppers-and-onions-from-chicken-fajitas-need-to-be-used-before-they-spo.md) — Leftover peppers and onions from chicken fajitas need to be used before they spoil
+- [listens-to-audiobooks-during-daily-commute](user/listens-to-audiobooks-during-daily-commute.md) — Listens to audiobooks during daily commute
+- [mysterium-2-7-players-45-60-min-average-social-deduction-mystery-game](reference/mysterium-2-7-players-45-60-min-average-social-deduction-mystery-game.md) — Mysterium: 2-7 players, 45-60 min average, social deduction mystery game
+- [owes-the-handmaid-s-tale-to-sister-with-sister-s-bookmark-reminder](project/owes-the-handmaid-s-tale-to-sister-with-sister-s-bookmark-reminder.md) — Owes The Handmaid's Tale to sister with sister's bookmark reminder
+- [purchasing-mysterium-ticket-to-ride-and-sushi-go-for-family-game-night-with-12-y](project/purchasing-mysterium-ticket-to-ride-and-sushi-go-for-family-game-night-with-12-y.md) — Purchasing Mysterium, Ticket to Ride, and Sushi Go! for family game night with 12-year-old brother
+- [returned-the-power-to-friend-emily-on-may-25-2023](experience/returned-the-power-to-friend-emily-on-may-25-2023.md) — Returned The Power to friend Emily on May 25, 2023
+- [solipsism-philosophical-view-that-only-your-own-mind-is-certain-to-exist](reference/solipsism-philosophical-view-that-only-your-own-mind-is-certain-to-exist.md) — Solipsism: philosophical view that only your own mind is certain to exist
+- [stand-mixer-was-repaired-and-returned-from-repair-shop-2-weeks-repair-time-in-ap](user/stand-mixer-was-repaired-and-returned-from-repair-shop-2-weeks-repair-time-in-ap.md) — Stand mixer was repaired and returned from repair shop (2 weeks repair time in April/May 2023)
+- [will-make-coffee-creme-brulee-as-dessert-for-dinner-party](project/will-make-coffee-creme-brulee-as-dessert-for-dinner-party.md) — Will make Coffee Crème Brûlée as dessert for dinner party
+- [younger-brother-is-12-years-old](user/younger-brother-is-12-years-old.md) — Younger brother is 12 years old
+- [zizuh-remittance-service-using-bitcoin-lightning-network-competitor-to-strike](project/zizuh-remittance-service-using-bitcoin-lightning-network-competitor-to-strike.md) — Zizuh: remittance service using Bitcoin Lightning Network, competitor to Strike
+- [zizuh-technical-stack-go-bitcoin-lightning-network-lnd](project/zizuh-technical-stack-go-bitcoin-lightning-network-lnd.md) — Zizuh technical stack: Go + Bitcoin Lightning Network (LND)

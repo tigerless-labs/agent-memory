@@ -1,0 +1,9 @@
+# MEMORY.md
+
+- [attended-music-festival-in-april-2023-with-friends-saw-the-lumineers-and-the-197](experience/attended-music-festival-in-april-2023-with-friends-saw-the-lumineers-and-the-197.md) — Attended music festival in April 2023 with friends; saw The Lumineers and The 1975
+- [building-brand-around-hiring-great-humans-first-then-technologistseq-over-iq](project/building-brand-around-hiring-great-humans-first-then-technologistseq-over-iq.md) — Building brand around hiring great humans first, then technologists—EQ over IQ
+- [english-grammar-that-said-as-transitional-phrase-vs-relative-clause](experience/english-grammar-that-said-as-transitional-phrase-vs-relative-clause.md) — English grammar: 'that said' as transitional phrase vs. relative clause
+- [gave-best-friend-a-silver-necklace-for-birthday-in-april-2023-cost-around-70-dol](user/gave-best-friend-a-silver-necklace-for-birthday-in-april-2023-cost-around-70-dol.md) — Gave best friend a silver necklace for birthday in April 2023, cost around 70 dollars
+- [getting-back-into-playing-guitar-interested-in-ambient-and-lo-fi-music-created-s](user/getting-back-into-playing-guitar-interested-in-ambient-and-lo-fi-music-created-s.md) — Getting back into playing guitar; interested in ambient and lo-fi music; created Summer Vibes playlist
+- [name-changed-from-emily-wilson-to-emily-rose-thompson-after-divorce-from-john-wi](user/name-changed-from-emily-wilson-to-emily-rose-thompson-after-divorce-from-john-wi.md) — Name changed from Emily Wilson to Emily Rose Thompson after divorce from John Wilson
+- [selected-wedding-gift-for-smith-couple-medium-bamboo-cutting-board-engraved-with](experience/selected-wedding-gift-for-smith-couple-medium-bamboo-cutting-board-engraved-with.md) — Selected wedding gift for Smith couple - medium bamboo cutting board engraved with The Smith Kitchen in Open Sans

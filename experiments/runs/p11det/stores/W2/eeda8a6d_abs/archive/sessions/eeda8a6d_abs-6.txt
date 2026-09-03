@@ -1,0 +1,16 @@
+## Session sharegpt_zFOHil8_0 — 2023/05/21 (Sun) 00:48
+user: List some import arms control and nuclear treaties.
+assistant: Here are some important arms control and nuclear treaties:
+
+1. Nuclear Non-Proliferation Treaty (NPT)
+2. Strategic Arms Reduction Treaty (START)
+3. Anti-Ballistic Missile Treaty (ABM Treaty)
+4. Comprehensive Nuclear-Test-Ban Treaty (CTBT)
+5. Intermediate-Range Nuclear Forces Treaty (INF Treaty)
+6. Chemical Weapons Convention (CWC)
+7. Biological Weapons Convention (BWC)
+8. Treaty on the Prohibition of Nuclear Weapons (TPNW)
+9. New Strategic Arms Reduction Treaty (New START)
+10. Treaty on Open Skies
+
+These treaties aim to prevent the proliferation of nuclear weapons, reduce the number of nuclear weapons in existence, limit the use of certain types of weapons, and promote transparency and confidence-building measures among nations.

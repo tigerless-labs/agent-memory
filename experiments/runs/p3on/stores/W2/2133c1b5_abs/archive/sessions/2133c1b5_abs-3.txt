@@ -1,0 +1,21 @@
+## Session sharegpt_NxqiM3k_0 — 2023/03/18 (Sat) 02:58
+user: How do I calculate the VAT of a shopping list in the Philippines?
+assistant: To calculate the VAT (Value-Added Tax) of a shopping list in the Philippines, you will need to know the VAT rate, which is currently at 12%, and the total cost of the items on the list.
+
+You can calculate the VAT by multiplying the total cost of the items by the VAT rate (in decimal form).
+
+For example, if the total cost of the items on your shopping list is PHP 1000, the VAT would be:
+
+1000 x 0.12 = PHP 120
+
+So the total cost of the items including VAT would be:
+
+1000 + 120 = PHP 1,120
+user: Do all stores need to include VAT in their invoices in the Philippines?
+assistant: In the Philippines, businesses that are VAT-registered are required to include VAT in their invoices. VAT-registered businesses are those whose annual sales or gross receipts exceed PHP 3 million.
+
+These businesses are required to charge VAT on their sales, and include it in the invoice they issue to their customers. They will also be required to file VAT returns and pay the VAT collected to the Bureau of Internal Revenue (BIR).
+
+However, businesses that are not VAT-registered, their annual sales or gross receipts are below PHP 3 million, are not required to charge and include VAT in their invoices.
+
+So, not all stores need to include VAT in their invoices, it depends on the store's VAT registration status and the amount of their annual sales or gross receipts.

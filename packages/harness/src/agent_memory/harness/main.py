@@ -18,7 +18,8 @@ from agent_memory.core.manage import Manage
 from agent_memory.core.store import Store
 
 from . import arms as arms_module
-from . import dataset, sampling
+from . import coverage as coverage_module
+from . import dataset, sampling, systems
 from . import exam as exam_module
 from . import interop as interop_module
 from . import judge as judge_module
@@ -27,7 +28,7 @@ from . import workspace as workspace_module
 from .driver import Driver
 from .hosts import DEFAULT_MODEL, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
 from .judge import Judge
-from .metrics import MetricsSink
+from .metrics import STATUS_OK, MetricsSink
 
 EXIT_OK = 0
 EXIT_ERROR = 1
@@ -48,6 +49,7 @@ PROBE_TURNS = 3
 PROBE_EXCERPT = 120
 REACHABILITY = {True: "yes", False: "NO"}
 COSTLY_MODEL_MARKERS = ("opus",)
+LIMIT_MARKERS = ("session limit", "usage limit", "rate limit", "rate_limit", "overloaded")
 ALLOW_COSTLY_ENV = "MEM_EXP_ALLOW_COSTLY_MODEL"
 INTEROP_FACT = interop_module.Fact(
     subject="the drain window",
@@ -98,10 +100,18 @@ def _parser() -> argparse.ArgumentParser:
         help="override one config knob for every run in this matrix",
     )
     runner.add_argument("--host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
+    runner.add_argument(
+        "--system", default=systems.NATIVE, choices=systems.NAMES,
+        help="the memory system under test; memcore reads its checkout from MEMCORE_HOME",
+    )
     runner.add_argument("--model", default="")
     runner.add_argument("--judge-model", default=JUDGE_MODEL)
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
+    runner.add_argument(
+        "--resume", action="store_true",
+        help="keep this workspace's successful records and run only the rest",
+    )
     runner.set_defaults(handler=_run)
 
     regrader = subparsers.add_parser(
@@ -146,6 +156,19 @@ def _parser() -> argparse.ArgumentParser:
     )
     sleeper.set_defaults(handler=_sleep_stores)
 
+    prober_coverage = subparsers.add_parser(
+        "coverage", help="offline: did the gold answer reach any record a run wrote?"
+    )
+    prober_coverage.add_argument("--workspace", required=True)
+    prober_coverage.add_argument(
+        "--stores", default=None, help="store tree to read; defaults to <workspace>/stores"
+    )
+    prober_coverage.add_argument(
+        "--threshold", type=float, default=coverage_module.DEFAULT_THRESHOLD
+    )
+    prober_coverage.add_argument("--json", action="store_true")
+    prober_coverage.set_defaults(handler=_coverage)
+
     reporter = subparsers.add_parser("report", help="summarise a finished run")
     reporter.add_argument("--workspace", required=True)
     reporter.add_argument("--json", action="store_true")
@@ -187,6 +210,7 @@ def _run(args: argparse.Namespace) -> int:
         print(json.dumps({"error": f"host binary not found: {host.spec.binary}"}), file=sys.stderr)
         return EXIT_ERROR
 
+    config = _configured(args.set)
     driver = Driver(
         host=host,
         judge=judge,
@@ -195,29 +219,68 @@ def _run(args: argparse.Namespace) -> int:
         experience_workers=args.experience_workers,
         exam_max_turns=args.exam_max_turns,
         exam_mode=args.exam_mode,
-        config=_configured(args.set),
+        config=config,
         reuse_stores=pathlib.Path(args.reuse_stores) if args.reuse_stores else None,
         run_id=args.run_id,
         episode_fingerprint=sampling.fingerprint(episodes),
+        system=systems.build(args.system, config),
     )
     jobs = [(episode, arm) for arm in selected for episode in episodes]
-    done = 0
-    with concurrent.futures.ThreadPoolExecutor(max_workers=args.concurrency) as pool:
+    if args.resume:
+        jobs = _resumable(sink, jobs, sampling.fingerprint(episodes), args.system)
+    halted = _execute(driver, jobs, sink, args.concurrency)
+    if halted:
+        print(
+            json.dumps({"halted": halted, "recorded": len(sink.records()), "of": len(jobs)}),
+            file=sys.stderr,
+        )
+    print(report_module.render(report_module.summarise(sink.records())))
+    return EXIT_ERROR if halted else EXIT_OK
+
+
+def _execute(driver: Driver, jobs: list, sink: MetricsSink, concurrency: int) -> str:
+    """A quota failure is an environment failure, not a measurement: the matrix stops
+    there, with what was measured kept, rather than recording every remaining episode
+    as failed. Returns the reason it stopped, or nothing when it ran to the end."""
+    halted = ""
+    with concurrent.futures.ThreadPoolExecutor(max_workers=concurrency) as pool:
         futures = {pool.submit(driver.run, episode, arm): (episode, arm) for episode, arm in jobs}
         for future in concurrent.futures.as_completed(futures):
             episode, arm = futures[future]
             record = future.result()
             sink.append(record)
-            done += 1
             print(
-                f"[{done}/{len(jobs)}] {arm.name} {episode.id} "
+                f"[{len(sink.records())}/{len(jobs)}] {arm.name} {episode.id} "
                 f"{'correct' if record.correct else record.status}",
                 file=sys.stderr,
                 flush=True,
             )
+            if _hit_limit(record.error):
+                halted = record.error
+                pool.shutdown(wait=True, cancel_futures=True)
+                break
+    return halted
 
-    print(report_module.render(report_module.summarise(sink.records())))
-    return EXIT_OK
+
+def _hit_limit(error: str) -> bool:
+    lowered = error.lower()
+    return any(marker in lowered for marker in LIMIT_MARKERS)
+
+
+def _resumable(sink: MetricsSink, jobs: list, episode_fingerprint: str, system: str) -> list:
+    """Keep what succeeded, drop what failed, and run only what is not yet succeeded —
+    on the same episode set and the same system, or the records would not be one run."""
+    existing = sink.records()
+    fingerprints = {str(record["episode_fingerprint"]) for record in existing}
+    if fingerprints - {episode_fingerprint}:
+        raise ValueError("resume refused: the workspace holds another episode set")
+    recorded_systems = {str(record.get("system", systems.NATIVE)) for record in existing}
+    if recorded_systems - {system}:
+        raise ValueError("resume refused: the workspace holds another memory system")
+    succeeded = [record for record in existing if record["status"] == STATUS_OK]
+    sink.replace(succeeded)
+    done = {(str(record["arm"]), str(record["episode_id"])) for record in succeeded}
+    return [(episode, arm) for episode, arm in jobs if (arm.name, episode.id) not in done]
 
 
 def _configured(overrides: list[str]) -> Config:
@@ -422,6 +485,15 @@ def _clock_at(days_later: float):
     if days_later <= 0:
         return None
     return FrozenClock(Clock().now() + datetime.timedelta(days=days_later))
+
+
+def _coverage(args: argparse.Namespace) -> int:
+    """Deterministic, so one pass is a result; offline, so it costs no host call."""
+    workspace = pathlib.Path(args.workspace)
+    stores = pathlib.Path(args.stores) if args.stores else workspace / "stores"
+    rows = coverage_module.probe(MetricsSink(workspace).records(), stores, args.threshold)
+    print(coverage_module.as_json(rows) if args.json else coverage_module.render(rows))
+    return EXIT_OK
 
 
 def _report(args: argparse.Namespace) -> int:

@@ -1,0 +1,30 @@
+# MEMORY.md
+
+- [appreciates-classical-guitar-particularly-recuerdos-de-la-alhambra-by-francisco](user/appreciates-classical-guitar-particularly-recuerdos-de-la-alhambra-by-francisco.md) — Appreciates classical guitar, particularly Recuerdos de la Alhambra by Francisco Tarrega; interested in modern classical guitar compositions
+- [budget-conscious-about-airport-transfers](user/budget-conscious-about-airport-transfers.md) — Budget-conscious about airport transfers
+- [cat-lola-3-year-old-domestic-shorthair-10-pounds-no-known-allergies](user/cat-lola-3-year-old-domestic-shorthair-10-pounds-no-known-allergies.md) — Cat Lola: 3-year-old domestic shorthair, ~10 pounds, no known allergies
+- [classical-guitar-composers-bach-francisco-tarrega-fernando-sor-heitor-villa-lobo](reference/classical-guitar-composers-bach-francisco-tarrega-fernando-sor-heitor-villa-lobo.md) — Classical guitar composers: Bach, Francisco Tarrega, Fernando Sor, Heitor Villa-Lobos, Mauro Giuliani
+- [considering-seresto-flea-and-tick-collar-for-lola-8-month-protection-convenient](project/considering-seresto-flea-and-tick-collar-for-lola-8-month-protection-convenient.md) — Considering Seresto Flea and Tick Collar for Lola (8-month protection, convenient no-monthly-application option)
+- [dog-bed-recommendations-big-barker-orthopedic-k-h-thermal-nesting-pawfect-pets-m](reference/dog-bed-recommendations-big-barker-orthopedic-k-h-thermal-nesting-pawfect-pets-m.md) — Dog bed recommendations: Big Barker Orthopedic, K&H Thermal-Nesting, Pawfect Pets Memory Foam, PetFusion Ultimate Lounge
+- [dog-max-old-dog-bed-is-worn-out](user/dog-max-old-dog-bed-is-worn-out.md) — Dog Max; old dog bed is worn out
+- [drinks-herbal-tea-in-afternoons-instead-of-coffee-helps-with-relaxation-and-focu](user/drinks-herbal-tea-in-afternoons-instead-of-coffee-helps-with-relaxation-and-focu.md) — Drinks herbal tea in afternoons instead of coffee; helps with relaxation and focus at work
+- [find-and-purchase-new-dog-bed-for-max-to-replace-worn-out-one](project/find-and-purchase-new-dog-bed-for-max-to-replace-worn-out-one.md) — Find and purchase new dog bed for Max to replace worn-out one
+- [flea-and-tick-prevention-options-for-cats-frontline-plus-advantage-ii-seresto-co](reference/flea-and-tick-prevention-options-for-cats-frontline-plus-advantage-ii-seresto-co.md) — Flea and tick prevention options for cats: Frontline Plus, Advantage II, Seresto Collar (8mo), Capstar, Cheristin (all $25-35 range)
+- [has-significant-luggage-for-japan-trip](project/has-significant-luggage-for-japan-trip.md) — Has significant luggage for Japan trip
+- [job-search-strategy-for-refugees-in-the-us](project/job-search-strategy-for-refugees-in-the-us.md) — Job search strategy for refugees in the US
+- [lemon-tahini-vinaigrette-dressing-recipe](reference/lemon-tahini-vinaigrette-dressing-recipe.md) — Lemon-Tahini Vinaigrette dressing recipe
+- [litter-box-maintenance-daily-scoop-full-change-every-7-10-days-weekly-wash-vineg](reference/litter-box-maintenance-daily-scoop-full-change-every-7-10-days-weekly-wash-vineg.md) — Litter box maintenance: daily scoop, full change every 7-10 days, weekly wash, vinegar/water disinfectant, baking soda for odor
+- [make-sourdough-dessert-for-upcoming-dinner-party](project/make-sourdough-dessert-for-upcoming-dinner-party.md) — Make sourdough dessert for upcoming dinner party
+- [new-litter-box-for-lola-from-petco-purchased-2023-05-20-for-20](user/new-litter-box-for-lola-from-petco-purchased-2023-05-20-for-20.md) — New litter box for Lola from Petco purchased 2023-05-20 for $20
+- [other-job-search-resources-for-refugees-and-immigrants-in-the-us](reference/other-job-search-resources-for-refugees-and-immigrants-in-the-us.md) — Other job search resources for refugees and immigrants in the US
+- [owns-xiaomi-360-camera](user/owns-xiaomi-360-camera.md) — Owns Xiaomi 360 camera
+- [planning-trip-to-japan-with-hotel-booked-in-tokyo](project/planning-trip-to-japan-with-hotel-booked-in-tokyo.md) — Planning trip to Japan with hotel booked in Tokyo
+- [prefers-easy-to-apply-flea-and-tick-prevention-budget-around-30-40-for-3-month-s](user/prefers-easy-to-apply-flea-and-tick-prevention-budget-around-30-40-for-3-month-s.md) — Prefers easy-to-apply flea and tick prevention; budget around $30-40 for 3-month supply
+- [refugee-career-hub-free-job-opportunities-and-career-support-platform](reference/refugee-career-hub-free-job-opportunities-and-career-support-platform.md) — Refugee Career Hub - free job opportunities and career support platform
+- [refugee-seeking-employment-in-the-united-states](user/refugee-seeking-employment-in-the-united-states.md) — Refugee seeking employment in the United States
+- [sourdough-baking-experiments-fig-rosemary-cranberry-orange-pecan-chocolate-babka](project/sourdough-baking-experiments-fig-rosemary-cranberry-orange-pecan-chocolate-babka.md) — Sourdough baking experiments: Fig & Rosemary, Cranberry Orange Pecan, Chocolate Babka
+- [sourdough-chocolate-babka-recipe-dark-chocolate-filling-sourdough-starter](reference/sourdough-chocolate-babka-recipe-dark-chocolate-filling-sourdough-starter.md) — Sourdough Chocolate Babka recipe: dark chocolate filling, sourdough starter
+- [trip-to-japan-narita-to-shinjuku-hotel-on-friday-afternoon](project/trip-to-japan-narita-to-shinjuku-hotel-on-friday-afternoon.md) — Trip to Japan: Narita to Shinjuku hotel on Friday afternoon
+- [upwardly-global-job-search-and-career-development-for-refugees-and-immigrants](reference/upwardly-global-job-search-and-career-development-for-refugees-and-immigrants.md) — Upwardly Global - job search and career development for refugees and immigrants
+- [will-ask-tokyo-hotel-for-airport-transportation-recommendations](project/will-ask-tokyo-hotel-for-airport-transportation-recommendations.md) — Will ask Tokyo hotel for airport transportation recommendations
+- [xiaomi-360-camera-to-google-cloud-storage-connection-guide](reference/xiaomi-360-camera-to-google-cloud-storage-connection-guide.md) — Xiaomi 360 camera to Google Cloud Storage connection guide

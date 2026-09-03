@@ -1,0 +1,40 @@
+# MEMORY.md
+
+- [attended-high-performance-driving-education-course-at-thunderhill-raceway-april](experience/attended-high-performance-driving-education-course-at-thunderhill-raceway-april.md) — Attended high-performance driving education course at Thunderhill Raceway (April 2023)
+- [attended-workshop-on-social-media-activism-that-revealed-the-power-of-using-soci](experience/attended-workshop-on-social-media-activism-that-revealed-the-power-of-using-soci.md) — Attended workshop on social media activism that revealed the power of using social media for making a difference
+- [birthday-7-11-1980-lifepath-number-9](user/birthday-7-11-1980-lifepath-number-9.md) — Birthday 7/11/1980; lifepath number 9
+- [board-game-recommendations-similar-to-azul-sagrada-star-realms-pandemic-carcasso](reference/board-game-recommendations-similar-to-azul-sagrada-star-realms-pandemic-carcasso.md) — Board game recommendations similar to Azul: Sagrada, Star Realms, Pandemic, Carcassonne, 7 Wonders
+- [board-game-recommendations-similar-to-scattergories-codenames-taboo-dixit-quelf](reference/board-game-recommendations-similar-to-scattergories-codenames-taboo-dixit-quelf.md) — Board game recommendations similar to Scattergories: Codenames, Taboo, Dixit, Quelf, Wits & Wagers, Bananagrams
+- [chicago-marketing-conference-trip-june-2023](project/chicago-marketing-conference-trip-june-2023.md) — Chicago marketing conference trip — June 2023
+- [coworker-jack-prefers-hiking-over-yoga](user/coworker-jack-prefers-hiking-over-yoga.md) — Coworker Jack prefers hiking over yoga
+- [creating-branded-hashtag-makeadifferencemv-make-a-difference-in-my-voice-for-soc](project/creating-branded-hashtag-makeadifferencemv-make-a-difference-in-my-voice-for-soc.md) — Creating branded hashtag #MakeADifferenceMV ('Make a Difference in My Voice') for social activism efforts
+- [dropped-iphone-12-on-floor-minor-scratch-on-corner](experience/dropped-iphone-12-on-floor-minor-scratch-on-corner.md) — Dropped iPhone 12 on floor, minor scratch on corner
+- [engaged-to-madelyn-nguyen-purchased-house-together](user/engaged-to-madelyn-nguyen-purchased-house-together.md) — Engaged to Madelyn Nguyen; purchased house together
+- [family-birthdates-and-numerology-o-brien-and-kim-family](reference/family-birthdates-and-numerology-o-brien-and-kim-family.md) — Family birthdates and numerology: O'Brien and Kim family
+- [friend-rachel-is-hesitant-about-trying-yoga](user/friend-rachel-is-hesitant-about-trying-yoga.md) — Friend Rachel is hesitant about trying yoga
+- [goes-to-yoga-classes-with-friend-emily-and-grabs-smoothies-after](user/goes-to-yoga-classes-with-friend-emily-and-grabs-smoothies-after.md) — Goes to yoga classes with friend Emily and grabs smoothies after
+- [had-falling-out-with-friend-alex-in-late-april-2023-now-reconnecting](experience/had-falling-out-with-friend-alex-in-late-april-2023-now-reconnecting.md) — Had falling out with friend Alex in late April 2023, now reconnecting
+- [has-two-sons-conor-and-brandon](user/has-two-sons-conor-and-brandon.md) — Has two sons: Conor and Brandon
+- [interest-in-numerology-calculating-lifepath-numbers](user/interest-in-numerology-calculating-lifepath-numbers.md) — Interest in numerology; calculating lifepath numbers
+- [interested-in-board-games-enjoys-strategic-and-creative-word-games](user/interested-in-board-games-enjoys-strategic-and-creative-word-games.md) — Interested in board games; enjoys strategic and creative word games
+- [interested-in-indie-music-and-portland-s-indie-music-scene](user/interested-in-indie-music-and-portland-s-indie-music-scene.md) — Interested in indie music and Portland's indie music scene
+- [introduced-coworker-to-codenames-on-2023-05-19-she-loved-it](experience/introduced-coworker-to-codenames-on-2023-05-19-she-loved-it.md) — Introduced coworker to Codenames on 2023-05-19, she loved it
+- [iphone-12-with-clear-case-featuring-subtle-glitter-design](user/iphone-12-with-clear-case-featuring-subtle-glitter-design.md) — iPhone 12 with clear case featuring subtle glitter design
+- [michelin-pilot-sport-cup-2-r-tires-high-performance-track-tire-option-for-bmw-m4](reference/michelin-pilot-sport-cup-2-r-tires-high-performance-track-tire-option-for-bmw-m4.md) — Michelin Pilot Sport Cup 2 R tires - high-performance track tire option for BMW M4
+- [montreal-budget-travel-guide-restaurants-neighborhoods-foods-activities-transpor](reference/montreal-budget-travel-guide-restaurants-neighborhoods-foods-activities-transpor.md) — Montreal budget travel guide: restaurants, neighborhoods, foods, activities, transportation
+- [morning-breakfast-around-8-00-am-oatmeal-with-fruit-and-coffee](user/morning-breakfast-around-8-00-am-oatmeal-with-fruit-and-coffee.md) — Morning breakfast around 8:00 AM: oatmeal with fruit and coffee
+- [notable-indie-artists-from-portland](reference/notable-indie-artists-from-portland.md) — Notable indie artists from Portland
+- [owns-a-2018-bmw-m4-for-high-performance-track-driving](user/owns-a-2018-bmw-m4-for-high-performance-track-driving.md) — Owns a 2018 BMW M4 for high-performance track driving
+- [passionate-about-raising-awareness-for-homelessness-in-their-city-through-social](user/passionate-about-raising-awareness-for-homelessness-in-their-city-through-social.md) — Passionate about raising awareness for homelessness in their city through social activism and social media
+- [planning-private-facebook-group-make-a-difference-mv-for-social-activism-communi](project/planning-private-facebook-group-make-a-difference-mv-for-social-activism-communi.md) — Planning private Facebook Group 'Make a Difference MV' for social activism community discussing homelessness, social justice, and community development
+- [planning-to-buy-ticket-to-ride-base-game-plus-europe-expansion](project/planning-to-buy-ticket-to-ride-base-game-plus-europe-expansion.md) — Planning to buy Ticket to Ride base game plus Europe expansion
+- [planning-to-buy-zagg-invisibleshield-glass-screen-protector-for-iphone-12](user/planning-to-buy-zagg-invisibleshield-glass-screen-protector-for-iphone-12.md) — Planning to buy Zagg InvisibleShield Glass+ screen protector for iPhone 12
+- [popular-indie-music-venues-in-portland](reference/popular-indie-music-venues-in-portland.md) — Popular indie music venues in Portland
+- [professional-interest-ai-powered-marketing-tools-and-industry-evolution-trends](user/professional-interest-ai-powered-marketing-tools-and-industry-evolution-trends.md) — Professional interest: AI-powered marketing tools and industry evolution trends
+- [purchased-high-performance-track-tires-on-2023-03-15](user/purchased-high-performance-track-tires-on-2023-03-15.md) — Purchased high-performance track tires on 2023-03-15
+- [pursuing-creative-career-alongside-part-time-technology-work](user/pursuing-creative-career-alongside-part-time-technology-work.md) — Pursuing creative career alongside part-time technology work
+- [scheduled-track-day-at-laguna-seca-raceway-on-2023-05-20](project/scheduled-track-day-at-laguna-seca-raceway-on-2023-05-20.md) — Scheduled track day at Laguna Seca Raceway on 2023-05-20
+- [starting-board-game-collection-with-wooden-shelf-storage](project/starting-board-game-collection-with-wooden-shelf-storage.md) — Starting board game collection with wooden shelf storage
+- [takes-10-15-minute-breaks-every-hour-during-work-to-stretch-and-move](user/takes-10-15-minute-breaks-every-hour-during-work-to-stretch-and-move.md) — Takes 10-15 minute breaks every hour during work to stretch and move
+- [takes-longer-break-around-2-30-pm-for-outdoor-walk-to-refresh](user/takes-longer-break-around-2-30-pm-for-outdoor-walk-to-refresh.md) — Takes longer break around 2:30 PM for outdoor walk to refresh
+- [tools-and-resources-for-managing-dual-careers-time-management-finance-networking](reference/tools-and-resources-for-managing-dual-careers-time-management-finance-networking.md) — Tools and resources for managing dual careers: time management, finance, networking, learning
