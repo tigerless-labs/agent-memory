@@ -225,9 +225,20 @@ def test_a_verdict_is_required(cli):
         main(["--store", str(cli.root), "--json", "decide", proposal["id"]])
 
 
-def test_a_plain_sleep_decides_nothing(cli):
+def test_a_sleep_with_nobody_reasoning_decides_nothing(cli):
     _near_duplicates(cli)
-    assert not cli("sleep")["decisions"]
+    assert not cli("sleep", "--reason", "none")["decisions"]
+
+
+def test_a_plain_sleep_asks_the_library_executor(cli, monkeypatch):
+    _near_duplicates(cli)
+    proposal = cli("proposals")["proposals"][0]
+    reply = json.dumps({"proposal": proposal["id"], "verdict": "reject"})
+    monkeypatch.setattr(
+        "agent_memory.executor.distiller.distiller", lambda config: lambda prompt: reply
+    )
+    report = cli("sleep")
+    assert [decision["proposal"] for decision in report["decisions"]] == [proposal["id"]]
 
 
 def test_sleep_can_be_handed_a_reasoner_whose_verdicts_reach_the_store(cli, monkeypatch):

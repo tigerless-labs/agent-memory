@@ -58,7 +58,11 @@ def distill(store: Store, session: str, messages: list[Message], ask: Ask) -> Di
     for batch in batching.batches(messages, config.max_distill_input_chars):
         sheet = reconcile.build(store, session, batch)
         prompt = prompts.distill_sheet(
-            prompts.slot_table(sheet.slots), sheet.render(), render.conversation(batch)
+            prompts.slot_table(sheet.slots),
+            sheet.render(),
+            render.conversation(batch),
+            slot_table=config.slot_table,
+            event_lane=config.event_lane,
         )
         specs, errors = reconcile.parse_operations(ask(prompt))
         specs = queue.drain(session) + specs

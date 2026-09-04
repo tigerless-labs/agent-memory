@@ -196,6 +196,27 @@ def test_the_slot_table_lists_every_type_the_store_knows(store):
         assert schema.description.split(".")[0] in table
 
 
+def test_the_slot_table_and_the_event_lane_are_write_options(store):
+    from agent_memory.core import prompts
+
+    messages = _messages(store)
+    store.config.write.slot_table = False
+    store.config.write.event_lane = False
+    ask = _replies([])
+    distill.distill(store, "boundary", messages, ask)
+    assert prompts.EVENT_LANE not in ask.prompts[0]
+    assert prompts.SLOT_INSTRUCTION not in ask.prompts[0]
+    for schema in store.schemas.all():
+        assert schema.type in ask.prompts[0]
+
+    store.config.write.slot_table = True
+    store.config.write.event_lane = True
+    ask = _replies([])
+    distill.distill(store, "boundary", _messages(store, lines=["user: more"]), ask)
+    assert prompts.EVENT_LANE in ask.prompts[0]
+    assert prompts.SLOT_INSTRUCTION in ask.prompts[0]
+
+
 def test_unparseable_reply_lines_are_reported_by_line_number():
     specs, errors = reconcile.parse_operations('```json\n{"type": "fact"}\nnot json\n```')
     assert specs == [{"type": "fact"}]

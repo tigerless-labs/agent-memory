@@ -9,13 +9,16 @@ from __future__ import annotations
 import concurrent.futures
 import dataclasses
 import pathlib
+import time
 
 from agent_memory.core.config import Config
+from agent_memory.core.distill import Ask
+from agent_memory.executor import distiller
 from agent_memory.executor.hosts import Host
 
 from . import exam as exam_module
 from . import framing
-from .arms import MODE_NONE, Arm
+from .arms import MODE_COLD, MODE_NONE, Arm
 from .dataset import Episode, Session
 from .judge import Judge
 from .metrics import STATUS_FAILED, STATUS_OK, RunRecord
@@ -50,6 +53,7 @@ class Driver:
         exam_mode: str = exam_module.MODE_AGENTIC,
         manage: str = "",
         system: MemorySystem | None = None,
+        ask: Ask | None = None,
     ):
         self._host = host
         self._judge = judge
@@ -63,6 +67,7 @@ class Driver:
         self._exam_mode = exam_mode
         self._manage = manage
         self._system = system or NativeSystem(config)
+        self._ask = ask or distiller.distiller((config or Config.default()).executor)
         if exam_mode == exam_module.MODE_FIXED and not self._system.supports_fixed_exam:
             raise ValueError(
                 f"the fixed exam needs a harness-side context builder, "
@@ -154,6 +159,8 @@ class Driver:
             return ExperiencePhase(calls=0, seconds=0.0, blocking_seconds=0.0, failures=0)
 
         batches = list(_batched(list(episode.sessions), self._batch))
+        if arm.mode == MODE_COLD:
+            return self._cold(root, episode, batches)
         for index, batch in enumerate(batches):
             self._system.archive(root, f"{episode.id}-{index}", _render(batch))
 
@@ -187,6 +194,24 @@ class Driver:
             seconds=seconds,
             blocking_seconds=seconds if arm.blocking else 0.0,
             failures=len([result for result in results if not result.ok]),
+        )
+
+    def _cold(self, root: pathlib.Path, episode: Episode, batches: list) -> ExperiencePhase:
+        """W3: the archive is the input and the library's executor is the writer; the host
+        is never asked."""
+        started = time.monotonic()
+        failures = 0
+        for index, batch in enumerate(batches):
+            try:
+                self._system.distill(root, f"{episode.id}-{index}", _render(batch), self._ask)
+            except Exception:
+                failures += 1
+        self._system.release(root)
+        return ExperiencePhase(
+            calls=len(batches),
+            seconds=time.monotonic() - started,
+            blocking_seconds=0.0,
+            failures=failures,
         )
 
     def _assert_isolated(self, prompt: str, episode: Episode) -> None:

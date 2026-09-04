@@ -101,13 +101,25 @@ class StubJudge(Judge):
         return Verdict(correct="lease TTL" in candidate, seconds=0.05, ok=True, raw="stub")
 
 
-def _driver(tmp_path, host, episodes):
+def _cold_still(prompt):
+    return json.dumps(
+        {
+            "type": "fact",
+            "fields": {"subject": "drain window rule"},
+            "abstract": SECRET,
+            "provenance": ["0"],
+        }
+    )
+
+
+def _driver(tmp_path, host, episodes, ask=_cold_still):
     return Driver(
         host=host,
         judge=StubJudge(),
         workspace=tmp_path / "stores",
         sessions_per_call=2,
         run_id="test-run",
+        ask=ask,
         episode_fingerprint=sampling.fingerprint(episodes),
     )
 
@@ -215,14 +227,20 @@ def test_only_blocking_arms_report_blocking_time(tmp_path, suite):
     assert forked.experience_seconds > 0
 
 
-def test_the_cold_arm_archives_the_transcript_before_distilling(tmp_path, suite):
+def test_the_cold_arm_archives_the_transcript_and_asks_the_library_executor_not_the_host(
+    tmp_path, suite
+):
     episodes = dataset.load(suite)
-    record = _driver(tmp_path, StubHost(), episodes).run(episodes[0], arms.W3)
+    host = StubHost()
+    record = _driver(tmp_path, host, episodes).run(episodes[0], arms.W3)
     store = Store(tmp_path / "stores" / arms.W3.name / episodes[0].id)
     archived = list(store.layout.sessions.glob("*.jsonl"))
     assert archived
     assert any(SECRET in path.read_text(encoding="utf-8") for path in archived)
     assert record.memories_written > 0
+    assert all("Question:" in prompt for prompt in host.prompts)
+    written = store.records()
+    assert written and all(record.provenance for record in written)
 
 
 def test_a_host_failure_marks_the_run_and_never_counts_as_correct(tmp_path, suite):

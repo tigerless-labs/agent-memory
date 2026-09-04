@@ -130,8 +130,6 @@
 
 - [ ] MCP `memory_decide` 只能带 `text`:接受 merge / split 需要 abstract、body、parts,
       目前只有 CLI `decide` 能给;补 MCP 参数,否则违反不变量 8
-- [ ] Manage 的 T1 裁决还没有接到 `sleep` 的缺省路径:`mem sleep` 不带 `--reason` 时只跑 T0,
-      设计要求推理者就是库侧执行器(executor.model),应缺省用它并允许 `--reason none` 关掉
 - [ ] 旧四域布局 → schema 布局的迁移命令与 config 版本号(接上面「config knob 改名」那条)
 - [ ] abstract 缺省由键字段渲染、agent 可覆盖:两种写法对检索的影响需对照
 - [ ] 出厂类型说明里明确重叠处谁赢(profile vs preference,entity vs reference)

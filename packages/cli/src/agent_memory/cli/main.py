@@ -12,7 +12,7 @@ from collections.abc import Sequence
 from agent_memory.core import context as context_module
 from agent_memory.core import distill as distill_module
 from agent_memory.core import migrate as migrate_module
-from agent_memory.core import pending, portability, reasoning, sessions, triggers
+from agent_memory.core import pending, portability, prompts, reasoning, sessions, triggers
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
@@ -25,6 +25,7 @@ from agent_memory.executor.hosts import HOST_CLAUDE_CODE
 SESSION_FLAG = "--session"
 REASON_HOST = "host"
 REASON_ENDPOINT = "endpoint"
+REASON_NONE = "none"
 EMIT_INDENT = 2
 EXIT_OK = 0
 EXIT_ERROR = 1
@@ -127,7 +128,7 @@ def _parser() -> argparse.ArgumentParser:
     still.add_argument(
         "--force", action="store_true", help="distill every backlog regardless of thresholds"
     )
-    still.add_argument("--reason", choices=(REASON_HOST, REASON_ENDPOINT), default=None)
+    still.add_argument("--reason", choices=(REASON_HOST, REASON_ENDPOINT), default=REASON_ENDPOINT)
     still.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
     still.add_argument("--reason-model", default="")
     still.set_defaults(handler=_distill)
@@ -170,9 +171,10 @@ def _parser() -> argparse.ArgumentParser:
     sleeper.add_argument("--sessions-since", type=int, default=None)
     sleeper.add_argument(
         "--reason",
-        choices=(REASON_HOST, REASON_ENDPOINT),
-        default=None,
-        help="have an agent CLI, or a model endpoint, rule on the open proposals",
+        choices=(REASON_HOST, REASON_ENDPOINT, REASON_NONE),
+        default=REASON_ENDPOINT,
+        help="who rules on the open proposals: the library executor (default), an agent CLI, "
+        "or nobody",
     )
     sleeper.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
     sleeper.add_argument("--reason-model", default="")
@@ -200,6 +202,9 @@ def _parser() -> argparse.ArgumentParser:
         help="JSON file listing the parts of a split (abstract, body, provenance)",
     )
     decider.set_defaults(handler=_decide)
+
+    skiller = subparsers.add_parser("skill", help="print the agent skill text")
+    skiller.set_defaults(handler=_skill)
 
     installer = subparsers.add_parser("setup", help="install host hooks")
     installer.add_argument("--host", default=None)
@@ -312,7 +317,7 @@ def _distill(store: Store, args: argparse.Namespace) -> dict[str, object]:
     watermark = Watermark(store.layout, store.clock)
     named = list(args.session or [])
     candidates = named or sorted(set(watermark.sessions()) | set(_archived_sessions(store)))
-    ask = _reasoner(args) or distiller.distiller(store.config.executor)
+    ask = _reasoner(store, args) or distiller.distiller(store.config.executor)
     now = store.clock.now().isoformat()
     reports = []
     queue = pending.Pending(store.layout)
@@ -418,15 +423,17 @@ def _sleep(store: Store, args: argparse.Namespace) -> dict[str, object]:
     manage = Manage(store)
     if args.sessions_since is not None and not manage.due(args.sessions_since):
         return {"slept": False, "reason": "trigger conditions not met"}
-    return {"slept": True, **manage.sleep(reasoner=_reasoner(args)).as_dict()}
+    return {"slept": True, **manage.sleep(reasoner=_reasoner(store, args)).as_dict()}
 
 
-def _reasoner(args: argparse.Namespace) -> Reasoner | None:
+def _reasoner(store: Store, args: argparse.Namespace) -> Reasoner | None:
     if args.reason == REASON_HOST:
         return reasoners.HostReasoner.for_host(args.reason_host, model=args.reason_model)
     if args.reason == REASON_ENDPOINT:
-        model = args.reason_model or reasoners.DEFAULT_ENDPOINT_MODEL
-        return reasoners.EndpointReasoner(model=model)
+        executor = store.config.executor
+        if args.reason_model:
+            executor = dataclasses.replace(executor, model=args.reason_model)
+        return distiller.distiller(executor)
     return None
 
 
@@ -456,6 +463,10 @@ def _decide(store: Store, args: argparse.Namespace) -> dict[str, object]:
     return dict(decision.as_dict())
 
 
+def _skill(store: Store, args: argparse.Namespace) -> str:
+    return prompts.skill()
+
+
 def _setup(store: Store, args: argparse.Namespace) -> dict[str, object]:
     from agent_memory.adapters import setup as setup_module
 
@@ -477,6 +488,9 @@ def _body(inline: str, from_file: str | None) -> str:
 
 def _emit(payload: object, as_json: bool, stream=None) -> None:
     stream = stream or sys.stdout
+    if isinstance(payload, str) and not as_json:
+        print(payload, file=stream)
+        return
     if as_json or not isinstance(payload, dict):
         rendered = json.dumps(payload, indent=EMIT_INDENT, sort_keys=True, default=_fallback)
         print(rendered, file=stream)

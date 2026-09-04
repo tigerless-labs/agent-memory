@@ -18,8 +18,10 @@ import os
 import pathlib
 import subprocess
 
-from agent_memory.core import injection, prompts
+from agent_memory.core import distill as distill_module
+from agent_memory.core import injection, prompts, sessions
 from agent_memory.core.config import Config
+from agent_memory.core.distill import Ask
 from agent_memory.core.store import Store
 
 from . import exam as exam_module
@@ -99,6 +101,11 @@ class MemorySystem:
     def exam_preamble(self) -> str:
         raise NotImplementedError
 
+    def distill(self, root: pathlib.Path, label: str, text: str, ask: Ask) -> int:
+        """The cold arm: the library's own executor reads the archive. Systems without a
+        library-side still report that they have none."""
+        raise NotImplementedError(f"{self.name} has no library-side distiller")
+
     def archive(self, root: pathlib.Path, label: str, text: str) -> None:
         raise NotImplementedError
 
@@ -155,6 +162,13 @@ class NativeSystem(MemorySystem):
 
     def archive(self, root, label, text):
         self._store(root).archive.append_session(label, text)
+
+    def distill(self, root, label, text, ask):
+        store = self._store(root)
+        pointer = store.archive.append_session(label, text)
+        messages = sessions.resolve(store.layout, pointer) if pointer else []
+        report = distill_module.distill(store, label, messages, ask)
+        return sum(len(batch.written) for batch in report.batches)
 
     def injection(self, root):
         payload = injection.payload(self._store(root))

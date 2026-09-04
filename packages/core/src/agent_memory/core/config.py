@@ -117,6 +117,8 @@ class WriteConfig:
     chars_per_token: int = 4
     idle_seconds: float = 900.0
     distill_on_boundary: bool = True
+    slot_table: bool = True
+    event_lane: bool = True
 
 
 @dataclasses.dataclass
