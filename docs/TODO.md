@@ -128,13 +128,10 @@
 
 ## schema 驱动写入(2026-09-03,plan: docs/plans/schema-driven-write.md)
 
-- [ ] **实验(计划第 7 单元的后半)未跑**:需要 Vertex 凭据与纵向协议。三项待跑,均按 docs/experiments.md:
-      (a) 写侧全跑 W3(库侧执行器,缺省)对 W1(宿主自写):`mem-exp run --arms W1,W3`,R 固定,n ≥ 120,两次重放;
-      (b) `--set write.slot_table=false` / `--set write.event_lane=false` 两臂对缺省,先看覆盖率探针再看分数;
-      (c) M on/off:同一批库拷贝后 `mem-exp sleep-stores`(缺省推理者=执行器)再考,纵向协议先落地才有 staleness 净值
+- [ ] **实验(计划第 7 单元的后半)未跑**:轮次 P12–P14 与 P14 需要的三个 harness 单元见
+      docs/plans/schema-driven-write-experiments.md;P12 可立即起跑
 - [ ] 旧四域布局 → schema 布局的迁移命令与 config 版本号(接上面「config knob 改名」那条)
 - [ ] abstract 缺省由键字段渲染、agent 可覆盖:两种写法对检索的影响需对照
 - [ ] 出厂类型说明里明确重叠处谁赢(profile vs preference,entity vs reference)
 - [ ] 事件通道对弃权稳定性的影响,与 `--deep` 削弱弃权那条一起测
-- [ ] Gemini 3.7 Flash 的模型 id 与 Vertex 端点核验后写入 config 缺省
 - [ ] artifact-conformance.md 的覆盖核对按 ADR-008 / ADR-009 重跑
