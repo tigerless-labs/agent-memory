@@ -1,6 +1,6 @@
 # ADR-005: 树由 Manage 聚簇产生,写入零结构决策
 
-**Status**: accepted (2026-09-01)
+**Status**: superseded by ADR-008 (2026-09-03);原文保留供追溯
 
 **Context**: agent 自维护的目录层级随规模退化,更整齐不等于答案质量更高
 (evidence: Filesystem-Based Memory, arXiv 2607.26637)。写入时单条记忆不足以

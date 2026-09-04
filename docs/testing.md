@@ -22,12 +22,15 @@
 |---|---|
 | `core/config` | `tests/unit/test_config.py`(默认值、往返、未知 knob 拒收、魔数扫描) |
 | 包结构 / 依赖纪律 | `tests/unit/test_packaging.py`(core 零依赖、无模型客户端、导入冒烟) |
-| `core/record`·`core/frontmatter`·`core/slug`·`core/archive`·`core/store` | `tests/unit/test_storage.py` |
+| `core/record`·`core/frontmatter`·`core/slug`·`core/archive`·`core/store` | `tests/unit/test_storage.py`(两态转换、invalid 原地保留) |
+| `core/schema`·`core/paths`(类型 schema、路径约定、字段来源规则、深度上限) | `tests/unit/test_schema.py` |
+| `core/sessions`·`core/provenance`(消息序号、范围指针、只增不减) | `tests/unit/test_sessions.py` |
+| `core/reconcile`·`core/render`·`core/batch`(对账单、编号渲染、分批、句柄与动词) | `tests/unit/test_reconcile.py` |
 | `core/indexer`·`core/manifest`·`core/search_index`·`core/memory_md` | `tests/unit/test_indexer.py` |
 | `core/locking` | `tests/system/test_concurrency.py` |
 | `core/recall`·`core/chunking`·`core/access_log` | `tests/unit/test_recall.py` |
 | `cli/main`·`core/portability` | `tests/system/test_cli.py` |
-| `core/watermark`·`adapters/*` | `tests/unit/test_write_triggers.py` |
+| `core/watermark`·`core/triggers`·`adapters/*`(钩子、阈值、闲置三路等价) | `tests/unit/test_write_triggers.py` |
 | `core/manage`·`core/ledger` | `tests/unit/test_manage.py` |
 | `core/reasoning`·`core/prompts`(M 复核) | `tests/unit/test_manage_reasoning.py` |
 | `core/timestamp`·`core/clock` | `tests/unit/test_timestamps.py`(UTC 时刻格式、时区无关、旧日期升级、恶意载荷拒收) |

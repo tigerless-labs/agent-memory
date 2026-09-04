@@ -17,11 +17,11 @@ flowchart LR
     CLI[CLI + skill]
   end
   subgraph core[记忆核心 · 公用盘]
-    T[memory/ 真源<br/>md + 域树 + frontmatter]
+    T[memory/ 真源<br/>md + schema 生成的树 + 两态 frontmatter]
     P[写入管线<br/>校验→hash diff→重索引]
-    I[.index/ SQLite<br/>FTS5 + 向量插件 + access log]
+    I[.index/ SQLite<br/>现役/历史/原料 FTS5 + access log]
     A[archive/<br/>provenance / retired / sessions]
-    M[睡眠 M<br/>cron · T0-T2 · dream-report]
+    M[睡眠 M<br/>cron · T0/T1 · 推理者 · dream-report]
   end
   RS[推理执行者<br/>宿主 CLI / 模型端点]
   CC & CX & HM --> HK & MCP & CLI --> P
@@ -35,7 +35,7 @@ flowchart LR
 ## 要点
 
 - **三个物理组件**:`memory/` 真源、`.index/` 投影(可整删重建)、`archive/` 原料(append-only)。
-- **一条写路径**:agent 写与 M 改全部过同一条管线(Invariant 2)。
+- **一条写路径**:agent 写与 M 改全部过同一条管线(Invariant 2);写入是对账后的批量填表,路径由类型 schema 算出。
 - **智能在外**:核心不含模型客户端;需要判断力处向执行者借,执行者是宿主 CLI 或模型端点,
   两者可互换、都不含算法(Invariant 5、ADR-002)。
 - **三条读轨**:SessionStart 注入(确定性)、recall 检索(BM25 核心 + 向量插件)、

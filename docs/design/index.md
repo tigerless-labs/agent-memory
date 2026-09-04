@@ -20,9 +20,9 @@
 - [hooks.md](api/hooks.md) — 钩子接入契约(停顿点/淘汰点,按宿主方言)
 
 ## domains/
-- [storage.md](domains/storage.md) — DS:真源树、文件边界公理、frontmatter、三级 archive、索引投影
-- [write.md](domains/write.md) — W:水位线、触发阶梯、写入管线、W 选项(实验变量)
-- [manage.md](domains/manage.md) — M:睡眠期 consolidation、authority 分级、价值化遗忘、树演化
+- [storage.md](domains/storage.md) — DS:schema 生成的树、文件边界公理、两态 frontmatter、原料与指针、索引投影
+- [write.md](domains/write.md) — W:水位线、触发阶梯、六步对账写入、填表契约、W 选项(实验变量)
+- [manage.md](domains/manage.md) — M:睡眠期 consolidation、按可逆性分两档、无人审核、树演化
 - [recall.md](domains/recall.md) — R:三轨、检索管线、渐进披露、评分
 - [experiment-harness.md](domains/experiment-harness.md) — 实验系统:记忆系统 × 宿主 × W 对比,覆盖率探针
 
@@ -31,6 +31,8 @@
 - [adr-002-no-llm-in-core.md](decisions/adr-002-no-llm-in-core.md) — 库核心零 LLM,智能借用
 - [adr-003-bm25-core-vector-plugin.md](decisions/adr-003-bm25-core-vector-plugin.md) — BM25 核心,向量插件
 - [adr-004-graph-as-data.md](decisions/adr-004-graph-as-data.md) — 图是文件里的数据,不是索引
-- [adr-005-tree-emerges-from-manage.md](decisions/adr-005-tree-emerges-from-manage.md) — 树由 M 聚簇产生
+- [adr-005-tree-emerges-from-manage.md](decisions/adr-005-tree-emerges-from-manage.md) — 树由 M 聚簇产生(**superseded by ADR-008**)
 - [adr-006-write-as-experiment.md](decisions/adr-006-write-as-experiment.md) — 写入选项不拍板,实验裁决
 - [adr-007-implementation-language.md](decisions/adr-007-implementation-language.md) — 实现语言(**proposed,待 Ryan 签字**)
+- [adr-008-schema-driven-tree.md](decisions/adr-008-schema-driven-tree.md) — 树由类型 schema 在写时生成,目录名不由模型起
+- [adr-009-two-state-validity.md](decisions/adr-009-two-state-validity.md) — 两态:active / invalid,失效只来自替换与删除

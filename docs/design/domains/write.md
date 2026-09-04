@@ -1,9 +1,9 @@
 # 域:Write(W)
 
-1. **Metadata** — 作者:Claude;评审:Ryan;2026-09-01;状态 **accepted**
+1. **Metadata** — 作者:Claude;评审:Ryan;2026-09-01;修订 2026-09-03(触发阶梯、对账写入);状态 **accepted**
 2. **Context and Scope** — 从宿主会话到真源落盘的全链路;写入策略本身是实验变量(ADR-006)。
-3. **Goals / Non-Goals** — 目标:写入率由机制保证、零任务阻塞、原意最大保留、系统层零丢。
-   不做:库内 LLM 蒸馏(ADR-002)、写入时做管理(推迟到 M)。
+3. **Goals / Non-Goals** — 目标:写入率由机制保证、零任务阻塞、原意最大保留、系统层零丢;
+   覆盖率来自「填表」而非「判断」。不做:库内 LLM 蒸馏(ADR-002)、写入时做管理(推迟到 M)。
 
 ## 4. The Actual Design
 
@@ -12,8 +12,42 @@
 因此隔断重开 → 幂等;钩子失灵 → 其他触发点照推;崩溃 → 尾巴留在水位线之后,
 下次触发原样补收。触发器从「必须可靠」降为「越多越好」。
 
-**触发点**(挂通用时刻,方言见 api/hooks.md):停顿点 + 淘汰点(钩子,主力)、
-agent 自主(skill 教,辅助)、cron(兜底)。
+**触发阶梯**(任一命中即蒸馏,方言见 api/hooks.md):
+
+| 触发 | 条件 | 角色 |
+|---|---|---|
+| 边界钩子 | 停顿点、淘汰点 | 主力 |
+| 阈值 | 水位线之后的增量达到 token 或消息条数阈值 | 长会话不等边界 |
+| 闲置 / 定时 | 闲置超过时限,或 cron 扫描 | 兜底 |
+
+**单次蒸馏输入有上限**(config)。超过的增量按消息边界切成多批,每批独立蒸馏、独立推进水位线;
+长 session 不再一次吃完,也不会因为过大而整段失败。
+
+**写入管线**(库侧确定性的一半与宿主判断的一半交替):
+
+1. **捕获**:取水位线之后的增量,追加进 `sessions/`,每条消息带序号与时间。
+2. **分批**:按输入上限与消息边界切批。
+3. **渲染**:每条消息渲染成「序号、角色、正文」,头部给会话时间并声明相对时间以此为准;
+   长消息切段只改编号粒度,所有段一起交。
+4. **对账单**:用增量文本检索既有 active 记忆,取相关的若干条,每条带句柄(name)、状态、valid_from、abstract;
+   再附本次涉及类型的现有目录清单与当前用户 profile。agent 由此知道哪些是新的、哪些该替换、该归到哪个目录。
+5. **应用**:校验 frontmatter;provenance 必填,缺省填本批范围;路径按 storage.md 的约定从字段算出;
+   句柄不在对账单里的替换或更新一律拒收;supersede 让前驱 invalid、后继 valid,同一瞬间;
+   update 只允许改 abstract、links、weight、追加 provenance,事实变了必须走 supersede;
+   拒收项回给 agent 修一轮,仍失败进 `.state/` 待重试,下个触发点再试。
+6. **落盘后**:推进水位线,重投影(现役、历史、原料三张索引),重写 MEMORY.md。
+
+**谁来蒸馏**:边界上有宿主会话时,由宿主 agent(Claude Code、Codex CLI、Hermes 三种方言)在自己的
+上下文里填表;没有宿主会话(cron、W3)时,由库侧执行器调用模型端点完成同一份填表,缺省模型
+Gemini 3.7 Flash,模型 id 是 config 旋钮。两条路走同一个执行器抽象与同一份批量契约,核心不含客户端(ADR-002)。
+
+**宿主 agent 的填表契约**(skill 与钩子提示都从同一处渲染):
+- **槽位表**来自各 schema 的说明:逐类型检查「出现了什么迹象」,而不是通读后凭感觉挑。
+- **两条通道**:事实通道是蒸馏后的知识;事件通道每个 session 至少一条,一句 abstract 加消息范围,是覆盖率的保底。
+- **四个动词**:new、supersede 句柄、update 句柄、skip。没有 delete;删除归 M。
+- **指针不抄原文**:provenance 填消息范围,日期与证据由库从范围算出。
+- **一次批量**:先收集全部变更再一次交回;弱宿主的 turn 预算不再吃掉覆盖率。
+- **abstract**:库按键字段渲染缺省值,agent 可覆盖为更像查询用语的一句。
 
 **W 选项矩阵(实验变量,P2 裁决,见 experiment-harness)**:
 
@@ -25,17 +59,15 @@ agent 自主(skill 教,辅助)、cron(兜底)。
 | W3 | cron 借宿主 CLI 冷读 trace 蒸馏(零 harness 依赖,全价) | 能起进程 |
 | W4 | inline 实时写(抢带宽 baseline) | skill 即可 |
 
-**写入管线(库侧,零 LLM,确定性)**:frontmatter 校验(非法拒收)→ content-hash
-增量重索引(embedding 插件开启时对 abstract+正文;超长按 heading 多条,命中返回整文件)
-→ links 解析校验 → MEMORY.md 索引行 → provenance 摘录 append 进 archive。
-
-**写前纪律(skill 教)**:先 recall 查重——同原子存在时判「旧内容还会被问到吗」:
-会 → supersede;不会 → 原地 update;不同原子 → 新建。相对日期转绝对;归对类型域。
+**写前纪律(skill 教)**:对账单先看再写——同键存在时判「旧内容还会被问到吗」:
+会 → supersede;不会且只是措辞 → update;不同键 → new。相对日期转绝对;分组字段从菜单里选。
 写入只建断言边,不建相似边。
 
 5. **Alternatives Considered** — 库内异步 LLM Writer(实习生方案):统一策略优点真实,
-   但违反 ADR-002 四红线;其 proposal/validator/事务纪律被吸收进 M 的 T1 与索引层 revision。
+   但违反 ADR-002 四红线;其 proposal/validator/事务纪律被吸收进 M 与索引层 revision。
+   OpenViking 的库内抽取与字段级补丁:抽取器在库内、补丁靠模型抄原文匹配,两者都不进核心;
+   借的是编号对话、预取旧记忆、schema 槽位与提交阈值。
 6. **Cross-cutting** — 蒸馏漏 ≠ 系统丢:原料层兜底(Invariant 4);敏感信息边界写
-   天然留 review 窗口。
-7. **Risks** — 边界 hindsight 优于实时蒸馏无对照证据(P2 实验裁决);
-   cache TTL 约束 fork 必须边界立即执行。
+   天然留 review 窗口;对账单与召回内容进 prompt 时一律是数据。
+7. **Risks** — 事件通道可能重演 `--deep` 削弱弃权的效应,需与弃权稳定性一起测;
+   槽位表使跨宿主写入量差异收窄是假设,P2 扩 n 后裁决;cache TTL 约束 fork 必须边界立即执行。

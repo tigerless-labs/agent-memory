@@ -13,13 +13,15 @@
 - 地址轨:目录树 ls/glob/grep——语义/字面检索失手时的第二条可达路径;
   同目录 = 免费邻域(归属边遍历)
 
-**检索管线(库侧,零 LLM)**:资格过滤先于相关性(scope 路径前缀、status、
-`--as-of` 时间点、`--deep` 才进 archive 与原料)→ BM25(核心;FTS5 索引 abstract+正文)
-‖ 向量(插件,开启时 RRF 融合)→ 排序 `score = 相关度 × weight × 时效因子`
-(active 优先,superseded 默认排除)→ 返回 L0 列表 → 写 access log 喂 M。
+**检索管线(库侧,零 LLM)**:资格过滤先于相关性(scope 路径前缀、两态、`--as-of` 时间点、
+`--deep` 才进原料)→ BM25(核心;FTS5 索引 abstract+正文)‖ 向量(插件,开启时 RRF 融合)
+→ 排序 `score = 相关度 × weight × 时效因子` → 返回 L0 列表 → 写 access log 喂 M。
+默认面只查现役索引(active);`--as-of` 查历史索引(invalid,按 valid_from / invalid_at 区间判有效);
+两张索引永远不混排。
 
-**原料检索面**:`archive/sessions/` 的 trace 单独建 FTS,只应答 `--deep`,不带 weight
-与时效,且按系数压在蒸馏记忆之下——它是证据不是知识。这是 Invariant 4 的检索一半:
+**原料检索面**:`archive/sessions/` 的 trace 单独建 FTS,锚点是消息序号,只应答 `--deep`。原料命中作为
+**证据列表单独返回**,不与记忆混排,每条带会话时间与「已被哪些记忆引用」——它是证据不是知识;
+反复命中却无人引用的片段是 M 提「补蒸馏」的依据。这是 Invariant 4 的检索一半:
 原料存下来而查不到,兜底就只存在于磁盘上。
 
 **披露由谁决定,是可测的**(evidence: experiments/results/p2-optimisation.md#p9——

@@ -38,12 +38,16 @@ has no M, or buries it in the write path.
 5. **The library core contains no LLM client.** Intelligence is borrowed from the consuming
    agent (hooks, fork, or its CLI as executor). Why: zero-key install, no billing surface,
    writes stay visible in the agent's own transcript.
-6. **Destructive Manage operations require escalating authority.** T0 unattended = add/update
-   only; T1 = proposal in dream-report awaiting confirmation; T2 = human-initiated. Why:
-   memory poisoning is a persistent attack surface; unattended deletion is unauditable.
+6. **Manage never destroys information.** Every Manage operation is reversible: T0 is
+   rule-only (dates, weight, links, directories), T1 is decided by the host LLM and only
+   creates new files or marks old ones invalid, each kind capped per sleep, one git commit
+   per sleep. Physical removal is a human-run command that Manage cannot reach. Why: memory
+   poisoning is a persistent attack surface; with no human in the loop, reversibility,
+   rate limits and audit are what keep an unattended run safe.
 7. **File boundary = invalidation atom.** One file holds knowledge that expires as a whole
-   (supersede/weight/recall all operate per file). Why: partial staleness inside a file
-   poisons the whole file.
+   (supersede/weight/recall all operate per file); a file is active or invalid, nothing in
+   between, and invalidation comes only from replacement or deletion. Why: partial staleness
+   inside a file poisons the whole file; a third state that changes nothing is a lie.
 8. **Adapters carry zero algorithm.** CLI, MCP, and hooks all collapse into the same core
    calls; same request through any entry yields the same result. Why: N entries × M behaviors
    is untestable.

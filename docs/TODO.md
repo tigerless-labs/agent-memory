@@ -127,3 +127,12 @@
       看 knowledge-update / multi-session / temporal 三类的差距是否由前言驱动
 - [ ] 写前「先 recall / supersede」纪律从未被单独裁决:P4 触发 25 条边、得分 9/15 = 9/15,
       而每次 mem 调用占一个 turn(P1 的 13× 写入量差);需一轮写侧全跑:W2 去掉该段 vs 保留
+
+## schema 驱动写入(2026-09-03,plan: docs/plans/schema-driven-write.md)
+
+- [ ] 旧四域布局 → schema 布局的迁移命令与 config 版本号(接上面「config knob 改名」那条)
+- [ ] abstract 缺省由键字段渲染、agent 可覆盖:两种写法对检索的影响需对照
+- [ ] 出厂类型说明里明确重叠处谁赢(profile vs preference,entity vs reference)
+- [ ] 事件通道对弃权稳定性的影响,与 `--deep` 削弱弃权那条一起测
+- [ ] Gemini 3.7 Flash 的模型 id 与 Vertex 端点核验后写入 config 缺省
+- [ ] artifact-conformance.md 的覆盖核对按 ADR-008 / ADR-009 重跑

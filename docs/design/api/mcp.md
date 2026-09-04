@@ -10,7 +10,7 @@ MCP 是轻量接入手段(手动或规则提示触发),**不是独立写入策�
 |---|---|---|
 | `memory_recall` | recall | 返回 L0 列表;参数含 scope / as_of / deep |
 | `memory_read` | read | 按 name+层级(abstract/outline/full)读取 |
-| `memory_record` | record | 写入;schema 强制 frontmatter 必填字段 |
+| `memory_record` | record | 批量写入;与 CLI 同一份动词与句柄契约,路径由类型 schema 算出 |
 | `memory_correct` | correct | update / supersede |
 | `memory_feedback` | (admin) | boost / penalize 显式反馈 |
 
