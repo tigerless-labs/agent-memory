@@ -10,12 +10,14 @@ from . import record as record_module
 from .archive import SESSION_SUFFIX
 from .clock import Clock
 from .database import Database
+from .embeddings import Embedder
 from .errors import ValidationError
 from .manifest import Manifest, content_hash
 from .paths import StoreLayout
 from .raw_index import RawIndex, source_name
 from .record import MemoryRecord
 from .search_index import SearchIndex
+from .vector_index import VectorIndex
 
 
 @dataclasses.dataclass(frozen=True)
@@ -30,11 +32,14 @@ class IndexReport:
 
 
 class Indexer:
-    def __init__(self, layout: StoreLayout, clock: Clock | None = None):
+    def __init__(
+        self, layout: StoreLayout, clock: Clock | None = None, embedder: Embedder | None = None
+    ):
         self._layout = layout
         self._config = layout.config
         self._clock = clock or Clock()
         self._database = Database(layout)
+        self._embedder = embedder
 
     def sync(self) -> IndexReport:
         present = self._present_hashes()
@@ -79,6 +84,9 @@ class Indexer:
                 index.remove_path(relative)
                 raw.remove(relative)
                 manifest.forget(relative)
+            if self._config.index.vector_enabled:
+                assert self._embedder is not None
+                self._sync_vectors(connection, present, self._embedder)
             dangling = self._dangling_links(index)
         return IndexReport(
             reindexed=tuple(reindexed),
@@ -86,6 +94,27 @@ class Indexer:
             unreadable=tuple(unreadable),
             dangling_links=dangling,
         )
+
+    def _sync_vectors(
+        self, connection, present: dict[str, str], embedder: Embedder
+    ) -> None:
+        vectors = VectorIndex(connection, embedder, self._config.index.vector_model)
+        memory_paths = {
+            relative: digest
+            for relative, digest in present.items()
+            if not self._is_raw(self._layout.root / relative)
+        }
+        known = vectors.known()
+        for relative in sorted(set(known) - set(memory_paths)):
+            vectors.remove_path(relative)
+        for relative, digest in sorted(memory_paths.items()):
+            if known.get(relative) == (digest, self._config.index.vector_model):
+                continue
+            record = self._load(self._layout.root / relative)
+            if record is not None:
+                vectors.upsert(
+                    relative, digest, record, chunking.chunks(record, self._config)
+                )
 
     def rebuild(self) -> IndexReport:
         self._database.drop()

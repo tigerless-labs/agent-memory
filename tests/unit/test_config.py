@@ -23,6 +23,8 @@ def test_defaults_are_complete_and_self_consistent():
     assert config.recall.default_limit > 0
     assert config.recall.recency_half_life_days > 0
     assert set(config.storage.domain_types) == set(config.storage.domains)
+    assert config.index.vector_enabled is False
+    assert config.index.vector_model
 
 
 def test_every_domain_allows_at_least_one_type_and_types_are_disjoint_from_domains():
@@ -35,12 +37,23 @@ def test_config_round_trips_through_disk(tmp_path):
     original = Config.default()
     original.manage.trigger_min_sessions += 1
     original.recall.default_limit += 1
+    original.index.vector_enabled = True
+    original.index.vector_model = "test/model-v2"
     original.save(tmp_path)
 
     assert (tmp_path / CONFIG_FILENAME).exists()
     reloaded = Config.load(tmp_path)
     assert reloaded.manage.trigger_min_sessions == original.manage.trigger_min_sessions
     assert reloaded.recall.default_limit == original.recall.default_limit
+    assert reloaded.index.vector_enabled is True
+    assert reloaded.index.vector_model == "test/model-v2"
+
+
+def test_vector_model_changes_the_recall_fingerprint():
+    config = Config.default()
+    before = config.recall_fingerprint()
+    config.index.vector_model = "test/another-model"
+    assert config.recall_fingerprint() != before
 
 
 def test_load_without_file_yields_defaults(tmp_path):

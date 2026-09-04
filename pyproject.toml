@@ -13,6 +13,7 @@ dependencies = [
 mcp = ["agent-memory-mcp"]
 executor = ["agent-memory-executor"]
 harness = ["agent-memory-harness"]
+vector = ["agent-memory-core[vector]"]
 
 [dependency-groups]
 dev = [

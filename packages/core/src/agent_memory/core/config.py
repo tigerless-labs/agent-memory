@@ -38,6 +38,8 @@ class IndexConfig:
     raw_chunk_chars: int = 1200
     bm25_abstract_weight: float = 2.0
     bm25_body_weight: float = 1.0
+    vector_enabled: bool = False
+    vector_model: str = "BAAI/bge-small-en-v1.5"
 
 
 @dataclasses.dataclass

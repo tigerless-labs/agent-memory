@@ -5,6 +5,9 @@ description = "agent-memory core: truth store, index projection, recall, manage"
 requires-python = ">=3.12"
 dependencies = []
 
+[project.optional-dependencies]
+vector = ["fastembed>=0.7,<1"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

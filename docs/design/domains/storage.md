@@ -17,12 +17,15 @@ memory/
 │   ├── retired/         被淘汰/降级条目
 │   └── sessions/        完整 trace 副本(开关默认开;防宿主清理策略)
 ├── dream-reports/       每次睡眠一份:动了什么、提案了什么、证据指针
-├── .index/              全部可重建:manifest(content-hash)、FTS5、原料 FTS、access log
+├── .index/              全部可重建:manifest、FTS5、可选 Vector BLOB、原料 FTS、access log
 └── .state/              不可重建的运行态:蒸馏水位线、写路径锁、钩子日志
 ```
 
 `.index/` 与 `.state/` 的分界即「可重建」这条线:删 `.index/` 零知识损失;删 `.state/`
 只损失「蒸馏到哪了」,代价是重复蒸馏,不是丢知识。
+
+可选 Vector projection 自带 path/content-hash/model 状态。故从 OFF 切到 ON 会补齐已有文件;
+关闭期间零 embedding 成本,再次开启只追平 missing/stale 文件;换 model 会重算旧 projection。
 
 **单条记忆文件**:frontmatter 携带 name(kebab slug=稳定 id)、abstract(一句话)、
 type、status(active/stale/retired,M 的三级降档面)、created/updated、valid_from、
