@@ -305,3 +305,46 @@ such as `project` or `topic` name the subdirectory; pick an existing one, and pa
 def skill() -> str:
     """The skill file is rendered from here, so its discipline is the one the executor gets."""
     return SKILL.format(discipline=WRITE_DISCIPLINE)
+
+
+TOOL_RULES = """## Looking before writing
+
+You may look at the store first. Write plain text lines, one JSON object per line:
+{"look": "recall", "query": "<words the memory would contain>"} lists matching memories by
+handle, and {"look": "read", "name": "<handle>"} shows one memory in full. A reply that
+looks is answered with what the library found, and you are asked again. A memory you were
+shown may be named by its handle in update and supersede, exactly like one on the reconcile
+sheet. When you have seen enough, reply with the operations only."""
+
+FINAL_ROUND = """## This is the last round
+
+Reply with the operations now, one JSON object per line, and nothing else."""
+
+FORMAT_RETRY = """## Your reply could not be read
+
+{reply}
+
+Reply again with one JSON object per line: either a look, or the operations."""
+
+TOOL_ROUND = """## Your reply
+
+{reply}
+
+## What the library found
+
+{observations}"""
+
+OBSERVATION = """[{tool}]
+{text}"""
+
+
+def format_retry(reply: str) -> str:
+    return FORMAT_RETRY.format(reply=reply.strip() or "(empty)")
+
+
+def tool_round(reply: str, observations: str) -> str:
+    return TOOL_ROUND.format(reply=reply.strip(), observations=observations.strip())
+
+
+def observation(tool: str, text: str) -> str:
+    return OBSERVATION.format(tool=tool, text=text.strip())

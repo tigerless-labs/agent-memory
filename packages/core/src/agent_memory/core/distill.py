@@ -10,7 +10,7 @@ from __future__ import annotations
 import dataclasses
 from collections.abc import Callable
 
-from . import batching, pending, prompts, reconcile, render
+from . import agentic, batching, pending, prompts, reconcile, render
 from .errors import FieldError
 from .sessions import Message, Pointer, render_pointer
 from .store import BatchResult, Rejected, Store
@@ -25,6 +25,7 @@ class BatchReport:
     written: tuple[str, ...]
     rejected: tuple[str, ...]
     pending: int
+    rounds: int = 1
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -32,6 +33,7 @@ class BatchReport:
             "written": list(self.written),
             "rejected": list(self.rejected),
             "pending": self.pending,
+            "rounds": self.rounds,
         }
 
 
@@ -64,7 +66,9 @@ def distill(store: Store, session: str, messages: list[Message], ask: Ask) -> Di
             slot_table=config.slot_table,
             event_lane=config.event_lane,
         )
-        specs, errors = reconcile.parse_operations(ask(prompt))
+        outcome = agentic.negotiate(store, sheet, prompt, ask, config)
+        sheet = outcome.sheet
+        specs, errors = outcome.specs, outcome.errors
         specs = queue.drain(session) + specs
         result, leftovers = _apply(store, sheet, specs, errors)
         for _ in range(config.repair_rounds):
@@ -87,6 +91,7 @@ def distill(store: Store, session: str, messages: list[Message], ask: Ask) -> Di
                 written=tuple(record.name for record in result.written),
                 rejected=tuple(str(item.errors) for item in result.rejected),
                 pending=queued,
+                rounds=outcome.rounds,
             )
         )
     return DistillReport(session=session, batches=tuple(reports), consumed=distilled)

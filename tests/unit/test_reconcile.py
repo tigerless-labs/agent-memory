@@ -140,7 +140,7 @@ def test_distilling_writes_the_form_and_advances_the_watermark_per_batch(store):
         "abstract": "Every release tag is signed",
         "provenance": ["2"],
     }
-    ask = _replies([_spec()], [], [decision])
+    ask = _replies([_spec()], [_spec(op="skip")], [decision])
     report = distill.distill(store, "boundary", messages, ask)
     assert len(report.batches) == 3
     assert report.consumed == len(LINES)

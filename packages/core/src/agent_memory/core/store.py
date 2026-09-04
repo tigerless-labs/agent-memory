@@ -28,6 +28,7 @@ from .sessions import Message, parse_pointer, resolve
 LEVEL_ABSTRACT = "abstract"
 LEVEL_OUTLINE = "outline"
 LEVEL_FULL = "full"
+FIRST_SUCCESSOR_ORDINAL = 2
 LEVELS = (LEVEL_ABSTRACT, LEVEL_OUTLINE, LEVEL_FULL)
 UNKNOWN_AGENT = "unknown"
 
@@ -161,6 +162,10 @@ class Store:
             create_group=bool(spec.get("create_group")),
             fallback=str(spec.get("abstract") or "") or None,
         )
+        supersedes = str(spec.get("supersedes") or "") or None
+        derived_name = not spec.get("name")
+        if supersedes and derived_name and (self.root / placed.relative_path).exists():
+            placed = self._successor_placement(placed)
         target = self.root / placed.relative_path
         existing = self._at(target)
         moved_from: pathlib.Path | None = None
@@ -183,7 +188,6 @@ class Store:
                 [FieldError("name", f"{existing.name} is invalid; supersede it instead")]
             )
 
-        supersedes = str(spec.get("supersedes") or "") or None
         weight = spec.get("weight")
         candidate = MemoryRecord(
             name=placed.name,
@@ -220,6 +224,17 @@ class Store:
             predecessor.updated = now
             predecessor.path.write_text(predecessor.to_text(), encoding="utf-8")
         return candidate
+
+    def _successor_placement(self, placed: placement.Placement) -> placement.Placement:
+        """A successor with the same key as its predecessor keeps the key and takes the next
+        free ordinal; the predecessor keeps its name, so nothing that cites it breaks."""
+        ordinal = FIRST_SUCCESSOR_ORDINAL
+        while True:
+            name = f"{placed.name}-{ordinal}"
+            path = placed.relative_path.with_name(f"{name}{placed.relative_path.suffix}")
+            if self.find(name) is None and not (self.root / path).exists():
+                return dataclasses.replace(placed, name=name, relative_path=path)
+            ordinal += 1
 
     def _enforce_update_only(self, existing: MemoryRecord, candidate: MemoryRecord) -> None:
         """An in-place write may change how a fact is described, never the fact itself."""

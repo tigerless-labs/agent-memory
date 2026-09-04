@@ -29,6 +29,7 @@
 | `core/triggers`·`executor/distiller`·CLI `distill`(阈值、闲置、边界;三宿主同一执行器调用) | `tests/unit/test_triggers.py` |
 | `core/manage` T0 目录操作、T1 内容裁决、上限、git 提交、红队 | `tests/unit/test_manage.py`·`tests/unit/test_manage_reasoning.py` |
 | `prompts.skill` 与 `skills/agent-memory/SKILL.md` 同源 | `tests/unit/test_skill.py` |
+| `core/agentic`(执行器工具轮:recall / read、轮数上限、末轮强制、未知工具) | `tests/unit/test_agentic.py` |
 | `core/indexer`·`core/manifest`·`core/search_index`·`core/memory_md` | `tests/unit/test_indexer.py` |
 | `core/locking` | `tests/system/test_concurrency.py` |
 | `core/recall`·`core/chunking`·`core/access_log` | `tests/unit/test_recall.py` |

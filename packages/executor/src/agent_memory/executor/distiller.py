@@ -10,11 +10,15 @@ import os
 
 from agent_memory.core.config import ExecutorConfig
 
-from .credentials import BASE_URL_ENV
+from .credentials import BASE_URL_ENV, VertexCredentials
 from .reasoners import EndpointReasoner
 
 
 def distiller(config: ExecutorConfig) -> EndpointReasoner:
     if config.endpoint:
         os.environ.setdefault(BASE_URL_ENV, config.endpoint)
-    return EndpointReasoner(model=config.model, timeout_seconds=config.timeout_seconds)
+    return EndpointReasoner(
+        model=config.model,
+        timeout_seconds=config.timeout_seconds,
+        credentials=VertexCredentials(project=config.project, location=config.location),
+    )

@@ -79,3 +79,36 @@ def test_supersede_on_write_goes_through_the_same_pipeline_as_any_other_write(st
     report = store.sync_index()
     assert report.reindexed == ()
     assert report.dangling_links == ()
+
+
+def test_a_successor_with_the_same_key_takes_the_next_ordinal_and_the_predecessor_keeps_its_name(
+    store,
+):
+    from agent_memory.core.recall import Recall
+
+    first = store.record(
+        type="fact",
+        fields={"project": "pipeline", "subject": "queue timeout"},
+        abstract="Queue timeout is 20 seconds",
+    )
+    second = store.record(
+        type="fact",
+        fields={"project": "pipeline", "subject": "queue timeout"},
+        abstract="Queue timeout is 30 seconds",
+        supersedes=first.name,
+    )
+    third = store.record(
+        type="fact",
+        fields={"project": "pipeline", "subject": "queue timeout"},
+        abstract="Queue timeout is 45 seconds",
+        supersedes=second.name,
+    )
+    assert (first.name, second.name, third.name) == (
+        "queue-timeout",
+        "queue-timeout-2",
+        "queue-timeout-3",
+    )
+    assert second.path.parent == first.path.parent
+    assert store.find(first.name).superseded_by == second.name
+    assert store.find(second.name).superseded_by == third.name
+    assert [hit.name for hit in Recall(store).recall("queue timeout")] == [third.name]

@@ -119,12 +119,16 @@ class WriteConfig:
     distill_on_boundary: bool = True
     slot_table: bool = True
     event_lane: bool = True
+    max_rounds: int = 3
+    tool_result_chars: int = 4000
 
 
 @dataclasses.dataclass
 class ExecutorConfig:
     model: str = "google/gemini-3.7-flash"
     endpoint: str = ""
+    project: str = "tigerless-seo"
+    location: str = "global"
     timeout_seconds: float = 120.0
     command: str = "mem distill"
 

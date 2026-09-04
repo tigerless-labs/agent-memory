@@ -33,10 +33,14 @@ class VertexCredentials:
 
     minted_at: float = 0.0
     token: str = ""
+    project: str = ""
+    location: str = ""
 
     def environment(self) -> dict[str, str]:
-        project = os.environ.get(PROJECT_ENV, "")
-        location = os.environ.get(LOCATION_ENV, "")
+        """The environment overrides the configured project; the configured project is what
+        makes the library usable with nothing set at all."""
+        project = os.environ.get(PROJECT_ENV, "") or self.project
+        location = os.environ.get(LOCATION_ENV, "") or self.location
         if not project or not location:
             return {}
         if os.environ.get(API_KEY_ENV):

@@ -19,3 +19,7 @@ transcript 里天然可审计、多宿主统一由「同一份蒸馏 prompt」�
 全部由 executor 包里的库侧执行器完成(缺省 Gemini 3.7 Flash),宿主只捕获、触发、注入、召回。
 放弃的是零 key 安装与「写入留在宿主 transcript」;换来的是三宿主同一套抽取、覆盖率不随宿主模型漂移。
 可见性改由 dream-report、provenance 指针与 git 承担。
+
+**Amendment (2026-09-04)**: 执行器成为库内置 agent:缺省 Vertex 项目与位置写进 config(`tigerless-seo` /
+`global`,已实测可达),环境变量可覆盖;编排参考 OpenViking 的抽取循环——预取、逐轮「工具或操作」、
+轮数上限、末轮强制交回、修复回合。工具由库执行,模型只做判断,核心零客户端不变。
