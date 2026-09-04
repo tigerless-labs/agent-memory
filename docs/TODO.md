@@ -128,6 +128,10 @@
 
 ## schema 驱动写入(2026-09-03,plan: docs/plans/schema-driven-write.md)
 
+- [ ] **实验(计划第 7 单元的后半)未跑**:需要 Vertex 凭据与纵向协议。三项待跑,均按 docs/experiments.md:
+      (a) 写侧全跑 W3(库侧执行器,缺省)对 W1(宿主自写):`mem-exp run --arms W1,W3`,R 固定,n ≥ 120,两次重放;
+      (b) `--set write.slot_table=false` / `--set write.event_lane=false` 两臂对缺省,先看覆盖率探针再看分数;
+      (c) M on/off:同一批库拷贝后 `mem-exp sleep-stores`(缺省推理者=执行器)再考,纵向协议先落地才有 staleness 净值
 - [ ] MCP `memory_decide` 只能带 `text`:接受 merge / split 需要 abstract、body、parts,
       目前只有 CLI `decide` 能给;补 MCP 参数,否则违反不变量 8
 - [ ] 旧四域布局 → schema 布局的迁移命令与 config 版本号(接上面「config knob 改名」那条)
