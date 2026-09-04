@@ -1,4 +1,8 @@
-"""Eligibility before relevance, then relevance × weight × recency. Zero LLM (ADR-002)."""
+"""Eligibility before relevance, then relevance × weight × recency. Zero LLM (ADR-002).
+
+The default surface holds active files only. `--as-of` is the one reader of the history
+surface, and it judges a file by its validity interval, never by its text alone.
+"""
 
 from __future__ import annotations
 
@@ -9,10 +13,9 @@ import sqlite3
 from . import timestamp
 from .access_log import KIND_RECALL, AccessEntry, AccessLog
 from .config import Config
-from .database import Database
+from .database import SURFACE_ACTIVE, SURFACE_HISTORY, Database
 from .raw_index import SOURCE_MEMORY, SOURCE_RAW, RawIndex
-from .record import STATUS_RETIRED
-from .search_index import SearchIndex
+from .search_index import LINK_SEPARATOR, Candidate, SearchIndex
 from .store import Store
 
 
@@ -23,7 +26,6 @@ class Hit:
     abstract: str
     anchor: str
     heading: str
-    domain: str
     type: str
     updated: str
     status: str
@@ -32,9 +34,12 @@ class Hit:
     recency: float
     score: float
     source: str = SOURCE_MEMORY
+    provenance: tuple[str, ...] = ()
 
     def as_dict(self) -> dict[str, object]:
-        return dataclasses.asdict(self)
+        payload = dataclasses.asdict(self)
+        payload["provenance"] = list(self.provenance)
+        return payload
 
 
 class Recall:
@@ -57,8 +62,10 @@ class Recall:
         pool = limit * self._config.recall.candidate_pool_multiplier
         with self._database.connect() as connection:
             index = SearchIndex(connection)
-            candidates = index.match(query, pool)
-            eligible = self._eligible(index.rows(), scope=scope, as_of=as_of, deep=deep)
+            candidates = index.match(query, pool, SURFACE_ACTIVE)
+            if as_of is not None:
+                candidates = candidates + index.match(query, pool, SURFACE_HISTORY)
+            eligible = self._eligible(index.rows(), scope=scope, as_of=as_of)
             hits = self._rank(candidates, eligible, as_of=as_of)
             if deep and self._config.recall.raw_enabled:
                 hits = hits + self._raw_hits(RawIndex(connection), query, pool)
@@ -83,43 +90,33 @@ class Recall:
         rows: list[sqlite3.Row],
         scope: str | None,
         as_of: str | None,
-        deep: bool,
     ) -> dict[str, sqlite3.Row]:
-        by_name = {str(row["name"]): row for row in rows}
         eligible: dict[str, sqlite3.Row] = {}
-        for name, row in by_name.items():
-            if not deep and int(row["archived"]):
-                continue
-            if not deep and str(row["status"]) == STATUS_RETIRED:
-                continue
+        moment = timestamp.parse(as_of) if as_of else None
+        for row in rows:
+            name = str(row["name"])
             if scope and not self._in_scope(str(row["path"]), scope):
                 continue
-            if as_of is None:
-                if row["superseded_by"]:
+            if moment is None:
+                if row["invalid_at"]:
                     continue
-            else:
-                if not self._current_at(row, by_name, as_of):
-                    continue
+            elif not self._current_at(row, moment):
+                continue
             eligible[name] = row
         return eligible
 
     def _in_scope(self, path: str, scope: str) -> bool:
         return path.startswith(scope.strip("/"))
 
-    def _current_at(self, row: sqlite3.Row, by_name: dict[str, sqlite3.Row], as_of: str) -> bool:
-        if timestamp.parse(str(row["valid_from"])) > timestamp.parse(as_of):
+    def _current_at(self, row: sqlite3.Row, moment: dt.datetime) -> bool:
+        if timestamp.parse(str(row["valid_from"])) > moment:
             return False
-        successor_name = row["superseded_by"]
-        if not successor_name:
-            return True
-        successor = by_name.get(str(successor_name))
-        if successor is None:
-            return True
-        return timestamp.parse(str(successor["valid_from"])) > timestamp.parse(as_of)
+        ended = row["invalid_at"]
+        return not (ended and timestamp.parse(str(ended)) <= moment)
 
     def _rank(
         self,
-        candidates: list,
+        candidates: list[Candidate],
         eligible: dict[str, sqlite3.Row],
         as_of: str | None,
     ) -> list[Hit]:
@@ -145,7 +142,6 @@ class Recall:
                     abstract=str(row["abstract"]),
                     anchor=anchor,
                     heading=heading,
-                    domain=str(row["domain"]),
                     type=str(row["type"]),
                     updated=str(row["updated"]),
                     status=str(row["status"]),
@@ -153,6 +149,9 @@ class Recall:
                     relevance=relevance,
                     recency=recency,
                     score=relevance * weight * recency,
+                    provenance=tuple(
+                        item for item in str(row["provenance"]).split(LINK_SEPARATOR) if item
+                    ),
                 )
             )
         hits.sort(key=lambda hit: (-hit.score, hit.name))
@@ -171,7 +170,6 @@ class Recall:
                     abstract=excerpt[: self._config.recall.snippet_max_chars],
                     anchor=candidate.anchor,
                     heading="",
-                    domain="",
                     type=SOURCE_RAW,
                     updated="",
                     status="",
@@ -197,5 +195,3 @@ class Recall:
             age_days / self._config.recall.recency_half_life_days
         )
         return max(self._config.recall.recency_floor, decayed)
-
-

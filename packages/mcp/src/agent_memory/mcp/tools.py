@@ -15,7 +15,6 @@ TOOL_FEEDBACK = "memory_feedback"
 TOOL_PROPOSALS = "memory_proposals"
 TOOL_DECIDE = "memory_decide"
 
-DOMAINS = ("user", "project", "reference", "experience")
 VERDICT_ACCEPT = "accept"
 
 SCHEMAS: dict[str, dict[str, object]] = {
@@ -43,15 +42,15 @@ SCHEMAS: dict[str, dict[str, object]] = {
         "properties": {
             "abstract": {"type": "string"},
             "type": {"type": "string"},
-            "domain": {"type": "string", "enum": list(DOMAINS)},
+            "fields": {"type": "object", "additionalProperties": {"type": "string"}},
             "body": {"type": "string"},
             "name": {"type": "string"},
-            "topic": {"type": "string"},
+            "create_group": {"type": "boolean"},
             "links": {"type": "array", "items": {"type": "string"}},
             "provenance": {"type": "array", "items": {"type": "string"}},
             "supersedes": {"type": "string"},
         },
-        "required": ["abstract", "type", "domain"],
+        "required": ["abstract", "type"],
     },
     TOOL_CORRECT: {
         "type": "object",
@@ -158,10 +157,10 @@ def _record(store: Store, arguments: dict[str, object]) -> dict[str, object]:
     written = store.record(
         abstract=str(arguments["abstract"]),
         type=str(arguments["type"]),
-        domain=str(arguments["domain"]),
+        fields=_string_map(arguments.get("fields")),
         body=str(arguments.get("body") or ""),
         name=_optional(arguments, "name"),
-        topic=_optional(arguments, "topic"),
+        create_group=bool(arguments.get("create_group")),
         links=_string_list(arguments.get("links")),
         provenance=_string_list(arguments.get("provenance")),
         supersedes=_optional(arguments, "supersedes"),
@@ -193,6 +192,12 @@ def _feedback(store: Store, arguments: dict[str, object]) -> dict[str, object]:
 def _optional(arguments: dict[str, object], key: str) -> str | None:
     value = arguments.get(key)
     return str(value) if value is not None and str(value) != "" else None
+
+
+def _string_map(value: object) -> dict[str, str]:
+    if not isinstance(value, dict):
+        return {}
+    return {str(key): str(item) for key, item in value.items()}
 
 
 def _string_list(value: object) -> list[str]:

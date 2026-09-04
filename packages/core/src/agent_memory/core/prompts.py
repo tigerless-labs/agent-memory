@@ -20,7 +20,7 @@ The store is reached through the mem CLI and nothing is remembered until a mem c
 succeeds: `mem context <question>` searches it and opens the entries worth opening in one
 call, `mem recall <query>` searches it and returns a list to work through yourself,
 `mem read <name>` opens one entry, and
-`mem record --domain <domain> --type <type> --abstract "<one line>" --body "<markdown>"`
+`mem record --type <type> --field <key>=<value> --abstract "<one line>" --body "<markdown>"`
 writes one. Add `--supersedes <name>` to that same command when the entry you are writing
 replaces an older one, and both stay on disk with the old one marked as replaced."""
 
@@ -30,18 +30,15 @@ Every memory you have decided on goes in a single call,
 which is how a set of them gets written without spending a turn on each:
 
   printf '%s\n' \
-    '{"domain":"user","type":"fact","abstract":"Sister gave a snake plant on 2023-03-04"}' \
-    '{"domain":"user","type":"preference","abstract":"Prefers oat milk"}' \
+    '{"type":"event","fields":{"subject":"snake plant"},"abstract":"Sister gave a snake plant"}' \
+    '{"type":"preference","fields":{"subject":"milk"},"abstract":"Prefers oat milk"}' \
     | mem record --batch -
 
 The reply lists what was written and, for anything rejected, which line and which field, so a
 correction is one more batch rather than a fresh start.
 
-Each domain takes its own types, and a write succeeds when the pair matches:
-  --domain user        --type fact | preference
-  --domain project     --type fact | decision | procedure
-  --domain experience  --type experience | procedure
-  --domain reference   --type reference
+Each type declares its own key fields; the store derives the file's place from them.
+The store's schemas directory lists the types and what each one is for.
 
 A rejected write comes back naming the field and the reason, so read it and send a corrected
 command."""
@@ -67,9 +64,11 @@ cannot be recognised, dated, or superseded.
 Turn relative dates into absolute ones, using the date of the conversation they came from,
 and pass `--valid-from <date>` so the entry is anchored in time.
 
-Place the memory in the domain that owns it: `user` for who they are and what they prefer,
-`project` for the things they are working on, `experience` for what happened and what it
-taught, `reference` for outside material — links, titles, quoted recommendations."""
+Choose the type that owns it: `profile` and `preference` for who they are and what they
+prefer, `decision`, `procedure` and `fact` for the things they are working on, `event` for
+what happened on a date, `experience` for what it taught, `reference` for outside material
+— links, titles, quoted recommendations. Group fields such as project or topic are chosen
+from the directories that already exist; a new one is created only on request."""
 
 DISTILL_INSTRUCTION = """Write down everything from the conversation below that stays true
 after it ends, so that a future conversation can pick it up.

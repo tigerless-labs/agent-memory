@@ -72,7 +72,6 @@ class StubHost(Host):
             store.record(
                 abstract="The drain window must exceed the lease TTL by ninety seconds",
                 type="fact",
-                domain="project",
                 name="drain-window-rule",
             )
         return HostResult("recorded", True, 0.3)

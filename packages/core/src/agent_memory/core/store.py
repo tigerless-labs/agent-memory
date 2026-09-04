@@ -1,11 +1,15 @@
-"""The single write path (Invariant 2). Every adapter, and Manage itself, enters here."""
+"""The single write path (Invariant 2). Every adapter, and Manage itself, enters here.
+
+A write names a type and fills that type's fields; the store derives the path (ADR-008),
+decides update versus replacement (ADR-009), and reprojects. Nothing here deletes a file.
+"""
 
 from __future__ import annotations
 
 import dataclasses
 import pathlib
 
-from . import chunking, memory_md
+from . import chunking, memory_md, placement
 from . import record as record_module
 from .access_log import KIND_READ, AccessEntry, AccessLog
 from .archive import Archive
@@ -15,10 +19,10 @@ from .database import Database
 from .errors import FieldError, NotFoundError, ValidationError
 from .indexer import Indexer, IndexReport
 from .locking import store_lock
-from .paths import MEMORY_SUFFIX, StoreLayout
-from .record import STATUS_RETIRED, MemoryRecord
+from .paths import StoreLayout
+from .record import MemoryRecord
+from .schema import MODE_ADD_ONLY, MemorySchema, SchemaRegistry
 from .search_index import SearchIndex
-from .slug import slugify
 
 LEVEL_ABSTRACT = "abstract"
 LEVEL_OUTLINE = "outline"
@@ -26,13 +30,13 @@ LEVEL_FULL = "full"
 LEVELS = (LEVEL_ABSTRACT, LEVEL_OUTLINE, LEVEL_FULL)
 UNKNOWN_AGENT = "unknown"
 
-
 RECORD_FIELDS = frozenset(
     {
-        "abstract", "type", "domain", "body", "name", "author", "links",
-        "topic", "valid_from", "provenance", "weight", "supersedes",
+        "abstract", "type", "fields", "body", "name", "author", "links",
+        "valid_from", "provenance", "weight", "supersedes", "create_group",
     }
 )
+UPDATABLE_IN_PLACE = ("abstract", "links", "weight", "provenance")
 
 
 @dataclasses.dataclass(frozen=True)
@@ -81,11 +85,13 @@ class Store:
         self.clock = clock or Clock()
         self.agent = agent
         self.archive = Archive(self.layout, self.clock)
+        self.schemas = SchemaRegistry(self.layout)
         self._indexer = Indexer(self.layout, self.clock)
         self._database = Database(self.layout)
 
     def init(self) -> StoreLayout:
         self.layout.ensure()
+        self.schemas.ensure_factory()
         if not (self.root / "config.toml").exists():
             self.config.save(self.root)
         self._indexer.sync()
@@ -107,6 +113,7 @@ class Store:
         and only the projection is shared.
         """
         self.layout.ensure()
+        self.schemas.ensure_factory()
         written: list[MemoryRecord] = []
         rejected: list[Rejected] = []
         for spec in specs:
@@ -127,52 +134,107 @@ class Store:
         return BatchResult(written=written, rejected=rejected)
 
     def _write_one(self, spec: dict[str, object]) -> MemoryRecord:
-        abstract = str(spec.get("abstract") or "")
-        name = spec.get("name")
-        topic = spec.get("topic")
-        supersedes = spec.get("supersedes")
-        provenance = _as_sequence(spec.get("provenance"))
-        weight = spec.get("weight")
-
-        slug = str(name) if name else slugify(abstract, self.config.storage.slug_max_length)
+        schema = self.schemas.require(str(spec.get("type") or ""))
+        if not str(spec.get("abstract") or "").strip():
+            raise ValidationError([FieldError("abstract", "required")])
         now = self.clock.timestamp()
-        existing = self.find(slug)
+        valid_from = str(spec.get("valid_from") or "") or None
+        placed = placement.resolve(
+            schema,
+            _as_mapping(spec.get("fields")),
+            self.config,
+            self.layout.groups_of(schema.type),
+            valid_from=valid_from,
+            now=now,
+            name=str(spec["name"]) if spec.get("name") else None,
+            create_group=bool(spec.get("create_group")),
+            fallback=str(spec.get("abstract") or "") or None,
+        )
+        target = self.root / placed.relative_path
+        existing = self._at(target)
+        moved_from: pathlib.Path | None = None
+        if existing is None:
+            elsewhere = self.find(placed.name)
+            if elsewhere is not None and elsewhere.path is not None:
+                existing, moved_from = elsewhere, elsewhere.path
+        if existing is not None and schema.mode == MODE_ADD_ONLY:
+            placed = dataclasses.replace(
+                placed,
+                name=f"{placed.name}-{self.clock.stamp().lower()}",
+                relative_path=placed.relative_path.with_name(
+                    f"{placed.name}-{self.clock.stamp().lower()}{placed.relative_path.suffix}"
+                ),
+            )
+            target = self.root / placed.relative_path
+            existing = None
+        elif existing is not None and not existing.is_active():
+            raise ValidationError(
+                [FieldError("name", f"{existing.name} is invalid; supersede it instead")]
+            )
+
+        supersedes = str(spec.get("supersedes") or "") or None
+        weight = spec.get("weight")
         candidate = MemoryRecord(
-            name=slug,
-            abstract=abstract.strip(),
-            type=str(spec.get("type") or ""),
+            name=placed.name,
+            abstract=str(spec.get("abstract") or "").strip(),
+            type=schema.type,
             author=str(spec.get("author") or self.agent),
             created=existing.created if existing else now,
             updated=now,
             body=str(spec.get("body") or ""),
-            valid_from=str(spec.get("valid_from") or "")
-            or (existing.valid_from if existing else now),
+            valid_from=valid_from or (existing.valid_from if existing else now),
             weight=float(str(weight)) if weight is not None else self.config.weight.initial,
             links=[str(link) for link in _as_sequence(spec.get("links"))],
             provenance=list(existing.provenance) if existing else [],
-            domain=str(spec.get("domain") or ""),
+            fields=dict(placed.fields),
+            path=target,
         )
-        target = self._target_path(candidate, str(topic) if topic else None, existing)
-        candidate.path = target
-        record_module.validate(candidate, self.config)
+        if existing is not None and supersedes is None:
+            self._enforce_update_only(existing, candidate)
+        record_module.validate(candidate, self.config, schema)
         record_module.canonicalise_dates(candidate)
-        self._reject_depth(target)
-        predecessor = self._predecessor(candidate, str(supersedes) if supersedes else None)
+        predecessor = self._predecessor(candidate, supersedes)
 
-        for excerpt in provenance:
-            stored = self.archive.append_provenance(
-                candidate.name, str(excerpt), source=self.agent
-            )
-            candidate.provenance.append(str(stored.relative_to(self.root)))
+        for excerpt in _as_sequence(spec.get("provenance")):
+            candidate.provenance.append(self._store_provenance(candidate.name, str(excerpt)))
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(candidate.to_text(), encoding="utf-8")
-        if existing and existing.path and existing.path != target:
-            existing.path.unlink(missing_ok=True)
+        if moved_from is not None and moved_from != target:
+            moved_from.unlink(missing_ok=True)
         if predecessor is not None and predecessor.path is not None:
-            predecessor.superseded_by = candidate.name
+            record_module.invalidate(predecessor, candidate.valid_from or now, candidate.name)
             predecessor.updated = now
             predecessor.path.write_text(predecessor.to_text(), encoding="utf-8")
         return candidate
+
+    def _enforce_update_only(self, existing: MemoryRecord, candidate: MemoryRecord) -> None:
+        """An in-place write may change how a fact is described, never the fact itself."""
+        if candidate.body.strip() and candidate.body.strip() != existing.body.strip():
+            raise ValidationError(
+                [FieldError("body", "the fact changed: write a successor with supersedes")]
+            )
+        if not candidate.body.strip():
+            candidate.body = existing.body
+        if not candidate.links:
+            candidate.links = list(existing.links)
+
+    def _store_provenance(self, name: str, item: str) -> str:
+        if _looks_like_pointer(item):
+            return item
+        stored = self.archive.append_provenance(name, item, source=self.agent)
+        return str(stored.relative_to(self.root))
+
+    def _predecessor(self, candidate: MemoryRecord, supersedes: str | None) -> MemoryRecord | None:
+        if not supersedes:
+            return None
+        if supersedes == candidate.name:
+            raise ValidationError([FieldError("supersedes", "cannot supersede itself")])
+        found = self.find(supersedes)
+        if found is None:
+            raise NotFoundError(f"no memory named {supersedes}")
+        if not found.is_active():
+            raise ValidationError([FieldError("supersedes", f"{supersedes} is already invalid")])
+        return found
 
     def correct(
         self,
@@ -187,11 +249,12 @@ class Store:
         current = self.find(name)
         if current is None or current.path is None:
             raise NotFoundError(f"no memory named {name}")
+        now = self.clock.timestamp()
         if supersede_with:
             successor = self.find(supersede_with)
             if successor is None:
                 raise NotFoundError(f"no memory named {supersede_with}")
-            current.superseded_by = supersede_with
+            record_module.invalidate(current, successor.valid_from or now, supersede_with)
         if abstract is not None:
             current.abstract = abstract.strip()
         if body is not None:
@@ -200,31 +263,29 @@ class Store:
             current.links = list(links)
         if valid_from is not None:
             current.valid_from = valid_from
-        current.updated = self.clock.timestamp()
+        current.updated = now
         with store_lock(self.layout):
             for excerpt in provenance or []:
-                stored = self.archive.append_provenance(current.name, excerpt, source=self.agent)
-                current.provenance.append(str(stored.relative_to(self.root)))
+                current.provenance.append(self._store_provenance(current.name, excerpt))
         return self.write(current)
 
-    def _predecessor(self, candidate: MemoryRecord, supersedes: str | None) -> MemoryRecord | None:
-        if not supersedes:
-            return None
-        if supersedes == candidate.name:
-            raise ValidationError([FieldError("supersedes", "cannot supersede itself")])
-        found = self.find(supersedes)
-        if found is None:
-            raise NotFoundError(f"no memory named {supersedes}")
-        record_module.validate(
-            dataclasses.replace(found, superseded_by=candidate.name), self.config
-        )
-        return found
+    def delete(self, name: str) -> MemoryRecord:
+        """Marks the record invalid. The file stays; physical removal is a human command."""
+        current = self.find(name)
+        if current is None or current.path is None:
+            raise NotFoundError(f"no memory named {name}")
+        if not current.is_active():
+            return current
+        now = self.clock.timestamp()
+        record_module.invalidate(current, now)
+        current.updated = now
+        return self.write(current)
 
     def write(self, record: MemoryRecord) -> MemoryRecord:
         """Validate, persist, reproject. Agent writes and Manage rewrites share this path."""
         if record.path is None:
             raise NotFoundError(f"{record.name} has no location on disk")
-        record_module.validate(record, self.config)
+        record_module.validate(record, self.config, self.schemas.get(record.type))
         record_module.canonicalise_dates(record)
         with store_lock(self.layout):
             record.path.write_text(record.to_text(), encoding="utf-8")
@@ -238,19 +299,6 @@ class Store:
         current.weight = min(
             self.config.weight.ceiling, max(self.config.weight.floor, current.weight + delta)
         )
-        return self.write(current)
-
-    def retire(self, name: str) -> MemoryRecord:
-        """Demotion into archive/. Reversible, non-destructive, and never automatic (T2)."""
-        current = self.find(name)
-        if current is None or current.path is None:
-            raise NotFoundError(f"no memory named {name}")
-        current.status = STATUS_RETIRED
-        current.updated = self.clock.timestamp()
-        with store_lock(self.layout):
-            current.path.write_text(current.to_text(), encoding="utf-8")
-            current.path = self.archive.retire(current.path, current.domain)
-            self._project()
         return current
 
     def read(self, name: str, level: str = LEVEL_FULL) -> ReadResult:
@@ -276,24 +324,20 @@ class Store:
         with self._database.connect() as connection:
             row = SearchIndex(connection).row(name)
         path = (self.root / str(row["path"])) if row else self._scan_for(name)
-        if path is None or not path.exists():
-            return None
-        domain = self.layout.domain_of(path)
-        if domain is None:
-            return None
-        return MemoryRecord.from_text(path.read_text(encoding="utf-8"), domain, path)
+        return self._at(path) if path is not None else None
 
-    def records(self, include_archived: bool = False) -> list[MemoryRecord]:
-        paths = self.layout.truth_files()
-        if include_archived:
-            paths = paths + self.layout.archived_files()
+    def records(self, include_invalid: bool = False) -> list[MemoryRecord]:
         found: list[MemoryRecord] = []
-        for path in paths:
-            domain = self.layout.domain_of(path)
-            if domain is None:
+        for path in self.layout.truth_files():
+            record = self._at(path)
+            if record is None:
                 continue
-            found.append(MemoryRecord.from_text(path.read_text(encoding="utf-8"), domain, path))
+            if include_invalid or record.is_active():
+                found.append(record)
         return found
+
+    def schema_of(self, record: MemoryRecord) -> MemorySchema | None:
+        return self.schemas.get(record.type)
 
     def sync_index(self) -> IndexReport:
         with store_lock(self.layout):
@@ -314,32 +358,25 @@ class Store:
         with self._database.connect() as connection:
             AccessLog(connection).append(entries)
 
+    def _at(self, path: pathlib.Path | None) -> MemoryRecord | None:
+        if path is None or not path.exists() or self.layout.type_of(path) is None:
+            return None
+        return MemoryRecord.from_text(path.read_text(encoding="utf-8"), path)
+
     def _scan_for(self, name: str) -> pathlib.Path | None:
-        for path in self.layout.truth_files() + self.layout.archived_files():
+        for path in self.layout.truth_files():
             if path.stem == name:
                 return path
         return None
 
-    def _target_path(
-        self, candidate: MemoryRecord, topic: str | None, existing: MemoryRecord | None
-    ) -> pathlib.Path:
-        if existing is not None and existing.path is not None and topic is None:
-            return existing.path
-        folder = self.layout.domain_dir(candidate.domain)
-        for part in (topic or "").split("/"):
-            slug = slugify(part, self.config.storage.slug_max_length)
-            if slug:
-                folder = folder / slug
-        return folder / (candidate.name + MEMORY_SUFFIX)
-
-    def _reject_depth(self, target: pathlib.Path) -> None:
-        relative = target.relative_to(self.root)
-        depth_below_domain = len(relative.parts) - len(("domain", "file"))
-        if depth_below_domain > self.config.storage.max_depth_below_domain:
-            raise ValidationError(
-                [FieldError("path", "exceeds max_depth_below_domain")]
-            )
-
 
 def _as_sequence(value: object) -> list[object]:
     return list(value) if isinstance(value, (list, tuple)) else []
+
+
+def _as_mapping(value: object) -> dict[str, object]:
+    return dict(value) if isinstance(value, dict) else {}
+
+
+def _looks_like_pointer(item: str) -> bool:
+    return "#" in item and "/" in item and "\n" not in item and " " not in item.strip()

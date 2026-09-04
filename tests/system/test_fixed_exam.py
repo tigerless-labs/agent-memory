@@ -41,7 +41,7 @@ def test_the_list_width_knob_changes_the_context_it_produces(stocked):
     for index in range(stocked.config.recall.default_limit * 2):
         stocked.record(
             abstract=f"Deploy note number {index} about the drain window and the queue",
-            type="experience", domain="experience", name=f"deploy-note-{index}",
+            type="experience", name=f"deploy-note-{index}",
         )
     narrow = exam.build_context(stocked, "deploy drain window queue", full_text_entries=0)
     stocked.config.recall.default_limit *= 2

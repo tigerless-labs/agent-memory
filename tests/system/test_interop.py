@@ -25,7 +25,7 @@ class StubHost(Host):
             if not self.can_write:
                 return HostResult("", False, 0.1, "cannot write")
             Store(store_root, agent=self.name).record(
-                abstract=FACT.sentence, type="fact", domain="user", name="drain-window-rule"
+                abstract=FACT.sentence, type="fact", name="drain-window-rule"
             )
             return HostResult("drain-window-rule", True, 0.2)
         if not self.can_read:

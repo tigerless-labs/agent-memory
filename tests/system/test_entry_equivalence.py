@@ -29,13 +29,12 @@ def test_record_through_mcp_is_visible_to_the_cli_and_vice_versa(tmp_path, capsy
         {
             "abstract": "Written through MCP about the shared drain window",
             "type": "fact",
-            "domain": "project",
             "name": "via-mcp",
         },
     )
     assert main(["--store", str(root), "--json", "record", "--abstract",
                  "Written through the CLI about the shared drain window", "--type", "fact",
-                 "--domain", "project", "--name", "via-cli"]) == EXIT_OK
+                 "--name", "via-cli"]) == EXIT_OK
     capsys.readouterr()
 
     assert main(["--store", str(root), "--json", "recall", "shared drain window"]) == EXIT_OK
@@ -52,7 +51,7 @@ def test_the_two_entries_agree_on_the_recall_fingerprint(tmp_path, capsys):
     root = tmp_path / "store"
     store = Store(root)
     store.init()
-    store.record(abstract="Anything at all worth recalling", type="fact", domain="project",
+    store.record(abstract="Anything at all worth recalling", type="fact",
                  name="anything")
 
     assert main(["--store", str(root), "--json", "recall", "anything"]) == EXIT_OK
@@ -66,17 +65,17 @@ def test_supersede_on_write_behaves_the_same_through_both_entries(tmp_path, caps
     store = Store(root, agent="mcp")
     store.init()
 
-    store.record(abstract="Goal was level 100", type="fact", domain="user", name="goal-old")
+    store.record(abstract="Goal was level 100", type="fact", name="goal-old")
     tools.dispatch(store, tools.TOOL_RECORD, {
-        "abstract": "Goal is now level 150", "type": "fact", "domain": "user",
-        "name": "goal-new", "supersedes": "goal-old",
+        "abstract": "Goal is now level 150", "type": "fact", "name": "goal-new",
+        "supersedes": "goal-old",
     })
     assert Store(root).find("goal-old").superseded_by == "goal-new"
 
     main(["--store", str(root), "--json", "record", "--abstract", "Price was 42 dollars",
-          "--type", "fact", "--domain", "user", "--name", "price-old"])
+          "--type", "fact", "--name", "price-old"])
     main(["--store", str(root), "--json", "record", "--abstract", "Price is now 58 dollars",
-          "--type", "fact", "--domain", "user", "--name", "price-new",
+          "--type", "fact", "--name", "price-new",
           "--supersedes", "price-old"])
     capsys.readouterr()
     assert Store(root).find("price-old").superseded_by == "price-new"
@@ -140,7 +139,6 @@ def _twin(store, name, extra, body):
     store.record(
         abstract="The drain window closes before the worker lease expires" + extra,
         type="experience",
-        domain="experience",
         name=name,
         body=body,
     )

@@ -31,7 +31,7 @@ NAMES = (NATIVE, MEMCORE)
 NATIVE_STORE_ENV = "AGENT_MEMORY_STORE"
 NATIVE_TOOL_PATTERN = "Bash(mem:*)"
 NATIVE_RECORD_HINT = (
-    "mem record --domain <user|project|reference|experience> --type <type> "
+    "mem record --type <type> --field <key>=<value> "
     '--abstract "<one line>" --body "<markdown>"'
 )
 NATIVE_RECALL_HINT = "mem recall <query>"

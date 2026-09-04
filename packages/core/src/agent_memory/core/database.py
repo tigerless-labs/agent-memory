@@ -1,4 +1,9 @@
-"""The index database. Every table here is a cache — deleting the file loses no knowledge."""
+"""The index database. Every table here is a cache — deleting the file loses no knowledge.
+
+Two text surfaces: the active surface (default retrieval) and the history surface (only
+`--as-of` reads it). Raw material has its own. A row in records exists for invalid files too,
+so supersede chains resolve without touching the tree.
+"""
 
 from __future__ import annotations
 
@@ -7,6 +12,9 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 
 from .paths import StoreLayout
+
+SURFACE_ACTIVE = "chunks"
+SURFACE_HISTORY = "history"
 
 SCHEMA = (
     """
@@ -21,22 +29,31 @@ SCHEMA = (
     CREATE TABLE IF NOT EXISTS records (
         name TEXT PRIMARY KEY,
         path TEXT NOT NULL,
-        domain TEXT NOT NULL,
         type TEXT NOT NULL,
         abstract TEXT NOT NULL,
         status TEXT NOT NULL,
         created TEXT NOT NULL,
         updated TEXT NOT NULL,
         valid_from TEXT NOT NULL,
+        invalid_at TEXT,
         superseded_by TEXT,
         weight REAL NOT NULL,
         author TEXT NOT NULL,
         links TEXT NOT NULL,
-        archived INTEGER NOT NULL
+        provenance TEXT NOT NULL
     )
     """,
-    """
-    CREATE VIRTUAL TABLE IF NOT EXISTS chunks USING fts5(
+    f"""
+    CREATE VIRTUAL TABLE IF NOT EXISTS {SURFACE_ACTIVE} USING fts5(
+        name UNINDEXED,
+        kind UNINDEXED,
+        anchor UNINDEXED,
+        heading,
+        text
+    )
+    """,
+    f"""
+    CREATE VIRTUAL TABLE IF NOT EXISTS {SURFACE_HISTORY} USING fts5(
         name UNINDEXED,
         kind UNINDEXED,
         anchor UNINDEXED,

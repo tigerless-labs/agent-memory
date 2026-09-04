@@ -10,9 +10,11 @@ from __future__ import annotations
 import dataclasses
 import datetime as dt
 import hashlib
+import pathlib
 import re
 
 from . import reasoning, timestamp
+from . import record as record_module
 from .access_log import KIND_READ, AccessLog
 from .clock import Clock
 from .config import TIER_HUMAN, TIER_PROPOSAL, TIER_UNATTENDED
@@ -25,7 +27,7 @@ from .errors import (
     ValidationError,
 )
 from .ledger import LEDGER_FILENAME, VERDICT_ACCEPTED, VERDICT_REJECTED, Decision, DecisionLedger
-from .record import DATE_FIELDS, STATUS_ACTIVE, STATUS_STALE, MemoryRecord
+from .record import DATE_FIELDS, MemoryRecord
 from .store import Store
 
 PROPOSAL_MERGE = "merge"
@@ -36,7 +38,6 @@ PROPOSAL_DEMOTE = "demote"
 
 ACTION_DATE_NORMALISED = "date-normalised"
 ACTION_DUPLICATE_MERGED = "duplicate-merged"
-ACTION_STALENESS_MARKED = "staleness-marked"
 ACTION_LINK_ADDED = "link-added"
 ACTION_WEIGHT_SETTLED = "weight-settled"
 
@@ -135,7 +136,6 @@ class Manage:
         actions: list[Action] = []
         actions.extend(self._normalise_dates(records))
         actions.extend(self._settle_weights(records, reads, last_access))
-        actions.extend(self._mark_staleness(records, last_access))
         actions.extend(self._add_cooccurrence_links(records))
         actions.extend(self._merge_exact_duplicates(records))
 
@@ -235,7 +235,7 @@ class Manage:
         for record in entries:
             if record.name == keeper.name:
                 continue
-            record.superseded_by = keeper.name
+            record_module.invalidate(record, self._clock.timestamp(), keeper.name)
             self._rewrite(record)
         return f"kept {keeper.name}"
 
@@ -327,21 +327,6 @@ class Manage:
             )
         return actions
 
-    def _mark_staleness(
-        self, records: list[MemoryRecord], last_access: dict[str, str]
-    ) -> list[Action]:
-        actions: list[Action] = []
-        now = self._clock.now()
-        for record in records:
-            if record.status != STATUS_ACTIVE:
-                continue
-            if self._idle_days(record, last_access, now) < self._config.manage.stale_after_days:
-                continue
-            record.status = STATUS_STALE
-            self._rewrite(record)
-            actions.append(Action(ACTION_STALENESS_MARKED, record.name, "idle beyond threshold"))
-        return actions
-
     def _add_cooccurrence_links(self, records: list[MemoryRecord]) -> list[Action]:
         with self._database.connect() as connection:
             rows = connection.execute(
@@ -382,7 +367,7 @@ class Manage:
             if original is None:
                 seen[key] = record
                 continue
-            record.superseded_by = original.name
+            record_module.invalidate(record, self._clock.timestamp(), original.name)
             self._rewrite(record)
             actions.append(Action(ACTION_DUPLICATE_MERGED, record.name, original.name))
         return actions
@@ -440,16 +425,13 @@ class Manage:
         ]
 
     def _propose_clusters(self, records: list[MemoryRecord]) -> list[Proposal]:
+        """A directory holding many files that share vocabulary is a topic without a name yet."""
         proposals: list[Proposal] = []
-        for domain in self._config.storage.domains:
-            flat = [
-                record
-                for record in records
-                if record.domain == domain
-                and record.is_active()
-                and record.path is not None
-                and record.path.parent == self._store.layout.domain_dir(domain)
-            ]
+        by_parent: dict[pathlib.Path, list[MemoryRecord]] = {}
+        for record in records:
+            if record.is_active() and record.path is not None:
+                by_parent.setdefault(record.path.parent, []).append(record)
+        for parent, flat in sorted(by_parent.items()):
             buckets: dict[str, set[str]] = {}
             for record in flat:
                 for token in _tokens(f"{record.name} {record.abstract}"):
@@ -459,6 +441,7 @@ class Manage:
                 if len(names) < self._config.manage.cluster_min_files:
                     continue
                 groups.setdefault(frozenset(names), set()).add(token)
+            label = str(parent.relative_to(self._store.root))
             for grouped, shared in sorted(groups.items(), key=lambda group: sorted(group[0])):
                 if len(shared) < self._config.manage.cluster_min_shared_tokens:
                     continue
@@ -466,7 +449,7 @@ class Manage:
                     Proposal(
                         kind=PROPOSAL_CLUSTER,
                         targets=tuple(sorted(grouped)),
-                        reason=f"{domain} root holds a topic worth its own directory",
+                        reason=f"{label} holds a topic worth its own directory",
                         evidence=f"shared {', '.join(sorted(shared))} across {len(grouped)} files",
                     )
                 )

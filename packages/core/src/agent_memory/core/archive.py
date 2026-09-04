@@ -6,7 +6,7 @@ import hashlib
 import pathlib
 
 from .clock import Clock
-from .paths import MEMORY_SUFFIX, StoreLayout
+from .paths import StoreLayout
 
 PROVENANCE_SUFFIX = ".md"
 SESSION_SUFFIX = ".txt"
@@ -31,15 +31,6 @@ class Archive:
     def provenance_of(self, name: str) -> list[pathlib.Path]:
         folder = self._layout.provenance / name
         return sorted(folder.glob("*" + PROVENANCE_SUFFIX)) if folder.exists() else []
-
-    def retire(self, path: pathlib.Path, domain: str) -> pathlib.Path:
-        folder = self._layout.retired / domain
-        folder.mkdir(parents=True, exist_ok=True)
-        target = folder / path.name
-        if target.exists():
-            target = folder / f"{path.stem}-{self._clock.stamp()}{MEMORY_SUFFIX}"
-        path.replace(target)
-        return target
 
     def append_session(self, session_id: str, transcript: str) -> pathlib.Path | None:
         if not self._layout.config.write.session_archive_enabled:

@@ -29,14 +29,12 @@ def _twins(store):
     store.record(
         abstract="The drain window closes before the worker lease expires",
         type="experience",
-        domain="experience",
         body="Short.",
         name="drain-window-first",
     )
     store.record(
         abstract="The drain window closes before the worker lease expires again",
         type="experience",
-        domain="experience",
         body="Longer body carrying the lease TTL and the fix that worked.",
         name="drain-window-second",
     )
@@ -102,7 +100,6 @@ def test_an_abstract_rewrite_needs_no_escalation(seeded):
     seeded.record(
         abstract="Thin",
         type="fact",
-        domain="project",
         body="The release pipeline refuses tags that are not signed.",
         name="thin-abstract-entry",
     )

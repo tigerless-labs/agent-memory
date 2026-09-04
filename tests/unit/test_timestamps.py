@@ -59,25 +59,23 @@ def test_a_store_writes_the_same_utc_instant_whatever_offset_its_clock_reports(t
     store = Store(tmp_path / "store", config=config, clock=FrozenClock(local), agent="test-agent")
     store.init()
     written = store.record(
-        abstract="Tea is served at five", type="fact", domain="user", name="tea"
+        abstract="Tea is served at five", type="fact", name="tea"
     )
     assert written.created == written.updated == written.valid_from
     assert written.updated.endswith(timestamp.UTC_SUFFIX)
     assert dt.datetime.fromisoformat(written.updated) == local
-    on_disk = MemoryRecord.from_text(
-        written.path.read_text(encoding="utf-8"), "user", written.path
+    on_disk = MemoryRecord.from_text(written.path.read_text(encoding="utf-8"), written.path
     )
     assert on_disk.updated == written.updated
 
 
 def test_a_calendar_day_valid_from_is_accepted_and_stored_as_utc_midnight(store):
     written = store.record(
-        abstract="Worn the sneakers four times", type="fact", domain="user",
+        abstract="Worn the sneakers four times", type="fact",
         name="sneakers-four", valid_from="2023-05-30",
     )
     assert dt.datetime.fromisoformat(written.valid_from) == dt.datetime(2023, 5, 30, tzinfo=dt.UTC)
-    on_disk = MemoryRecord.from_text(
-        written.path.read_text(encoding="utf-8"), "user", written.path
+    on_disk = MemoryRecord.from_text(written.path.read_text(encoding="utf-8"), written.path
     )
     assert on_disk.valid_from == written.valid_from
 
@@ -85,7 +83,7 @@ def test_a_calendar_day_valid_from_is_accepted_and_stored_as_utc_midnight(store)
 def test_a_foreign_offset_valid_from_is_stored_in_utc(store):
     given = "2023-05-30T18:00:00+09:00"
     written = store.record(
-        abstract="Worn the sneakers four times", type="fact", domain="user",
+        abstract="Worn the sneakers four times", type="fact",
         name="sneakers-four", valid_from=given,
     )
     assert written.valid_from.endswith(timestamp.UTC_SUFFIX)
@@ -105,7 +103,7 @@ def test_a_foreign_offset_valid_from_is_stored_in_utc(store):
 def test_a_valid_from_without_a_zone_or_without_a_shape_is_rejected(store, payload):
     with pytest.raises(ValidationError) as raised:
         store.record(
-            abstract="Worn the sneakers four times", type="fact", domain="user",
+            abstract="Worn the sneakers four times", type="fact",
             name="sneakers-four", valid_from=payload,
         )
     assert "valid_from" in {error.field for error in raised.value.errors}
@@ -150,11 +148,11 @@ def test_a_canonical_store_gives_manage_nothing_to_normalise(seeded):
 
 def test_two_facts_from_one_day_are_told_apart_by_the_hour(store):
     store.record(
-        abstract="Worn the new sneakers four times", type="fact", domain="user",
+        abstract="Worn the new sneakers four times", type="fact",
         name="sneakers-four", valid_from="2023-05-30T09:00:00Z",
     )
     store.record(
-        abstract="Worn the new sneakers six times", type="fact", domain="user",
+        abstract="Worn the new sneakers six times", type="fact",
         name="sneakers-six", valid_from="2023-05-30T18:00:00Z", supersedes="sneakers-four",
     )
     recall = Recall(store)
@@ -166,11 +164,11 @@ def test_two_facts_from_one_day_are_told_apart_by_the_hour(store):
 
 def test_as_of_in_a_foreign_offset_means_the_same_instant(store):
     store.record(
-        abstract="Worn the new sneakers four times", type="fact", domain="user",
+        abstract="Worn the new sneakers four times", type="fact",
         name="sneakers-four", valid_from="2023-05-30T09:00:00Z",
     )
     store.record(
-        abstract="Worn the new sneakers six times", type="fact", domain="user",
+        abstract="Worn the new sneakers six times", type="fact",
         name="sneakers-six", valid_from="2023-05-30T18:00:00Z", supersedes="sneakers-four",
     )
     recall = Recall(store)

@@ -7,7 +7,6 @@ from agent_memory.core.errors import AuthorityError, NotFoundError
 from agent_memory.core.manage import (
     ACTION_DUPLICATE_MERGED,
     ACTION_LINK_ADDED,
-    ACTION_STALENESS_MARKED,
     ACTION_WEIGHT_SETTLED,
     PROPOSAL_CLUSTER,
     PROPOSAL_MERGE,
@@ -15,7 +14,6 @@ from agent_memory.core.manage import (
     Manage,
 )
 from agent_memory.core.recall import Recall
-from agent_memory.core.record import STATUS_STALE
 
 
 def _kinds(report):
@@ -27,10 +25,10 @@ def _proposal_kinds(report):
 
 
 def test_unattended_sleep_never_shrinks_the_store(seeded):
-    before = len(seeded.records(include_archived=True))
+    before = len(seeded.records(include_invalid=True))
     Manage(seeded).sleep()
     Manage(seeded).sleep()
-    assert len(seeded.records(include_archived=True)) >= before
+    assert len(seeded.records(include_invalid=True)) >= before
 
 
 def test_sleep_is_idempotent(seeded):
@@ -65,20 +63,11 @@ def test_decay_is_reversible_by_an_explicit_boost(seeded, clock):
     assert restored.weight > decayed
 
 
-def test_long_idle_memories_are_marked_stale_rather_than_removed(seeded, clock):
-    clock.advance(days=seeded.config.manage.stale_after_days + 1)
-    report = Manage(seeded).sleep()
-    assert ACTION_STALENESS_MARKED in _kinds(report)
-    assert all(record.path.exists() for record in seeded.records())
-    assert any(record.status == STATUS_STALE for record in seeded.records())
-
-
 def test_exact_duplicates_are_merged_by_supersede_not_by_deletion(seeded):
     original = seeded.find("file-truth-invariant")
     seeded.record(
         abstract=original.abstract,
         type=original.type,
-        domain=original.domain,
         body=original.body,
         name="file-truth-invariant-copy",
     )
@@ -101,7 +90,6 @@ def test_similar_but_not_identical_entries_become_a_proposal_not_an_edit(seeded)
     seeded.record(
         abstract="Ryan prefers concise answers with no preamble at all",
         type="preference",
-        domain="user",
         name="ryan-concise-restated",
     )
     report = Manage(seeded).sleep()
@@ -110,19 +98,20 @@ def test_similar_but_not_identical_entries_become_a_proposal_not_an_edit(seeded)
     assert seeded.find("ryan-prefers-concise-answers") is not None
 
 
-def test_a_crowded_domain_root_yields_a_clustering_proposal_that_is_not_executed(store):
+def test_a_crowded_directory_yields_a_clustering_proposal_that_is_not_executed(store):
     for index in range(store.config.manage.cluster_min_files):
         store.record(
             abstract=f"Deploy pipeline note number {index} about the release rollout",
             type="procedure",
-            domain="project",
             name=f"deploy-note-{index}",
         )
     report = Manage(store).sleep()
     clusters = [item for item in report.proposals if item.kind == PROPOSAL_CLUSTER]
     assert clusters
     assert all(
-        record.path.parent == store.layout.domain_dir("project") for record in store.records()
+        record.path.parent
+        == store.layout.type_dir("procedure") / store.config.storage.default_project
+        for record in store.records()
     )
 
 
@@ -148,14 +137,12 @@ def _twins(store):
     store.record(
         abstract="The nightly export job times out against the reporting replica",
         type="experience",
-        domain="experience",
         body="Short note.",
         name="nightly-export-timeout",
     )
     store.record(
         abstract="The nightly export job times out against the reporting replica again",
         type="experience",
-        domain="experience",
         body="Longer note with the drain window, the lease TTL, and the fix that worked.",
         name="nightly-export-timeout-followup",
     )
@@ -191,10 +178,10 @@ def test_accepting_a_supersede_keeps_the_richer_entry(seeded):
 
 def test_accepting_a_supersede_loses_no_file(seeded):
     _twins(seeded)
-    before = len(seeded.records(include_archived=True))
+    before = len(seeded.records(include_invalid=True))
     proposal = _find(Manage(seeded).proposals(), PROPOSAL_SUPERSEDE)
     Manage(seeded).decide(proposal.id, accept=True)
-    assert len(seeded.records(include_archived=True)) == before
+    assert len(seeded.records(include_invalid=True)) == before
 
 
 def test_rejecting_a_proposal_changes_no_memory_file(seeded):
@@ -210,7 +197,6 @@ def test_a_cluster_proposal_cannot_be_accepted_below_human_authority(seeded):
         seeded.record(
             abstract=f"Kubernetes upgrade note {index} about the kubernetes control plane",
             type="reference",
-            domain="reference",
             body="Body.",
             name=f"kubernetes-upgrade-note-{index}",
         )
@@ -263,7 +249,6 @@ def _flat_topic(store, count, abstract):
         store.record(
             abstract=abstract.format(index=index),
             type="reference",
-            domain="reference",
             body="Body.",
             name=f"topic-note-{index}",
         )

@@ -13,19 +13,16 @@ SPECS = [
     {
         "abstract": "Sister gave a snake plant on 2023-03-04",
         "type": "fact",
-        "domain": "user",
         "name": "snake-plant-gift",
     },
     {
         "abstract": "Basil needs afternoon shade and well-draining soil",
         "type": "fact",
-        "domain": "user",
         "name": "basil-care",
     },
     {
         "abstract": "Fern pest treatment uses neem oil weekly",
         "type": "procedure",
-        "domain": "experience",
         "name": "fern-neem-oil",
         "body": "# Steps\nSpray weekly until the scale is gone.\n",
     },
@@ -53,7 +50,7 @@ def test_a_batch_leaves_the_same_store_as_records_written_one_by_one(tmp_path, c
 
     def shape(store):
         return sorted(
-            (record.name, record.abstract, record.type, record.domain, record.body)
+            (record.name, record.abstract, record.type, record.body)
             for record in store.records()
         )
 
@@ -65,7 +62,7 @@ def test_a_batch_leaves_the_same_store_as_records_written_one_by_one(tmp_path, c
 
 
 def test_one_bad_record_does_not_cost_the_good_ones(store):
-    specs = [SPECS[0], {"abstract": "", "type": "fact", "domain": "user"}, SPECS[1]]
+    specs = [SPECS[0], {"abstract": "", "type": "fact"}, SPECS[1]]
     result = store.record_many(specs)
 
     assert [record.name for record in result.written] == [SPECS[0]["name"], SPECS[1]["name"]]
@@ -76,7 +73,7 @@ def test_one_bad_record_does_not_cost_the_good_ones(store):
 
 def test_a_rejection_says_which_record_and_which_field(store):
     result = store.record_many(
-        [{"abstract": "wrong domain", "type": "reference", "domain": "user"}]
+        [{"abstract": "wrong type", "type": "nonsense"}]
     )
     assert result.written == []
     rejected = result.rejected[0]
@@ -86,20 +83,19 @@ def test_a_rejection_says_which_record_and_which_field(store):
 
 
 def test_an_entirely_invalid_batch_still_reports_rather_than_raising(store):
-    result = store.record_many([{"abstract": "", "type": "", "domain": ""}])
+    result = store.record_many([{"abstract": "", "type": ""}])
     assert result.written == []
     assert result.rejected
     assert store.records() == []
 
 
 def test_a_batch_can_supersede_within_itself(store):
-    store.record(abstract="Worn twice as of 2023-04-01", type="fact", domain="user",
+    store.record(abstract="Worn twice as of 2023-04-01", type="fact",
                  name="converse-count-april")
     result = store.record_many([
         {
             "abstract": "Worn six times as of 2023-05-20",
             "type": "fact",
-            "domain": "user",
             "name": "converse-count-may",
             "supersedes": "converse-count-april",
         }

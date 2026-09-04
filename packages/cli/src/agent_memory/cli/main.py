@@ -10,6 +10,7 @@ import sys
 from collections.abc import Sequence
 
 from agent_memory.core import context as context_module
+from agent_memory.core import migrate as migrate_module
 from agent_memory.core import portability
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
@@ -60,11 +61,14 @@ def _parser() -> argparse.ArgumentParser:
     writer = subparsers.add_parser("record", help="write one memory")
     writer.add_argument("--abstract", default=None)
     writer.add_argument("--type", default=None)
-    writer.add_argument("--domain", default=None)
+    writer.add_argument(
+        "--field", action="append", default=[], metavar="KEY=VALUE",
+        help="a schema field of the type, e.g. --field project=agent-memory",
+    )
+    writer.add_argument("--create-group", action="store_true")
     writer.add_argument("--name", default=None)
     writer.add_argument("--body", default="")
     writer.add_argument("--body-file", default=None)
-    writer.add_argument("--topic", default=None)
     writer.add_argument("--link", action="append", default=[])
     writer.add_argument("--provenance", action="append", default=[])
     writer.add_argument("--valid-from", default=None)
@@ -107,6 +111,15 @@ def _parser() -> argparse.ArgumentParser:
     corrector.add_argument("--link", action="append", default=None)
     corrector.add_argument("--provenance", action="append", default=[])
     corrector.set_defaults(handler=_correct)
+
+    remover = subparsers.add_parser("delete", help="mark one memory invalid; the file stays")
+    remover.add_argument("name")
+    remover.set_defaults(handler=_delete)
+
+    migrator = subparsers.add_parser(
+        "migrate", help="upgrade a four-domain store to the schema layout"
+    )
+    migrator.set_defaults(handler=_migrate)
 
     voter = subparsers.add_parser("feedback", help="explicit boost or penalty")
     voter.add_argument("name")
@@ -162,25 +175,23 @@ def _parser() -> argparse.ArgumentParser:
 
 def _init(store: Store, args: argparse.Namespace) -> dict[str, object]:
     layout = store.init()
-    return {"store": str(layout.root), "domains": list(store.config.storage.domains)}
+    return {"store": str(layout.root), "types": sorted(store.schemas.load())}
 
 
 def _record(store: Store, args: argparse.Namespace) -> dict[str, object]:
     if args.batch:
         return _record_batch(store, args.batch)
-    missing = [
-        field for field in ("abstract", "type", "domain") if not getattr(args, field, None)
-    ]
+    missing = [field for field in ("abstract", "type") if not getattr(args, field, None)]
     if missing:
         raise ValidationError([FieldError(field, "required") for field in missing])
     written = store.record(
         abstract=args.abstract,
         type=args.type,
-        domain=args.domain,
+        fields=_fields(args.field),
         body=_body(args.body, args.body_file),
         name=args.name,
         links=args.link,
-        topic=args.topic,
+        create_group=args.create_group,
         valid_from=args.valid_from,
         provenance=args.provenance,
         supersedes=args.supersedes,
@@ -261,6 +272,25 @@ def _correct(store: Store, args: argparse.Namespace) -> dict[str, object]:
     }
 
 
+def _delete(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    removed = store.delete(args.name)
+    return {"name": removed.name, "status": removed.status, "invalid_at": removed.invalid_at}
+
+
+def _migrate(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    return migrate_module.migrate(store.root).as_dict()
+
+
+def _fields(pairs: list[str]) -> dict[str, str]:
+    fields: dict[str, str] = {}
+    for pair in pairs:
+        key, separator, value = pair.partition("=")
+        if not separator or not key.strip():
+            raise ValidationError([FieldError("field", f"expected KEY=VALUE, got {pair}")])
+        fields[key.strip()] = value.strip()
+    return fields
+
+
 def _feedback(store: Store, args: argparse.Namespace) -> dict[str, object]:
     step = store.config.weight.boost_step
     delta = (step if args.boost else 0.0) - (step if args.penalize else 0.0)
@@ -280,7 +310,7 @@ def _inspect(store: Store, args: argparse.Namespace) -> dict[str, object]:
         "store": str(store.root),
         "active": len([record for record in records if record.is_active()]),
         "total": len(records),
-        "archived": len(store.records(include_archived=True)) - len(records),
+        "invalid": len(store.records(include_invalid=True)) - len(records),
         "dangling_links": [list(pair) for pair in report.dangling_links],
         "unreadable": list(report.unreadable),
         "config_fingerprint": store.config.fingerprint(),

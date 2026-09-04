@@ -10,7 +10,7 @@ from agent_memory.core.watermark import Watermark
 
 SEGMENT_SEPARATOR = "\n\n"
 RECORD_HINT = (
-    "mem record --domain <user|project|reference|experience> --type <type> "
+    "mem record --type <type> --field <key>=<value> "
     "--abstract <one line> --body <markdown> --provenance <verbatim excerpt>"
 )
 RECALL_HINT = "mem recall <query>"

@@ -13,7 +13,6 @@ def _seed(root, name):
     store.record(
         abstract=f"Queue drain timeout is 30 seconds as of {name}",
         type="fact",
-        domain="project",
         name="drain-timeout",
     )
     return store
@@ -56,16 +55,15 @@ def test_sleeping_an_existing_target_refuses_rather_than_mixing_arms(tmp_path):
 
 
 def test_advancing_the_clock_is_what_lets_forgetting_happen_at_all(tmp_path, capsys):
-    from agent_memory.core.record import STATUS_STALE
-
     source = tmp_path / "stores" / "W2"
     store = _seed(source / "q1", "q1")
-    threshold = store.config.manage.stale_after_days
+    threshold = store.config.weight.decay_after_days
+    initial = store.config.weight.initial
 
     same_day = tmp_path / "same-day" / "W2"
     assert exp_main(["sleep-stores", "--stores", str(source), "--target", str(same_day)]) == 0
     capsys.readouterr()
-    assert not [r for r in Store(same_day / "q1").records() if r.status == STATUS_STALE]
+    assert all(r.weight >= initial for r in Store(same_day / "q1").records())
 
     much_later = tmp_path / "later" / "W2"
     assert exp_main([
@@ -73,7 +71,7 @@ def test_advancing_the_clock_is_what_lets_forgetting_happen_at_all(tmp_path, cap
         "--days-later", str(threshold + 1),
     ]) == 0
     capsys.readouterr()
-    assert [r for r in Store(much_later / "q1").records() if r.status == STATUS_STALE]
+    assert all(r.weight < initial for r in Store(much_later / "q1").records())
 
 
 def _twins(root):
@@ -82,14 +80,12 @@ def _twins(root):
     store.record(
         abstract="The drain window closes before the worker lease expires",
         type="experience",
-        domain="experience",
         body="Short.",
         name="drain-window-first",
     )
     store.record(
         abstract="The drain window closes before the worker lease expires again",
         type="experience",
-        domain="experience",
         body="Longer body carrying the lease TTL and the fix that worked.",
         name="drain-window-second",
     )

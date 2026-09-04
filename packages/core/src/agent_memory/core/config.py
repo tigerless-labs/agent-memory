@@ -14,16 +14,21 @@ DEFAULT_STORE = "~/agent-memory-store"
 
 @dataclasses.dataclass
 class StorageConfig:
-    domains: tuple[str, ...] = ("user", "project", "reference", "experience")
-    domain_types: dict[str, tuple[str, ...]] = dataclasses.field(
+    schemas_dirname: str = "schemas"
+    max_depth: int = 3
+    field_sources: dict[str, str] = dataclasses.field(
         default_factory=lambda: {
-            "user": ("fact", "preference"),
-            "project": ("fact", "decision", "procedure"),
-            "reference": ("reference",),
-            "experience": ("experience", "procedure"),
+            "project": "system",
+            "user": "system",
+            "date": "system",
+            "topic": "menu",
+            "category": "menu",
+            "source": "menu",
         }
     )
-    max_depth_below_domain: int = 1
+    default_group: str = "general"
+    default_project: str = "default"
+    default_user: str = "default"
     slug_max_length: int = 80
     abstract_max_chars: int = 240
     archive_sessions_enabled: bool = True
@@ -90,7 +95,6 @@ class ManageConfig:
     trigger_min_sessions: int = 3
     cluster_min_files: int = 5
     cluster_min_shared_tokens: int = 2
-    stale_after_days: float = 365.0
     merge_proposal_similarity: float = 0.75
     link_cooccurrence_min: int = 2
     abstract_min_words: int = 3

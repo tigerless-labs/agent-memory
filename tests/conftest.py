@@ -30,14 +30,12 @@ def seeded(store):
     store.record(
         abstract="Ryan prefers concise answers with no preamble",
         type="preference",
-        domain="user",
         body="Answer in the fewest words possible.",
         name="ryan-prefers-concise-answers",
     )
     store.record(
         abstract="The staging deploy fails with error E4021 when the queue is drained",
         type="experience",
-        domain="experience",
         body=(
             "# Symptom\nDeploy aborts at the drain step and the rollout controller reports "
             "error E4021 while the queue still holds unacknowledged jobs.\n\n"
@@ -51,7 +49,6 @@ def seeded(store):
     store.record(
         abstract="agent-memory keeps markdown files as the single source of truth",
         type="decision",
-        domain="project",
         body="Indexes are rebuildable caches; rm -rf .index loses zero knowledge.",
         name="file-truth-invariant",
     )

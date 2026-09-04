@@ -36,12 +36,12 @@ def workspace(tmp_path):
     covered = stores / "W2" / "q1"
     native.prepare(covered, fresh=True)
     Store(covered).record(
-        domain="user", type="fact", abstract="Sister gave a snake plant on 2023-03-04",
+        type="fact", abstract="Sister gave a snake plant on 2023-03-04",
         body="A snake plant from her sister.",
     )
     missed = stores / "W2" / "q2"
     native.prepare(missed, fresh=True)
-    Store(missed).record(domain="user", type="preference", abstract="Prefers oat milk")
+    Store(missed).record(type="preference", abstract="Prefers oat milk")
     abstention = stores / "W2" / "q3_abs"
     native.prepare(abstention, fresh=True)
 
