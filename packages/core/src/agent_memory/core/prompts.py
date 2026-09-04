@@ -176,9 +176,17 @@ def injected_index(index: str) -> str:
 
 DISTILL_SHEET = """You are filling in a long-term memory store from one conversation.
 
-{slot_instruction} Carry the
-specifics across verbatim: names, numbers, prices, dates, times, titles, URLs. Turn relative
-dates into absolute ones using the session time.
+{slot_instruction}
+
+Each memory is two parts, and both carry weight. The **abstract** is the one line someone
+would search for months later, stating the fact itself. The **body** is what that person
+needs once they have found it: the specifics in full sentences, with every name, number,
+price, date, time, title, model name and URL written exactly as it appeared in the
+conversation, plus the surrounding detail that makes them usable. A memory whose specifics
+live only in its abstract answers a question it was found by, and nothing else; write the
+body for every memory that has any detail at all behind it.
+
+Turn relative dates into absolute ones using the session time.
 
 Every memory you write cites the messages it comes from as a range of message numbers, for
 example "3-5" or "7". When the reconcile sheet already lists the memory this conversation is
@@ -194,9 +202,9 @@ groups listed per type; add create_group when a new group is genuinely needed.
 {conversation}
 
 Reply with one JSON object per line and nothing else. Each object carries "type", "fields",
-"abstract", optionally "body", "op" (new, update, supersede, skip), "handle" for update and
-supersede, "valid_from" when the fact holds from a date, "create_group" when needed, and
-"provenance" as a list of message ranges."""
+"abstract", "body" (markdown, the specifics in full), "op" (new, update, supersede, skip),
+"handle" for update and supersede, "valid_from" when the fact holds from a date,
+"create_group" when needed, and "provenance" as a list of message ranges."""
 
 REPAIR = """Some of the memories you wrote were not accepted. Each line below shows the
 operation and why it was refused. Reply with corrected versions of those lines only, one

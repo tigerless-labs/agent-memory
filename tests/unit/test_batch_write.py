@@ -5,8 +5,6 @@ tightest turn budgets — measured at 13x spread in capture across three hosts o
 instructions. Batching removes the tax without changing what a memory is.
 """
 
-import pytest
-from agent_memory.core.errors import ValidationError
 from agent_memory.core.recall import Recall
 
 SPECS = [
@@ -119,5 +117,24 @@ def test_an_empty_batch_is_not_an_error(store):
 
 
 def test_a_batch_rejects_a_malformed_spec_rather_than_guessing(store):
-    with pytest.raises(ValidationError):
-        store.record_many([{"not_a_field": 1}])
+    result = store.record_many([{"not_a_field": 1}])
+    assert result.written == []
+    assert "not_a_field" in str(result.rejected[0].errors)
+
+
+def test_one_stray_key_costs_its_own_memory_and_not_the_batch(store):
+    result = store.record_many(
+        [
+            {"type": "fact", "fields": {"subject": "kept"}, "abstract": "This one is written"},
+            {
+                "type": "fact",
+                "fields": {"subject": "strayed"},
+                "abstract": "This one carries a key the store does not know",
+                "group": "invented",
+            },
+            {"type": "fact", "fields": {"subject": "also kept"}, "abstract": "So is this one"},
+        ]
+    )
+    assert [record.name for record in result.written] == ["kept", "also-kept"]
+    assert [item.index for item in result.rejected] == [1]
+    assert "group" in str(result.rejected[0].errors)

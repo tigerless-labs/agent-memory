@@ -128,24 +128,20 @@ class Store:
         self.schemas.ensure_factory()
         written: list[MemoryRecord] = []
         rejected: list[Rejected] = []
-        for spec in specs:
-            unknown = set(spec) - RECORD_FIELDS
-            if unknown:
-                raise ValidationError(
-                    [FieldError("spec", f"unknown field: {', '.join(sorted(unknown))}")]
-                )
         if not specs:
             return BatchResult(written=written, rejected=rejected)
         with store_lock(self.layout):
             for index, spec in enumerate(specs):
                 try:
-                    written.append(self._write_one(spec))
+                    written.append(self._write_one(_known_fields(spec)))
                 except ValidationError as error:
                     rejected.append(Rejected(index=index, errors=list(error.errors)))
             self._project()
         return BatchResult(written=written, rejected=rejected)
 
     def _write_one(self, spec: dict[str, object]) -> MemoryRecord:
+        """One malformed item is one rejection: a batch is many memories, and the rest of
+        them reaching disk is what keeps a single stray key from costing a conversation."""
         schema = self.schemas.require(str(spec.get("type") or ""))
         if not str(spec.get("abstract") or "").strip():
             raise ValidationError([FieldError("abstract", "required")])
@@ -437,6 +433,13 @@ class Store:
             if path.stem == name:
                 return path
         return None
+
+
+def _known_fields(spec: dict[str, object]) -> dict[str, object]:
+    unknown = sorted(set(spec) - RECORD_FIELDS)
+    if unknown:
+        raise ValidationError([FieldError("spec", f"unknown field: {', '.join(unknown)}")])
+    return spec
 
 
 def _as_sequence(value: object) -> list[object]:
