@@ -20,3 +20,4 @@ experiments/runs/**/models
 experiments/runs/cwd/
 experiments/runs/*.log
 experiments/runs/*.out
+docs/
