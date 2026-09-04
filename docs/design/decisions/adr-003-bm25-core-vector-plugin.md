@@ -14,6 +14,12 @@ paraphrase 类查询漏得多则插件转正为默认。
 (注入轨、地址轨)。坏——paraphrase 召回在核心配置下有已知盲区,依赖实验裁决,
 可能返工默认配置。
 
+**实现状态(2026-09-05)**:插件现已实现但仍默认关闭。`agent-memory-core[vector]` 使用本地
+FastEmbed/ONNX(`BAAI/bge-small-en-v1.5`);未安装 extra 时 BM25 核心不 import 模型代码。
+Vector 与 FTS 看同一套 abstract/body heading chunks,embedding 与 path/hash/model 状态存于
+`.index/index.db`,可随索引删除重建。两路 Top-N 仅按 chunk identity 做确定性 RRF candidate
+fusion;active/retired/supersede/as-of/scope 仍由 Recall 统一裁决。raw trace 不做 embedding。
+
 **P2/P3 赌注结算(evidence: experiments/results/p2-optimisation.md)**:赌赢,且赢得比预期干净
 ——只要答案在库里,BM25 每次都排进 top-8(跨全部配置无例外);端到端损失落在写入命中与回答步,
 不在检索。**向量插件在此量级上无可咬之处,不转正**;重新评估的触发条件是检索侧出现可测缺口,

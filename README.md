@@ -99,6 +99,11 @@ export AGENT_MEMORY_STORE=~/agent-memory-store
 uv run mem init
 ```
 
+Vector recall is optional and off by default. Install it with
+`uv sync --all-packages --extra vector`, then set `vector_enabled = true` under `[index]` in the
+store's `config.toml`. The default local model is `BAAI/bge-small-en-v1.5`; its first use downloads
+model files. Without the extra, the default BM25-only core imports and runs without model code.
+
 Write one memory, find it again, then throw the index away and prove nothing was lost:
 
 ```bash

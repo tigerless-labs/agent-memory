@@ -22,6 +22,11 @@
 与时效,且按系数压在蒸馏记忆之下——它是证据不是知识。这是 Invariant 4 的检索一半:
 原料存下来而查不到,兜底就只存在于磁盘上。
 
+Vector 默认 OFF。开启时 BM25 与 Vector 共用 `candidate_pool_multiplier`,按
+`name+kind+anchor+heading` 去重并以 RRF 融合;Vector-only chunk 可扩展候选面,但不会绕过
+后续 lifecycle 资格过滤。hybrid memory 与 raw BM25 分数先做 source-safe 缩放,避免 raw 因
+量纲不同天然压过 current memory;raw 本身仍只有 FTS,不做 Vector 化。
+
 **披露由谁决定,是可测的**(evidence: experiments/results/p2-optimisation.md#p9——
 把这一次性调用交到 agent 手里、自由度全保留,得分与库直接代劳无差异 p=1.00,
 两者都显著高于没有该调用的同一 agent p=0.0003;即收益来自读取面本身,不来自限制宿主):`recall` 返回 L0 列表把梯子交给调用方——知道自己要找什么的

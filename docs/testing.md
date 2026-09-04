@@ -26,6 +26,7 @@
 | `core/indexer`·`core/manifest`·`core/search_index`·`core/memory_md` | `tests/unit/test_indexer.py` |
 | `core/locking` | `tests/system/test_concurrency.py` |
 | `core/recall`·`core/chunking`·`core/access_log` | `tests/unit/test_recall.py` |
+| `core/vector_index`·`core/embeddings` | `tests/unit/test_vector_index.py`(fake embedding,无模型下载) |
 | `cli/main`·`core/portability` | `tests/system/test_cli.py` |
 | `core/watermark`·`adapters/*` | `tests/unit/test_write_triggers.py` |
 | `core/manage`·`core/ledger` | `tests/unit/test_manage.py` |

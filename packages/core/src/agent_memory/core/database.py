@@ -53,6 +53,25 @@ SCHEMA = (
     )
     """,
     """
+    CREATE TABLE IF NOT EXISTS vector_files (
+        path TEXT PRIMARY KEY,
+        content_hash TEXT NOT NULL,
+        model TEXT NOT NULL
+    )
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS vector_chunks (
+        path TEXT NOT NULL,
+        chunk_index INTEGER NOT NULL,
+        name TEXT NOT NULL,
+        kind TEXT NOT NULL,
+        anchor TEXT NOT NULL,
+        heading TEXT NOT NULL,
+        embedding BLOB NOT NULL,
+        PRIMARY KEY(path, chunk_index)
+    )
+    """,
+    """
     CREATE TABLE IF NOT EXISTS access_log (
         at TEXT NOT NULL,
         name TEXT NOT NULL,

@@ -12,6 +12,7 @@ from .archive import Archive
 from .clock import Clock
 from .config import Config, resolve_store_root
 from .database import Database
+from .embeddings import Embedder, create_embedder
 from .errors import FieldError, NotFoundError, ValidationError
 from .indexer import Indexer, IndexReport
 from .locking import store_lock
@@ -74,6 +75,7 @@ class Store:
         config: Config | None = None,
         clock: Clock | None = None,
         agent: str = UNKNOWN_AGENT,
+        embedder: Embedder | None = None,
     ):
         self.root = resolve_store_root(root)
         self.config = config or Config.load(self.root)
@@ -81,7 +83,10 @@ class Store:
         self.clock = clock or Clock()
         self.agent = agent
         self.archive = Archive(self.layout, self.clock)
-        self._indexer = Indexer(self.layout, self.clock)
+        if self.config.index.vector_enabled and embedder is None:
+            embedder = create_embedder(self.config.index.vector_model)
+        self.embedder = embedder
+        self._indexer = Indexer(self.layout, self.clock, embedder)
         self._database = Database(self.layout)
 
     def init(self) -> StoreLayout:
