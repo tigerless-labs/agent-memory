@@ -45,7 +45,7 @@ def test_raw_hits_carry_a_path_and_rank_below_distilled_memory(with_raw):
     assert hits[0].source == "memory"
     raw = [hit for hit in hits if hit.source == "raw"]
     assert raw
-    assert raw[0].path.endswith(".txt")
+    assert raw[0].path.endswith(".jsonl")
     assert raw[0].score < hits[0].score
 
 
@@ -58,7 +58,7 @@ def test_raw_material_survives_an_index_rebuild(with_raw):
 
 
 def test_indexing_raw_material_does_not_write_to_it(with_raw):
-    path = with_raw.layout.sessions / "session-alpha.txt"
+    path = with_raw.layout.sessions / "session-alpha.jsonl"
     before = path.read_bytes()
     Recall(with_raw).recall("octopus", deep=True)
     with_raw.sync_index()

@@ -5,7 +5,7 @@ from __future__ import annotations
 import dataclasses
 import pathlib
 
-from . import chunking
+from . import chunking, sessions
 from . import record as record_module
 from .archive import SESSION_SUFFIX
 from .clock import Clock
@@ -13,7 +13,7 @@ from .database import Database
 from .errors import ValidationError
 from .manifest import Manifest, content_hash
 from .paths import StoreLayout
-from .raw_index import RawIndex, source_name
+from .raw_index import RawIndex
 from .record import MemoryRecord
 from .schema import SchemaRegistry
 from .search_index import SearchIndex
@@ -52,12 +52,12 @@ class Indexer:
                 if self._is_raw(path):
                     raw.upsert(
                         relative,
-                        source_name(path),
-                        path.read_text(encoding="utf-8"),
+                        sessions.session_name(path),
+                        sessions.read_file(path),
                         self._config.index.raw_chunk_chars,
                     )
                     manifest.record(
-                        relative, source_name(path), present[relative],
+                        relative, sessions.session_name(path), present[relative],
                         self._clock.now().isoformat(),
                     )
                     reindexed.append(relative)

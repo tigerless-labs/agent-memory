@@ -98,7 +98,7 @@ def test_a_transcript_full_of_instructions_is_archived_verbatim_and_acted_on_by_
             "items": [PAYLOAD],
         },
     )
-    archived = (store.layout.sessions / "loaded.txt").read_text(encoding="utf-8")
+    archived = (store.layout.sessions / "loaded.jsonl").read_text(encoding="utf-8")
     assert PAYLOAD in archived
     assert store.records() == []
 

@@ -112,6 +112,10 @@ def _parser() -> argparse.ArgumentParser:
     corrector.add_argument("--provenance", action="append", default=[])
     corrector.set_defaults(handler=_correct)
 
+    tracer = subparsers.add_parser("trace", help="open the messages a memory cites")
+    tracer.add_argument("name")
+    tracer.set_defaults(handler=_trace)
+
     remover = subparsers.add_parser("delete", help="mark one memory invalid; the file stays")
     remover.add_argument("name")
     remover.set_defaults(handler=_delete)
@@ -270,6 +274,11 @@ def _correct(store: Store, args: argparse.Namespace) -> dict[str, object]:
         "superseded_by": corrected.superseded_by,
         "updated": corrected.updated,
     }
+
+
+def _trace(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    messages = store.trace(args.name)
+    return {"name": args.name, "messages": [message.as_dict() for message in messages]}
 
 
 def _delete(store: Store, args: argparse.Namespace) -> dict[str, object]:

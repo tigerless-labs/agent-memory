@@ -9,7 +9,7 @@ from __future__ import annotations
 import dataclasses
 import pathlib
 
-from . import chunking, memory_md, placement
+from . import chunking, memory_md, placement, timestamp
 from . import record as record_module
 from .access_log import KIND_READ, AccessEntry, AccessLog
 from .archive import Archive
@@ -23,6 +23,7 @@ from .paths import StoreLayout
 from .record import MemoryRecord
 from .schema import MODE_ADD_ONLY, MemorySchema, SchemaRegistry
 from .search_index import SearchIndex
+from .sessions import Message, parse_pointer, resolve
 
 LEVEL_ABSTRACT = "abstract"
 LEVEL_OUTLINE = "outline"
@@ -196,7 +197,10 @@ class Store:
         predecessor = self._predecessor(candidate, supersedes)
 
         for excerpt in _as_sequence(spec.get("provenance")):
-            candidate.provenance.append(self._store_provenance(candidate.name, str(excerpt)))
+            pointer = self._store_provenance(candidate.name, str(excerpt))
+            if pointer not in candidate.provenance:
+                candidate.provenance.append(pointer)
+        self._reject_facts_dated_after_their_evidence(candidate)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(candidate.to_text(), encoding="utf-8")
         if moved_from is not None and moved_from != target:
@@ -219,10 +223,40 @@ class Store:
             candidate.links = list(existing.links)
 
     def _store_provenance(self, name: str, item: str) -> str:
-        if _looks_like_pointer(item):
-            return item
+        if parse_pointer(item) is not None:
+            return item.strip()
         stored = self.archive.append_provenance(name, item, source=self.agent)
         return str(stored.relative_to(self.root))
+
+    def _reject_facts_dated_after_their_evidence(self, record: MemoryRecord) -> None:
+        """A fact cannot hold from later than the conversation that stated it."""
+        if not record.valid_from:
+            return
+        stated = [message.at for message in self.trace_record(record) if message.at]
+        if not stated:
+            return
+        latest = max(timestamp.parse(at) for at in stated)
+        if timestamp.parse(record.valid_from) > latest:
+            raise ValidationError(
+                [FieldError("valid_from", "later than the messages this memory cites")]
+            )
+
+    def trace(self, name: str) -> list[Message]:
+        """Opens the messages a memory cites. The one read that reaches raw material by pointer."""
+        current = self.find(name)
+        if current is None:
+            raise NotFoundError(f"no memory named {name}")
+        stamp = self.clock.now().isoformat()
+        self._log_access([AccessEntry(stamp, name, "", KIND_READ, self.agent)])
+        return self.trace_record(current)
+
+    def trace_record(self, record: MemoryRecord) -> list[Message]:
+        messages: list[Message] = []
+        for item in record.provenance:
+            pointer = parse_pointer(item)
+            if pointer is not None:
+                messages.extend(resolve(self.layout, pointer))
+        return messages
 
     def _predecessor(self, candidate: MemoryRecord, supersedes: str | None) -> MemoryRecord | None:
         if not supersedes:
@@ -377,6 +411,3 @@ def _as_sequence(value: object) -> list[object]:
 def _as_mapping(value: object) -> dict[str, object]:
     return dict(value) if isinstance(value, dict) else {}
 
-
-def _looks_like_pointer(item: str) -> bool:
-    return "#" in item and "/" in item and "\n" not in item and " " not in item.strip()

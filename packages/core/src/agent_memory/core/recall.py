@@ -16,6 +16,7 @@ from .config import Config
 from .database import SURFACE_ACTIVE, SURFACE_HISTORY, Database
 from .raw_index import SOURCE_MEMORY, SOURCE_RAW, RawIndex
 from .search_index import LINK_SEPARATOR, Candidate, SearchIndex
+from .sessions import Pointer, parse_pointer
 from .store import Store
 
 
@@ -35,10 +36,12 @@ class Hit:
     score: float
     source: str = SOURCE_MEMORY
     provenance: tuple[str, ...] = ()
+    cited_by: tuple[str, ...] = ()
 
     def as_dict(self) -> dict[str, object]:
         payload = dataclasses.asdict(self)
         payload["provenance"] = list(self.provenance)
+        payload["cited_by"] = list(self.cited_by)
         return payload
 
 
@@ -68,7 +71,8 @@ class Recall:
             eligible = self._eligible(index.rows(), scope=scope, as_of=as_of)
             hits = self._rank(candidates, eligible, as_of=as_of)
             if deep and self._config.recall.raw_enabled:
-                hits = hits + self._raw_hits(RawIndex(connection), query, pool)
+                citations = self._citations(index.rows())
+                hits = hits + self._raw_hits(RawIndex(connection), query, pool, citations)
                 hits.sort(key=lambda hit: (-hit.score, hit.name))
             hits = hits[:limit]
             AccessLog(connection).append(
@@ -157,12 +161,31 @@ class Recall:
         hits.sort(key=lambda hit: (-hit.score, hit.name))
         return hits
 
-    def _raw_hits(self, raw: RawIndex, query: str, pool: int) -> list[Hit]:
+    def _citations(self, rows: list[sqlite3.Row]) -> list[tuple[Pointer, str]]:
+        cited: list[tuple[Pointer, str]] = []
+        for row in rows:
+            for item in str(row["provenance"]).split(LINK_SEPARATOR):
+                pointer = parse_pointer(item)
+                if pointer is not None:
+                    cited.append((pointer, str(row["name"])))
+        return cited
+
+    def _raw_hits(
+        self,
+        raw: RawIndex,
+        query: str,
+        pool: int,
+        citations: list[tuple[Pointer, str]],
+    ) -> list[Hit]:
         """Evidence, not knowledge: no weight, no recency, and deliberately outranked."""
         factor = self._config.recall.raw_relevance_factor
         found: list[Hit] = []
         for candidate in raw.match(query, pool):
             excerpt = candidate.text.strip().replace("\n", " ")
+            pointer = parse_pointer(candidate.name)
+            cited_by = tuple(
+                sorted({name for cited, name in citations if pointer and cited.overlaps(pointer)})
+            )
             found.append(
                 Hit(
                     name=candidate.name,
@@ -178,6 +201,7 @@ class Recall:
                     recency=0.0,
                     score=candidate.relevance * factor,
                     source=SOURCE_RAW,
+                    cited_by=cited_by,
                 )
             )
         return found

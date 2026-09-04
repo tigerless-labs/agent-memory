@@ -211,7 +211,7 @@ def test_the_cold_arm_archives_the_transcript_before_distilling(tmp_path, suite)
     episodes = dataset.load(suite)
     record = _driver(tmp_path, StubHost(), episodes).run(episodes[0], arms.W3)
     store = Store(tmp_path / "stores" / arms.W3.name / episodes[0].id)
-    archived = list(store.layout.sessions.glob("*.txt"))
+    archived = list(store.layout.sessions.glob("*.jsonl"))
     assert archived
     assert any(SECRET in path.read_text(encoding="utf-8") for path in archived)
     assert record.memories_written > 0

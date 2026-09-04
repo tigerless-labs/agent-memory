@@ -5,11 +5,12 @@ from __future__ import annotations
 import hashlib
 import pathlib
 
+from . import sessions
 from .clock import Clock
 from .paths import StoreLayout
 
 PROVENANCE_SUFFIX = ".md"
-SESSION_SUFFIX = ".txt"
+SESSION_SUFFIX = sessions.SESSION_SUFFIX
 
 
 class Archive:
@@ -32,11 +33,11 @@ class Archive:
         folder = self._layout.provenance / name
         return sorted(folder.glob("*" + PROVENANCE_SUFFIX)) if folder.exists() else []
 
-    def append_session(self, session_id: str, transcript: str) -> pathlib.Path | None:
+    def append_session(
+        self, session_id: str, items: str | list[str] | list[dict[str, object]]
+    ) -> sessions.Pointer | None:
         if not self._layout.config.write.session_archive_enabled:
             return None
-        self._layout.sessions.mkdir(parents=True, exist_ok=True)
-        path = self._layout.sessions / f"{session_id}{SESSION_SUFFIX}"
-        with path.open("a", encoding="utf-8") as handle:
-            handle.write(transcript.rstrip() + "\n")
-        return path
+        if isinstance(items, str):
+            items = [line for line in items.splitlines() if line.strip()]
+        return sessions.append(self._layout, session_id, items, self._clock)

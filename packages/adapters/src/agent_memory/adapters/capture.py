@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import dataclasses
 
-from agent_memory.core import prompts
+from agent_memory.core import prompts, sessions
 from agent_memory.core.store import Store
 from agent_memory.core.watermark import Watermark
 
@@ -22,6 +22,7 @@ class Capture:
     increment: tuple[str, ...]
     instruction: str
     archived: str
+    pointer: str = ""
 
     def is_empty(self) -> bool:
         return not self.increment
@@ -33,12 +34,13 @@ def capture(store: Store, session: str, items: list[str], source: str = "") -> C
     if not increment:
         return Capture(session=session, increment=(), instruction="", archived="")
     segment = SEGMENT_SEPARATOR.join(increment)
-    archived = store.archive.append_session(session, segment)
+    appended = store.archive.append_session(session, list(increment))
     return Capture(
         session=session,
         increment=tuple(increment),
         instruction=prompts.distill(segment, RECORD_HINT),
-        archived=str(archived) if archived else "",
+        archived=str(sessions.session_path(store.layout, session)) if appended else "",
+        pointer=sessions.render_pointer(appended) if appended else "",
     )
 
 

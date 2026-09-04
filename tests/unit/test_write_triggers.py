@@ -38,9 +38,9 @@ def test_the_watermark_never_moves_backwards(store):
 
 def test_captured_material_is_archived_even_when_nothing_is_distilled(store):
     result = capture_module.capture(store, "session-d", SEGMENTS)
-    archived = store.layout.sessions / "session-d.txt"
+    archived = store.layout.sessions / "session-d.jsonl"
     assert archived.exists()
-    assert SEGMENTS[-1] in archived.read_text(encoding="utf-8")
+    assert SEGMENTS[-1].split(": ", 1)[1] in archived.read_text(encoding="utf-8")
     assert result.instruction
 
 

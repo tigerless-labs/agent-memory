@@ -146,7 +146,7 @@ def test_the_native_system_archives_the_transcript(tmp_path, native):
     root = tmp_path / "q1"
     native.prepare(root, fresh=True)
     native.archive(root, "q1-0", "user: the drain window rule")
-    archived = list(Store(root).layout.sessions.glob("*.txt"))
+    archived = list(Store(root).layout.sessions.glob("*.jsonl"))
     assert archived and "drain window" in archived[0].read_text(encoding="utf-8")
 
 

@@ -13,9 +13,9 @@ import dataclasses
 import pathlib
 import tomllib
 
-from . import frontmatter
+from . import frontmatter, sessions
 from .config import CONFIG_FILENAME, Config, StorageConfig
-from .paths import ARCHIVE_DIRNAME, MEMORY_SUFFIX
+from .paths import ARCHIVE_DIRNAME, MEMORY_SUFFIX, SESSIONS_DIRNAME
 from .record import STATUS_ACTIVE, STATUS_INVALID
 from .store import Store
 
@@ -24,6 +24,7 @@ LEGACY_RETIRED_DIRNAME = "retired"
 LEGACY_STATUS_RETIRED = "retired"
 LEGACY_STATUS_STALE = "stale"
 LEGACY_RETIRED_DOMAIN_INDEX = 2
+LEGACY_SESSION_SUFFIX = ".txt"
 LEGACY_TYPE_MAP = {
     ("user", "fact"): "fact",
     ("user", "preference"): "preference",
@@ -55,7 +56,7 @@ class MigrationReport:
 
 
 def needs_migration(root: pathlib.Path) -> bool:
-    return any(_legacy_files(root))
+    return any(_legacy_files(root)) or any(_legacy_sessions(root))
 
 
 def migrate(root: pathlib.Path) -> MigrationReport:
@@ -94,6 +95,11 @@ def migrate(root: pathlib.Path) -> MigrationReport:
         target.write_text(frontmatter.render(fields, body), encoding="utf-8")
         path.unlink()
         moved.append(str(target.relative_to(root)))
+    for path in _legacy_sessions(root):
+        lines = [line for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        sessions.append(store.layout, path.stem, lines, store.clock)
+        path.unlink()
+        moved.append(str(sessions.session_path(store.layout, path.stem).relative_to(root)))
     _remove_empty_legacy_dirs(root)
     store.rebuild_index()
     return MigrationReport(tuple(moved), tuple(invalidated), tuple(skipped))
@@ -109,6 +115,11 @@ def _legacy_files(root: pathlib.Path) -> list[tuple[pathlib.Path, bool]]:
     if retired.is_dir():
         found.extend((path, True) for path in sorted(retired.rglob("*" + MEMORY_SUFFIX)))
     return found
+
+
+def _legacy_sessions(root: pathlib.Path) -> list[pathlib.Path]:
+    folder = root / ARCHIVE_DIRNAME / SESSIONS_DIRNAME
+    return sorted(folder.glob("*" + LEGACY_SESSION_SUFFIX)) if folder.is_dir() else []
 
 
 def _legacy_domain(root: pathlib.Path, path: pathlib.Path) -> str:
