@@ -54,7 +54,7 @@ def distill(store: Store, session: str, messages: list[Message], ask: Ask) -> Di
     watermark = Watermark(store.layout, store.clock)
     queue = pending.Pending(store.layout)
     reports: list[BatchReport] = []
-    consumed = watermark.read(session).consumed
+    distilled = watermark.read(session).distilled
     for batch in batching.batches(messages, config.max_distill_input_chars):
         sheet = reconcile.build(store, session, batch)
         prompt = prompts.distill_sheet(
@@ -75,8 +75,8 @@ def distill(store: Store, session: str, messages: list[Message], ask: Ask) -> Di
                 written=result.written + result_more.written, rejected=result_more.rejected
             )
         queued = queue.append(session, [spec for spec, _ in leftovers])
-        consumed = max(consumed, batch[-1].index + 1)
-        watermark.advance(session, consumed, source="distill")
+        distilled = max(distilled, batch[-1].index + 1)
+        watermark.settle(session, distilled)
         reports.append(
             BatchReport(
                 pointer=render_pointer(sheet.pointer),
@@ -85,7 +85,7 @@ def distill(store: Store, session: str, messages: list[Message], ask: Ask) -> Di
                 pending=queued,
             )
         )
-    return DistillReport(session=session, batches=tuple(reports), consumed=consumed)
+    return DistillReport(session=session, batches=tuple(reports), consumed=distilled)
 
 
 def _apply(

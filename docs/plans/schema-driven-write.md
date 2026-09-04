@@ -116,10 +116,10 @@ under the store's `schemas/`, versioned with the store, editable by the owner.
 |---|---|
 | `storage.domains`, `storage.domain_types` | removed |
 | `storage.schemas_dir`, `storage.max_depth` | added |
-| `write.pending_token_threshold`, `write.pending_message_threshold`, `write.idle_seconds`, `write.max_distill_input_tokens` | added |
+| `write.pending_token_threshold` (with `write.chars_per_token`, since the core carries no tokenizer), `write.pending_message_threshold`, `write.idle_seconds`, `write.max_distill_input_chars`, `write.distill_on_boundary` | added |
 | `manage.authority` | removed |
 | `manage.max_merges_per_sleep`, `manage.max_supersedes_per_sleep`, `manage.max_deletes_per_sleep` | added |
-| `executor.model` (default Gemini 3.7 Flash), `executor.endpoint` | added |
+| `executor.model` (default Gemini 3.7 Flash), `executor.endpoint`, `executor.timeout_seconds`, `executor.command` (what a hook launches) | added |
 | `recall.retrieval_weight_floor`, `weight.demote_penalty`, `manage.stale_after_days` | removed with the states they served |
 
 ## Acceptance

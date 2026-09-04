@@ -10,16 +10,19 @@ import sys
 from collections.abc import Sequence
 
 from agent_memory.core import context as context_module
+from agent_memory.core import distill as distill_module
 from agent_memory.core import migrate as migrate_module
-from agent_memory.core import portability
+from agent_memory.core import portability, sessions, triggers
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_FULL, LEVELS, Store
-from agent_memory.executor import reasoners
+from agent_memory.core.watermark import Watermark
+from agent_memory.executor import distiller, reasoners
 from agent_memory.executor.hosts import HOST_CLAUDE_CODE
 
+SESSION_FLAG = "--session"
 REASON_HOST = "host"
 REASON_ENDPOINT = "endpoint"
 EMIT_INDENT = 2
@@ -114,6 +117,20 @@ def _parser() -> argparse.ArgumentParser:
     corrector.add_argument("--link", action="append", default=None)
     corrector.add_argument("--provenance", action="append", default=[])
     corrector.set_defaults(handler=_correct)
+
+    still = subparsers.add_parser(
+        "distill", help="hand the archived backlog to the library executor and apply its writes"
+    )
+    still.add_argument(
+        SESSION_FLAG, action="append", default=None, help="a session at a boundary: distill now"
+    )
+    still.add_argument(
+        "--force", action="store_true", help="distill every backlog regardless of thresholds"
+    )
+    still.add_argument("--reason", choices=(REASON_HOST, REASON_ENDPOINT), default=None)
+    still.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
+    still.add_argument("--reason-model", default="")
+    still.set_defaults(handler=_distill)
 
     tracer = subparsers.add_parser("trace", help="open the messages a memory cites")
     tracer.add_argument("name")
@@ -277,6 +294,36 @@ def _correct(store: Store, args: argparse.Namespace) -> dict[str, object]:
         "superseded_by": corrected.superseded_by,
         "updated": corrected.updated,
     }
+
+
+def _distill(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    watermark = Watermark(store.layout, store.clock)
+    named = list(args.session or [])
+    candidates = named or sorted(set(watermark.sessions()) | set(_archived_sessions(store)))
+    ask = _reasoner(args) or distiller.distiller(store.config.executor)
+    now = store.clock.now().isoformat()
+    reports = []
+    for session in candidates:
+        backlog = triggers.backlog(store.layout, session, watermark)
+        reason = (
+            triggers.REASON_FORCED
+            if args.force
+            else triggers.reason_for(
+                store.config.write, watermark.read(session), backlog, now, session in named
+            )
+        )
+        if reason is None:
+            continue
+        report = distill_module.distill(store, session, backlog, ask)
+        reports.append({"reason": reason, **report.as_dict()})
+    return {"distilled": reports}
+
+
+def _archived_sessions(store: Store) -> list[str]:
+    folder = store.layout.sessions
+    if not folder.is_dir():
+        return []
+    return [sessions.session_name(path) for path in folder.iterdir() if path.is_file()]
 
 
 def _trace(store: Store, args: argparse.Namespace) -> dict[str, object]:

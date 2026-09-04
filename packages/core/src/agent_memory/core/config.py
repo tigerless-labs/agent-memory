@@ -113,6 +113,19 @@ class WriteConfig:
     reconcile_query_chars: int = 2000
     repair_rounds: int = 1
     pending_dirname: str = "pending"
+    pending_message_threshold: int = 20
+    pending_token_threshold: int = 4000
+    chars_per_token: int = 4
+    idle_seconds: float = 900.0
+    distill_on_boundary: bool = True
+
+
+@dataclasses.dataclass
+class ExecutorConfig:
+    model: str = "google/gemini-3.7-flash"
+    endpoint: str = ""
+    timeout_seconds: float = 120.0
+    command: str = "mem distill"
 
 
 @dataclasses.dataclass
@@ -124,6 +137,7 @@ class Config:
     recall: RecallConfig = dataclasses.field(default_factory=RecallConfig)
     manage: ManageConfig = dataclasses.field(default_factory=ManageConfig)
     write: WriteConfig = dataclasses.field(default_factory=WriteConfig)
+    executor: ExecutorConfig = dataclasses.field(default_factory=ExecutorConfig)
 
     @classmethod
     def default(cls) -> Config:

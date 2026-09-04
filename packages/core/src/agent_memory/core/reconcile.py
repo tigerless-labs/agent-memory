@@ -16,7 +16,7 @@ from .paths import StoreLayout
 from .recall import Recall
 from .record import MemoryRecord
 from .schema import MemorySchema
-from .sessions import Message, Pointer, render_pointer
+from .sessions import Message, Pointer, parse_pointer, render_pointer
 from .store import Store
 
 OP_NEW = "new"
@@ -28,6 +28,7 @@ KEY_OP = "op"
 KEY_HANDLE = "handle"
 KEY_SUPERSEDES = "supersedes"
 KEY_PROVENANCE = "provenance"
+KEY_VALID_FROM = "valid_from"
 KEY_TYPE = "type"
 FENCE = "```"
 TYPE_PROFILE = "profile"
@@ -54,6 +55,7 @@ class Sheet:
     menus: dict[str, tuple[str, ...]]
     profile: tuple[str, ...]
     slots: tuple[MemorySchema, ...]
+    messages: tuple[Message, ...] = ()
 
     def handle_names(self) -> set[str]:
         return {handle.name for handle in self.handles}
@@ -94,7 +96,9 @@ def build(store: Store, session: str, messages: list[Message]) -> Sheet:
     profile = tuple(record.abstract for record in store.records() if record.type == TYPE_PROFILE)
     first = messages[0].index if messages else 0
     last = messages[-1].index if messages else first
-    return Sheet(session, Pointer(session, first, last), handles, menus, profile, schemas)
+    return Sheet(
+        session, Pointer(session, first, last), handles, menus, profile, schemas, tuple(messages)
+    )
 
 
 def parse_operations(reply: str) -> tuple[list[dict[str, object]], list[FieldError]]:
@@ -149,13 +153,32 @@ def to_record_spec(spec: dict[str, object], sheet: Sheet) -> dict[str, object] |
         record_spec.pop(KEY_SUPERSEDES, None)
     else:
         record_spec.pop(KEY_SUPERSEDES, None)
-    record_spec[KEY_PROVENANCE] = _provenance(spec.get(KEY_PROVENANCE), sheet)
+    pointers = _provenance(spec.get(KEY_PROVENANCE), sheet)
+    record_spec[KEY_PROVENANCE] = [render_pointer(pointer) for pointer in pointers]
+    if not record_spec.get(KEY_VALID_FROM):
+        evidence_time = _latest_cited_time(pointers, sheet)
+        if evidence_time:
+            record_spec[KEY_VALID_FROM] = evidence_time
     return record_spec
 
 
-def _provenance(raw: object, sheet: Sheet) -> list[str]:
+def _latest_cited_time(pointers: list[Pointer], sheet: Sheet) -> str:
+    """The library dates a memory by its evidence when the executor gives no date of its own."""
+    stamps = [
+        message.at
+        for message in sheet.messages
+        if message.at
+        and any(
+            pointer.session == sheet.session and pointer.start <= message.index <= pointer.end
+            for pointer in pointers
+        )
+    ]
+    return max(stamps) if stamps else ""
+
+
+def _provenance(raw: object, sheet: Sheet) -> list[Pointer]:
     items = raw if isinstance(raw, list) else ([raw] if raw else [])
-    pointers: list[str] = []
+    pointers: list[Pointer] = []
     for item in items:
         text = str(item).strip()
         if not text:
@@ -163,13 +186,13 @@ def _provenance(raw: object, sheet: Sheet) -> list[str]:
         start, separator, end = text.partition(RANGE_SEPARATOR)
         if start.isdigit() and (end.isdigit() or not separator):
             pointers.append(
-                render_pointer(
-                    Pointer(sheet.session, int(start), int(end) if end.isdigit() else int(start))
-                )
+                Pointer(sheet.session, int(start), int(end) if end.isdigit() else int(start))
             )
         else:
-            pointers.append(text)
-    return pointers or [render_pointer(sheet.pointer)]
+            parsed = parse_pointer(text)
+            if parsed:
+                pointers.append(parsed)
+    return pointers or [sheet.pointer]
 
 
 def profile_lines(records: list[MemoryRecord]) -> tuple[str, ...]:

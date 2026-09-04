@@ -113,6 +113,15 @@ def test_provenance_defaults_to_the_batch_when_the_executor_omits_it(store):
     assert narrowed["provenance"] == [sessions.render_pointer(sessions.Pointer("boundary", 1, 2))]
 
 
+def test_an_undated_memory_is_dated_by_the_messages_it_cites(store):
+    messages = _messages(store)
+    sheet = reconcile.build(store, "boundary", messages)
+    spec = reconcile.to_record_spec(_spec(provenance=["1"]), sheet)
+    assert spec["valid_from"] == messages[1].at
+    dated = reconcile.to_record_spec(_spec(valid_from="2025-12-01"), sheet)
+    assert dated["valid_from"] == "2025-12-01"
+
+
 def test_a_skip_writes_nothing_and_rejects_nothing(store):
     messages = _messages(store)
     ask = _replies([_spec(op="skip")])
@@ -135,7 +144,7 @@ def test_distilling_writes_the_form_and_advances_the_watermark_per_batch(store):
     report = distill.distill(store, "boundary", messages, ask)
     assert len(report.batches) == 3
     assert report.consumed == len(LINES)
-    assert Watermark(store.layout).read("boundary").consumed == len(LINES)
+    assert Watermark(store.layout).read("boundary").distilled == len(LINES)
     names = {record.name for record in store.records()}
     assert {"queue-timeout", "signed-tags"} <= names
     assert len(ask.prompts) == 3
