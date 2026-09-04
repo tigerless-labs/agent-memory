@@ -85,26 +85,16 @@ those deterministic Read surfaces but not the conditional trigger without a futu
 
 ### Existing observation and the minimum gap
 
-Today `runs.jsonl` already records query identity indirectly via episode ID plus the persisted
-`questions.json`, final answer excerpt, expected answer, correctness, host, arm, status, timings,
-memory count, fingerprints, and errors. `exam_seconds` supplies end-to-end exam latency. The store's
-`access_log` records one recall row per returned hit (query, hit name, time, kind, agent) and a read
-row (name, time, kind, agent). Recall output itself contains rankable scores and raw-vs-memory
-`source`, but neither scores nor ordering are persisted in `access_log`. Read rows omit level and
-query. `RunRecord` does not snapshot retrieval/read events, raw trigger/source/span, token usage, or
-judge identity/settings; host execution captures elapsed time but no token accounting.
+`runs.jsonl` records the final answer/result and, from an access-log checkpoint taken after
+experience, four exam-only observations: recalled identities, the subset present in the real
+`raw_chunks` projection, opened memory identities, and successful-hit recall queries. Sets are
+sorted for stability and are not ranks. A workspace-level `run.json` records the full config,
+actual host/model, judge model, exam mode, reused stores, episode fingerprint, and Git revision;
+resume requires the same identity.
 
-Consequently current artifacts can recover the question, final answer, correctness, approximate
-hit membership, opened memory names, and latency, but not reliably reconstruct ranks/scores, read
-level, which recall/read belongs to a run under concurrency, or whether a raw hit was actually
-disclosed. Do not duplicate existing fields. For this experiment, persist one per-question Read
-trace alongside the run: ordered recall hit identifiers/scores/sources, opened memory and level,
-fallback trigger, provenance path, resolved raw path/chunk anchor, and outcome. In the preferred
-fixed exam, return this trace from the Context builder and serialize it with the run; this needs no
-store schema or runtime config. Agentic tracing can follow later only if the fixed result warrants
-it; do not add a correlation field merely for the development panel. Add token/context delta only
-if the selected host already reports it; otherwise measure rendered context bytes and do not claim
-token cost.
+The existing log cannot reveal exact rank, read level, or a deep call that returned zero hits, so
+the harness does not claim those facts or add schema for them. It also does not turn observations
+into an automatic failure classifier. Host execution still captures elapsed time but no tokens.
 
 The analysis funnel is offline, not a runtime decision engine:
 
@@ -128,7 +118,5 @@ and `--judge-model` selects only that Claude judge. Read semantics must stay in 
 not a Claude prompt branch. The experiment only needs an explicit Codex exam host/model plus a
 fixed, recorded judge choice; general Host abstraction refactoring is out of scope.
 
-Expected harness touchpoints after approval: `harness/driver.py` and `metrics.py` for run-correlated
-Read traces, `harness/exam.py`/`systems.py` to select R0 versus R1 without changing stores,
-`harness/main.py` to record the arm, parent run, exam mode, and judge settings, and existing harness
-tests. No new runtime decision model or broad host abstraction is required.
+Observation is implemented in `harness/systems.py`, so Driver remains independent of the native
+database. No runtime decision model or broad host abstraction is required.

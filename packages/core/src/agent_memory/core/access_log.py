@@ -32,6 +32,17 @@ class AccessLog:
     def entries(self) -> list[sqlite3.Row]:
         return self._connection.execute("SELECT * FROM access_log ORDER BY at").fetchall()
 
+    def cursor(self) -> int:
+        row = self._connection.execute(
+            "SELECT COALESCE(MAX(rowid), 0) AS cursor FROM access_log"
+        ).fetchone()
+        return int(row["cursor"])
+
+    def entries_after(self, cursor: int) -> list[sqlite3.Row]:
+        return self._connection.execute(
+            "SELECT * FROM access_log WHERE rowid > ? ORDER BY rowid", (cursor,)
+        ).fetchall()
+
     def counts(self, since: dt.datetime | None = None) -> dict[str, int]:
         if since is None:
             rows = self._connection.execute(

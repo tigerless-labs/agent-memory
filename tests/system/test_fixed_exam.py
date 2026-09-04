@@ -7,8 +7,24 @@ context a configuration produces is a deterministic function of that configurati
 
 import pytest
 from agent_memory.core.recall import Recall
-from agent_memory.harness import exam
+from agent_memory.executor.hosts import HostResult
+from agent_memory.harness import arms, dataset, exam, sampling
+from agent_memory.harness.driver import Driver
 from agent_memory.harness.framing import fixed_exam
+
+
+class _AnsweringHost:
+    name = "stub"
+
+    def run(self, prompt, **kwargs):
+        return HostResult("the lease TTL", True, 0.1)
+
+
+class _Judge:
+    def grade(self, question, expected, candidate):
+        from agent_memory.harness.judge import Verdict
+
+        return Verdict(True, 0.1, True, "yes")
 
 
 @pytest.fixture
@@ -105,3 +121,27 @@ def test_recall_still_never_mutates_truth_when_the_harness_drives_it(stocked):
     after = {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in stocked.layout.truth_files()}
     assert after == before
     assert Recall(stocked).recall("deploy drain queue")
+
+
+def test_fixed_exam_accesses_are_recorded_after_the_checkpoint(stocked, tmp_path):
+    episode = dataset.Episode(
+        id="q1", question="What must the drain window exceed?", answer="the lease TTL",
+        question_type="single", question_date="2026-02-01", sessions=(),
+        evidence_session_ids=(),
+    )
+    source = tmp_path / "source" / arms.W1.name / episode.id
+    source.parent.mkdir(parents=True)
+    import shutil
+
+    shutil.copytree(stocked.root, source)
+    driver = Driver(
+        host=_AnsweringHost(), judge=_Judge(), workspace=tmp_path / "replay",
+        sessions_per_call=1, run_id="fixed", episode_fingerprint=sampling.fingerprint([episode]),
+        reuse_stores=tmp_path / "source", exam_mode=exam.MODE_FIXED,
+    )
+
+    record = driver.run(episode, arms.W1)
+
+    assert record.recall_names
+    assert record.read_names
+    assert episode.question in record.recall_queries

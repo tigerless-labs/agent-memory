@@ -13,7 +13,14 @@ from agent_memory.executor.hosts import Host, HostResult, HostSpec
 from agent_memory.harness import arms, dataset, framing, report, sampling, systems
 from agent_memory.harness.driver import Driver, IsolationBreach
 from agent_memory.harness.judge import Judge
-from agent_memory.harness.metrics import STATUS_FAILED, STATUS_OK, MetricsSink, RunRecord
+from agent_memory.harness.metrics import (
+    STATUS_FAILED,
+    STATUS_OK,
+    MetricsSink,
+    RunMetadata,
+    RunMetadataSink,
+    RunRecord,
+)
 
 SECRET = "the drain window must exceed the lease TTL by ninety seconds"
 
@@ -94,6 +101,14 @@ class StubJudge(Judge):
         return Verdict(correct="lease TTL" in candidate, seconds=0.05, ok=True, raw="stub")
 
 
+class ExperienceReadingHost(StubHost):
+    def run(self, prompt, store_root=None, **kwargs):
+        result = super().run(prompt, store_root=store_root, **kwargs)
+        if store_root and "Question:" not in prompt and SECRET in prompt:
+            Recall(Store(store_root)).recall("ninety seconds")
+        return result
+
+
 def _driver(tmp_path, host, episodes):
     return Driver(
         host=host,
@@ -143,6 +158,9 @@ def test_the_control_arm_receives_no_index(tmp_path, suite):
     _driver(tmp_path, host, episodes).run(episodes[0], arms.W0)
     exam_prompt = next(prompt for prompt in host.prompts if "Question:" in prompt)
     assert "memory store currently holds" not in exam_prompt
+    record = _driver(tmp_path / "empty", StubHost(), episodes).run(episodes[0], arms.W0)
+    assert record.recall_names == record.raw_recall_names == record.read_names == ()
+    assert record.recall_queries == ()
 
 
 def test_injection_is_disabled_by_config_rather_than_by_code(tmp_path, suite):
@@ -195,6 +213,15 @@ def test_a_write_arm_beats_the_no_memory_control_on_the_same_episode(tmp_path, s
     assert not control.correct
     assert written.memories_written > 0
     assert written.correct
+
+
+def test_experience_accesses_do_not_enter_exam_observation(tmp_path, suite):
+    episodes = dataset.load(suite)
+
+    record = _driver(tmp_path, ExperienceReadingHost(), episodes).run(episodes[0], arms.W1)
+
+    assert "drain window lease" in record.recall_queries
+    assert "ninety seconds" not in record.recall_queries
 
 
 def test_only_blocking_arms_report_blocking_time(tmp_path, suite):
@@ -369,10 +396,76 @@ def test_metrics_records_round_trip_through_the_sink(tmp_path):
         status=STATUS_OK, correct=True, answer="a", expected="a", memories_written=1,
         experience_calls=1, experience_seconds=1.0, blocking_seconds=1.0, exam_seconds=1.0,
         judge_seconds=1.0, recall_fingerprint="f", episode_fingerprint="e",
+        recall_names=("memory-a",), raw_recall_names=("session#0",),
+        read_names=("memory-a",), recall_queries=("question",),
     )
     sink.append(record)
     assert sink.records()[0]["episode_id"] == "q1"
     assert set(sink.records()[0]) == set(record.as_dict())
+    assert sink.records()[0]["raw_recall_names"] == ["session#0"]
+
+
+def test_run_metadata_is_created_and_identical_metadata_can_resume(tmp_path):
+    metadata = RunMetadata(
+        run_id="r1",
+        system=systems.NATIVE,
+        host="codex",
+        model="gpt-test",
+        judge_model="judge-test",
+        exam_mode="fixed",
+        episode_fingerprint="episodes",
+        reuse_stores="parent/stores",
+        config=dataclasses.asdict(Config.default()),
+        code_revision="abc123",
+    )
+    sink = RunMetadataSink(tmp_path)
+
+    sink.ensure(metadata)
+    sink.ensure(metadata)
+
+    assert json.loads((tmp_path / "run.json").read_text(encoding="utf-8")) == json.loads(
+        json.dumps(metadata.as_dict())
+    )
+
+
+@pytest.mark.parametrize("field,value", [
+    ("exam_mode", "agentic"),
+    ("model", "another-model"),
+    ("code_revision", "def456"),
+    ("config", {"different": True}),
+])
+def test_run_metadata_refuses_a_different_experiment(tmp_path, field, value):
+    metadata = RunMetadata(
+        run_id="r1", system=systems.NATIVE, host="codex", model="gpt-test",
+        judge_model="judge-test", exam_mode="fixed", episode_fingerprint="episodes",
+        reuse_stores=None, config=dataclasses.asdict(Config.default()), code_revision="abc123",
+    )
+    sink = RunMetadataSink(tmp_path)
+    sink.ensure(metadata)
+
+    with pytest.raises(ValueError, match="another experiment"):
+        sink.ensure(dataclasses.replace(metadata, **{field: value}))
+
+
+def test_resume_refuses_existing_records_without_run_metadata(tmp_path):
+    MetricsSink(tmp_path).append(_record())
+    metadata = RunMetadata(
+        run_id="r1", system=systems.NATIVE, host="codex", model="gpt-test",
+        judge_model="judge-test", exam_mode="fixed", episode_fingerprint="episodes",
+        reuse_stores=None, config=dataclasses.asdict(Config.default()), code_revision="abc123",
+    )
+
+    with pytest.raises(ValueError, match="no run metadata"):
+        RunMetadataSink(tmp_path).ensure(metadata, resume=True)
+
+
+def test_git_revision_is_best_effort_and_injectable():
+    from agent_memory.harness.main import _code_revision
+
+    completed = subprocess.CompletedProcess([], 0, stdout="abc123\n", stderr="")
+    assert _code_revision(lambda *args, **kwargs: completed) == "abc123"
+    failed = subprocess.CompletedProcess([], 1, stdout="", stderr="not a checkout")
+    assert _code_revision(lambda *args, **kwargs: failed) == "unknown"
 
 
 def test_a_write_path_inside_a_worktree_is_refused(tmp_path):

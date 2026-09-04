@@ -2,7 +2,7 @@
 
 import hashlib
 
-from agent_memory.core.access_log import AccessLog
+from agent_memory.core.access_log import KIND_READ, AccessEntry, AccessLog
 from agent_memory.core.database import Database
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_ABSTRACT, LEVEL_OUTLINE
@@ -107,6 +107,23 @@ def test_recall_writes_the_access_log_and_leaves_truth_bytes_untouched(seeded):
     with Database(seeded.layout).connect() as connection:
         entries = AccessLog(connection).entries()
     assert len(entries) >= len(hits) + 1
+
+
+def test_access_log_cursor_returns_only_later_entries_in_append_order(seeded):
+    with Database(seeded.layout).connect() as connection:
+        log = AccessLog(connection)
+        initial = log.cursor()
+        assert initial == 0
+        log.append(
+            [
+                AccessEntry("2026-01-01T00:00:02+00:00", "second", "", KIND_READ, "test"),
+                AccessEntry("2026-01-01T00:00:01+00:00", "first", "", KIND_READ, "test"),
+            ]
+        )
+        assert [row["name"] for row in log.entries_after(initial)] == ["second", "first"]
+        later = log.cursor()
+        log.append([AccessEntry("2026-01-01T00:00:03+00:00", "third", "", KIND_READ, "test")])
+        assert [row["name"] for row in log.entries_after(later)] == ["third"]
 
 
 def test_limit_is_respected(seeded):

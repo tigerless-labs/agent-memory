@@ -5,7 +5,11 @@ import pathlib
 
 import pytest
 from agent_memory.core import prompts
+from agent_memory.core.access_log import KIND_RECALL, AccessEntry, AccessLog
 from agent_memory.core.config import Config
+from agent_memory.core.database import Database
+from agent_memory.core.recall import Recall
+from agent_memory.core.store import Store
 from agent_memory.executor import hosts
 from agent_memory.harness import arms, framing, systems
 
@@ -153,14 +157,51 @@ def test_memcore_keeps_no_transcript(tmp_path, memcore):
     assert not any("secret transcript" in path.read_text("utf-8") for path in files)
 
 
-def test_the_native_system_archives_the_transcript(tmp_path, native):
-    from agent_memory.core.store import Store
+def test_a_system_without_native_access_log_returns_empty_observation(tmp_path, memcore):
+    observation = memcore.read_observation(tmp_path, memcore.access_checkpoint(tmp_path))
+    assert observation.recall_names == observation.raw_recall_names == ()
+    assert observation.read_names == observation.recall_queries == ()
 
+
+def test_the_native_system_archives_the_transcript(tmp_path, native):
     root = tmp_path / "q1"
     native.prepare(root, fresh=True)
     native.archive(root, "q1-0", "user: the drain window rule")
     archived = list(Store(root).layout.sessions.glob("*.txt"))
     assert archived and "drain window" in archived[0].read_text(encoding="utf-8")
+
+
+def test_native_observes_only_accesses_after_the_checkpoint_and_classifies_raw(tmp_path, native):
+    root = tmp_path / "q1"
+    native.prepare(root, fresh=True)
+    store = Store(root)
+    store.record(
+        abstract="Watches nature documentaries",
+        body="Nature documentaries remain a current preference.",
+        type="preference",
+        domain="user",
+        name="nature-documentaries",
+    )
+    store.archive.append_session("plain-session", "user: My Octopus Teacher cost 42 dollars\n")
+    store.sync_index()
+    Recall(store).recall("nature documentaries")
+    checkpoint = native.access_checkpoint(root)
+
+    with Database(store.layout).connect() as connection:
+        AccessLog(connection).append(
+            [AccessEntry("2026-01-01T00:00:00+00:00", "looks#raw", "fake", KIND_RECALL, "test")]
+        )
+    Recall(store).recall("nature documentaries My Octopus Teacher", deep=True)
+    store.read("nature-documentaries")
+    observation = native.read_observation(root, checkpoint)
+
+    assert "nature-documentaries" in observation.recall_names
+    assert observation.read_names == ("nature-documentaries",)
+    assert observation.raw_recall_names
+    assert "looks#raw" in observation.recall_names
+    assert "looks#raw" not in observation.raw_recall_names
+    assert "nature documentaries" not in observation.recall_queries
+    assert "nature documentaries My Octopus Teacher" in observation.recall_queries
 
 
 def test_each_system_has_its_own_fingerprint_so_attribution_is_refused_across_them(

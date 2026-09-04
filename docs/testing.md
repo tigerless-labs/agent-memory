@@ -25,7 +25,7 @@
 | `core/record`·`core/frontmatter`·`core/slug`·`core/archive`·`core/store` | `tests/unit/test_storage.py` |
 | `core/indexer`·`core/manifest`·`core/search_index`·`core/memory_md` | `tests/unit/test_indexer.py` |
 | `core/locking` | `tests/system/test_concurrency.py` |
-| `core/recall`·`core/chunking`·`core/access_log` | `tests/unit/test_recall.py` |
+| `core/recall`·`core/chunking`·`core/access_log` | `tests/unit/test_recall.py`(含 exam cursor) |
 | `core/context` | `tests/unit/test_context.py` |
 | `cli/main`·`core/portability` | `tests/system/test_cli.py` |
 | `core/watermark`·`adapters/*` | `tests/unit/test_write_triggers.py` |
@@ -36,7 +36,7 @@
 | 红队(poisoning / 恶意 frontmatter / 越界写) | `tests/redteam/test_poisoning.py` |
 | `executor/*`(宿主方言、凭据、两种推理者) | `tests/unit/test_host_dialects.py`·`tests/unit/test_credentials.py`·`tests/unit/test_reasoners.py` |
 | `harness/locomo`(第二套件转换) | `tests/system/test_locomo.py` |
-| `harness/*`(回放驱动器、隔离闸、写入路径闸、指标、报表) | `tests/system/test_harness.py` |
+| `harness/*`(回放驱动器、隔离闸、run metadata、Read observation、指标、报表) | `tests/system/test_harness.py`·`tests/system/test_fixed_exam.py` |
 | `harness/systems`(记忆系统方言:本系统、MemCore) | `tests/unit/test_memory_systems.py` |
 | `harness/coverage`(写入覆盖率探针) | `tests/unit/test_coverage.py` |
 
