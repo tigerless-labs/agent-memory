@@ -15,10 +15,12 @@ from __future__ import annotations
 
 import dataclasses
 
+from .raw_index import SOURCE_MEMORY, SOURCE_RAW
 from .recall import Recall
 from .store import LEVEL_FULL, Store
 
-HEADER = "Entries from your memory store, most relevant first:"
+MEMORY_HEADER = "Memory evidence (current records take precedence):"
+RAW_HEADER = "Related raw material (supporting evidence, not current memory):"
 NOTHING_FOUND = "Your memory store returned nothing for this question."
 ENTRY_SEPARATOR = "\n\n"
 BULLET = "- "
@@ -46,13 +48,21 @@ def build(
     if not hits:
         return Context(text=NOTHING_FOUND, entries=0, names=())
 
+    memory_hits = [hit for hit in hits if hit.source == SOURCE_MEMORY]
+    raw_hits = [hit for hit in hits if hit.source == SOURCE_RAW]
     full_text_entries = store.config.recall.context_full_text_entries
-    rendered = [
+    rendered_memory = [
         _entry(hit, _body(store, hit.name) if position < full_text_entries else "")
-        for position, hit in enumerate(hits)
+        for position, hit in enumerate(memory_hits)
     ]
+    rendered_raw = [_entry(hit, "") for hit in raw_hits]
+    sections = []
+    if rendered_memory:
+        sections.append(MEMORY_HEADER + ENTRY_SEPARATOR + ENTRY_SEPARATOR.join(rendered_memory))
+    if rendered_raw:
+        sections.append(RAW_HEADER + ENTRY_SEPARATOR + ENTRY_SEPARATOR.join(rendered_raw))
     return Context(
-        text=HEADER + ENTRY_SEPARATOR + ENTRY_SEPARATOR.join(rendered),
+        text=ENTRY_SEPARATOR.join(sections),
         entries=len(hits),
         names=tuple(hit.name for hit in hits),
     )
