@@ -50,13 +50,16 @@ compile-from-archive tool.
 
 ## The schema
 
-```yaml
-type: decision
-description: 项目里做出的取舍与理由。出现「我们决定 / 改用 / 不再」就写一条。
-key: [project, subject]     # identity: same key, same file
-group: project              # which field names the subdirectory
-mode: upsert                # or add_only
+```toml
+type = "decision"
+description = "项目里做出的取舍与理由。出现「我们决定 / 改用 / 不再」就写一条。"
+key = ["project", "subject"]   # identity: same key, same file
+group = "project"              # which field names the subdirectory
+mode = "upsert"                # or add_only
 ```
+
+TOML, not YAML: the core carries no third-party dependency and the standard library reads
+TOML.
 
 Field sources are declared once, globally: `project`, `date`, `user` are `system`;
 `topic`, `category`, `source` are `menu`; everything else is `field`. The rule "group must

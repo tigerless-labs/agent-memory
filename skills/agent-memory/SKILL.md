@@ -32,11 +32,15 @@ Write down what stays true after this task ends: user facts and preferences, pro
 and constraints, procedures, and hard-won experience with its symptom, cause, and fix.
 
 ```bash
-mem record --domain project --type decision \
+mem record --type decision --field project=<project> --field subject="<what it is about>" \
   --abstract "<one line a stranger could search for six months from now>" \
   --body "<markdown>" \
   --provenance "<verbatim excerpt that justifies it>"
 ```
+
+The store's `schemas/` directory lists the types and what each one is for. Group fields
+such as `project` or `topic` name the subdirectory; pick an existing one, and pass
+`--create-group` only when a new one is genuinely needed.
 
 ## Write discipline
 
@@ -62,5 +66,6 @@ a topic label, and a topic label cannot be recognised, dated, or superseded.
 Carry the specifics across verbatim — error codes, versions, paths, numbers, dates. A memory
 that keeps the topic and loses the error code answers nothing later.
 
-Turn relative dates into absolute ones and pass `--valid-from <date>`. Put the memory in the
-domain that owns it: `user`, `project`, `reference`, `experience`.
+Turn relative dates into absolute ones and pass `--valid-from <date>`. Choose the type that
+owns it — `profile`, `preference`, `entity`, `event`, `decision`, `procedure`, `fact`,
+`experience`, `reference` — and fill its key fields.
