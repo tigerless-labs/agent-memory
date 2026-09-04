@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import dataclasses
 import datetime
 import json
 import os
 import pathlib
 import shutil
+import subprocess
 import sys
 from collections.abc import Sequence
 
@@ -30,7 +32,7 @@ from . import report as report_module
 from . import workspace as workspace_module
 from .driver import Driver
 from .judge import Judge
-from .metrics import STATUS_OK, MetricsSink
+from .metrics import STATUS_OK, MetricsSink, RunMetadata, RunMetadataSink
 
 REASON_HOST = "host"
 REASON_ENDPOINT = "endpoint"
@@ -216,11 +218,6 @@ def _run(args: argparse.Namespace) -> int:
     selected = arms_module.parse(args.arms)
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
-    workspace.mkdir(parents=True, exist_ok=True)
-    (workspace / QUESTIONS_FILENAME).write_text(
-        json.dumps({episode.id: episode.question for episode in episodes}, sort_keys=True),
-        encoding="utf-8",
-    )
     host = _host(args.host, args.model)
     judge = Judge(
         Host(
@@ -235,6 +232,26 @@ def _run(args: argparse.Namespace) -> int:
         return EXIT_ERROR
 
     config = _configured(args.set)
+    episode_fingerprint = sampling.fingerprint(episodes)
+    RunMetadataSink(workspace).ensure(
+        RunMetadata(
+            run_id=args.run_id,
+            system=args.system,
+            host=host.name,
+            model=host.spec.model,
+            judge_model=judge.model,
+            exam_mode=args.exam_mode,
+            episode_fingerprint=episode_fingerprint,
+            reuse_stores=args.reuse_stores or None,
+            config=dataclasses.asdict(config),
+            code_revision=_code_revision(),
+        ),
+        resume=args.resume,
+    )
+    (workspace / QUESTIONS_FILENAME).write_text(
+        json.dumps({episode.id: episode.question for episode in episodes}, sort_keys=True),
+        encoding="utf-8",
+    )
     driver = Driver(
         host=host,
         judge=judge,
@@ -247,12 +264,12 @@ def _run(args: argparse.Namespace) -> int:
         reuse_stores=pathlib.Path(args.reuse_stores) if args.reuse_stores else None,
         run_id=args.run_id,
         manage=args.manage,
-        episode_fingerprint=sampling.fingerprint(episodes),
+        episode_fingerprint=episode_fingerprint,
         system=systems.build(args.system, config),
     )
     jobs = [(episode, arm) for arm in selected for episode in episodes]
     if args.resume:
-        jobs = _resumable(sink, jobs, sampling.fingerprint(episodes), args.system)
+        jobs = _resumable(sink, jobs, episode_fingerprint, args.system)
     halted = _execute(driver, jobs, sink, args.concurrency)
     if halted:
         print(
@@ -290,6 +307,17 @@ def _execute(driver: Driver, jobs: list, sink: MetricsSink, concurrency: int) ->
 def _hit_limit(error: str) -> bool:
     lowered = error.lower()
     return any(marker in lowered for marker in LIMIT_MARKERS)
+
+
+def _code_revision(run=subprocess.run) -> str:
+    try:
+        completed = run(
+            ["git", "rev-parse", "HEAD"], capture_output=True, text=True, check=False
+        )
+    except OSError:
+        return "unknown"
+    revision = completed.stdout.strip()
+    return revision if completed.returncode == 0 and revision else "unknown"
 
 
 def _resumable(sink: MetricsSink, jobs: list, episode_fingerprint: str, system: str) -> list:

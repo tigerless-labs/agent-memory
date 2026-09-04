@@ -48,6 +48,15 @@
 | 父 run(重放来源) | 否则「写侧构造上相同」无从核验 |
 | 逐题记录 | 结论的可复核性;连同 store 真源一起入 git |
 
+Harness 在 workspace 根写 `run.json`:run id、system、实际 host/model、judge model、考试模式、
+episode fingerprint、复用 store 路径、完整 config 快照与 best-effort Git revision。resume 必须与
+已有 sidecar 完全一致;已有 `runs.jsonl` 却没有 sidecar 时拒绝继续,避免混入另一组实验。
+
+`runs.jsonl` 的逐题记录同时保存 exam checkpoint 后 access log 能证明的 observed identities:
+去重排序的 recalled names、其中确实存在于 `raw_chunks` 投影的 raw names、真正被 `Store.read`
+打开的 memory names,以及产生过至少一个 hit 的 recall queries。它不表示精确 rank、read level,
+或零命中 deep 调用,也不自动生成因果失败分类;这些事实当前日志不能证明。
+
 **留下数据是硬约束,怎么分析不是。** 逐题记录在,任何人任何时候都能重算配对检验、覆盖率、
 分层拆解;记录不在,再顺手的分析工具也救不回来。所以分析一律就地做(脚本、REPL、手算皆可),
 不进 harness——每多一个分析子命令,就多一份要维护、要测试、还会与规范本身不同步的东西。
