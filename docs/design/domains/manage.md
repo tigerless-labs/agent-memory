@@ -16,7 +16,7 @@ headless 一次性进程(cron → CLI,不需常驻)。输入:记忆文件全量 
 | 档 | 谁决定 | 操作 | 安全依据 |
 |---|---|---|---|
 | T0 | 确定性规则 | 时间戳规范化;weight 结算(只按自上次睡眠以来的新使用,一次使用只兑现一次);按共现证据补 links;精确重复 → supersede;建目录、搬家、聚簇成目、合并近义目录 | 不含判断;name 不变故搬家零断链;全部可逆 |
-| T1 | 推理者(宿主 LLM,一次性进程) | merge、split、supersede、delete | 只产生新文件与状态标记;旧文件标 invalid 原地保留;每类操作每次睡眠有上限 |
+| T1 | 推理者(库侧执行器,一次性进程) | merge、split、supersede、delete | 只产生新文件与状态标记;旧文件标 invalid 原地保留;每类操作每次睡眠有上限 |
 
 物理删除不属于 M:它是人在 CLI 上发起的独立命令,M 的代码路径到不了。
 
@@ -43,9 +43,8 @@ valid,provenance 与 links 取并集,weight 取最大;split 时原文件保留 n
 「合并后 as-of 回答是否退化」是本文可证伪声明的执行面。
 
 **推理**:需要判断力的那一半由外部推理者提供,核心自身不含 LLM 客户端(Invariant 5、ADR-002);
-推理者是宿主 agent 的 CLI(Claude Code、Codex CLI、Hermes 三种方言都必须可用)还是库侧模型端点
-(缺省 Gemini 3.7 Flash,config 可换),是部署选择,不是算法差异;有宿主会话优先宿主,cron 下走端点。
-写时与睡眠时对称:边界是同一个执行器在蒸馏与对账,睡眠是它在整理。
+推理者就是写侧那个库侧执行器(缺省 Gemini 3.7 Flash,config 可换),宿主模型不参与。
+写时与睡眠时对称:边界是它在蒸馏与对账,睡眠是它在整理;三宿主共用同一个推理者。
 
 5. **Alternatives Considered** — change-scoped 写时维护(实习生/TEPA 路线):
    已部分吸收(写时 supersede 在 W 纪律里);纯写时无法做价值化遗忘与跨条目整理。

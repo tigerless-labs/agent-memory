@@ -39,6 +39,6 @@ agent 用得好;不知道的 agent 自驱检索会把同一个库的得分在重
 5. **Alternatives Considered** — OpenViking 父子分数传播 + L0 语义面
    (长文档场景备选,进 TODO);MemCLI 只 embed abstract(检索质量押一句话,否)。
 6. **Cross-cutting** — 召回内容注入 prompt 时一律作为数据呈现;
-   recall 结果携带路径与时间戳,可解释可溯源。
+   recall 结果携带路径、时间戳与 provenance 指针,`trace` 一步打开原话,可解释可溯源。
 7. **Risks** — 「BM25 够用」是可测赌注:benchmark 有/无向量插件对照,
    paraphrase 类查询漏得多则插件转正(P2 顺带产出)。

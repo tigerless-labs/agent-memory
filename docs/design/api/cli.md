@@ -8,7 +8,8 @@ CLI 是 universal fallback(能跑 shell 的 agent 皆可用)与 operator/admin �
 | 命令组 | 端点 | 作用 | 调用方 | 副作用 |
 |---|---|---|---|---|
 | 记忆 | `record` | 写入一批记忆(动词 new / supersede / update / skip,句柄只能来自对账单;经管线校验+重索引) | agent | 写真源+索引+archive |
-| | `reconcile` | 渲染增量为编号对话并返回对账单(相关记忆句柄、目录菜单、profile) | 钩子/agent | 无 |
+| | `distill` | 取水位线增量 → 渲染 → 对账单 → 库侧执行器填表 → 批量应用 | 钩子/cron | 写真源+索引+archive |
+| | `trace <name>` | 按 provenance 指针打开该记忆的原始消息 | agent/人 | 写 access log |
 | | `recall <query>` | 检索,返回 L0 列表(abstract+路径+锚点+分数) | agent | 写 access log |
 | | `read <name>` | 读单条(全文/`--outline` 大纲) | agent | 写 access log |
 | | `context <query>` | 一次调用:检索 + 打开头部条目,返回可直接推理的上下文 | agent | 写 access log |

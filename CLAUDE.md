@@ -35,9 +35,11 @@ has no M, or buries it in the write path.
 4. **Raw material is append-only; distillation is a projection, not a move.** Anything missed
    by distillation must remain recoverable from `archive/`. Why: "missed by the distiller"
    must never mean "lost by the system".
-5. **The library core contains no LLM client.** Intelligence is borrowed from the consuming
-   agent (hooks, fork, or its CLI as executor). Why: zero-key install, no billing surface,
-   writes stay visible in the agent's own transcript.
+5. **The library core contains no LLM client.** Intelligence lives in the executor package,
+   which calls a model endpoint (default Gemini 3.7 Flash) for distillation and for Manage;
+   hosts only capture, trigger, inject and recall. Why: one extraction for every host, write
+   coverage that does not drift with the host model, and a core that stays testable without
+   a network.
 6. **Manage never destroys information.** Every Manage operation is reversible: T0 is
    rule-only (dates, weight, links, directories), T1 is decided by the host LLM and only
    creates new files or marks old ones invalid, each kind capped per sleep, one git commit

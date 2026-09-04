@@ -34,12 +34,16 @@
    and answers `--as-of` alone; `raw_chunks` anchors are message indices; `records` keeps
    a row for invalid files so chains resolve.
 
-7. **Who reasons.** Distillation at the boundary and Manage's T1 verdicts go through the
-   same executor abstraction from `docs/plans/manage-reasoning.md`: a host executor (Claude
-   Code, Codex CLI, Hermes dialects — all three must work) when a host session exists, and
-   a library-side model executor otherwise, defaulting to Gemini 3.7 Flash through the
-   Vertex endpoint already wired in `executor`. The core keeps no client (Invariant 5); the
-   model id is a config knob.
+7. **Who reasons: the library, always.** Distillation at the boundary and Manage's T1
+   verdicts run in the executor package against a model endpoint, default Gemini 3.7 Flash
+   through the Vertex path already wired in `executor`. Hosts (Claude Code, Codex CLI,
+   Hermes) only capture, trigger, inject and recall; their own model never distils. Host
+   self-write stays available as experiment arms (W1, W2). The core keeps no client; the
+   model id is a config knob. ADR-002 amended.
+8. **Recall links back to the trace.** Provenance is an absolute pointer (session and
+   message range); recall hits carry it, `trace <name>` opens the messages, `--deep` raw
+   hits carry `cited_by`. This is the one place the design departs from OpenViking on
+   purpose. A fact date later than its provenance message time is rejected at apply.
 
 Out of scope here: the vector plugin, directory sidecars, tree search, the
 compile-from-archive tool.
@@ -86,10 +90,10 @@ under the store's `schemas/`, versioned with the store, editable by the owner.
    Prompts render the slot table from schema descriptions. Tests: an operation naming a
    handle outside the sheet is rejected; a batch larger than the cap splits and the watermark
    advances per batch; a rejected item lands in pending and is retried at the next boundary.
-5. **Triggers and executors.** Threshold and idle triggers beside the hooks; the boundary
-   distillation call routed through the executor (host dialect or model endpoint); config
-   knobs. Tests: all three host dialects render the same distillation request; the model
-   executor and a host executor produce operations the same batch contract accepts; the
+5. **Triggers and executor.** Threshold and idle triggers beside the hooks; the boundary
+   distillation call routed through the library executor; the `distill` and `trace`
+   endpoints; config knobs. Tests: all three host hooks hand the same increment to the same
+   executor call; a stubbed executor's operations pass the batch contract; the
    threshold path and the hook path produce the same set of memories from the same
    transcript; idle scan advances the watermark with hooks disabled.
 6. **Manage.** T0 directory operations; proposals for split and for raw material hit but
@@ -112,7 +116,7 @@ under the store's `schemas/`, versioned with the store, editable by the owner.
 | `write.pending_token_threshold`, `write.pending_message_threshold`, `write.idle_seconds`, `write.max_distill_input_tokens` | added |
 | `manage.authority` | removed |
 | `manage.max_merges_per_sleep`, `manage.max_supersedes_per_sleep`, `manage.max_deletes_per_sleep` | added |
-| `executor.kind` (host \| model), `executor.host`, `executor.model` (default Gemini 3.7 Flash) | added |
+| `executor.model` (default Gemini 3.7 Flash), `executor.endpoint` | added |
 | `recall.retrieval_weight_floor`, `weight.demote_penalty`, `manage.stale_after_days` | removed with the states they served |
 
 ## Acceptance
