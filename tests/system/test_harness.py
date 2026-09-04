@@ -102,6 +102,8 @@ class StubJudge(Judge):
 
 
 def _cold_still(prompt):
+    if SECRET not in prompt:
+        return ""
     return json.dumps(
         {
             "type": "fact",
@@ -241,6 +243,25 @@ def test_the_cold_arm_archives_the_transcript_and_asks_the_library_executor_not_
     assert all("Question:" in prompt for prompt in host.prompts)
     written = store.records()
     assert written and all(record.provenance for record in written)
+    first = next(message for message in _archived_messages(store) if message.text == SECRET)
+    assert first.at.startswith("2026-01-01")
+    assert written[0].valid_from.startswith("2026-01-01")
+
+
+def _archived_messages(store):
+    from agent_memory.core import sessions
+
+    return [
+        message
+        for path in store.layout.sessions.glob("*.jsonl")
+        for message in sessions.read_file(path)
+    ]
+
+
+def test_a_longmemeval_date_becomes_an_instant_and_a_bad_one_becomes_nothing():
+    assert dataset.session_stamp("2023/05/20 (Sat) 02:21") == "2023-05-20T02:21:00+00:00"
+    assert dataset.session_stamp("2026/01/01") == "2026-01-01T00:00:00+00:00"
+    assert dataset.session_stamp("whenever") == ""
 
 
 def test_a_host_failure_marks_the_run_and_never_counts_as_correct(tmp_path, suite):

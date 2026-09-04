@@ -101,7 +101,9 @@ class MemorySystem:
     def exam_preamble(self) -> str:
         raise NotImplementedError
 
-    def distill(self, root: pathlib.Path, label: str, text: str, ask: Ask) -> int:
+    def distill(
+        self, root: pathlib.Path, label: str, messages: list[dict[str, object]], ask: Ask
+    ) -> int:
         """The cold arm: the library's own executor reads the archive. Systems without a
         library-side still report that they have none."""
         raise NotImplementedError(f"{self.name} has no library-side distiller")
@@ -163,9 +165,9 @@ class NativeSystem(MemorySystem):
     def archive(self, root, label, text):
         self._store(root).archive.append_session(label, text)
 
-    def distill(self, root, label, text, ask):
+    def distill(self, root, label, messages, ask):
         store = self._store(root)
-        pointer = store.archive.append_session(label, text)
+        pointer = store.archive.append_session(label, messages)
         messages = sessions.resolve(store.layout, pointer) if pointer else []
         report = distill_module.distill(store, label, messages, ask)
         return sum(len(batch.written) for batch in report.batches)

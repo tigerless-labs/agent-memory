@@ -202,8 +202,9 @@ class Driver:
         started = time.monotonic()
         failures = 0
         for index, batch in enumerate(batches):
+            messages = [message for session in batch for message in session.messages()]
             try:
-                self._system.distill(root, f"{episode.id}-{index}", _render(batch), self._ask)
+                self._system.distill(root, f"{episode.id}-{index}", messages, self._ask)
             except Exception:
                 failures += 1
         self._system.release(root)
