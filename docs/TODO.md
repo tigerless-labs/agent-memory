@@ -132,8 +132,6 @@
       (a) 写侧全跑 W3(库侧执行器,缺省)对 W1(宿主自写):`mem-exp run --arms W1,W3`,R 固定,n ≥ 120,两次重放;
       (b) `--set write.slot_table=false` / `--set write.event_lane=false` 两臂对缺省,先看覆盖率探针再看分数;
       (c) M on/off:同一批库拷贝后 `mem-exp sleep-stores`(缺省推理者=执行器)再考,纵向协议先落地才有 staleness 净值
-- [ ] MCP `memory_decide` 只能带 `text`:接受 merge / split 需要 abstract、body、parts,
-      目前只有 CLI `decide` 能给;补 MCP 参数,否则违反不变量 8
 - [ ] 旧四域布局 → schema 布局的迁移命令与 config 版本号(接上面「config knob 改名」那条)
 - [ ] abstract 缺省由键字段渲染、agent 可覆盖:两种写法对检索的影响需对照
 - [ ] 出厂类型说明里明确重叠处谁赢(profile vs preference,entity vs reference)

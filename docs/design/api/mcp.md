@@ -14,5 +14,7 @@ MCP 是轻量接入手段(手动或规则提示触发),**不是独立写入策�
 | `memory_correct` | correct | update / supersede |
 | `memory_feedback` | (admin) | boost / penalize 显式反馈 |
 
+- **M 不在 MCP 面上**:睡眠由库侧执行器裁决,不需要人也不需要宿主 agent;`sleep`、`decide`、`gc`
+  只是人用的 CLI 命令,agent 入口够不着,睡眠期的每类上限才是唯一的上限。
 - 部署:本地进程或 Docker 容器内与 CLI 同体;跨 agent 共享同一盘。
 - 超时、错误码与结果结构在实现层与 CLI 共用一套契约对象。
