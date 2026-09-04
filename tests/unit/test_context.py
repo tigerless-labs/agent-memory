@@ -1,7 +1,12 @@
 """The read surface that decides disclosure itself, instead of delegating it to the host."""
 
-from agent_memory.core.context import build
+from agent_memory.core.context import MEMORY_HEADER, RAW_HEADER, build
 from agent_memory.core.recall import Recall
+
+
+def _sections(text):
+    memory, separator, raw = text.partition(RAW_HEADER)
+    return memory, raw if separator else ""
 
 
 def test_context_is_deterministic_for_the_same_store_and_question(seeded):
@@ -58,3 +63,64 @@ def test_deep_context_reaches_raw_material(store):
     store.sync_index()
     assert "Octopus" not in build(store, "My Octopus Teacher", deep=False).text
     assert "Octopus" in build(store, "My Octopus Teacher", deep=True).text
+
+
+def test_deep_context_separates_memory_from_raw_evidence(store):
+    store.record(
+        abstract="Watches nature documentaries",
+        body="Nature documentaries are a current preference.",
+        type="preference",
+        domain="user",
+        name="nature-documentaries",
+    )
+    store.archive.append_session(
+        "s1", "user: My Octopus Teacher was the follow-up and it cost 42 dollars\n"
+    )
+    store.sync_index()
+
+    context = build(store, "nature documentary My Octopus Teacher 42 dollars", deep=True)
+    memory, raw = _sections(context.text)
+
+    assert context.text.startswith(MEMORY_HEADER)
+    assert raw
+    assert "Watches nature documentaries" in memory
+    assert "My Octopus Teacher" not in memory
+    assert "My Octopus Teacher" in raw
+
+
+def test_raw_hits_do_not_consume_the_memory_full_text_budget(store):
+    body = "The full distilled detail says nature documentaries remain the preference."
+    store.record(
+        abstract="Nature documentary preference",
+        body=body,
+        type="preference",
+        domain="user",
+        name="nature-documentary-preference",
+        weight=store.config.weight.floor,
+    )
+    store.archive.append_session(
+        "s1", "user: nature documentary follow-up My Octopus Teacher cost 42 dollars\n"
+    )
+    store.sync_index()
+    store.config.recall.context_full_text_entries = 1
+    store.config.recall.raw_relevance_factor = 100.0
+
+    context = build(store, "nature documentary follow-up", deep=True)
+    memory, raw = _sections(context.text)
+
+    assert raw
+    assert body in memory
+
+
+def test_a_raw_only_deep_context_is_evidence_not_memory_truth(store):
+    store.archive.append_session(
+        "s1", "user: My Octopus Teacher was the follow-up and it cost 42 dollars\n"
+    )
+    store.sync_index()
+
+    context = build(store, "My Octopus Teacher 42 dollars", deep=True)
+    memory, raw = _sections(context.text)
+
+    assert not context.is_empty()
+    assert MEMORY_HEADER not in memory
+    assert raw and "My Octopus Teacher" in raw

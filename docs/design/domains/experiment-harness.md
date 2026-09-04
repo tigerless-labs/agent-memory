@@ -74,13 +74,14 @@ signal—the full benchmark with the repeated-replay and paired-test requirement
 | Arm | Exact definition |
 |---|---|
 | R0 | Current-main normal memory-only Context behavior (`deep=false`) on the frozen stores |
-| R1 | The same normal memory recall and disclosure, then explicit `deep` provenance-guided raw evidence fallback when a selected memory lacks the requested detail; no global raw search in the initial list |
+| R1 | The same normal memory recall and disclosure, then an explicit `deep` call using the existing global raw FTS fallback; raw snippets render separately from memory evidence |
 
 Both arms use the same dataset and episode order, byte-identical stores, host/model, exam mode,
 judge/rubric/votes, limits, and all recall knobs. Store reuse is mandatory and Write never reruns.
 Record the parent store run and full config because exam mode is not in the current recall
-fingerprint. Prefer fixed exam to isolate Read policy; run an agentic confirmation only as a
-separate paired comparison because it additionally measures host tool discipline.
+fingerprint. Agentic mode can exercise the real memory-first conditional fallback. Fixed exam has
+no host retrieval loop and currently maps `raw_enabled` directly to deep off/on, so it can compare
+those deterministic Read surfaces but not the conditional trigger without a future protocol.
 
 ### Existing observation and the minimum gap
 

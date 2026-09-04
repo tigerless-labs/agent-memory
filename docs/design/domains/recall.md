@@ -41,7 +41,7 @@ agent 用得好;不知道的 agent 自驱检索会把同一个库的得分在重
 7. **Risks** — 「BM25 够用」是可测赌注:benchmark 有/无向量插件对照,
    paraphrase 类查询漏得多则插件转正(P2 顺带产出)。
 
-## 8. Progressive raw-trace Read experiment (proposed)
+## 8. Progressive raw-trace Read (v1)
 
 ### Problem and hypothesis
 
@@ -89,31 +89,26 @@ the recall hit; this experiment does not silently promote it or change that exis
   session/span. A verbatim excerpt can be matched back against existing sessions at read/index
   time when unique; zero or multiple matches must remain unresolved.
 
-### Minimal Read flow
+### Implemented Read flow
 
 ```text
 query -> normal eligible memory recall -> selected memory abstract/outline/full
-      -> only if a requested detail is still absent
-      -> that memory's provenance excerpt
-      -> uniquely derived containing raw chunk plus at most one adjacent chunk, if needed
+      -> stop when memory is sufficient
+      -> otherwise an explicit --deep call -> existing global raw FTS snippets
       -> answer under the authority rule, or abstain
 ```
 
-R0 is today's normal memory-only Context path (`deep=false`). R1 changes the disclosure path, not
-BM25 memory candidate generation or ranking: it runs that same normal recall first, then treats an
-explicit `deep` request/arm as permission for linked fallback rather than mixing a global raw
-search into the first result list. Teach the shared Context/read contract to perform that fallback.
-Agentic hosts may also continue down this ladder when the opened memory lacks the requested
-specific. A small deterministic lexical hint (dates, numbers, paths, error text, or requested
-wording) may later bound eligible cases, but is not required for the first paired test. There is no
-runtime LLM sufficiency judge, router, or new query classifier.
+The host now starts with ordinary `mem context` and decides whether missing detail warrants a
+second explicit `--deep` call. Deep continues to use the existing Recall algorithm and global raw
+FTS. Context renders memory and raw hits in separate sections; only memory hits consume the
+`context_full_text_entries` budget, while raw hits remain snippets. Fixed exam still maps
+`raw_enabled` directly to deep on/off and has no host loop, so it cannot test conditional fallback
+without adding a sufficiency decision; that is outside v1.
 
-The first implementation should expose provenance through the existing Read/Context surface and
-use the provenance path already stored on `MemoryRecord`. Prefer exact excerpt-to-session matching
-against existing raw files/index metadata. If benchmark stores prove that mapping ambiguous, the
-smallest unavoidable addition is a source-session locator written beside the provenance excerpt;
-do not introduce a provenance graph. Because old stores lack it, fallback must degrade to the
-excerpt and remain backward compatible.
+Provenance-guided raw lookup is not implemented. The current memory provenance points to saved
+excerpt files but carries no session ID, raw path, chunk anchor, or offset, so it cannot
+deterministically select a session/span. Consider bounded lookup only if the existing Write path
+later supplies stable linkage; v1 does not modify Write or add provenance fields.
 
 ### Non-goals and expected touchpoints
 
@@ -122,8 +117,5 @@ no graph retrieval; no runtime LLM router/judge; no filesystem/Markdown truth ch
 or config expansion unless real stores prove session derivation unavoidable. Existing stale,
 supersede, retirement, and raw append-only behavior stays authoritative.
 
-Likely implementation touchpoints are `core/context.py` (the host-neutral policy), `core/store.py`
-or a small archive reader (linked evidence), `core/raw_index.py` only if exact/nearby lookup can
-reuse it, CLI/MCP response rendering, and their existing recall/context/entry-equivalence tests.
-`core/recall.py` may need to keep global raw hits out of the progressive path, but should not gain
-another retrieval pipeline.
+The implementation touches only the host-neutral Context rendering and shared exam prompt. Recall,
+RawIndex, Write, Store records, configuration, and schemas are unchanged.

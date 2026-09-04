@@ -46,6 +46,19 @@ def test_native_keeps_its_own_discipline_and_hints(native):
     assert native.experience_system_prompt().startswith(prompts.MEMORY_KEEPER)
 
 
+def test_native_exam_reads_memory_before_raw_fallback(native):
+    preamble = native.exam_preamble()
+    normal = '`mem context "<the question>"`'
+    deep = '`mem context "<the question>" --deep`'
+
+    assert normal in preamble
+    assert deep in preamble
+    assert preamble.index(normal) < preamble.index(deep)
+    assert f"Start with {deep}" not in preamble
+    assert "raw" in preamble.lower()
+    assert "current memory" in preamble.lower()
+
+
 def test_the_synthesis_hint_is_a_config_knob_visible_to_the_fingerprint():
     on, off = Config.default(), Config.default()
     off.recall.synthesis_hint = False
