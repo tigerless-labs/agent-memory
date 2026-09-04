@@ -22,7 +22,7 @@ from .arms import MODE_COLD, MODE_NONE, Arm
 from .dataset import Episode, Session
 from .judge import Judge
 from .metrics import STATUS_FAILED, STATUS_OK, RunRecord
-from .systems import MemorySystem, NativeSystem
+from .systems import MemorySystem, NativeSystem, ReadObservation
 
 SESSION_SEPARATOR = "\n\n"
 EXPERIENCE_WORKERS = 4
@@ -84,6 +84,7 @@ class Driver:
             if self._reuse_stores
             else self._experience(root, episode, arm, workdir)
         )
+        checkpoint = self._system.access_checkpoint(root) if arm.memory else None
         fixed = self._exam_mode == exam_module.MODE_FIXED and arm.memory
         if fixed:
             exam_prompt = framing.fixed_exam(episode, exam_module.CONTEXT_PLACEHOLDER)
@@ -107,6 +108,11 @@ class Driver:
             workdir=workdir,
             environment=self._system.environment(root) if arm.memory else None,
             tool_pattern=self._system.tool_pattern,
+        )
+        observation = (
+            self._system.read_observation(root, checkpoint)
+            if arm.memory
+            else ReadObservation()
         )
         if arm.memory:
             self._system.release(root)
@@ -133,6 +139,10 @@ class Driver:
             error=answer.error,
             manage=self._manage,
             system=self._system.name,
+            recall_names=observation.recall_names,
+            raw_recall_names=observation.raw_recall_names,
+            read_names=observation.read_names,
+            recall_queries=observation.recall_queries,
         )
 
     def _exam_system_prompt(self, with_memory: bool, fixed: bool) -> str:
