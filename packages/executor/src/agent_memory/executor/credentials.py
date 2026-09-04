@@ -21,8 +21,7 @@ LOCATION_ENV = "VERTEX_LOCATION"
 BASE_URL_ENV = "GEMINI_BASE_URL"
 API_KEY_ENV = "GEMINI_API_KEY"
 VERTEX_URL = (
-    "https://aiplatform.googleapis.com/v1/projects/{project}"
-    "/locations/{location}/endpoints/openapi"
+    "https://aiplatform.googleapis.com/v1/projects/{project}/locations/{location}/endpoints/openapi"
 )
 REFRESH_SECONDS = 1800.0
 TOKEN_TIMEOUT_SECONDS = 60.0
@@ -67,8 +66,11 @@ class VertexCredentials:
             command.append(f"--account={account}")
         try:
             completed = subprocess.run(
-                command, capture_output=True, text=True,
-                timeout=TOKEN_TIMEOUT_SECONDS, check=False,
+                command,
+                capture_output=True,
+                text=True,
+                timeout=TOKEN_TIMEOUT_SECONDS,
+                check=False,
             )
         except (OSError, subprocess.TimeoutExpired):
             return ""

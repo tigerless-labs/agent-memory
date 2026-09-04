@@ -110,9 +110,7 @@ def test_an_abstract_rewrite_needs_no_escalation(seeded):
         if proposal.targets == ("thin-abstract-entry",)
     )
     replacement = "The release pipeline refuses unsigned tags"
-    Manage(seeded).sleep(
-        reasoner=Recorder(_verdict(proposal.id, "accept", replacement))
-    )
+    Manage(seeded).sleep(reasoner=Recorder(_verdict(proposal.id, "accept", replacement)))
     assert seeded.find("thin-abstract-entry").abstract == replacement
 
 

@@ -14,11 +14,13 @@ from agent_memory.core.recall import Recall
 def test_a_new_record_can_supersede_an_existing_one_in_a_single_write(store):
     store.record(
         abstract="Worn the new sneakers 4 times as of 2023-05-30",
-        type="fact", name="sneaker-wear-count-may",
+        type="fact",
+        name="sneaker-wear-count-may",
     )
     store.record(
         abstract="Worn the new sneakers 6 times as of 2023-06-20",
-        type="fact", name="sneaker-wear-count-june",
+        type="fact",
+        name="sneaker-wear-count-june",
         supersedes="sneaker-wear-count-may",
     )
 
@@ -34,12 +36,14 @@ def test_a_new_record_can_supersede_an_existing_one_in_a_single_write(store):
 def test_the_superseded_value_is_still_reachable_by_time_travel(store):
     store.record(
         abstract="Worn the new sneakers 4 times as of 2023-05-30",
-        type="fact", name="sneaker-wear-count-may",
+        type="fact",
+        name="sneaker-wear-count-may",
         valid_from="2023-05-30",
     )
     store.record(
         abstract="Worn the new sneakers 6 times as of 2023-06-20",
-        type="fact", name="sneaker-wear-count-june",
+        type="fact",
+        name="sneaker-wear-count-june",
         valid_from="2023-06-20",
         supersedes="sneaker-wear-count-may",
     )
@@ -52,7 +56,8 @@ def test_superseding_something_that_does_not_exist_is_rejected(store):
     with pytest.raises(NotFoundError):
         store.record(
             abstract="Replaces a memory nobody wrote",
-            type="fact", name="orphan-successor",
+            type="fact",
+            name="orphan-successor",
             supersedes="never-written",
         )
 
@@ -62,16 +67,15 @@ def test_a_record_cannot_supersede_itself(store):
     with pytest.raises(ValidationError):
         store.record(
             abstract="A standing fact, restated",
-            type="fact", name="standing-fact",
+            type="fact",
+            name="standing-fact",
             supersedes="standing-fact",
         )
 
 
 def test_supersede_on_write_goes_through_the_same_pipeline_as_any_other_write(store):
     store.record(abstract="The older value", type="fact", name="older")
-    store.record(
-        abstract="The newer value", type="fact", name="newer", supersedes="older"
-    )
+    store.record(abstract="The newer value", type="fact", name="newer", supersedes="older")
     report = store.sync_index()
     assert report.reindexed == ()
     assert report.dangling_links == ()

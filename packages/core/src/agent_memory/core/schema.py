@@ -28,8 +28,21 @@ MODES = (MODE_UPSERT, MODE_ADD_ONLY)
 SCHEMA_SUFFIX = ".toml"
 RESERVED_FIELDS = frozenset(
     {
-        "name", "abstract", "type", "status", "created", "updated", "valid_from", "invalid_at",
-        "superseded_by", "weight", "author", "links", "provenance", "body", "supersedes",
+        "name",
+        "abstract",
+        "type",
+        "status",
+        "created",
+        "updated",
+        "valid_from",
+        "invalid_at",
+        "superseded_by",
+        "weight",
+        "author",
+        "links",
+        "provenance",
+        "body",
+        "supersedes",
         "create_group",
     }
 )

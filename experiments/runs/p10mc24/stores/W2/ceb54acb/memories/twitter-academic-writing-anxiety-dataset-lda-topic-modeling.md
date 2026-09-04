@@ -17,9 +17,9 @@ abstract: 4800 tweets containing "academic writing anxiety"; LDA topic modeling 
 
 ### Dictionary & Corpus
 ```python
-id2word = Dictionary(clean_tweets_df['tokens'])
+id2word = Dictionary(clean_tweets_df["tokens"])
 id2word.filter_extremes(no_below=100, no_above=0.7)
-corpus = [id2word.doc2bow(d) for d in clean_tweets_df['tokens']]
+corpus = [id2word.doc2bow(d) for d in clean_tweets_df["tokens"]]
 ```
 
 ### Model

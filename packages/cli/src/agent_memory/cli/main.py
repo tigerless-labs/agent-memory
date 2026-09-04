@@ -62,7 +62,10 @@ def _parser() -> argparse.ArgumentParser:
     writer.add_argument("--abstract", default=None)
     writer.add_argument("--type", default=None)
     writer.add_argument(
-        "--field", action="append", default=[], metavar="KEY=VALUE",
+        "--field",
+        action="append",
+        default=[],
+        metavar="KEY=VALUE",
         help="a schema field of the type, e.g. --field project=agent-memory",
     )
     writer.add_argument("--create-group", action="store_true")
@@ -73,7 +76,9 @@ def _parser() -> argparse.ArgumentParser:
     writer.add_argument("--provenance", action="append", default=[])
     writer.add_argument("--valid-from", default=None)
     writer.add_argument(
-        "--batch", default=None, metavar="FILE|-",
+        "--batch",
+        default=None,
+        metavar="FILE|-",
         help="write many memories in one call: one JSON object per line",
     )
     writer.add_argument("--supersedes", default=None)
@@ -87,9 +92,7 @@ def _parser() -> argparse.ArgumentParser:
     reader.add_argument("--limit", type=int, default=None)
     reader.set_defaults(handler=_recall)
 
-    contexter = subparsers.add_parser(
-        "context", help="recall and open the top entries in one call"
-    )
+    contexter = subparsers.add_parser("context", help="recall and open the top entries in one call")
     contexter.add_argument("query")
     contexter.add_argument("--scope", default=None)
     contexter.add_argument("--as-of", default=None)

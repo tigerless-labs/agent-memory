@@ -23,12 +23,12 @@ abstract: Cointegration measures long-term equilibrium relationship between non-
 ```python
 from statsmodels.tsa.stattools import coint
 
-p_value = coint(data1['Price'], data2['Price'])[1]
+p_value = coint(data1["Price"], data2["Price"])[1]
 
 if p_value < 0.05:
-    print('Cointegrated')
+    print("Cointegrated")
 else:
-    print('Not cointegrated')
+    print("Not cointegrated")
 ```
 
 **Trading Strategy:**

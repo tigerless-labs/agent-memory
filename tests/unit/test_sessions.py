@@ -46,7 +46,9 @@ def test_a_record_may_cite_a_message_range_and_the_pointer_is_kept_verbatim(stor
     appended = store.archive.append_session("s3", LINES)
     pointer = sessions.render_pointer(appended)
     written = store.record(
-        type="event", fields={"subject": "seaspiracy"}, abstract="Watched Seaspiracy",
+        type="event",
+        fields={"subject": "seaspiracy"},
+        abstract="Watched Seaspiracy",
         provenance=[pointer],
     )
     assert pointer in written.provenance
@@ -58,14 +60,25 @@ def test_provenance_never_shrinks_through_an_update_or_a_replacement(store):
     appended = store.archive.append_session("s4", LINES)
     pointer = sessions.render_pointer(sessions.Pointer("s4", 0, 0))
     later = sessions.render_pointer(sessions.Pointer("s4", 2, 2))
-    store.record(type="fact", fields={"subject": "ticket"}, abstract="Ticket was 42 dollars",
-                 provenance=[pointer])
-    updated = store.record(type="fact", fields={"subject": "ticket"},
-                           abstract="Aquarium ticket: 42 dollars", provenance=[later])
+    store.record(
+        type="fact",
+        fields={"subject": "ticket"},
+        abstract="Ticket was 42 dollars",
+        provenance=[pointer],
+    )
+    updated = store.record(
+        type="fact",
+        fields={"subject": "ticket"},
+        abstract="Aquarium ticket: 42 dollars",
+        provenance=[later],
+    )
     assert set(updated.provenance) >= {pointer, later}
     successor = store.record(
-        type="fact", fields={"subject": "ticket v2"}, abstract="Ticket is now 50 dollars",
-        supersedes=updated.name, provenance=[sessions.render_pointer(appended)],
+        type="fact",
+        fields={"subject": "ticket v2"},
+        abstract="Ticket is now 50 dollars",
+        supersedes=updated.name,
+        provenance=[sessions.render_pointer(appended)],
     )
     assert set(store.find(updated.name).provenance) >= {pointer, later}
     assert successor.provenance and successor.provenance != updated.provenance
@@ -75,8 +88,11 @@ def test_a_fact_dated_after_its_evidence_is_rejected(store, clock):
     appended = store.archive.append_session("s5", LINES)
     with pytest.raises(ValidationError) as raised:
         store.record(
-            type="fact", fields={"subject": "future"}, abstract="Dated after the conversation",
-            valid_from="2030-01-01", provenance=[sessions.render_pointer(appended)],
+            type="fact",
+            fields={"subject": "future"},
+            abstract="Dated after the conversation",
+            valid_from="2030-01-01",
+            provenance=[sessions.render_pointer(appended)],
         )
     assert "valid_from" in {error.field for error in raised.value.errors}
 
@@ -84,7 +100,8 @@ def test_a_fact_dated_after_its_evidence_is_rejected(store, clock):
 def test_deep_hits_say_which_memories_already_cite_them(store):
     appended = store.archive.append_session("s6", LINES)
     store.record(
-        type="event", fields={"subject": "octopus"},
+        type="event",
+        fields={"subject": "octopus"},
         abstract="Follow-up film was My Octopus Teacher",
         provenance=[sessions.render_pointer(sessions.Pointer("s6", 1, 1))],
     )

@@ -57,7 +57,9 @@ class Indexer:
                         self._config.index.raw_chunk_chars,
                     )
                     manifest.record(
-                        relative, sessions.session_name(path), present[relative],
+                        relative,
+                        sessions.session_name(path),
+                        present[relative],
                         self._clock.now().isoformat(),
                     )
                     reindexed.append(relative)

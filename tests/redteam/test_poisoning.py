@@ -131,8 +131,7 @@ class Obedient:
     def __call__(self, prompt: str) -> str:
         ids = re.findall(r"^- ([0-9a-f]{12}) \(", prompt, flags=re.MULTILINE)
         return "\n".join(
-            json.dumps({"proposal": found, "verdict": "accept", "text": PAYLOAD})
-            for found in ids
+            json.dumps({"proposal": found, "verdict": "accept", "text": PAYLOAD}) for found in ids
         )
 
 
@@ -156,6 +155,4 @@ def test_a_captured_reasoner_cannot_reach_past_its_tier(seeded):
     assert len(seeded.records(include_invalid=True)) == before
     assert seeded.find("poisoned-twin-first").is_active()
     assert report.withheld
-    assert all(
-        decision.proposal_id not in report.withheld for decision in report.decisions
-    )
+    assert all(decision.proposal_id not in report.withheld for decision in report.decisions)

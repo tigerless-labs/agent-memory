@@ -50,8 +50,7 @@ def test_a_batch_leaves_the_same_store_as_records_written_one_by_one(tmp_path, c
 
     def shape(store):
         return sorted(
-            (record.name, record.abstract, record.type, record.body)
-            for record in store.records()
+            (record.name, record.abstract, record.type, record.body) for record in store.records()
         )
 
     assert shape(batched) == shape(sequential)
@@ -72,9 +71,7 @@ def test_one_bad_record_does_not_cost_the_good_ones(store):
 
 
 def test_a_rejection_says_which_record_and_which_field(store):
-    result = store.record_many(
-        [{"abstract": "wrong type", "type": "nonsense"}]
-    )
+    result = store.record_many([{"abstract": "wrong type", "type": "nonsense"}])
     assert result.written == []
     rejected = result.rejected[0]
     assert rejected.index == 0
@@ -90,16 +87,17 @@ def test_an_entirely_invalid_batch_still_reports_rather_than_raising(store):
 
 
 def test_a_batch_can_supersede_within_itself(store):
-    store.record(abstract="Worn twice as of 2023-04-01", type="fact",
-                 name="converse-count-april")
-    result = store.record_many([
-        {
-            "abstract": "Worn six times as of 2023-05-20",
-            "type": "fact",
-            "name": "converse-count-may",
-            "supersedes": "converse-count-april",
-        }
-    ])
+    store.record(abstract="Worn twice as of 2023-04-01", type="fact", name="converse-count-april")
+    result = store.record_many(
+        [
+            {
+                "abstract": "Worn six times as of 2023-05-20",
+                "type": "fact",
+                "name": "converse-count-may",
+                "supersedes": "converse-count-april",
+            }
+        ]
+    )
     assert result.written
     assert store.find("converse-count-april").superseded_by == "converse-count-may"
     assert "converse-count-april" not in {r.name for r in store.records() if r.is_active()}

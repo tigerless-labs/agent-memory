@@ -116,8 +116,9 @@ def test_transcript_reading_survives_a_mixed_and_partly_broken_file(tmp_path):
     path.write_text(
         "\n".join(
             [
-                json.dumps({"type": "user", "message": {"content": [{"type": "text",
-                                                                     "text": "hello"}]}}),
+                json.dumps(
+                    {"type": "user", "message": {"content": [{"type": "text", "text": "hello"}]}}
+                ),
                 "{not json",
                 json.dumps({"role": "assistant", "content": "hi there"}),
             ]

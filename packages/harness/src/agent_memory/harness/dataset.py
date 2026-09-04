@@ -72,9 +72,7 @@ def _trim_entry(entry: dict, keep: int) -> dict:
     ids = entry[KEY_SESSION_IDS]
     dates = entry[KEY_DATES]
     sessions = entry[KEY_SESSIONS]
-    order = sorted(
-        range(len(ids)), key=lambda index: (ids[index] not in evidence, index)
-    )[:keep]
+    order = sorted(range(len(ids)), key=lambda index: (ids[index] not in evidence, index))[:keep]
     order.sort()
     picked = {
         KEY_SESSION_IDS: [ids[index] for index in order],

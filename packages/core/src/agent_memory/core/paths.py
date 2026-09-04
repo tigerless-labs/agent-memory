@@ -64,6 +64,10 @@ class StoreLayout:
         return self.state_dir / self.config.write.watermark_dirname
 
     @property
+    def pending(self) -> pathlib.Path:
+        return self.state_dir / self.config.write.pending_dirname
+
+    @property
     def dream_reports(self) -> pathlib.Path:
         return self.root / self.config.manage.dream_report_dirname
 
@@ -96,9 +100,7 @@ class StoreLayout:
         ):
             path.mkdir(parents=True, exist_ok=True)
         if not self.memory_index.exists():
-            self.memory_index.write_text(
-                self.config.memory_md.header + "\n\n", encoding="utf-8"
-            )
+            self.memory_index.write_text(self.config.memory_md.header + "\n\n", encoding="utf-8")
 
     def type_of(self, path: pathlib.Path) -> str | None:
         try:

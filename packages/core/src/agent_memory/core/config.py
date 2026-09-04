@@ -108,6 +108,11 @@ class WriteConfig:
     session_archive_enabled: bool = True
     hook_timeout_seconds: float = 20.0
     batch_hint: bool = True
+    max_distill_input_chars: int = 24000
+    reconcile_entries: int = 8
+    reconcile_query_chars: int = 2000
+    repair_rounds: int = 1
+    pending_dirname: str = "pending"
 
 
 @dataclasses.dataclass

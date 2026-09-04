@@ -58,6 +58,7 @@ class Recall:
         as_of: str | None = None,
         deep: bool = False,
         limit: int | None = None,
+        log: bool = True,
     ) -> list[Hit]:
         limit = limit or self._config.recall.default_limit
         if deep:
@@ -75,6 +76,8 @@ class Recall:
                 hits = hits + self._raw_hits(RawIndex(connection), query, pool, citations)
                 hits.sort(key=lambda hit: (-hit.score, hit.name))
             hits = hits[:limit]
+            if not log:
+                return hits
             AccessLog(connection).append(
                 [
                     AccessEntry(

@@ -33,8 +33,18 @@ UNKNOWN_AGENT = "unknown"
 
 RECORD_FIELDS = frozenset(
     {
-        "abstract", "type", "fields", "body", "name", "author", "links",
-        "valid_from", "provenance", "weight", "supersedes", "create_group",
+        "abstract",
+        "type",
+        "fields",
+        "body",
+        "name",
+        "author",
+        "links",
+        "valid_from",
+        "provenance",
+        "weight",
+        "supersedes",
+        "create_group",
     }
 )
 UPDATABLE_IN_PLACE = ("abstract", "links", "weight", "provenance")
@@ -341,9 +351,7 @@ class Store:
         current = self.find(name)
         if current is None:
             raise NotFoundError(f"no memory named {name}")
-        headings = tuple(
-            entry.title for entry in chunking.outline(current.body, self.config)
-        )
+        headings = tuple(entry.title for entry in chunking.outline(current.body, self.config))
         if level == LEVEL_ABSTRACT:
             text = current.abstract
         elif level == LEVEL_OUTLINE:
@@ -410,4 +418,3 @@ def _as_sequence(value: object) -> list[object]:
 
 def _as_mapping(value: object) -> dict[str, object]:
     return dict(value) if isinstance(value, dict) else {}
-

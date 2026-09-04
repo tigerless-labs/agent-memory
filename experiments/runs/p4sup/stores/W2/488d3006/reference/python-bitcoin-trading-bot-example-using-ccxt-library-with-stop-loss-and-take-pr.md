@@ -20,29 +20,29 @@ import ccxt
 import time
 
 exchange = ccxt.bitmex()
-symbol = 'BTC/USD'
+symbol = "BTC/USD"
 amount = 1.0
 stop_loss = 100
 take_profit = 200
 
 exchange.load_markets()
 
-price = exchange.fetch_ticker(symbol)['last']
+price = exchange.fetch_ticker(symbol)["last"]
 
 stop_loss_price = price - stop_loss
 take_profit_price = price + take_profit
 
 while True:
-    price = exchange.fetch_ticker(symbol)['last']
+    price = exchange.fetch_ticker(symbol)["last"]
 
     if price >= take_profit_price:
-        exchange.create_order(symbol, 'market', 'sell', amount)
-        print('Sold bitcoin at a profit!')
+        exchange.create_order(symbol, "market", "sell", amount)
+        print("Sold bitcoin at a profit!")
         break
 
     elif price <= stop_loss_price:
-        exchange.create_order(symbol, 'market', 'sell', amount)
-        print('Sold bitcoin at a loss :(')
+        exchange.create_order(symbol, "market", "sell", amount)
+        print("Sold bitcoin at a loss :(")
         break
 
     else:

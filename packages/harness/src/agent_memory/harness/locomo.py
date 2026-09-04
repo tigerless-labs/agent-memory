@@ -75,9 +75,7 @@ def _entries(sample: dict) -> list[dict]:
         {
             KEY_QUESTION_ID: _identifier(sample, index, question),
             KEY_QUESTION: str(question[KEY_QUESTION]),
-            KEY_ANSWER: str(
-                question.get(KEY_ANSWER, question.get(ADVERSARIAL_ANSWER, ""))
-            ),
+            KEY_ANSWER: str(question.get(KEY_ANSWER, question.get(ADVERSARIAL_ANSWER, ""))),
             KEY_QUESTION_TYPE: CATEGORIES.get(
                 int(question.get(CATEGORY, 0)), CATEGORIES[UNANSWERABLE]
             ),

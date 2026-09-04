@@ -33,7 +33,7 @@ import time
 
 # Set up the bot's trading parameters
 exchange = ccxt.bitmex()
-symbol = 'BTC/USD'
+symbol = "BTC/USD"
 amount = 1.0
 stop_loss = 100
 take_profit = 200
@@ -42,7 +42,7 @@ take_profit = 200
 exchange.load_markets()
 
 # Check the current price of bitcoin
-price = exchange.fetch_ticker(symbol)['last']
+price = exchange.fetch_ticker(symbol)["last"]
 
 # Set the initial stop loss and take profit levels
 stop_loss_price = price - stop_loss
@@ -50,18 +50,18 @@ take_profit_price = price + take_profit
 
 while True:
     # Check the current price of bitcoin
-    price = exchange.fetch_ticker(symbol)['last']
+    price = exchange.fetch_ticker(symbol)["last"]
 
     # If the price has reached the take profit level, sell the bitcoin
     if price >= take_profit_price:
-        exchange.create_order(symbol, 'market', 'sell', amount)
-        print('Sold bitcoin at a profit!')
+        exchange.create_order(symbol, "market", "sell", amount)
+        print("Sold bitcoin at a profit!")
         break
 
     # If the price has reached the stop loss level, sell the bitcoin
     elif price <= stop_loss_price:
-        exchange.create_order(symbol, 'market', 'sell', amount)
-        print('Sold bitcoin at a loss :(')
+        exchange.create_order(symbol, "market", "sell", amount)
+        print("Sold bitcoin at a loss :(")
         break
 
     # Otherwise, wait for the price to move

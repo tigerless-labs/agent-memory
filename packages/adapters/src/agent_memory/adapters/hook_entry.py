@@ -77,9 +77,7 @@ def _inject(store: Store, host: str) -> dict[str, object]:
     return {CLAUDE_CONTEXT_KEY: context}
 
 
-def _boundary(
-    store: Store, event: dict[str, object], host: str, moment: str
-) -> dict[str, object]:
+def _boundary(store: Store, event: dict[str, object], host: str, moment: str) -> dict[str, object]:
     session = str(event.get(KEY_SESSION) or "")
     if not session:
         return {}

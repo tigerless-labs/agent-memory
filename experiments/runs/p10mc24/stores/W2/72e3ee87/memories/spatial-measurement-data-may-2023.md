@@ -23,7 +23,8 @@ abstract: May 4, 2023 — measurement dataset with X [m], Y [m], Wert [nT] colum
 **Solution provided:** Load with pandas:
 ```python
 import pandas as pd
-df = pd.DataFrame(data, columns=['X', 'Y', 'Wert'])
+
+df = pd.DataFrame(data, columns=["X", "Y", "Wert"])
 ```
 
 Data contains regular spatial sampling with corresponding Wert measurements. Peak Wert value is 115.670 nT at approximately X=-0.446 m, Y=23.397 m.

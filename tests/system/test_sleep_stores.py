@@ -66,10 +66,20 @@ def test_advancing_the_clock_is_what_lets_forgetting_happen_at_all(tmp_path, cap
     assert all(r.weight >= initial for r in Store(same_day / "q1").records())
 
     much_later = tmp_path / "later" / "W2"
-    assert exp_main([
-        "sleep-stores", "--stores", str(source), "--target", str(much_later),
-        "--days-later", str(threshold + 1),
-    ]) == 0
+    assert (
+        exp_main(
+            [
+                "sleep-stores",
+                "--stores",
+                str(source),
+                "--target",
+                str(much_later),
+                "--days-later",
+                str(threshold + 1),
+            ]
+        )
+        == 0
+    )
     capsys.readouterr()
     assert all(r.weight < initial for r in Store(much_later / "q1").records())
 
@@ -96,8 +106,10 @@ def test_a_sleep_without_a_reasoner_decides_nothing(tmp_path, capsys):
     _twins(tmp_path / "stores" / "W2" / "q1")
     target = tmp_path / "slept" / "W2"
     assert (
-        exp_main(["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"),
-                  "--target", str(target)]) == 0
+        exp_main(
+            ["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"), "--target", str(target)]
+        )
+        == 0
     )
     assert json.loads(capsys.readouterr().out)["decisions"] == 0
 
@@ -113,8 +125,18 @@ def test_a_reasoned_sleep_records_what_it_decided(tmp_path, capsys, monkeypatch)
     )
     target = tmp_path / "slept" / "W2"
     assert (
-        exp_main(["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"),
-                  "--target", str(target), "--reason", "host"]) == 0
+        exp_main(
+            [
+                "sleep-stores",
+                "--stores",
+                str(tmp_path / "stores" / "W2"),
+                "--target",
+                str(target),
+                "--reason",
+                "host",
+            ]
+        )
+        == 0
     )
     payload = json.loads(capsys.readouterr().out)
     assert payload["decisions"] > 0
@@ -132,9 +154,20 @@ def test_authority_is_a_knob_the_step_can_raise(tmp_path, capsys, monkeypatch):
     )
     target = tmp_path / "slept" / "W2"
     assert (
-        exp_main(["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"),
-                  "--target", str(target), "--reason", "host",
-                  "--set", "manage.authority=T1"]) == 0
+        exp_main(
+            [
+                "sleep-stores",
+                "--stores",
+                str(tmp_path / "stores" / "W2"),
+                "--target",
+                str(target),
+                "--reason",
+                "host",
+                "--set",
+                "manage.authority=T1",
+            ]
+        )
+        == 0
     )
     slept = Store(target / "q1", agent="check")
     assert slept.find("drain-window-first").superseded_by == "drain-window-second"

@@ -60,8 +60,16 @@ class StubHost(Host):
         self.fail_on = fail_on
         self.prompts = record_prompts if record_prompts is not None else []
 
-    def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="",
-            max_turns=8, workdir=None, **_):
+    def run(
+        self,
+        prompt,
+        store_root=None,
+        tools_enabled=False,
+        system_prompt="",
+        max_turns=8,
+        workdir=None,
+        **_,
+    ):
         self.prompts.append(prompt)
         if self.fail_on and self.fail_on in prompt:
             return HostResult("", False, 0.1, "stub failure")
@@ -329,9 +337,13 @@ def test_reusing_stores_skips_the_experience_phase_and_keeps_the_written_memorie
     assert record.experience_calls == 0
     assert len(replay_host.prompts) == 1
     assert record.correct
-    assert sorted(
-        path.name for path in (tmp_path / "stores" / arms.W1.name / episodes[0].id).rglob("*.md")
-    ) == written
+    assert (
+        sorted(
+            path.name
+            for path in (tmp_path / "stores" / arms.W1.name / episodes[0].id).rglob("*.md")
+        )
+        == written
+    )
 
 
 def test_reusing_a_store_that_was_never_written_is_an_error(tmp_path, suite):
@@ -364,10 +376,23 @@ def test_an_arm_can_be_expressed_as_a_config_override(tmp_path):
 def test_metrics_records_round_trip_through_the_sink(tmp_path):
     sink = MetricsSink(tmp_path)
     record = RunRecord(
-        run_id="r", arm="W1", host="stub", episode_id="q1", question_type="t",
-        status=STATUS_OK, correct=True, answer="a", expected="a", memories_written=1,
-        experience_calls=1, experience_seconds=1.0, blocking_seconds=1.0, exam_seconds=1.0,
-        judge_seconds=1.0, recall_fingerprint="f", episode_fingerprint="e",
+        run_id="r",
+        arm="W1",
+        host="stub",
+        episode_id="q1",
+        question_type="t",
+        status=STATUS_OK,
+        correct=True,
+        answer="a",
+        expected="a",
+        memories_written=1,
+        experience_calls=1,
+        experience_seconds=1.0,
+        blocking_seconds=1.0,
+        exam_seconds=1.0,
+        judge_seconds=1.0,
+        recall_fingerprint="f",
+        episode_fingerprint="e",
     )
     sink.append(record)
     assert sink.records()[0]["episode_id"] == "q1"
@@ -415,8 +440,10 @@ def test_the_cli_refuses_a_worktree_target_without_a_traceback(tmp_path, capsys)
     code = main(
         [
             "sleep-stores",
-            "--stores", str(tmp_path / "src"),
-            "--target", str(tmp_path / ".claude" / "worktrees" / "b" / "stores"),
+            "--stores",
+            str(tmp_path / "src"),
+            "--target",
+            str(tmp_path / ".claude" / "worktrees" / "b" / "stores"),
         ]
     )
 
@@ -426,10 +453,23 @@ def test_the_cli_refuses_a_worktree_target_without_a_traceback(tmp_path, capsys)
 
 def _record(**overrides):
     fields = dict(
-        run_id="r", arm="W2", host="stub", episode_id="q1", question_type="t",
-        status=STATUS_OK, correct=True, answer="a", expected="a", memories_written=1,
-        experience_calls=1, experience_seconds=1.0, blocking_seconds=1.0, exam_seconds=1.0,
-        judge_seconds=1.0, recall_fingerprint="f", episode_fingerprint="e",
+        run_id="r",
+        arm="W2",
+        host="stub",
+        episode_id="q1",
+        question_type="t",
+        status=STATUS_OK,
+        correct=True,
+        answer="a",
+        expected="a",
+        memories_written=1,
+        experience_calls=1,
+        experience_seconds=1.0,
+        blocking_seconds=1.0,
+        exam_seconds=1.0,
+        judge_seconds=1.0,
+        recall_fingerprint="f",
+        episode_fingerprint="e",
     )
     fields.update(overrides)
     return RunRecord(**fields)
@@ -461,26 +501,44 @@ def test_records_written_before_the_manage_dimension_existed_still_summarise(tmp
 class MemcoreStubHost(StubHost):
     """Reaches MemCore only through the environment the system hands it, like a real host."""
 
-    def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="",
-            max_turns=8, workdir=None, environment=None, **_):
+    def run(
+        self,
+        prompt,
+        store_root=None,
+        tools_enabled=False,
+        system_prompt="",
+        max_turns=8,
+        workdir=None,
+        environment=None,
+        **_,
+    ):
         self.prompts.append(prompt)
         env = dict(os.environ) | (environment or {})
         if "Question:" in prompt:
             listed = subprocess.run(
-                ["memcore", "recall", "plant"], env=env, capture_output=True, text=True,
+                ["memcore", "recall", "plant"],
+                env=env,
+                capture_output=True,
+                text=True,
                 check=False,
             ).stdout.split()
             if not listed:
                 return HostResult("I do not have that information.", True, 0.2)
             body = subprocess.run(
-                ["memcore", "get", " ".join(listed)], env=env, capture_output=True,
-                text=True, check=False,
+                ["memcore", "get", " ".join(listed)],
+                env=env,
+                capture_output=True,
+                text=True,
+                check=False,
             ).stdout
             return HostResult(body.strip().splitlines()[-1], True, 0.2)
         if SECRET in prompt:
             subprocess.run(
-                ["memcore", "create", "drain window rule"], env=env, check=True,
-                input="---\nabstract: drain window rule\n---\nthe lease TTL\n", text=True,
+                ["memcore", "create", "drain window rule"],
+                env=env,
+                check=True,
+                input="---\nabstract: drain window rule\n---\nthe lease TTL\n",
+                text=True,
             )
         return HostResult("recorded", True, 0.3)
 
@@ -554,7 +612,8 @@ def test_the_report_groups_by_system_and_refuses_attribution_across_them(
 
     summary = report.summarise(sink.records())
     assert [(row.system, row.arm) for row in summary.arms] == [
-        (systems.NATIVE, "W2"), (systems.MEMCORE, "W2"),
+        (systems.NATIVE, "W2"),
+        (systems.MEMCORE, "W2"),
     ]
     assert not summary.attribution_is_licensed()
     rendered = report.render(summary)
@@ -573,8 +632,16 @@ def test_old_records_without_a_system_field_still_report(tmp_path, suite):
 class LimitedHost(StubHost):
     """Fails the way a host does when the account's quota is exhausted."""
 
-    def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="", max_turns=8,
-            workdir=None, **_):
+    def run(
+        self,
+        prompt,
+        store_root=None,
+        tools_enabled=False,
+        system_prompt="",
+        max_turns=8,
+        workdir=None,
+        **_,
+    ):
         self.prompts.append(prompt)
         return HostResult("", False, 0.1, "You've hit your session limit · resets 9:10pm")
 

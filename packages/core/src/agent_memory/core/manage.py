@@ -176,9 +176,7 @@ class Manage:
                 withheld.append(proposal.id)
                 continue
             try:
-                decisions.append(
-                    self.decide(proposal.id, accept=verdict.accept, text=verdict.text)
-                )
+                decisions.append(self.decide(proposal.id, accept=verdict.accept, text=verdict.text))
             except MemoryStoreError:
                 withheld.append(proposal.id)
         return tuple(decisions), tuple(withheld)
@@ -242,9 +240,7 @@ class Manage:
     def _demote(self, proposal: Proposal) -> str:
         record = self._entry(proposal.targets[0])
         before = record.weight
-        record.weight = max(
-            self._config.weight.floor, before - self._config.weight.demote_penalty
-        )
+        record.weight = max(self._config.weight.floor, before - self._config.weight.demote_penalty)
         self._rewrite(record)
         return f"{before:.2f} -> {record.weight:.2f}"
 
@@ -300,9 +296,7 @@ class Manage:
             for field, value in changed.items():
                 setattr(record, field, value)
             self._rewrite(record)
-            actions.append(
-                Action(ACTION_DATE_NORMALISED, record.name, ", ".join(sorted(changed)))
-            )
+            actions.append(Action(ACTION_DATE_NORMALISED, record.name, ", ".join(sorted(changed))))
         return actions
 
     def _settle_weights(

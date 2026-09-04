@@ -28,7 +28,5 @@ def for_writing(raw: str | pathlib.Path) -> pathlib.Path:
     parts = path.parts
     for index in range(len(parts) - 1):
         if parts[index : index + len(WORKTREE_MARKER)] == WORKTREE_MARKER:
-            raise DisposableWorkspace(
-                REFUSAL.format(path=path, marker="/".join(WORKTREE_MARKER))
-            )
+            raise DisposableWorkspace(REFUSAL.format(path=path, marker="/".join(WORKTREE_MARKER)))
     return path

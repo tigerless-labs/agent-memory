@@ -59,8 +59,8 @@ abstract: Equipable weapons for attacker role with 4 weapon types (sword, bow, a
 **Example Code Pattern:**
 ```python
 def generate_weapon(rarity):
-    weapon_types = ['sword', 'bow', 'axe', 'mace']
-    elemental_damage_types = ['fire', 'lightning', 'life_drain', 'water', 'earth']
+    weapon_types = ["sword", "bow", "axe", "mace"]
+    elemental_damage_types = ["fire", "lightning", "life_drain", "water", "earth"]
     # Randomly select type and elemental damage
     # Assign bonus_ability based on weapon_type
 ```

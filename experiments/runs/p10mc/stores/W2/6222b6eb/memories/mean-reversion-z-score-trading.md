@@ -22,9 +22,9 @@ import pandas as pd
 import numpy as np
 
 lookback = 30
-mean = data['Price'].rolling(window=lookback).mean()
-std = data['Price'].rolling(window=lookback).std()
-data['Z-Score'] = (data['Price'] - mean) / std
+mean = data["Price"].rolling(window=lookback).mean()
+std = data["Price"].rolling(window=lookback).std()
+data["Z-Score"] = (data["Price"] - mean) / std
 ```
 
 **Trading Logic:**

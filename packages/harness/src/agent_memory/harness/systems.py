@@ -31,8 +31,7 @@ NAMES = (NATIVE, MEMCORE)
 NATIVE_STORE_ENV = "AGENT_MEMORY_STORE"
 NATIVE_TOOL_PATTERN = "Bash(mem:*)"
 NATIVE_RECORD_HINT = (
-    "mem record --type <type> --field <key>=<value> "
-    '--abstract "<one line>" --body "<markdown>"'
+    'mem record --type <type> --field <key>=<value> --abstract "<one line>" --body "<markdown>"'
 )
 NATIVE_RECALL_HINT = "mem recall <query>"
 HARNESS_AGENT = "harness"
@@ -254,7 +253,9 @@ class MemcoreSystem(MemorySystem):
         if self._version is None:
             self._version = subprocess.run(
                 [str(self.binary), "--version"],
-                capture_output=True, text=True, check=False,
+                capture_output=True,
+                text=True,
+                check=False,
                 timeout=MEMCORE_CALL_TIMEOUT_SECONDS,
             ).stdout.strip()
         return self._version
@@ -269,9 +270,7 @@ class MemcoreSystem(MemorySystem):
             timeout=MEMCORE_CALL_TIMEOUT_SECONDS,
         )
         if check and completed.returncode != 0:
-            raise RuntimeError(
-                f"memcore {' '.join(arguments)} failed: {completed.stderr.strip()}"
-            )
+            raise RuntimeError(f"memcore {' '.join(arguments)} failed: {completed.stderr.strip()}")
         return completed.stdout
 
 
@@ -289,9 +288,7 @@ def texts_of(system: str, root: pathlib.Path) -> list[str]:
         nodes = sorted((root / MEMCORE_MEMORIES_DIRNAME).glob("*" + MEMCORE_NODE_SUFFIX))
         return [node.read_text(encoding="utf-8") for node in nodes]
     if system == NATIVE:
-        return [
-            path.read_text(encoding="utf-8") for path in Store(root).layout.truth_files()
-        ]
+        return [path.read_text(encoding="utf-8") for path in Store(root).layout.truth_files()]
     raise ValueError(f"unknown memory system: {system}")
 
 

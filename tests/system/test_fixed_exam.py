@@ -41,7 +41,8 @@ def test_the_list_width_knob_changes_the_context_it_produces(stocked):
     for index in range(stocked.config.recall.default_limit * 2):
         stocked.record(
             abstract=f"Deploy note number {index} about the drain window and the queue",
-            type="experience", name=f"deploy-note-{index}",
+            type="experience",
+            name=f"deploy-note-{index}",
         )
     narrow = exam.build_context(stocked, "deploy drain window queue", full_text_entries=0)
     stocked.config.recall.default_limit *= 2
@@ -68,9 +69,13 @@ def test_the_fixed_prompt_carries_the_context_and_the_question(stocked, seeded):
     from agent_memory.harness import dataset
 
     episode = dataset.Episode(
-        id="q1", question="What must the drain window exceed?", answer="the lease TTL",
-        question_type="single-session-user", question_date="2026/02/01",
-        sessions=(), evidence_session_ids=(),
+        id="q1",
+        question="What must the drain window exceed?",
+        answer="the lease TTL",
+        question_type="single-session-user",
+        question_date="2026/02/01",
+        sessions=(),
+        evidence_session_ids=(),
     )
     context = exam.build_context(stocked, episode.question, full_text_entries=2)
     prompt = fixed_exam(episode, context.text)
@@ -82,9 +87,13 @@ def test_the_isolation_gate_sees_the_shell_and_the_store_fills_it_afterwards(sto
     from agent_memory.harness import dataset
 
     episode = dataset.Episode(
-        id="q1", question="What must the drain window exceed?", answer="the lease TTL",
-        question_type="single-session-user", question_date="2026/02/01",
-        sessions=(), evidence_session_ids=(),
+        id="q1",
+        question="What must the drain window exceed?",
+        answer="the lease TTL",
+        question_type="single-session-user",
+        question_date="2026/02/01",
+        sessions=(),
+        evidence_session_ids=(),
     )
     shell = fixed_exam(episode, exam.CONTEXT_PLACEHOLDER)
     assert exam.CONTEXT_PLACEHOLDER in shell

@@ -19,8 +19,15 @@ class StubHost(Host):
         self.can_write = can_write
         self.can_read = can_read
 
-    def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="",
-            max_turns=8, workdir=None):
+    def run(
+        self,
+        prompt,
+        store_root=None,
+        tools_enabled=False,
+        system_prompt="",
+        max_turns=8,
+        workdir=None,
+    ):
         if "Record this" in prompt:
             if not self.can_write:
                 return HostResult("", False, 0.1, "cannot write")

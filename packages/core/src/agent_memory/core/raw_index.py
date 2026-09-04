@@ -94,7 +94,6 @@ def split(messages: list[Message], chunk_chars: int) -> list[tuple[Pointer, str]
 
 def _chunk(messages: list[Message]) -> tuple[Pointer, str]:
     text = PARAGRAPH_BREAK.join(
-        f"{message.role}: {message.text}" if message.role else message.text
-        for message in messages
+        f"{message.role}: {message.text}" if message.role else message.text for message in messages
     )
     return Pointer("", messages[0].index, messages[-1].index), text

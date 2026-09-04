@@ -48,9 +48,7 @@ class Pointer:
     end: int
 
     def overlaps(self, other: Pointer) -> bool:
-        return (
-            self.session == other.session and self.start <= other.end and other.start <= self.end
-        )
+        return self.session == other.session and self.start <= other.end and other.start <= self.end
 
 
 def render_pointer(pointer: Pointer) -> str:

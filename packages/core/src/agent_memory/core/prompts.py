@@ -12,6 +12,8 @@ the specifics compressed out, which index a conversation without preserving it.
 
 from __future__ import annotations
 
+from collections.abc import Sequence
+
 MEMORY_KEEPER = """You are keeping a long-term memory store on behalf of this person.
 Whatever their conversations are about — their work, their household, their plans, their
 preferences — the durable parts of it are what you are here to write down and retrieve.
@@ -164,3 +166,64 @@ def exam(recall_hint: str, synthesis: bool = True) -> str:
 
 def injected_index(index: str) -> str:
     return INJECTED_INDEX.format(index=index.strip())
+
+
+DISTILL_SHEET = """You are filling in a long-term memory store from one conversation.
+
+Go through the type table below one type at a time and write every memory the conversation
+supports for that type. Facts, decisions and preferences are the knowledge; events are the
+record of what happened, and each conversation yields at least one event. Carry the
+specifics across verbatim: names, numbers, prices, dates, times, titles, URLs. Turn relative
+dates into absolute ones using the session time.
+
+Every memory you write cites the messages it comes from as a range of message numbers, for
+example "3-5" or "7". When the reconcile sheet already lists the memory this conversation is
+about, name it by its handle: use update when only the wording changes, supersede when the
+fact itself has changed. Anything else is new. Group fields are chosen from the existing
+groups listed per type; add create_group when a new group is genuinely needed.
+
+## Types
+{slot_table}
+
+{sheet}
+
+{conversation}
+
+Reply with one JSON object per line and nothing else. Each object carries "type", "fields",
+"abstract", optionally "body", "op" (new, update, supersede, skip), "handle" for update and
+supersede, "valid_from" when the fact holds from a date, "create_group" when needed, and
+"provenance" as a list of message ranges."""
+
+REPAIR = """Some of the memories you wrote were not accepted. Each line below shows the
+operation and why it was refused. Reply with corrected versions of those lines only, one
+JSON object per line, in the same shape as before.
+
+{sheet}
+
+## Refused
+{refused}"""
+
+
+def slot_table(schemas: Sequence[object]) -> str:
+    lines = []
+    for schema in schemas:
+        key = ", ".join(getattr(schema, "key", ()))
+        group = getattr(schema, "group", None)
+        mode = getattr(schema, "mode", "")
+        shape = f"key: {key}"
+        if group:
+            shape += f"; group: {group}"
+        if mode:
+            shape += f"; {mode}"
+        type_name = getattr(schema, "type", "")
+        description = getattr(schema, "description", "")
+        lines.append(f"- {type_name} ({shape}): {description}")
+    return "\n".join(lines)
+
+
+def distill_sheet(slots: str, sheet: str, conversation: str) -> str:
+    return DISTILL_SHEET.format(slot_table=slots, sheet=sheet, conversation=conversation)
+
+
+def repair(sheet: str, refused: str) -> str:
+    return REPAIR.format(sheet=sheet, refused=refused)

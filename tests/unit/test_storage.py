@@ -72,12 +72,8 @@ def test_bad_date_is_rejected(store, config):
 
 
 def test_rewriting_the_same_name_is_an_update_not_a_second_file(store):
-    first = store.record(
-        abstract="Queue timeout is 30 seconds", type="fact", name="queue-timeout"
-    )
-    second = store.record(
-        abstract="Queue timeout is 60 seconds", type="fact", name="queue-timeout"
-    )
+    first = store.record(abstract="Queue timeout is 30 seconds", type="fact", name="queue-timeout")
+    second = store.record(abstract="Queue timeout is 60 seconds", type="fact", name="queue-timeout")
     assert first.path == second.path
     assert len([path for path in store.layout.truth_files() if path.stem == "queue-timeout"]) == 1
     assert second.created == first.created

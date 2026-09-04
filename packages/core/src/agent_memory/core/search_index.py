@@ -80,9 +80,7 @@ class SearchIndex:
     def rows(self, include_invalid: bool = True) -> list[sqlite3.Row]:
         if include_invalid:
             return self._connection.execute("SELECT * FROM records").fetchall()
-        return self._connection.execute(
-            "SELECT * FROM records WHERE invalid_at IS NULL"
-        ).fetchall()
+        return self._connection.execute("SELECT * FROM records WHERE invalid_at IS NULL").fetchall()
 
     def row(self, name: str) -> sqlite3.Row | None:
         return self._connection.execute("SELECT * FROM records WHERE name = ?", (name,)).fetchone()

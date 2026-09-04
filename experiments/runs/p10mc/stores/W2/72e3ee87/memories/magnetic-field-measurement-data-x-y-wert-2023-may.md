@@ -31,7 +31,7 @@ import pandas as pd
 data = [
     # 80 rows of [X, Y, Wert] arrays
 ]
-df = pd.DataFrame(data, columns=['X [m]', 'Y [m]', 'Wert [nT]'])
+df = pd.DataFrame(data, columns=["X [m]", "Y [m]", "Wert [nT]"])
 ```
 
 **Note:** Full data rows provided in original conversation; this captures the column structure and value ranges.

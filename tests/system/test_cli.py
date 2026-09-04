@@ -86,10 +86,24 @@ def test_correct_supersede_removes_the_old_entry_from_default_recall(cli):
 
 
 def test_export_import_round_trip_preserves_the_recall_result_set(cli, tmp_path):
-    cli("record", "--abstract", "Alpha memory about queue drains", "--type", "fact",
-        "--name", "alpha")
-    cli("record", "--abstract", "Beta memory about signed release tags", "--type", "fact",
-        "--name", "beta")
+    cli(
+        "record",
+        "--abstract",
+        "Alpha memory about queue drains",
+        "--type",
+        "fact",
+        "--name",
+        "alpha",
+    )
+    cli(
+        "record",
+        "--abstract",
+        "Beta memory about signed release tags",
+        "--type",
+        "fact",
+        "--name",
+        "beta",
+    )
     dump = tmp_path / "dump.json"
     cli("export", "--out", str(dump))
 
@@ -113,8 +127,15 @@ def test_inspect_reports_the_recall_fingerprint_that_licenses_attribution(cli):
 
 
 def test_rebuild_from_the_command_line_is_lossless(cli):
-    cli("record", "--abstract", "Something worth keeping across a rebuild", "--type", "fact",
-        "--name", "keeper")
+    cli(
+        "record",
+        "--abstract",
+        "Something worth keeping across a rebuild",
+        "--type",
+        "fact",
+        "--name",
+        "keeper",
+    )
     before = {hit["name"] for hit in cli("recall", "keeping rebuild")["hits"]}
     (cli.root / ".index" / "index.db").unlink()
     cli("rebuild")
@@ -127,9 +148,7 @@ def test_a_batch_of_memories_is_written_in_one_call(cli, tmp_path):
         "\n".join(
             [
                 json.dumps({"type": "fact", "abstract": "Owns a 2019 Subaru"}),
-                json.dumps(
-                    {"type": "preference", "abstract": "Prefers oat milk"}
-                ),
+                json.dumps({"type": "preference", "abstract": "Prefers oat milk"}),
                 json.dumps({"type": "nonsense", "abstract": "wrong type here"}),
             ]
         ),

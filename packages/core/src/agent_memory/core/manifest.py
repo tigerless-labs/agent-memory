@@ -40,9 +40,7 @@ class Manifest:
         added = tuple(sorted(path for path in present if path not in known))
         changed = tuple(
             sorted(
-                path
-                for path, digest in present.items()
-                if path in known and known[path] != digest
+                path for path, digest in present.items() if path in known and known[path] != digest
             )
         )
         removed = tuple(sorted(path for path in known if path not in present))

@@ -8,8 +8,12 @@ from agent_memory.core.record import STATUS_INVALID
 
 
 def _schema(store, **overrides):
-    base = {"type": "decision", "description": "A choice", "key": ("project", "subject"),
-            "group": "project"}
+    base = {
+        "type": "decision",
+        "description": "A choice",
+        "key": ("project", "subject"),
+        "group": "project",
+    }
     base.update(overrides)
     return schema.MemorySchema(**base)
 
@@ -42,11 +46,13 @@ def test_a_schema_file_declaring_the_wrong_type_name_is_rejected(store):
 
 def test_the_same_key_resolves_to_the_same_path_whatever_the_wording(store):
     first = store.record(
-        type="decision", fields={"project": "agent-memory", "subject": "BM25 core"},
+        type="decision",
+        fields={"project": "agent-memory", "subject": "BM25 core"},
         abstract="Use BM25 as the retrieval core",
     )
     second = store.record(
-        type="decision", fields={"project": "agent-memory", "subject": "bm25 core"},
+        type="decision",
+        fields={"project": "agent-memory", "subject": "bm25 core"},
         abstract="BM25 is the retrieval core",
     )
     assert first.path == second.path
@@ -67,17 +73,21 @@ def test_a_free_field_never_becomes_a_directory(store):
 def test_a_menu_group_must_already_exist_unless_creation_is_requested(store):
     with pytest.raises(ValidationError) as raised:
         store.record(
-            type="preference", fields={"topic": "coffee", "subject": "milk"},
+            type="preference",
+            fields={"topic": "coffee", "subject": "milk"},
             abstract="Prefers oat milk",
         )
     assert "topic" in {error.field for error in raised.value.errors}
     created = store.record(
-        type="preference", fields={"topic": "coffee", "subject": "milk"},
-        abstract="Prefers oat milk", create_group=True,
+        type="preference",
+        fields={"topic": "coffee", "subject": "milk"},
+        abstract="Prefers oat milk",
+        create_group=True,
     )
     assert created.path.parent.name == "coffee"
     again = store.record(
-        type="preference", fields={"topic": "Coffee", "subject": "sugar"},
+        type="preference",
+        fields={"topic": "Coffee", "subject": "sugar"},
         abstract="Takes no sugar",
     )
     assert again.path.parent == created.path.parent
@@ -92,7 +102,9 @@ def test_system_fields_are_filled_by_the_store_not_the_writer(store):
     decision = store.record(type="decision", fields={"subject": "x"}, abstract="Decided x")
     assert decision.fields["project"] == store.config.storage.default_project
     event = store.record(
-        type="event", fields={"subject": "trip"}, abstract="Went on a trip",
+        type="event",
+        fields={"subject": "trip"},
+        abstract="Went on a trip",
         valid_from="2023-05-30",
     )
     assert event.path.parent.name == "2023-05"
@@ -117,11 +129,18 @@ def test_reserved_segment_names_are_made_portable(config):
 
 
 def test_supersede_invalidates_the_predecessor_at_the_successors_valid_from(store):
-    old = store.record(type="fact", fields={"subject": "timeout"}, abstract="Timeout is 30s",
-                       valid_from="2026-01-01")
+    old = store.record(
+        type="fact",
+        fields={"subject": "timeout"},
+        abstract="Timeout is 30s",
+        valid_from="2026-01-01",
+    )
     new = store.record(
-        type="fact", fields={"subject": "timeout v2"}, abstract="Timeout is 60s",
-        valid_from="2026-02-01", supersedes=old.name,
+        type="fact",
+        fields={"subject": "timeout v2"},
+        abstract="Timeout is 60s",
+        valid_from="2026-02-01",
+        supersedes=old.name,
     )
     predecessor = store.find(old.name)
     assert predecessor.status == STATUS_INVALID
@@ -131,11 +150,18 @@ def test_supersede_invalidates_the_predecessor_at_the_successors_valid_from(stor
 
 
 def test_as_of_before_the_replacement_returns_the_predecessor(store):
-    old = store.record(type="fact", fields={"subject": "timeout"}, abstract="Timeout is 30s",
-                       valid_from="2026-01-01")
+    old = store.record(
+        type="fact",
+        fields={"subject": "timeout"},
+        abstract="Timeout is 30s",
+        valid_from="2026-01-01",
+    )
     store.record(
-        type="fact", fields={"subject": "timeout v2"}, abstract="Timeout is 60s",
-        valid_from="2026-02-01", supersedes=old.name,
+        type="fact",
+        fields={"subject": "timeout v2"},
+        abstract="Timeout is 60s",
+        valid_from="2026-02-01",
+        supersedes=old.name,
     )
     before = [hit.name for hit in Recall(store).recall("timeout", as_of="2026-01-15")]
     after = [hit.name for hit in Recall(store).recall("timeout", as_of="2026-02-15")]
@@ -144,14 +170,23 @@ def test_as_of_before_the_replacement_returns_the_predecessor(store):
 
 
 def test_an_in_place_write_may_reword_but_not_change_the_fact(store):
-    store.record(type="fact", fields={"subject": "timeout"}, abstract="Timeout is 30s",
-                 body="The queue timeout is thirty seconds.")
-    reworded = store.record(type="fact", fields={"subject": "timeout"},
-                            abstract="Queue timeout: 30 seconds")
+    store.record(
+        type="fact",
+        fields={"subject": "timeout"},
+        abstract="Timeout is 30s",
+        body="The queue timeout is thirty seconds.",
+    )
+    reworded = store.record(
+        type="fact", fields={"subject": "timeout"}, abstract="Queue timeout: 30 seconds"
+    )
     assert reworded.body == "The queue timeout is thirty seconds."
     with pytest.raises(ValidationError) as raised:
-        store.record(type="fact", fields={"subject": "timeout"}, abstract="Timeout is 60s",
-                     body="The queue timeout is sixty seconds.")
+        store.record(
+            type="fact",
+            fields={"subject": "timeout"},
+            abstract="Timeout is 60s",
+            body="The queue timeout is sixty seconds.",
+        )
     assert "body" in {error.field for error in raised.value.errors}
 
 
@@ -167,10 +202,19 @@ def test_delete_marks_invalid_and_keeps_the_file(store):
 
 
 def test_rebuild_equivalence_holds_with_invalid_files_present(store):
-    old = store.record(type="fact", fields={"subject": "timeout"}, abstract="Timeout is 30s",
-                       valid_from="2026-01-01")
-    store.record(type="fact", fields={"subject": "timeout v2"}, abstract="Timeout is 60s",
-                 valid_from="2026-02-01", supersedes=old.name)
+    old = store.record(
+        type="fact",
+        fields={"subject": "timeout"},
+        abstract="Timeout is 30s",
+        valid_from="2026-01-01",
+    )
+    store.record(
+        type="fact",
+        fields={"subject": "timeout v2"},
+        abstract="Timeout is 60s",
+        valid_from="2026-02-01",
+        supersedes=old.name,
+    )
     store.delete(store.record(type="fact", fields={"subject": "x"}, abstract="Deleted x").name)
     queries = [("timeout", None), ("timeout", "2026-01-15"), ("deleted x", None)]
     before = {q: [h.name for h in Recall(store).recall(q[0], as_of=q[1])] for q in queries}
@@ -189,18 +233,34 @@ def test_a_four_domain_store_migrates_into_the_schema_layout(tmp_path, clock):
     (root / "archive" / "retired" / "user").mkdir(parents=True)
     (root / "project" / "drain-window.md").write_text(
         frontmatter.render(
-            {"name": "drain-window", "abstract": "Drain window is 90s", "type": "fact",
-             "status": "stale", "created": "2026-01-01", "updated": "2026-01-02",
-             "author": "old", "links": [], "provenance": []},
+            {
+                "name": "drain-window",
+                "abstract": "Drain window is 90s",
+                "type": "fact",
+                "status": "stale",
+                "created": "2026-01-01",
+                "updated": "2026-01-02",
+                "author": "old",
+                "links": [],
+                "provenance": [],
+            },
             "Body.",
         ),
         encoding="utf-8",
     )
     (root / "archive" / "retired" / "user" / "old-pref.md").write_text(
         frontmatter.render(
-            {"name": "old-pref", "abstract": "Used to like tea", "type": "preference",
-             "status": "retired", "created": "2026-01-01", "updated": "2026-01-03",
-             "author": "old", "links": [], "provenance": []},
+            {
+                "name": "old-pref",
+                "abstract": "Used to like tea",
+                "type": "preference",
+                "status": "retired",
+                "created": "2026-01-01",
+                "updated": "2026-01-03",
+                "author": "old",
+                "links": [],
+                "provenance": [],
+            },
             "",
         ),
         encoding="utf-8",
