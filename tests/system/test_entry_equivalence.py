@@ -3,7 +3,9 @@
 import io
 import json
 
+import pytest
 from agent_memory.cli.main import EXIT_OK, main
+from agent_memory.core.errors import ValidationError
 from agent_memory.core.store import Store
 from agent_memory.mcp import server, tools
 
@@ -13,8 +15,7 @@ PER_CALL = ("score", "relevance", "recency")
 
 def _stable(hits):
     return [
-        {key: value for key, value in hit.items() if key not in VOLATILE + PER_CALL}
-        for hit in hits
+        {key: value for key, value in hit.items() if key not in VOLATILE + PER_CALL} for hit in hits
     ]
 
 
@@ -29,13 +30,26 @@ def test_record_through_mcp_is_visible_to_the_cli_and_vice_versa(tmp_path, capsy
         {
             "abstract": "Written through MCP about the shared drain window",
             "type": "fact",
-            "domain": "project",
             "name": "via-mcp",
         },
     )
-    assert main(["--store", str(root), "--json", "record", "--abstract",
-                 "Written through the CLI about the shared drain window", "--type", "fact",
-                 "--domain", "project", "--name", "via-cli"]) == EXIT_OK
+    assert (
+        main(
+            [
+                "--store",
+                str(root),
+                "--json",
+                "record",
+                "--abstract",
+                "Written through the CLI about the shared drain window",
+                "--type",
+                "fact",
+                "--name",
+                "via-cli",
+            ]
+        )
+        == EXIT_OK
+    )
     capsys.readouterr()
 
     assert main(["--store", str(root), "--json", "recall", "shared drain window"]) == EXIT_OK
@@ -52,8 +66,7 @@ def test_the_two_entries_agree_on_the_recall_fingerprint(tmp_path, capsys):
     root = tmp_path / "store"
     store = Store(root)
     store.init()
-    store.record(abstract="Anything at all worth recalling", type="fact", domain="project",
-                 name="anything")
+    store.record(abstract="Anything at all worth recalling", type="fact", name="anything")
 
     assert main(["--store", str(root), "--json", "recall", "anything"]) == EXIT_OK
     cli = json.loads(capsys.readouterr().out)
@@ -66,18 +79,49 @@ def test_supersede_on_write_behaves_the_same_through_both_entries(tmp_path, caps
     store = Store(root, agent="mcp")
     store.init()
 
-    store.record(abstract="Goal was level 100", type="fact", domain="user", name="goal-old")
-    tools.dispatch(store, tools.TOOL_RECORD, {
-        "abstract": "Goal is now level 150", "type": "fact", "domain": "user",
-        "name": "goal-new", "supersedes": "goal-old",
-    })
+    store.record(abstract="Goal was level 100", type="fact", name="goal-old")
+    tools.dispatch(
+        store,
+        tools.TOOL_RECORD,
+        {
+            "abstract": "Goal is now level 150",
+            "type": "fact",
+            "name": "goal-new",
+            "supersedes": "goal-old",
+        },
+    )
     assert Store(root).find("goal-old").superseded_by == "goal-new"
 
-    main(["--store", str(root), "--json", "record", "--abstract", "Price was 42 dollars",
-          "--type", "fact", "--domain", "user", "--name", "price-old"])
-    main(["--store", str(root), "--json", "record", "--abstract", "Price is now 58 dollars",
-          "--type", "fact", "--domain", "user", "--name", "price-new",
-          "--supersedes", "price-old"])
+    main(
+        [
+            "--store",
+            str(root),
+            "--json",
+            "record",
+            "--abstract",
+            "Price was 42 dollars",
+            "--type",
+            "fact",
+            "--name",
+            "price-old",
+        ]
+    )
+    main(
+        [
+            "--store",
+            str(root),
+            "--json",
+            "record",
+            "--abstract",
+            "Price is now 58 dollars",
+            "--type",
+            "fact",
+            "--name",
+            "price-new",
+            "--supersedes",
+            "price-old",
+        ]
+    )
     capsys.readouterr()
     assert Store(root).find("price-old").superseded_by == "price-new"
 
@@ -140,33 +184,20 @@ def _twin(store, name, extra, body):
     store.record(
         abstract="The drain window closes before the worker lease expires" + extra,
         type="experience",
-        domain="experience",
         name=name,
         body=body,
     )
 
 
-def test_both_entries_see_the_same_proposals_and_one_decision_closes_it_for_both(
-    tmp_path, capsys
-):
+def test_manage_is_not_reachable_through_the_agent_facing_mcp_surface(tmp_path):
     root = tmp_path / "store"
     store = Store(root, agent="mcp")
     store.init()
     _twin(store, "drain-window-first", "", "Short.")
     _twin(store, "drain-window-second", " again", "Longer body carrying the lease TTL.")
-
-    assert main(["--store", str(root), "--json", "proposals"]) == EXIT_OK
-    cli_open = json.loads(capsys.readouterr().out)["proposals"]
-    mcp_open = tools.dispatch(Store(root, agent="mcp"), tools.TOOL_PROPOSALS, {})["proposals"]
-    assert cli_open == mcp_open
-    assert cli_open
-
-    tools.dispatch(
-        Store(root, agent="mcp"),
-        tools.TOOL_DECIDE,
-        {"proposal": cli_open[0]["id"], "verdict": "reject"},
-    )
-
-    assert main(["--store", str(root), "--json", "proposals"]) == EXIT_OK
-    after = json.loads(capsys.readouterr().out)["proposals"]
-    assert cli_open[0]["id"] not in {proposal["id"] for proposal in after}
+    names = set(tools.SCHEMAS)
+    assert not {name for name in names if "proposal" in name or "decide" in name}
+    with pytest.raises(ValidationError):
+        tools.dispatch(
+            Store(root, agent="mcp"), "memory_decide", {"proposal": "x", "verdict": "accept"}
+        )

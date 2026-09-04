@@ -23,13 +23,14 @@ Note: Clearing output does not affect code or variables, only hides displayed re
 Use warnings module:
 ```python
 import warnings
-warnings.filterwarnings('ignore', category=WarningCategory)
+
+warnings.filterwarnings("ignore", category=WarningCategory)
 ```
 
 Or use context manager to suppress in specific code blocks:
 ```python
 with warnings.catch_warnings():
-    warnings.filterwarnings('ignore')
+    warnings.filterwarnings("ignore")
     # code that generates warnings
 ```
 

@@ -15,6 +15,7 @@ from .paths import StoreLayout
 
 MARK_SUFFIX = ".json"
 KEY_CONSUMED = "consumed"
+KEY_DISTILLED = "distilled"
 KEY_UPDATED_AT = "updated_at"
 KEY_SOURCE = "source"
 
@@ -25,6 +26,10 @@ class Mark:
     consumed: int
     updated_at: str
     source: str
+    distilled: int = 0
+
+    def backlog(self) -> int:
+        return max(0, self.consumed - self.distilled)
 
 
 class Watermark:
@@ -42,6 +47,7 @@ class Watermark:
             consumed=int(payload.get(KEY_CONSUMED, 0)),
             updated_at=str(payload.get(KEY_UPDATED_AT, "")),
             source=str(payload.get(KEY_SOURCE, "")),
+            distilled=int(payload.get(KEY_DISTILLED, 0)),
         )
 
     def increment(self, session: str, items: list[str]) -> list[str]:
@@ -49,13 +55,24 @@ class Watermark:
 
     def advance(self, session: str, consumed: int, source: str = "") -> Mark:
         current = self.read(session)
-        settled = max(current.consumed, consumed)
-        mark = Mark(
-            session=session,
-            consumed=settled,
-            updated_at=self._clock.now().isoformat(),
-            source=source or current.source,
+        return self._write(
+            dataclasses.replace(
+                current,
+                consumed=max(current.consumed, consumed),
+                updated_at=self._clock.now().isoformat(),
+                source=source or current.source,
+            )
         )
+
+    def settle(self, session: str, distilled: int) -> Mark:
+        """Distillation caught up to a message index; the archive mark stays where it is."""
+        current = self.read(session)
+        return self._write(
+            dataclasses.replace(current, distilled=max(current.distilled, distilled))
+        )
+
+    def _write(self, mark: Mark) -> Mark:
+        session = mark.session
         path = self._path(session)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(
@@ -64,6 +81,7 @@ class Watermark:
                     KEY_CONSUMED: mark.consumed,
                     KEY_UPDATED_AT: mark.updated_at,
                     KEY_SOURCE: mark.source,
+                    KEY_DISTILLED: mark.distilled,
                 }
             ),
             encoding="utf-8",

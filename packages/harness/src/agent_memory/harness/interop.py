@@ -14,7 +14,7 @@ from agent_memory.core import prompts
 from agent_memory.core.store import Store
 from agent_memory.executor.hosts import Host
 
-WRITE_TASK = """Record this exactly, as one memory in the user domain:
+WRITE_TASK = """Record this exactly, as one memory of type fact:
 
 {fact}
 
@@ -72,8 +72,13 @@ def check(writer: Host, reader: Host, fact: Fact, workspace: pathlib.Path) -> In
     memories = len(store.records())
     if not written.ok or memories == 0:
         return InteropResult(
-            writer=writer.name, reader=reader.name, wrote=False, read=False,
-            memories=memories, answer="", error=written.error or "wrote nothing",
+            writer=writer.name,
+            reader=reader.name,
+            wrote=False,
+            read=False,
+            memories=memories,
+            answer="",
+            error=written.error or "wrote nothing",
         )
 
     recalled = reader.run(
@@ -96,11 +101,7 @@ def check(writer: Host, reader: Host, fact: Fact, workspace: pathlib.Path) -> In
 
 
 def matrix(hosts: list[Host], fact: Fact, workspace: pathlib.Path) -> list[InteropResult]:
-    return [
-        check(writer, reader, fact, workspace)
-        for writer in hosts
-        for reader in hosts
-    ]
+    return [check(writer, reader, fact, workspace) for writer in hosts for reader in hosts]
 
 
 def render(results: list[InteropResult]) -> str:
@@ -109,9 +110,7 @@ def render(results: list[InteropResult]) -> str:
     for writer in sorted({result.writer for result in results}):
         cells = []
         for reader in names:
-            found = next(
-                (r for r in results if r.writer == writer and r.reader == reader), None
-            )
+            found = next((r for r in results if r.writer == writer and r.reader == reader), None)
             cells.append("—" if found is None else ("pass" if found.passed else "FAIL"))
         lines.append(f"| {writer} | " + " | ".join(cells) + " |")
     failures = [result for result in results if not result.passed]

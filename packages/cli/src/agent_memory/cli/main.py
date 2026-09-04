@@ -10,17 +10,22 @@ import sys
 from collections.abc import Sequence
 
 from agent_memory.core import context as context_module
-from agent_memory.core import portability
+from agent_memory.core import distill as distill_module
+from agent_memory.core import migrate as migrate_module
+from agent_memory.core import pending, portability, prompts, reasoning, sessions, triggers
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_FULL, LEVELS, Store
-from agent_memory.executor import reasoners
+from agent_memory.core.watermark import Watermark
+from agent_memory.executor import distiller, reasoners
 from agent_memory.executor.hosts import HOST_CLAUDE_CODE
 
+SESSION_FLAG = "--session"
 REASON_HOST = "host"
 REASON_ENDPOINT = "endpoint"
+REASON_NONE = "none"
 EMIT_INDENT = 2
 EXIT_OK = 0
 EXIT_ERROR = 1
@@ -60,16 +65,24 @@ def _parser() -> argparse.ArgumentParser:
     writer = subparsers.add_parser("record", help="write one memory")
     writer.add_argument("--abstract", default=None)
     writer.add_argument("--type", default=None)
-    writer.add_argument("--domain", default=None)
+    writer.add_argument(
+        "--field",
+        action="append",
+        default=[],
+        metavar="KEY=VALUE",
+        help="a schema field of the type, e.g. --field project=agent-memory",
+    )
+    writer.add_argument("--create-group", action="store_true")
     writer.add_argument("--name", default=None)
     writer.add_argument("--body", default="")
     writer.add_argument("--body-file", default=None)
-    writer.add_argument("--topic", default=None)
     writer.add_argument("--link", action="append", default=[])
     writer.add_argument("--provenance", action="append", default=[])
     writer.add_argument("--valid-from", default=None)
     writer.add_argument(
-        "--batch", default=None, metavar="FILE|-",
+        "--batch",
+        default=None,
+        metavar="FILE|-",
         help="write many memories in one call: one JSON object per line",
     )
     writer.add_argument("--supersedes", default=None)
@@ -83,9 +96,7 @@ def _parser() -> argparse.ArgumentParser:
     reader.add_argument("--limit", type=int, default=None)
     reader.set_defaults(handler=_recall)
 
-    contexter = subparsers.add_parser(
-        "context", help="recall and open the top entries in one call"
-    )
+    contexter = subparsers.add_parser("context", help="recall and open the top entries in one call")
     contexter.add_argument("query")
     contexter.add_argument("--scope", default=None)
     contexter.add_argument("--as-of", default=None)
@@ -107,6 +118,33 @@ def _parser() -> argparse.ArgumentParser:
     corrector.add_argument("--link", action="append", default=None)
     corrector.add_argument("--provenance", action="append", default=[])
     corrector.set_defaults(handler=_correct)
+
+    still = subparsers.add_parser(
+        "distill", help="hand the archived backlog to the library executor and apply its writes"
+    )
+    still.add_argument(
+        SESSION_FLAG, action="append", default=None, help="a session at a boundary: distill now"
+    )
+    still.add_argument(
+        "--force", action="store_true", help="distill every backlog regardless of thresholds"
+    )
+    still.add_argument("--reason", choices=(REASON_HOST, REASON_ENDPOINT), default=REASON_ENDPOINT)
+    still.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
+    still.add_argument("--reason-model", default="")
+    still.set_defaults(handler=_distill)
+
+    tracer = subparsers.add_parser("trace", help="open the messages a memory cites")
+    tracer.add_argument("name")
+    tracer.set_defaults(handler=_trace)
+
+    remover = subparsers.add_parser("delete", help="mark one memory invalid; the file stays")
+    remover.add_argument("name")
+    remover.set_defaults(handler=_delete)
+
+    migrator = subparsers.add_parser(
+        "migrate", help="upgrade a four-domain store to the schema layout"
+    )
+    migrator.set_defaults(handler=_migrate)
 
     voter = subparsers.add_parser("feedback", help="explicit boost or penalty")
     voter.add_argument("name")
@@ -133,9 +171,10 @@ def _parser() -> argparse.ArgumentParser:
     sleeper.add_argument("--sessions-since", type=int, default=None)
     sleeper.add_argument(
         "--reason",
-        choices=(REASON_HOST, REASON_ENDPOINT),
-        default=None,
-        help="have an agent CLI, or a model endpoint, rule on the open proposals",
+        choices=(REASON_HOST, REASON_ENDPOINT, REASON_NONE),
+        default=REASON_ENDPOINT,
+        help="who rules on the open proposals: the library executor (default), an agent CLI, "
+        "or nobody",
     )
     sleeper.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
     sleeper.add_argument("--reason-model", default="")
@@ -144,13 +183,28 @@ def _parser() -> argparse.ArgumentParser:
     proposer = subparsers.add_parser("proposals", help="list proposals awaiting confirmation")
     proposer.set_defaults(handler=_proposals)
 
+    collector = subparsers.add_parser(
+        "gc", help="physically remove invalid files; the only deletion entry, human-run"
+    )
+    collector.set_defaults(handler=_gc)
+
     decider = subparsers.add_parser("decide", help="confirm or refuse one proposal")
     decider.add_argument("proposal")
     verdict = decider.add_mutually_exclusive_group(required=True)
     verdict.add_argument("--accept", action="store_true")
     verdict.add_argument("--reject", action="store_true")
     decider.add_argument("--text", default="", help="replacement abstract, for an abstract review")
+    decider.add_argument("--abstract", default="", help="merged abstract, for a merge")
+    decider.add_argument("--body", default="", help="merged body, for a merge")
+    decider.add_argument(
+        "--parts",
+        default=None,
+        help="JSON file listing the parts of a split (abstract, body, provenance)",
+    )
     decider.set_defaults(handler=_decide)
+
+    skiller = subparsers.add_parser("skill", help="print the agent skill text")
+    skiller.set_defaults(handler=_skill)
 
     installer = subparsers.add_parser("setup", help="install host hooks")
     installer.add_argument("--host", default=None)
@@ -162,25 +216,23 @@ def _parser() -> argparse.ArgumentParser:
 
 def _init(store: Store, args: argparse.Namespace) -> dict[str, object]:
     layout = store.init()
-    return {"store": str(layout.root), "domains": list(store.config.storage.domains)}
+    return {"store": str(layout.root), "types": sorted(store.schemas.load())}
 
 
 def _record(store: Store, args: argparse.Namespace) -> dict[str, object]:
     if args.batch:
         return _record_batch(store, args.batch)
-    missing = [
-        field for field in ("abstract", "type", "domain") if not getattr(args, field, None)
-    ]
+    missing = [field for field in ("abstract", "type") if not getattr(args, field, None)]
     if missing:
         raise ValidationError([FieldError(field, "required") for field in missing])
     written = store.record(
         abstract=args.abstract,
         type=args.type,
-        domain=args.domain,
+        fields=_fields(args.field),
         body=_body(args.body, args.body_file),
         name=args.name,
         links=args.link,
-        topic=args.topic,
+        create_group=args.create_group,
         valid_from=args.valid_from,
         provenance=args.provenance,
         supersedes=args.supersedes,
@@ -261,6 +313,68 @@ def _correct(store: Store, args: argparse.Namespace) -> dict[str, object]:
     }
 
 
+def _distill(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    watermark = Watermark(store.layout, store.clock)
+    named = list(args.session or [])
+    candidates = named or sorted(set(watermark.sessions()) | set(_archived_sessions(store)))
+    ask = _reasoner(store, args) or distiller.distiller(store.config.executor)
+    now = store.clock.now().isoformat()
+    reports = []
+    queue = pending.Pending(store.layout)
+    for session in sorted(set(candidates) | set(queue.redistill_sessions())):
+        requested = tuple(queue.redistill(session))
+        backlog = triggers.backlog(store.layout, session, watermark, requested)
+        reason = (
+            triggers.REASON_FORCED
+            if args.force
+            else triggers.reason_for(
+                store.config.write,
+                watermark.read(session),
+                backlog,
+                now,
+                session in named,
+                bool(requested),
+            )
+        )
+        if reason is None:
+            continue
+        report = distill_module.distill(store, session, backlog, ask)
+        queue.clear_redistill(session)
+        reports.append({"reason": reason, **report.as_dict()})
+    return {"distilled": reports}
+
+
+def _archived_sessions(store: Store) -> list[str]:
+    folder = store.layout.sessions
+    if not folder.is_dir():
+        return []
+    return [sessions.session_name(path) for path in folder.iterdir() if path.is_file()]
+
+
+def _trace(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    messages = store.trace(args.name)
+    return {"name": args.name, "messages": [message.as_dict() for message in messages]}
+
+
+def _delete(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    removed = store.delete(args.name)
+    return {"name": removed.name, "status": removed.status, "invalid_at": removed.invalid_at}
+
+
+def _migrate(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    return migrate_module.migrate(store.root).as_dict()
+
+
+def _fields(pairs: list[str]) -> dict[str, str]:
+    fields: dict[str, str] = {}
+    for pair in pairs:
+        key, separator, value = pair.partition("=")
+        if not separator or not key.strip():
+            raise ValidationError([FieldError("field", f"expected KEY=VALUE, got {pair}")])
+        fields[key.strip()] = value.strip()
+    return fields
+
+
 def _feedback(store: Store, args: argparse.Namespace) -> dict[str, object]:
     step = store.config.weight.boost_step
     delta = (step if args.boost else 0.0) - (step if args.penalize else 0.0)
@@ -280,7 +394,7 @@ def _inspect(store: Store, args: argparse.Namespace) -> dict[str, object]:
         "store": str(store.root),
         "active": len([record for record in records if record.is_active()]),
         "total": len(records),
-        "archived": len(store.records(include_archived=True)) - len(records),
+        "invalid": len(store.records(include_invalid=True)) - len(records),
         "dangling_links": [list(pair) for pair in report.dangling_links],
         "unreadable": list(report.unreadable),
         "config_fingerprint": store.config.fingerprint(),
@@ -309,16 +423,22 @@ def _sleep(store: Store, args: argparse.Namespace) -> dict[str, object]:
     manage = Manage(store)
     if args.sessions_since is not None and not manage.due(args.sessions_since):
         return {"slept": False, "reason": "trigger conditions not met"}
-    return {"slept": True, **manage.sleep(reasoner=_reasoner(args)).as_dict()}
+    return {"slept": True, **manage.sleep(reasoner=_reasoner(store, args)).as_dict()}
 
 
-def _reasoner(args: argparse.Namespace) -> Reasoner | None:
+def _reasoner(store: Store, args: argparse.Namespace) -> Reasoner | None:
     if args.reason == REASON_HOST:
         return reasoners.HostReasoner.for_host(args.reason_host, model=args.reason_model)
     if args.reason == REASON_ENDPOINT:
-        model = args.reason_model or reasoners.DEFAULT_ENDPOINT_MODEL
-        return reasoners.EndpointReasoner(model=model)
+        executor = store.config.executor
+        if args.reason_model:
+            executor = dataclasses.replace(executor, model=args.reason_model)
+        return distiller.distiller(executor)
     return None
+
+
+def _gc(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    return {"removed": store.gc()}
 
 
 def _proposals(store: Store, args: argparse.Namespace) -> dict[str, object]:
@@ -326,8 +446,25 @@ def _proposals(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 
 def _decide(store: Store, args: argparse.Namespace) -> dict[str, object]:
-    decision = Manage(store).decide(args.proposal, accept=args.accept, text=args.text)
+    parts = json.loads(pathlib.Path(args.parts).read_text(encoding="utf-8")) if args.parts else []
+    verdict = reasoning.parse(
+        json.dumps(
+            {
+                "proposal": args.proposal,
+                "verdict": reasoning.VERDICT_ACCEPT if args.accept else reasoning.VERDICT_REJECT,
+                "text": args.text,
+                "abstract": args.abstract,
+                "body": args.body,
+                "parts": parts,
+            }
+        )
+    )[0]
+    decision = Manage(store).decide(args.proposal, accept=args.accept, verdict=verdict)
     return dict(decision.as_dict())
+
+
+def _skill(store: Store, args: argparse.Namespace) -> str:
+    return prompts.skill()
 
 
 def _setup(store: Store, args: argparse.Namespace) -> dict[str, object]:
@@ -351,6 +488,9 @@ def _body(inline: str, from_file: str | None) -> str:
 
 def _emit(payload: object, as_json: bool, stream=None) -> None:
     stream = stream or sys.stdout
+    if isinstance(payload, str) and not as_json:
+        print(payload, file=stream)
+        return
     if as_json or not isinstance(payload, dict):
         rendered = json.dumps(payload, indent=EMIT_INDENT, sort_keys=True, default=_fallback)
         print(rendered, file=stream)

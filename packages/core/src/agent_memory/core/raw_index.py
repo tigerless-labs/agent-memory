@@ -3,20 +3,19 @@
 Invariant 4 promises that anything the distiller misses stays recoverable. Keeping the
 transcript on disk is only half of that promise — this is the half that lets a query reach it.
 Raw material stays off the default surface and answers only to `--deep`, because it is
-evidence, not knowledge.
+evidence, not knowledge. Every hit names a message range, so it can be cited and traced.
 """
 
 from __future__ import annotations
 
 import dataclasses
-import pathlib
 import sqlite3
 
 from .search_index import to_match_query
+from .sessions import Message, Pointer, render_pointer
 
 SOURCE_RAW = "raw"
 SOURCE_MEMORY = "memory"
-ANCHOR_SEPARATOR = "#"
 PARAGRAPH_BREAK = "\n"
 
 
@@ -36,14 +35,19 @@ class RawIndex:
     def remove(self, path: str) -> None:
         self._connection.execute("DELETE FROM raw_chunks WHERE path = ?", (path,))
 
-    def upsert(self, path: str, name: str, text: str, chunk_chars: int) -> int:
+    def upsert(self, path: str, session: str, messages: list[Message], chunk_chars: int) -> int:
         self.remove(path)
-        chunks = split(text, chunk_chars)
+        chunks = split(messages, chunk_chars)
         self._connection.executemany(
             "INSERT INTO raw_chunks(name, path, anchor, text) VALUES(?, ?, ?, ?)",
             [
-                (f"{name}{ANCHOR_SEPARATOR}{index}", path, str(index), chunk)
-                for index, chunk in enumerate(chunks)
+                (
+                    render_pointer(Pointer(session, pointer.start, pointer.end)),
+                    path,
+                    f"{pointer.start}-{pointer.end}",
+                    text,
+                )
+                for pointer, text in chunks
             ],
         )
         return len(chunks)
@@ -69,22 +73,27 @@ class RawIndex:
         ]
 
 
-def split(text: str, chunk_chars: int) -> list[str]:
-    lines = [line for line in text.splitlines() if line.strip()]
-    chunks: list[str] = []
-    current: list[str] = []
+def split(messages: list[Message], chunk_chars: int) -> list[tuple[Pointer, str]]:
+    """Consecutive messages packed up to a size; the pointer is the message range."""
+    chunks: list[tuple[Pointer, str]] = []
+    current: list[Message] = []
     size = 0
-    for line in lines:
-        if current and size + len(line) > chunk_chars:
-            chunks.append(PARAGRAPH_BREAK.join(current))
+    for message in messages:
+        if not message.text:
+            continue
+        if current and size + len(message.text) > chunk_chars:
+            chunks.append(_chunk(current))
             current = []
             size = 0
-        current.append(line)
-        size += len(line)
+        current.append(message)
+        size += len(message.text)
     if current:
-        chunks.append(PARAGRAPH_BREAK.join(current))
+        chunks.append(_chunk(current))
     return chunks
 
 
-def source_name(path: pathlib.Path) -> str:
-    return path.stem
+def _chunk(messages: list[Message]) -> tuple[Pointer, str]:
+    text = PARAGRAPH_BREAK.join(
+        f"{message.role}: {message.text}" if message.role else message.text for message in messages
+    )
+    return Pointer("", messages[0].index, messages[-1].index), text

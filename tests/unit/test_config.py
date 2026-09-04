@@ -19,16 +19,20 @@ def test_defaults_are_complete_and_self_consistent():
     assert config.weight.floor < config.weight.initial < config.weight.ceiling
     assert config.weight.decay_step > 0
     assert config.weight.boost_step > 0
-    assert config.recall.retrieval_weight_floor >= config.weight.floor
+    assert config.manage.max_merges_per_sleep >= 0
     assert config.recall.default_limit > 0
     assert config.recall.recency_half_life_days > 0
-    assert set(config.storage.domain_types) == set(config.storage.domains)
+    assert config.storage.max_depth >= len(("type", "file"))
 
 
-def test_every_domain_allows_at_least_one_type_and_types_are_disjoint_from_domains():
+def test_every_factory_group_field_has_a_source_that_may_name_a_directory():
+    from agent_memory.core import schema
+
     config = Config.default()
-    for domain in config.storage.domains:
-        assert config.storage.domain_types[domain]
+    for item in schema.FACTORY:
+        if item.group:
+            source = schema.source_of(item.group, config)
+            assert source in (schema.SOURCE_SYSTEM, schema.SOURCE_MENU)
 
 
 def test_config_round_trips_through_disk(tmp_path):

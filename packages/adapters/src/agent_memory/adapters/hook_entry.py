@@ -8,10 +8,12 @@ from __future__ import annotations
 
 import json
 import pathlib
+import shlex
 import signal
+import subprocess
 import sys
 import traceback
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from types import FrameType
 
 from agent_memory.core import injection
@@ -30,6 +32,13 @@ KEY_HOST = "host"
 KEY_ITEMS = "items"
 CLAUDE_OUTPUT_KEY = "hookSpecificOutput"
 CLAUDE_CONTEXT_KEY = "additionalContext"
+KEY_DISTILL = "distill"
+DISTILL_LAUNCHED = "launched"
+DISTILL_SKIPPED = "skipped"
+SESSION_FLAG = "--session"
+STORE_FLAG = "--store"
+
+Launcher = Callable[[Store, str], bool]
 
 
 class _Timeout(Exception):
@@ -52,14 +61,16 @@ def main(argv: Sequence[str] | None = None) -> int:
     return EXIT_OK
 
 
-def handle(store: Store, event: dict[str, object]) -> dict[str, object]:
+def handle(
+    store: Store, event: dict[str, object], launch: Launcher | None = None
+) -> dict[str, object]:
     host = str(event.get(KEY_HOST) or moments.HOST_CLAUDE_CODE)
     raw_event = str(event.get(KEY_EVENT_CLAUDE) or event.get(KEY_EVENT_GENERIC) or "")
     moment = moments.moment_for(host, raw_event)
     if moment == moments.MOMENT_INJECT:
         return _inject(store, host)
     if moment in (moments.MOMENT_PAUSE, moments.MOMENT_EVICT):
-        return _boundary(store, event, host, moment)
+        return _boundary(store, event, moment, launch or launch_distill)
     return {}
 
 
@@ -78,7 +89,7 @@ def _inject(store: Store, host: str) -> dict[str, object]:
 
 
 def _boundary(
-    store: Store, event: dict[str, object], host: str, moment: str
+    store: Store, event: dict[str, object], moment: str, launch: Launcher
 ) -> dict[str, object]:
     session = str(event.get(KEY_SESSION) or "")
     if not session:
@@ -87,13 +98,33 @@ def _boundary(
     result = capture_module.capture(store, session, items, source=moment)
     if result.is_empty():
         return {}
+    launched = store.config.write.distill_on_boundary and launch(store, session)
     return {
         "moment": moment,
         "session": session,
         "pending": len(result.increment),
         "archived": result.archived,
-        CLAUDE_CONTEXT_KEY: result.instruction,
+        "pointer": result.pointer,
+        KEY_DISTILL: DISTILL_LAUNCHED if launched else DISTILL_SKIPPED,
     }
+
+
+def launch_distill(store: Store, session: str) -> bool:
+    """The executor runs in its own process so the host's turn ends without waiting on it."""
+    command = shlex.split(store.config.executor.command)
+    if not command:
+        return False
+    try:
+        subprocess.Popen(
+            [*command, STORE_FLAG, str(store.root), SESSION_FLAG, session],
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True,
+        )
+    except OSError:
+        return False
+    return True
 
 
 def _items(event: dict[str, object]) -> list[str]:

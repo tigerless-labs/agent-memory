@@ -115,8 +115,7 @@ def test_codex_reads_its_answer_from_the_file_not_the_transcript(tmp_path):
     answer_file = tmp_path / "answer.txt"
     answer_file.write_text("the final answer\n", encoding="utf-8")
     noisy = (
-        "sandbox: read-only\nsession id: abc\nuser\nquestion\n"
-        "codex\nthe final answer\ntokens used"
+        "sandbox: read-only\nsession id: abc\nuser\nquestion\ncodex\nthe final answer\ntokens used"
     )
     assert hosts.DIALECTS[hosts.HOST_CODEX].answer(noisy, answer_file) == "the final answer"
 
@@ -135,12 +134,18 @@ def test_an_unavailable_host_is_reported_rather_than_silently_skipped():
 def test_hermes_re_adds_the_prefix_it_is_about_to_strip(tmp_path):
     """It consumes one provider prefix as routing; a publisher-qualified backend needs it back."""
     spec = hosts.HostSpec(
-        name=hosts.HOST_HERMES, binary="hermes", model="google/gemini-3.7-flash",
+        name=hosts.HOST_HERMES,
+        binary="hermes",
+        model="google/gemini-3.7-flash",
         provider="gemini",
     )
     command = hosts.DIALECTS[hosts.HOST_HERMES].command(
-        spec, tools_enabled=True, system_prompt="k", max_turns=7,
-        store_root=tmp_path / "store", answer_file=tmp_path / "a.txt",
+        spec,
+        tools_enabled=True,
+        system_prompt="k",
+        max_turns=7,
+        store_root=tmp_path / "store",
+        answer_file=tmp_path / "a.txt",
     )
     assert command[command.index("--model") + 1] == "gemini/google/gemini-3.7-flash"
 
@@ -148,8 +153,12 @@ def test_hermes_re_adds_the_prefix_it_is_about_to_strip(tmp_path):
 def test_hermes_leaves_the_model_alone_when_no_provider_is_pinned(tmp_path):
     spec = hosts.HostSpec(name=hosts.HOST_HERMES, binary="hermes", model="some-model")
     command = hosts.DIALECTS[hosts.HOST_HERMES].command(
-        spec, tools_enabled=True, system_prompt="k", max_turns=7,
-        store_root=None, answer_file=tmp_path / "a.txt",
+        spec,
+        tools_enabled=True,
+        system_prompt="k",
+        max_turns=7,
+        store_root=None,
+        answer_file=tmp_path / "a.txt",
     )
     assert command[command.index("--model") + 1] == "some-model"
 

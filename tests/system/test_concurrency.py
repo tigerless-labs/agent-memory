@@ -10,7 +10,6 @@ def _write(root: str, name: str) -> None:
     store.record(
         abstract=f"Concurrent write from {name} about the shared memory store",
         type="fact",
-        domain="project",
         name=name,
     )
 

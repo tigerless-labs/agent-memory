@@ -192,3 +192,12 @@ nothing. Their conclusions are recorded and their trees are kept only because ke
 `experiments/data/longmemeval_s.json` — the published suite, 278 MB — is committed gzipped
 because it exceeds GitHub's single-file limit; `gunzip -k` it before `mem-exp prepare`.
 The bounded `longmemeval_s12.json` and the oracle are committed as they are.
+
+## P12–P14 — the schema-driven write path and the unattended Manage
+
+Planned rounds; protocols move here as each one runs. Order, gates, arms and the harness
+units the Manage round needs are in
+[docs/plans/schema-driven-write-experiments.md](../docs/plans/schema-driven-write-experiments.md).
+Every round starts from a fresh write pass: the config schema changed with PR #11, so no
+earlier corpus replays against the new writer.
+

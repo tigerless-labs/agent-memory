@@ -18,8 +18,10 @@ import os
 import pathlib
 import subprocess
 
-from agent_memory.core import injection, prompts
+from agent_memory.core import distill as distill_module
+from agent_memory.core import injection, prompts, sessions
 from agent_memory.core.config import Config
+from agent_memory.core.distill import Ask
 from agent_memory.core.store import Store
 
 from . import exam as exam_module
@@ -31,8 +33,7 @@ NAMES = (NATIVE, MEMCORE)
 NATIVE_STORE_ENV = "AGENT_MEMORY_STORE"
 NATIVE_TOOL_PATTERN = "Bash(mem:*)"
 NATIVE_RECORD_HINT = (
-    "mem record --domain <user|project|reference|experience> --type <type> "
-    '--abstract "<one line>" --body "<markdown>"'
+    'mem record --type <type> --field <key>=<value> --abstract "<one line>" --body "<markdown>"'
 )
 NATIVE_RECALL_HINT = "mem recall <query>"
 HARNESS_AGENT = "harness"
@@ -100,6 +101,13 @@ class MemorySystem:
     def exam_preamble(self) -> str:
         raise NotImplementedError
 
+    def distill(
+        self, root: pathlib.Path, label: str, messages: list[dict[str, object]], ask: Ask
+    ) -> int:
+        """The cold arm: the library's own executor reads the archive. Systems without a
+        library-side still report that they have none."""
+        raise NotImplementedError(f"{self.name} has no library-side distiller")
+
     def archive(self, root: pathlib.Path, label: str, text: str) -> None:
         raise NotImplementedError
 
@@ -156,6 +164,13 @@ class NativeSystem(MemorySystem):
 
     def archive(self, root, label, text):
         self._store(root).archive.append_session(label, text)
+
+    def distill(self, root, label, messages, ask):
+        store = self._store(root)
+        pointer = store.archive.append_session(label, messages)
+        messages = sessions.resolve(store.layout, pointer) if pointer else []
+        report = distill_module.distill(store, label, messages, ask)
+        return sum(len(batch.written) for batch in report.batches)
 
     def injection(self, root):
         payload = injection.payload(self._store(root))
@@ -254,7 +269,9 @@ class MemcoreSystem(MemorySystem):
         if self._version is None:
             self._version = subprocess.run(
                 [str(self.binary), "--version"],
-                capture_output=True, text=True, check=False,
+                capture_output=True,
+                text=True,
+                check=False,
                 timeout=MEMCORE_CALL_TIMEOUT_SECONDS,
             ).stdout.strip()
         return self._version
@@ -269,9 +286,7 @@ class MemcoreSystem(MemorySystem):
             timeout=MEMCORE_CALL_TIMEOUT_SECONDS,
         )
         if check and completed.returncode != 0:
-            raise RuntimeError(
-                f"memcore {' '.join(arguments)} failed: {completed.stderr.strip()}"
-            )
+            raise RuntimeError(f"memcore {' '.join(arguments)} failed: {completed.stderr.strip()}")
         return completed.stdout
 
 
@@ -289,9 +304,7 @@ def texts_of(system: str, root: pathlib.Path) -> list[str]:
         nodes = sorted((root / MEMCORE_MEMORIES_DIRNAME).glob("*" + MEMCORE_NODE_SUFFIX))
         return [node.read_text(encoding="utf-8") for node in nodes]
     if system == NATIVE:
-        return [
-            path.read_text(encoding="utf-8") for path in Store(root).layout.truth_files()
-        ]
+        return [path.read_text(encoding="utf-8") for path in Store(root).layout.truth_files()]
     raise ValueError(f"unknown memory system: {system}")
 
 

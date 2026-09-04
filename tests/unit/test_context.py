@@ -49,7 +49,6 @@ def test_deep_context_reaches_raw_material(store):
     store.record(
         abstract="Watches nature documentaries",
         type="preference",
-        domain="user",
         name="nature-documentaries",
     )
     store.archive.append_session(

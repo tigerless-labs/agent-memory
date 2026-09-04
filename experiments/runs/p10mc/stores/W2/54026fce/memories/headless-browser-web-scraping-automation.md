@@ -32,8 +32,8 @@ Example with Selenium WebDriver and Chrome headless mode:
 from selenium import webdriver
 
 options = webdriver.ChromeOptions()
-options.add_argument('--headless')
-options.add_argument('--disable-gpu')
+options.add_argument("--headless")
+options.add_argument("--disable-gpu")
 
 driver = webdriver.Chrome(options=options)
 driver.get("https://www.example.com")
