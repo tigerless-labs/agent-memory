@@ -221,3 +221,11 @@ def test_unparseable_reply_lines_are_reported_by_line_number():
     specs, errors = reconcile.parse_operations('```json\n{"type": "fact"}\nnot json\n```')
     assert specs == [{"type": "fact"}]
     assert [error.field for error in errors] == ["line 3"]
+
+
+def test_a_near_synonym_for_a_verb_is_read_as_the_verb(store):
+    sheet = reconcile.build(store, "boundary", _messages(store))
+    assert reconcile.check(_spec(op="insert"), sheet) == []
+    assert reconcile.to_record_spec(_spec(op="Insert"), sheet)["abstract"]
+    assert reconcile.to_record_spec(_spec(op="ignore"), sheet) is None
+    assert reconcile.check(_spec(op="explode"), sheet)

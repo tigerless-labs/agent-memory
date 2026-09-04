@@ -24,6 +24,17 @@ OP_SUPERSEDE = "supersede"
 OP_UPDATE = "update"
 OP_SKIP = "skip"
 OPS = (OP_NEW, OP_SUPERSEDE, OP_UPDATE, OP_SKIP)
+OP_ALIASES = {
+    "insert": OP_NEW,
+    "create": OP_NEW,
+    "add": OP_NEW,
+    "write": OP_NEW,
+    "replace": OP_SUPERSEDE,
+    "edit": OP_UPDATE,
+    "patch": OP_UPDATE,
+    "ignore": OP_SKIP,
+    "none": OP_SKIP,
+}
 KEY_OP = "op"
 KEY_HANDLE = "handle"
 KEY_SUPERSEDES = "supersedes"
@@ -121,10 +132,16 @@ def parse_operations(reply: str) -> tuple[list[dict[str, object]], list[FieldErr
     return specs, errors
 
 
+def operation_of(spec: dict[str, object]) -> str:
+    """A near-synonym the executor reached for is read as the verb it meant."""
+    raw = str(spec.get(KEY_OP) or OP_NEW).strip().lower()
+    return OP_ALIASES.get(raw, raw)
+
+
 def check(spec: dict[str, object], sheet: Sheet) -> list[FieldError]:
     """Handles must come from the sheet; provenance defaults to the batch it came from."""
     errors: list[FieldError] = []
-    op = str(spec.get(KEY_OP) or OP_NEW)
+    op = operation_of(spec)
     if op not in OPS:
         errors.append(FieldError(KEY_OP, f"must be one of {', '.join(OPS)}"))
         return errors
@@ -141,7 +158,7 @@ def check(spec: dict[str, object], sheet: Sheet) -> list[FieldError]:
 
 def to_record_spec(spec: dict[str, object], sheet: Sheet) -> dict[str, object] | None:
     """The executor's operation, as the store's single write path takes it. Skip is nothing."""
-    op = str(spec.get(KEY_OP) or OP_NEW)
+    op = operation_of(spec)
     if op == OP_SKIP:
         return None
     handle = str(spec.get(KEY_HANDLE) or spec.get(KEY_SUPERSEDES) or "")
