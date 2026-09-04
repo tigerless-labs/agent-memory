@@ -135,24 +135,34 @@ class Obedient:
         )
 
 
-def test_a_captured_reasoner_cannot_reach_past_its_tier(seeded):
-    seeded.record(
-        abstract="The drain window closes before the worker lease expires",
+def _twin_pair(store, stem):
+    store.record(
+        abstract=f"The {stem} window closes before the worker lease expires",
         type="experience",
         body=PAYLOAD,
-        name="poisoned-twin-first",
+        name=f"{stem}-twin-first",
     )
-    seeded.record(
-        abstract="The drain window closes before the worker lease expires again",
+    store.record(
+        abstract=f"The {stem} window closes before the worker lease expires again",
         type="experience",
         body="Longer body carrying the lease TTL and the fix that worked.",
-        name="poisoned-twin-second",
+        name=f"{stem}-twin-second",
     )
+
+
+def test_a_captured_reasoner_is_bounded_by_the_menu_and_the_per_sleep_cap(seeded):
+    _twin_pair(seeded, "drain")
+    _twin_pair(seeded, "flush")
+    seeded.config.manage.max_supersedes_per_sleep = 1
     before = len(seeded.records(include_invalid=True))
 
     report = Manage(seeded).sleep(reasoner=Obedient())
 
     assert len(seeded.records(include_invalid=True)) == before
-    assert seeded.find("poisoned-twin-first").is_active()
+    applied = [decision for decision in report.decisions if decision.verdict == "accepted"]
+    assert len([d for d in applied if d.detail.startswith("kept")]) == 1
     assert report.withheld
     assert all(decision.proposal_id not in report.withheld for decision in report.decisions)
+    twins = ["drain-twin-first", "drain-twin-second", "flush-twin-first", "flush-twin-second"]
+    assert len([name for name in twins if seeded.find(name).is_active()]) == len(twins) - 1
+    assert all(seeded.find(name).path.exists() for name in twins)

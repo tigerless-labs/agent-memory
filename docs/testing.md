@@ -27,6 +27,7 @@
 | `core/sessions`·`core/provenance`(消息序号、范围指针、只增不减) | `tests/unit/test_sessions.py` |
 | `core/reconcile`·`core/render`·`core/batching`·`core/distill`·`core/pending`(对账单、编号渲染、分批、句柄与动词、修复轮、待办) | `tests/unit/test_reconcile.py` |
 | `core/triggers`·`executor/distiller`·CLI `distill`(阈值、闲置、边界;三宿主同一执行器调用) | `tests/unit/test_triggers.py` |
+| `core/manage` T0 目录操作、T1 内容裁决、上限、git 提交、红队 | `tests/unit/test_manage.py`·`tests/unit/test_manage_reasoning.py` |
 | `core/indexer`·`core/manifest`·`core/search_index`·`core/memory_md` | `tests/unit/test_indexer.py` |
 | `core/locking` | `tests/system/test_concurrency.py` |
 | `core/recall`·`core/chunking`·`core/access_log` | `tests/unit/test_recall.py` |

@@ -101,8 +101,6 @@
       后者无任何评测。若做系统对照,覆盖率探针是唯一能分离两系统的量
 - [ ] `_propose_merges` 是 O(n²) 两两 Jaccard,全量每睡一次。小库无感,需要给出规模上界
       或加分桶预筛(共享 token 倒排)后再谈大库
-- [ ] `_propose_merges` 的 kind 判定看着是反的:同 type → supersede,异 type → merge。
-      异类型条目合并成一条更可疑;现有测试只断言「两者之一」,没有钉住语义
 - [ ] T0 允许推理者重写摘要,于是被策反的推理者能把攻击者文字写进摘要(长度超限会被 frontmatter
       校验挡下,正常长度不会)。目前只靠 dream-report + git 可见可回滚。是否需要「替换摘要必须与
       该条正文有词汇重合」之类的写入侧判据,待定——先别拍脑袋加启发式
@@ -130,6 +128,10 @@
 
 ## schema 驱动写入(2026-09-03,plan: docs/plans/schema-driven-write.md)
 
+- [ ] MCP `memory_decide` 只能带 `text`:接受 merge / split 需要 abstract、body、parts,
+      目前只有 CLI `decide` 能给;补 MCP 参数,否则违反不变量 8
+- [ ] Manage 的 T1 裁决还没有接到 `sleep` 的缺省路径:`mem sleep` 不带 `--reason` 时只跑 T0,
+      设计要求推理者就是库侧执行器(executor.model),应缺省用它并允许 `--reason none` 关掉
 - [ ] 旧四域布局 → schema 布局的迁移命令与 config 版本号(接上面「config knob 改名」那条)
 - [ ] abstract 缺省由键字段渲染、agent 可覆盖:两种写法对检索的影响需对照
 - [ ] 出厂类型说明里明确重叠处谁赢(profile vs preference,entity vs reference)

@@ -11,7 +11,7 @@ import dataclasses
 from . import sessions, timestamp
 from .config import WriteConfig
 from .paths import StoreLayout
-from .sessions import Message
+from .sessions import Message, Pointer
 from .watermark import Mark, Watermark
 
 REASON_BOUNDARY = "boundary"
@@ -19,6 +19,7 @@ REASON_MESSAGES = "messages"
 REASON_TOKENS = "tokens"
 REASON_IDLE = "idle"
 REASON_FORCED = "forced"
+REASON_REDISTILL = "redistill"
 
 
 @dataclasses.dataclass(frozen=True)
@@ -28,20 +29,32 @@ class Due:
     messages: tuple[Message, ...]
 
 
-def backlog(layout: StoreLayout, session: str, watermark: Watermark) -> list[Message]:
+def backlog(
+    layout: StoreLayout, session: str, watermark: Watermark, requested: tuple[Pointer, ...] = ()
+) -> list[Message]:
     mark = watermark.read(session)
     return [
-        message for message in sessions.read(layout, session) if message.index >= mark.distilled
+        message
+        for message in sessions.read(layout, session)
+        if message.index >= mark.distilled
+        or any(pointer.start <= message.index <= pointer.end for pointer in requested)
     ]
 
 
 def reason_for(
-    config: WriteConfig, mark: Mark, messages: list[Message], now_iso: str, boundary: bool
+    config: WriteConfig,
+    mark: Mark,
+    messages: list[Message],
+    now_iso: str,
+    boundary: bool,
+    requested: bool = False,
 ) -> str | None:
     if not messages:
         return None
     if boundary:
         return REASON_BOUNDARY
+    if requested:
+        return REASON_REDISTILL
     if len(messages) >= config.pending_message_threshold:
         return REASON_MESSAGES
     chars = sum(len(message.text) for message in messages)

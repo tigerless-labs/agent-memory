@@ -9,8 +9,10 @@ from __future__ import annotations
 import json
 
 from .paths import StoreLayout
+from .sessions import Pointer, parse_pointer, render_pointer
 
 PENDING_SUFFIX = ".jsonl"
+REDISTILL_DIRNAME = "redistill"
 
 
 class Pending:
@@ -43,6 +45,36 @@ class Pending:
                 specs.append(payload)
         path.unlink()
         return specs
+
+    def request_redistill(self, pointer: Pointer) -> bool:
+        """Raw material that keeps being hit without any memory citing it goes back to the still."""
+        folder = self._layout.pending / REDISTILL_DIRNAME
+        folder.mkdir(parents=True, exist_ok=True)
+        path = folder / f"{pointer.session}{PENDING_SUFFIX}"
+        line = render_pointer(pointer)
+        existing = path.read_text(encoding="utf-8").splitlines() if path.exists() else []
+        if line in existing:
+            return False
+        with path.open("a", encoding="utf-8") as handle:
+            handle.write(line + "\n")
+        return True
+
+    def redistill(self, session: str) -> list[Pointer]:
+        path = self._layout.pending / REDISTILL_DIRNAME / f"{session}{PENDING_SUFFIX}"
+        if not path.exists():
+            return []
+        found = [parse_pointer(line) for line in path.read_text(encoding="utf-8").splitlines()]
+        return [pointer for pointer in found if pointer is not None]
+
+    def clear_redistill(self, session: str) -> None:
+        path = self._layout.pending / REDISTILL_DIRNAME / f"{session}{PENDING_SUFFIX}"
+        path.unlink(missing_ok=True)
+
+    def redistill_sessions(self) -> list[str]:
+        folder = self._layout.pending / REDISTILL_DIRNAME
+        if not folder.is_dir():
+            return []
+        return sorted(path.stem for path in folder.glob("*" + PENDING_SUFFIX))
 
     def sessions(self) -> list[str]:
         folder = self._layout.pending

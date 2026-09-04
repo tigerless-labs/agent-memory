@@ -19,7 +19,7 @@ def test_defaults_are_complete_and_self_consistent():
     assert config.weight.floor < config.weight.initial < config.weight.ceiling
     assert config.weight.decay_step > 0
     assert config.weight.boost_step > 0
-    assert config.recall.retrieval_weight_floor >= config.weight.floor
+    assert config.manage.max_merges_per_sleep >= 0
     assert config.recall.default_limit > 0
     assert config.recall.recency_half_life_days > 0
     assert config.storage.max_depth >= len(("type", "file"))

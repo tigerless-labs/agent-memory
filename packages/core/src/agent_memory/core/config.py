@@ -60,7 +60,6 @@ class WeightConfig:
     boost_step: float = 0.5
     decay_step: float = 0.1
     decay_after_days: float = 30.0
-    demote_penalty: float = 0.5
 
 
 @dataclasses.dataclass
@@ -71,7 +70,6 @@ class RecallConfig:
     recency_half_life_days: float = 180.0
     recency_decay_base: float = 0.5
     recency_floor: float = 0.25
-    retrieval_weight_floor: float = 0.15
     memory_md_weight_floor: float = 0.75
     raw_enabled: bool = True
     raw_relevance_factor: float = 0.4
@@ -83,14 +81,8 @@ class RecallConfig:
     snippet_max_chars: int = 400
 
 
-TIER_UNATTENDED = "T0"
-TIER_PROPOSAL = "T1"
-TIER_HUMAN = "T2"
-
-
 @dataclasses.dataclass
 class ManageConfig:
-    authority: str = TIER_UNATTENDED
     trigger_min_hours: float = 24.0
     trigger_min_sessions: int = 3
     cluster_min_files: int = 5
@@ -99,6 +91,13 @@ class ManageConfig:
     link_cooccurrence_min: int = 2
     abstract_min_words: int = 3
     max_boosts_per_sleep: int = 3
+    max_merges_per_sleep: int = 3
+    max_supersedes_per_sleep: int = 5
+    max_splits_per_sleep: int = 2
+    max_deletes_per_sleep: int = 3
+    split_min_sections: int = 3
+    raw_hit_min: int = 3
+    git_commit: bool = True
     dream_report_dirname: str = "dream-reports"
 
 

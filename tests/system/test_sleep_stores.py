@@ -143,7 +143,7 @@ def test_a_reasoned_sleep_records_what_it_decided(tmp_path, capsys, monkeypatch)
     assert payload["proposals"] == 0
 
 
-def test_authority_is_a_knob_the_step_can_raise(tmp_path, capsys, monkeypatch):
+def test_the_per_sleep_cap_is_a_knob_the_step_can_lower(tmp_path, capsys, monkeypatch):
     _twins(tmp_path / "stores" / "W2" / "q1")
     monkeypatch.setattr(
         "agent_memory.executor.reasoners.HostReasoner.__call__",
@@ -164,10 +164,11 @@ def test_authority_is_a_knob_the_step_can_raise(tmp_path, capsys, monkeypatch):
                 "--reason",
                 "host",
                 "--set",
-                "manage.authority=T1",
+                "manage.max_supersedes_per_sleep=0",
             ]
         )
         == 0
     )
     slept = Store(target / "q1", agent="check")
-    assert slept.find("drain-window-first").superseded_by == "drain-window-second"
+    assert slept.find("drain-window-first").is_active()
+    assert json.loads(capsys.readouterr().out)["decisions"] == 0

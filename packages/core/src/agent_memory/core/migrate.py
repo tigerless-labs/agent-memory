@@ -38,6 +38,8 @@ LEGACY_TYPE_MAP = {
 REMOVED_KNOBS = {
     "storage": ("domains", "domain_types", "max_depth_below_domain"),
     "manage": ("stale_after_days", "authority"),
+    "weight": ("demote_penalty",),
+    "recall": ("retrieval_weight_floor",),
 }
 
 

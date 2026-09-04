@@ -1,18 +1,24 @@
 """M6 — unattended Manage adds and amends; anything that loses a distinction is a proposal."""
 
 import shutil
+import subprocess
 
 import pytest
-from agent_memory.core.errors import AuthorityError, NotFoundError
+from agent_memory.core.errors import NotFoundError
 from agent_memory.core.manage import (
+    ACTION_CLUSTERED,
     ACTION_DUPLICATE_MERGED,
+    ACTION_GROUP_MERGED,
     ACTION_LINK_ADDED,
+    ACTION_REDISTILL_REQUESTED,
     ACTION_WEIGHT_SETTLED,
-    PROPOSAL_CLUSTER,
+    PROPOSAL_DELETE,
     PROPOSAL_MERGE,
+    PROPOSAL_SPLIT,
     PROPOSAL_SUPERSEDE,
     Manage,
 )
+from agent_memory.core.pending import Pending
 from agent_memory.core.recall import Recall
 
 
@@ -98,21 +104,146 @@ def test_similar_but_not_identical_entries_become_a_proposal_not_an_edit(seeded)
     assert seeded.find("ryan-prefers-concise-answers") is not None
 
 
-def test_a_crowded_directory_yields_a_clustering_proposal_that_is_not_executed(store):
+def test_a_crowded_directory_is_clustered_into_a_new_group_without_a_ruling(store):
     for index in range(store.config.manage.cluster_min_files):
         store.record(
             abstract=f"Deploy pipeline note number {index} about the release rollout",
             type="procedure",
             name=f"deploy-note-{index}",
         )
+    before = {record.name: (record.body, record.provenance) for record in store.records()}
     report = Manage(store).sleep()
-    clusters = [item for item in report.proposals if item.kind == PROPOSAL_CLUSTER]
-    assert clusters
-    assert all(
-        record.path.parent
-        == store.layout.type_dir("procedure") / store.config.storage.default_project
-        for record in store.records()
+    moved = [action for action in report.actions if action.kind == ACTION_CLUSTERED]
+    assert {action.target for action in moved} == set(before)
+    parents = {record.path.parent for record in store.records()}
+    assert len(parents) == 1
+    assert parents != {store.layout.type_dir("procedure") / store.config.storage.default_project}
+    assert {r.name: (r.body, r.provenance) for r in store.records()} == before
+    assert Recall(store).recall("release rollout")
+
+
+def test_group_directories_that_differ_only_in_spelling_are_merged(store):
+    store.record(
+        type="preference",
+        fields={"topic": "coffee", "subject": "milk"},
+        abstract="Prefers oat milk",
+        create_group=True,
     )
+    store.record(
+        type="preference",
+        fields={"topic": "coffee", "subject": "roast"},
+        abstract="Prefers a dark roast",
+        create_group=True,
+    )
+    store.record(
+        type="preference",
+        fields={"topic": "Coffees", "subject": "cup"},
+        abstract="Prefers a large cup",
+        create_group=True,
+    )
+    report = Manage(store).sleep()
+    merged = [action for action in report.actions if action.kind == ACTION_GROUP_MERGED]
+    assert [action.target for action in merged] == ["cup"]
+    assert store.layout.groups_of("preference") == {"coffee"}
+    assert store.find("cup").fields["topic"] == "coffee"
+
+
+def test_raw_material_hit_repeatedly_but_cited_by_nothing_is_sent_back_to_the_still(store):
+    store.archive.append_session("chat", ["user: the queue timeout is 30 seconds now"])
+    store.rebuild_index()
+    for _ in range(store.config.manage.raw_hit_min):
+        Recall(store).recall("queue timeout", deep=True)
+    report = Manage(store).sleep()
+    assert ACTION_REDISTILL_REQUESTED in _kinds(report)
+    requested = Pending(store.layout).redistill("chat")
+    assert requested and requested[0].session == "chat"
+    assert ACTION_REDISTILL_REQUESTED not in _kinds(Manage(store).sleep())
+
+
+def test_raw_material_already_cited_is_not_sent_back(store):
+    pointer = store.archive.append_session("chat", ["user: the queue timeout is 30 seconds now"])
+    store.record(
+        type="fact",
+        fields={"subject": "queue timeout"},
+        abstract="Queue timeout is 30 seconds",
+        provenance=["sessions/chat#0-0"],
+    )
+    for _ in range(store.config.manage.raw_hit_min):
+        Recall(store).recall("queue timeout", deep=True)
+    assert ACTION_REDISTILL_REQUESTED not in _kinds(Manage(store).sleep())
+    assert pointer is not None
+
+
+def test_a_file_with_sections_from_several_conversations_becomes_a_split_proposal(store):
+    body = "\n".join(f"## part {index}\n\ntext {index}" for index in range(3))
+    store.record(
+        type="fact",
+        fields={"subject": "two things"},
+        abstract="Two things at once",
+        body=body,
+        provenance=["sessions/a#0-0", "sessions/b#0-0"],
+    )
+    proposals = Manage(store).proposals()
+    assert [p.kind for p in proposals if p.targets == ("two-things",)] == [PROPOSAL_SPLIT]
+
+
+def test_a_memory_at_the_floor_that_nobody_recalled_becomes_a_delete_proposal(store):
+    store.record(
+        type="fact",
+        fields={"subject": "forgotten"},
+        abstract="Nobody asks about this",
+        weight=store.config.weight.floor,
+    )
+    proposals = Manage(store).proposals()
+    assert [p.kind for p in proposals if p.targets == ("forgotten",)] == [PROPOSAL_DELETE]
+    Manage(store).decide(next(p for p in proposals if p.kind == PROPOSAL_DELETE).id, accept=True)
+    assert not store.find("forgotten").is_active()
+    assert store.find("forgotten").path.exists()
+
+
+def test_after_any_sleep_the_files_on_disk_never_shrink(seeded):
+    _twins(seeded)
+    before = len(seeded.records(include_invalid=True))
+    for proposal in Manage(seeded).proposals():
+        try:
+            Manage(seeded).decide(proposal.id, accept=True)
+        except Exception:
+            continue
+    Manage(seeded).sleep()
+    assert len(seeded.records(include_invalid=True)) >= before
+
+
+def test_gc_is_the_only_road_to_physical_removal(seeded):
+    thin, rich = _twins(seeded)
+    proposal = _find(Manage(seeded).proposals(), PROPOSAL_SUPERSEDE)
+    Manage(seeded).decide(proposal.id, accept=True)
+    invalid_path = seeded.find(thin).path
+    assert invalid_path.exists()
+    assert seeded.gc() == [thin]
+    assert not invalid_path.exists()
+    assert seeded.find(rich).is_active()
+
+
+def test_a_sleep_inside_a_repository_leaves_one_commit(seeded):
+    subprocess.run(["git", "init", "-q", str(seeded.root)], check=True)
+    subprocess.run(
+        ["git", "-C", str(seeded.root), "config", "user.email", "t@example.com"], check=True
+    )
+    subprocess.run(["git", "-C", str(seeded.root), "config", "user.name", "t"], check=True)
+    report = Manage(seeded).sleep()
+    assert report.committed
+    log = subprocess.run(
+        ["git", "-C", str(seeded.root), "log", "--oneline"],
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout
+    assert len(log.splitlines()) == 1
+    assert "sleep" in log
+
+
+def test_a_sleep_outside_a_repository_commits_nothing_and_says_so(seeded):
+    assert Manage(seeded).sleep().committed is False
 
 
 def test_every_sleep_leaves_an_auditable_report(seeded):
@@ -192,19 +323,6 @@ def test_rejecting_a_proposal_changes_no_memory_file(seeded):
     assert {record.name: record.to_text() for record in seeded.records()} == before
 
 
-def test_a_cluster_proposal_cannot_be_accepted_below_human_authority(seeded):
-    for index in range(seeded.config.manage.cluster_min_files):
-        seeded.record(
-            abstract=f"Kubernetes upgrade note {index} about the kubernetes control plane",
-            type="reference",
-            body="Body.",
-            name=f"kubernetes-upgrade-note-{index}",
-        )
-    proposal = _find(Manage(seeded).proposals(), PROPOSAL_CLUSTER)
-    with pytest.raises(AuthorityError):
-        Manage(seeded).decide(proposal.id, accept=True)
-
-
 def test_deciding_an_unknown_proposal_is_refused(seeded):
     with pytest.raises(NotFoundError):
         Manage(seeded).decide("not-a-proposal", accept=True)
@@ -254,16 +372,16 @@ def _flat_topic(store, count, abstract):
         )
 
 
-def test_one_group_proposes_one_cluster_however_many_tokens_it_shares(seeded):
+def test_one_group_moves_into_one_directory_however_many_tokens_it_shares(seeded):
     _flat_topic(
         seeded,
         seeded.config.manage.cluster_min_files,
         "Kubernetes control plane upgrade note {index}",
     )
-    clusters = [
-        proposal for proposal in Manage(seeded).proposals() if proposal.kind == PROPOSAL_CLUSTER
-    ]
-    assert len(clusters) == 1
+    report = Manage(seeded).sleep()
+    moved = [action for action in report.actions if action.kind == ACTION_CLUSTERED]
+    assert len(moved) == seeded.config.manage.cluster_min_files
+    assert len({action.detail for action in moved}) == 1
 
 
 def test_a_group_sharing_too_few_tokens_is_not_a_topic(seeded):
@@ -273,6 +391,4 @@ def test_a_group_sharing_too_few_tokens_is_not_a_topic(seeded):
         seeded.config.manage.cluster_min_files,
         "Kubernetes control plane upgrade note {index}",
     )
-    assert not [
-        proposal for proposal in Manage(seeded).proposals() if proposal.kind == PROPOSAL_CLUSTER
-    ]
+    assert ACTION_CLUSTERED not in _kinds(Manage(seeded).sleep())

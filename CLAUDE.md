@@ -41,9 +41,9 @@ has no M, or buries it in the write path.
    coverage that does not drift with the host model, and a core that stays testable without
    a network.
 6. **Manage never destroys information.** Every Manage operation is reversible: T0 is
-   rule-only (dates, weight, links, directories), T1 is decided by the host LLM and only
-   creates new files or marks old ones invalid, each kind capped per sleep, one git commit
-   per sleep. Physical removal is a human-run command that Manage cannot reach. Why: memory
+   rule-only (dates, weight, links, directories), T1 is decided by the library executor and
+   only creates new files or marks old ones invalid, each kind capped per sleep, one git
+   commit per sleep. Physical removal is a human-run command that Manage cannot reach. Why: memory
    poisoning is a persistent attack surface; with no human in the loop, reversibility,
    rate limits and audit are what keep an unattended run safe.
 7. **File boundary = invalidation atom.** One file holds knowledge that expires as a whole

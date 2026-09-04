@@ -12,7 +12,7 @@ from collections.abc import Sequence
 from agent_memory.core import context as context_module
 from agent_memory.core import distill as distill_module
 from agent_memory.core import migrate as migrate_module
-from agent_memory.core import portability, sessions, triggers
+from agent_memory.core import pending, portability, reasoning, sessions, triggers
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
@@ -181,12 +181,24 @@ def _parser() -> argparse.ArgumentParser:
     proposer = subparsers.add_parser("proposals", help="list proposals awaiting confirmation")
     proposer.set_defaults(handler=_proposals)
 
+    collector = subparsers.add_parser(
+        "gc", help="physically remove invalid files; the only deletion entry, human-run"
+    )
+    collector.set_defaults(handler=_gc)
+
     decider = subparsers.add_parser("decide", help="confirm or refuse one proposal")
     decider.add_argument("proposal")
     verdict = decider.add_mutually_exclusive_group(required=True)
     verdict.add_argument("--accept", action="store_true")
     verdict.add_argument("--reject", action="store_true")
     decider.add_argument("--text", default="", help="replacement abstract, for an abstract review")
+    decider.add_argument("--abstract", default="", help="merged abstract, for a merge")
+    decider.add_argument("--body", default="", help="merged body, for a merge")
+    decider.add_argument(
+        "--parts",
+        default=None,
+        help="JSON file listing the parts of a split (abstract, body, provenance)",
+    )
     decider.set_defaults(handler=_decide)
 
     installer = subparsers.add_parser("setup", help="install host hooks")
@@ -303,18 +315,26 @@ def _distill(store: Store, args: argparse.Namespace) -> dict[str, object]:
     ask = _reasoner(args) or distiller.distiller(store.config.executor)
     now = store.clock.now().isoformat()
     reports = []
-    for session in candidates:
-        backlog = triggers.backlog(store.layout, session, watermark)
+    queue = pending.Pending(store.layout)
+    for session in sorted(set(candidates) | set(queue.redistill_sessions())):
+        requested = tuple(queue.redistill(session))
+        backlog = triggers.backlog(store.layout, session, watermark, requested)
         reason = (
             triggers.REASON_FORCED
             if args.force
             else triggers.reason_for(
-                store.config.write, watermark.read(session), backlog, now, session in named
+                store.config.write,
+                watermark.read(session),
+                backlog,
+                now,
+                session in named,
+                bool(requested),
             )
         )
         if reason is None:
             continue
         report = distill_module.distill(store, session, backlog, ask)
+        queue.clear_redistill(session)
         reports.append({"reason": reason, **report.as_dict()})
     return {"distilled": reports}
 
@@ -410,12 +430,29 @@ def _reasoner(args: argparse.Namespace) -> Reasoner | None:
     return None
 
 
+def _gc(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    return {"removed": store.gc()}
+
+
 def _proposals(store: Store, args: argparse.Namespace) -> dict[str, object]:
     return {"proposals": [proposal.as_dict() for proposal in Manage(store).proposals()]}
 
 
 def _decide(store: Store, args: argparse.Namespace) -> dict[str, object]:
-    decision = Manage(store).decide(args.proposal, accept=args.accept, text=args.text)
+    parts = json.loads(pathlib.Path(args.parts).read_text(encoding="utf-8")) if args.parts else []
+    verdict = reasoning.parse(
+        json.dumps(
+            {
+                "proposal": args.proposal,
+                "verdict": reasoning.VERDICT_ACCEPT if args.accept else reasoning.VERDICT_REJECT,
+                "text": args.text,
+                "abstract": args.abstract,
+                "body": args.body,
+                "parts": parts,
+            }
+        )
+    )[0]
+    decision = Manage(store).decide(args.proposal, accept=args.accept, verdict=verdict)
     return dict(decision.as_dict())
 
 

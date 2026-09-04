@@ -325,6 +325,18 @@ class Store:
         current.updated = now
         return self.write(current)
 
+    def gc(self) -> list[str]:
+        """Physically removes invalid files. A human runs this; Manage cannot reach it."""
+        removed: list[str] = []
+        with store_lock(self.layout):
+            for record in self.records(include_invalid=True):
+                if record.is_active() or record.path is None:
+                    continue
+                record.path.unlink(missing_ok=True)
+                removed.append(record.name)
+            self._project()
+        return removed
+
     def write(self, record: MemoryRecord) -> MemoryRecord:
         """Validate, persist, reproject. Agent writes and Manage rewrites share this path."""
         if record.path is None:
