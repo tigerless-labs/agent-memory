@@ -95,19 +95,30 @@ def _split_items(inner: str) -> list[str]:
     items: list[str] = []
     current: list[str] = []
     quote: str | None = None
+    at_value_start = True
     for char in inner:
         if quote:
             if char == quote:
                 quote = None
             current.append(char)
-        elif char in ("'", '"'):
+            at_value_start = False
+        elif char in ("'", '"') and at_value_start:
             quote = char
             current.append(char)
+            at_value_start = False
         elif char == ",":
             items.append("".join(current))
             current = []
+            at_value_start = True
+        elif char in (" ", "\t"):
+            if not current:
+                at_value_start = True
+            else:
+                current.append(char)
+                at_value_start = False
         else:
             current.append(char)
+            at_value_start = False
     items.append("".join(current))
     return [item for item in (item.strip() for item in items) if item]
 
