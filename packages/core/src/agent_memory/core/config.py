@@ -64,6 +64,7 @@ class WeightConfig:
 
 @dataclasses.dataclass
 class RecallConfig:
+    overview_enabled: bool = False
     default_limit: int = 8
     candidate_pool_multiplier: int = 10
     deep_limit_multiplier: int = 2

@@ -168,3 +168,56 @@ def test_external_edits_moves_and_deletion_are_visible_without_sync(deployment):
     assert names(overview.build(deployment, "switch-to-uv")) == ["switch-to-uv", "rollback"]
     deployment.find("rollback").path.unlink()
     assert names(overview.build(deployment, "switch-to-uv")) == ["switch-to-uv"]
+
+
+def test_o1_is_explicit_and_default_prompt_and_memory_behaviour_are_unchanged(deployment):
+    from agent_memory.core import prompts
+    from agent_memory.core.config import Config
+    from agent_memory.harness.systems import NativeSystem
+
+    config = Config.default()
+    assert config.recall.overview_enabled is False
+    baseline = NativeSystem(config).exam_preamble()
+    assert baseline == prompts.exam("mem recall <query>")
+    before = context.build(deployment, "migration")
+    config.recall.overview_enabled = True
+    o1 = NativeSystem(config).exam_preamble()
+    assert 'mem --json recall "<the question>" --limit 1' in o1
+    assert "mem --json overview <seed-name> --limit 8" in o1
+    assert "first four entries" in o1 and "exactly once" in o1
+    assert o1.index("mem --json recall") < o1.index("mem --json overview") < o1.index("mem read")
+    deployment.config.recall.overview_enabled = True
+    assert context.build(deployment, "migration") == before
+
+
+def test_o1_config_roundtrip_and_fingerprint(tmp_path):
+    from agent_memory.core.config import Config
+
+    config = Config.default()
+    baseline = config.recall_fingerprint()
+    config.recall.overview_enabled = True
+    config.save(tmp_path)
+    loaded = Config.load(tmp_path)
+    assert loaded.recall.overview_enabled is True
+    assert loaded.recall_fingerprint() == config.recall_fingerprint() != baseline
+
+
+@pytest.mark.parametrize("host_name", ["codex", "claude-code"])
+def test_o1_identical_instruction_reaches_both_host_dialects(host_name, tmp_path):
+    from agent_memory.core.config import Config
+    from agent_memory.executor.hosts import DIALECTS, HostSpec
+    from agent_memory.harness.systems import NativeSystem
+
+    config = Config.default()
+    config.recall.overview_enabled = True
+    system = NativeSystem(config)
+    prompt = system.exam_preamble()
+    dialect = DIALECTS[host_name]
+    command = dialect.command(
+        HostSpec(name=host_name, binary=host_name), tools_enabled=True,
+        system_prompt=system.exam_system_prompt(), max_turns=20,
+        store_root=tmp_path, answer_file=tmp_path / "answer",
+    )
+    assert prompt in dialect.stdin(prompt, system.exam_system_prompt())
+    if host_name == "claude-code":
+        assert command[command.index("--allowedTools") + 1] == "Bash(mem:*)"

@@ -171,7 +171,7 @@ uv run mem read ci-change
 `overview` lists the seed, memories in its exact physical topic directory, then its outgoing
 explicit links. It does not expand a flat domain root, recurse, or open neighbor bodies/raw.
 The view is generated from current files without an LLM, embeddings, a cache, or a new summary
-Memory. Ordinary recall, read, context, and host prompts remain unchanged.
+Memory. Ordinary recall, read, context, and default host prompts remain unchanged.
 
 The seed counts toward `--limit` (default: `recall.default_limit`, 8); abstracts use the existing
 length cap. Results carry relation, path, status and updated time, with deterministic ordering
@@ -186,6 +186,32 @@ retains Recall's string-prefix semantics. Each call scans and parses all Memory 
 (including archived successor metadata), but returns only bounded metadata. This trades scan
 cost for immediate visibility of external edits without index synchronization. Fixture tests
 verify navigation mechanics; no benchmark accuracy improvement is claimed.
+
+### O1 host policy (explicit opt-in)
+
+On this branch only, `--set recall.overview_enabled=true` enables a fixed **agentic**
+exam instruction for both Codex and Claude Code: one ordinary recall (limit 1), one
+Overview of its first hit (limit 8), then full reads of the first four returned entries
+in their listed order. No second seed, recursive expansion, context call or raw fallback
+is requested. No hit/ineligible seed means insufficient evidence. The switch defaults
+to false; default Recall/Read and prompts stay equivalent to the common baseline.
+
+```sh
+mem-exp run --suite /absolute/path/fixture.json --workspace /absolute/path/o1-smoke \
+  --arms W1 --per-type 1 --concurrency 1 --exam-mode agentic \
+  --host codex --judge-host codex --model gpt-5.6-sol --judge-model gpt-5.6-sol \
+  --set recall.overview_enabled=true
+```
+
+Use `--exam-mode agentic` for O1; fixed mode uses the original context builder and
+cannot exercise this host instruction. For paired read experiments, reuse disposable
+copies of the same frozen input stores and hold host/model and judge host/model fixed.
+The run config records the switch. In agentic reuse runs, the copied store's config must
+match the relevant CLI `--set` values: child `mem` processes read that config on disk.
+
+This is a fixed instruction policy, not a forced tool executor. Check actual tool calls
+in mechanics smoke before formal runs. Existing Observation fields remain unchanged;
+Overview itself is not counted as a full read and has no new observation field.
 
 ## Wire it into your agent
 
