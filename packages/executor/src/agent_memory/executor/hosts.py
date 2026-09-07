@@ -120,6 +120,8 @@ class ClaudeCodeDialect(Dialect):
         ]
         if tools_enabled:
             command += ["--allowedTools", tool_pattern]
+        else:
+            command += ["--tools", ""]
         return command + ["--system-prompt", system_prompt or BARE_SYSTEM_PROMPT]
 
     def disables_native_memory(self, rendered_command: str) -> bool:
@@ -147,6 +149,7 @@ class CodexDialect(Dialect):
             "--model",
             spec.model,
             "--skip-git-repo-check",
+            "--ephemeral",
             "--ignore-user-config",
             "--ignore-rules",
             "--output-last-message",
@@ -167,7 +170,7 @@ class CodexDialect(Dialect):
             written = answer_file.read_text(encoding="utf-8").strip()
             if written:
                 return written
-        return stdout.strip()
+        return ""
 
     def disables_native_memory(self, rendered_command: str) -> bool:
         return "--ignore-user-config" in rendered_command
@@ -313,7 +316,10 @@ class Host:
         if completed.returncode != 0:
             detail = (completed.stderr.strip() or completed.stdout.strip())[:ERROR_EXCERPT]
             return HostResult("", False, elapsed, detail or "non-zero exit with no output")
-        return HostResult(self.dialect.answer(completed.stdout, answer_file), True, elapsed)
+        text = self.dialect.answer(completed.stdout, answer_file)
+        if self.spec.name == HOST_CODEX and not text:
+            return HostResult("", False, elapsed, "missing or empty Codex final message")
+        return HostResult(text, True, elapsed)
 
     def _environment(
         self, store_root: pathlib.Path | None, extra: dict[str, str]

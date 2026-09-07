@@ -119,7 +119,8 @@ def _parser() -> argparse.ArgumentParser:
         help="the memory system under test; memcore reads its checkout from MEMCORE_HOME",
     )
     runner.add_argument("--model", default="")
-    runner.add_argument("--judge-model", default=JUDGE_MODEL)
+    runner.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
+    runner.add_argument("--judge-model", default="")
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
     runner.add_argument(
@@ -138,7 +139,8 @@ def _parser() -> argparse.ArgumentParser:
         "regrade", help="re-judge stored answers without re-running the hosts"
     )
     regrader.add_argument("--workspace", required=True)
-    regrader.add_argument("--judge-model", default=JUDGE_MODEL)
+    regrader.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
+    regrader.add_argument("--judge-model", default="")
     regrader.add_argument("--concurrency", type=int, default=8)
     regrader.set_defaults(handler=_regrade)
 
@@ -146,7 +148,8 @@ def _parser() -> argparse.ArgumentParser:
         "calibrate", help="check the judge against hand-labelled cases"
     )
     calibrator.add_argument("--cases", required=True)
-    calibrator.add_argument("--judge-model", default=JUDGE_MODEL)
+    calibrator.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
+    calibrator.add_argument("--judge-model", default="")
     calibrator.add_argument("--concurrency", type=int, default=8)
     calibrator.set_defaults(handler=_calibrate)
 
@@ -230,17 +233,11 @@ def _run(args: argparse.Namespace) -> int:
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
     host = _host(args.host, args.model)
-    judge = Judge(
-        Host(
-            HostSpec(
-                name=HOST_CLAUDE_CODE,
-                binary="claude",
-                model=_affordable(args.judge_model, "judge"),
-            )
-        )
-    )
-    if not host.spec.available():
-        print(json.dumps({"error": f"host binary not found: {host.spec.binary}"}), file=sys.stderr)
+    judge_host = _judge_host(args.judge_host, args.judge_model)
+    if not _available(judge_host, "judge host"):
+        return EXIT_ERROR
+    judge = Judge(judge_host)
+    if not _available(host, "tested host"):
         return EXIT_ERROR
 
     config = _configured(args.set)
@@ -252,6 +249,7 @@ def _run(args: argparse.Namespace) -> int:
             host=host.name,
             model=host.spec.model,
             judge_model=judge.model,
+            judge_host=judge_host.name,
             exam_mode=args.exam_mode,
             episode_fingerprint=episode_fingerprint,
             reuse_stores=args.reuse_stores or None,
@@ -375,17 +373,13 @@ def _regrade(args: argparse.Namespace) -> int:
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
     records = sink.records()
-    judge = Judge(
-        Host(
-            HostSpec(
-                name=HOST_CLAUDE_CODE,
-                binary="claude",
-                model=_affordable(args.judge_model, "judge"),
-            )
-        )
-    )
+    judge_host = _judge_host(args.judge_host, args.judge_model)
+    if not _available(judge_host, "judge host"):
+        return EXIT_ERROR
+    judge = Judge(judge_host)
     regraded = judge_module.regrade(records, judge, _questions(workspace), args.concurrency)
     changed = sum(1 for old, new in zip(records, regraded, strict=True) if old != new)
+    RunMetadataSink(workspace).regrade(judge_host.name, judge.model)
     sink.replace(regraded)
     print(f"regraded {len(regraded)} records, {changed} changed", file=sys.stderr)
     print(report_module.render(report_module.summarise(regraded)))
@@ -402,15 +396,10 @@ def _questions(workspace: pathlib.Path) -> dict[str, str]:
 def _calibrate(args: argparse.Namespace) -> int:
     """An instrument that has not been checked against known answers is not a measurement."""
     cases = json.loads(pathlib.Path(args.cases).read_text(encoding="utf-8"))
-    judge = Judge(
-        Host(
-            HostSpec(
-                name=HOST_CLAUDE_CODE,
-                binary="claude",
-                model=_affordable(args.judge_model, "judge"),
-            )
-        )
-    )
+    judge_host = _judge_host(args.judge_host, args.judge_model)
+    if not _available(judge_host, "judge host"):
+        return EXIT_ERROR
+    judge = Judge(judge_host)
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.concurrency) as pool:
         verdicts = list(
             pool.map(
@@ -424,7 +413,7 @@ def _calibrate(args: argparse.Namespace) -> int:
         if verdict.correct != case["label"]
     ]
     agreed = len(cases) - len(wrong)
-    print(f"judge {args.judge_model}: {agreed}/{len(cases)} agree with the labels")
+    print(f"judge {judge_host.name}/{judge.model}: {agreed}/{len(cases)} agree with the labels")
     for name in wrong:
         print(f"  disagrees: {name}")
     return EXIT_OK if not wrong else EXIT_ERROR
@@ -495,6 +484,20 @@ def _affordable(model: str, role: str) -> str:
             f"set {ALLOW_COSTLY_ENV}=1 to run it deliberately"
         )
     return model
+
+
+def _available(host: Host, role: str) -> bool:
+    if host.spec.available():
+        return True
+    print(json.dumps({"error": f"{role} binary not found: {host.spec.binary}"}), file=sys.stderr)
+    return False
+
+
+def _judge_host(name: str, model: str = "") -> Host:
+    # Retain the historical Claude judge model and retry policy. The tested host
+    # never implicitly selects the judge; other dialects use their own defaults.
+    selected = model or (JUDGE_MODEL if name == HOST_CLAUDE_CODE else "")
+    return _host(name, selected, attempts=3)
 
 
 def _host(name: str, model: str = "", attempts: int = 1) -> Host:

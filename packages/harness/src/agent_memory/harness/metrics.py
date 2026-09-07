@@ -57,6 +57,7 @@ class RunMetadata:
     reuse_stores: str | None
     config: dict[str, object]
     code_revision: str
+    judge_host: str = "claude-code"
 
     def as_dict(self) -> dict[str, object]:
         return dataclasses.asdict(self)
@@ -71,6 +72,8 @@ class RunMetadataSink:
         expected = json.loads(json.dumps(metadata.as_dict()))
         if self._path.exists():
             existing = json.loads(self._path.read_text(encoding="utf-8"))
+            # Original CLI metadata unambiguously used Claude Code.
+            existing.setdefault("judge_host", "claude-code")
             if existing != expected:
                 raise ValueError("run metadata belongs to another experiment")
             return
@@ -80,6 +83,17 @@ class RunMetadataSink:
         self._path.write_text(
             json.dumps(expected, indent=2, sort_keys=True) + "\n", encoding="utf-8"
         )
+
+    def regrade(self, judge_host: str, judge_model: str) -> None:
+        """Record the new instrument before replacing scores. In-place regraded
+        workspaces are reportable but cannot resume, including interrupted writes."""
+        if self._path.exists():
+            metadata = json.loads(self._path.read_text(encoding="utf-8"))
+            metadata.update(judge_host=judge_host, judge_model=judge_model)
+            metadata["regraded"] = True
+            self._path.write_text(
+                json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+            )
 
 
 class MetricsSink:
