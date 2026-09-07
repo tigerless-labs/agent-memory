@@ -12,10 +12,12 @@ import pathlib
 import shutil
 import subprocess
 import sys
+import tempfile
 from collections.abc import Sequence
 
 from agent_memory.core.clock import Clock, FrozenClock
 from agent_memory.core.config import Config
+from agent_memory.core.indexer import Indexer
 from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.store import Store
@@ -24,7 +26,7 @@ from agent_memory.executor.hosts import BINARIES, DIALECTS, HOST_CLAUDE_CODE, Ho
 
 from . import arms as arms_module
 from . import coverage as coverage_module
-from . import dataset, locomo, sampling, systems
+from . import dataset, incremental, locomo, sampling, systems
 from . import exam as exam_module
 from . import interop as interop_module
 from . import judge as judge_module
@@ -95,6 +97,11 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--arms", default=DEFAULT_ARMS)
     runner.add_argument("--per-type", type=int, default=4)
     runner.add_argument("--seed", type=int, default=DEFAULT_SEED)
+    runner.add_argument("--question-ids", nargs="+", help="explicit IDs; no stratified resampling")
+    runner.add_argument("--subset-manifest", help="fixed nested selection manifest")
+    runner.add_argument("--stage", type=int, choices=incremental.STAGES)
+    runner.add_argument("--experiment-version", help="stable version ID (include replay identity)")
+    runner.add_argument("--experiment-arm", help="logical arm: baseline/progressive/overview")
     runner.add_argument("--sessions-per-call", type=int, default=1)
     runner.add_argument("--experience-workers", type=int, default=4)
     runner.add_argument("--exam-max-turns", type=int, default=20)
@@ -207,6 +214,8 @@ def _parser() -> argparse.ArgumentParser:
     reporter = subparsers.add_parser("report", help="summarise a finished run")
     reporter.add_argument("--workspace", required=True)
     reporter.add_argument("--json", action="store_true")
+    reporter.add_argument("--stage", type=int, choices=incremental.STAGES,
+                          help="cumulative stage in an incremental workspace")
     reporter.set_defaults(handler=_report)
 
     return parser
@@ -228,7 +237,17 @@ def _convert_locomo(args: argparse.Namespace) -> int:
 
 
 def _run(args: argparse.Namespace) -> int:
-    episodes = sampling.stratified(dataset.load(pathlib.Path(args.suite)), args.per_type, args.seed)
+    if args.subset_manifest:
+        return _run_incremental(args)
+    if args.stage or args.experiment_version or args.experiment_arm:
+        raise ValueError("stage/experiment identity requires --subset-manifest")
+    ordinary_workspace = pathlib.Path(args.workspace)
+    if ((ordinary_workspace / incremental.IDENTITY_FILE).exists() or
+            (ordinary_workspace.parent.parent / incremental.IDENTITY_FILE).exists()):
+        raise ValueError("incremental results require --subset-manifest")
+    suite = dataset.load(pathlib.Path(args.suite))
+    episodes = (incremental.select_ids(suite, args.question_ids) if args.question_ids else
+                sampling.stratified(suite, args.per_type, args.seed))
     selected = arms_module.parse(args.arms)
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
@@ -288,6 +307,110 @@ def _run(args: argparse.Namespace) -> int:
         )
     print(report_module.render(report_module.summarise(sink.records())))
     return EXIT_ERROR if halted else EXIT_OK
+
+
+
+def _run_incremental(args: argparse.Namespace) -> int:
+    if not all((args.stage, args.experiment_version, args.experiment_arm, args.reuse_stores)):
+        raise ValueError(
+            "manifest mode requires stage, experiment-version, experiment-arm, reuse-stores"
+        )
+    if args.system != systems.NATIVE or args.arms != "W2":
+        raise ValueError("frozen manifest mode currently requires --system agent-memory --arms W2")
+    plan = incremental.Plan(pathlib.Path(args.subset_manifest))
+    episodes = plan.episodes(pathlib.Path(args.suite))
+    source = pathlib.Path(args.reuse_stores).resolve()
+    workspace = workspace_module.for_writing(args.workspace)
+    if workspace.is_relative_to(source) or source.is_relative_to(workspace):
+        raise ValueError("incremental workspace and frozen corpus must be separate")
+    plan.verify_stores(source)
+    host, judge_host = _host(args.host, args.model), _judge_host(args.judge_host, args.judge_model)
+    config = _configured(args.set)
+    stage = plan.stage(args.stage)
+    metadata = RunMetadata(
+        run_id=args.run_id, system=args.system, host=host.name, model=host.spec.model,
+        judge_model=judge_host.spec.model, judge_host=judge_host.name, exam_mode=args.exam_mode,
+        episode_fingerprint=sampling.fingerprint(
+            [episodes[q] for q in stage["added_question_ids"]]
+        ),
+        reuse_stores=plan.raw["source_store_corpus"]["path"],
+        config=dataclasses.asdict(config), code_revision=_code_revision(),
+    )
+    expected = incremental.identity(
+        metadata, plan, args.experiment_version, args.experiment_arm, host.spec, judge_host.spec,
+        {"exam_max_turns": args.exam_max_turns, "manage": args.manage,
+         "judge_votes": judge_module.DEFAULT_VOTES, "judge_rubric": judge_module.RUBRIC,
+         "concurrency": args.concurrency, "recall_fingerprint": config.recall_fingerprint()},
+    )
+    with incremental.locked(workspace):
+        ledger = incremental.Ledger(workspace, plan)
+        ledger.ensure(expected)
+        pending = ledger.pending(args.stage, args.question_ids)
+        if not pending:
+            return _print_incremental_report(ledger, args.stage, as_json=False)
+        if not _available(host, "tested host") or not _available(judge_host, "judge host"):
+            return EXIT_ERROR
+        folder = workspace / "stages" / str(args.stage)
+        if (folder / "run.json").exists():
+            # First invocation label belongs to the stage; current invocation is logged separately.
+            metadata = dataclasses.replace(metadata, run_id=json.loads(
+                (folder / "run.json").read_text())["run_id"])
+        RunMetadataSink(folder).ensure(metadata)
+        incremental.atomic_json(folder / QUESTIONS_FILENAME,
+                                {q: episodes[q].question for q in stage["added_question_ids"]})
+        with (folder / "invocations.jsonl").open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps({"run_id": args.run_id, "stage": args.stage,
+                                     "pending_question_ids": pending,
+                                     "source_store_path": str(source),
+                                     "identity_sha256": incremental.digest(expected)}) + "\n")
+        sink = incremental.StageSink(folder, incremental.digest(expected))
+        # Copy only the pending questions into a fresh disposable execution tree.
+        # Source truth is never handed to a host, Store, indexer or observation writer.
+        with tempfile.TemporaryDirectory(prefix="runtime-", dir=folder) as scratch:
+            runtime = pathlib.Path(scratch)
+            for q in pending:
+                plan.copy_question(source, runtime / "stores", q)
+                root = runtime / "stores" / "W2" / q
+                config.save(root)  # The Host's mem CLI must see the recorded effective config.
+                index = Indexer(Store(root, config=config).layout).rebuild()
+                if index.unreadable:
+                    raise ValueError(f"unreadable frozen records: {q}: {index.unreadable}")
+            driver = Driver(
+                host=host, judge=Judge(judge_host), workspace=runtime / "stores",
+                sessions_per_call=args.sessions_per_call,
+                reuse_stores=runtime / "stores", config=config,
+                exam_max_turns=args.exam_max_turns, exam_mode=args.exam_mode,
+                run_id=args.run_id, manage=args.manage,
+                episode_fingerprint=metadata.episode_fingerprint,
+                system=systems.build(args.system, config),
+            )
+            jobs = [(episodes[q], arms_module.parse("W2")[0]) for q in pending]
+            halted = _execute(driver, jobs, sink, args.concurrency)
+        plan.verify_stores(source)
+        result = _print_incremental_report(ledger, args.stage, as_json=False)
+        return EXIT_ERROR if halted else result
+
+
+def _print_incremental_report(ledger: incremental.Ledger, stage: int, as_json: bool) -> int:
+    rows, missing = ledger.cumulative(stage)
+    summary = report_module.summarise(rows)
+    identity = json.loads((ledger.folder / incremental.IDENTITY_FILE).read_text())
+    payload = {"experiment_version": identity["experiment_version"],
+               "experiment_arm": identity["experiment_arm"],
+               "identity_sha256": incremental.digest(identity),
+               "manifest_sha256": ledger.plan.sha, "stage": stage,
+               "completed": len(rows), "missing_question_ids": missing,
+               "complete": not missing,
+               "episode_fingerprint": ledger.plan.stage(stage)["harness_episode_fingerprint"],
+               "arms": [dataclasses.asdict(arm) for arm in summary.arms],
+               "by_question_type": summary.by_question_type}
+    if as_json:
+        print(json.dumps(payload, indent=REPORT_INDENT, sort_keys=True))
+    else:
+        print(f"{payload['experiment_version']}/{payload['experiment_arm']}: "
+              f"{len(rows)}/{stage} complete; missing={missing}")
+        print(report_module.render(summary))
+    return EXIT_ERROR if missing else EXIT_OK
 
 
 def _execute(driver: Driver, jobs: list, sink: MetricsSink, concurrency: int) -> str:
@@ -373,6 +496,9 @@ def _regrade(args: argparse.Namespace) -> int:
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
     records = sink.records()
+    if ((workspace / incremental.IDENTITY_FILE).exists() or
+            (workspace.parent.parent / incremental.IDENTITY_FILE).exists()):
+        raise ValueError("incremental results are immutable; regrade in a new experiment version")
     judge_host = _judge_host(args.judge_host, args.judge_model)
     if not _available(judge_host, "judge host"):
         return EXIT_ERROR
@@ -573,6 +699,16 @@ def _coverage(args: argparse.Namespace) -> int:
 
 
 def _report(args: argparse.Namespace) -> int:
+    workspace = pathlib.Path(args.workspace)
+    if (workspace / incremental.IDENTITY_FILE).exists():
+        if not args.stage:
+            raise ValueError("incremental report requires --stage")
+        with incremental.locked(workspace):
+            plan = incremental.Plan(workspace / incremental.MANIFEST_FILE)
+            return _print_incremental_report(incremental.Ledger(workspace, plan),
+                                             args.stage, args.json)
+    if args.stage:
+        raise ValueError("--stage requires an incremental workspace")
     sink = MetricsSink(pathlib.Path(args.workspace))
     summary = report_module.summarise(sink.records())
     if args.json:
