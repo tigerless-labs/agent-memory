@@ -209,3 +209,11 @@ def test_other_judge_commands_select_codex_only(tmp_path, monkeypatch, command):
         args = ["--workspace", str(tmp_path)]
     assert cli.main([command, *args, "--judge-host", "codex"]) == 0
     assert all(call[0] == "codex" for call in calls)
+
+
+@pytest.mark.parametrize("resume", [False, True])
+def test_missing_metadata_cannot_be_bypassed_by_omitting_resume(tmp_path, resume):
+    (tmp_path / "runs.jsonl").write_text('{"status": "ok"}\n')
+    with pytest.raises(ValueError, match="no run metadata"):
+        RunMetadataSink(tmp_path).ensure(metadata("codex"), resume=resume)
+    assert not (tmp_path / "run.json").exists()
