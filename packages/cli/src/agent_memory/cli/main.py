@@ -13,6 +13,7 @@ from agent_memory.core import context as context_module
 from agent_memory.core import distill as distill_module
 from agent_memory.core import migrate as migrate_module
 from agent_memory.core import pending, portability, prompts, reasoning, sessions, triggers
+from agent_memory.core import overview as overview_module
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
@@ -108,6 +109,13 @@ def _parser() -> argparse.ArgumentParser:
     opener.add_argument("name")
     opener.add_argument("--level", choices=LEVELS, default=LEVEL_FULL)
     opener.set_defaults(handler=_read)
+
+    navigator = subparsers.add_parser("overview", help="list a memory's local topic and links")
+    navigator.add_argument("name")
+    navigator.add_argument("--scope", default=None)
+    navigator.add_argument("--as-of", default=None)
+    navigator.add_argument("--limit", type=int, default=None)
+    navigator.set_defaults(handler=_overview)
 
     corrector = subparsers.add_parser("correct", help="update or supersede one memory")
     corrector.add_argument("name")
@@ -294,6 +302,12 @@ def _read(store: Store, args: argparse.Namespace) -> dict[str, object]:
         "outline": list(result.outline),
         "text": result.text,
     }
+
+
+def _overview(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    return overview_module.build(
+        store, args.name, scope=args.scope, as_of=args.as_of, limit=args.limit
+    ).as_dict()
 
 
 def _correct(store: Store, args: argparse.Namespace) -> dict[str, object]:
@@ -508,6 +522,11 @@ def _line(item: dict[str, object]) -> str:
     name = item.get("name", "")
     abstract = item.get("abstract", "")
     path = item.get("path", "")
+    if "relation" in item:
+        return (
+            f"{name} — {abstract} · {path} · {item['relation']}"
+            f" · status={item['status']} · updated={item['updated']}"
+        )
     anchor = item.get("anchor") or ""
     score = item.get("score")
     location = f"{path}#{anchor}" if anchor else path

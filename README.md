@@ -158,6 +158,35 @@ mem --json recall "source of truth"
 rm -rf ~/agent-memory-store/.index && mem rebuild
 ```
 
+## Optional local navigation
+
+After recall finds a memory, Virtual Topic Overview (Virtual L1) lets an agent inspect
+nearby abstracts before choosing a full read:
+
+```bash
+uv run mem --json overview switch-to-uv --limit 8
+uv run mem read ci-change
+```
+
+`overview` lists the seed, memories in its exact physical topic directory, then its outgoing
+explicit links. It does not expand a flat domain root, recurse, or open neighbor bodies/raw.
+The view is generated from current files without an LLM, embeddings, a cache, or a new summary
+Memory. Ordinary recall, read, context, and host prompts remain unchanged.
+
+The seed counts toward `--limit` (default: `recall.default_limit`, 8); abstracts use the existing
+length cap. Results carry relation, path, status and updated time, with deterministic ordering
+and a `truncated` flag. `--scope` and `--as-of` reuse Recall's eligibility rules; retired and
+archived entries are excluded, superseded entries are excluded by default, and an ineligible
+seed produces an error. Historical views are explicitly labeled by `as_of`.
+
+Limits: this is physical directory navigation, not semantic topic discovery or a full virtual
+memory topology. There is no reverse-link/supersede traversal, query ranking, or deep mode.
+As-of uses current metadata and successor validity, not historical file snapshots; scope
+retains Recall's string-prefix semantics. Each call scans and parses all Memory files
+(including archived successor metadata), but returns only bounded metadata. This trades scan
+cost for immediate visibility of external edits without index synchronization. Fixture tests
+verify navigation mechanics; no benchmark accuracy improvement is claimed.
+
 ## Wire it into your agent
 
 ```bash

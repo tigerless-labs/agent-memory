@@ -252,3 +252,40 @@ def test_sleep_can_be_handed_a_reasoner_whose_verdicts_reach_the_store(cli, monk
     report = cli("sleep", "--reason", "host")
     assert [decision["proposal"] for decision in report["decisions"]] == [proposal["id"]]
     assert proposal["id"] not in {open_one["id"] for open_one in cli("proposals")["proposals"]}
+
+
+def test_overview_navigation_then_selective_read(cli):
+    for name, abstract in (
+        ("switch-to-uv", "Package manager migration"),
+        ("ci-change", "CI configuration adjustments"),
+        ("rollback", "Rollback procedure"),
+    ):
+        cli("record", "--name", name, "--abstract", abstract,
+            "--type", "fact", "--domain", "project", "--topic", "deploy",
+            "--body", f"PRIVATE BODY {name}")
+    seed = cli("recall", "migration")["hits"][0]["name"]
+    result = cli("overview", seed)
+    assert result["topic"] == "project/deploy"
+    assert [entry["name"] for entry in result["entries"]] == [
+        "switch-to-uv", "ci-change", "rollback",
+    ]
+    assert "PRIVATE BODY" not in json.dumps(result)
+    assert "PRIVATE BODY ci-change" in cli("read", "ci-change")["text"]
+    limited = cli("overview", seed, "--limit", "1")
+    assert len(limited["entries"]) == 1
+    assert limited["truncated"]
+    assert cli("context", "migration")["names"] == ["switch-to-uv"]
+    cli("overview", seed, "--scope", "user", expect=EXIT_INVALID)
+    cli("overview", seed, "--as-of", "2020-01-01", expect=EXIT_INVALID)
+    cli("overview", seed, "--limit", "0", expect=EXIT_INVALID)
+    cli("overview", seed, "--as-of", "bad", expect=EXIT_INVALID)
+    cli("overview", "missing", expect=EXIT_ERROR)
+
+
+def test_overview_plain_output(cli, capsys):
+    cli("record", "--name", "seed", "--abstract", "Navigation seed",
+        "--type", "fact", "--domain", "project", "--topic", "deploy")
+    assert main(["--store", str(cli.root), "overview", "seed"]) == EXIT_OK
+    output = capsys.readouterr().out
+    assert "topic: project/deploy" in output
+    assert "seed — Navigation seed" in output
