@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import concurrent.futures
 import dataclasses
+import pathlib
 import re
+import tempfile
 
 from agent_memory.executor.hosts import Host
 
@@ -56,6 +58,7 @@ class Verdict:
     seconds: float
     ok: bool
     raw: str
+    error: str = ""
 
 
 class Judge:
@@ -74,7 +77,7 @@ class Judge:
             return Verdict(correct=False, seconds=0.0, ok=True, raw="")
         prompt = RUBRIC.format(question=question, expected=expected, candidate=candidate)
         with concurrent.futures.ThreadPoolExecutor(max_workers=self._votes) as pool:
-            results = list(pool.map(lambda _: self._host.run(prompt), range(self._votes)))
+            results = list(pool.map(lambda _: self._vote(prompt), range(self._votes)))
         usable = [result for result in results if result.ok]
         yeses = len([result for result in usable if _says_yes(result.text)])
         return Verdict(
@@ -82,7 +85,18 @@ class Judge:
             seconds=sum(result.seconds for result in results),
             ok=bool(usable),
             raw=" | ".join(result.text[:VOTE_EXCERPT] for result in results),
+            error=" | ".join(result.error for result in results if result.error),
         )
+
+    def _vote(self, prompt: str):
+        # Each vote runs outside repository instructions and the tested workspace.
+        with tempfile.TemporaryDirectory(prefix="mem-judge-") as scratch:
+            return self._host.run(
+                prompt,
+                tools_enabled=False,
+                workdir=pathlib.Path(scratch),
+                environment={"AGENT_MEMORY_STORE": "", "MEMCORE_DIR": ""},
+            )
 
 
 def regrade(
