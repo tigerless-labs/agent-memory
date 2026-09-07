@@ -259,3 +259,11 @@ def test_paths_are_data_not_defaults():
     source = inspect.getsource(systems)
     assert "/home/" not in source
     assert pathlib.Path.home().name not in source
+
+
+def test_exam_prompt_accepts_config_without_changing_baseline_policy():
+    config = Config.default()
+    for synthesis in (False, True):
+        assert prompts.exam("mem recall", synthesis=synthesis, config=config) == prompts.exam(
+            "mem recall", synthesis=synthesis,
+        )

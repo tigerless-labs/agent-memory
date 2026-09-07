@@ -168,7 +168,10 @@ class NativeSystem(MemorySystem):
         return prompts.WRITE_DISCIPLINE
 
     def exam_preamble(self):
-        return prompts.exam(NATIVE_RECALL_HINT, synthesis=self._settings().recall.synthesis_hint)
+        return prompts.exam(
+            NATIVE_RECALL_HINT, synthesis=self._settings().recall.synthesis_hint,
+            config=self._settings(),
+        )
 
     def archive(self, root, label, text):
         self._store(root).archive.append_session(label, text)
