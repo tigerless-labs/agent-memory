@@ -102,3 +102,34 @@ benchmark 的 LLM judge 与被测系统同为变量:rubric 写歪会把正确行
   报表里的差值小于此即为噪声。
 - 换 rubric 用存下来的答案离线重判,不重跑宿主。**重判后旧 write-up 的数字即失效,
   必须同步改**——记录与结论不一致时以记录为准。
+
+### Independent tested host and judge
+
+`mem-exp run`, `regrade`, and `calibrate` accept `--judge-host` independently of
+`--host`. Omitting it retains Claude Code and `claude-sonnet-5`; selecting Codex
+uses its host model default unless `--judge-model` is supplied. No fallback occurs
+when either selected binary is missing. For example, a small prepared fixture can use:
+
+```sh
+mem-exp run --suite /absolute/path/fixture.json --workspace /absolute/path/smoke \
+  --arms W0 --per-type 1 --concurrency 1 \
+  --host codex --model gpt-5.6-sol --judge-host codex --judge-model gpt-5.6-sol
+```
+
+Both judges receive the same reference, candidate and rubric, with the existing
+five votes, yes/no parser and majority rule. Each vote uses a fresh temporary
+working directory without memory-store environment bindings. Codex uses read-only
+sandboxing and its final-message file (never transcript fallback); Claude's
+non-tool calls disable tools. Timeout/nonzero exit remains a failed host result.
+Codex's missing/empty final-message file is a transport failure. Non-yes textual
+responses retain the existing scoring semantics.
+
+`run.json` records the actual `judge_host` and `judge_model`. Resume compares both.
+Old metadata missing only `judge_host` means the historical Claude Code judge;
+records without metadata cannot resume. In-place `regrade` updates the recorded
+judge and marks the workspace regraded: it remains reportable, but cannot resume
+and mix old failed records or interrupted score writes with a new instrument.
+
+Paired runs must fix tested host/model and judge host/model across baseline and
+treatment, along with rubric, episode set and frozen input stores. Mechanics
+smokes establish execution only; they are not feature-effect estimates.
