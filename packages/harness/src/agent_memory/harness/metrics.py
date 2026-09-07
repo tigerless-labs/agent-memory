@@ -77,7 +77,8 @@ class RunMetadataSink:
             if existing != expected:
                 raise ValueError("run metadata belongs to another experiment")
             return
-        if resume and (self._folder / RECORDS_FILENAME).exists():
+        records = self._folder / RECORDS_FILENAME
+        if records.exists() and (resume or records.read_text(encoding="utf-8").strip()):
             raise ValueError("resume refused: existing records have no run metadata")
         self._path.parent.mkdir(parents=True, exist_ok=True)
         self._path.write_text(
