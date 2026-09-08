@@ -18,9 +18,10 @@ runtime that fixes that, for any agent — not only coding ones. Markdown files 
 the single source of truth, the SQLite index beside them is a cache you can delete at any time,
 and Claude Code, Codex CLI, and anything else that can run a shell command share that store.
 
-Recall ranks that filesystem rather than an opaque chunk store; hits come back as paths the
-agent opens a level at a time; writes fire at conversation boundaries rather than on the
-agent's initiative; and a sleep-time pass consolidates and forgets on its own clock.
+Retrieval is local and ranked, and it answers with paths rather than pasted text — the agent
+opens each hit only as deep as the task needs. Writes do not wait for the agent to remember to
+make them: they fire at conversation boundaries. A sleep-time pass then consolidates and
+forgets by value, on its own clock. None of it needs an API key.
 
 ## Two lines, one store
 
