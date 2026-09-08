@@ -13,10 +13,16 @@
 
 ***
 
-## What is agent-memory
-
 An agent that closes its session forgets everything it learned in it. agent-memory is the
-runtime that fixes that, for any agent — not only coding ones.
+runtime that fixes that, for any agent — not only coding ones. Markdown files in one store are
+the single source of truth, the SQLite index beside them is a cache you can delete at any time,
+and Claude Code, Codex CLI, and anything else that can run a shell command share that store.
+
+Two things have to hold for that to be worth anything: the agent has to find what it needs, and
+it has to have written the thing down in the first place. The sections below are how each half
+is answered.
+
+## Two lines, one store
 
 Agent memory has grown along two architectural lines. One builds a **retrieval engine** —
 embeddings, a knowledge graph, a ranking pipeline — which finds the right thing, but hands the
@@ -31,17 +37,15 @@ them, and every hit resolves to a whole markdown file on disk. Recall gains the 
 graph and a vector search without giving up a plain directory an agent can walk — and it stays
 fast, because nothing in the read path calls a model or crosses a network.
 
+## Writing without being asked
+
 The other half of the problem is that agents rarely write memory down. Here they do not have
 to remember to: writes fire at conversation boundaries rather than at the agent's discretion,
 they run beside the task instead of blocking it, and whatever distillation misses stays
 recoverable from append-only raw material. An independent sleep-time pass then consolidates,
 ages, and forgets by value.
 
-Markdown files in one store are the single source of truth. The SQLite index beside them is a
-cache you can delete at any time. Claude Code, Codex CLI, and anything else that can run a
-shell command share the same store.
-
-## Why agent-memory
+## Design commitments
 
 - **Three read tracks, so a miss on one is not a miss.** Deterministic `MEMORY.md` injection at
   session start; BM25 recall over an FTS5 index, with a vector plugin fused in by RRF when you
@@ -65,25 +69,27 @@ shell command share the same store.
 - **No LLM client inside the library.** Zero keys to install and no billing surface: judgement
   is borrowed from the host agent's own CLI, which keeps every write visible in your transcript.
 
-The store is the whole data model:
+## The store
 
 ```
 $AGENT_MEMORY_STORE/
-├── MEMORY.md            root index, one line per memory — the only resident injection
-├── user/ project/ reference/ experience/    four type domains; new memories land flat
-│   └── <topic>/         topic directories are not preset; Manage clusters them into being
-├── archive/             append-only, out of the retrieval surface by default
-│   ├── provenance/      distillation evidence, kept forever
-│   ├── retired/         demoted and evicted entries
-│   └── sessions/        full trace copies, in case the host prunes its own
-├── dream-reports/       one per sleep: what moved, what was proposed, evidence pointers
-├── .index/              fully rebuildable: content-hash manifest, FTS5, access log
-└── .state/              runtime state that is not: distillation watermark, write lock
+├── MEMORY.md              root index, one line per memory — the only resident injection
+├── config.toml            every tunable; an unknown knob is refused at load
+├── schemas/               one file per type: its key fields, the field it groups by, write mode
+├── decision/              memories live at <type>/<group>/<name>.md, placed by the schema
+│   └── agent-memory/        …/markdown-files-are-the-single-source-of-truth.md
+├── archive/               append-only, out of the retrieval surface by default
+│   ├── provenance/        distillation evidence, kept forever
+│   └── sessions/          full trace copies, in case the host prunes its own
+├── dream-reports/         one per sleep: what moved, what was proposed, evidence pointers
+├── .index/                fully rebuildable: content-hash manifest, FTS5, access log
+└── .state/                runtime state that is not: distillation watermark, write lock
 ```
 
-One memory is one file, because the file boundary is the invalidation atom: supersede, weight,
-and recall all operate on whole files. Frontmatter carries the stable name, a one-sentence
-abstract, status, timestamps, links, weight, and provenance; the body is free markdown.
+One memory is one file, because the file boundary is the invalidation atom: superseding, weight,
+and recall all operate on whole files, and a file is either active or invalid with nothing in
+between. Frontmatter carries the stable name, a one-sentence abstract, the type and its schema
+fields, status, timestamps, links, weight, and provenance; the body is free markdown.
 
 ## Proof it works
 
@@ -109,45 +115,64 @@ The protocol that decides whether a measurement counts as a result, the full led
 raw run records live in `docs/experiments.md` and `experiments/` in the working tree. They ship
 with the source, not with git history.
 
-## Quick start
+## Install
 
-Requires Python 3.12 or higher and [uv](https://docs.astral.sh/uv/).
+Requires Python 3.12 or higher and [uv](https://docs.astral.sh/uv/). There is no release on
+PyPI yet, so install from a checkout:
 
 ```bash
+git clone https://github.com/tigerless-labs/agent-memory.git
+cd agent-memory
 uv sync --all-packages
-export AGENT_MEMORY_STORE=~/agent-memory-store
-uv run mem init
 ```
+
+That builds `mem`, `mem-mcp`, and `mem-hook` into `.venv/bin`. Inside the checkout `uv run mem`
+reaches them; put the directory on your `PATH` so your agents can too — the hook installed in
+the next section is a bare `mem-hook` command, and a host that cannot resolve it records
+nothing:
+
+```bash
+export PATH="$PWD/.venv/bin:$PATH"
+```
+
+## Quick start
+
+```bash
+mem init
+```
+
+The store defaults to `~/agent-memory-store`; export `AGENT_MEMORY_STORE` only to put it
+somewhere else, and export it everywhere your agents run, not just in this shell.
 
 Write one memory, find it again, then throw the index away and prove nothing was lost:
 
 ```bash
-uv run mem record --domain project --type decision \
+mem record --type decision --field project=agent-memory \
   --abstract "Markdown files are the single source of truth" \
   --body "Indexes are rebuildable caches."
-uv run mem --json recall "source of truth"
-rm -rf $AGENT_MEMORY_STORE/.index && uv run mem rebuild
+mem --json recall "source of truth"
+rm -rf ~/agent-memory-store/.index && mem rebuild
 ```
 
 ## Wire it into your agent
 
 ```bash
-uv run mem setup --host claude-code   # or: --host codex
+mem setup --host claude-code   # or: --host codex
 ```
 
 `setup` probes the host, appends the `mem-hook` command to its own hook dialect, and leaves the
 rest of the settings alone — SessionStart injects, Stop and SessionEnd distil, PreCompact
 evicts. Agents that speak MCP get the same core calls through `mem-mcp` (`memory_recall`,
-`memory_read`, `memory_record`, `memory_correct`, `memory_feedback`, `memory_proposals`,
-`memory_decide`). Anything that can run a shell command needs neither: the CLI is the universal
-fallback.
+`memory_read`, `memory_record`, `memory_correct`, `memory_feedback`). Anything that can run a
+shell command needs neither: the CLI is the universal fallback, and it is the wider surface —
+`context`, `sleep`, and the proposal ledger have no MCP tool yet.
 
 ## Let it sleep
 
 ```bash
-uv run mem sleep --reason host   # consolidate; T0 applies, T1 files a proposal
-uv run mem proposals             # what is waiting on you
-uv run mem decide <id> --accept
+mem sleep --reason host   # consolidate; T0 applies, T1 files a proposal
+mem proposals             # what is waiting on you
+mem decide <id> --accept
 ```
 
 Manage borrows its reasoning from the host CLI you point it at, writes a dream report for the
