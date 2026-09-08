@@ -18,14 +18,18 @@
 An agent that closes its session forgets everything it learned in it. agent-memory is the
 runtime that fixes that, for any agent — not only coding ones.
 
-Three retrieval traditions each get one part of the problem right, and each pays for it
-somewhere else. Knowledge graphs hold relations but need a build step and a query language.
-Vector search ranks well but hands back opaque chunks. A plain file tree is the most
-AI-readable thing there is and browses beautifully, but on its own it does not rank. This
-runtime keeps all three and drops the costs: relations live as links inside the memories
-themselves, a local index ranks them, and the store stays an ordinary directory an agent can
-`ls` and `grep`. Recall gets more precise without becoming a black box, and it stays fast
-because nothing in the read path calls a model or crosses a network.
+Agent memory has grown along two architectural lines. One builds a **retrieval engine** —
+embeddings, a knowledge graph, a ranking pipeline — which finds the right thing, but hands the
+agent an opaque chunk it cannot inspect and a store it cannot migrate off. The other hands the
+agent a **filesystem** — markdown it reads directly, browsable with `ls` and `grep`, disclosed
+a level at a time — which is legible and costs nothing to run, but does not rank, and stops
+scaling the moment the tree outgrows a listing.
+
+agent-memory is the two of them in one store: the retrieval engine indexes a filesystem the
+agent can also just read. Relations live as links inside the memories, a local index ranks
+them, and every hit resolves to a whole markdown file on disk. Recall gains the precision of a
+graph and a vector search without giving up a plain directory an agent can walk — and it stays
+fast, because nothing in the read path calls a model or crosses a network.
 
 The other half of the problem is that agents rarely write memory down. Here they do not have
 to remember to: writes fire at conversation boundaries rather than at the agent's discretion,
