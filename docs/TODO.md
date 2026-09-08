@@ -127,3 +127,6 @@
       看 knowledge-update / multi-session / temporal 三类的差距是否由前言驱动
 - [ ] 写前「先 recall / supersede」纪律从未被单独裁决:P4 触发 25 条边、得分 9/15 = 9/15,
       而每次 mem 调用占一个 turn(P1 的 13× 写入量差);需一轮写侧全跑:W2 去掉该段 vs 保留
+- [ ] `mem setup` 写进宿主配置的是裸 `mem-hook`,而 `uv sync` 只把它放进 `.venv/bin`:
+      源码安装下宿主解析不到该命令,钩子静默不写。要么 setup 写绝对路径,要么给出
+      可安装到 PATH 的分发物(与 Docker 镜像那条同源)。README 现以「把 .venv/bin 加进 PATH」兜住

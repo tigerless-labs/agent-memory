@@ -89,30 +89,49 @@ writer/reader pairs across Claude Code, Codex CLI, and Hermes pass — what one 
 writes, another's finds, specifics intact. Pooled net contribution over no memory:
 2/36 → 13/36, p=0.0074.
 
-## Quick start
+## Install
 
-Requires Python 3.12 or higher and [uv](https://docs.astral.sh/uv/).
+Requires Python 3.12 or higher and [uv](https://docs.astral.sh/uv/). There is no release on
+PyPI yet, so install from a checkout:
 
 ```bash
+git clone https://github.com/tigerless-labs/agent-memory.git
+cd agent-memory
 uv sync --all-packages
-export AGENT_MEMORY_STORE=~/agent-memory-store
-uv run mem init
 ```
+
+That builds `mem`, `mem-mcp`, and `mem-hook` into `.venv/bin`. Inside the checkout `uv run mem`
+reaches them; put the directory on your `PATH` so your agents can too — the hook installed in
+the next section is a bare `mem-hook` command, and a host that cannot resolve it records
+nothing:
+
+```bash
+export PATH="$PWD/.venv/bin:$PATH"
+```
+
+## Quick start
+
+```bash
+mem init
+```
+
+The store defaults to `~/agent-memory-store`; export `AGENT_MEMORY_STORE` only to put it
+somewhere else, and export it everywhere your agents run, not just in this shell.
 
 Write one memory, find it again, then throw the index away and prove nothing was lost:
 
 ```bash
-uv run mem record --domain project --type decision \
+mem record --domain project --type decision \
   --abstract "Markdown files are the single source of truth" \
   --body "Indexes are rebuildable caches."
-uv run mem --json recall "source of truth"
-rm -rf $AGENT_MEMORY_STORE/.index && uv run mem rebuild
+mem --json recall "source of truth"
+rm -rf ~/agent-memory-store/.index && mem rebuild
 ```
 
 ## Wire it into your agent
 
 ```bash
-uv run mem setup --host claude-code   # or: --host codex
+mem setup --host claude-code   # or: --host codex
 ```
 
 `setup` probes the host, appends the `mem-hook` command to its own hook dialect, and leaves the
@@ -126,9 +145,9 @@ fallback. → [CLI](docs/design/api/cli.md) · [MCP](docs/design/api/mcp.md) ·
 ## Let it sleep
 
 ```bash
-uv run mem sleep --reason host   # consolidate; T0 applies, T1 files a proposal
-uv run mem proposals             # what is waiting on you
-uv run mem decide <id> --accept
+mem sleep --reason host   # consolidate; T0 applies, T1 files a proposal
+mem proposals             # what is waiting on you
+mem decide <id> --accept
 ```
 
 Manage borrows its reasoning from the host CLI you point it at, writes a dream report for the
