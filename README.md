@@ -18,18 +18,18 @@ runtime that fixes that, for any agent — not only coding ones. Markdown files 
 the single source of truth, the SQLite index beside them is a cache you can delete at any time,
 and Claude Code, Codex CLI, and anything else that can run a shell command share that store.
 
-Two things have to hold for that to be worth anything: the agent has to find what it needs, and
-it has to have written the thing down in the first place. The sections below are how each half
-is answered.
+Recall ranks that filesystem rather than an opaque chunk store; hits come back as paths the
+agent opens a level at a time; writes fire at conversation boundaries rather than on the
+agent's initiative; and a sleep-time pass consolidates and forgets on its own clock.
 
 ## Two lines, one store
 
 Agent memory has grown along two architectural lines. One builds a **retrieval engine** —
 embeddings, a knowledge graph, a ranking pipeline — which finds the right thing, but hands the
 agent an opaque chunk it cannot inspect and a store it cannot migrate off. The other hands the
-agent a **filesystem** — markdown it reads directly, browsable with `ls` and `grep`, disclosed
-a level at a time — which is legible and costs nothing to run, but does not rank, and stops
-scaling the moment the tree outgrows a listing.
+agent a **filesystem** — markdown it reads directly, browsable with `ls` and `grep` — which is
+legible and costs nothing to run, but does not rank, and stops scaling the moment the tree
+outgrows a listing.
 
 agent-memory is the two of them in one store: the retrieval engine indexes a filesystem the
 agent can also just read. Relations live as links inside the memories, a local index ranks
@@ -37,13 +37,20 @@ them, and every hit resolves to a whole markdown file on disk. Recall gains the 
 graph and a vector search without giving up a plain directory an agent can walk — and it stays
 fast, because nothing in the read path calls a model or crosses a network.
 
-## Writing without being asked
+## Retrieve by path, then read by level
 
-The other half of the problem is that agents rarely write memory down. Here they do not have
-to remember to: writes fire at conversation boundaries rather than at the agent's discretion,
-they run beside the task instead of blocking it, and whatever distillation misses stays
-recoverable from append-only raw material. An independent sleep-time pass then consolidates,
-ages, and forgets by value.
+Recall does not paste text into your context. It answers with an L0 list — one-line abstract,
+file path, anchor, score — and the agent opens what it wants at the depth the task needs:
+
+```bash
+mem recall "why files instead of a database"    # L0 list, 8 entries by default
+mem read <name> --level outline                 # headings only; or abstract, or full
+mem context "why files instead of a database"   # both in one call, top few expanded in full
+```
+
+Index line → abstract → full file → raw material: each rung costs an order of magnitude more
+than the last, and each is a place to stop. Long files add two free rungs — the anchor that
+matched, and an outline computed at read time.
 
 ## Design commitments
 
@@ -52,10 +59,6 @@ ages, and forgets by value.
   want one; and the plain directory tree, reachable with `ls` and `grep` when both fail.
   Same-directory memories are a free neighbourhood, and `links` in the frontmatter carry the
   graph without a graph database under them.
-- **Progressive disclosure, so precision is not paid for in context.** Index line → abstract →
-  full file → raw material, each level an order of magnitude more expensive than the last and
-  each one a place to stop. Long files add two free rungs: the anchor that matched, and an
-  outline computed at read time.
 - **Write coverage is the system's job, not the agent's judgement.** Distillation is triggered
   at boundaries and runs without holding up the task; the full trace is copied first, so
   "missed by the distiller" never means "lost by the system".
