@@ -17,7 +17,6 @@ from collections.abc import Sequence
 
 from agent_memory.core.clock import Clock, FrozenClock
 from agent_memory.core.config import Config
-from agent_memory.core.indexer import Indexer
 from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.store import Store
@@ -359,7 +358,9 @@ def _run_incremental(args: argparse.Namespace) -> int:
                 plan.copy_question(source, runtime / "stores", q)
                 root = runtime / "stores" / "W2" / q
                 config.save(root)  # The Host's mem CLI must see the recorded effective config.
-                index = Indexer(Store(root, config=config).layout).rebuild()
+                # Keep Store's configured backend (including optional indexes), while
+                # rebuilding only caches: Store.rebuild_index also rewrites MEMORY.md.
+                index = Store(root, config=config)._indexer.rebuild()
                 if index.unreadable:
                     raise ValueError(f"unreadable frozen records: {q}: {index.unreadable}")
             driver = Driver(

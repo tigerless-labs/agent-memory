@@ -197,15 +197,17 @@ def test_changed_conditions_refuse_before_any_calls(fixture, tmp_path, monkeypat
     assert before == (len(fixture[3].calls), len(fixture[4].calls))
 
 
-def test_three_arms_share_manifest_and_explicit_ids_do_not_resample(fixture, tmp_path):
+def test_four_arms_share_manifest_and_explicit_ids_do_not_resample(fixture, tmp_path):
     identities = []
-    for arm in ("baseline", "progressive", "overview"):
+    for arm in ("baseline", "progressive", "overview", "vector"):
         workspace = tmp_path / arm
         assert main.main(command(fixture, workspace, 12, arm)) == 0
         identities.append(json.loads((workspace / "experiment.json").read_text()))
     assert len({x["manifest_sha256"] for x in identities}) == 1
     assert len({x["code"]["harness_sha256"] for x in identities}) == 1
-    assert {x["experiment_arm"] for x in identities} == {"baseline", "progressive", "overview"}
+    assert {x["experiment_arm"] for x in identities} == {
+        "baseline", "progressive", "overview", "vector"
+    }
     episodes = dataset.load(fixture[1])
     ids = [episodes[-1].id, episodes[0].id]
     assert [e.id for e in incremental.select_ids(episodes, ids)] == ids
@@ -297,3 +299,23 @@ def test_runtime_rebuilds_index_and_applies_config_without_changing_source(fixtu
     assert set(fixture[3].observed_configs) == {1}
     plan.verify_stores(fixture[2])
     assert not list((workspace / "stages/12").glob("runtime-*"))
+
+
+def test_runtime_uses_store_configured_indexer(fixture, tmp_path, monkeypatch):
+    rebuilt = []
+
+    class ConfiguredStore(Store):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            rebuild = self._indexer.rebuild
+
+            def configured_rebuild():
+                rebuilt.append(self.root)
+                return rebuild()
+
+            self._indexer.rebuild = configured_rebuild
+
+    monkeypatch.setattr(main, "Store", ConfiguredStore)
+    assert main.main(command(fixture, tmp_path / "results", 12)) == 0
+    assert len(rebuilt) == 12
+    incremental.Plan(fixture[0]).verify_stores(fixture[2])
