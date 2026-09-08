@@ -28,6 +28,10 @@ FENCE = "```"
 FIELD_PROPOSAL = "proposal"
 FIELD_VERDICT = "verdict"
 FIELD_TEXT = "text"
+FIELD_ABSTRACT = "abstract"
+FIELD_BODY = "body"
+FIELD_PARTS = "parts"
+FIELD_PROVENANCE = "provenance"
 
 
 class Reasoner(Protocol):
@@ -54,10 +58,22 @@ class Draft(Protocol):
 
 
 @dataclasses.dataclass(frozen=True)
+class Part:
+    """One piece of a split: the knowledge itself plus the evidence it keeps."""
+
+    abstract: str
+    body: str
+    provenance: tuple[str, ...] = ()
+
+
+@dataclasses.dataclass(frozen=True)
 class Verdict:
     proposal_id: str
     accept: bool
     text: str = ""
+    abstract: str = ""
+    body: str = ""
+    parts: tuple[Part, ...] = ()
 
 
 def render(proposals: Sequence[Draft], records: Sequence[MemoryRecord]) -> str:
@@ -94,12 +110,38 @@ def parse(reply: str) -> list[Verdict]:
         verdict = payload.get(FIELD_VERDICT)
         if not isinstance(proposal_id, str) or verdict not in (VERDICT_ACCEPT, VERDICT_REJECT):
             continue
-        text = payload.get(FIELD_TEXT)
         verdicts.append(
             Verdict(
                 proposal_id=proposal_id,
                 accept=verdict == VERDICT_ACCEPT,
-                text=text if isinstance(text, str) else "",
+                text=_string(payload.get(FIELD_TEXT)),
+                abstract=_string(payload.get(FIELD_ABSTRACT)),
+                body=_string(payload.get(FIELD_BODY)),
+                parts=_parts(payload.get(FIELD_PARTS)),
             )
         )
     return verdicts
+
+
+def _string(value: object) -> str:
+    return value if isinstance(value, str) else ""
+
+
+def _parts(raw: object) -> tuple[Part, ...]:
+    if not isinstance(raw, list):
+        return ()
+    parts = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        provenance = item.get(FIELD_PROVENANCE)
+        parts.append(
+            Part(
+                abstract=_string(item.get(FIELD_ABSTRACT)),
+                body=_string(item.get(FIELD_BODY)),
+                provenance=tuple(str(p) for p in provenance)
+                if isinstance(provenance, list)
+                else (),
+            )
+        )
+    return tuple(parts)

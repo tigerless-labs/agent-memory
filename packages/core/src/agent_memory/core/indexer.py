@@ -5,7 +5,7 @@ from __future__ import annotations
 import dataclasses
 import pathlib
 
-from . import chunking
+from . import chunking, sessions
 from . import record as record_module
 from .archive import SESSION_SUFFIX
 from .clock import Clock
@@ -13,8 +13,9 @@ from .database import Database
 from .errors import ValidationError
 from .manifest import Manifest, content_hash
 from .paths import StoreLayout
-from .raw_index import RawIndex, source_name
+from .raw_index import RawIndex
 from .record import MemoryRecord
+from .schema import SchemaRegistry
 from .search_index import SearchIndex
 
 
@@ -35,6 +36,7 @@ class Indexer:
         self._config = layout.config
         self._clock = clock or Clock()
         self._database = Database(layout)
+        self._schemas = SchemaRegistry(layout)
 
     def sync(self) -> IndexReport:
         present = self._present_hashes()
@@ -50,12 +52,14 @@ class Indexer:
                 if self._is_raw(path):
                     raw.upsert(
                         relative,
-                        source_name(path),
-                        path.read_text(encoding="utf-8"),
+                        sessions.session_name(path),
+                        sessions.read_file(path),
                         self._config.index.raw_chunk_chars,
                     )
                     manifest.record(
-                        relative, source_name(path), present[relative],
+                        relative,
+                        sessions.session_name(path),
+                        present[relative],
                         self._clock.now().isoformat(),
                     )
                     reindexed.append(relative)
@@ -65,12 +69,7 @@ class Indexer:
                     unreadable.append(relative)
                     continue
                 index.remove_path(relative)
-                index.upsert(
-                    record,
-                    chunking.chunks(record, self._config),
-                    self._layout.is_archived(path),
-                    relative,
-                )
+                index.upsert(record, chunking.chunks(record, self._config), relative)
                 manifest.record(
                     relative, record.name, present[relative], self._clock.now().isoformat()
                 )
@@ -96,7 +95,7 @@ class Indexer:
 
     def _present_hashes(self) -> dict[str, str]:
         present: dict[str, str] = {}
-        for path in self._layout.truth_files() + self._layout.archived_files() + self._raw_files():
+        for path in self._layout.truth_files() + self._raw_files():
             relative = str(path.relative_to(self._layout.root))
             present[relative] = content_hash(
                 path.read_text(encoding="utf-8"), self._config.index.hash_prefix_length
@@ -109,13 +108,15 @@ class Indexer:
         return sorted(self._layout.sessions.glob("*" + SESSION_SUFFIX))
 
     def _load(self, path: pathlib.Path) -> MemoryRecord | None:
-        domain = self._layout.domain_of(path)
-        if domain is None:
+        type_name = self._layout.type_of(path)
+        if type_name is None:
             return None
-        record = MemoryRecord.from_text(path.read_text(encoding="utf-8"), domain, path)
         try:
-            record_module.validate(record, self._config)
+            record = MemoryRecord.from_text(path.read_text(encoding="utf-8"), path)
+            record_module.validate(record, self._config, self._schemas.get(type_name))
         except ValidationError:
+            return None
+        if record.type != type_name:
             return None
         return record
 

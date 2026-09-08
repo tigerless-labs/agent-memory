@@ -6,7 +6,7 @@ import json
 import pytest
 from agent_memory.adapters import capture as capture_module
 from agent_memory.adapters import hook_entry, moments, setup, transcript
-from agent_memory.core import injection
+from agent_memory.core import injection, sessions, triggers
 from agent_memory.core.watermark import Watermark
 
 SEGMENTS = ["user: we moved the deploy to Fridays", "assistant: noted", "user: and E4021 is fixed"]
@@ -16,18 +16,20 @@ def test_repeated_triggers_hand_over_only_the_increment(store):
     first = capture_module.capture(store, "session-a", SEGMENTS[:2])
     assert first.increment == tuple(SEGMENTS[:2])
 
-    capture_module.commit(store, "session-a", len(SEGMENTS[:2]))
     second = capture_module.capture(store, "session-a", SEGMENTS)
     assert second.increment == (SEGMENTS[-1],)
-
-    capture_module.commit(store, "session-a", len(SEGMENTS))
     assert capture_module.capture(store, "session-a", SEGMENTS).is_empty()
+    assert len(sessions.read(store.layout, "session-a")) == len(SEGMENTS)
 
 
-def test_a_kill_before_commit_leaves_the_tail_to_be_picked_up_again(store):
+def test_a_kill_before_distillation_leaves_the_archived_tail_as_backlog(store):
     capture_module.capture(store, "session-b", SEGMENTS)
-    recovered = capture_module.capture(store, "session-b", SEGMENTS)
-    assert recovered.increment == tuple(SEGMENTS)
+    watermark = Watermark(store.layout, store.clock)
+    backlog = triggers.backlog(store.layout, "session-b", watermark)
+    assert [message.text for message in backlog] == [
+        segment.split(": ", 1)[1] for segment in SEGMENTS
+    ]
+    assert capture_module.capture(store, "session-b", SEGMENTS).is_empty()
 
 
 def test_the_watermark_never_moves_backwards(store):
@@ -38,18 +40,15 @@ def test_the_watermark_never_moves_backwards(store):
 
 def test_captured_material_is_archived_even_when_nothing_is_distilled(store):
     result = capture_module.capture(store, "session-d", SEGMENTS)
-    archived = store.layout.sessions / "session-d.txt"
+    archived = store.layout.sessions / "session-d.jsonl"
     assert archived.exists()
-    assert SEGMENTS[-1] in archived.read_text(encoding="utf-8")
+    assert SEGMENTS[-1].split(": ", 1)[1] in archived.read_text(encoding="utf-8")
     assert result.instruction
 
 
 def test_the_cron_path_reaches_the_same_state_as_the_hook_path(store, tmp_path):
     hook_state = capture_module.capture(store, "via-hook", SEGMENTS)
-    capture_module.commit(store, "via-hook", len(hook_state.increment))
-
     cron_state = capture_module.capture(store, "via-cron", SEGMENTS)
-    capture_module.commit(store, "via-cron", len(cron_state.increment))
 
     assert hook_state.increment == cron_state.increment
     assert Watermark(store.layout).read("via-hook").consumed == (
@@ -97,18 +96,54 @@ def test_hook_injects_memory_md_at_session_start(seeded):
     assert context == injection.payload(seeded)
 
 
-def test_hook_at_a_boundary_returns_the_increment_and_an_instruction(store):
+@pytest.mark.parametrize(
+    ("host", "event"),
+    [
+        (moments.HOST_CLAUDE_CODE, "Stop"),
+        (moments.HOST_CODEX, "turn_end"),
+        (moments.HOST_GENERIC, moments.MOMENT_PAUSE),
+    ],
+)
+def test_every_host_hook_archives_the_increment_and_launches_the_same_executor_call(
+    store, host, event
+):
+    launches = []
+
+    def launch(launched_store, session):
+        launches.append((launched_store.root, session))
+        return True
+
+    response = hook_entry.handle(
+        store,
+        {
+            "host": host,
+            "event": event,
+            "hook_event_name": event,
+            "session_id": host,
+            "items": SEGMENTS,
+        },
+        launch=launch,
+    )
+    assert response["pending"] == len(SEGMENTS)
+    assert response[hook_entry.KEY_DISTILL] == hook_entry.DISTILL_LAUNCHED
+    assert launches == [(store.root, host)]
+    assert hook_entry.CLAUDE_CONTEXT_KEY not in response
+    assert len(sessions.read(store.layout, host)) == len(SEGMENTS)
+
+
+def test_the_hook_leaves_distillation_alone_when_the_boundary_switch_is_off(store):
+    store.config.write.distill_on_boundary = False
     response = hook_entry.handle(
         store,
         {
             "host": moments.HOST_CLAUDE_CODE,
             "hook_event_name": "Stop",
-            "session_id": "hooked",
+            "session_id": "s",
             "items": SEGMENTS,
         },
+        launch=lambda *_: True,
     )
-    assert response["pending"] == len(SEGMENTS)
-    assert SEGMENTS[-1] in response[hook_entry.CLAUDE_CONTEXT_KEY]
+    assert response[hook_entry.KEY_DISTILL] == hook_entry.DISTILL_SKIPPED
 
 
 def test_transcript_reading_survives_a_mixed_and_partly_broken_file(tmp_path):
@@ -116,8 +151,9 @@ def test_transcript_reading_survives_a_mixed_and_partly_broken_file(tmp_path):
     path.write_text(
         "\n".join(
             [
-                json.dumps({"type": "user", "message": {"content": [{"type": "text",
-                                                                     "text": "hello"}]}}),
+                json.dumps(
+                    {"type": "user", "message": {"content": [{"type": "text", "text": "hello"}]}}
+                ),
                 "{not json",
                 json.dumps({"role": "assistant", "content": "hi there"}),
             ]

@@ -13,7 +13,6 @@ def _seed(root, name):
     store.record(
         abstract=f"Queue drain timeout is 30 seconds as of {name}",
         type="fact",
-        domain="project",
         name="drain-timeout",
     )
     return store
@@ -56,24 +55,33 @@ def test_sleeping_an_existing_target_refuses_rather_than_mixing_arms(tmp_path):
 
 
 def test_advancing_the_clock_is_what_lets_forgetting_happen_at_all(tmp_path, capsys):
-    from agent_memory.core.record import STATUS_STALE
-
     source = tmp_path / "stores" / "W2"
     store = _seed(source / "q1", "q1")
-    threshold = store.config.manage.stale_after_days
+    threshold = store.config.weight.decay_after_days
+    initial = store.config.weight.initial
 
     same_day = tmp_path / "same-day" / "W2"
     assert exp_main(["sleep-stores", "--stores", str(source), "--target", str(same_day)]) == 0
     capsys.readouterr()
-    assert not [r for r in Store(same_day / "q1").records() if r.status == STATUS_STALE]
+    assert all(r.weight >= initial for r in Store(same_day / "q1").records())
 
     much_later = tmp_path / "later" / "W2"
-    assert exp_main([
-        "sleep-stores", "--stores", str(source), "--target", str(much_later),
-        "--days-later", str(threshold + 1),
-    ]) == 0
+    assert (
+        exp_main(
+            [
+                "sleep-stores",
+                "--stores",
+                str(source),
+                "--target",
+                str(much_later),
+                "--days-later",
+                str(threshold + 1),
+            ]
+        )
+        == 0
+    )
     capsys.readouterr()
-    assert [r for r in Store(much_later / "q1").records() if r.status == STATUS_STALE]
+    assert all(r.weight < initial for r in Store(much_later / "q1").records())
 
 
 def _twins(root):
@@ -82,14 +90,12 @@ def _twins(root):
     store.record(
         abstract="The drain window closes before the worker lease expires",
         type="experience",
-        domain="experience",
         body="Short.",
         name="drain-window-first",
     )
     store.record(
         abstract="The drain window closes before the worker lease expires again",
         type="experience",
-        domain="experience",
         body="Longer body carrying the lease TTL and the fix that worked.",
         name="drain-window-second",
     )
@@ -100,8 +106,10 @@ def test_a_sleep_without_a_reasoner_decides_nothing(tmp_path, capsys):
     _twins(tmp_path / "stores" / "W2" / "q1")
     target = tmp_path / "slept" / "W2"
     assert (
-        exp_main(["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"),
-                  "--target", str(target)]) == 0
+        exp_main(
+            ["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"), "--target", str(target)]
+        )
+        == 0
     )
     assert json.loads(capsys.readouterr().out)["decisions"] == 0
 
@@ -117,15 +125,25 @@ def test_a_reasoned_sleep_records_what_it_decided(tmp_path, capsys, monkeypatch)
     )
     target = tmp_path / "slept" / "W2"
     assert (
-        exp_main(["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"),
-                  "--target", str(target), "--reason", "host"]) == 0
+        exp_main(
+            [
+                "sleep-stores",
+                "--stores",
+                str(tmp_path / "stores" / "W2"),
+                "--target",
+                str(target),
+                "--reason",
+                "host",
+            ]
+        )
+        == 0
     )
     payload = json.loads(capsys.readouterr().out)
     assert payload["decisions"] > 0
     assert payload["proposals"] == 0
 
 
-def test_authority_is_a_knob_the_step_can_raise(tmp_path, capsys, monkeypatch):
+def test_the_per_sleep_cap_is_a_knob_the_step_can_lower(tmp_path, capsys, monkeypatch):
     _twins(tmp_path / "stores" / "W2" / "q1")
     monkeypatch.setattr(
         "agent_memory.executor.reasoners.HostReasoner.__call__",
@@ -136,9 +154,21 @@ def test_authority_is_a_knob_the_step_can_raise(tmp_path, capsys, monkeypatch):
     )
     target = tmp_path / "slept" / "W2"
     assert (
-        exp_main(["sleep-stores", "--stores", str(tmp_path / "stores" / "W2"),
-                  "--target", str(target), "--reason", "host",
-                  "--set", "manage.authority=T1"]) == 0
+        exp_main(
+            [
+                "sleep-stores",
+                "--stores",
+                str(tmp_path / "stores" / "W2"),
+                "--target",
+                str(target),
+                "--reason",
+                "host",
+                "--set",
+                "manage.max_supersedes_per_sleep=0",
+            ]
+        )
+        == 0
     )
     slept = Store(target / "q1", agent="check")
-    assert slept.find("drain-window-first").superseded_by == "drain-window-second"
+    assert slept.find("drain-window-first").is_active()
+    assert json.loads(capsys.readouterr().out)["decisions"] == 0

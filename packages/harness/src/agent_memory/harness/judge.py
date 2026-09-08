@@ -85,7 +85,6 @@ class Judge:
         )
 
 
-
 def regrade(
     records: list[dict[str, object]],
     judge: Judge,
@@ -112,4 +111,3 @@ def regrade(
 def _says_yes(text: str) -> bool:
     words = _WORD.findall(text.lower())
     return bool(words) and words[0] == VERDICT_YES
-

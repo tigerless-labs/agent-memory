@@ -21,8 +21,7 @@ LOCATION_ENV = "VERTEX_LOCATION"
 BASE_URL_ENV = "GEMINI_BASE_URL"
 API_KEY_ENV = "GEMINI_API_KEY"
 VERTEX_URL = (
-    "https://aiplatform.googleapis.com/v1/projects/{project}"
-    "/locations/{location}/endpoints/openapi"
+    "https://aiplatform.googleapis.com/v1/projects/{project}/locations/{location}/endpoints/openapi"
 )
 REFRESH_SECONDS = 1800.0
 TOKEN_TIMEOUT_SECONDS = 60.0
@@ -34,10 +33,14 @@ class VertexCredentials:
 
     minted_at: float = 0.0
     token: str = ""
+    project: str = ""
+    location: str = ""
 
     def environment(self) -> dict[str, str]:
-        project = os.environ.get(PROJECT_ENV, "")
-        location = os.environ.get(LOCATION_ENV, "")
+        """The environment overrides the configured project; the configured project is what
+        makes the library usable with nothing set at all."""
+        project = os.environ.get(PROJECT_ENV, "") or self.project
+        location = os.environ.get(LOCATION_ENV, "") or self.location
         if not project or not location:
             return {}
         if os.environ.get(API_KEY_ENV):
@@ -67,8 +70,11 @@ class VertexCredentials:
             command.append(f"--account={account}")
         try:
             completed = subprocess.run(
-                command, capture_output=True, text=True,
-                timeout=TOKEN_TIMEOUT_SECONDS, check=False,
+                command,
+                capture_output=True,
+                text=True,
+                timeout=TOKEN_TIMEOUT_SECONDS,
+                check=False,
             )
         except (OSError, subprocess.TimeoutExpired):
             return ""

@@ -14,16 +14,21 @@ DEFAULT_STORE = "~/agent-memory-store"
 
 @dataclasses.dataclass
 class StorageConfig:
-    domains: tuple[str, ...] = ("user", "project", "reference", "experience")
-    domain_types: dict[str, tuple[str, ...]] = dataclasses.field(
+    schemas_dirname: str = "schemas"
+    max_depth: int = 3
+    field_sources: dict[str, str] = dataclasses.field(
         default_factory=lambda: {
-            "user": ("fact", "preference"),
-            "project": ("fact", "decision", "procedure"),
-            "reference": ("reference",),
-            "experience": ("experience", "procedure"),
+            "project": "system",
+            "user": "system",
+            "date": "system",
+            "topic": "menu",
+            "category": "menu",
+            "source": "menu",
         }
     )
-    max_depth_below_domain: int = 1
+    default_group: str = "general"
+    default_project: str = "default"
+    default_user: str = "default"
     slug_max_length: int = 80
     abstract_max_chars: int = 240
     archive_sessions_enabled: bool = True
@@ -55,7 +60,6 @@ class WeightConfig:
     boost_step: float = 0.5
     decay_step: float = 0.1
     decay_after_days: float = 30.0
-    demote_penalty: float = 0.5
 
 
 @dataclasses.dataclass
@@ -66,7 +70,6 @@ class RecallConfig:
     recency_half_life_days: float = 180.0
     recency_decay_base: float = 0.5
     recency_floor: float = 0.25
-    retrieval_weight_floor: float = 0.15
     memory_md_weight_floor: float = 0.75
     raw_enabled: bool = True
     raw_relevance_factor: float = 0.4
@@ -78,23 +81,23 @@ class RecallConfig:
     snippet_max_chars: int = 400
 
 
-TIER_UNATTENDED = "T0"
-TIER_PROPOSAL = "T1"
-TIER_HUMAN = "T2"
-
-
 @dataclasses.dataclass
 class ManageConfig:
-    authority: str = TIER_UNATTENDED
     trigger_min_hours: float = 24.0
     trigger_min_sessions: int = 3
     cluster_min_files: int = 5
     cluster_min_shared_tokens: int = 2
-    stale_after_days: float = 365.0
     merge_proposal_similarity: float = 0.75
     link_cooccurrence_min: int = 2
     abstract_min_words: int = 3
     max_boosts_per_sleep: int = 3
+    max_merges_per_sleep: int = 3
+    max_supersedes_per_sleep: int = 5
+    max_splits_per_sleep: int = 2
+    max_deletes_per_sleep: int = 3
+    split_min_sections: int = 3
+    raw_hit_min: int = 3
+    git_commit: bool = True
     dream_report_dirname: str = "dream-reports"
 
 
@@ -104,6 +107,30 @@ class WriteConfig:
     session_archive_enabled: bool = True
     hook_timeout_seconds: float = 20.0
     batch_hint: bool = True
+    max_distill_input_chars: int = 24000
+    reconcile_entries: int = 8
+    reconcile_query_chars: int = 2000
+    repair_rounds: int = 1
+    pending_dirname: str = "pending"
+    pending_message_threshold: int = 20
+    pending_token_threshold: int = 4000
+    chars_per_token: int = 4
+    idle_seconds: float = 900.0
+    distill_on_boundary: bool = True
+    slot_table: bool = True
+    event_lane: bool = True
+    max_rounds: int = 3
+    tool_result_chars: int = 4000
+
+
+@dataclasses.dataclass
+class ExecutorConfig:
+    model: str = "google/gemini-3.7-flash"
+    endpoint: str = ""
+    project: str = "tigerless-seo"
+    location: str = "global"
+    timeout_seconds: float = 120.0
+    command: str = "mem distill"
 
 
 @dataclasses.dataclass
@@ -115,6 +142,7 @@ class Config:
     recall: RecallConfig = dataclasses.field(default_factory=RecallConfig)
     manage: ManageConfig = dataclasses.field(default_factory=ManageConfig)
     write: WriteConfig = dataclasses.field(default_factory=WriteConfig)
+    executor: ExecutorConfig = dataclasses.field(default_factory=ExecutorConfig)
 
     @classmethod
     def default(cls) -> Config:

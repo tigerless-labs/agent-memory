@@ -19,13 +19,20 @@ class StubHost(Host):
         self.can_write = can_write
         self.can_read = can_read
 
-    def run(self, prompt, store_root=None, tools_enabled=False, system_prompt="",
-            max_turns=8, workdir=None):
+    def run(
+        self,
+        prompt,
+        store_root=None,
+        tools_enabled=False,
+        system_prompt="",
+        max_turns=8,
+        workdir=None,
+    ):
         if "Record this" in prompt:
             if not self.can_write:
                 return HostResult("", False, 0.1, "cannot write")
             Store(store_root, agent=self.name).record(
-                abstract=FACT.sentence, type="fact", domain="user", name="drain-window-rule"
+                abstract=FACT.sentence, type="fact", name="drain-window-rule"
             )
             return HostResult("drain-window-rule", True, 0.2)
         if not self.can_read:

@@ -40,9 +40,3 @@ class NotFoundError(MemoryStoreError):
 
 class LockTimeoutError(MemoryStoreError):
     code = "lock_timeout"
-
-
-class AuthorityError(MemoryStoreError):
-    """Raised when an operation demands a higher authority tier than the caller holds."""
-
-    code = "authority_required"

@@ -7,16 +7,6 @@ benchmarks/
 __pycache__/
 *.pyc
 .coverage
-# Experiment data is evidence and is committed: run records, question sets, reports, and the
-# stores' truth files (memories, archives, config). Rebuildable caches are not — every index
-# is a projection of the truth files (Invariant 1) — nor are working directories and logs.
-experiments/data/longmemeval_s.json
-experiments/runs/**/.index/
-experiments/runs/**/index/
-experiments/runs/**/wal.log
-experiments/runs/**/graph.idx
-experiments/runs/**/.daemon.*
-experiments/runs/**/models
-experiments/runs/cwd/
-experiments/runs/*.log
-experiments/runs/*.out
+# The experiment tree stays on disk and stays the evidence; it no longer enters git history.
+experiments/
+docs/

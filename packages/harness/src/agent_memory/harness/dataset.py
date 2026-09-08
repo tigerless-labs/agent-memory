@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import dataclasses
+import datetime
 import json
 import pathlib
 
@@ -38,6 +39,24 @@ class Session:
         lines.extend(f"{turn.role}: {turn.content}" for turn in self.turns)
         return "\n".join(lines)
 
+    def messages(self) -> list[dict[str, object]]:
+        """The turns as the archive takes them, each stamped with the session's own date, so
+        the executor dates what it writes by when it was said rather than by when it ran."""
+        stamp = session_stamp(self.date)
+        return [{"role": turn.role, "text": turn.content, "at": stamp} for turn in self.turns]
+
+
+def session_stamp(date: str) -> str:
+    """LongMemEval writes `2023/05/20 (Sat) 02:21`; the archive wants an instant."""
+    parts = date.replace("/", "-").split()
+    day = parts[0] if parts else ""
+    clock = next((part for part in parts[1:] if ":" in part), "00:00")
+    try:
+        moment = datetime.datetime.fromisoformat(f"{day}T{clock}:00+00:00")
+    except ValueError:
+        return ""
+    return moment.isoformat()
+
 
 @dataclasses.dataclass(frozen=True)
 class Episode:
@@ -72,9 +91,7 @@ def _trim_entry(entry: dict, keep: int) -> dict:
     ids = entry[KEY_SESSION_IDS]
     dates = entry[KEY_DATES]
     sessions = entry[KEY_SESSIONS]
-    order = sorted(
-        range(len(ids)), key=lambda index: (ids[index] not in evidence, index)
-    )[:keep]
+    order = sorted(range(len(ids)), key=lambda index: (ids[index] not in evidence, index))[:keep]
     order.sort()
     picked = {
         KEY_SESSION_IDS: [ids[index] for index in order],

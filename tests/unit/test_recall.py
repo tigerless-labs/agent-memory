@@ -26,7 +26,6 @@ def test_superseded_records_are_excluded_before_relevance_is_considered(seeded):
     seeded.record(
         abstract="The staging deploy now fails with error E4021 only under load",
         type="experience",
-        domain="experience",
         name="staging-deploy-e4021-under-load",
         valid_from="2026-01-10",
     )
@@ -41,7 +40,6 @@ def test_as_of_walks_back_up_the_supersede_chain(seeded):
     seeded.record(
         abstract="The staging deploy now fails with error E4021 only under load",
         type="experience",
-        domain="experience",
         name="staging-deploy-e4021-under-load",
         valid_from="2026-02-01",
     )
@@ -54,16 +52,19 @@ def test_as_of_walks_back_up_the_supersede_chain(seeded):
     assert "staging-deploy-e4021-under-load" in _names(after)
 
 
-def test_deep_is_the_only_way_into_the_archive(seeded):
-    seeded.retire("staging-deploy-e4021")
+def test_a_deleted_record_leaves_the_default_surface_but_not_the_past(seeded, clock):
+    clock.advance(days=1)
+    seeded.delete("staging-deploy-e4021")
     assert "staging-deploy-e4021" not in _names(Recall(seeded).recall("E4021"))
-    assert "staging-deploy-e4021" in _names(Recall(seeded).recall("E4021", deep=True))
+    assert "staging-deploy-e4021" not in _names(Recall(seeded).recall("E4021", deep=True))
+    earlier = Recall(seeded).recall("E4021", as_of="2026-01-15T12:00:00Z")
+    assert "staging-deploy-e4021" in _names(earlier)
 
 
 def test_scope_restricts_by_path_prefix(seeded):
     hits = Recall(seeded).recall("deploy queue drain answers", scope="experience")
     assert hits
-    assert {hit.domain for hit in hits} == {"experience"}
+    assert {hit.type for hit in hits} == {"experience"}
 
 
 def test_l0_entries_carry_the_full_contract(seeded):
@@ -78,13 +79,11 @@ def test_weight_reorders_two_otherwise_comparable_hits(seeded):
     seeded.record(
         abstract="Deploy notes for the drain window, second copy",
         type="experience",
-        domain="experience",
         name="drain-notes-b",
     )
     seeded.record(
         abstract="Deploy notes for the drain window, first copy",
         type="experience",
-        domain="experience",
         name="drain-notes-a",
     )
     baseline = _names(Recall(seeded).recall("deploy notes drain window"))
@@ -133,7 +132,6 @@ def test_the_recall_list_length_is_a_knob(seeded):
         seeded.record(
             abstract=f"Evening habit number {index}: reading, tea, and an early night",
             type="preference",
-            domain="user",
             name=f"evening-habit-{index}",
         )
     narrow = Recall(seeded).recall("evening habits reading tea")

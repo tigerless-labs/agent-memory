@@ -98,14 +98,25 @@ class ClaudeCodeDialect(Dialect):
     """Its memory is the Write tool aimed at ~/.claude/projects/<cwd>/memory/."""
 
     def command(
-        self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file,
+        self,
+        spec,
+        *,
+        tools_enabled,
+        system_prompt,
+        max_turns,
+        store_root,
+        answer_file,
         tool_pattern=MEM_TOOL_PATTERN,
     ):
         command = [
-            spec.binary, "-p",
-            "--model", spec.model,
-            "--max-turns", str(max_turns),
-            "--disallowedTools", CLAUDE_NATIVE_TOOLS,
+            spec.binary,
+            "-p",
+            "--model",
+            spec.model,
+            "--max-turns",
+            str(max_turns),
+            "--disallowedTools",
+            CLAUDE_NATIVE_TOOLS,
         ]
         if tools_enabled:
             command += ["--allowedTools", tool_pattern]
@@ -120,16 +131,26 @@ class CodexDialect(Dialect):
     transcript, so the final message is read from the file the host writes it to."""
 
     def command(
-        self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file,
+        self,
+        spec,
+        *,
+        tools_enabled,
+        system_prompt,
+        max_turns,
+        store_root,
+        answer_file,
         tool_pattern=MEM_TOOL_PATTERN,
     ):
         command = [
-            spec.binary, "exec",
-            "--model", spec.model,
+            spec.binary,
+            "exec",
+            "--model",
+            spec.model,
             "--skip-git-repo-check",
             "--ignore-user-config",
             "--ignore-rules",
-            "--output-last-message", str(answer_file),
+            "--output-last-message",
+            str(answer_file),
         ]
         if tools_enabled:
             command += ["--sandbox", CODEX_SANDBOX_TOOLS]
@@ -158,7 +179,14 @@ class HermesDialect(Dialect):
     prompt_on_stdin = False
 
     def command(
-        self, spec, *, tools_enabled, system_prompt, max_turns, store_root, answer_file,
+        self,
+        spec,
+        *,
+        tools_enabled,
+        system_prompt,
+        max_turns,
+        store_root,
+        answer_file,
         tool_pattern=MEM_TOOL_PATTERN,
     ):
         command = [spec.binary, "-z", PROMPT_PLACEHOLDER, "--model", self.routed_model(spec)]
@@ -212,8 +240,14 @@ class Host:
         last = HostResult(text="", ok=False, seconds=0.0, error="not attempted")
         for attempt in range(self.spec.attempts):
             last = self._attempt(
-                prompt, store_root, tools_enabled, system_prompt, max_turns, workdir,
-                environment or {}, tool_pattern,
+                prompt,
+                store_root,
+                tools_enabled,
+                system_prompt,
+                max_turns,
+                workdir,
+                environment or {},
+                tool_pattern,
             )
             if last.ok:
                 return last

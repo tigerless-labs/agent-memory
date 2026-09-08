@@ -65,9 +65,7 @@ def exam(episode: Episode, preamble: str) -> str:
 
 
 def fixed_exam(episode: Episode, context: str) -> str:
-    return EXAM_FIXED.format(
-        date=episode.question_date, context=context, question=episode.question
-    )
+    return EXAM_FIXED.format(date=episode.question_date, context=context, question=episode.question)
 
 
 def with_injected(exam_prompt: str, block: str) -> str:

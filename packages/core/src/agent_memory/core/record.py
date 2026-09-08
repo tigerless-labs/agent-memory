@@ -1,4 +1,9 @@
-"""One memory file = one invalidation atom (Invariant 7). This is its shape and its gate."""
+"""One memory file = one invalidation atom (Invariant 7). This is its shape and its gate.
+
+A file is active or invalid, nothing in between, and invalidation comes only from
+replacement or deletion (ADR-009). The schema-declared fields of a memory ride in the same
+frontmatter as the core fields.
+"""
 
 from __future__ import annotations
 
@@ -8,11 +13,11 @@ import pathlib
 from . import frontmatter, slug, timestamp
 from .config import Config
 from .errors import FieldError, ValidationError
+from .schema import MemorySchema
 
 STATUS_ACTIVE = "active"
-STATUS_STALE = "stale"
-STATUS_RETIRED = "retired"
-STATUSES = (STATUS_ACTIVE, STATUS_STALE, STATUS_RETIRED)
+STATUS_INVALID = "invalid"
+STATUSES = (STATUS_ACTIVE, STATUS_INVALID)
 
 FIELD_ORDER = (
     "name",
@@ -22,14 +27,16 @@ FIELD_ORDER = (
     "created",
     "updated",
     "valid_from",
+    "invalid_at",
     "superseded_by",
     "weight",
     "author",
     "links",
     "provenance",
 )
+CORE_FIELDS = frozenset(FIELD_ORDER)
 REQUIRED_FIELDS = ("name", "abstract", "type", "created", "updated", "author")
-DATE_FIELDS = ("created", "updated", "valid_from")
+DATE_FIELDS = ("created", "updated", "valid_from", "invalid_at")
 
 
 @dataclasses.dataclass
@@ -43,15 +50,16 @@ class MemoryRecord:
     body: str = ""
     status: str = STATUS_ACTIVE
     valid_from: str | None = None
+    invalid_at: str | None = None
     superseded_by: str | None = None
     weight: float = 1.0
     links: list[str] = dataclasses.field(default_factory=list)
     provenance: list[str] = dataclasses.field(default_factory=list)
-    domain: str = ""
+    fields: dict[str, str] = dataclasses.field(default_factory=dict)
     path: pathlib.Path | None = None
 
     def frontmatter_fields(self) -> dict[str, object]:
-        return {
+        core: dict[str, object] = {
             "name": self.name,
             "abstract": self.abstract,
             "type": self.type,
@@ -59,42 +67,53 @@ class MemoryRecord:
             "created": self.created,
             "updated": self.updated,
             "valid_from": self.valid_from or self.created,
+            "invalid_at": self.invalid_at,
             "superseded_by": self.superseded_by,
             "weight": float(self.weight),
             "author": self.author,
             "links": list(self.links),
             "provenance": list(self.provenance),
         }
+        for key, value in self.fields.items():
+            if key not in CORE_FIELDS:
+                core[key] = value
+        return core
 
     def to_text(self) -> str:
         return frontmatter.render(self.frontmatter_fields(), self.body)
 
     def is_active(self) -> bool:
-        return self.status != STATUS_RETIRED and not self.superseded_by
+        return self.status == STATUS_ACTIVE
 
     @classmethod
-    def from_text(cls, text: str, domain: str, path: pathlib.Path | None = None) -> MemoryRecord:
-        fields, body = frontmatter.parse(text)
+    def from_text(cls, text: str, path: pathlib.Path | None = None) -> MemoryRecord:
+        raw, body = frontmatter.parse(text)
+        extra = {
+            str(key): str(value)
+            for key, value in raw.items()
+            if key not in CORE_FIELDS and value is not None and not isinstance(value, list)
+        }
         return cls(
-            name=str(fields.get("name") or ""),
-            abstract=str(fields.get("abstract") or ""),
-            type=str(fields.get("type") or ""),
-            author=str(fields.get("author") or ""),
-            created=str(fields.get("created") or ""),
-            updated=str(fields.get("updated") or ""),
+            name=str(raw.get("name") or ""),
+            abstract=str(raw.get("abstract") or ""),
+            type=str(raw.get("type") or ""),
+            author=str(raw.get("author") or ""),
+            created=str(raw.get("created") or ""),
+            updated=str(raw.get("updated") or ""),
             body=body,
-            status=str(fields.get("status") or STATUS_ACTIVE),
-            valid_from=_optional_str(fields.get("valid_from")),
-            superseded_by=_optional_str(fields.get("superseded_by")),
-            weight=_as_float(fields.get("weight")),
-            links=_as_list(fields.get("links")),
-            provenance=_as_list(fields.get("provenance")),
-            domain=domain,
+            status=str(raw.get("status") or STATUS_ACTIVE),
+            valid_from=_optional_str(raw.get("valid_from")),
+            invalid_at=_optional_str(raw.get("invalid_at")),
+            superseded_by=_optional_str(raw.get("superseded_by")),
+            weight=_as_float(raw.get("weight")),
+            links=_as_list(raw.get("links")),
+            provenance=_as_list(raw.get("provenance")),
+            fields=extra,
             path=path,
         )
 
 
-def validate(record: MemoryRecord, config: Config) -> None:
+def validate(record: MemoryRecord, config: Config, schema: MemorySchema | None = None) -> None:
     errors: list[FieldError] = []
     fields = record.frontmatter_fields()
 
@@ -110,17 +129,12 @@ def validate(record: MemoryRecord, config: Config) -> None:
         errors.append(FieldError("abstract", "exceeds abstract_max_chars"))
     if "\n" in record.abstract:
         errors.append(FieldError("abstract", "must be a single line"))
-
-    if record.domain not in config.storage.domains:
-        errors.append(FieldError("domain", f"unknown domain: {record.domain}"))
-    elif record.type and record.type not in config.storage.domain_types[record.domain]:
-        allowed = ", ".join(config.storage.domain_types[record.domain])
-        errors.append(
-            FieldError(
-                "type",
-                f"domain {record.domain} takes one of: {allowed} (got {record.type})",
-            )
-        )
+    if record.type and not slug.is_valid_slug(record.type):
+        errors.append(FieldError("type", "must be a kebab-case slug"))
+    if schema is not None:
+        for key_field in schema.key:
+            if not str(record.fields.get(key_field) or "").strip():
+                errors.append(FieldError(key_field, "required key field"))
 
     for field in DATE_FIELDS:
         value = fields.get(field)
@@ -129,6 +143,10 @@ def validate(record: MemoryRecord, config: Config) -> None:
 
     if record.status not in STATUSES:
         errors.append(FieldError("status", f"must be one of {', '.join(STATUSES)}"))
+    if record.status == STATUS_INVALID and not record.invalid_at:
+        errors.append(FieldError("invalid_at", "an invalid record records when it became so"))
+    if record.status == STATUS_ACTIVE and (record.invalid_at or record.superseded_by):
+        errors.append(FieldError("status", "an active record has no successor and no invalid_at"))
     if record.superseded_by and not slug.is_valid_slug(record.superseded_by):
         errors.append(FieldError("superseded_by", "must be a slug"))
     if record.superseded_by == record.name and record.name:
@@ -148,6 +166,13 @@ def canonicalise_dates(record: MemoryRecord) -> None:
         value = getattr(record, field)
         if value:
             setattr(record, field, timestamp.canonical(str(value)))
+
+
+def invalidate(record: MemoryRecord, at: str, successor: str | None = None) -> None:
+    """The only way a record leaves the active set: replaced, or deleted."""
+    record.status = STATUS_INVALID
+    record.invalid_at = at
+    record.superseded_by = successor
 
 
 def _optional_str(value: object) -> str | None:

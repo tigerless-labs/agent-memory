@@ -15,7 +15,6 @@ def with_raw(store):
     store.record(
         abstract="Watches nature documentaries and discusses them afterwards",
         type="preference",
-        domain="user",
         name="nature-documentaries",
     )
     store.archive.append_session("session-alpha", TRANSCRIPT)
@@ -40,14 +39,13 @@ def test_raw_hits_carry_a_path_and_rank_below_distilled_memory(with_raw):
     with_raw.record(
         abstract="The aquarium talk ticket cost 42 dollars on 2026-01-04",
         type="fact",
-        domain="user",
         name="aquarium-ticket-price",
     )
     hits = Recall(with_raw).recall("aquarium talk ticket 42 dollars", deep=True)
     assert hits[0].source == "memory"
     raw = [hit for hit in hits if hit.source == "raw"]
     assert raw
-    assert raw[0].path.endswith(".txt")
+    assert raw[0].path.endswith(".jsonl")
     assert raw[0].score < hits[0].score
 
 
@@ -60,7 +58,7 @@ def test_raw_material_survives_an_index_rebuild(with_raw):
 
 
 def test_indexing_raw_material_does_not_write_to_it(with_raw):
-    path = with_raw.layout.sessions / "session-alpha.txt"
+    path = with_raw.layout.sessions / "session-alpha.jsonl"
     before = path.read_bytes()
     Recall(with_raw).recall("octopus", deep=True)
     with_raw.sync_index()
@@ -72,7 +70,6 @@ def test_deep_widens_the_list_so_raw_material_is_not_crowded_out(with_raw):
         with_raw.record(
             abstract=f"Nature documentary note number {index} about octopus and aquarium visits",
             type="fact",
-            domain="user",
             name=f"documentary-note-{index}",
         )
     shallow = Recall(with_raw).recall("octopus aquarium documentary")

@@ -84,3 +84,33 @@ def test_only_hermes_carries_credentials(monkeypatch):
     assert Host(HostSpec(name=HOST_HERMES, binary="hermes")).credentials is not None
     for name in (HOST_CLAUDE_CODE, HOST_CODEX):
         assert Host(HostSpec(name=name, binary=name)).credentials is None
+
+
+def test_the_configured_project_is_used_when_the_environment_says_nothing(monkeypatch):
+    monkeypatch.delenv(credentials.PROJECT_ENV, raising=False)
+    monkeypatch.delenv(credentials.LOCATION_ENV, raising=False)
+    monkeypatch.delenv(credentials.API_KEY_ENV, raising=False)
+    minter = Minting()
+    minter.project = "built-in"
+    minter.location = "global"
+    environment = minter.environment()
+    assert "/projects/built-in/" in environment[credentials.BASE_URL_ENV]
+
+
+def test_the_environment_overrides_the_configured_project(monkeypatch):
+    _configure(monkeypatch, project="from-env", location="us-central1")
+    minter = Minting()
+    minter.project = "built-in"
+    minter.location = "global"
+    environment = minter.environment()
+    assert "/projects/from-env/" in environment[credentials.BASE_URL_ENV]
+    assert "/locations/us-central1/" in environment[credentials.BASE_URL_ENV]
+
+
+def test_the_distiller_hands_the_configured_project_to_the_minter():
+    from agent_memory.core.config import ExecutorConfig
+    from agent_memory.executor.distiller import distiller
+
+    reasoner = distiller(ExecutorConfig(project="built-in", location="global"))
+    assert reasoner.credentials.project == "built-in"
+    assert reasoner.credentials.location == "global"

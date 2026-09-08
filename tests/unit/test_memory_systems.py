@@ -75,8 +75,13 @@ def test_the_exam_prompt_takes_the_systems_preamble(native, memcore):
     from agent_memory.harness import dataset
 
     episode = dataset.Episode(
-        id="q1", question="What plant?", answer="snake plant", question_type="t",
-        question_date="2026/02/01", sessions=(), evidence_session_ids=(),
+        id="q1",
+        question="What plant?",
+        answer="snake plant",
+        question_type="t",
+        question_date="2026/02/01",
+        sessions=(),
+        evidence_session_ids=(),
     )
     ours = framing.exam(episode, native.exam_preamble())
     theirs = framing.exam(episode, memcore.exam_preamble())
@@ -146,7 +151,7 @@ def test_the_native_system_archives_the_transcript(tmp_path, native):
     root = tmp_path / "q1"
     native.prepare(root, fresh=True)
     native.archive(root, "q1-0", "user: the drain window rule")
-    archived = list(Store(root).layout.sessions.glob("*.txt"))
+    archived = list(Store(root).layout.sessions.glob("*.jsonl"))
     assert archived and "drain window" in archived[0].read_text(encoding="utf-8")
 
 

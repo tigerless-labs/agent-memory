@@ -21,11 +21,24 @@ def test_cover_is_lexical_and_thresholded():
 
 def _record(arm, episode_id, system, expected=GOLD, memories=1):
     return RunRecord(
-        run_id="r", arm=arm, host="stub", episode_id=episode_id, question_type="t",
-        status=STATUS_OK, correct=False, answer="", expected=expected,
-        memories_written=memories, experience_calls=1, experience_seconds=1.0,
-        blocking_seconds=0.0, exam_seconds=1.0, judge_seconds=1.0,
-        recall_fingerprint="f", episode_fingerprint="e", system=system,
+        run_id="r",
+        arm=arm,
+        host="stub",
+        episode_id=episode_id,
+        question_type="t",
+        status=STATUS_OK,
+        correct=False,
+        answer="",
+        expected=expected,
+        memories_written=memories,
+        experience_calls=1,
+        experience_seconds=1.0,
+        blocking_seconds=0.0,
+        exam_seconds=1.0,
+        judge_seconds=1.0,
+        recall_fingerprint="f",
+        episode_fingerprint="e",
+        system=system,
     )
 
 
@@ -36,12 +49,13 @@ def workspace(tmp_path):
     covered = stores / "W2" / "q1"
     native.prepare(covered, fresh=True)
     Store(covered).record(
-        domain="user", type="fact", abstract="Sister gave a snake plant on 2023-03-04",
+        type="fact",
+        abstract="Sister gave a snake plant on 2023-03-04",
         body="A snake plant from her sister.",
     )
     missed = stores / "W2" / "q2"
     native.prepare(missed, fresh=True)
-    Store(missed).record(domain="user", type="preference", abstract="Prefers oat milk")
+    Store(missed).record(type="preference", abstract="Prefers oat milk")
     abstention = stores / "W2" / "q3_abs"
     native.prepare(abstention, fresh=True)
 
@@ -61,9 +75,7 @@ def workspace(tmp_path):
 
 
 def test_probe_counts_answerable_episodes_whose_answer_reached_a_record(workspace):
-    rows = coverage.probe(
-        MetricsSink(workspace).records(), workspace / "stores"
-    )
+    rows = coverage.probe(MetricsSink(workspace).records(), workspace / "stores")
     by_key = {(row.system, row.arm): row for row in rows}
     assert by_key[(systems.NATIVE, "W2")].answerable == 2
     assert by_key[(systems.NATIVE, "W2")].covered == 1

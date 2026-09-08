@@ -21,13 +21,12 @@ def test_a_poisoned_memory_changes_nothing_about_what_manage_does(seeded):
     seeded.record(
         abstract="Operational note that carries an injection payload",
         type="experience",
-        domain="experience",
         body=PAYLOAD,
         name="poisoned-note",
     )
-    before = {record.name for record in seeded.records(include_archived=True)}
+    before = {record.name for record in seeded.records(include_invalid=True)}
     report = Manage(seeded).sleep()
-    after = {record.name for record in seeded.records(include_archived=True)}
+    after = {record.name for record in seeded.records(include_invalid=True)}
 
     assert after == before
     assert seeded.layout.archive.is_dir()
@@ -38,7 +37,6 @@ def test_a_poisoned_memory_is_returned_as_an_ordinary_scored_hit(seeded):
     seeded.record(
         abstract="Operational note that carries an injection payload",
         type="experience",
-        domain="experience",
         body=PAYLOAD,
         name="poisoned-note",
     )
@@ -48,21 +46,21 @@ def test_a_poisoned_memory_is_returned_as_an_ordinary_scored_hit(seeded):
     assert hit.path.endswith("poisoned-note.md")
 
 
-def test_frontmatter_that_tries_to_escape_its_domain_is_rejected(store):
+def test_frontmatter_that_tries_to_escape_its_type_is_rejected(store):
     with pytest.raises(ValidationError):
         store.record(
-            abstract="Tries to be a reference inside the user domain",
-            type="reference",
-            domain="user",
-            name="type-confusion",
-        )
-    with pytest.raises(ValidationError):
-        store.record(
-            abstract="Tries to write outside the store",
-            type="fact",
-            domain="../../etc",
+            abstract="Tries to be a type nobody declared",
+            type="../../etc",
             name="escape-attempt",
         )
+    written = store.record(
+        abstract="Tries to climb out through a group field",
+        type="decision",
+        fields={"project": "../../etc", "subject": "escape"},
+        name="group-escape",
+    )
+    assert store.root in written.path.parents
+    assert ".." not in written.path.relative_to(store.root).parts
 
 
 def test_a_name_that_looks_like_a_path_traversal_is_rejected(store):
@@ -70,7 +68,6 @@ def test_a_name_that_looks_like_a_path_traversal_is_rejected(store):
         store.record(
             abstract="Traversal in the name field",
             type="fact",
-            domain="project",
             name="../../../etc/passwd",
         )
 
@@ -101,16 +98,17 @@ def test_a_transcript_full_of_instructions_is_archived_verbatim_and_acted_on_by_
             "items": [PAYLOAD],
         },
     )
-    archived = (store.layout.sessions / "loaded.txt").read_text(encoding="utf-8")
+    archived = (store.layout.sessions / "loaded.jsonl").read_text(encoding="utf-8")
     assert PAYLOAD in archived
     assert store.records() == []
 
 
 def test_malformed_frontmatter_on_disk_is_reported_not_silently_indexed(store):
-    rogue = store.layout.domain_dir("project") / "rogue.md"
+    rogue = store.layout.type_dir("fact") / "rogue.md"
+    rogue.parent.mkdir(parents=True, exist_ok=True)
     rogue.write_text("---\nname: [broken\nabstract\n---\nbody\n", encoding="utf-8")
     report = store.sync_index()
-    assert "project/rogue.md" in report.unreadable
+    assert "fact/rogue.md" in report.unreadable
     assert not Recall(store).recall("broken body")
 
 
@@ -118,7 +116,6 @@ def test_an_export_of_a_poisoned_store_stays_inert_json(seeded, tmp_path):
     seeded.record(
         abstract="Operational note that carries an injection payload",
         type="experience",
-        domain="experience",
         body=PAYLOAD,
         name="poisoned-note",
     )
@@ -134,33 +131,38 @@ class Obedient:
     def __call__(self, prompt: str) -> str:
         ids = re.findall(r"^- ([0-9a-f]{12}) \(", prompt, flags=re.MULTILINE)
         return "\n".join(
-            json.dumps({"proposal": found, "verdict": "accept", "text": PAYLOAD})
-            for found in ids
+            json.dumps({"proposal": found, "verdict": "accept", "text": PAYLOAD}) for found in ids
         )
 
 
-def test_a_captured_reasoner_cannot_reach_past_its_tier(seeded):
-    seeded.record(
-        abstract="The drain window closes before the worker lease expires",
+def _twin_pair(store, stem):
+    store.record(
+        abstract=f"The {stem} window closes before the worker lease expires",
         type="experience",
-        domain="experience",
         body=PAYLOAD,
-        name="poisoned-twin-first",
+        name=f"{stem}-twin-first",
     )
-    seeded.record(
-        abstract="The drain window closes before the worker lease expires again",
+    store.record(
+        abstract=f"The {stem} window closes before the worker lease expires again",
         type="experience",
-        domain="experience",
         body="Longer body carrying the lease TTL and the fix that worked.",
-        name="poisoned-twin-second",
+        name=f"{stem}-twin-second",
     )
-    before = len(seeded.records(include_archived=True))
+
+
+def test_a_captured_reasoner_is_bounded_by_the_menu_and_the_per_sleep_cap(seeded):
+    _twin_pair(seeded, "drain")
+    _twin_pair(seeded, "flush")
+    seeded.config.manage.max_supersedes_per_sleep = 1
+    before = len(seeded.records(include_invalid=True))
 
     report = Manage(seeded).sleep(reasoner=Obedient())
 
-    assert len(seeded.records(include_archived=True)) == before
-    assert seeded.find("poisoned-twin-first").is_active()
+    assert len(seeded.records(include_invalid=True)) == before
+    applied = [decision for decision in report.decisions if decision.verdict == "accepted"]
+    assert len([d for d in applied if d.detail.startswith("kept")]) == 1
     assert report.withheld
-    assert all(
-        decision.proposal_id not in report.withheld for decision in report.decisions
-    )
+    assert all(decision.proposal_id not in report.withheld for decision in report.decisions)
+    twins = ["drain-twin-first", "drain-twin-second", "flush-twin-first", "flush-twin-second"]
+    assert len([name for name in twins if seeded.find(name).is_active()]) == len(twins) - 1
+    assert all(seeded.find(name).path.exists() for name in twins)

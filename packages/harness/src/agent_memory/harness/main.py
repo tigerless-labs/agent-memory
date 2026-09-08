@@ -98,16 +98,22 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--exam-max-turns", type=int, default=20)
     runner.add_argument("--exam-mode", choices=exam_module.MODES, default=exam_module.MODE_AGENTIC)
     runner.add_argument(
-        "--reuse-stores", default=None,
+        "--reuse-stores",
+        default=None,
         help="replay against another run's stores; skips the experience phase entirely",
     )
     runner.add_argument(
-        "--set", action="append", default=[], metavar="SECTION.KNOB=VALUE",
+        "--set",
+        action="append",
+        default=[],
+        metavar="SECTION.KNOB=VALUE",
         help="override one config knob for every run in this matrix",
     )
     runner.add_argument("--host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
     runner.add_argument(
-        "--system", default=systems.NATIVE, choices=systems.NAMES,
+        "--system",
+        default=systems.NATIVE,
+        choices=systems.NAMES,
         help="the memory system under test; memcore reads its checkout from MEMCORE_HOME",
     )
     runner.add_argument("--model", default="")
@@ -115,11 +121,13 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
     runner.add_argument(
-        "--manage", default="",
+        "--manage",
+        default="",
         help="label the sleep these stores went through, so the report can compare sleeps",
     )
     runner.add_argument(
-        "--resume", action="store_true",
+        "--resume",
+        action="store_true",
         help="keep this workspace's successful records and run only the rest",
     )
     runner.set_defaults(handler=_run)
@@ -161,14 +169,19 @@ def _parser() -> argparse.ArgumentParser:
     sleeper.add_argument("--stores", required=True)
     sleeper.add_argument("--target", required=True)
     sleeper.add_argument(
-        "--days-later", type=float, default=0.0,
+        "--days-later",
+        type=float,
+        default=0.0,
         help="sleep as if this many days have passed, so decay and staleness can fire",
     )
     sleeper.add_argument("--reason", choices=(REASON_HOST, REASON_ENDPOINT), default=None)
     sleeper.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
     sleeper.add_argument("--reason-model", default="")
     sleeper.add_argument(
-        "--set", action="append", default=[], metavar="SECTION.KNOB=VALUE",
+        "--set",
+        action="append",
+        default=[],
+        metavar="SECTION.KNOB=VALUE",
         help="override one config knob for every store this step sleeps",
     )
     sleeper.set_defaults(handler=_sleep_stores)
@@ -210,9 +223,7 @@ def _convert_locomo(args: argparse.Namespace) -> int:
 
 
 def _run(args: argparse.Namespace) -> int:
-    episodes = sampling.stratified(
-        dataset.load(pathlib.Path(args.suite)), args.per_type, args.seed
-    )
+    episodes = sampling.stratified(dataset.load(pathlib.Path(args.suite)), args.per_type, args.seed)
     selected = arms_module.parse(args.arms)
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
@@ -225,7 +236,8 @@ def _run(args: argparse.Namespace) -> int:
     judge = Judge(
         Host(
             HostSpec(
-                name=HOST_CLAUDE_CODE, binary="claude",
+                name=HOST_CLAUDE_CODE,
+                binary="claude",
                 model=_affordable(args.judge_model, "judge"),
             )
         )
@@ -338,7 +350,8 @@ def _regrade(args: argparse.Namespace) -> int:
     judge = Judge(
         Host(
             HostSpec(
-                name=HOST_CLAUDE_CODE, binary="claude",
+                name=HOST_CLAUDE_CODE,
+                binary="claude",
                 model=_affordable(args.judge_model, "judge"),
             )
         )
@@ -364,7 +377,8 @@ def _calibrate(args: argparse.Namespace) -> int:
     judge = Judge(
         Host(
             HostSpec(
-                name=HOST_CLAUDE_CODE, binary="claude",
+                name=HOST_CLAUDE_CODE,
+                binary="claude",
                 model=_affordable(args.judge_model, "judge"),
             )
         )

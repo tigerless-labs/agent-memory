@@ -31,8 +31,6 @@ def test_init_then_record_then_recall_round_trip(cli):
         "The release pipeline refuses tags that are not signed",
         "--type",
         "procedure",
-        "--domain",
-        "project",
         "--name",
         "signed-tags-only",
         "--body",
@@ -48,13 +46,11 @@ def test_invalid_write_returns_a_structured_error_and_a_distinct_exit_code(cli):
     payload = cli(
         "record",
         "--abstract",
-        "Wrong domain for this type",
+        "A type nobody declared",
         "--type",
-        "reference",
-        "--domain",
-        "user",
+        "nonsense",
         "--name",
-        "wrong-domain",
+        "unknown-type",
         expect=EXIT_INVALID,
     )
     assert payload["code"] == "validation_error"
@@ -68,8 +64,6 @@ def test_read_levels_are_available_from_the_command_line(cli):
         "Runbook for draining the queue safely",
         "--type",
         "procedure",
-        "--domain",
-        "project",
         "--name",
         "queue-drain-runbook",
         "--body",
@@ -83,10 +77,8 @@ def test_read_levels_are_available_from_the_command_line(cli):
 
 
 def test_correct_supersede_removes_the_old_entry_from_default_recall(cli):
-    cli("record", "--abstract", "Timeout is 30s", "--type", "fact", "--domain", "project",
-        "--name", "timeout-old")
-    cli("record", "--abstract", "Timeout is 60s", "--type", "fact", "--domain", "project",
-        "--name", "timeout-new")
+    cli("record", "--abstract", "Timeout is 30s", "--type", "fact", "--name", "timeout-old")
+    cli("record", "--abstract", "Timeout is 60s", "--type", "fact", "--name", "timeout-new")
     cli("correct", "timeout-old", "--supersede-with", "timeout-new")
     names = [hit["name"] for hit in cli("recall", "timeout")["hits"]]
     assert "timeout-old" not in names
@@ -94,10 +86,24 @@ def test_correct_supersede_removes_the_old_entry_from_default_recall(cli):
 
 
 def test_export_import_round_trip_preserves_the_recall_result_set(cli, tmp_path):
-    cli("record", "--abstract", "Alpha memory about queue drains", "--type", "fact",
-        "--domain", "project", "--name", "alpha")
-    cli("record", "--abstract", "Beta memory about signed release tags", "--type", "fact",
-        "--domain", "project", "--name", "beta")
+    cli(
+        "record",
+        "--abstract",
+        "Alpha memory about queue drains",
+        "--type",
+        "fact",
+        "--name",
+        "alpha",
+    )
+    cli(
+        "record",
+        "--abstract",
+        "Beta memory about signed release tags",
+        "--type",
+        "fact",
+        "--name",
+        "beta",
+    )
     dump = tmp_path / "dump.json"
     cli("export", "--out", str(dump))
 
@@ -121,8 +127,15 @@ def test_inspect_reports_the_recall_fingerprint_that_licenses_attribution(cli):
 
 
 def test_rebuild_from_the_command_line_is_lossless(cli):
-    cli("record", "--abstract", "Something worth keeping across a rebuild", "--type", "fact",
-        "--domain", "project", "--name", "keeper")
+    cli(
+        "record",
+        "--abstract",
+        "Something worth keeping across a rebuild",
+        "--type",
+        "fact",
+        "--name",
+        "keeper",
+    )
     before = {hit["name"] for hit in cli("recall", "keeping rebuild")["hits"]}
     (cli.root / ".index" / "index.db").unlink()
     cli("rebuild")
@@ -134,11 +147,9 @@ def test_a_batch_of_memories_is_written_in_one_call(cli, tmp_path):
     batch.write_text(
         "\n".join(
             [
-                json.dumps({"domain": "user", "type": "fact", "abstract": "Owns a 2019 Subaru"}),
-                json.dumps(
-                    {"domain": "user", "type": "preference", "abstract": "Prefers oat milk"}
-                ),
-                json.dumps({"domain": "user", "type": "reference", "abstract": "wrong type here"}),
+                json.dumps({"type": "fact", "abstract": "Owns a 2019 Subaru"}),
+                json.dumps({"type": "preference", "abstract": "Prefers oat milk"}),
+                json.dumps({"type": "nonsense", "abstract": "wrong type here"}),
             ]
         ),
         encoding="utf-8",
@@ -157,7 +168,7 @@ def test_a_batch_of_memories_is_written_in_one_call(cli, tmp_path):
 def test_record_without_a_batch_still_demands_its_fields(cli):
     payload = cli("record", "--abstract", "only an abstract", expect=EXIT_INVALID)
     assert payload["code"] == "validation_error"
-    assert {error["field"] for error in payload["errors"]} == {"type", "domain"}
+    assert {error["field"] for error in payload["errors"]} == {"type"}
 
 
 def test_a_malformed_batch_line_names_the_line(cli, tmp_path):
@@ -177,8 +188,6 @@ def _near_duplicates(cli):
             "--abstract",
             "The drain window closes before the worker lease expires" + extra,
             "--type",
-            "experience",
-            "--domain",
             "experience",
             "--name",
             name,
@@ -216,9 +225,20 @@ def test_a_verdict_is_required(cli):
         main(["--store", str(cli.root), "--json", "decide", proposal["id"]])
 
 
-def test_a_plain_sleep_decides_nothing(cli):
+def test_a_sleep_with_nobody_reasoning_decides_nothing(cli):
     _near_duplicates(cli)
-    assert not cli("sleep")["decisions"]
+    assert not cli("sleep", "--reason", "none")["decisions"]
+
+
+def test_a_plain_sleep_asks_the_library_executor(cli, monkeypatch):
+    _near_duplicates(cli)
+    proposal = cli("proposals")["proposals"][0]
+    reply = json.dumps({"proposal": proposal["id"], "verdict": "reject"})
+    monkeypatch.setattr(
+        "agent_memory.executor.distiller.distiller", lambda config: lambda prompt: reply
+    )
+    report = cli("sleep")
+    assert [decision["proposal"] for decision in report["decisions"]] == [proposal["id"]]
 
 
 def test_sleep_can_be_handed_a_reasoner_whose_verdicts_reach_the_store(cli, monkeypatch):
