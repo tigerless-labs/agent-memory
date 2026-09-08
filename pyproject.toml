@@ -3,6 +3,8 @@ name = "agent-memory-workspace"
 version = "0.1.0"
 description = "Agent-agnostic, local-first long-term memory runtime"
 requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
 dependencies = [
     "agent-memory-core",
     "agent-memory-cli",
