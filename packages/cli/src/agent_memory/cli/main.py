@@ -135,6 +135,7 @@ def _parser() -> argparse.ArgumentParser:
 
     tracer = subparsers.add_parser("trace", help="open the messages a memory cites")
     tracer.add_argument("name")
+    tracer.add_argument("--pointer", default=None, help="one cited reference or its subrange")
     tracer.set_defaults(handler=_trace)
 
     remover = subparsers.add_parser("delete", help="mark one memory invalid; the file stays")
@@ -293,6 +294,7 @@ def _read(store: Store, args: argparse.Namespace) -> dict[str, object]:
         "path": str(result.record.path),
         "outline": list(result.outline),
         "text": result.text,
+        **({"provenance": list(result.record.provenance)} if args.json else {}),
     }
 
 
@@ -352,8 +354,7 @@ def _archived_sessions(store: Store) -> list[str]:
 
 
 def _trace(store: Store, args: argparse.Namespace) -> dict[str, object]:
-    messages = store.trace(args.name)
-    return {"name": args.name, "messages": [message.as_dict() for message in messages]}
+    return store.trace_evidence(args.name, args.pointer).as_dict()
 
 
 def _delete(store: Store, args: argparse.Namespace) -> dict[str, object]:
@@ -494,6 +495,21 @@ def _emit(payload: object, as_json: bool, stream=None) -> None:
     if as_json or not isinstance(payload, dict):
         rendered = json.dumps(payload, indent=EMIT_INDENT, sort_keys=True, default=_fallback)
         print(rendered, file=stream)
+        return
+    if "evidence" in payload and "messages" in payload:
+        print(f"name: {payload['name']} [{payload['status']}]", file=stream)
+        print(payload["notice"], file=stream)
+        for warning in payload["warnings"]:
+            print(f"warning: {warning}", file=stream)
+        for evidence in payload["evidence"]:
+            print(f"reference: {evidence['reference']}", file=stream)
+            for message in evidence["messages"]:
+                print(
+                    f"[{message['index']}] {message['role']} @ {message['at']}: {message['text']}",
+                    file=stream,
+                )
+            if evidence["text"] is not None:
+                print(evidence["text"], file=stream)
         return
     for key, value in payload.items():
         if isinstance(value, list) and value and isinstance(value[0], dict):
