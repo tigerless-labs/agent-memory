@@ -206,8 +206,10 @@ scope, as-of, weight and recency rules. Raw session material stays BM25-only;
 `--deep` preserves its evidence role. Recall never modifies Markdown truth.
 
 This implements the existing optional-index design (ADR-003), using SQLite and
-exact cosine search. Functional tests and a small embedding smoke are not a
-benchmark or evidence of retrieval gains; vector ablation remains pending.
+exact cosine search. A controlled source-session retrieval evaluation on 200
+sessions and 120 queries improved Recall@5 from 79.00% to 86.57%, with higher
+indexing and query-latency costs. End-to-end answer accuracy and broader
+workload benefits remain unverified.
 
 ## License
 
