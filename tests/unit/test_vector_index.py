@@ -1,7 +1,11 @@
 import builtins
 import dataclasses
+import json
 
 import pytest
+from agent_memory.adapters import capture as capture_module
+from agent_memory.cli.main import main
+from agent_memory.core import sessions
 from agent_memory.core.config import Config
 from agent_memory.core.database import Database
 from agent_memory.core.embeddings import FastEmbedder
@@ -262,3 +266,63 @@ def test_ineligible_dense_chunks_do_not_exhaust_candidate_pool(tmp_path, clock):
     before = {path: path.read_bytes() for path in store.layout.truth_files()}
     assert [hit.name for hit in Recall(store).recall("lifecycle query", limit=1)] == ["z-current"]
     assert {path: path.read_bytes() for path in store.layout.truth_files()} == before
+
+
+@pytest.mark.parametrize("enabled", [False, True])
+def test_distilled_raw_bindings_survive_read_and_rebuild_with_either_index(
+    enabled, monkeypatch, tmp_path, clock, capsys
+):
+    embedder = FakeEmbedder()
+
+    def backend(model):
+        assert enabled, "disabled index constructed an embedding backend"
+        return embedder
+
+    monkeypatch.setattr("agent_memory.core.store.create_embedder", backend)
+    config = Config.default()
+    config.index.vector_enabled = enabled
+    config.index.vector_model = "fake/v1"
+    store = Store(tmp_path / "store", config=config, clock=clock)
+    store.init()
+    config.save(store.root)
+    capture_module.capture(store, "service", ["user: Automobile maintenance is due"])
+    capture_module.capture(store, "service", [
+        "user: Automobile maintenance is due", "user: Vehicle upkeep costs 42 dollars"
+    ])
+    reply = json.dumps({
+        "type": "fact",
+        "fields": {"subject": "vehicle upkeep"},
+        "abstract": "Automobile maintenance costs 42 dollars",
+        "body": "Vehicle upkeep costs 42 dollars",
+        "provenance": ["1"],
+    })
+    monkeypatch.setattr(
+        "agent_memory.executor.distiller.distiller", lambda config: lambda prompt: reply
+    )
+    assert main(["--store", str(store.root), "--json", "distill", "--session", "service"]) == 0
+    report = json.loads(capsys.readouterr().out)
+    assert report["distilled"][0]["batches"][0]["written"] == ["vehicle-upkeep"]
+    written = store.find("vehicle-upkeep")
+    assert [sessions.parse_pointer(item) for item in written.provenance] == [
+        sessions.Pointer("service", 1, 1)
+    ]
+    assert [message.index for message in sessions.read(store.layout, "service")] == [0, 1]
+    truth = {path: path.read_bytes() for path in store.layout.truth_files()}
+    raw = {path: path.read_bytes() for path in store.layout.sessions.iterdir() if path.is_file()}
+    for rebuild in (False, True):
+        if rebuild:
+            store.rebuild_index()
+        assert store.read(written.name).text == "Vehicle upkeep costs 42 dollars"
+        traced = store.trace(written.name)
+        assert [(message.index, message.text) for message in traced] == [
+            (1, "Vehicle upkeep costs 42 dollars")
+        ]
+        hits = Recall(store).recall("Vehicle upkeep", deep=True)
+        assert written.name in {hit.name for hit in hits if hit.source == "memory"}
+        assert any(written.name in hit.cited_by for hit in hits if hit.source == "raw")
+    assert {path: path.read_bytes() for path in truth} == truth
+    assert {path: path.read_bytes() for path in raw} == raw
+    assert bool(embedder.document_batches) is enabled
+    assert bool(embedder.queries) is enabled
+    with Database(store.layout).connect() as connection:
+        assert bool(connection.execute("SELECT * FROM vector_files").fetchall()) is enabled

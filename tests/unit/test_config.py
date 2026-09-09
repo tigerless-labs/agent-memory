@@ -58,6 +58,10 @@ def test_vector_knobs_leave_the_recall_fingerprint_alone_while_disabled():
     assert config.recall_fingerprint() == before
 
 
+def test_default_recall_fingerprint_matches_the_pre_vector_baseline():
+    assert Config.default().recall_fingerprint() == "4883d0333e25b7c6"
+
+
 def test_enabling_vector_changes_the_recall_fingerprint_and_so_does_the_model():
     config = Config.default()
     before = config.recall_fingerprint()
