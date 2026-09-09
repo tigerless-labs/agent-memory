@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import dataclasses
 import pathlib
+import tempfile
 
 from . import chunking, memory_md, placement, timestamp
 from . import record as record_module
@@ -160,7 +161,7 @@ class Store:
         )
         supersedes = str(spec.get("supersedes") or "") or None
         derived_name = not spec.get("name")
-        if supersedes and derived_name and (self.root / placed.relative_path).exists():
+        if supersedes and derived_name and self.find(placed.name) is not None:
             placed = self._successor_placement(placed)
         target = self.root / placed.relative_path
         existing = self._at(target)
@@ -204,6 +205,7 @@ class Store:
             self._enforce_update_only(existing, candidate)
         record_module.validate(candidate, self.config, schema)
         record_module.canonicalise_dates(candidate)
+        self._validate_links(candidate, existing)
         predecessor = self._predecessor(candidate, supersedes)
 
         for excerpt in _as_sequence(spec.get("provenance")):
@@ -218,7 +220,7 @@ class Store:
         if predecessor is not None and predecessor.path is not None:
             record_module.invalidate(predecessor, candidate.valid_from or now, candidate.name)
             predecessor.updated = now
-            predecessor.path.write_text(predecessor.to_text(), encoding="utf-8")
+            self._persist(predecessor)
         return candidate
 
     def _successor_placement(self, placed: placement.Placement) -> placement.Placement:
@@ -262,11 +264,9 @@ class Store:
                 [FieldError("valid_from", "later than the messages this memory cites")]
             )
 
-    def trace(self, name: str) -> list[Message]:
+    def trace(self, name: str, *, include_invalid: bool = False) -> list[Message]:
         """Opens the messages a memory cites. The one read that reaches raw material by pointer."""
-        current = self.find(name)
-        if current is None:
-            raise NotFoundError(f"no memory named {name}")
+        current = self._readable(name, include_invalid)
         stamp = self.clock.now().isoformat()
         self._log_access([AccessEntry(stamp, name, "", KIND_READ, self.agent)])
         return self.trace_record(current)
@@ -301,40 +301,54 @@ class Store:
         valid_from: str | None = None,
         provenance: list[str] | None = None,
     ) -> MemoryRecord:
-        current = self.find(name)
-        if current is None or current.path is None:
-            raise NotFoundError(f"no memory named {name}")
-        now = self.clock.timestamp()
-        if supersede_with:
-            successor = self.find(supersede_with)
-            if successor is None:
-                raise NotFoundError(f"no memory named {supersede_with}")
-            record_module.invalidate(current, successor.valid_from or now, supersede_with)
-        if abstract is not None:
-            current.abstract = abstract.strip()
-        if body is not None:
-            current.body = body
-        if links is not None:
-            current.links = list(links)
-        if valid_from is not None:
-            current.valid_from = valid_from
-        current.updated = now
         with store_lock(self.layout):
+            current = self.find(name)
+            if current is None or current.path is None:
+                raise NotFoundError(f"no memory named {name}")
+            if not current.is_active():
+                raise ValidationError(
+                    [FieldError("status", "correction requires an active memory")]
+                )
+            now = self.clock.timestamp()
+            if supersede_with:
+                successor = self.find(supersede_with)
+                if successor is None:
+                    raise NotFoundError(f"no memory named {supersede_with}")
+                if not successor.is_active():
+                    raise ValidationError(
+                        [FieldError("supersede_with", "successor must be active")]
+                    )
+                record_module.invalidate(current, successor.valid_from or now, supersede_with)
+            if abstract is not None:
+                current.abstract = abstract.strip()
+            if body is not None:
+                current.body = body
+            if links is not None:
+                current.links = list(links)
+            if valid_from is not None:
+                current.valid_from = valid_from
+            current.updated = now
+            self._validate_write(current)
             for excerpt in provenance or []:
                 current.provenance.append(self._store_provenance(current.name, excerpt))
-        return self.write(current)
+            self._persist(current)
+            self._project()
+            return current
 
     def delete(self, name: str) -> MemoryRecord:
-        """Marks the record invalid. The file stays; physical removal is a human command."""
-        current = self.find(name)
-        if current is None or current.path is None:
-            raise NotFoundError(f"no memory named {name}")
-        if not current.is_active():
+        """Invalidate and archive one memory; retry completes archival and projection."""
+        with store_lock(self.layout):
+            current = self.find(name)
+            if current is None or current.path is None:
+                raise NotFoundError(f"no memory named {name}")
+            if current.is_active():
+                now = self.clock.timestamp()
+                record_module.invalidate(current, now)
+                current.updated = now
+            self._validate_write(current)
+            self._persist(current)
+            self._project()
             return current
-        now = self.clock.timestamp()
-        record_module.invalidate(current, now)
-        current.updated = now
-        return self.write(current)
 
     def gc(self) -> list[str]:
         """Physically removes invalid files. A human runs this; Manage cannot reach it."""
@@ -350,14 +364,49 @@ class Store:
 
     def write(self, record: MemoryRecord) -> MemoryRecord:
         """Validate, persist, reproject. Agent writes and Manage rewrites share this path."""
-        if record.path is None:
-            raise NotFoundError(f"{record.name} has no location on disk")
-        record_module.validate(record, self.config, self.schemas.get(record.type))
-        record_module.canonicalise_dates(record)
         with store_lock(self.layout):
-            record.path.write_text(record.to_text(), encoding="utf-8")
+            self._validate_write(record)
+            self._persist(record)
             self._project()
         return record
+
+    def _validate_write(self, record: MemoryRecord) -> None:
+        if record.path is None or self.layout.type_of(record.path) != record.type:
+            raise ValidationError([FieldError("path", "memory must belong to this store")])
+        existing = self.find(record.name)
+        if record.is_active() and (
+            self.layout.is_archived_memory(record.path)
+            or (existing is not None and not existing.is_active())
+        ):
+            raise ValidationError([FieldError("status", "an invalid memory cannot be reactivated")])
+        record_module.validate(record, self.config, self.schemas.get(record.type))
+        record_module.canonicalise_dates(record)
+        self._validate_links(record, existing)
+
+    def _validate_links(self, record: MemoryRecord, existing: MemoryRecord | None) -> None:
+        added = set(record.links) - set(existing.links if existing else [])
+        for name in sorted(added):
+            target = self.find(name)
+            if name == record.name or target is None or not target.is_active():
+                raise ValidationError(
+                    [FieldError("links", f"{name} must name another active memory")]
+                )
+
+    def _persist(self, record: MemoryRecord) -> None:
+        if record.path is None:
+            raise NotFoundError(f"{record.name} has no location on disk")
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=record.path.parent, delete=False
+        ) as handle:
+            temporary = pathlib.Path(handle.name)
+            try:
+                handle.write(record.to_text())
+                handle.flush()
+                temporary.replace(record.path)
+            finally:
+                temporary.unlink(missing_ok=True)
+        if not record.is_active():
+            self.archive.archive_memory(record)
 
     def feedback(self, name: str, delta: float) -> MemoryRecord:
         current = self.find(name)
@@ -368,12 +417,12 @@ class Store:
         )
         return current
 
-    def read(self, name: str, level: str = LEVEL_FULL) -> ReadResult:
+    def read(
+        self, name: str, level: str = LEVEL_FULL, *, include_invalid: bool = False
+    ) -> ReadResult:
         if level not in LEVELS:
             raise ValidationError([FieldError("level", f"must be one of {', '.join(LEVELS)}")])
-        current = self.find(name)
-        if current is None:
-            raise NotFoundError(f"no memory named {name}")
+        current = self._readable(name, include_invalid)
         headings = tuple(entry.title for entry in chunking.outline(current.body, self.config))
         if level == LEVEL_ABSTRACT:
             text = current.abstract
@@ -385,19 +434,34 @@ class Store:
         self._log_access([AccessEntry(stamp, name, "", KIND_READ, self.agent)])
         return ReadResult(record=current, level=level, text=text, outline=headings)
 
+    def _readable(self, name: str, include_invalid: bool) -> MemoryRecord:
+        current = self.find(name)
+        if current is None or (
+            not include_invalid
+            and (
+                not current.is_active()
+                or (current.path is not None and self.layout.is_archived_memory(current.path))
+            )
+        ):
+            raise NotFoundError(
+                f"no active memory named {name}; use explicit history for invalid memories"
+            )
+        return current
+
     def find(self, name: str) -> MemoryRecord | None:
         with self._database.connect() as connection:
             row = SearchIndex(connection).row(name)
         path = (self.root / str(row["path"])) if row else self._scan_for(name)
-        return self._at(path) if path is not None else None
+        found = self._at(path) if path is not None else None
+        return found if found is not None else self._at(self._scan_for(name))
 
     def records(self, include_invalid: bool = False) -> list[MemoryRecord]:
         found: list[MemoryRecord] = []
-        for path in self.layout.truth_files():
+        for path in self.layout.truth_files(include_archive=include_invalid):
             record = self._at(path)
             if record is None:
                 continue
-            if include_invalid or record.is_active():
+            if include_invalid or (record.is_active() and not self.layout.is_archived_memory(path)):
                 found.append(record)
         return found
 
@@ -415,8 +479,8 @@ class Store:
             return report
 
     def _project(self) -> IndexReport:
-        report = self._indexer.sync()
         memory_md.write(self.layout, self.records())
+        report = self._indexer.sync()
         return report
 
     def _log_access(self, entries: list[AccessEntry]) -> None:
@@ -429,7 +493,7 @@ class Store:
         return MemoryRecord.from_text(path.read_text(encoding="utf-8"), path)
 
     def _scan_for(self, name: str) -> pathlib.Path | None:
-        for path in self.layout.truth_files():
+        for path in self.layout.truth_files(include_archive=True):
             if path.stem == name:
                 return path
         return None

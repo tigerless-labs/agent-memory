@@ -20,6 +20,7 @@ def test_init_creates_the_schema_set_and_the_archive_buckets(store):
 
 
 def test_recorded_file_round_trips_through_frontmatter(store):
+    store.record(type="fact", name="file-truth-invariant", abstract="Files are truth")
     written = store.record(
         abstract="Deploys run from the release branch only",
         type="procedure",
@@ -112,7 +113,7 @@ def test_provenance_excerpt_is_stored_and_retrievable_by_name(store):
     assert written.provenance
 
 
-def test_delete_marks_invalid_in_place_without_losing_the_file(seeded):
+def test_delete_archives_invalid_without_losing_the_file(seeded):
     removed = seeded.delete("file-truth-invariant")
     assert removed.status == STATUS_INVALID
     assert removed.path.exists()

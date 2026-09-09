@@ -9,6 +9,7 @@ from .config import Config
 
 MEMORY_INDEX_FILENAME = "MEMORY.md"
 ARCHIVE_DIRNAME = "archive"
+MEMORIES_DIRNAME = "memories"
 PROVENANCE_DIRNAME = "provenance"
 SESSIONS_DIRNAME = "sessions"
 INDEX_DIRNAME = ".index"
@@ -30,6 +31,13 @@ class StoreLayout:
     @property
     def archive(self) -> pathlib.Path:
         return self.root / ARCHIVE_DIRNAME
+
+    @property
+    def archived_memories(self) -> pathlib.Path:
+        return self.archive / MEMORIES_DIRNAME
+
+    def is_archived_memory(self, path: pathlib.Path) -> bool:
+        return path.resolve().is_relative_to(self.archived_memories.resolve())
 
     @property
     def provenance(self) -> pathlib.Path:
@@ -107,6 +115,8 @@ class StoreLayout:
             relative = pathlib.Path(path).resolve().relative_to(self.root.resolve())
         except ValueError:
             return None
+        if self.is_archived_memory(path):
+            relative = path.resolve().relative_to(self.archived_memories.resolve())
         parts = relative.parts
         if len(parts) < len(("type", "file")) or parts[0] in self.reserved_dirnames:
             return None
@@ -120,7 +130,7 @@ class StoreLayout:
             return set()
         return {entry.name for entry in folder.iterdir() if entry.is_dir()}
 
-    def truth_files(self) -> list[pathlib.Path]:
+    def truth_files(self, include_archive: bool = False) -> list[pathlib.Path]:
         files: list[pathlib.Path] = []
         if not self.root.is_dir():
             return files
@@ -128,4 +138,6 @@ class StoreLayout:
             if not entry.is_dir() or entry.name in self.reserved_dirnames:
                 continue
             files.extend(sorted(entry.rglob("*" + MEMORY_SUFFIX)))
+        if include_archive:
+            files.extend(sorted(self.archived_memories.rglob("*" + MEMORY_SUFFIX)))
         return files

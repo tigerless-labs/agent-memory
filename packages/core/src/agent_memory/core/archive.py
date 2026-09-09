@@ -7,7 +7,9 @@ import pathlib
 
 from . import sessions
 from .clock import Clock
+from .errors import FieldError, ValidationError
 from .paths import StoreLayout
+from .record import MemoryRecord
 
 PROVENANCE_SUFFIX = ".md"
 SESSION_SUFFIX = sessions.SESSION_SUFFIX
@@ -17,6 +19,22 @@ class Archive:
     def __init__(self, layout: StoreLayout, clock: Clock | None = None):
         self._layout = layout
         self._clock = clock or Clock()
+
+    def archive_memory(self, record: MemoryRecord) -> pathlib.Path:
+        if record.is_active() or record.path is None:
+            raise ValidationError([FieldError("status", "only persisted invalid memories archive")])
+        source = record.path
+        if self._layout.type_of(source) != record.type:
+            raise ValidationError([FieldError("path", "memory must belong to this store")])
+        if self._layout.is_archived_memory(source):
+            return source
+        target = self._layout.archived_memories / source.relative_to(self._layout.root)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if target.exists():
+            raise FileExistsError(f"archive destination already exists: {target}")
+        source.rename(target)
+        record.path = target
+        return target
 
     def append_provenance(self, name: str, excerpt: str, source: str = "") -> pathlib.Path:
         folder = self._layout.provenance / name
