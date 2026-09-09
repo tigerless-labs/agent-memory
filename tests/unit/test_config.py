@@ -39,12 +39,37 @@ def test_config_round_trips_through_disk(tmp_path):
     original = Config.default()
     original.manage.trigger_min_sessions += 1
     original.recall.default_limit += 1
+    original.index.vector_enabled = True
+    original.index.vector_model = "test/model-v2"
     original.save(tmp_path)
 
     assert (tmp_path / CONFIG_FILENAME).exists()
     reloaded = Config.load(tmp_path)
     assert reloaded.manage.trigger_min_sessions == original.manage.trigger_min_sessions
     assert reloaded.recall.default_limit == original.recall.default_limit
+    assert reloaded.index.vector_enabled is True
+    assert reloaded.index.vector_model == "test/model-v2"
+
+
+def test_vector_knobs_leave_the_recall_fingerprint_alone_while_disabled():
+    config = Config.default()
+    before = config.recall_fingerprint()
+    config.index.vector_model = "test/another-model"
+    assert config.recall_fingerprint() == before
+
+
+def test_default_recall_fingerprint_matches_the_pre_vector_baseline():
+    assert Config.default().recall_fingerprint() == "4883d0333e25b7c6"
+
+
+def test_enabling_vector_changes_the_recall_fingerprint_and_so_does_the_model():
+    config = Config.default()
+    before = config.recall_fingerprint()
+    config.index.vector_enabled = True
+    enabled = config.recall_fingerprint()
+    assert enabled != before
+    config.index.vector_model = "test/another-model"
+    assert config.recall_fingerprint() != enabled
 
 
 def test_load_without_file_yields_defaults(tmp_path):
