@@ -189,3 +189,7 @@ uv run pytest -q && uv run ruff check . && uv run mypy
 ```
 
 The task lifecycle and the invariants a change must not break are in [CLAUDE.md](CLAUDE.md).
+
+## License
+
+[MIT](LICENSE).

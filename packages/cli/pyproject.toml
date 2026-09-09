@@ -3,6 +3,7 @@ name = "agent-memory-cli"
 version = "0.1.0"
 description = "agent-memory CLI adapter"
 requires-python = ">=3.12"
+license = "MIT"
 dependencies = ["agent-memory-core", "agent-memory-executor"]
 
 [project.scripts]

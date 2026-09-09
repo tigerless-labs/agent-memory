@@ -3,6 +3,7 @@ name = "agent-memory-adapters"
 version = "0.1.0"
 description = "agent-memory host adapters: hooks, setup, injection"
 requires-python = ">=3.12"
+license = "MIT"
 dependencies = ["agent-memory-core"]
 
 [project.scripts]

@@ -3,6 +3,7 @@ name = "agent-memory-harness"
 version = "0.1.0"
 description = "agent-memory experiment harness: replay driver, metrics, report"
 requires-python = ">=3.12"
+license = "MIT"
 dependencies = ["agent-memory-core", "agent-memory-cli", "agent-memory-executor"]
 
 [project.scripts]
