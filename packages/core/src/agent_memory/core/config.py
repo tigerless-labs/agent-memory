@@ -188,12 +188,18 @@ class Config:
 
         payload = json.dumps(
             {
-                "index": dataclasses.asdict(self.index),
+                "index": self._index_knobs_shaping_recall(),
                 "recall": dataclasses.asdict(self.recall),
             },
             sort_keys=True,
         )
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()[: self.index.hash_prefix_length]
+
+    def _index_knobs_shaping_recall(self) -> dict[str, object]:
+        knobs = dataclasses.asdict(self.index)
+        if not self.index.vector_enabled:
+            del knobs["vector_enabled"], knobs["vector_model"]
+        return knobs
 
 
 def resolve_store_root(explicit: str | pathlib.Path | None = None) -> pathlib.Path:

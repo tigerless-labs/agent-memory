@@ -51,11 +51,21 @@ def test_config_round_trips_through_disk(tmp_path):
     assert reloaded.index.vector_model == "test/model-v2"
 
 
-def test_vector_model_changes_the_recall_fingerprint():
+def test_vector_knobs_leave_the_recall_fingerprint_alone_while_disabled():
     config = Config.default()
     before = config.recall_fingerprint()
     config.index.vector_model = "test/another-model"
-    assert config.recall_fingerprint() != before
+    assert config.recall_fingerprint() == before
+
+
+def test_enabling_vector_changes_the_recall_fingerprint_and_so_does_the_model():
+    config = Config.default()
+    before = config.recall_fingerprint()
+    config.index.vector_enabled = True
+    enabled = config.recall_fingerprint()
+    assert enabled != before
+    config.index.vector_model = "test/another-model"
+    assert config.recall_fingerprint() != enabled
 
 
 def test_load_without_file_yields_defaults(tmp_path):
