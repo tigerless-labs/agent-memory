@@ -3,6 +3,7 @@ name = "agent-memory-core"
 version = "0.1.0"
 description = "agent-memory core: truth store, index projection, recall, manage"
 requires-python = ">=3.12"
+license = "MIT"
 dependencies = []
 
 [project.optional-dependencies]
