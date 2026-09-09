@@ -11,6 +11,7 @@ import pathlib
 
 from . import chunking, memory_md, placement, timestamp
 from . import record as record_module
+from . import trace as trace_module
 from .access_log import KIND_READ, AccessEntry, AccessLog
 from .archive import Archive
 from .clock import Clock
@@ -262,21 +263,28 @@ class Store:
                 [FieldError("valid_from", "later than the messages this memory cites")]
             )
 
-    def trace(self, name: str) -> list[Message]:
-        """Opens the messages a memory cites. The one read that reaches raw material by pointer."""
-        current = self.find(name)
+    def trace(self, name: str, pointer: str | None = None) -> list[Message]:
+        """Read cited messages without changing the store; legacy list return type."""
+        return [
+            message
+            for evidence in self.trace_evidence(name, pointer).evidence
+            for message in evidence.messages
+        ]
+
+    def trace_evidence(self, name: str, pointer: str | None = None) -> trace_module.TraceResult:
+        # find() opens/initializes SQLite. Trace must also work with a missing index and
+        # must not record access, so use the same truth-file fallback without the cache.
+        current = self._at(self._scan_for(name))
         if current is None:
             raise NotFoundError(f"no memory named {name}")
-        stamp = self.clock.now().isoformat()
-        self._log_access([AccessEntry(stamp, name, "", KIND_READ, self.agent)])
-        return self.trace_record(current)
+        return trace_module.read(self.layout, current, pointer)
 
     def trace_record(self, record: MemoryRecord) -> list[Message]:
         messages: list[Message] = []
         for item in record.provenance:
             pointer = parse_pointer(item)
             if pointer is not None:
-                messages.extend(resolve(self.layout, pointer))
+                messages.extend(resolve(self.layout, pointer, strict=False))
         return messages
 
     def _predecessor(self, candidate: MemoryRecord, supersedes: str | None) -> MemoryRecord | None:
