@@ -189,3 +189,22 @@ uv run pytest -q && uv run ruff check . && uv run mypy
 ```
 
 The task lifecycle and the invariants a change must not break are in [CLAUDE.md](CLAUDE.md).
+
+### Optional vector recall index
+
+BM25 remains the default. Install `agent-memory-core[vector]` (or run
+`uv sync --extra vector` from this workspace), then set `vector_enabled = true`
+in the store's `[index]` configuration. `vector_model` defaults to
+`BAAI/bge-small-en-v1.5`. The first enabled Store loads FastEmbed/ONNX and may
+need network access to download the model; disabled stores never load FastEmbed.
+
+Run `mem --store /path/to/store rebuild` to rebuild the SQLite cache from Markdown.
+The existing indexing path catches changed and deleted files, enabling vectors
+on an existing store, and changes to `vector_model`. Recall fuses BM25 and vector
+chunk candidates with reciprocal-rank fusion, then applies the existing lifecycle,
+scope, as-of, weight and recency rules. Raw session material stays BM25-only;
+`--deep` preserves its evidence role. Recall never modifies Markdown truth.
+
+This implements the existing optional-index design (ADR-003), using SQLite and
+exact cosine search. Functional tests and a small embedding smoke are not a
+benchmark or evidence of retrieval gains; vector ablation remains pending.
