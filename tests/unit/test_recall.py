@@ -5,7 +5,7 @@ import hashlib
 from agent_memory.core.access_log import AccessLog
 from agent_memory.core.database import Database
 from agent_memory.core.recall import Recall
-from agent_memory.core.store import LEVEL_ABSTRACT, LEVEL_OUTLINE
+from agent_memory.core.store import LEVEL_ABSTRACT, LEVEL_OUTLINE, Store
 
 
 def _names(hits):
@@ -87,9 +87,13 @@ def test_weight_reorders_two_otherwise_comparable_hits(seeded):
         name="drain-notes-a",
     )
     baseline = _names(Recall(seeded).recall("deploy notes drain window"))
+    before = seeded.find("drain-notes-b").weight
     seeded.feedback("drain-notes-b", seeded.config.weight.boost_step)
-    boosted = _names(Recall(seeded).recall("deploy notes drain window"))
-    assert boosted.index("drain-notes-b") <= baseline.index("drain-notes-b")
+    reopened = Store(seeded.root, config=seeded.config, clock=seeded.clock)
+    boosted = _names(Recall(reopened).recall("deploy notes drain window"))
+    assert baseline.index("drain-notes-a") < baseline.index("drain-notes-b")
+    assert boosted.index("drain-notes-b") < boosted.index("drain-notes-a")
+    assert reopened.find("drain-notes-b").weight == before + seeded.config.weight.boost_step
 
 
 def test_recall_writes_the_access_log_and_leaves_truth_bytes_untouched(seeded):
