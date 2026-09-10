@@ -366,7 +366,7 @@ class Store:
         current.weight = min(
             self.config.weight.ceiling, max(self.config.weight.floor, current.weight + delta)
         )
-        return current
+        return self.write(current)
 
     def read(self, name: str, level: str = LEVEL_FULL) -> ReadResult:
         if level not in LEVELS:
