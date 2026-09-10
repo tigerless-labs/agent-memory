@@ -82,7 +82,8 @@ $AGENT_MEMORY_STORE/
 ├── schemas/               one file per type: its key fields, the field it groups by, write mode
 ├── decision/              memories live at <type>/<group>/<name>.md, placed by the schema
 │   └── agent-memory/        …/markdown-files-are-the-single-source-of-truth.md
-├── archive/               append-only, out of the retrieval surface by default
+├── archive/               evidence and invalid memory history
+│   ├── memories/          invalid memories, preserving their original relative paths
 │   ├── provenance/        distillation evidence, kept forever
 │   └── sessions/          full trace copies, in case the host prunes its own
 ├── dream-reports/         one per sleep: what moved, what was proposed, evidence pointers
@@ -94,6 +95,11 @@ One memory is one file, because the file boundary is the invalidation atom: supe
 and recall all operate on whole files, and a file is either active or invalid with nothing in
 between. Frontmatter carries the stable name, a one-sentence abstract, the type and its schema
 fields, status, timestamps, links, weight, and provenance; the body is free markdown.
+
+Invalidation moves a memory into `archive/memories/` and retains its raw evidence. Normal
+Recall, Read, Trace and Context return active memories; `read --history`, `trace --history`
+and temporal `recall --as-of` / `context --as-of` explicitly access history. Deep search can
+still return raw evidence separately. See the [memory lifecycle and recovery notes](docs/design/memory-lifecycle.md).
 
 ## Proof it works
 

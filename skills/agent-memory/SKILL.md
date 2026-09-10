@@ -53,7 +53,8 @@ Recall first to see whether this atom already exists.
 Values that move — a count, a goal, a price, a schedule, a status — almost always already have
 an entry holding the previous value. Search for it before writing the new one, and write the
 new one with `--supersedes <old-name>`. That is what keeps "how many so far" answerable: the
-current value is the one left standing, and the old value stays readable as history.
+current value is the one left standing. Invalid memories move into Archive; read history
+explicitly with `mem read <name> --history` or `mem trace <name> --history`.
 
 When the atom exists and the old content is simply wrong, write it again under the same name,
 which updates it in place. When the atom is new, create a new file.

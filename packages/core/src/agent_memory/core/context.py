@@ -48,7 +48,12 @@ def build(
 
     full_text_entries = store.config.recall.context_full_text_entries
     rendered = [
-        _entry(hit, _body(store, hit.name) if position < full_text_entries else "")
+        _entry(
+            hit,
+            _body(store, hit.name, include_invalid=as_of is not None)
+            if position < full_text_entries
+            else "",
+        )
         for position, hit in enumerate(hits)
     ]
     return Context(
@@ -63,8 +68,8 @@ def _entry(hit, body: str) -> str:
     return f"{head}\n{body}" if body.strip() else head
 
 
-def _body(store: Store, name: str) -> str:
+def _body(store: Store, name: str, include_invalid: bool = False) -> str:
     try:
-        return store.read(name, level=LEVEL_FULL).text
+        return store.read(name, level=LEVEL_FULL, include_invalid=include_invalid).text
     except Exception:
         return ""

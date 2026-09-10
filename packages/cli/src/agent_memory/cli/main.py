@@ -107,6 +107,7 @@ def _parser() -> argparse.ArgumentParser:
     opener = subparsers.add_parser("read", help="read one memory")
     opener.add_argument("name")
     opener.add_argument("--level", choices=LEVELS, default=LEVEL_FULL)
+    opener.add_argument("--history", action="store_true", help="include invalid memory history")
     opener.set_defaults(handler=_read)
 
     corrector = subparsers.add_parser("correct", help="update or supersede one memory")
@@ -135,9 +136,10 @@ def _parser() -> argparse.ArgumentParser:
 
     tracer = subparsers.add_parser("trace", help="open the messages a memory cites")
     tracer.add_argument("name")
+    tracer.add_argument("--history", action="store_true", help="include invalid memory evidence")
     tracer.set_defaults(handler=_trace)
 
-    remover = subparsers.add_parser("delete", help="mark one memory invalid; the file stays")
+    remover = subparsers.add_parser("delete", help="invalidate and archive one memory")
     remover.add_argument("name")
     remover.set_defaults(handler=_delete)
 
@@ -285,10 +287,12 @@ def _context(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 
 def _read(store: Store, args: argparse.Namespace) -> dict[str, object]:
-    result = store.read(args.name, level=args.level)
+    result = store.read(args.name, level=args.level, include_invalid=args.history)
     return {
         "name": result.record.name,
         "level": result.level,
+        "status": result.record.status,
+        "superseded_by": result.record.superseded_by,
         "abstract": result.record.abstract,
         "path": str(result.record.path),
         "outline": list(result.outline),
@@ -352,7 +356,7 @@ def _archived_sessions(store: Store) -> list[str]:
 
 
 def _trace(store: Store, args: argparse.Namespace) -> dict[str, object]:
-    messages = store.trace(args.name)
+    messages = store.trace(args.name, include_invalid=args.history)
     return {"name": args.name, "messages": [message.as_dict() for message in messages]}
 
 
