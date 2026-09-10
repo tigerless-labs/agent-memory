@@ -1,5 +1,6 @@
 """Offline preparation checks: no driver, model, Judge or Store writes."""
 
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -12,9 +13,29 @@ prepare = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(prepare)
 
 
-def test_frozen_manifest_matches_sources():
+def test_frozen_manifest_matches_sources(monkeypatch):
     expected = json.loads(prepare.DEFAULT.read_text())
+    # main no longer tracks the corpus; retain the original frozen truth selection.
+    check_output = prepare.subprocess.check_output
+
+    def frozen_paths(command, **kwargs):
+        if command[:2] == ["git", "ls-files"]:
+            command = ["git", "ls-tree", "-r", "--name-only", "-z",
+                       expected["preparation_code_revision"], "--", prepare.CORPUS]
+        return check_output(command, **kwargs)
+
+    monkeypatch.setattr(prepare.subprocess, "check_output", frozen_paths)
     actual = prepare.build()
+    # Code provenance belongs to the original experiment, while current sampling
+    # and parsing must still reproduce its data and selected IDs exactly.
+    for path, digest in expected["preparation_source_sha256"].items():
+        if actual["preparation_source_sha256"][path] == digest:
+            continue
+        historical = check_output(
+            ["git", "show", f'{expected["preparation_code_revision"]}:{path}'], cwd=ROOT,
+        )
+        assert hashlib.sha256(historical).hexdigest() == digest
+    actual["preparation_source_sha256"] = expected["preparation_source_sha256"]
     actual["preparation_code_revision"] = expected["preparation_code_revision"]
     actual.pop("manifest_sha256")
     actual["manifest_sha256"] = prepare.digest(actual)

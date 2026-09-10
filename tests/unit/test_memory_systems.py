@@ -184,7 +184,6 @@ def test_native_observes_only_accesses_after_the_checkpoint_and_classifies_raw(t
         abstract="Watches nature documentaries",
         body="Nature documentaries remain a current preference.",
         type="preference",
-        domain="user",
         name="nature-documentaries",
     )
     store.archive.append_session("plain-session", "user: My Octopus Teacher cost 42 dollars\n")

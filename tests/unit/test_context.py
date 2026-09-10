@@ -69,7 +69,6 @@ def test_deep_context_separates_memory_from_raw_evidence(store):
         abstract="Watches nature documentaries",
         body="Nature documentaries are a current preference.",
         type="preference",
-        domain="user",
         name="nature-documentaries",
     )
     store.archive.append_session(
@@ -93,7 +92,6 @@ def test_raw_hits_do_not_consume_the_memory_full_text_budget(store):
         abstract="Nature documentary preference",
         body=body,
         type="preference",
-        domain="user",
         name="nature-documentary-preference",
         weight=store.config.weight.floor,
     )
