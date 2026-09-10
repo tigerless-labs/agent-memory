@@ -46,6 +46,14 @@ The store's `schemas/` directory lists the types and what each one is for. Group
 such as `project` or `topic` name the subdirectory; pick an existing one, and pass
 `--create-group` only when a new one is genuinely needed.
 
+## Relationship maintenance
+
+Use `mem record --link <target>` for links to existing active memories. To revise links,
+`mem correct <name> --link <target>` replaces the complete list; repeat `--link` for each
+retained target. MCP `memory_correct` accepts `links`, with `[]` clearing the list. Choose
+another active memory in this store as each new target. Existing historical links may stay.
+Use these commands for changes so validation and indexing run together.
+
 ## Write discipline
 
 Recall first to see whether this atom already exists.
