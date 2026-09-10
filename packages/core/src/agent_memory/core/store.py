@@ -205,7 +205,6 @@ class Store:
             self._enforce_update_only(existing, candidate)
         record_module.validate(candidate, self.config, schema)
         record_module.canonicalise_dates(candidate)
-        self._validate_links(candidate, existing)
         predecessor = self._predecessor(candidate, supersedes)
 
         for excerpt in _as_sequence(spec.get("provenance")):
@@ -305,19 +304,11 @@ class Store:
             current = self.find(name)
             if current is None or current.path is None:
                 raise NotFoundError(f"no memory named {name}")
-            if not current.is_active():
-                raise ValidationError(
-                    [FieldError("status", "correction requires an active memory")]
-                )
             now = self.clock.timestamp()
             if supersede_with:
                 successor = self.find(supersede_with)
                 if successor is None:
                     raise NotFoundError(f"no memory named {supersede_with}")
-                if not successor.is_active():
-                    raise ValidationError(
-                        [FieldError("supersede_with", "successor must be active")]
-                    )
                 record_module.invalidate(current, successor.valid_from or now, supersede_with)
             if abstract is not None:
                 current.abstract = abstract.strip()
@@ -381,16 +372,6 @@ class Store:
             raise ValidationError([FieldError("status", "an invalid memory cannot be reactivated")])
         record_module.validate(record, self.config, self.schemas.get(record.type))
         record_module.canonicalise_dates(record)
-        self._validate_links(record, existing)
-
-    def _validate_links(self, record: MemoryRecord, existing: MemoryRecord | None) -> None:
-        added = set(record.links) - set(existing.links if existing else [])
-        for name in sorted(added):
-            target = self.find(name)
-            if name == record.name or target is None or not target.is_active():
-                raise ValidationError(
-                    [FieldError("links", f"{name} must name another active memory")]
-                )
 
     def _persist(self, record: MemoryRecord) -> None:
         if record.path is None:

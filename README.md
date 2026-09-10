@@ -99,9 +99,7 @@ fields, status, timestamps, links, weight, and provenance; the body is free mark
 Invalidation moves a memory into `archive/memories/` and retains its raw evidence. Normal
 Recall, Read, Trace and Context return active memories; `read --history`, `trace --history`
 and temporal `recall --as-of` / `context --as-of` explicitly access history. Deep search can
-still return raw evidence separately. New links must name another active memory in the
-same store; `correct --link` replaces the full list. See the [operation audit and recovery
-notes](docs/plans/memory-management-audit.md) for the boundaries and remaining policy choices.
+still return raw evidence separately. See the [memory lifecycle and recovery notes](docs/design/memory-lifecycle.md).
 
 ## Proof it works
 

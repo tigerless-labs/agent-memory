@@ -56,11 +56,6 @@ SCHEMAS: dict[str, dict[str, object]] = {
             "abstract": {"type": "string"},
             "body": {"type": "string"},
             "supersede_with": {"type": "string"},
-            "links": {
-                "type": "array",
-                "items": {"type": "string"},
-                "description": "Replace all links; empty list removes all links",
-            },
         },
         "required": ["name"],
     },
@@ -99,11 +94,6 @@ def dispatch(store: Store, tool: str, arguments: dict[str, object]) -> dict[str,
 
 
 def _require(tool: str, arguments: dict[str, object]) -> None:
-    if "links" in arguments and (
-        not isinstance(arguments["links"], list)
-        or not all(isinstance(item, str) for item in arguments["links"])
-    ):
-        raise ValidationError([FieldError("links", "must be an array of memory names")])
     if "include_invalid" in arguments and not isinstance(arguments["include_invalid"], bool):
         raise ValidationError([FieldError("include_invalid", "must be a boolean")])
     schema = SCHEMAS[tool]
@@ -177,7 +167,6 @@ def _correct(store: Store, arguments: dict[str, object]) -> dict[str, object]:
         abstract=_optional(arguments, "abstract"),
         body=_optional(arguments, "body"),
         supersede_with=_optional(arguments, "supersede_with"),
-        links=_string_list(arguments["links"]) if "links" in arguments else None,
     )
     return {
         "name": corrected.name,

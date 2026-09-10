@@ -116,12 +116,7 @@ def _parser() -> argparse.ArgumentParser:
     corrector.add_argument("--body", default=None)
     corrector.add_argument("--body-file", default=None)
     corrector.add_argument("--supersede-with", default=None)
-    corrector.add_argument(
-        "--link",
-        action="append",
-        default=None,
-        help="replace the complete link list; repeat for each retained target",
-    )
+    corrector.add_argument("--link", action="append", default=None)
     corrector.add_argument("--provenance", action="append", default=[])
     corrector.set_defaults(handler=_correct)
 

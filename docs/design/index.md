@@ -1,3 +1,3 @@
 # Design
 
-- [Memory lifecycle and management](memory-lifecycle.md)
+- [Memory lifecycle](memory-lifecycle.md)
