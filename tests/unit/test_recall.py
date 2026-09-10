@@ -5,6 +5,7 @@ import hashlib
 from agent_memory.core.access_log import AccessLog
 from agent_memory.core.database import Database
 from agent_memory.core.recall import Recall
+from agent_memory.core.schema import MemorySchema, render
 from agent_memory.core.store import LEVEL_ABSTRACT, LEVEL_OUTLINE
 
 
@@ -65,6 +66,29 @@ def test_scope_restricts_by_path_prefix(seeded):
     hits = Recall(seeded).recall("deploy queue drain answers", scope="experience")
     assert hits
     assert {hit.type for hit in hits} == {"experience"}
+
+
+def test_scope_matches_a_complete_path_component(store):
+    extra = MemorySchema(
+        type="experience-archive",
+        description="Archived experiences used to test a colliding scope prefix.",
+        key=("subject",),
+    )
+    store.schemas.path_for(extra.type).write_text(render(extra), encoding="utf-8")
+    store.record(
+        abstract="Shared scope marker in the active experience domain",
+        type="experience",
+        name="active-scope-marker",
+    )
+    store.record(
+        abstract="Shared scope marker in the archive domain",
+        type=extra.type,
+        fields={"subject": "archive-scope-marker"},
+    )
+
+    hits = Recall(store).recall("shared scope marker", scope="experience")
+
+    assert _names(hits) == ["active-scope-marker"]
 
 
 def test_l0_entries_carry_the_full_contract(seeded):

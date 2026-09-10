@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import dataclasses
 import datetime as dt
+import pathlib
 import sqlite3
 
 from . import timestamp
@@ -113,7 +114,9 @@ class Recall:
         return eligible
 
     def _in_scope(self, path: str, scope: str) -> bool:
-        return path.startswith(scope.strip("/"))
+        path_parts = pathlib.PurePath(path).parts
+        scope_parts = pathlib.PurePath(scope.strip("/\\")).parts
+        return bool(scope_parts) and path_parts[: len(scope_parts)] == scope_parts
 
     def _current_at(self, row: sqlite3.Row, moment: dt.datetime) -> bool:
         if timestamp.parse(str(row["valid_from"])) > moment:
