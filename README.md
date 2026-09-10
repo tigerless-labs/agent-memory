@@ -95,6 +95,11 @@ and recall all operate on whole files, and a file is either active or invalid wi
 between. Frontmatter carries the stable name, a one-sentence abstract, the type and its schema
 fields, status, timestamps, links, weight, and provenance; the body is free markdown.
 
+New links must name another active memory in the same store; `correct --link` replaces
+the full list. MCP `memory_correct` accepts `links`, including `[]` to clear references.
+See the [operation audit](docs/plans/memory-management-audit.md) for implemented checks
+and remaining policy choices.
+
 ## Proof it works
 
 Measured on LongMemEval-S with a bounded haystack, 120 episodes, `claude -p` (Haiku 4.5) as
