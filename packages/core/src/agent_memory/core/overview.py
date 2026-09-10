@@ -47,8 +47,8 @@ def build(
 
     Read truth directly so edits, moves and retirement are visible without index sync.
     Bodies are parsed by Store.records but never returned, opened through Store.read,
-    or logged as reads. The shared eligibility filter needs all successor metadata,
-    including archived and out-of-scope successors, before restricting the neighborhood.
+    or logged as reads. Validity intervals include invalid records for historical views before
+    restricting the neighborhood.
     """
     limit = store.config.recall.default_limit if limit is None else limit
     if limit < 1:
@@ -57,14 +57,13 @@ def build(
         raise ValidationError(
             [FieldError("as_of", "must be an ISO 8601 day or zone-aware instant")]
         )
-    records = {record.name: record for record in store.records(include_archived=True)}
+    records = {record.name: record for record in store.records(include_invalid=True)}
     if seed not in records:
         raise NotFoundError(f"no memory named {seed}")
     rows = [
         {
             **record.frontmatter_fields(),
             "path": str(record.path.relative_to(store.root)),
-            "archived": int(store.layout.is_archived(record.path)),
         }
         for record in records.values()
         if record.path is not None

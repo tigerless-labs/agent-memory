@@ -1,6 +1,5 @@
 """Virtual L1 mechanics, entirely deterministic and offline."""
 
-import dataclasses
 
 import pytest
 from agent_memory.core import context, overview
@@ -11,11 +10,21 @@ from agent_memory.core.recall import Recall
 
 
 def write(store, name, **kwargs):
-    return store.record(
+    topic = kwargs.pop("topic", "deploy")
+    record = store.record(
         name=name, abstract=kwargs.pop("abstract", f"Navigation fixture {name}"),
-        domain="project", type="fact", topic=kwargs.pop("topic", "deploy"),
+        type="fact",
         body=f"PRIVATE BODY {name}", **kwargs,
     )
+    directory = store.root / "fact"
+    if topic:
+        directory /= topic
+    directory.mkdir(parents=True, exist_ok=True)
+    target = directory / record.path.name
+    record.path.rename(target)
+    record.path = target
+    store.sync_index()
+    return record
 
 
 def names(view):
@@ -36,7 +45,7 @@ def test_navigation_finds_an_unmatched_sibling_then_reads_only_selected_body(dep
     baseline = context.build(deployment, "migration")
     assert baseline.names == ("switch-to-uv",)
     view = overview.build(deployment, hits[0].name)
-    assert view.topic == "project/deploy"
+    assert view.topic == "fact/deploy"
     assert names(view) == ["switch-to-uv", "ci-change", "rollback"]
     assert view.entries[1].abstract == "CI configuration adjustments"
     assert "PRIVATE BODY" not in str(view.as_dict())
@@ -104,24 +113,23 @@ def test_links_are_outgoing_one_hop_deduplicated_and_missing_targets_ignored(sto
     assert [entry.relation for entry in result.entries] == ["seed", "same-topic", "link"]
 
 
-@pytest.mark.parametrize("as_of", [None, "2026-01-20", "2026-02-01"])
-@pytest.mark.parametrize("scope", [None, "project/deploy", "project/depl"])
+@pytest.mark.parametrize("as_of", [None, "2026-01-10", "2026-01-20", "2026-02-01"])
+@pytest.mark.parametrize("scope", [None, "fact/deploy", "fact/depl"])
 def test_lifecycle_scope_and_as_of_match_recall(store, as_of, scope):
     write(store, "seed", valid_from="2026-01-01", links=["outside", "retired"])
     write(store, "poetry", valid_from="2026-01-01")
     write(store, "uv", valid_from="2026-02-01", supersedes="poetry")
     write(store, "retired", valid_from="2026-01-01")
-    store.retire("retired")
-    stale = write(store, "stale", valid_from="2026-01-01")
-    store.write(dataclasses.replace(stale, status="stale"))
+    store.delete("retired")
+    write(store, "active", valid_from="2026-01-01")
     write(store, "outside", topic="other", valid_from="2026-01-01")
     expected = {hit.name for hit in Recall(store).recall(
         "Navigation fixture", scope=scope, as_of=as_of, limit=30,
     )}
     view = overview.build(store, "seed", scope=scope, as_of=as_of, limit=30)
     assert set(names(view)) == expected
-    assert "retired" not in names(view)
-    assert "stale" in names(view)
+    assert ("retired" in names(view)) == (as_of == "2026-01-10")
+    assert "active" in names(view)
     assert view.as_of == as_of
 
 
@@ -130,10 +138,10 @@ def test_out_of_scope_successor_still_controls_historical_eligibility(store):
     write(store, "old", valid_from="2026-01-01")
     write(store, "new", topic="other", valid_from="2026-02-01", supersedes="old")
     assert "old" in names(overview.build(
-        store, "seed", scope="project/deploy", as_of="2026-01-20",
+        store, "seed", scope="fact/deploy", as_of="2026-01-20",
     ))
     assert names(overview.build(
-        store, "seed", scope="project/deploy", as_of="2026-02-01",
+        store, "seed", scope="fact/deploy", as_of="2026-02-01",
     )) == ["seed"]
 
 
@@ -147,7 +155,7 @@ def test_ineligible_seed_is_not_presented_as_current(store):
         overview.build(store, "new", scope="user")
     with pytest.raises(ValidationError, match="not eligible"):
         overview.build(store, "new", as_of="2026-01-20")
-    store.retire("new")
+    store.delete("new")
     with pytest.raises(ValidationError, match="not eligible"):
         overview.build(store, "new")
 
@@ -164,7 +172,7 @@ def test_external_edits_moves_and_deletion_are_visible_without_sync(deployment):
     ci.abstract = "Updated directly on disk"
     ci.path.write_text(ci.to_text())
     assert overview.build(deployment, "switch-to-uv").entries[1].abstract == ci.abstract
-    ci.path.rename(deployment.root / "project" / "ci-change.md")
+    ci.path.rename(deployment.root / "fact" / "ci-change.md")
     assert names(overview.build(deployment, "switch-to-uv")) == ["switch-to-uv", "rollback"]
     deployment.find("rollback").path.unlink()
     assert names(overview.build(deployment, "switch-to-uv")) == ["switch-to-uv"]

@@ -261,11 +261,11 @@ def test_overview_navigation_then_selective_read(cli):
         ("rollback", "Rollback procedure"),
     ):
         cli("record", "--name", name, "--abstract", abstract,
-            "--type", "fact", "--domain", "project", "--topic", "deploy",
+            "--type", "fact", "--field", "project=deploy",
             "--body", f"PRIVATE BODY {name}")
     seed = cli("recall", "migration")["hits"][0]["name"]
     result = cli("overview", seed)
-    assert result["topic"] == "project/deploy"
+    assert result["topic"] == "fact/deploy"
     assert [entry["name"] for entry in result["entries"]] == [
         "switch-to-uv", "ci-change", "rollback",
     ]
@@ -284,8 +284,8 @@ def test_overview_navigation_then_selective_read(cli):
 
 def test_overview_plain_output(cli, capsys):
     cli("record", "--name", "seed", "--abstract", "Navigation seed",
-        "--type", "fact", "--domain", "project", "--topic", "deploy")
+        "--type", "fact", "--field", "project=deploy")
     assert main(["--store", str(cli.root), "overview", "seed"]) == EXIT_OK
     output = capsys.readouterr().out
-    assert "topic: project/deploy" in output
+    assert "topic: fact/deploy" in output
     assert "seed — Navigation seed" in output

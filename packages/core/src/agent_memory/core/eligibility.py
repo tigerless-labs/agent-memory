@@ -20,7 +20,7 @@ def eligible[Row: MetadataRow](
     allowed: dict[str, Row] = {}
     moment = timestamp.parse(as_of) if as_of else None
     for row in rows:
-        if moment is None and (int(row["archived"]) or row["invalid_at"]):
+        if moment is None and row["invalid_at"]:
             continue
         if scope and not _in_scope(str(row["path"]), scope):
             continue

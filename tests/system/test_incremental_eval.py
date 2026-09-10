@@ -62,7 +62,6 @@ def fixture(tmp_path, monkeypatch):
                     name="fixture-memory",
                     abstract="fixture memory for retrieval",
                     type="fact",
-                    domain="user",
                     body="offline fixture fact",
                 )
             files = {
