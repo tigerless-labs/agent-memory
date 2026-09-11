@@ -2,6 +2,7 @@
 
 import pathlib
 
+import pytest
 from agent_memory.cli.main import main
 from agent_memory.core import prompts
 
@@ -22,3 +23,25 @@ def test_the_skill_command_prints_the_rendering(tmp_path, capsys):
     capsys.readouterr()
     assert main(["--store", str(root), "skill"]) == 0
     assert capsys.readouterr().out.strip() == prompts.skill().strip()
+
+
+def test_default_read_prompts_include_the_authoritative_evidence_policy():
+    for text in (prompts.exam("mem recall <query>"), prompts.skill()):
+        assert text.count(prompts.EVIDENCE_SUFFICIENCY_HINT) == 1
+
+
+@pytest.mark.parametrize("synthesis", [False, True])
+@pytest.mark.parametrize("evidence_sufficiency", [False, True])
+def test_read_hints_are_independent_and_preserve_the_original_preamble(
+    synthesis, evidence_sufficiency
+):
+    hint = "mem recall <query>"
+    text = prompts.exam(hint, synthesis=synthesis, evidence_sufficiency=evidence_sufficiency)
+    assert (prompts.SYNTHESIS_HINT in text) is synthesis
+    assert (prompts.EVIDENCE_SUFFICIENCY_HINT in text) is evidence_sufficiency
+    expected = prompts.EXAM_PREAMBLE.format(recall_hint=hint)
+    if synthesis:
+        expected += "\n\n" + prompts.SYNTHESIS_HINT
+    if evidence_sufficiency:
+        expected += "\n\n" + prompts.EVIDENCE_SUFFICIENCY_HINT
+    assert text == expected
