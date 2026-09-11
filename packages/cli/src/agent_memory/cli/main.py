@@ -27,6 +27,7 @@ REASON_HOST = "host"
 REASON_ENDPOINT = "endpoint"
 REASON_NONE = "none"
 EMIT_INDENT = 2
+FIELD_ERROR_KEYS = frozenset({"field", "reason"})
 EXIT_OK = 0
 EXIT_ERROR = 1
 EXIT_INVALID = 2
@@ -505,6 +506,8 @@ def _emit(payload: object, as_json: bool, stream=None) -> None:
 
 
 def _line(item: dict[str, object]) -> str:
+    if frozenset(item) == FIELD_ERROR_KEYS:
+        return f"{item['field']}: {item['reason']}"
     name = item.get("name", "")
     abstract = item.get("abstract", "")
     path = item.get("path", "")

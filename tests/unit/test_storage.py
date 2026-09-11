@@ -163,3 +163,32 @@ def test_slugify_is_idempotent_and_produces_valid_slugs(config):
         if once:
             assert is_valid_slug(once)
             assert slugify(once, config.storage.slug_max_length) == once
+
+
+def test_a_derived_name_names_the_cause_and_the_way_out(store):
+    with pytest.raises(ValidationError) as raised:
+        store.record(abstract="重构后的部署流程记录", type="fact")
+    (error,) = raised.value.errors
+    assert error.field == "name"
+    assert "ASCII" in error.reason
+    assert "name" in error.reason
+
+
+def test_a_non_ascii_abstract_is_written_under_an_explicit_name(store):
+    written = store.record(
+        abstract="重构后的部署流程记录", type="fact", name="deploy-rewrite-notes"
+    )
+    assert written.name == "deploy-rewrite-notes"
+    assert written.path.name == "deploy-rewrite-notes.md"
+
+
+def test_a_group_that_slugs_to_nothing_names_the_cause(store):
+    with pytest.raises(ValidationError) as raised:
+        store.record(
+            abstract="Prefers short answers",
+            type="preference",
+            name="short-answers",
+            fields={"topic": "沟通"},
+        )
+    assert "topic" in {error.field for error in raised.value.errors}
+    assert "ASCII" in " ".join(error.reason for error in raised.value.errors)
