@@ -223,3 +223,36 @@ def test_paths_are_data_not_defaults():
     source = inspect.getsource(systems)
     assert "/home/" not in source
     assert pathlib.Path.home().name not in source
+
+
+@pytest.mark.parametrize("synthesis", [False, True])
+@pytest.mark.parametrize("evidence_sufficiency", [False, True])
+def test_native_reads_independent_policy_switches_from_saved_config(
+    tmp_path, synthesis, evidence_sufficiency
+):
+    config = Config.default()
+    assert config.recall.evidence_sufficiency_hint is True
+    config.recall.synthesis_hint = synthesis
+    config.recall.evidence_sufficiency_hint = evidence_sufficiency
+    config.save(tmp_path)
+    loaded = Config.load(tmp_path)
+    native = systems.build(systems.NATIVE, loaded)
+    text = native.exam_preamble()
+    assert (prompts.SYNTHESIS_HINT in text) is synthesis
+    assert (prompts.EVIDENCE_SUFFICIENCY_HINT in text) is evidence_sufficiency
+    assert native.fingerprint() == config.recall_fingerprint()
+
+
+def test_evidence_policy_changes_existing_fingerprints_without_changing_write_prompts():
+    on, off = Config.default(), Config.default()
+    off.recall.evidence_sufficiency_hint = False
+    with_hint = systems.build(systems.NATIVE, on)
+    without = systems.build(systems.NATIVE, off)
+    assert on.fingerprint() != off.fingerprint()
+    assert on.recall_fingerprint() != off.recall_fingerprint()
+    assert with_hint.fingerprint() != without.fingerprint()
+    assert with_hint.experience_system_prompt() == without.experience_system_prompt()
+    assert with_hint.discipline() == without.discipline()
+    assert with_hint.exam_preamble() == (
+        without.exam_preamble() + "\n\n" + prompts.EVIDENCE_SUFFICIENCY_HINT
+    )
