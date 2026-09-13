@@ -301,40 +301,41 @@ class Store:
         valid_from: str | None = None,
         provenance: list[str] | None = None,
     ) -> MemoryRecord:
-        current = self.find(name)
-        if current is None or current.path is None:
-            raise NotFoundError(f"no memory named {name}")
-        now = self.clock.timestamp()
-        if supersede_with:
-            successor = self.find(supersede_with)
-            if successor is None:
-                raise NotFoundError(f"no memory named {supersede_with}")
-            record_module.invalidate(current, successor.valid_from or now, supersede_with)
-        if abstract is not None:
-            current.abstract = abstract.strip()
-        if body is not None:
-            current.body = body
-        if links is not None:
-            current.links = list(links)
-        if valid_from is not None:
-            current.valid_from = valid_from
-        current.updated = now
         with store_lock(self.layout):
+            current = self.find(name)
+            if current is None or current.path is None:
+                raise NotFoundError(f"no memory named {name}")
+            now = self.clock.timestamp()
+            if supersede_with:
+                successor = self.find(supersede_with)
+                if successor is None:
+                    raise NotFoundError(f"no memory named {supersede_with}")
+                record_module.invalidate(current, successor.valid_from or now, supersede_with)
+            if abstract is not None:
+                current.abstract = abstract.strip()
+            if body is not None:
+                current.body = body
+            if links is not None:
+                current.links = list(links)
+            if valid_from is not None:
+                current.valid_from = valid_from
+            current.updated = now
             for excerpt in provenance or []:
                 current.provenance.append(self._store_provenance(current.name, excerpt))
-        return self.write(current)
+            return self._write_locked(current)
 
     def delete(self, name: str) -> MemoryRecord:
         """Marks the record invalid. The file stays; physical removal is a human command."""
-        current = self.find(name)
-        if current is None or current.path is None:
-            raise NotFoundError(f"no memory named {name}")
-        if not current.is_active():
-            return current
-        now = self.clock.timestamp()
-        record_module.invalidate(current, now)
-        current.updated = now
-        return self.write(current)
+        with store_lock(self.layout):
+            current = self.find(name)
+            if current is None or current.path is None:
+                raise NotFoundError(f"no memory named {name}")
+            if not current.is_active():
+                return current
+            now = self.clock.timestamp()
+            record_module.invalidate(current, now)
+            current.updated = now
+            return self._write_locked(current)
 
     def gc(self) -> list[str]:
         """Physically removes invalid files. A human runs this; Manage cannot reach it."""
@@ -352,11 +353,17 @@ class Store:
         """Validate, persist, reproject. Agent writes and Manage rewrites share this path."""
         if record.path is None:
             raise NotFoundError(f"{record.name} has no location on disk")
+        with store_lock(self.layout):
+            return self._write_locked(record)
+
+    def _write_locked(self, record: MemoryRecord) -> MemoryRecord:
+        """The whole write for a caller already holding the store lock."""
+        if record.path is None:
+            raise NotFoundError(f"{record.name} has no location on disk")
         record_module.validate(record, self.config, self.schemas.get(record.type))
         record_module.canonicalise_dates(record)
-        with store_lock(self.layout):
-            record.path.write_text(record.to_text(), encoding="utf-8")
-            self._project()
+        record.path.write_text(record.to_text(), encoding="utf-8")
+        self._project()
         return record
 
     def feedback(self, name: str, delta: float) -> MemoryRecord:
