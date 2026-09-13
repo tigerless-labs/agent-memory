@@ -23,7 +23,7 @@ from .access_log import KIND_READ, AccessLog
 from .clock import Clock
 from .database import Database
 from .errors import FieldError, MemoryStoreError, NotFoundError, ValidationError
-from .ledger import LEDGER_FILENAME, VERDICT_ACCEPTED, VERDICT_REJECTED, Decision, DecisionLedger
+from .ledger import VERDICT_ACCEPTED, VERDICT_REJECTED, Decision, DecisionLedger
 from .pending import Pending
 from .record import DATE_FIELDS, MemoryRecord
 from .sessions import Pointer, parse_pointer
@@ -351,7 +351,7 @@ class Manage:
         return record
 
     def _ledger(self) -> DecisionLedger:
-        return DecisionLedger(self._store.layout.dream_reports / LEDGER_FILENAME)
+        return DecisionLedger(self._store.layout)
 
     def _usage(self) -> tuple[dict[str, int], dict[str, int], dict[str, str]]:
         """Lifetime counts decide what was never useful; only new reads earn weight, so one

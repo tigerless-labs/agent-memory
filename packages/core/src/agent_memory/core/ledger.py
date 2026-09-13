@@ -8,8 +8,10 @@ reviewable in a diff, and append-only, so a decision is never quietly revised.
 from __future__ import annotations
 
 import dataclasses
-import pathlib
 import re
+
+from .locking import store_lock
+from .paths import StoreLayout
 
 LEDGER_FILENAME = "decisions.md"
 VERDICT_ACCEPTED = "accepted"
@@ -41,8 +43,9 @@ class Decision:
 
 
 class DecisionLedger:
-    def __init__(self, path: pathlib.Path):
-        self._path = path
+    def __init__(self, layout: StoreLayout):
+        self._layout = layout
+        self._path = layout.dream_reports / LEDGER_FILENAME
 
     def decided(self) -> dict[str, Decision]:
         if not self._path.exists():
@@ -61,7 +64,14 @@ class DecisionLedger:
         return found
 
     def append(self, decision: Decision) -> Decision:
-        self._path.parent.mkdir(parents=True, exist_ok=True)
-        head = self._path.read_text(encoding="utf-8") if self._path.exists() else HEADING + "\n\n"
-        self._path.write_text(head + decision.render() + "\n", encoding="utf-8")
+        with store_lock(self._layout):
+            self._path.parent.mkdir(parents=True, exist_ok=True)
+            head = (
+                self._path.read_text(encoding="utf-8")
+                if self._path.exists()
+                else HEADING + "\n\n"
+            )
+            staged = self._path.with_name(self._path.name + ".pending")
+            staged.write_text(head + decision.render() + "\n", encoding="utf-8")
+            staged.replace(self._path)
         return decision
