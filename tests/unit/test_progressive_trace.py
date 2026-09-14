@@ -268,3 +268,14 @@ def test_legacy_plain_transcript_preserves_original_line_numbers(store):
     assert [message.as_dict() for message in messages] == [
         {"index": 1, "role": "assistant", "text": "second", "at": ""},
     ]
+
+
+def test_agentic_exam_exposes_the_same_bound_evidence_policy_as_skill():
+    from agent_memory.core import prompts
+    from agent_memory.harness.systems import NativeSystem
+
+    preamble = NativeSystem().exam_preamble()
+    assert prompts.RAW_EVIDENCE_READ_HINT in preamble
+    assert prompts.RAW_EVIDENCE_READ_HINT in prompts.skill()
+    assert '--pointer' in preamble
+    assert 'Start with `mem context "<the question>" --deep`' not in preamble

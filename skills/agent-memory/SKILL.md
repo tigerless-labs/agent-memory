@@ -23,8 +23,9 @@ mem read <name> --level outline
 mem read <name>
 ```
 
-Read Memory first. If its body is enough, stop. `mem --json read <name>` includes its
-provenance without expanding Raw. When details are missing, prefer that bound evidence:
+Read Memory first. If its body is enough, stop.
+`mem --json read <name>` includes its provenance without expanding Raw.
+When details are missing, prefer that bound evidence:
 `mem --json trace <name> --pointer 'sessions/<session>#<start>-<end>'` reads one cited range
 or a smaller range within it; `mem --json trace <name>` reads all its cited sources.
 Keep the returned session, original message index, role, time and reference when citing it.
