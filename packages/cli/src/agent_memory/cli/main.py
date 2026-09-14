@@ -15,6 +15,7 @@ from agent_memory.core import migrate as migrate_module
 from agent_memory.core import pending, portability, prompts, reasoning, sessions, triggers
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
+from agent_memory.core.observation import invoke as observe_invocation
 from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_FULL, LEVELS, Store
@@ -41,7 +42,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return EXIT_OK
     store = Store(args.store, agent=args.agent)
     try:
-        payload = args.handler(store, args)
+        payload = observe_invocation(args.handler, store, args)
     except ValidationError as error:
         _emit(error.as_dict(), args.json, stream=sys.stderr)
         return EXIT_INVALID

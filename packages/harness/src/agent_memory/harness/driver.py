@@ -10,7 +10,9 @@ import concurrent.futures
 import dataclasses
 import pathlib
 import time
+import uuid
 
+from agent_memory.core import observation
 from agent_memory.core.config import Config
 from agent_memory.core.distill import Ask
 from agent_memory.executor import distiller
@@ -54,7 +56,9 @@ class Driver:
         manage: str = "",
         system: MemorySystem | None = None,
         ask: Ask | None = None,
+        observe_reads: bool = False,
     ):
+        self._observe_reads = observe_reads
         self._host = host
         self._judge = judge
         self._workspace = workspace
@@ -98,6 +102,23 @@ class Driver:
         elif arm.memory:
             exam_prompt = framing.with_injected(exam_prompt, self._system.injection(root))
 
+        environment = self._system.environment(root) if arm.memory else {}
+        environment = {**environment, observation.ENV: "", observation.ATTEMPT_ENV: ""}
+        evidence_dir = None
+        if self._observe_reads:
+            evidence_dir = (
+                self._workspace.parent / "observations" / arm.name / episode.id / uuid.uuid4().hex
+            ).resolve()
+            observation.emit(
+                "exam_start",
+                directory=str(evidence_dir),
+                run_id=self._run_id,
+                episode_id=episode.id,
+                arm=arm.name,
+                host=self._host.name,
+                exam_mode=self._exam_mode,
+            )
+            environment[observation.ENV] = str(evidence_dir)
         answer = self._host.run(
             exam_prompt,
             store_root=root if arm.memory else None,
@@ -105,9 +126,11 @@ class Driver:
             system_prompt=self._exam_system_prompt(arm.memory, fixed),
             max_turns=self._exam_max_turns,
             workdir=workdir,
-            environment=self._system.environment(root) if arm.memory else None,
+            environment=environment,
             tool_pattern=self._system.tool_pattern,
         )
+        if evidence_dir:
+            observation.emit("exam_end", directory=str(evidence_dir), ok=answer.ok)
         if arm.memory:
             self._system.release(root)
         verdict = self._judge.grade(episode.question, episode.answer, answer.text)
@@ -120,8 +143,8 @@ class Driver:
             question_type=episode.question_type,
             status=status,
             correct=bool(verdict.correct and status == STATUS_OK),
-            answer=answer.text[:ANSWER_EXCERPT],
-            expected=episode.answer[:ANSWER_EXCERPT],
+            answer=answer.text,
+            expected=episode.answer,
             memories_written=self._system.record_count(root) if arm.memory else 0,
             experience_calls=phase.calls,
             experience_seconds=round(phase.seconds, SECONDS_PRECISION),
@@ -130,9 +153,11 @@ class Driver:
             judge_seconds=round(verdict.seconds, SECONDS_PRECISION),
             recall_fingerprint=self._system.fingerprint(),
             episode_fingerprint=self._episode_fingerprint,
-            error=answer.error,
+            error=answer.error or (verdict.error if not verdict.ok else ""),
             manage=self._manage,
             system=self._system.name,
+            observation_revision=observation.REVISION if evidence_dir else "",
+            observation_path=str(evidence_dir) if evidence_dir else "",
         )
 
     def _exam_system_prompt(self, with_memory: bool, fixed: bool) -> str:
