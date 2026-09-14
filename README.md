@@ -193,3 +193,19 @@ The task lifecycle and the invariants a change must not break are in [CLAUDE.md]
 ## License
 
 [MIT](LICENSE).
+
+### Read evaluation with Codex
+
+The experiment runner selects the tested host and judge independently. Pass
+`--host codex --judge-host codex` and explicit `--model` / `--judge-model` values
+for a Codex-only run. Omitting `--judge-host` retains the Claude Code judge and
+its historical default model. `calibrate` and `regrade` also accept `--judge-host`.
+Use `calibrate --cases <labelled-cases.json> --output <calibration.json>` to retain
+individual votes and distinguish transport failures from label disagreements.
+
+`run --observe-reads` retains bounded exam host output and CLI/read evidence in
+`observations/`, outside store truth. Observation is off by default; missing or
+truncated evidence is not proof of no tool calls. `run.json` fixes both host/model
+pairs, configuration, source stores, code revision and episode identity. Replay
+with `--reuse-stores` and a separate workspace for each configuration. Small panels
+check execution and exploratory behavior, not a statistically established improvement.
