@@ -9,7 +9,7 @@ from __future__ import annotations
 import dataclasses
 import pathlib
 
-from . import chunking, memory_md, placement, timestamp
+from . import chunking, memory_md, observation, placement, timestamp
 from . import record as record_module
 from . import trace as trace_module
 from .access_log import KIND_READ, AccessEntry, AccessLog
@@ -391,6 +391,7 @@ class Store:
             text = current.body
         stamp = self.clock.now().isoformat()
         self._log_access([AccessEntry(stamp, name, "", KIND_READ, self.agent)])
+        observation.emit("read_return", name=name, level=level, text=text, outline=headings)
         return ReadResult(record=current, level=level, text=text, outline=headings)
 
     def find(self, name: str) -> MemoryRecord | None:
