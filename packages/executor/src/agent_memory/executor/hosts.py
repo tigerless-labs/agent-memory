@@ -20,6 +20,8 @@ import subprocess
 import tempfile
 import time
 
+from agent_memory.core import observation
+
 from .credentials import VertexCredentials
 
 HOST_CLAUDE_CODE = "claude-code"
@@ -120,6 +122,8 @@ class ClaudeCodeDialect(Dialect):
         ]
         if tools_enabled:
             command += ["--allowedTools", tool_pattern]
+        else:
+            command += ["--tools", ""]
         return command + ["--system-prompt", system_prompt or BARE_SYSTEM_PROMPT]
 
     def disables_native_memory(self, rendered_command: str) -> bool:
@@ -147,6 +151,7 @@ class CodexDialect(Dialect):
             "--model",
             spec.model,
             "--skip-git-repo-check",
+            "--ephemeral",
             "--ignore-user-config",
             "--ignore-rules",
             "--output-last-message",
@@ -167,7 +172,7 @@ class CodexDialect(Dialect):
             written = answer_file.read_text(encoding="utf-8").strip()
             if written:
                 return written
-        return stdout.strip()
+        return ""
 
     def disables_native_memory(self, rendered_command: str) -> bool:
         return "--ignore-user-config" in rendered_command
@@ -277,6 +282,8 @@ class Host:
                 answer_file=answer_file,
                 tool_pattern=tool_pattern,
             )
+            if self.spec.name == HOST_CODEX and tools_enabled and environment.get(observation.ENV):
+                command += ["--add-dir", environment[observation.ENV]]
             payload = self.dialect.stdin(prompt, system_prompt)
             if not self.dialect.prompt_on_stdin:
                 command = [payload if part == PROMPT_PLACEHOLDER else part for part in command]
@@ -294,6 +301,23 @@ class Host:
         answer_file: pathlib.Path,
     ) -> HostResult:
         started = time.monotonic()
+        evidence = environment.get(observation.ENV)
+        attempt_id = str(time.time_ns())
+
+        def capture(**data):
+            if evidence:
+                observation.emit(
+                    "host_attempt",
+                    directory=evidence,
+                    channel="host",
+                    attempt_id=attempt_id,
+                    host=self.spec.name,
+                    **data,
+                )
+
+        capture(state="started")
+        if evidence:
+            environment = {**environment, observation.ATTEMPT_ENV: attempt_id}
         try:
             completed = subprocess.run(
                 command,
@@ -305,15 +329,30 @@ class Host:
                 cwd=str(workdir) if workdir else None,
                 check=False,
             )
-        except subprocess.TimeoutExpired:
+        except subprocess.TimeoutExpired as error:
+
+            def decoded(value):
+                return value.decode(errors="replace") if isinstance(value, bytes) else value or ""
+
+            capture(state="timeout", stdout=decoded(error.stdout), stderr=decoded(error.stderr))
             return HostResult("", False, time.monotonic() - started, "timeout")
         except OSError as error:
+            capture(state="error", error_type=type(error).__name__)
             return HostResult("", False, time.monotonic() - started, str(error))
         elapsed = time.monotonic() - started
+        capture(
+            state="completed",
+            returncode=completed.returncode,
+            stdout=completed.stdout,
+            stderr=completed.stderr,
+        )
         if completed.returncode != 0:
             detail = (completed.stderr.strip() or completed.stdout.strip())[:ERROR_EXCERPT]
             return HostResult("", False, elapsed, detail or "non-zero exit with no output")
-        return HostResult(self.dialect.answer(completed.stdout, answer_file), True, elapsed)
+        text = self.dialect.answer(completed.stdout, answer_file)
+        if self.spec.name == HOST_CODEX and not text:
+            return HostResult("", False, elapsed, "missing or empty Codex final message")
+        return HostResult(text, True, elapsed)
 
     def _environment(
         self, store_root: pathlib.Path | None, extra: dict[str, str]

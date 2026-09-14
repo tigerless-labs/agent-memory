@@ -10,7 +10,7 @@ import dataclasses
 import datetime as dt
 import sqlite3
 
-from . import timestamp
+from . import observation, timestamp
 from .access_log import KIND_RECALL, AccessEntry, AccessLog
 from .config import Config
 from .database import SURFACE_ACTIVE, SURFACE_HISTORY, Database
@@ -90,6 +90,10 @@ class Recall:
                     for hit in hits
                 ]
             )
+        observation.emit(
+            "recall_return", query=query, deep=deep, scope=scope, as_of=as_of,
+            effective_limit=limit, hits=[hit.as_dict() for hit in hits],
+        )
         return hits
 
     def _eligible(
