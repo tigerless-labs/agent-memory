@@ -20,7 +20,9 @@ import subprocess
 
 from agent_memory.core import distill as distill_module
 from agent_memory.core import injection, prompts, sessions
+from agent_memory.core.access_log import KIND_READ, KIND_RECALL, AccessLog
 from agent_memory.core.config import Config
+from agent_memory.core.database import Database
 from agent_memory.core.distill import Ask
 from agent_memory.core.store import Store
 
@@ -73,6 +75,14 @@ MEMCORE_INJECTED = """`memcore recall --top-k {top_k}` at the start of this sess
 {listing}
 
 Those are node names, not their content: `memcore get <name>` to read one."""
+
+
+@dataclasses.dataclass(frozen=True)
+class ReadObservation:
+    recall_names: tuple[str, ...] = ()
+    raw_recall_names: tuple[str, ...] = ()
+    read_names: tuple[str, ...] = ()
+    recall_queries: tuple[str, ...] = ()
 
 
 class MemorySystem:
@@ -129,6 +139,12 @@ class MemorySystem:
     def release(self, root: pathlib.Path) -> None:
         raise NotImplementedError
 
+    def access_checkpoint(self, root: pathlib.Path) -> object:
+        return None
+
+    def read_observation(self, root: pathlib.Path, checkpoint: object) -> ReadObservation:
+        return ReadObservation()
+
 
 class NativeSystem(MemorySystem):
     name = NATIVE
@@ -160,7 +176,10 @@ class NativeSystem(MemorySystem):
         return prompts.WRITE_DISCIPLINE
 
     def exam_preamble(self):
-        return prompts.exam(NATIVE_RECALL_HINT, synthesis=self._settings().recall.synthesis_hint)
+        return prompts.exam(
+            NATIVE_RECALL_HINT, synthesis=self._settings().recall.synthesis_hint,
+            config=self._settings(),
+        )
 
     def archive(self, root, label, text):
         self._store(root).archive.append_session(label, text)
@@ -187,6 +206,39 @@ class NativeSystem(MemorySystem):
 
     def release(self, root):
         return None
+
+    def access_checkpoint(self, root):
+        store = self._store(root)
+        with Database(store.layout).connect() as connection:
+            return AccessLog(connection).cursor()
+
+    def read_observation(self, root, checkpoint):
+        store = self._store(root)
+        with Database(store.layout).connect() as connection:
+            entries = AccessLog(connection).entries_after(int(checkpoint))
+            raw_names = {
+                str(row["name"])
+                for row in connection.execute("SELECT name FROM raw_chunks").fetchall()
+            }
+        recall_names = {
+            str(row["name"]) for row in entries if str(row["kind"]) == KIND_RECALL
+        }
+        return ReadObservation(
+            recall_names=tuple(sorted(recall_names)),
+            raw_recall_names=tuple(sorted(recall_names & raw_names)),
+            read_names=tuple(
+                sorted({str(row["name"]) for row in entries if str(row["kind"]) == KIND_READ})
+            ),
+            recall_queries=tuple(
+                sorted(
+                    {
+                        str(row["query"])
+                        for row in entries
+                        if str(row["kind"]) == KIND_RECALL and str(row["query"])
+                    }
+                )
+            ),
+        )
 
     def _store(self, root: pathlib.Path) -> Store:
         config = dataclasses.replace(self._config) if self._config else None

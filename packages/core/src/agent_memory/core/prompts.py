@@ -14,6 +14,8 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 
+from .config import Config
+
 MEMORY_KEEPER = """You are keeping a long-term memory store on behalf of this person.
 Whatever their conversations are about — their work, their household, their plans, their
 preferences — the durable parts of it are what you are here to write down and retrieve.
@@ -165,7 +167,7 @@ def memory_keeper(batch: bool = True) -> str:
     return MEMORY_KEEPER + ("\n\n" + BATCH_HINT if batch else "")
 
 
-def exam(recall_hint: str, synthesis: bool = True) -> str:
+def exam(recall_hint: str, synthesis: bool = True, *, config: Config | None = None) -> str:
     preamble = EXAM_PREAMBLE.format(recall_hint=recall_hint)
     return preamble + "\n\n" + SYNTHESIS_HINT if synthesis else preamble
 

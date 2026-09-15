@@ -4,25 +4,36 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import dataclasses
 import datetime
 import json
 import os
 import pathlib
 import shutil
+import subprocess
 import sys
+import tempfile
 from collections.abc import Sequence
 
+from agent_memory.core import migrate as migrate_module
 from agent_memory.core.clock import Clock, FrozenClock
 from agent_memory.core.config import Config
 from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.store import Store
 from agent_memory.executor import reasoners
-from agent_memory.executor.hosts import BINARIES, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
+from agent_memory.executor.hosts import (
+    BINARIES,
+    DIALECTS,
+    HOST_CLAUDE_CODE,
+    REASONING_EFFORTS,
+    Host,
+    HostSpec,
+)
 
 from . import arms as arms_module
 from . import coverage as coverage_module
-from . import dataset, locomo, sampling, systems
+from . import dataset, incremental, locomo, sampling, systems
 from . import exam as exam_module
 from . import interop as interop_module
 from . import judge as judge_module
@@ -30,7 +41,7 @@ from . import report as report_module
 from . import workspace as workspace_module
 from .driver import Driver
 from .judge import Judge
-from .metrics import STATUS_OK, MetricsSink
+from .metrics import STATUS_OK, MetricsSink, RunMetadata, RunMetadataSink
 
 REASON_HOST = "host"
 REASON_ENDPOINT = "endpoint"
@@ -93,6 +104,11 @@ def _parser() -> argparse.ArgumentParser:
     runner.add_argument("--arms", default=DEFAULT_ARMS)
     runner.add_argument("--per-type", type=int, default=4)
     runner.add_argument("--seed", type=int, default=DEFAULT_SEED)
+    runner.add_argument("--question-ids", nargs="+", help="explicit IDs; no stratified resampling")
+    runner.add_argument("--subset-manifest", help="fixed nested selection manifest")
+    runner.add_argument("--stage", type=int, choices=incremental.STAGES)
+    runner.add_argument("--experiment-version", help="stable version ID (include replay identity)")
+    runner.add_argument("--experiment-arm", help="logical arm: baseline/progressive/overview")
     runner.add_argument("--sessions-per-call", type=int, default=1)
     runner.add_argument("--experience-workers", type=int, default=4)
     runner.add_argument("--exam-max-turns", type=int, default=20)
@@ -117,7 +133,10 @@ def _parser() -> argparse.ArgumentParser:
         help="the memory system under test; memcore reads its checkout from MEMCORE_HOME",
     )
     runner.add_argument("--model", default="")
-    runner.add_argument("--judge-model", default=JUDGE_MODEL)
+    runner.add_argument("--reasoning-effort", choices=REASONING_EFFORTS, default="")
+    runner.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
+    runner.add_argument("--judge-model", default="")
+    runner.add_argument("--judge-reasoning-effort", choices=REASONING_EFFORTS, default="")
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
     runner.add_argument(
@@ -136,7 +155,9 @@ def _parser() -> argparse.ArgumentParser:
         "regrade", help="re-judge stored answers without re-running the hosts"
     )
     regrader.add_argument("--workspace", required=True)
-    regrader.add_argument("--judge-model", default=JUDGE_MODEL)
+    regrader.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
+    regrader.add_argument("--judge-model", default="")
+    regrader.add_argument("--judge-reasoning-effort", choices=REASONING_EFFORTS, default="")
     regrader.add_argument("--concurrency", type=int, default=8)
     regrader.set_defaults(handler=_regrade)
 
@@ -144,7 +165,9 @@ def _parser() -> argparse.ArgumentParser:
         "calibrate", help="check the judge against hand-labelled cases"
     )
     calibrator.add_argument("--cases", required=True)
-    calibrator.add_argument("--judge-model", default=JUDGE_MODEL)
+    calibrator.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
+    calibrator.add_argument("--judge-model", default="")
+    calibrator.add_argument("--judge-reasoning-effort", choices=REASONING_EFFORTS, default="")
     calibrator.add_argument("--concurrency", type=int, default=8)
     calibrator.set_defaults(handler=_calibrate)
 
@@ -202,6 +225,8 @@ def _parser() -> argparse.ArgumentParser:
     reporter = subparsers.add_parser("report", help="summarise a finished run")
     reporter.add_argument("--workspace", required=True)
     reporter.add_argument("--json", action="store_true")
+    reporter.add_argument("--stage", type=int, choices=incremental.STAGES,
+                          help="cumulative stage in an incremental workspace")
     reporter.set_defaults(handler=_report)
 
     return parser
@@ -223,30 +248,52 @@ def _convert_locomo(args: argparse.Namespace) -> int:
 
 
 def _run(args: argparse.Namespace) -> int:
-    episodes = sampling.stratified(dataset.load(pathlib.Path(args.suite)), args.per_type, args.seed)
+    if args.subset_manifest:
+        return _run_incremental(args)
+    if args.stage or args.experiment_version or args.experiment_arm:
+        raise ValueError("stage/experiment identity requires --subset-manifest")
+    ordinary_workspace = pathlib.Path(args.workspace)
+    if ((ordinary_workspace / incremental.IDENTITY_FILE).exists() or
+            (ordinary_workspace.parent.parent / incremental.IDENTITY_FILE).exists()):
+        raise ValueError("incremental results require --subset-manifest")
+    suite = dataset.load(pathlib.Path(args.suite))
+    episodes = (incremental.select_ids(suite, args.question_ids) if args.question_ids else
+                sampling.stratified(suite, args.per_type, args.seed))
     selected = arms_module.parse(args.arms)
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
-    workspace.mkdir(parents=True, exist_ok=True)
+    host = _host(args.host, args.model, reasoning_effort=args.reasoning_effort)
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
+    )
+    if not _available(judge_host, "judge host"):
+        return EXIT_ERROR
+    judge = Judge(judge_host)
+    if not _available(host, "tested host"):
+        return EXIT_ERROR
+
+    config = _configured(args.set)
+    episode_fingerprint = sampling.fingerprint(episodes)
+    RunMetadataSink(workspace).ensure(
+        RunMetadata(
+            run_id=args.run_id,
+            system=args.system,
+            host=host.name,
+            model=host.spec.model,
+            judge_model=judge.model,
+            judge_host=judge_host.name,
+            exam_mode=args.exam_mode,
+            episode_fingerprint=episode_fingerprint,
+            reuse_stores=args.reuse_stores or None,
+            config=dataclasses.asdict(config),
+            code_revision=_code_revision(),
+        ),
+        resume=args.resume,
+    )
     (workspace / QUESTIONS_FILENAME).write_text(
         json.dumps({episode.id: episode.question for episode in episodes}, sort_keys=True),
         encoding="utf-8",
     )
-    host = _host(args.host, args.model)
-    judge = Judge(
-        Host(
-            HostSpec(
-                name=HOST_CLAUDE_CODE,
-                binary="claude",
-                model=_affordable(args.judge_model, "judge"),
-            )
-        )
-    )
-    if not host.spec.available():
-        print(json.dumps({"error": f"host binary not found: {host.spec.binary}"}), file=sys.stderr)
-        return EXIT_ERROR
-
-    config = _configured(args.set)
     driver = Driver(
         host=host,
         judge=judge,
@@ -259,12 +306,12 @@ def _run(args: argparse.Namespace) -> int:
         reuse_stores=pathlib.Path(args.reuse_stores) if args.reuse_stores else None,
         run_id=args.run_id,
         manage=args.manage,
-        episode_fingerprint=sampling.fingerprint(episodes),
+        episode_fingerprint=episode_fingerprint,
         system=systems.build(args.system, config),
     )
     jobs = [(episode, arm) for arm in selected for episode in episodes]
     if args.resume:
-        jobs = _resumable(sink, jobs, sampling.fingerprint(episodes), args.system)
+        jobs = _resumable(sink, jobs, episode_fingerprint, args.system)
     halted = _execute(driver, jobs, sink, args.concurrency)
     if halted:
         print(
@@ -273,6 +320,119 @@ def _run(args: argparse.Namespace) -> int:
         )
     print(report_module.render(report_module.summarise(sink.records())))
     return EXIT_ERROR if halted else EXIT_OK
+
+
+
+def _run_incremental(args: argparse.Namespace) -> int:
+    if not all((args.stage, args.experiment_version, args.experiment_arm, args.reuse_stores)):
+        raise ValueError(
+            "manifest mode requires stage, experiment-version, experiment-arm, reuse-stores"
+        )
+    if args.system != systems.NATIVE or args.arms != "W2":
+        raise ValueError("frozen manifest mode currently requires --system agent-memory --arms W2")
+    plan = incremental.Plan(pathlib.Path(args.subset_manifest))
+    episodes = plan.episodes(pathlib.Path(args.suite))
+    source = pathlib.Path(args.reuse_stores).resolve()
+    workspace = workspace_module.for_writing(args.workspace)
+    if workspace.is_relative_to(source) or source.is_relative_to(workspace):
+        raise ValueError("incremental workspace and frozen corpus must be separate")
+    plan.verify_stores(source)
+    host = _host(args.host, args.model, reasoning_effort=args.reasoning_effort)
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
+    )
+    config = _configured(args.set)
+    stage = plan.stage(args.stage)
+    metadata = RunMetadata(
+        run_id=args.run_id, system=args.system, host=host.name, model=host.spec.model,
+        judge_model=judge_host.spec.model, judge_host=judge_host.name, exam_mode=args.exam_mode,
+        episode_fingerprint=sampling.fingerprint(
+            [episodes[q] for q in stage["added_question_ids"]]
+        ),
+        reuse_stores=plan.raw["source_store_corpus"]["path"],
+        config=dataclasses.asdict(config), code_revision=_code_revision(),
+    )
+    expected = incremental.identity(
+        metadata, plan, args.experiment_version, args.experiment_arm, host.spec, judge_host.spec,
+        {"exam_max_turns": args.exam_max_turns, "manage": args.manage,
+         "judge_votes": judge_module.DEFAULT_VOTES, "judge_rubric": judge_module.RUBRIC,
+         "concurrency": args.concurrency, "recall_fingerprint": config.recall_fingerprint()},
+    )
+    with incremental.locked(workspace):
+        ledger = incremental.Ledger(workspace, plan)
+        ledger.ensure(expected)
+        pending = ledger.pending(args.stage, args.question_ids)
+        if not pending:
+            return _print_incremental_report(ledger, args.stage, as_json=False)
+        if not _available(host, "tested host") or not _available(judge_host, "judge host"):
+            return EXIT_ERROR
+        folder = workspace / "stages" / str(args.stage)
+        if (folder / "run.json").exists():
+            # First invocation label belongs to the stage; current invocation is logged separately.
+            metadata = dataclasses.replace(metadata, run_id=json.loads(
+                (folder / "run.json").read_text())["run_id"])
+        RunMetadataSink(folder).ensure(metadata)
+        incremental.atomic_json(folder / QUESTIONS_FILENAME,
+                                {q: episodes[q].question for q in stage["added_question_ids"]})
+        with (folder / "invocations.jsonl").open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps({"run_id": args.run_id, "stage": args.stage,
+                                     "pending_question_ids": pending,
+                                     "source_store_path": str(source),
+                                     "identity_sha256": incremental.digest(expected)}) + "\n")
+        sink = incremental.StageSink(folder, incremental.digest(expected))
+        # Copy only the pending questions into a fresh disposable execution tree.
+        # Source truth is never handed to a host, Store, indexer or observation writer.
+        with tempfile.TemporaryDirectory(prefix="runtime-", dir=folder) as scratch:
+            runtime = pathlib.Path(scratch)
+            for q in pending:
+                plan.copy_question(source, runtime / "stores", q)
+                root = runtime / "stores" / "W2" / q
+                if migrate_module.needs_migration(root):
+                    migration = migrate_module.migrate(root)
+                    if migration.skipped:
+                        raise ValueError(f"unmigrated frozen records: {q}: {migration.skipped}")
+                config.save(root)  # The Host's mem CLI must see the recorded effective config.
+                # Keep Store's configured backend (including optional indexes), while
+                # rebuilding only caches: Store.rebuild_index also rewrites MEMORY.md.
+                index = Store(root, config=config)._indexer.rebuild()
+                if index.unreadable:
+                    raise ValueError(f"unreadable frozen records: {q}: {index.unreadable}")
+            driver = Driver(
+                host=host, judge=Judge(judge_host), workspace=runtime / "stores",
+                sessions_per_call=args.sessions_per_call,
+                reuse_stores=runtime / "stores", config=config,
+                exam_max_turns=args.exam_max_turns, exam_mode=args.exam_mode,
+                run_id=args.run_id, manage=args.manage,
+                episode_fingerprint=metadata.episode_fingerprint,
+                system=systems.build(args.system, config),
+            )
+            jobs = [(episodes[q], arms_module.parse("W2")[0]) for q in pending]
+            halted = _execute(driver, jobs, sink, args.concurrency)
+        plan.verify_stores(source)
+        result = _print_incremental_report(ledger, args.stage, as_json=False)
+        return EXIT_ERROR if halted else result
+
+
+def _print_incremental_report(ledger: incremental.Ledger, stage: int, as_json: bool) -> int:
+    rows, missing = ledger.cumulative(stage)
+    summary = report_module.summarise(rows)
+    identity = json.loads((ledger.folder / incremental.IDENTITY_FILE).read_text())
+    payload = {"experiment_version": identity["experiment_version"],
+               "experiment_arm": identity["experiment_arm"],
+               "identity_sha256": incremental.digest(identity),
+               "manifest_sha256": ledger.plan.sha, "stage": stage,
+               "completed": len(rows), "missing_question_ids": missing,
+               "complete": not missing,
+               "episode_fingerprint": ledger.plan.stage(stage)["harness_episode_fingerprint"],
+               "arms": [dataclasses.asdict(arm) for arm in summary.arms],
+               "by_question_type": summary.by_question_type}
+    if as_json:
+        print(json.dumps(payload, indent=REPORT_INDENT, sort_keys=True))
+    else:
+        print(f"{payload['experiment_version']}/{payload['experiment_arm']}: "
+              f"{len(rows)}/{stage} complete; missing={missing}")
+        print(report_module.render(summary))
+    return EXIT_ERROR if missing else EXIT_OK
 
 
 def _execute(driver: Driver, jobs: list, sink: MetricsSink, concurrency: int) -> str:
@@ -302,6 +462,17 @@ def _execute(driver: Driver, jobs: list, sink: MetricsSink, concurrency: int) ->
 def _hit_limit(error: str) -> bool:
     lowered = error.lower()
     return any(marker in lowered for marker in LIMIT_MARKERS)
+
+
+def _code_revision(run=subprocess.run) -> str:
+    try:
+        completed = run(
+            ["git", "rev-parse", "HEAD"], capture_output=True, text=True, check=False
+        )
+    except OSError:
+        return "unknown"
+    revision = completed.stdout.strip()
+    return revision if completed.returncode == 0 and revision else "unknown"
 
 
 def _resumable(sink: MetricsSink, jobs: list, episode_fingerprint: str, system: str) -> list:
@@ -347,17 +518,18 @@ def _regrade(args: argparse.Namespace) -> int:
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
     records = sink.records()
-    judge = Judge(
-        Host(
-            HostSpec(
-                name=HOST_CLAUDE_CODE,
-                binary="claude",
-                model=_affordable(args.judge_model, "judge"),
-            )
-        )
+    if ((workspace / incremental.IDENTITY_FILE).exists() or
+            (workspace.parent.parent / incremental.IDENTITY_FILE).exists()):
+        raise ValueError("incremental results are immutable; regrade in a new experiment version")
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
     )
+    if not _available(judge_host, "judge host"):
+        return EXIT_ERROR
+    judge = Judge(judge_host)
     regraded = judge_module.regrade(records, judge, _questions(workspace), args.concurrency)
     changed = sum(1 for old, new in zip(records, regraded, strict=True) if old != new)
+    RunMetadataSink(workspace).regrade(judge_host.name, judge.model)
     sink.replace(regraded)
     print(f"regraded {len(regraded)} records, {changed} changed", file=sys.stderr)
     print(report_module.render(report_module.summarise(regraded)))
@@ -374,15 +546,12 @@ def _questions(workspace: pathlib.Path) -> dict[str, str]:
 def _calibrate(args: argparse.Namespace) -> int:
     """An instrument that has not been checked against known answers is not a measurement."""
     cases = json.loads(pathlib.Path(args.cases).read_text(encoding="utf-8"))
-    judge = Judge(
-        Host(
-            HostSpec(
-                name=HOST_CLAUDE_CODE,
-                binary="claude",
-                model=_affordable(args.judge_model, "judge"),
-            )
-        )
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
     )
+    if not _available(judge_host, "judge host"):
+        return EXIT_ERROR
+    judge = Judge(judge_host)
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.concurrency) as pool:
         verdicts = list(
             pool.map(
@@ -396,7 +565,7 @@ def _calibrate(args: argparse.Namespace) -> int:
         if verdict.correct != case["label"]
     ]
     agreed = len(cases) - len(wrong)
-    print(f"judge {args.judge_model}: {agreed}/{len(cases)} agree with the labels")
+    print(f"judge {judge_host.name}/{judge.model}: {agreed}/{len(cases)} agree with the labels")
     for name in wrong:
         print(f"  disagrees: {name}")
     return EXIT_OK if not wrong else EXIT_ERROR
@@ -469,7 +638,23 @@ def _affordable(model: str, role: str) -> str:
     return model
 
 
-def _host(name: str, model: str = "", attempts: int = 1) -> Host:
+def _available(host: Host, role: str) -> bool:
+    if host.spec.available():
+        return True
+    print(json.dumps({"error": f"{role} binary not found: {host.spec.binary}"}), file=sys.stderr)
+    return False
+
+
+def _judge_host(name: str, model: str = "", reasoning_effort: str = "") -> Host:
+    # Retain the historical Claude judge model and retry policy. The tested host
+    # never implicitly selects the judge; other dialects use their own defaults.
+    selected = model or (JUDGE_MODEL if name == HOST_CLAUDE_CODE else "")
+    return _host(name, selected, attempts=3, reasoning_effort=reasoning_effort)
+
+
+def _host(
+    name: str, model: str = "", attempts: int = 1, reasoning_effort: str = ""
+) -> Host:
     """Model and provider come from the environment so a host is added without a code change."""
     binary, default_model = BINARIES[name]
     return Host(
@@ -479,6 +664,7 @@ def _host(name: str, model: str = "", attempts: int = 1) -> Host:
             model=_affordable(model or os.environ.get(_model_env(name)) or default_model, name),
             provider=os.environ.get(_provider_env(name), HOST_PROVIDERS.get(name, "")),
             attempts=attempts,
+            reasoning_effort=reasoning_effort,
         )
     )
 
@@ -542,6 +728,16 @@ def _coverage(args: argparse.Namespace) -> int:
 
 
 def _report(args: argparse.Namespace) -> int:
+    workspace = pathlib.Path(args.workspace)
+    if (workspace / incremental.IDENTITY_FILE).exists():
+        if not args.stage:
+            raise ValueError("incremental report requires --stage")
+        with incremental.locked(workspace):
+            plan = incremental.Plan(workspace / incremental.MANIFEST_FILE)
+            return _print_incremental_report(incremental.Ledger(workspace, plan),
+                                             args.stage, args.json)
+    if args.stage:
+        raise ValueError("--stage requires an incremental workspace")
     sink = MetricsSink(pathlib.Path(args.workspace))
     summary = report_module.summarise(sink.records())
     if args.json:

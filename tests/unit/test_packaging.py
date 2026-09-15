@@ -29,6 +29,11 @@ def test_core_declares_no_runtime_dependencies_at_all():
     assert _dependencies("core") == []
 
 
+def test_vector_backend_is_an_explicit_optional_extra():
+    manifest = tomllib.loads((PACKAGES / "core" / "pyproject.toml").read_text(encoding="utf-8"))
+    assert manifest["project"]["optional-dependencies"]["vector"] == ["fastembed>=0.7,<1"]
+
+
 def test_no_package_manifest_declares_a_model_client():
     for package in sorted(path.name for path in PACKAGES.iterdir() if path.is_dir()):
         lowered = " ".join(_dependencies(package)).lower()

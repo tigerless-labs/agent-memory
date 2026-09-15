@@ -71,8 +71,14 @@ def test_claude_code_delivers_the_system_prompt_by_flag(tmp_path):
 
 def test_codex_is_given_write_access_to_the_store_it_must_reach(tmp_path):
     store = tmp_path / "store"
+    spec = hosts.HostSpec(
+        name=hosts.HOST_CODEX,
+        binary=hosts.HOST_CODEX,
+        model="a-model",
+        reasoning_effort="medium",
+    )
     command = hosts.DIALECTS[hosts.HOST_CODEX].command(
-        _spec(hosts.HOST_CODEX),
+        spec,
         tools_enabled=True,
         system_prompt="keeper",
         max_turns=7,
@@ -82,6 +88,7 @@ def test_codex_is_given_write_access_to_the_store_it_must_reach(tmp_path):
     assert "--add-dir" in command
     assert str(store) in command
     assert "workspace-write" in command
+    assert command[command.index("--config") + 1] == 'model_reasoning_effort="medium"'
 
 
 def test_codex_without_tools_stays_read_only(tmp_path):

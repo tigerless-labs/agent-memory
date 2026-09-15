@@ -37,6 +37,7 @@ CLAUDE_NATIVE_TOOLS = "Write,Edit,NotebookEdit,WebSearch,WebFetch,Task"
 HERMES_TOOLSETS = "terminal"
 CODEX_SANDBOX_TOOLS = "workspace-write"
 CODEX_SANDBOX_READONLY = "read-only"
+REASONING_EFFORTS = ("none", "low", "medium", "high", "xhigh", "max")
 BARE_SYSTEM_PROMPT = "You are a helpful assistant. Answer the user directly and concisely."
 PROMPT_PLACEHOLDER = "<<prompt>>"
 PROMPT_SEPARATOR = "\n\n"
@@ -61,6 +62,7 @@ class HostSpec:
     attempts: int = 3
     retry_backoff_seconds: float = 5.0
     provider: str = ""
+    reasoning_effort: str = ""
 
     def available(self) -> bool:
         return shutil.which(self.binary) is not None
@@ -120,6 +122,8 @@ class ClaudeCodeDialect(Dialect):
         ]
         if tools_enabled:
             command += ["--allowedTools", tool_pattern]
+        else:
+            command += ["--tools", ""]
         return command + ["--system-prompt", system_prompt or BARE_SYSTEM_PROMPT]
 
     def disables_native_memory(self, rendered_command: str) -> bool:
@@ -147,11 +151,14 @@ class CodexDialect(Dialect):
             "--model",
             spec.model,
             "--skip-git-repo-check",
+            "--ephemeral",
             "--ignore-user-config",
             "--ignore-rules",
             "--output-last-message",
             str(answer_file),
         ]
+        if spec.reasoning_effort:
+            command += ["--config", f'model_reasoning_effort="{spec.reasoning_effort}"']
         if tools_enabled:
             command += ["--sandbox", CODEX_SANDBOX_TOOLS]
             if store_root is not None:
@@ -167,7 +174,7 @@ class CodexDialect(Dialect):
             written = answer_file.read_text(encoding="utf-8").strip()
             if written:
                 return written
-        return stdout.strip()
+        return ""
 
     def disables_native_memory(self, rendered_command: str) -> bool:
         return "--ignore-user-config" in rendered_command
@@ -313,7 +320,10 @@ class Host:
         if completed.returncode != 0:
             detail = (completed.stderr.strip() or completed.stdout.strip())[:ERROR_EXCERPT]
             return HostResult("", False, elapsed, detail or "non-zero exit with no output")
-        return HostResult(self.dialect.answer(completed.stdout, answer_file), True, elapsed)
+        text = self.dialect.answer(completed.stdout, answer_file)
+        if self.spec.name == HOST_CODEX and not text:
+            return HostResult("", False, elapsed, "missing or empty Codex final message")
+        return HostResult(text, True, elapsed)
 
     def _environment(
         self, store_root: pathlib.Path | None, extra: dict[str, str]

@@ -11,6 +11,7 @@ from .systems import NATIVE as NATIVE_SYSTEM
 STATUS_OK = "ok"
 STATUS_FAILED = "failed"
 RECORDS_FILENAME = "runs.jsonl"
+RUN_METADATA_FILENAME = "run.json"
 
 
 @dataclasses.dataclass(frozen=True)
@@ -35,9 +36,65 @@ class RunRecord:
     error: str = ""
     manage: str = ""
     system: str = NATIVE_SYSTEM
+    recall_names: tuple[str, ...] = ()
+    raw_recall_names: tuple[str, ...] = ()
+    read_names: tuple[str, ...] = ()
+    recall_queries: tuple[str, ...] = ()
 
     def as_dict(self) -> dict[str, object]:
         return dataclasses.asdict(self)
+
+
+@dataclasses.dataclass(frozen=True)
+class RunMetadata:
+    run_id: str
+    system: str
+    host: str
+    model: str
+    judge_model: str
+    exam_mode: str
+    episode_fingerprint: str
+    reuse_stores: str | None
+    config: dict[str, object]
+    code_revision: str
+    judge_host: str = "claude-code"
+
+    def as_dict(self) -> dict[str, object]:
+        return dataclasses.asdict(self)
+
+
+class RunMetadataSink:
+    def __init__(self, folder: pathlib.Path):
+        self._folder = folder
+        self._path = folder / RUN_METADATA_FILENAME
+
+    def ensure(self, metadata: RunMetadata, resume: bool = False) -> None:
+        expected = json.loads(json.dumps(metadata.as_dict()))
+        if self._path.exists():
+            existing = json.loads(self._path.read_text(encoding="utf-8"))
+            # Original CLI metadata unambiguously used Claude Code.
+            existing.setdefault("judge_host", "claude-code")
+            if existing != expected:
+                raise ValueError("run metadata belongs to another experiment")
+            return
+        records = self._folder / RECORDS_FILENAME
+        if records.exists() and (resume or records.read_text(encoding="utf-8").strip()):
+            raise ValueError("resume refused: existing records have no run metadata")
+        self._path.parent.mkdir(parents=True, exist_ok=True)
+        self._path.write_text(
+            json.dumps(expected, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+
+    def regrade(self, judge_host: str, judge_model: str) -> None:
+        """Record the new instrument before replacing scores. In-place regraded
+        workspaces are reportable but cannot resume, including interrupted writes."""
+        if self._path.exists():
+            metadata = json.loads(self._path.read_text(encoding="utf-8"))
+            metadata.update(judge_host=judge_host, judge_model=judge_model)
+            metadata["regraded"] = True
+            self._path.write_text(
+                json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+            )
 
 
 class MetricsSink:

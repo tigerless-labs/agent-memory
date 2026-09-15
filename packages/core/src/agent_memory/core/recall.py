@@ -18,6 +18,36 @@ from .raw_index import SOURCE_MEMORY, SOURCE_RAW, RawIndex
 from .search_index import LINK_SEPARATOR, Candidate, SearchIndex
 from .sessions import Pointer, parse_pointer
 from .store import Store
+from .vector_index import VectorIndex
+
+RRF_K = 60
+RRF_SOURCE_COUNT = 2
+
+
+def fuse_candidates(lexical: list[Candidate], dense: list[Candidate], pool: int) -> list[Candidate]:
+    """Reciprocal-rank fusion by chunk identity, normalized to a stable 0..1 scale."""
+
+    def identity(item: Candidate) -> tuple[str, str, str, str]:
+        return (item.name, item.kind, item.anchor, item.heading)
+
+    scores: dict[tuple[str, str, str, str], float] = {}
+    exemplars: dict[tuple[str, str, str, str], Candidate] = {}
+    for candidates in (lexical, dense):
+        seen: set[tuple[str, str, str, str]] = set()
+        for rank, candidate in enumerate(candidates, 1):
+            key = identity(candidate)
+            if key in seen:
+                continue
+            seen.add(key)
+            exemplars.setdefault(key, candidate)
+            scores[key] = scores.get(key, 0.0) + 1.0 / (RRF_K + rank)
+    maximum = RRF_SOURCE_COUNT / (RRF_K + 1)
+    fused = [
+        dataclasses.replace(exemplars[key], relevance=score / maximum)
+        for key, score in scores.items()
+    ]
+    fused.sort(key=lambda item: (-item.relevance, identity(item)))
+    return fused[:pool]
 
 
 @dataclasses.dataclass(frozen=True)
@@ -70,10 +100,19 @@ class Recall:
             if as_of is not None:
                 candidates = candidates + index.match(query, pool, SURFACE_HISTORY)
             eligible = self._eligible(index.rows(), scope=scope, as_of=as_of)
+            if self._config.index.vector_enabled:
+                assert self._store.embedder is not None
+                dense = VectorIndex(
+                    connection, self._store.embedder, self._config.index.vector_model
+                ).match(query, pool, eligible_names=set(eligible))
+                candidates = fuse_candidates(candidates, dense, pool)
             hits = self._rank(candidates, eligible, as_of=as_of)
             if deep and self._config.recall.raw_enabled:
                 citations = self._citations(index.rows())
-                hits = hits + self._raw_hits(RawIndex(connection), query, pool, citations)
+                raw_hits = self._raw_hits(RawIndex(connection), query, pool, citations)
+                if self._config.index.vector_enabled:
+                    raw_hits = self._normalize_raw_hits(raw_hits, hits)
+                hits = hits + raw_hits
                 hits.sort(key=lambda hit: (-hit.score, hit.name))
             hits = hits[:limit]
             if not log:
@@ -208,6 +247,18 @@ class Recall:
                 )
             )
         return found
+
+    def _normalize_raw_hits(self, raw_hits: list[Hit], memory_hits: list[Hit]) -> list[Hit]:
+        """Keep hybrid RRF and raw BM25 on source-safe scales; raw remains evidence."""
+        if not raw_hits:
+            return raw_hits
+        raw_max = max(hit.relevance for hit in raw_hits) or 1.0
+        memory_scale = max((hit.score for hit in memory_hits), default=1.0)
+        factor = self._config.recall.raw_relevance_factor
+        return [
+            dataclasses.replace(hit, score=(hit.relevance / raw_max) * factor * memory_scale)
+            for hit in raw_hits
+        ]
 
     def _kind_weight(self, kind: str) -> float:
         from .chunking import KIND_ABSTRACT
