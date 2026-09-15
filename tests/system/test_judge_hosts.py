@@ -36,8 +36,13 @@ def suite_file(tmp_path):
 @pytest.mark.parametrize("tested", ["claude-code", "codex"])
 @pytest.mark.parametrize("judge", ["claude-code", "codex"])
 def test_independent_roles_end_to_end(tmp_path, monkeypatch, tested, judge):
-    calls, checked = [], []
-    monkeypatch.setattr(cli, "Host", lambda spec: FakeHost(spec, calls))
+    calls, checked, specs = [], [], []
+
+    def fake_host(spec):
+        specs.append(spec)
+        return FakeHost(spec, calls)
+
+    monkeypatch.setattr(cli, "Host", fake_host)
 
     def available(spec):
         checked.append(spec.name)
@@ -48,7 +53,9 @@ def test_independent_roles_end_to_end(tmp_path, monkeypatch, tested, judge):
     assert cli.main([
         "run", "--suite", str(suite_file(tmp_path)), "--workspace", str(workspace),
         "--arms", "W0", "--host", tested, "--model", "tested-model",
-        "--judge-host", judge, "--judge-model", "judge-model", "--concurrency", "1",
+        "--reasoning-effort", "medium", "--judge-host", judge,
+        "--judge-model", "judge-model", "--judge-reasoning-effort", "low",
+        "--concurrency", "1",
     ]) == 0
     assert set(checked) == {tested, judge}
     tested_calls = [c for c in calls if not c[1].startswith("Decide whether")]
@@ -66,6 +73,10 @@ def test_independent_roles_end_to_end(tmp_path, monkeypatch, tested, judge):
     metadata = json.loads((workspace / "run.json").read_text())
     assert (metadata["host"], metadata["judge_host"]) == (tested, judge)
     assert (metadata["model"], metadata["judge_model"]) == ("tested-model", "judge-model")
+    assert {(spec.model, spec.reasoning_effort) for spec in specs} == {
+        ("tested-model", "medium"),
+        ("judge-model", "low"),
+    }
     record = json.loads((workspace / "runs.jsonl").read_text())
     assert record["status"] == "ok" and record["correct"]
     for field in ("recall_names", "raw_recall_names", "read_names", "recall_queries"):
@@ -82,6 +93,11 @@ def test_default_judge_is_historical_claude_independent_of_tested_host():
     assert judge.spec.model == cli.JUDGE_MODEL
     assert judge.spec.attempts == 3
     assert cli._judge_host("codex").spec.model == hosts.BINARIES["codex"][1]
+
+
+def test_reasoning_effort_is_explicit_on_tested_and_judge_hosts():
+    assert cli._host("codex", reasoning_effort="medium").spec.reasoning_effort == "medium"
+    assert cli._judge_host("codex", reasoning_effort="low").spec.reasoning_effort == "low"
 
 
 @pytest.mark.parametrize("missing,role", [("codex", "tested host"), ("claude-code", "judge host")])

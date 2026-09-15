@@ -84,7 +84,7 @@ def fixture(tmp_path, monkeypatch):
     manifest.write_text(json.dumps(raw))
     host, judge = FakeHost(), FakeHost("judge")
     monkeypatch.setattr(main, "_host", lambda name, model="", **kw: host)
-    monkeypatch.setattr(main, "_judge_host", lambda name, model="": judge)
+    monkeypatch.setattr(main, "_judge_host", lambda name, model="", **kw: judge)
     monkeypatch.setattr(main, "_available", lambda *args: True)
     return manifest, suite, source, host, judge
 

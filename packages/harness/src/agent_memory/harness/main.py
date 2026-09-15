@@ -21,7 +21,14 @@ from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.store import Store
 from agent_memory.executor import reasoners
-from agent_memory.executor.hosts import BINARIES, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
+from agent_memory.executor.hosts import (
+    BINARIES,
+    DIALECTS,
+    HOST_CLAUDE_CODE,
+    REASONING_EFFORTS,
+    Host,
+    HostSpec,
+)
 
 from . import arms as arms_module
 from . import coverage as coverage_module
@@ -125,8 +132,10 @@ def _parser() -> argparse.ArgumentParser:
         help="the memory system under test; memcore reads its checkout from MEMCORE_HOME",
     )
     runner.add_argument("--model", default="")
+    runner.add_argument("--reasoning-effort", choices=REASONING_EFFORTS, default="")
     runner.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
     runner.add_argument("--judge-model", default="")
+    runner.add_argument("--judge-reasoning-effort", choices=REASONING_EFFORTS, default="")
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
     runner.add_argument(
@@ -147,6 +156,7 @@ def _parser() -> argparse.ArgumentParser:
     regrader.add_argument("--workspace", required=True)
     regrader.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
     regrader.add_argument("--judge-model", default="")
+    regrader.add_argument("--judge-reasoning-effort", choices=REASONING_EFFORTS, default="")
     regrader.add_argument("--concurrency", type=int, default=8)
     regrader.set_defaults(handler=_regrade)
 
@@ -156,6 +166,7 @@ def _parser() -> argparse.ArgumentParser:
     calibrator.add_argument("--cases", required=True)
     calibrator.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
     calibrator.add_argument("--judge-model", default="")
+    calibrator.add_argument("--judge-reasoning-effort", choices=REASONING_EFFORTS, default="")
     calibrator.add_argument("--concurrency", type=int, default=8)
     calibrator.set_defaults(handler=_calibrate)
 
@@ -250,8 +261,10 @@ def _run(args: argparse.Namespace) -> int:
     selected = arms_module.parse(args.arms)
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
-    host = _host(args.host, args.model)
-    judge_host = _judge_host(args.judge_host, args.judge_model)
+    host = _host(args.host, args.model, reasoning_effort=args.reasoning_effort)
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
+    )
     if not _available(judge_host, "judge host"):
         return EXIT_ERROR
     judge = Judge(judge_host)
@@ -323,7 +336,10 @@ def _run_incremental(args: argparse.Namespace) -> int:
     if workspace.is_relative_to(source) or source.is_relative_to(workspace):
         raise ValueError("incremental workspace and frozen corpus must be separate")
     plan.verify_stores(source)
-    host, judge_host = _host(args.host, args.model), _judge_host(args.judge_host, args.judge_model)
+    host = _host(args.host, args.model, reasoning_effort=args.reasoning_effort)
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
+    )
     config = _configured(args.set)
     stage = plan.stage(args.stage)
     metadata = RunMetadata(
@@ -500,7 +516,9 @@ def _regrade(args: argparse.Namespace) -> int:
     if ((workspace / incremental.IDENTITY_FILE).exists() or
             (workspace.parent.parent / incremental.IDENTITY_FILE).exists()):
         raise ValueError("incremental results are immutable; regrade in a new experiment version")
-    judge_host = _judge_host(args.judge_host, args.judge_model)
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
+    )
     if not _available(judge_host, "judge host"):
         return EXIT_ERROR
     judge = Judge(judge_host)
@@ -523,7 +541,9 @@ def _questions(workspace: pathlib.Path) -> dict[str, str]:
 def _calibrate(args: argparse.Namespace) -> int:
     """An instrument that has not been checked against known answers is not a measurement."""
     cases = json.loads(pathlib.Path(args.cases).read_text(encoding="utf-8"))
-    judge_host = _judge_host(args.judge_host, args.judge_model)
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
+    )
     if not _available(judge_host, "judge host"):
         return EXIT_ERROR
     judge = Judge(judge_host)
@@ -620,14 +640,16 @@ def _available(host: Host, role: str) -> bool:
     return False
 
 
-def _judge_host(name: str, model: str = "") -> Host:
+def _judge_host(name: str, model: str = "", reasoning_effort: str = "") -> Host:
     # Retain the historical Claude judge model and retry policy. The tested host
     # never implicitly selects the judge; other dialects use their own defaults.
     selected = model or (JUDGE_MODEL if name == HOST_CLAUDE_CODE else "")
-    return _host(name, selected, attempts=3)
+    return _host(name, selected, attempts=3, reasoning_effort=reasoning_effort)
 
 
-def _host(name: str, model: str = "", attempts: int = 1) -> Host:
+def _host(
+    name: str, model: str = "", attempts: int = 1, reasoning_effort: str = ""
+) -> Host:
     """Model and provider come from the environment so a host is added without a code change."""
     binary, default_model = BINARIES[name]
     return Host(
@@ -637,6 +659,7 @@ def _host(name: str, model: str = "", attempts: int = 1) -> Host:
             model=_affordable(model or os.environ.get(_model_env(name)) or default_model, name),
             provider=os.environ.get(_provider_env(name), HOST_PROVIDERS.get(name, "")),
             attempts=attempts,
+            reasoning_effort=reasoning_effort,
         )
     )
 

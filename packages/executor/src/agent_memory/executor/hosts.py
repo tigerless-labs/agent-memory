@@ -37,6 +37,7 @@ CLAUDE_NATIVE_TOOLS = "Write,Edit,NotebookEdit,WebSearch,WebFetch,Task"
 HERMES_TOOLSETS = "terminal"
 CODEX_SANDBOX_TOOLS = "workspace-write"
 CODEX_SANDBOX_READONLY = "read-only"
+REASONING_EFFORTS = ("none", "low", "medium", "high", "xhigh", "max")
 BARE_SYSTEM_PROMPT = "You are a helpful assistant. Answer the user directly and concisely."
 PROMPT_PLACEHOLDER = "<<prompt>>"
 PROMPT_SEPARATOR = "\n\n"
@@ -61,6 +62,7 @@ class HostSpec:
     attempts: int = 3
     retry_backoff_seconds: float = 5.0
     provider: str = ""
+    reasoning_effort: str = ""
 
     def available(self) -> bool:
         return shutil.which(self.binary) is not None
@@ -155,6 +157,8 @@ class CodexDialect(Dialect):
             "--output-last-message",
             str(answer_file),
         ]
+        if spec.reasoning_effort:
+            command += ["--config", f'model_reasoning_effort="{spec.reasoning_effort}"']
         if tools_enabled:
             command += ["--sandbox", CODEX_SANDBOX_TOOLS]
             if store_root is not None:
