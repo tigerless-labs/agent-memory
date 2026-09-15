@@ -15,6 +15,7 @@ import sys
 import tempfile
 from collections.abc import Sequence
 
+from agent_memory.core import migrate as migrate_module
 from agent_memory.core.clock import Clock, FrozenClock
 from agent_memory.core.config import Config
 from agent_memory.core.manage import Manage
@@ -386,6 +387,10 @@ def _run_incremental(args: argparse.Namespace) -> int:
             for q in pending:
                 plan.copy_question(source, runtime / "stores", q)
                 root = runtime / "stores" / "W2" / q
+                if migrate_module.needs_migration(root):
+                    migration = migrate_module.migrate(root)
+                    if migration.skipped:
+                        raise ValueError(f"unmigrated frozen records: {q}: {migration.skipped}")
                 config.save(root)  # The Host's mem CLI must see the recorded effective config.
                 # Keep Store's configured backend (including optional indexes), while
                 # rebuilding only caches: Store.rebuild_index also rewrites MEMORY.md.

@@ -58,11 +58,27 @@ def fixture(tmp_path, monkeypatch):
             store = Store(folder)
             store.init()
             if len(entries) == 1:
-                store.record(
-                    name="fixture-memory",
-                    abstract="fixture memory for retrieval",
-                    type="fact",
-                    body="offline fixture fact",
+                legacy = folder / "user" / "fixture-memory.md"
+                legacy.parent.mkdir()
+                legacy.write_text(
+                    """---
+name: fixture-memory
+abstract: fixture memory for retrieval
+type: preference
+status: active
+created: 2026-01-01
+updated: 2026-01-01
+valid_from: 2026-01-01
+superseded_by: null
+weight: 1.0
+author: fixture
+links: []
+provenance: []
+---
+
+offline fixture fact
+""",
+                    encoding="utf-8",
                 )
             files = {
                 p.relative_to(folder).as_posix(): incremental.file_hash(p)
