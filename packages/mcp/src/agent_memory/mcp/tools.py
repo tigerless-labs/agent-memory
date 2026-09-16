@@ -30,6 +30,7 @@ SCHEMAS: dict[str, dict[str, object]] = {
         "properties": {
             "name": {"type": "string"},
             "level": {"type": "string", "enum": list(LEVELS)},
+            "include_invalid": {"type": "boolean", "description": "Explicit history access"},
         },
         "required": ["name"],
     },
@@ -93,6 +94,8 @@ def dispatch(store: Store, tool: str, arguments: dict[str, object]) -> dict[str,
 
 
 def _require(tool: str, arguments: dict[str, object]) -> None:
+    if "include_invalid" in arguments and not isinstance(arguments["include_invalid"], bool):
+        raise ValidationError([FieldError("include_invalid", "must be a boolean")])
     schema = SCHEMAS[tool]
     required = schema.get("required")
     missing = [
@@ -126,10 +129,16 @@ def _recall(store: Store, arguments: dict[str, object]) -> dict[str, object]:
 
 
 def _read(store: Store, arguments: dict[str, object]) -> dict[str, object]:
-    result = store.read(str(arguments["name"]), level=str(arguments.get("level") or LEVEL_FULL))
+    result = store.read(
+        str(arguments["name"]),
+        level=str(arguments.get("level") or LEVEL_FULL),
+        include_invalid=arguments.get("include_invalid") is True,
+    )
     return {
         "name": result.record.name,
         "level": result.level,
+        "status": result.record.status,
+        "superseded_by": result.record.superseded_by,
         "abstract": result.record.abstract,
         "path": str(result.record.path),
         "outline": list(result.outline),

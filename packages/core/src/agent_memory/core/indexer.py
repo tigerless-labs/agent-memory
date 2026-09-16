@@ -95,7 +95,7 @@ class Indexer:
 
     def _present_hashes(self) -> dict[str, str]:
         present: dict[str, str] = {}
-        for path in self._layout.truth_files() + self._raw_files():
+        for path in self._layout.truth_files(include_archive=True) + self._raw_files():
             relative = str(path.relative_to(self._layout.root))
             present[relative] = content_hash(
                 path.read_text(encoding="utf-8"), self._config.index.hash_prefix_length
@@ -115,6 +115,8 @@ class Indexer:
             record = MemoryRecord.from_text(path.read_text(encoding="utf-8"), path)
             record_module.validate(record, self._config, self._schemas.get(type_name))
         except ValidationError:
+            return None
+        if self._layout.is_archived_memory(path) and record.is_active():
             return None
         if record.type != type_name:
             return None

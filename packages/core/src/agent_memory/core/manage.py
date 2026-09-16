@@ -139,7 +139,7 @@ class Manage:
         actions.extend(self._merge_exact_duplicates(records))
         actions.extend(self._merge_near_duplicate_groups())
         actions.extend(self._cluster(self._store.records()))
-        actions.extend(self._request_redistill(self._store.records()))
+        actions.extend(self._request_redistill(self._store.records(include_invalid=True)))
 
         records = self._store.records()
         proposals = self.proposals(records=records, hits=hits)

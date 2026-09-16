@@ -102,10 +102,23 @@ class Recall:
         moment = timestamp.parse(as_of) if as_of else None
         for row in rows:
             name = str(row["name"])
-            if scope and not self._in_scope(str(row["path"]), scope):
+            path = self._store.root / str(row["path"])
+            scope_path = (
+                str(path.relative_to(self._store.layout.archived_memories))
+                if self._store.layout.is_archived_memory(path)
+                else str(row["path"])
+            )
+            if scope and not self._in_scope(scope_path, scope):
                 continue
             if moment is None:
-                if row["invalid_at"]:
+                current = self._store._at(path)
+                if (
+                    row["status"] != "active"
+                    or row["invalid_at"]
+                    or current is None
+                    or not current.is_active()
+                    or self._store.layout.is_archived_memory(path)
+                ):
                     continue
             elif not self._current_at(row, moment):
                 continue
