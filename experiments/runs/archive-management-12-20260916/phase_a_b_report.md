@@ -44,7 +44,7 @@ not a cross-file crash transaction.
 | Projection failure can be retried | `test_projection_failure_does_not_leak_and_retry_repairs_index` |
 | Repeated archive/delete is idempotent | `test_archive_lifecycle_history_and_rebuild`; `test_archive_rejects_active_memory_and_repeated_archive_is_noop` |
 
-Post-fix focused Archive/CLI/MCP contract tests: **17 passed**; broader lifecycle,
+Post-fix focused Archive/CLI/MCP contract tests: **18 passed**; broader lifecycle,
 recall, index, Manage and CLI suites: **123 passed**. Full pytest: **406 passed**.
 Ruff, mypy and `git diff --check` passed. The exact gate commands and
 outputs are in `phase-a-fix-gates.log`. No Manage, Vector, Progressive, Observation or

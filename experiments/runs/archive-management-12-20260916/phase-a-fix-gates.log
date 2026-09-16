@@ -4,7 +4,7 @@ Pre-fix HEAD: c6b46c041cd3b6f031e7312a60384699cb985de1
 Environment: Python 3.12.3; uv workspace with all packages/extras; UV_CACHE_DIR=/tmp/uv-cache
 
 Command: UV_CACHE_DIR=/tmp/uv-cache uv run pytest -q tests/unit/test_memory_archive.py tests/system/test_archive_entries.py
-Result: 17 passed
+Result: 18 passed in 1.97s
 
 Command: UV_CACHE_DIR=/tmp/uv-cache uv run pytest -q tests/unit/test_memory_archive.py tests/unit/test_recall.py tests/unit/test_supersede_on_write.py tests/unit/test_indexer.py tests/unit/test_context.py tests/unit/test_manage.py tests/unit/test_manage_reasoning.py tests/system/test_cli.py tests/system/test_archive_entries.py tests/system/test_sleep_stores.py
 Result: 123 passed in 21.22s
