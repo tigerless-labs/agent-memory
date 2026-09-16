@@ -163,3 +163,13 @@ def test_slugify_is_idempotent_and_produces_valid_slugs(config):
         if once:
             assert is_valid_slug(once)
             assert slugify(once, config.storage.slug_max_length) == once
+
+
+def test_scope_filter_does_not_match_similar_prefixes(store):
+    """Regression: scope=user must not match username/, user-notes/, etc. (#17)."""
+    for name in ("user/preferences/a.md", "username/settings.md", "user-notes/x.md", "user2/p.md"):
+        seeded.record(abstract=f"Entry in {name}", type="fact", name=name.replace("/", "-"))
+
+    results = seeded.recall(scope="user")
+    paths = [r["path"] for r in results]
+    assert all(p == "user" or p.startswith("user/") for p in paths), paths
