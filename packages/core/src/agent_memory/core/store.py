@@ -213,13 +213,31 @@ class Store:
                 candidate.provenance.append(pointer)
         self._reject_facts_dated_after_their_evidence(candidate)
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(candidate.to_text(), encoding="utf-8")
-        if moved_from is not None and moved_from != target:
-            moved_from.unlink(missing_ok=True)
-        if predecessor is not None and predecessor.path is not None:
-            record_module.invalidate(predecessor, candidate.valid_from or now, candidate.name)
-            predecessor.updated = now
-            self._persist(predecessor)
+        previous_target = (
+            target.read_bytes() if predecessor is not None and target.exists() else None
+        )
+        previous_moved = (
+            moved_from.read_bytes()
+            if predecessor is not None and moved_from is not None and moved_from.exists()
+            else None
+        )
+        try:
+            self._persist(candidate)
+            if moved_from is not None and moved_from != target:
+                moved_from.unlink(missing_ok=True)
+            if predecessor is not None and predecessor.path is not None:
+                record_module.invalidate(predecessor, candidate.valid_from or now, candidate.name)
+                predecessor.updated = now
+                self._persist(predecessor)
+        except Exception:
+            if predecessor is not None:
+                if previous_target is None:
+                    target.unlink(missing_ok=True)
+                else:
+                    target.write_bytes(previous_target)
+                if moved_from is not None and previous_moved is not None:
+                    moved_from.write_bytes(previous_moved)
+            raise
         return candidate
 
     def _successor_placement(self, placed: placement.Placement) -> placement.Placement:
@@ -376,18 +394,33 @@ class Store:
     def _persist(self, record: MemoryRecord) -> None:
         if record.path is None:
             raise NotFoundError(f"{record.name} has no location on disk")
+        source = record.path
+        moving = not record.is_active() and not self.layout.is_archived_memory(source)
+        destination = (
+            self.layout.archived_memories / source.relative_to(self.root) if moving else source
+        )
+        destination.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.NamedTemporaryFile(
-            mode="w", encoding="utf-8", dir=record.path.parent, delete=False
+            mode="w", encoding="utf-8", dir=destination.parent, delete=False
         ) as handle:
             temporary = pathlib.Path(handle.name)
             try:
                 handle.write(record.to_text())
                 handle.flush()
-                temporary.replace(record.path)
+                if moving:
+                    # Move the unchanged active bytes first. A failed move leaves the
+                    # source active; a failed status write moves those bytes back.
+                    self.archive.archive_memory(record)
+                    try:
+                        temporary.replace(destination)
+                    except Exception:
+                        destination.rename(source)
+                        record.path = source
+                        raise
+                else:
+                    temporary.replace(destination)
             finally:
                 temporary.unlink(missing_ok=True)
-        if not record.is_active():
-            self.archive.archive_memory(record)
 
     def feedback(self, name: str, delta: float) -> MemoryRecord:
         current = self.find(name)

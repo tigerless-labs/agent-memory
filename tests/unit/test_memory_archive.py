@@ -47,9 +47,11 @@ def test_archive_lifecycle_history_and_rebuild(store, clock):
     assert store.delete(old.name).path.read_bytes() == before
 
 
-def test_move_failure_is_invalid_retryable_and_keeps_raw(store, monkeypatch):
+def test_move_failure_preserves_active_and_retry_succeeds(store, monkeypatch):
     old = memory(store, provenance=["original evidence"])
     source = old.path
+    before = source.read_bytes()
+    target = store.layout.archived_memories / source.relative_to(store.root)
     evidence = store.archive.provenance_of(old.name)[0]
     original = pathlib.Path.rename
 
@@ -62,10 +64,14 @@ def test_move_failure_is_invalid_retryable_and_keeps_raw(store, monkeypatch):
         patch.setattr(pathlib.Path, "rename", fail)
         with pytest.raises(OSError, match="archive move failed"):
             store.delete(old.name)
-    assert not MemoryRecord.from_text(source.read_text()).is_active()
+    assert source.read_bytes() == before
+    assert MemoryRecord.from_text(source.read_text()).is_active()
+    assert not target.exists()
     assert evidence.exists()
+    assert store.read(old.name).text == old.body
+    assert store.delete(old.name).path == target
+    assert not source.exists()
     assert_isolated(store, old.name)
-    assert store.delete(old.name).path.is_relative_to(store.layout.archived_memories)
 
 
 def test_projection_failure_does_not_leak_and_retry_repairs_index(store, monkeypatch):
@@ -106,23 +112,26 @@ def test_legacy_invalid_is_filtered_and_archived_on_retry(store):
 
 def test_destination_collision_preserves_both_copies(store):
     old = memory(store)
+    before = old.path.read_bytes()
     target = store.layout.archived_memories / old.path.relative_to(store.root)
     target.parent.mkdir(parents=True)
     target.write_text("existing historical evidence")
     with pytest.raises(FileExistsError):
         store.delete(old.name)
     assert target.read_text() == "existing historical evidence"
-    assert not MemoryRecord.from_text(old.path.read_text()).is_active()
-    assert_isolated(store, old.name)
+    assert old.path.read_bytes() == before
+    assert MemoryRecord.from_text(old.path.read_text()).is_active()
+    assert store.read(old.name).text == old.body
 
 
 def test_failed_atomic_status_write_preserves_active_original(store, monkeypatch):
     old = memory(store)
     before = old.path.read_bytes()
+    archive_path = store.layout.archived_memories / old.path.relative_to(store.root)
     original = pathlib.Path.replace
 
     def fail(path, target):
-        if target == old.path:
+        if target == archive_path:
             raise OSError("status write failed")
         return original(path, target)
 
@@ -131,6 +140,7 @@ def test_failed_atomic_status_write_preserves_active_original(store, monkeypatch
         with pytest.raises(OSError, match="status write failed"):
             store.delete(old.name)
     assert old.path.read_bytes() == before
+    assert not archive_path.exists()
     assert store.read(old.name).text == old.body
     assert list(old.path.parent.iterdir()) == [old.path]
     store.delete(old.name)
@@ -158,6 +168,51 @@ def test_supersede_and_archive_retry_preserve_successor_and_original_time(store,
     assert again.invalid_at == invalid.invalid_at
     assert again.path == invalid.path
     assert store.read(new.name).record.is_active()
+
+
+def test_supersede_move_failure_keeps_predecessor_and_no_successor(store, monkeypatch):
+    old = memory(store)
+    before = old.path.read_bytes()
+    original = pathlib.Path.rename
+
+    def fail(path, target):
+        if path == old.path:
+            raise OSError("archive move failed")
+        return original(path, target)
+
+    with monkeypatch.context() as patch:
+        patch.setattr(pathlib.Path, "rename", fail)
+        with pytest.raises(OSError, match="archive move failed"):
+            store.record(
+                type="fact", name="new-memory", abstract="New fact", supersedes=old.name
+            )
+    assert old.path.read_bytes() == before
+    assert store.read(old.name).record.is_active()
+    assert store.find("new-memory") is None
+    assert store.record(
+        type="fact", name="new-memory", abstract="New fact", supersedes=old.name
+    ).is_active()
+    assert_isolated(store, old.name)
+
+
+def test_correct_move_failure_keeps_original_and_successor(store, monkeypatch):
+    old = memory(store)
+    successor = memory(store, name="new-memory")
+    before = old.path.read_bytes()
+    original = pathlib.Path.rename
+
+    def fail(path, target):
+        if path == old.path:
+            raise OSError("archive move failed")
+        return original(path, target)
+
+    with monkeypatch.context() as patch:
+        patch.setattr(pathlib.Path, "rename", fail)
+        with pytest.raises(OSError, match="archive move failed"):
+            store.correct(old.name, supersede_with=successor.name)
+    assert old.path.read_bytes() == before
+    assert store.read(old.name).record.is_active()
+    assert store.read(successor.name).record.is_active()
 
 
 def test_missing_optional_legacy_fields_remain_compatible(store):
@@ -203,3 +258,29 @@ def test_temporal_scope_uses_original_memory_location(store, clock):
     clock.advance(days=1)
     store.delete(old.name)
     assert old.name in {h.name for h in Recall(store).recall("Quasar", scope=scope, as_of=moment)}
+
+
+def test_manage_duplicate_archives_only_invalid_copy_and_rebuild_keeps_active(store):
+    from agent_memory.core.manage import ACTION_DUPLICATE_MERGED, Manage
+
+    original = memory(store, name="first-copy")
+    duplicate = memory(store, name="second-copy")
+    original_path = original.path
+    duplicate_path = duplicate.path
+
+    report = Manage(store).sleep()
+    assert ACTION_DUPLICATE_MERGED in {action.kind for action in report.actions}
+    archived = store.find(duplicate.name)
+    assert archived.status == "invalid"
+    assert archived.superseded_by == original.name
+    assert archived.path == store.layout.archived_memories / duplicate_path.relative_to(store.root)
+    assert not duplicate_path.exists()
+    assert original_path.exists()
+    assert store.read(original.name).record.is_active()
+
+    store.rebuild_index()
+    Manage(store).sleep()
+    assert original_path.exists()
+    assert store.find(original.name).path == original_path
+    assert store.find(duplicate.name).path == archived.path
+    assert duplicate.name not in {hit.name for hit in Recall(store).recall("Quasar")}

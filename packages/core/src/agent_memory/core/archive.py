@@ -30,7 +30,7 @@ class Archive:
             return source
         target = self._layout.archived_memories / source.relative_to(self._layout.root)
         target.parent.mkdir(parents=True, exist_ok=True)
-        if target.exists():
+        if target.exists() or target.is_symlink():
             raise FileExistsError(f"archive destination already exists: {target}")
         source.rename(target)
         record.path = target
