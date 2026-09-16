@@ -15,7 +15,12 @@ def slugify(text: str, max_length: int) -> str:
     folded = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
     lowered = _SEPARATORS.sub("-", folded.strip().lower())
     cleaned = _RUNS.sub("-", _ILLEGAL.sub("-", lowered)).strip("-")
-    return cleaned[:max_length].strip("-")
+    if cleaned:
+        return cleaned[:max_length].strip("-")
+    # Non-ASCII-only input produces an empty fold. Fall back to a stable
+    # digest so the slug is non-empty and deterministic across calls.
+    import hashlib
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:max_length]
 
 
 def is_valid_slug(text: str) -> bool:
