@@ -113,7 +113,8 @@ class Recall:
         return eligible
 
     def _in_scope(self, path: str, scope: str) -> bool:
-        return path.startswith(scope.strip("/"))
+        scope = scope.strip("/")
+        return path == scope or path.startswith(scope + "/")
 
     def _current_at(self, row: sqlite3.Row, moment: dt.datetime) -> bool:
         if timestamp.parse(str(row["valid_from"])) > moment:
