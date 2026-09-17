@@ -193,3 +193,28 @@ The task lifecycle and the invariants a change must not break are in [CLAUDE.md]
 ## License
 
 [MIT](LICENSE).
+
+### Read evaluation with Codex
+
+The experiment runner selects the tested host and judge independently. Pass
+`--host codex --judge-host codex` and explicit `--model` / `--judge-model` values
+for a Codex-only run. Omitting `--judge-host` retains the Claude Code judge and
+its historical default model. `calibrate` and `regrade` also accept `--judge-host`.
+Use `calibrate --cases <labelled-cases.json> --output <calibration.json>` to retain
+individual votes and distinguish transport failures from label disagreements.
+
+`run --observe-reads` retains bounded exam host output and CLI/read evidence in
+`observations/`, outside store truth. Observation is off by default; missing or
+truncated evidence is not proof of no tool calls. `run.json` fixes both host/model
+pairs, configuration, source stores, code revision and episode identity. Replay
+with `--reuse-stores` and a separate workspace for each configuration. Small panels
+check execution and exploratory behavior, not a statistically established improvement.
+Before scaling a read-side comparison, check that each copied store has a populated
+Memory and Raw index and that a known query returns hits. Then run a small observed
+agentic pilot and count *successful, nonempty* retrievals for each arm's intended
+path (for example, vector candidates, deep Raw hits, or bound Trace messages).
+An enabled setting, a prompt instruction, or a tool call with zero hits does not
+show that the intervention was used. Stop when the pilot does not exercise both
+paths; report the exposure rate alongside scores when it does. Codex can also
+read store files directly through its shell, so check the host command transcript
+for bypasses before attributing an answer to a `mem` retrieval path.

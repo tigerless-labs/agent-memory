@@ -143,6 +143,12 @@ class NativeSystem(MemorySystem):
             self._store(root).init()
         elif not root.exists():
             raise FileNotFoundError(f"no store to reuse at {root}")
+        else:
+            # A read-side replay may copy only truth files. Rebuildable indexes must be
+            # projected before the host starts searching, or every recall is empty.
+            report = self._store(root).sync_index()
+            if report.unreadable:
+                raise ValueError(f"unreadable memories in reused store: {report.unreadable}")
 
     def environment(self, root):
         return {NATIVE_STORE_ENV: str(root)}
