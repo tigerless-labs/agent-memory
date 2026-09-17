@@ -115,7 +115,16 @@ def _parser() -> argparse.ArgumentParser:
     corrector.add_argument("--body", default=None)
     corrector.add_argument("--body-file", default=None)
     corrector.add_argument("--supersede-with", default=None)
-    corrector.add_argument("--link", action="append", default=None)
+    correct_links = corrector.add_mutually_exclusive_group()
+    correct_links.add_argument(
+        "--link",
+        action="append",
+        default=None,
+        help="replace the complete link list; repeat for each retained target",
+    )
+    correct_links.add_argument(
+        "--clear-links", action="store_true", help="replace the link list with an empty list"
+    )
     corrector.add_argument("--provenance", action="append", default=[])
     corrector.set_defaults(handler=_correct)
 
@@ -303,7 +312,7 @@ def _correct(store: Store, args: argparse.Namespace) -> dict[str, object]:
         abstract=args.abstract,
         body=body,
         supersede_with=args.supersede_with,
-        links=args.link,
+        links=[] if args.clear_links else args.link,
         provenance=args.provenance,
     )
     return {

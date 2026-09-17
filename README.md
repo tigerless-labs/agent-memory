@@ -95,6 +95,12 @@ and recall all operate on whole files, and a file is either active or invalid wi
 between. Frontmatter carries the stable name, a one-sentence abstract, the type and its schema
 fields, status, timestamps, links, weight, and provenance; the body is free markdown.
 
+Explicit links must name distinct active memories in the same store. `correct --link`
+replaces the full list; `correct --clear-links` removes every link. MCP `memory_correct`
+uses `links: [...]` and `links: []` for the same operations. Omitting links preserves
+historical relationships during unrelated correction. See the
+[operation boundary design](docs/design/management-operation-boundaries.md).
+
 ## Proof it works
 
 Measured on LongMemEval-S with a bounded haystack, 120 episodes, `claude -p` (Haiku 4.5) as

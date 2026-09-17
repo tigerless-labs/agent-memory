@@ -49,15 +49,15 @@ def test_rebuild_is_idempotent(seeded):
     assert set(first.reindexed) == set(second.reindexed)
 
 
-def test_a_dangling_link_is_reported_but_does_not_reject_the_write(store):
+def test_a_legacy_dangling_link_is_reported_by_rebuild(store):
     written = store.record(
         abstract="Points at a memory that does not exist yet",
         type="fact",
         name="forward-reference",
-        links=["not-written-yet"],
     )
-    assert written.path.exists()
-    report = store.sync_index()
+    written.links = ["not-written-yet"]
+    written.path.write_text(written.to_text())
+    report = store.rebuild_index()
     assert ("forward-reference", "not-written-yet") in report.dangling_links
 
 

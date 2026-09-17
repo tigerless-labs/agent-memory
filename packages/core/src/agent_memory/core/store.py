@@ -204,6 +204,7 @@ class Store:
             self._enforce_update_only(existing, candidate)
         record_module.validate(candidate, self.config, schema)
         record_module.canonicalise_dates(candidate)
+        self._validate_links(candidate, existing, replace_links=spec.get("links") is not None)
         predecessor = self._predecessor(candidate, supersedes)
 
         for excerpt in _as_sequence(spec.get("provenance")):
@@ -301,28 +302,36 @@ class Store:
         valid_from: str | None = None,
         provenance: list[str] | None = None,
     ) -> MemoryRecord:
-        current = self.find(name)
-        if current is None or current.path is None:
-            raise NotFoundError(f"no memory named {name}")
-        now = self.clock.timestamp()
-        if supersede_with:
-            successor = self.find(supersede_with)
-            if successor is None:
-                raise NotFoundError(f"no memory named {supersede_with}")
-            record_module.invalidate(current, successor.valid_from or now, supersede_with)
-        if abstract is not None:
-            current.abstract = abstract.strip()
-        if body is not None:
-            current.body = body
-        if links is not None:
-            current.links = list(links)
-        if valid_from is not None:
-            current.valid_from = valid_from
-        current.updated = now
         with store_lock(self.layout):
-            for excerpt in provenance or []:
-                current.provenance.append(self._store_provenance(current.name, excerpt))
-        return self.write(current)
+            current = self.find(name)
+            if current is None or current.path is None:
+                raise NotFoundError(f"no memory named {name}")
+            if not current.is_active():
+                raise ValidationError(
+                    [FieldError("status", "correction requires an active memory")]
+                )
+            now = self.clock.timestamp()
+            if supersede_with:
+                successor = self.find(supersede_with)
+                if successor is None:
+                    raise NotFoundError(f"no memory named {supersede_with}")
+                if not successor.is_active():
+                    raise ValidationError(
+                        [FieldError("supersede_with", "successor must be active")]
+                    )
+                record_module.invalidate(current, successor.valid_from or now, supersede_with)
+            if abstract is not None:
+                current.abstract = abstract.strip()
+            if body is not None:
+                current.body = body
+            if links is not None:
+                current.links = list(links)
+            if valid_from is not None:
+                current.valid_from = valid_from
+            current.updated = now
+            return self._write_locked(
+                current, replace_links=links is not None, provenance=provenance
+            )
 
     def delete(self, name: str) -> MemoryRecord:
         """Marks the record invalid. The file stays; physical removal is a human command."""
@@ -350,14 +359,45 @@ class Store:
 
     def write(self, record: MemoryRecord) -> MemoryRecord:
         """Validate, persist, reproject. Agent writes and Manage rewrites share this path."""
-        if record.path is None:
-            raise NotFoundError(f"{record.name} has no location on disk")
+        with store_lock(self.layout):
+            return self._write_locked(record)
+
+    def _write_locked(
+        self,
+        record: MemoryRecord,
+        *,
+        replace_links: bool = False,
+        provenance: list[str] | None = None,
+    ) -> MemoryRecord:
+        self._validate_write(record, replace_links=replace_links)
+        for excerpt in provenance or []:
+            record.provenance.append(self._store_provenance(record.name, excerpt))
+        assert record.path is not None
+        record.path.write_text(record.to_text(), encoding="utf-8")
+        self._project()
+        return record
+
+    def _validate_write(self, record: MemoryRecord, *, replace_links: bool = False) -> None:
+        if record.path is None or self.layout.type_of(record.path) != record.type:
+            raise ValidationError([FieldError("path", "memory must belong to this store")])
         record_module.validate(record, self.config, self.schemas.get(record.type))
         record_module.canonicalise_dates(record)
-        with store_lock(self.layout):
-            record.path.write_text(record.to_text(), encoding="utf-8")
-            self._project()
-        return record
+        self._validate_links(record, self.find(record.name), replace_links=replace_links)
+
+    def _validate_links(
+        self, record: MemoryRecord, existing: MemoryRecord | None, *, replace_links: bool = False
+    ) -> None:
+        if replace_links and len(record.links) != len(set(record.links)):
+            raise ValidationError([FieldError("links", "duplicate target")])
+        names = set(record.links) if replace_links else set(record.links) - set(
+            existing.links if existing else []
+        )
+        for name in sorted(names):
+            target = self.find(name)
+            if name == record.name or target is None or not target.is_active():
+                raise ValidationError(
+                    [FieldError("links", f"{name} must name another active memory")]
+                )
 
     def feedback(self, name: str, delta: float) -> MemoryRecord:
         current = self.find(name)
