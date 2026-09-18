@@ -42,7 +42,7 @@ def test_memcore_speaks_through_its_own_skill_text(memcore, memcore_home):
 def test_native_keeps_its_own_discipline_and_hints(native):
     assert native.discipline() == prompts.WRITE_DISCIPLINE
     assert "mem record" in native.record_hint()
-    assert "mem context" in native.exam_preamble()
+    assert "mem recall" in native.exam_preamble()
     assert native.experience_system_prompt().startswith(prompts.MEMORY_KEEPER)
 
 
@@ -86,7 +86,7 @@ def test_the_exam_prompt_takes_the_systems_preamble(native, memcore):
     ours = framing.exam(episode, native.exam_preamble())
     theirs = framing.exam(episode, memcore.exam_preamble())
     assert episode.question in ours and episode.question in theirs
-    assert "mem context" in ours and "memcore recall" in theirs
+    assert "mem recall" in ours and "memcore recall" in theirs
     assert "memcore" not in framing.exam(episode, "")
 
 
@@ -223,3 +223,45 @@ def test_paths_are_data_not_defaults():
     source = inspect.getsource(systems)
     assert "/home/" not in source
     assert pathlib.Path.home().name not in source
+
+
+@pytest.mark.parametrize("synthesis", [False, True])
+@pytest.mark.parametrize("evidence_sufficiency", [False, True])
+def test_native_reads_independent_policy_switches_from_saved_config(
+    tmp_path, synthesis, evidence_sufficiency
+):
+    config = Config.default()
+    assert config.recall.evidence_sufficiency_hint is True
+    config.recall.synthesis_hint = synthesis
+    config.recall.evidence_sufficiency_hint = evidence_sufficiency
+    config.save(tmp_path)
+    loaded = Config.load(tmp_path)
+    native = systems.build(systems.NATIVE, loaded)
+    text = native.exam_preamble()
+    assert (prompts.SYNTHESIS_HINT in text) is synthesis
+    assert (prompts.EVIDENCE_SUFFICIENCY_HINT in text) is evidence_sufficiency
+    assert native.fingerprint() == config.recall_fingerprint()
+
+
+def test_evidence_policy_changes_existing_fingerprints_without_changing_write_prompts():
+    on, off = Config.default(), Config.default()
+    off.recall.evidence_sufficiency_hint = False
+    with_hint = systems.build(systems.NATIVE, on)
+    without = systems.build(systems.NATIVE, off)
+    assert on.fingerprint() != off.fingerprint()
+    assert on.recall_fingerprint() != off.recall_fingerprint()
+    assert with_hint.fingerprint() != without.fingerprint()
+    assert with_hint.experience_system_prompt() == without.experience_system_prompt()
+    assert with_hint.discipline() == without.discipline()
+    assert with_hint.exam_preamble().replace(
+        prompts.EVIDENCE_SUFFICIENCY_HINT + "\n\n", ""
+    ) == without.exam_preamble()
+
+
+def test_master_off_preserves_mainline_exam_even_if_evidence_switch_is_on():
+    config = Config.default()
+    config.recall.adaptive_read_enabled = False
+    native = systems.build(systems.NATIVE, config)
+    assert native.exam_preamble() == prompts.exam(
+        systems.NATIVE_RECALL_HINT, evidence_sufficiency=False, adaptive_read=False
+    )

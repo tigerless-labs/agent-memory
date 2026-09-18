@@ -74,6 +74,10 @@ class RecallConfig:
     raw_enabled: bool = True
     raw_relevance_factor: float = 0.4
     synthesis_hint: bool = True
+    evidence_sufficiency_hint: bool = True
+    adaptive_read_enabled: bool = True
+    max_recall_rounds: int = 2
+    max_full_reads: int = 4
     context_full_text_entries: int = 4
     injection_enabled: bool = True
     injection_budget_bytes: int = 8192
@@ -164,7 +168,20 @@ class Config:
                 if key not in known:
                     raise ValueError(f"unknown config knob: {section_name}.{key}")
                 setattr(section, key, value)
+        config.validate()
         return config
+
+    def validate(self) -> None:
+        if type(self.recall.adaptive_read_enabled) is not bool:
+            raise ValueError("recall.adaptive_read_enabled must be a boolean")
+        for name in ("max_recall_rounds", "max_full_reads"):
+            value = getattr(self.recall, name)
+            if type(value) is not int or value < 1:
+                raise ValueError(f"recall.{name} must be a positive integer")
+        if self.recall.max_recall_rounds > 2:
+            raise ValueError("recall.max_recall_rounds cannot exceed 2")
+        if self.recall.max_full_reads > 4:
+            raise ValueError("recall.max_full_reads cannot exceed 4")
 
     def save(self, store_root: pathlib.Path) -> pathlib.Path:
         path = pathlib.Path(store_root) / CONFIG_FILENAME

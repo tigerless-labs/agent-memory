@@ -6,6 +6,7 @@ import os
 import subprocess
 
 import pytest
+from agent_memory.core import prompts
 from agent_memory.core.config import Config
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import Store
@@ -741,3 +742,27 @@ def test_resume_refuses_a_workspace_from_another_episode_set_or_system(tmp_path,
         _resumable(sink, jobs, "another-fingerprint", systems.NATIVE)
     with pytest.raises(ValueError, match="system"):
         _resumable(sink, jobs, sampling.fingerprint(episodes), systems.MEMCORE)
+
+
+@pytest.mark.parametrize("enabled", [False, True])
+def test_native_agentic_exam_delivers_evidence_policy_to_host(tmp_path, suite, enabled):
+    config = Config.default()
+    config.recall.evidence_sufficiency_hint = enabled
+    episode = dataset.load(suite)[0]
+    host = StubHost()
+    driver = Driver(
+        host=host,
+        judge=StubJudge(),
+        workspace=tmp_path / "stores",
+        sessions_per_call=2,
+        run_id="evidence-policy",
+        episode_fingerprint=sampling.fingerprint([episode]),
+        config=config,
+        ask=_cold_still,
+    )
+    record = driver.run(episode, arms.W2)
+    exam_prompt = next(text for text in host.prompts if "Question:" in text)
+    assert (prompts.EVIDENCE_SUFFICIENCY_HINT in exam_prompt) is enabled
+    assert prompts.SYNTHESIS_HINT in exam_prompt
+    assert record.recall_fingerprint == config.recall_fingerprint()
+    assert record.status == STATUS_OK
