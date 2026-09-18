@@ -86,3 +86,40 @@ def test_no_magic_numbers_outside_the_config_module():
         if path != CONFIG_MODULE and _numeric_literals(path)
     }
     assert offenders == {}
+def test_adaptive_read_config_round_trip_and_fingerprint(tmp_path):
+    from agent_memory.core.config import Config
+
+    enabled = Config.default()
+    disabled = Config.default()
+    disabled.recall.adaptive_read_enabled = False
+    assert enabled.recall_fingerprint() != disabled.recall_fingerprint()
+    enabled.save(tmp_path)
+    assert Config.load(tmp_path).recall.adaptive_read_enabled
+    assert Config.load(tmp_path).recall.max_recall_rounds == 2
+    assert Config.load(tmp_path).recall.max_full_reads == 4
+
+
+def test_adaptive_read_rejects_invalid_budgets_and_switch(tmp_path):
+    from agent_memory.core.config import Config
+
+    config = Config.default()
+    for field, value in (("max_recall_rounds", 0), ("max_full_reads", -1),
+                         ("adaptive_read_enabled", "yes")):
+        config.save(tmp_path)
+        path = tmp_path / "config.toml"
+        old = repr(getattr(config.recall, field)).replace("True", "true")
+        path.write_text(
+            path.read_text().replace(f"{field} = {old}", f"{field} = {value!r}"),
+            encoding="utf-8",
+        )
+        import pytest
+        with pytest.raises(ValueError, match=field):
+            Config.load(tmp_path)
+
+
+def test_runner_refuses_unbounded_adaptive_policy():
+    import pytest
+    from agent_memory.harness.main import _configured
+
+    with pytest.raises(ValueError, match="max_recall_rounds"):
+        _configured(["recall.max_recall_rounds=3"])

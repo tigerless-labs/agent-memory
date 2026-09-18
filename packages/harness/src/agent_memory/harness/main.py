@@ -362,6 +362,7 @@ def _configured(overrides: list[str]) -> Config:
         if section is None or not hasattr(section, knob):
             raise ValueError(f"unknown config knob: {path}")
         setattr(section, knob, _coerce(getattr(section, knob), raw))
+    config.validate()
     return config
 
 

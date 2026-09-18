@@ -124,6 +124,7 @@ def invoke(handler, store, args):
             "json",
             "agent",
             "pointer",
+            "round",
         }
     }
     emit("tool_start", arguments=arguments)

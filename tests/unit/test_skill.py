@@ -45,3 +45,20 @@ def test_read_hints_are_independent_and_preserve_the_original_preamble(
     if evidence_sufficiency:
         expected += "\n\n" + prompts.EVIDENCE_SUFFICIENCY_HINT
     assert text == expected
+
+
+def test_adaptive_policy_has_single_source_and_bounded_fact_level_loop():
+    policy = prompts.ADAPTIVE_READ_POLICY.format(max_recall_rounds=2, max_full_reads=4)
+    for rendered in (prompts.exam("mem recall <query>", adaptive_read=True), prompts.skill()):
+        assert rendered.count(policy) == 1
+        for fragment in ("prior", "self-contained", "missing", "--round follow-up", "full"):
+            assert fragment in rendered
+
+
+def test_master_off_recovers_mainline_exam_and_skill_without_evidence_gate():
+    hint = "mem recall <query>"
+    assert prompts.exam(hint, adaptive_read=False, evidence_sufficiency=False) == (
+        prompts.EXAM_PREAMBLE.format(recall_hint=hint) + "\n\n" + prompts.SYNTHESIS_HINT
+    )
+    assert prompts.EVIDENCE_SUFFICIENCY_HINT not in prompts.skill(adaptive_read=False)
+    assert "--round follow-up" not in prompts.skill(adaptive_read=False)

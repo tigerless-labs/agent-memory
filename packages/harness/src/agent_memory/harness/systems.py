@@ -164,7 +164,10 @@ class NativeSystem(MemorySystem):
         return prompts.exam(
             NATIVE_RECALL_HINT,
             synthesis=recall.synthesis_hint,
-            evidence_sufficiency=recall.evidence_sufficiency_hint,
+            evidence_sufficiency=recall.adaptive_read_enabled and recall.evidence_sufficiency_hint,
+            adaptive_read=recall.adaptive_read_enabled,
+            max_recall_rounds=recall.max_recall_rounds,
+            max_full_reads=recall.max_full_reads,
         )
 
     def archive(self, root, label, text):

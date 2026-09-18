@@ -95,6 +95,7 @@ def _parser() -> argparse.ArgumentParser:
     reader.add_argument("--as-of", default=None)
     reader.add_argument("--deep", action="store_true")
     reader.add_argument("--limit", type=int, default=None)
+    reader.add_argument("--round", choices=("initial", "follow-up"), default=None)
     reader.set_defaults(handler=_recall)
 
     contexter = subparsers.add_parser("context", help="recall and open the top entries in one call")
@@ -465,7 +466,10 @@ def _decide(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 
 def _skill(store: Store, args: argparse.Namespace) -> str:
-    return prompts.skill()
+    recall = store.config.recall
+    return prompts.skill(
+        recall.adaptive_read_enabled, recall.max_recall_rounds, recall.max_full_reads
+    )
 
 
 def _setup(store: Store, args: argparse.Namespace) -> dict[str, object]:

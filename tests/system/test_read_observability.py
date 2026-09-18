@@ -119,6 +119,29 @@ def test_zero_hit_deep_and_read_levels(tmp_path):
     ]
 
 
+def test_initial_and_follow_up_rounds_are_observed_without_changing_recall_results(tmp_path):
+    def setup(store):
+        store.record(name="first", abstract="current manager uv", body="Uses uv", type="fact")
+        store.record(
+            name="reason", abstract="Poetry migration reason", body="Migrated for speed",
+            type="fact",
+        )
+
+    def script(call):
+        first = call("recall", "current manager", "--round", "initial")
+        call("read", "first", "--level", "full")
+        second = call("recall", "Poetry migration reason", "--round", "follow-up")
+        call("read", "reason", "--level", "full")
+        assert first["hits"] and second["hits"]
+        return "done"
+
+    events = execute(tmp_path, script, "done", setup)
+    rounds = [e["arguments"]["round"] for e in events
+              if e["kind"] == "tool_start" and e["arguments"]["command"] == "recall"]
+    assert rounds == ["initial", "follow-up"]
+    assert [e["name"] for e in events if e["kind"] == "read_return"] == ["first", "reason"]
+
+
 def test_host_transcript_limits_and_failure(tmp_path, monkeypatch):
     from agent_memory.executor.hosts import Host
 
