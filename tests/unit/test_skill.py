@@ -62,3 +62,17 @@ def test_master_off_recovers_mainline_exam_and_skill_without_evidence_gate():
     )
     assert prompts.EVIDENCE_SUFFICIENCY_HINT not in prompts.skill(adaptive_read=False)
     assert "--round follow-up" not in prompts.skill(adaptive_read=False)
+
+
+@pytest.mark.parametrize("required", [
+    "stop sooner when sufficient",
+    "identify the missing answer slot",
+    "Read only new relevant hits",
+    "explicitly identify the unresolved information",
+    "when Recall is empty",
+    "repeat entries already read",
+    "at most 2 Recall rounds and\n4 full reads total",
+])
+def test_host_driven_protocol_states_each_bounded_branch(required):
+    for rendered in (prompts.exam("mem recall <query>", adaptive_read=True), prompts.skill()):
+        assert required in rendered
