@@ -95,6 +95,13 @@ and recall all operate on whole files, and a file is either active or invalid wi
 between. Frontmatter carries the stable name, a one-sentence abstract, the type and its schema
 fields, status, timestamps, links, weight, and provenance; the body is free markdown.
 
+Automatic distillation links each Memory to the Raw message ranges supporting its facts.
+Read the Memory first; when a detail is missing, `mem --json trace <name>` opens its exact
+cited messages. If they still lack the detail, `mem --json trace <name> --query "<detail>"`
+searches only the Raw sessions named by that Memory's provenance and returns at most three
+short excerpts with source pointers. Manual `mem record` still accepts entries without
+provenance; source-bounded search is unavailable for those entries.
+
 ## Proof it works
 
 Measured on LongMemEval-S with a bounded haystack, 120 episodes, `claude -p` (Haiku 4.5) as

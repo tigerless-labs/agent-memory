@@ -79,6 +79,11 @@ class RecallConfig:
     injection_budget_bytes: int = 8192
     anchor_context_chars: int = 160
     snippet_max_chars: int = 400
+    source_search_max_hits: int = 3
+    source_search_excerpt_chars: int = 400
+    source_search_total_chars: int = 1000
+    trace_max_messages: int = 64
+    trace_max_chars: int = 12000
 
 
 @dataclasses.dataclass
@@ -103,6 +108,7 @@ class ManageConfig:
 
 @dataclasses.dataclass
 class WriteConfig:
+    evidence_linked: bool = True
     watermark_dirname: str = "watermarks"
     session_archive_enabled: bool = True
     hook_timeout_seconds: float = 20.0

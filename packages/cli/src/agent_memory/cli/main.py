@@ -135,6 +135,9 @@ def _parser() -> argparse.ArgumentParser:
 
     tracer = subparsers.add_parser("trace", help="open the messages a memory cites")
     tracer.add_argument("name")
+    tracer.add_argument("--pointer", default=None, help="one cited range or a subrange")
+    tracer.add_argument("--query", default=None, help="search only the memory's source sessions")
+    tracer.add_argument("--top-k", type=int, default=None)
     tracer.set_defaults(handler=_trace)
 
     remover = subparsers.add_parser("delete", help="mark one memory invalid; the file stays")
@@ -293,6 +296,7 @@ def _read(store: Store, args: argparse.Namespace) -> dict[str, object]:
         "path": str(result.record.path),
         "outline": list(result.outline),
         "text": result.text,
+        **({"provenance": list(result.record.provenance)} if args.json else {}),
     }
 
 
@@ -352,8 +356,15 @@ def _archived_sessions(store: Store) -> list[str]:
 
 
 def _trace(store: Store, args: argparse.Namespace) -> dict[str, object]:
-    messages = store.trace(args.name)
-    return {"name": args.name, "messages": [message.as_dict() for message in messages]}
+    if args.query is not None:
+        if args.pointer is not None:
+            raise ValidationError([FieldError("pointer", "cannot combine with source search")])
+        return {
+            "name": args.name,
+            "query": args.query,
+            "hits": store.search_source(args.name, args.query, args.top_k),
+        }
+    return store.trace_evidence(args.name, args.pointer).as_dict()
 
 
 def _delete(store: Store, args: argparse.Namespace) -> dict[str, object]:
@@ -494,6 +505,21 @@ def _emit(payload: object, as_json: bool, stream=None) -> None:
     if as_json or not isinstance(payload, dict):
         rendered = json.dumps(payload, indent=EMIT_INDENT, sort_keys=True, default=_fallback)
         print(rendered, file=stream)
+        return
+    if "evidence" in payload and "messages" in payload:
+        print(f"name: {payload['name']} [{payload['status']}]", file=stream)
+        print(payload["notice"], file=stream)
+        for warning in payload["warnings"]:
+            print(f"warning: {warning}", file=stream)
+        for evidence in payload["evidence"]:
+            print(f"reference: {evidence['reference']}", file=stream)
+            for message in evidence["messages"]:
+                print(
+                    f"[{message['index']}] {message['role']} @ {message['at']}: {message['text']}",
+                    file=stream,
+                )
+            if evidence["text"] is not None:
+                print(evidence["text"], file=stream)
         return
     for key, value in payload.items():
         if isinstance(value, list) and value and isinstance(value[0], dict):

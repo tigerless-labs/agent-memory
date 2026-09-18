@@ -11,12 +11,12 @@ import dataclasses
 import json
 
 from .config import Config
-from .errors import FieldError
+from .errors import FieldError, NotFoundError, ValidationError
 from .paths import StoreLayout
 from .recall import Recall
 from .record import MemoryRecord
 from .schema import MemorySchema
-from .sessions import Message, Pointer, parse_pointer, render_pointer
+from .sessions import Message, Pointer, parse_pointer, render_pointer, resolve
 from .store import Store
 
 OP_NEW = "new"
@@ -67,6 +67,8 @@ class Sheet:
     profile: tuple[str, ...]
     slots: tuple[MemorySchema, ...]
     messages: tuple[Message, ...] = ()
+    layout: StoreLayout | None = None
+    evidence_linked: bool = True
 
     def handle_names(self) -> set[str]:
         return {handle.name for handle in self.handles}
@@ -108,7 +110,15 @@ def build(store: Store, session: str, messages: list[Message]) -> Sheet:
     first = messages[0].index if messages else 0
     last = messages[-1].index if messages else first
     return Sheet(
-        session, Pointer(session, first, last), handles, menus, profile, schemas, tuple(messages)
+        session,
+        Pointer(session, first, last),
+        handles,
+        menus,
+        profile,
+        schemas,
+        tuple(messages),
+        layout,
+        config.write.evidence_linked,
     )
 
 
@@ -153,6 +163,11 @@ def check(spec: dict[str, object], sheet: Sheet) -> list[FieldError]:
             errors.append(FieldError(KEY_HANDLE, f"{handle} is not on the reconcile sheet"))
     if op == OP_NEW and handle and handle in sheet.handle_names():
         errors.append(FieldError(KEY_HANDLE, f"{handle} exists; use update or supersede"))
+    if op != OP_SKIP and sheet.evidence_linked:
+        try:
+            _provenance(spec.get(KEY_PROVENANCE), sheet)
+        except ValidationError as error:
+            errors.extend(error.errors)
     return errors
 
 
@@ -194,6 +209,42 @@ def _latest_cited_time(pointers: list[Pointer], sheet: Sheet) -> str:
 
 
 def _provenance(raw: object, sheet: Sheet) -> list[Pointer]:
+    if not sheet.evidence_linked:
+        return _legacy_provenance(raw, sheet)
+    items = raw if isinstance(raw, list) else []
+    if not items:
+        raise ValidationError([FieldError(KEY_PROVENANCE, "at least one source range is required")])
+    pointers: list[Pointer] = []
+    for item in items:
+        text = str(item).strip()
+        start, separator, end = text.partition(RANGE_SEPARATOR)
+        if start.isdigit() and (end.isdigit() or not separator):
+            try:
+                pointer = Pointer(
+                    sheet.session, int(start), int(end) if end.isdigit() else int(start)
+                )
+            except ValueError as error:
+                raise ValidationError([FieldError(KEY_PROVENANCE, "invalid range")]) from error
+        else:
+            parsed = parse_pointer(text)
+            if parsed is None:
+                raise ValidationError([FieldError(KEY_PROVENANCE, "invalid range")])
+            pointer = parsed
+        if pointer.session != sheet.session or pointer.end < pointer.start:
+            raise ValidationError(
+                [FieldError(KEY_PROVENANCE, "range outside current source session")]
+            )
+        if sheet.layout is not None:
+            try:
+                resolve(sheet.layout, pointer)
+            except NotFoundError as error:
+                raise ValidationError([FieldError(KEY_PROVENANCE, str(error))]) from error
+        if pointer not in pointers:
+            pointers.append(pointer)
+    return pointers
+
+
+def _legacy_provenance(raw: object, sheet: Sheet) -> list[Pointer]:
     items = raw if isinstance(raw, list) else ([raw] if raw else [])
     pointers: list[Pointer] = []
     for item in items:

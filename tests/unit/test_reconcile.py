@@ -104,11 +104,10 @@ def test_an_operation_naming_a_handle_outside_the_sheet_is_refused(store):
     assert reconcile.check(_spec(op="new"), sheet) == []
 
 
-def test_provenance_defaults_to_the_batch_when_the_executor_omits_it(store):
+def test_provenance_is_required_for_automatic_distillation(store):
     messages = _messages(store)
     sheet = reconcile.build(store, "boundary", messages)
-    spec = reconcile.to_record_spec(_spec(provenance=[]), sheet)
-    assert spec["provenance"] == [sessions.render_pointer(sheet.pointer)]
+    assert "provenance" in {error.field for error in reconcile.check(_spec(provenance=[]), sheet)}
     narrowed = reconcile.to_record_spec(_spec(provenance=["1-2"]), sheet)
     assert narrowed["provenance"] == [sessions.render_pointer(sessions.Pointer("boundary", 1, 2))]
 

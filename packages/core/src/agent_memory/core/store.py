@@ -11,6 +11,7 @@ import pathlib
 
 from . import chunking, memory_md, placement, timestamp
 from . import record as record_module
+from . import trace as trace_module
 from .access_log import KIND_READ, AccessEntry, AccessLog
 from .archive import Archive
 from .clock import Clock
@@ -20,10 +21,11 @@ from .errors import FieldError, NotFoundError, ValidationError
 from .indexer import Indexer, IndexReport
 from .locking import store_lock
 from .paths import StoreLayout
+from .raw_index import RawIndex
 from .record import MemoryRecord
 from .schema import MODE_ADD_ONLY, MemorySchema, SchemaRegistry
 from .search_index import SearchIndex
-from .sessions import Message, parse_pointer, resolve
+from .sessions import Message, parse_pointer, resolve, session_path
 
 LEVEL_ABSTRACT = "abstract"
 LEVEL_OUTLINE = "outline"
@@ -262,21 +264,62 @@ class Store:
                 [FieldError("valid_from", "later than the messages this memory cites")]
             )
 
-    def trace(self, name: str) -> list[Message]:
-        """Opens the messages a memory cites. The one read that reaches raw material by pointer."""
-        current = self.find(name)
+    def trace(self, name: str, pointer: str | None = None) -> list[Message]:
+        return [
+            message
+            for item in self.trace_evidence(name, pointer).evidence
+            for message in item.messages
+        ]
+
+    def trace_evidence(self, name: str, pointer: str | None = None) -> trace_module.TraceResult:
+        current = self._at(self._scan_for(name))
         if current is None:
             raise NotFoundError(f"no memory named {name}")
-        stamp = self.clock.now().isoformat()
-        self._log_access([AccessEntry(stamp, name, "", KIND_READ, self.agent)])
-        return self.trace_record(current)
+        return trace_module.read(self.layout, current, pointer)
+
+    def search_source(
+        self, name: str, query: str, top_k: int | None = None
+    ) -> list[dict[str, object]]:
+        current = self._at(self._scan_for(name))
+        if current is None:
+            raise NotFoundError(f"no memory named {name}")
+        sessions = {
+            pointer.session
+            for item in current.provenance
+            if (pointer := parse_pointer(item)) is not None
+        }
+        if not sessions:
+            raise ValidationError([FieldError("provenance", "source-bounded search unavailable")])
+        paths = []
+        for session in sorted(sessions):
+            path = session_path(self.layout, session)
+            if not path.is_file():
+                raise NotFoundError(f"no raw session {session}")
+            paths.append(str(path.relative_to(self.root)))
+        cap = self.config.recall.source_search_max_hits
+        limit = min(cap, max(1, top_k if top_k is not None else cap))
+        self._indexer.sync()
+        with self._database.connect() as connection:
+            hits = RawIndex(connection).match_sources(query, paths, limit)
+        remaining = self.config.recall.source_search_total_chars
+        results: list[dict[str, object]] = []
+        for hit in hits:
+            if remaining <= 0:
+                break
+            excerpt = hit.text[: min(self.config.recall.source_search_excerpt_chars, remaining)]
+            remaining -= len(excerpt)
+            pointer = parse_pointer(hit.name)
+            if pointer is None or pointer.session not in sessions:
+                raise ValidationError([FieldError("pointer", "indexed source is inconsistent")])
+            results.append({"pointer": hit.name, "session": pointer.session, "excerpt": excerpt})
+        return results
 
     def trace_record(self, record: MemoryRecord) -> list[Message]:
         messages: list[Message] = []
         for item in record.provenance:
             pointer = parse_pointer(item)
             if pointer is not None:
-                messages.extend(resolve(self.layout, pointer))
+                messages.extend(resolve(self.layout, pointer, strict=False))
         return messages
 
     def _predecessor(self, candidate: MemoryRecord, supersedes: str | None) -> MemoryRecord | None:

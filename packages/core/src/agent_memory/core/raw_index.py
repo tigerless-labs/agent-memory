@@ -72,6 +72,27 @@ class RawIndex:
             for row in rows
         ]
 
+    def match_sources(self, query: str, paths: list[str], limit: int) -> list[RawHit]:
+        expression = to_match_query(query)
+        if not expression or not paths or limit <= 0:
+            return []
+        placeholders = ", ".join("?" for _ in paths)
+        rows = self._connection.execute(
+            "SELECT name, path, anchor, text, bm25(raw_chunks) AS rank FROM raw_chunks "
+            f"WHERE raw_chunks MATCH ? AND path IN ({placeholders}) ORDER BY rank LIMIT ?",
+            (expression, *paths, limit),
+        ).fetchall()
+        return [
+            RawHit(
+                str(row["name"]),
+                str(row["path"]),
+                str(row["anchor"]),
+                str(row["text"]),
+                -float(row["rank"]),
+            )
+            for row in rows
+        ]
+
 
 def split(messages: list[Message], chunk_chars: int) -> list[tuple[Pointer, str]]:
     """Consecutive messages packed up to a size; the pointer is the message range."""
