@@ -10,6 +10,7 @@ from agent_memory.core import injection, sessions
 from agent_memory.core.errors import ValidationError
 from agent_memory.executor import hosts
 from agent_memory.harness import main as harness
+from agent_memory.mcp import server as mcp_server
 
 
 def test_muse_host_id_and_alias_are_canonical():
@@ -252,6 +253,27 @@ def test_muse_executor_reads_enveloped_final_answer(tmp_path):
     assert hosts.DIALECTS[hosts.HOST_MUSE_CODE].answer(
         stdout, tmp_path / "unused"
     ) == "nested final"
+
+
+def test_mcp_memory_tool_calls_use_host_neutral_observation(store, tmp_path, monkeypatch):
+    evidence = tmp_path / "observation"
+    monkeypatch.setenv("AGENT_MEMORY_OBSERVATION_DIR", str(evidence))
+    response = mcp_server.handle(
+        store,
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "tools/call",
+            "params": {"name": "memory_recall", "arguments": {"query": "muse"}},
+        },
+    )
+    assert response is not None and "result" in response
+    events = [json.loads(line) for line in (evidence / "tools.jsonl").read_text().splitlines()]
+    mcp_events = [event for event in events if event["kind"].startswith("mcp_tool_")]
+    assert [(event["kind"], event["tool"]) for event in mcp_events] == [
+        ("mcp_tool_call", "memory_recall"),
+        ("mcp_tool_return", "memory_recall"),
+    ]
 
 
 def test_experiment_parser_selects_muse_host_and_independent_judge():
