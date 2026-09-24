@@ -504,8 +504,11 @@ def _skill(store: Store, args: argparse.Namespace) -> str:
 def _setup(store: Store, args: argparse.Namespace) -> dict[str, object]:
     from agent_memory.adapters import setup as setup_module
 
-    hosts = [args.host] if args.host else setup_module.detect()
+    hosts = [setup_module.canonical_host(args.host)] if args.host else setup_module.detect()
     settings = pathlib.Path(args.settings) if args.settings else None
+    for host in hosts:
+        if host == "muse-code":
+            setup_module.probe(host)
     return {
         "installed": {host: str(setup_module.install(host, settings)) for host in hosts},
         "store": str(store.root),

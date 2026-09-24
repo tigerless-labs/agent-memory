@@ -6,6 +6,7 @@ in exit code 0 and any trouble goes to the store's own log.
 
 from __future__ import annotations
 
+import argparse
 import json
 import pathlib
 import shlex
@@ -32,6 +33,7 @@ KEY_HOST = "host"
 KEY_ITEMS = "items"
 CLAUDE_OUTPUT_KEY = "hookSpecificOutput"
 CLAUDE_CONTEXT_KEY = "additionalContext"
+MUSE_OUTPUT_EVENT_KEY = "hookEventName"
 KEY_DISTILL = "distill"
 DISTILL_LAUNCHED = "launched"
 DISTILL_SKIPPED = "skipped"
@@ -48,8 +50,18 @@ class _Timeout(Exception):
 def main(argv: Sequence[str] | None = None) -> int:
     store: Store | None = None
     try:
-        event = json.loads(sys.stdin.read() or "{}")
-        store = Store(event.get("store"), agent=str(event.get("agent") or "hook"))
+        parser = argparse.ArgumentParser(prog="mem-hook")
+        parser.add_argument("--host", default="")
+        parser.add_argument("--store", default="")
+        args = parser.parse_args(argv or ())
+        event = normalize_event(json.loads(sys.stdin.read() or "{}"), args.host)
+        if args.store:
+            event["store"] = args.store
+        store_value = event.get("store")
+        store = Store(
+            str(store_value) if store_value else None,
+            agent=str(event.get("agent") or "hook"),
+        )
         _arm(store.config.write.hook_timeout_seconds)
         response = handle(store, event)
         if response:
@@ -82,6 +94,13 @@ def _inject(store: Store, host: str) -> dict[str, object]:
         return {
             CLAUDE_OUTPUT_KEY: {
                 KEY_EVENT_CLAUDE: "SessionStart",
+                CLAUDE_CONTEXT_KEY: context,
+            }
+        }
+    if host == moments.HOST_MUSE_CODE:
+        return {
+            CLAUDE_OUTPUT_KEY: {
+                MUSE_OUTPUT_EVENT_KEY: "SessionStart",
                 CLAUDE_CONTEXT_KEY: context,
             }
         }
@@ -132,7 +151,27 @@ def _items(event: dict[str, object]) -> list[str]:
     if isinstance(supplied, list):
         return [str(item) for item in supplied]
     path = event.get(KEY_TRANSCRIPT)
-    return transcript.items(pathlib.Path(str(path))) if path else []
+    found = (
+        transcript.items(pathlib.Path(str(path)), host=str(event.get(KEY_HOST) or ""))
+        if path
+        else []
+    )
+    if str(event.get(KEY_HOST) or "") == moments.HOST_MUSE_CODE:
+        final = str(event.get("last_assistant_message") or "").strip()
+        rendered = f"assistant: {final}" if final else ""
+        if rendered and rendered not in found:
+            found.append(rendered)
+    return found
+
+
+def normalize_event(event: object, host: str = "") -> dict[str, object]:
+    """Attach adapter identity while retaining fields used by the common hook model."""
+    if not isinstance(event, dict):
+        raise TypeError("hook payload must be a JSON object")
+    normalized = dict(event)
+    if host:
+        normalized[KEY_HOST] = host
+    return normalized
 
 
 def _arm(seconds: float) -> None:
@@ -158,5 +197,9 @@ def _log(store: Store | None, message: str) -> None:
         return
 
 
+def cli() -> int:
+    return main(sys.argv[1:])
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(cli())

@@ -13,6 +13,7 @@ of them to it.
 from __future__ import annotations
 
 import dataclasses
+import json
 import os
 import pathlib
 import shutil
@@ -27,12 +28,14 @@ from .credentials import VertexCredentials
 HOST_CLAUDE_CODE = "claude-code"
 HOST_CODEX = "codex"
 HOST_HERMES = "hermes"
+HOST_MUSE_CODE = "muse-code"
 
 DEFAULT_MODEL = "claude-haiku-4-5-20251001"
 BINARIES = {
     HOST_CLAUDE_CODE: ("claude", DEFAULT_MODEL),
     HOST_CODEX: ("codex", "gpt-5.6-sol"),
     HOST_HERMES: ("hermes", "google/gemini-3.7-flash"),
+    HOST_MUSE_CODE: ("muse", ""),
 }
 MEM_TOOL_PATTERN = "Bash(mem:*)"
 CLAUDE_NATIVE_TOOLS = "Write,Edit,NotebookEdit,WebSearch,WebFetch,Task"
@@ -44,6 +47,7 @@ PROMPT_PLACEHOLDER = "<<prompt>>"
 PROMPT_SEPARATOR = "\n\n"
 ERROR_EXCERPT = 400
 ANSWER_FILENAME = "answer.txt"
+PROMPT_FILENAME = "prompt.txt"
 
 
 @dataclasses.dataclass(frozen=True)
@@ -63,9 +67,23 @@ class HostSpec:
     attempts: int = 3
     retry_backoff_seconds: float = 5.0
     provider: str = ""
+    reasoning_effort: str = ""
 
     def available(self) -> bool:
         return shutil.which(self.binary) is not None
+
+    def version(self) -> str:
+        resolved = shutil.which(self.binary)
+        if resolved is None:
+            return "unavailable"
+        try:
+            completed = subprocess.run(
+                [resolved, "--version"], capture_output=True, text=True, check=False, timeout=10
+            )
+        except (OSError, subprocess.TimeoutExpired):
+            return "unknown"
+        output = (completed.stdout.strip() or completed.stderr.strip()).splitlines()
+        return output[0] if completed.returncode == 0 and output else "unknown"
 
 
 class Dialect:
@@ -83,6 +101,7 @@ class Dialect:
         store_root: pathlib.Path | None,
         answer_file: pathlib.Path,
         tool_pattern: str = MEM_TOOL_PATTERN,
+        workdir: pathlib.Path | None = None,
     ) -> list[str]:
         raise NotImplementedError
 
@@ -94,6 +113,18 @@ class Dialect:
 
     def disables_native_memory(self, rendered_command: str) -> bool:
         raise NotImplementedError
+
+    def invocation(
+        self,
+        command: list[str],
+        prompt: str,
+        system_prompt: str,
+        scratch: pathlib.Path,
+    ) -> tuple[list[str], str]:
+        payload = self.stdin(prompt, system_prompt)
+        if self.prompt_on_stdin:
+            return command, payload
+        return [payload if part == PROMPT_PLACEHOLDER else part for part in command], ""
 
 
 class ClaudeCodeDialect(Dialect):
@@ -109,6 +140,7 @@ class ClaudeCodeDialect(Dialect):
         store_root,
         answer_file,
         tool_pattern=MEM_TOOL_PATTERN,
+        workdir=None,
     ):
         command = [
             spec.binary,
@@ -144,6 +176,7 @@ class CodexDialect(Dialect):
         store_root,
         answer_file,
         tool_pattern=MEM_TOOL_PATTERN,
+        workdir=None,
     ):
         command = [
             spec.binary,
@@ -193,6 +226,7 @@ class HermesDialect(Dialect):
         store_root,
         answer_file,
         tool_pattern=MEM_TOOL_PATTERN,
+        workdir=None,
     ):
         command = [spec.binary, "-z", PROMPT_PLACEHOLDER, "--model", self.routed_model(spec)]
         if spec.provider:
@@ -214,10 +248,102 @@ class HermesDialect(Dialect):
         return "memory" not in toolsets.split(",")
 
 
+class MuseCodeDialect(Dialect):
+    """Muse's headless transport: JSONL out, prompt file in, sandbox kept on."""
+
+    def command(
+        self,
+        spec,
+        *,
+        tools_enabled,
+        system_prompt,
+        max_turns,
+        store_root,
+        answer_file,
+        tool_pattern=MEM_TOOL_PATTERN,
+        workdir=None,
+    ):
+        workspace = self._workspace(tools_enabled, store_root, workdir, answer_file.parent)
+        command = [
+            spec.binary,
+            "exec",
+            "--json",
+            "--prompt-file",
+            PROMPT_PLACEHOLDER,
+            "--max-model-steps",
+            str(max_turns),
+            "--workspace",
+            str(workspace),
+        ]
+        if spec.model:
+            command += ["--model", spec.model]
+        if spec.reasoning_effort:
+            command += ["--reasoning-effort", spec.reasoning_effort]
+        return command
+
+    def stdin(self, prompt: str, system_prompt: str) -> str:
+        return (system_prompt + PROMPT_SEPARATOR + prompt) if system_prompt else prompt
+
+    def invocation(self, command, prompt, system_prompt, scratch):
+        prompt_path = scratch / PROMPT_FILENAME
+        prompt_path.write_text(self.stdin(prompt, system_prompt), encoding="utf-8")
+        return [str(prompt_path) if part == PROMPT_PLACEHOLDER else part for part in command], ""
+
+    def answer(self, stdout: str, answer_file: pathlib.Path) -> str:
+        answer = ""
+        for line in stdout.splitlines():
+            try:
+                event = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if not isinstance(event, dict):
+                continue
+            candidates = [event]
+            payload = event.get("payload")
+            if isinstance(payload, dict):
+                candidates.append(payload)
+                nested = payload.get("event")
+                if isinstance(nested, dict):
+                    candidates.append(nested)
+            for candidate in candidates:
+                kind = candidate.get("kind")
+                text = candidate.get("text")
+                if kind in ("run_terminal", "assistant_message", "final_answer") and isinstance(
+                    text, str
+                ):
+                    answer = text.strip()
+        return answer
+
+    def disables_native_memory(self, rendered_command: str) -> bool:
+        return "--workspace" in rendered_command
+
+    @staticmethod
+    def _workspace(tools_enabled, store_root, workdir, scratch):
+        if not tools_enabled or store_root is None:
+            workspace = (workdir or scratch).resolve()
+            MuseCodeDialect._require_no_native_memory(workspace)
+            return workspace
+        roots = [store_root.resolve(), (workdir or scratch).resolve()]
+        common = pathlib.Path(os.path.commonpath([str(path) for path in roots]))
+        unsafe = {pathlib.Path("/"), pathlib.Path.home().resolve()}
+        if common in unsafe:
+            raise ValueError(
+                "Muse sandbox needs the experiment store and workdir under one safe workspace"
+            )
+        MuseCodeDialect._require_no_native_memory(common)
+        return common
+
+    @staticmethod
+    def _require_no_native_memory(workspace: pathlib.Path) -> None:
+        if (workspace / ".agents" / "memory").exists():
+            raise ValueError("Muse experiment workspace contains native .agents/memory")
+
+
 DIALECTS: dict[str, Dialect] = {
     HOST_CLAUDE_CODE: ClaudeCodeDialect(),
     HOST_CODEX: CodexDialect(),
     HOST_HERMES: HermesDialect(),
+    HOST_MUSE_CODE: MuseCodeDialect(),
 }
 
 
@@ -281,13 +407,13 @@ class Host:
                 store_root=store_root,
                 answer_file=answer_file,
                 tool_pattern=tool_pattern,
+                workdir=workdir,
             )
             if self.spec.name == HOST_CODEX and tools_enabled and environment.get(observation.ENV):
                 command += ["--add-dir", environment[observation.ENV]]
-            payload = self.dialect.stdin(prompt, system_prompt)
-            if not self.dialect.prompt_on_stdin:
-                command = [payload if part == PROMPT_PLACEHOLDER else part for part in command]
-                payload = ""
+            command, payload = self.dialect.invocation(
+                command, prompt, system_prompt, pathlib.Path(scratch)
+            )
             return self._invoke(
                 command, payload, self._environment(store_root, environment), workdir, answer_file
             )
@@ -350,8 +476,9 @@ class Host:
             detail = (completed.stderr.strip() or completed.stdout.strip())[:ERROR_EXCERPT]
             return HostResult("", False, elapsed, detail or "non-zero exit with no output")
         text = self.dialect.answer(completed.stdout, answer_file)
-        if self.spec.name == HOST_CODEX and not text:
-            return HostResult("", False, elapsed, "missing or empty Codex final message")
+        if self.spec.name in (HOST_CODEX, HOST_MUSE_CODE) and not text:
+            label = "Codex" if self.spec.name == HOST_CODEX else "Muse"
+            return HostResult("", False, elapsed, f"missing or empty {label} final message")
         return HostResult(text, True, elapsed)
 
     def _environment(

@@ -20,7 +20,14 @@ from agent_memory.core.manage import Manage
 from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.store import Store
 from agent_memory.executor import reasoners
-from agent_memory.executor.hosts import BINARIES, DIALECTS, HOST_CLAUDE_CODE, Host, HostSpec
+from agent_memory.executor.hosts import (
+    BINARIES,
+    DIALECTS,
+    HOST_CLAUDE_CODE,
+    HOST_MUSE_CODE,
+    Host,
+    HostSpec,
+)
 
 from . import arms as arms_module
 from . import coverage as coverage_module
@@ -122,8 +129,10 @@ def _parser() -> argparse.ArgumentParser:
         "--observe-reads", action="store_true", help="retain bounded exam and tool evidence"
     )
     runner.add_argument("--model", default="")
+    runner.add_argument("--reasoning-effort", default="")
     runner.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
     runner.add_argument("--judge-model", default="")
+    runner.add_argument("--judge-reasoning-effort", default="")
     runner.add_argument("--concurrency", type=int, default=4)
     runner.add_argument("--run-id", default="run")
     runner.add_argument(
@@ -144,6 +153,7 @@ def _parser() -> argparse.ArgumentParser:
     regrader.add_argument("--workspace", required=True)
     regrader.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
     regrader.add_argument("--judge-model", default="")
+    regrader.add_argument("--judge-reasoning-effort", default="")
     regrader.add_argument("--concurrency", type=int, default=8)
     regrader.set_defaults(handler=_regrade)
 
@@ -154,6 +164,7 @@ def _parser() -> argparse.ArgumentParser:
     calibrator.add_argument("--output", help="write calibration labels and vote evidence as JSON")
     calibrator.add_argument("--judge-host", default=HOST_CLAUDE_CODE, choices=sorted(DIALECTS))
     calibrator.add_argument("--judge-model", default="")
+    calibrator.add_argument("--judge-reasoning-effort", default="")
     calibrator.add_argument("--concurrency", type=int, default=8)
     calibrator.set_defaults(handler=_calibrate)
 
@@ -169,6 +180,9 @@ def _parser() -> argparse.ArgumentParser:
     )
     interoperator.add_argument("--workspace", required=True)
     interoperator.add_argument("--hosts", default=",".join(DIALECTS))
+    interoperator.add_argument(
+        "--pairs", default="", help="ordered writer:reader pairs; defaults to the full matrix"
+    )
     interoperator.add_argument("--json", action="store_true")
     interoperator.set_defaults(handler=_interop)
 
@@ -245,8 +259,10 @@ def _run(args: argparse.Namespace) -> int:
     selected = arms_module.parse(args.arms)
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
-    host = _host(args.host, args.model)
-    judge_host = _judge_host(args.judge_host, args.judge_model)
+    host = _host(args.host, args.model, reasoning_effort=args.reasoning_effort)
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
+    )
     if not _available(judge_host, "judge host"):
         return EXIT_ERROR
     judge = Judge(judge_host)
@@ -270,6 +286,11 @@ def _run(args: argparse.Namespace) -> int:
             config=dataclasses.asdict(config),
             code_revision=_code_revision(),
             observe_reads=args.observe_reads,
+            host_version=host.spec.version(),
+            judge_version=judge_host.spec.version(),
+            reasoning_effort=host.spec.reasoning_effort,
+            judge_reasoning_effort=judge_host.spec.reasoning_effort,
+            workspace=str(workspace.resolve()),
         ),
         resume=args.resume,
     )
@@ -379,13 +400,20 @@ def _regrade(args: argparse.Namespace) -> int:
     workspace = workspace_module.for_writing(args.workspace)
     sink = MetricsSink(workspace)
     records = sink.records()
-    judge_host = _judge_host(args.judge_host, args.judge_model)
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
+    )
     if not _available(judge_host, "judge host"):
         return EXIT_ERROR
     judge = Judge(judge_host)
     regraded = judge_module.regrade(records, judge, _questions(workspace), args.concurrency)
     changed = sum(1 for old, new in zip(records, regraded, strict=True) if old != new)
-    RunMetadataSink(workspace).regrade(judge_host.name, judge.model)
+    RunMetadataSink(workspace).regrade(
+        judge_host.name,
+        judge.model,
+        judge_version=judge_host.spec.version(),
+        judge_reasoning_effort=judge_host.spec.reasoning_effort,
+    )
     sink.replace(regraded)
     print(f"regraded {len(regraded)} records, {changed} changed", file=sys.stderr)
     print(report_module.render(report_module.summarise(regraded)))
@@ -402,7 +430,9 @@ def _questions(workspace: pathlib.Path) -> dict[str, str]:
 def _calibrate(args: argparse.Namespace) -> int:
     """An instrument that has not been checked against known answers is not a measurement."""
     cases = json.loads(pathlib.Path(args.cases).read_text(encoding="utf-8"))
-    judge_host = _judge_host(args.judge_host, args.judge_model)
+    judge_host = _judge_host(
+        args.judge_host, args.judge_model, reasoning_effort=args.judge_reasoning_effort
+    )
     if not _available(judge_host, "judge host"):
         return EXIT_ERROR
     judge = Judge(judge_host)
@@ -435,6 +465,8 @@ def _calibrate(args: argparse.Namespace) -> int:
                 {
                     "judge_host": judge_host.name,
                     "judge_model": judge.model,
+                    "judge_version": judge_host.spec.version(),
+                    "judge_reasoning_effort": judge_host.spec.reasoning_effort,
                     "code_revision": _code_revision(),
                     "rubric": judge_module.RUBRIC,
                     "agreed": agreed,
@@ -498,13 +530,27 @@ def _hosts(args: argparse.Namespace) -> int:
 
 
 def _interop(args: argparse.Namespace) -> int:
-    hosts = [_host(name) for name in args.hosts.split(",") if name.strip()]
+    names = [name.strip() for name in args.hosts.split(",") if name.strip()]
+    requested = []
+    if args.pairs:
+        requested = [tuple(pair.split(":", 1)) for pair in args.pairs.split(",")]
+        if any(len(pair) != 2 for pair in requested):
+            raise ValueError("--pairs entries must be writer:reader")
+        names = sorted({name for pair in requested for name in pair})
+    hosts = [_host(name) for name in names]
     missing = [host.name for host in hosts if not host.spec.available()]
     if missing:
         print(json.dumps({"error": "host binaries not found", "hosts": missing}), file=sys.stderr)
         return EXIT_ERROR
-    results = interop_module.matrix(
-        hosts, INTEROP_FACT, workspace_module.for_writing(args.workspace)
+    workspace = workspace_module.for_writing(args.workspace)
+    by_name = {host.name: host for host in hosts}
+    results = (
+        [
+            interop_module.check(by_name[writer], by_name[reader], INTEROP_FACT, workspace)
+            for writer, reader in requested
+        ]
+        if requested
+        else interop_module.matrix(hosts, INTEROP_FACT, workspace)
     )
     if args.json:
         print(json.dumps([result.as_dict() for result in results], indent=REPORT_INDENT))
@@ -532,15 +578,19 @@ def _available(host: Host, role: str) -> bool:
     return False
 
 
-def _judge_host(name: str, model: str = "") -> Host:
+def _judge_host(name: str, model: str = "", reasoning_effort: str = "") -> Host:
     # Retain the historical Claude judge model and retry policy. The tested host
     # never implicitly selects the judge; other dialects use their own defaults.
     selected = model or (JUDGE_MODEL if name == HOST_CLAUDE_CODE else "")
-    return _host(name, selected, attempts=3)
+    return _host(name, selected, attempts=3, reasoning_effort=reasoning_effort)
 
 
-def _host(name: str, model: str = "", attempts: int = 1) -> Host:
+def _host(
+    name: str, model: str = "", attempts: int = 1, reasoning_effort: str = ""
+) -> Host:
     """Model and provider come from the environment so a host is added without a code change."""
+    if reasoning_effort and name != HOST_MUSE_CODE:
+        raise ValueError("reasoning effort is currently supported only for muse-code")
     binary, default_model = BINARIES[name]
     return Host(
         HostSpec(
@@ -549,6 +599,7 @@ def _host(name: str, model: str = "", attempts: int = 1) -> Host:
             model=_affordable(model or os.environ.get(_model_env(name)) or default_model, name),
             provider=os.environ.get(_provider_env(name), HOST_PROVIDERS.get(name, "")),
             attempts=attempts,
+            reasoning_effort=reasoning_effort,
         )
     )
 

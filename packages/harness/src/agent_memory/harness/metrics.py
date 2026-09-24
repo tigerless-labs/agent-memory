@@ -57,6 +57,11 @@ class RunMetadata:
     code_revision: str
     judge_host: str = "claude-code"
     observe_reads: bool = False
+    host_version: str = ""
+    judge_version: str = ""
+    reasoning_effort: str = ""
+    judge_reasoning_effort: str = ""
+    workspace: str = ""
 
     def as_dict(self) -> dict[str, object]:
         return dataclasses.asdict(self)
@@ -74,6 +79,14 @@ class RunMetadataSink:
             # Original CLI metadata unambiguously used Claude Code.
             existing.setdefault("judge_host", "claude-code")
             existing.setdefault("observe_reads", False)
+            for key in (
+                "host_version",
+                "judge_version",
+                "reasoning_effort",
+                "judge_reasoning_effort",
+                "workspace",
+            ):
+                existing.setdefault(key, expected[key])
             if existing != expected:
                 raise ValueError("run metadata belongs to another experiment")
             return
@@ -85,12 +98,23 @@ class RunMetadataSink:
             json.dumps(expected, indent=2, sort_keys=True) + "\n", encoding="utf-8"
         )
 
-    def regrade(self, judge_host: str, judge_model: str) -> None:
+    def regrade(
+        self,
+        judge_host: str,
+        judge_model: str,
+        judge_version: str = "",
+        judge_reasoning_effort: str = "",
+    ) -> None:
         """Record the new instrument before replacing scores. In-place regraded
         workspaces are reportable but cannot resume, including interrupted writes."""
         if self._path.exists():
             metadata = json.loads(self._path.read_text(encoding="utf-8"))
-            metadata.update(judge_host=judge_host, judge_model=judge_model)
+            metadata.update(
+                judge_host=judge_host,
+                judge_model=judge_model,
+                judge_version=judge_version,
+                judge_reasoning_effort=judge_reasoning_effort,
+            )
             metadata["regraded"] = True
             self._path.write_text(
                 json.dumps(metadata, indent=2, sort_keys=True) + "\n", encoding="utf-8"

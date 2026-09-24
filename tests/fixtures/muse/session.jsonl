@@ -1,0 +1,4 @@
+{"sequence":1,"recorded_at":"2026-09-24T00:00:00Z","payload_type":"session.event","payload":{"event":{"kind":"user_message","text":"Remember that the deploy window is Friday."}}}
+{"sequence":2,"recorded_at":"2026-09-24T00:00:01Z","payload_type":"tool.result","payload":{"kind":"tool_result","text":"irrelevant tool output"}}
+{"sequence":3,"recorded_at":"2026-09-24T00:00:02Z","payload_type":"session.event","payload":{"event":{"kind":"assistant_message","text":"I will remember the Friday deploy window."}}}
+{"sequence":4,"recorded_at":"2026-09-24T00:00:03Z","payload_type":"session.event","payload":{"event":{"kind":"run_terminal","terminal":"completed","text":"I will remember the Friday deploy window."}}}
