@@ -39,13 +39,21 @@ def main() -> int:
         return 2
 
     repository = pathlib.Path.cwd().resolve()
+    parent_config = pathlib.Path(
+        os.environ.get("XDG_CONFIG_HOME", pathlib.Path.home() / ".config")
+    )
+    auth_path = pathlib.Path(
+        os.environ.get("MUSE_AUTH_PATH", parent_config / "muse" / "auth.json")
+    )
     with tempfile.TemporaryDirectory(prefix=".muse-preflight-", dir=repository) as external_raw:
         external = pathlib.Path(external_raw)
         store_root = external / "store"
         workspace = external / "workspace"
         config_home = external / "config"
+        data_home = external / "data"
         workspace.mkdir()
         config_home.joinpath("muse").mkdir(parents=True)
+        data_home.mkdir()
         store = Store(store_root, agent="muse-preflight")
         store.init()
         store.record(abstract=SENTINEL, body=SENTINEL, type="fact", name="probe-seed")
@@ -85,6 +93,9 @@ def main() -> int:
         environment = {
             **os.environ,
             "XDG_CONFIG_HOME": str(config_home),
+            "XDG_DATA_HOME": str(data_home),
+            "MUSE_AUTH_PATH": str(auth_path),
+            "MUSE_NO_AUTO_UPDATE": "1",
             "AGENT_MEMORY_STORE": str(store_root),
         }
 
