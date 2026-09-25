@@ -1,0 +1,4 @@
+{"schema_version":1,"sequence":1,"record_type":"event","payload_type":"runtime.session","payload_schema_version":1,"payload":{"event":{"kind":"started","prompt":"Remember that the deploy window is Friday."},"kind":"run","run_id":"fixture-run"}}
+{"schema_version":1,"sequence":2,"record_type":"event","payload_type":"runtime.session","payload_schema_version":1,"payload":{"event":{"kind":"tool_result","text":"irrelevant tool output"},"kind":"task","run_id":"fixture-run"}}
+{"schema_version":1,"sequence":3,"record_type":"event","payload_type":"runtime.session","payload_schema_version":1,"payload":{"event":{"kind":"assistant_message_committed","text":"I will remember the Friday deploy window."},"kind":"run","run_id":"fixture-run"}}
+{"schema_version":1,"sequence":4,"record_type":"event","payload_type":"runtime.session","payload_schema_version":1,"payload":{"event":{"kind":"terminal","terminal":"completed"},"kind":"run","run_id":"fixture-run"}}

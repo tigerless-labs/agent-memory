@@ -177,16 +177,83 @@ rm -rf ~/agent-memory-store/.index && mem rebuild
 ## Wire it into your agent
 
 ```bash
-mem setup --host claude-code   # or: --host codex
+mem setup --host claude-code   # or: --host codex / muse-code
 ```
 
-`setup` probes the host, appends the `mem-hook` command to its own hook dialect, and leaves the
+`setup` appends the `mem-hook` command to the selected host dialect and leaves the
 rest of the settings alone — SessionStart injects, Stop and SessionEnd distil, PreCompact
 evicts. Agents that speak MCP get the same core calls through `mem-mcp` (`memory_recall`,
 `memory_read`, `memory_trace`, `memory_record`, `memory_correct`, `memory_supersede`,
 `memory_merge`, `memory_delete`, `memory_feedback`). Anything that can run a
 shell command needs neither: the CLI is the universal fallback, and it is the wider surface —
 `context`, `sleep`, and the proposal ledger have no MCP tool yet.
+
+### Muse Code
+
+Install [Muse Code](https://dev.meta.ai/docs/muse-code), make sure both `muse` and
+`mem-hook` are on `PATH`, then install the lifecycle hooks:
+
+```bash
+mem setup --host muse-code
+```
+
+This merges `SessionStart`, `PreCompact`, `Stop`, and `SessionEnd` into
+`$XDG_CONFIG_HOME/muse/settings.json` (or `~/.config/muse/settings.json`) without replacing
+other settings, hooks, or MCP servers. It does not add per-turn writes. `SessionStart` injects
+the same bounded Memory index as other hosts; the three boundary events use the existing
+archive/distillation path. The installer checks both that `muse` is on `PATH` and that
+`muse --version` succeeds.
+
+Setup installs hooks only. To expose the existing MCP tools, merge this server into the same
+settings file and start a new Muse session:
+
+```json
+{
+  "schema_version": 1,
+  "mcp_servers": {
+    "agent-memory": {
+      "transport": "stdio",
+      "command": "mem-mcp",
+      "args": [],
+      "mode": "optional"
+    }
+  }
+}
+```
+
+Run `/mcp` in Muse to verify that `memory_recall`, `memory_read`, `memory_trace`,
+`memory_record`, `memory_correct`, `memory_supersede`, `memory_merge`, `memory_delete`, and
+`memory_feedback` are present. Muse passes `MUSE_SESSION_ID` to stdio servers; agent-memory
+does not yet add that value to provenance. Set `AGENT_MEMORY_STORE` in the MCP server's `env`
+entry when using a non-default store.
+
+Muse native memory under `.agents/memory/` and agent-memory's `AGENT_MEMORY_STORE` are separate
+systems. Setup does not read, write, copy, or synchronize Muse native memory. For attributable
+experiments, use a clean workspace with no `.agents/memory` content.
+
+Muse's default sandbox can read outside the workspace but writes only to the workspace and temp
+directories. Muse documents user hooks as outside the agent shell sandbox and MCP servers as
+external processes; use the included live preflight to verify both write paths on your Muse
+build before relying on the default external `~/agent-memory-store`. A Muse shell command such
+as `mem --json recall ...` can read it, but `mem record` from the shell cannot write it.
+The experiment adapter keeps the sandbox enabled and roots its temporary Store and workdir under
+one explicit experiment workspace. It never adds `--yolo` or `--disable-sandbox`.
+
+```bash
+uv run python tools/muse_sandbox_probe.py
+```
+
+Start with the three ordered portability mechanics before a full four-host matrix:
+
+```bash
+mem-exp interop --workspace /tmp/muse-memory-smoke \
+  --pairs muse-code:muse-code,muse-code:codex,codex:muse-code
+```
+
+Then omit `--pairs` and pass `--hosts claude-code,codex,hermes,muse-code` for the 4×4 matrix.
+Current limitations: only the root Muse session log is captured; child/observer logs are ignored,
+setup does not install MCP automatically, and live hook/MCP/sandbox behavior must be verified on a
+machine with Muse Code installed and authenticated.
 
 ## Let it sleep
 

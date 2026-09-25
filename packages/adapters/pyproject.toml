@@ -7,7 +7,7 @@ license = "MIT"
 dependencies = ["agent-memory-core"]
 
 [project.scripts]
-mem-hook = "agent_memory.adapters.hook_entry:main"
+mem-hook = "agent_memory.adapters.hook_entry:cli"
 
 [build-system]
 requires = ["hatchling"]

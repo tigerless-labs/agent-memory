@@ -7,6 +7,7 @@ import sys
 from collections.abc import Sequence
 from typing import TextIO
 
+from agent_memory.core import observation
 from agent_memory.core.errors import MemoryStoreError
 from agent_memory.core.store import Store
 
@@ -67,7 +68,10 @@ def _route(store: Store, method: str, params: object) -> dict[str, object]:
     if method == METHOD_CALL:
         name = str(arguments.get("name") or "")
         payload = arguments.get("arguments")
-        result = tools.dispatch(store, name, payload if isinstance(payload, dict) else {})
+        tool_arguments = payload if isinstance(payload, dict) else {}
+        observation.emit("mcp_tool_call", tool=name, arguments=tool_arguments)
+        result = tools.dispatch(store, name, tool_arguments)
+        observation.emit("mcp_tool_return", tool=name)
         return {
             "content": [{"type": "text", "text": json.dumps(result, sort_keys=True)}],
             "structuredContent": result,
