@@ -42,6 +42,8 @@ KEY_SUPERSEDES = "supersedes"
 KEY_PROVENANCE = "provenance"
 KEY_VALID_FROM = "valid_from"
 KEY_TYPE = "type"
+KEY_GROUP = "group"
+KEY_FIELDS = "fields"
 FENCE = "```"
 TYPE_PROFILE = "profile"
 RANGE_SEPARATOR = "-"
@@ -161,6 +163,15 @@ def check(spec: dict[str, object], sheet: Sheet) -> list[FieldError]:
     return errors
 
 
+def _restates_a_field(spec: dict[str, object]) -> bool:
+    """Executors echo the group field's value under a bare group key; the echo carries nothing."""
+    group = spec.get(KEY_GROUP)
+    fields = spec.get(KEY_FIELDS)
+    if not isinstance(group, str) or not isinstance(fields, dict):
+        return False
+    return group.strip().lower() in {str(value).strip().lower() for value in fields.values()}
+
+
 def _unsupported_addresses(spec: dict[str, object], sheet: Sheet) -> list[FieldError]:
     """An address is an identity: it is written only when the evidence itself states it.
 
@@ -188,6 +199,8 @@ def to_record_spec(spec: dict[str, object], sheet: Sheet) -> dict[str, object] |
         return None
     handle = str(spec.get(KEY_HANDLE) or spec.get(KEY_SUPERSEDES) or "")
     record_spec = {key: value for key, value in spec.items() if key not in (KEY_OP, KEY_HANDLE)}
+    if _restates_a_field(record_spec):
+        record_spec.pop(KEY_GROUP)
     if op == OP_SUPERSEDE:
         record_spec[KEY_SUPERSEDES] = handle
     elif op == OP_UPDATE:

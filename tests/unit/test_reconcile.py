@@ -250,3 +250,20 @@ def test_an_unsupported_email_in_a_group_field_is_refused_too(store):
     sheet = reconcile.build(store, "boundary", _messages(store))
     spec = _spec(fields={"project": "pipeline", "owner": "dev@example.com"})
     assert "fields" in {error.field for error in reconcile.check(spec, sheet)}
+
+
+def test_a_group_key_restating_a_field_value_is_dropped(store):
+    sheet = reconcile.build(store, "boundary", _messages(store))
+    spec = _spec(group="Pipeline", create_group=True)
+    assert reconcile.check(spec, sheet) == []
+    record_spec = reconcile.to_record_spec(spec, sheet)
+    assert "group" not in record_spec
+    written = store.record_many([record_spec])
+    assert [record.name for record in written.written] == ["queue-timeout"]
+
+
+def test_a_group_key_naming_something_else_still_reaches_validation(store):
+    sheet = reconcile.build(store, "boundary", _messages(store))
+    record_spec = reconcile.to_record_spec(_spec(group="elsewhere"), sheet)
+    assert record_spec["group"] == "elsewhere"
+    assert store.record_many([record_spec]).rejected
