@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import dataclasses
 import json
+import re
 
 from .config import Config
 from .errors import FieldError
@@ -44,6 +45,8 @@ KEY_TYPE = "type"
 FENCE = "```"
 TYPE_PROFILE = "profile"
 RANGE_SEPARATOR = "-"
+EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
+UNCHECKED_KEYS = (KEY_OP, KEY_HANDLE, KEY_PROVENANCE)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -153,6 +156,28 @@ def check(spec: dict[str, object], sheet: Sheet) -> list[FieldError]:
             errors.append(FieldError(KEY_HANDLE, f"{handle} is not on the reconcile sheet"))
     if op == OP_NEW and handle and handle in sheet.handle_names():
         errors.append(FieldError(KEY_HANDLE, f"{handle} exists; use update or supersede"))
+    if op != OP_SKIP:
+        errors.extend(_unsupported_addresses(spec, sheet))
+    return errors
+
+
+def _unsupported_addresses(spec: dict[str, object], sheet: Sheet) -> list[FieldError]:
+    """An address is an identity: it is written only when the evidence itself states it.
+
+    The host session that reasons can see its own account's address, and it was observed
+    attributing that address to the user."""
+    evidence = "\n".join([sheet.render(), *(message.text for message in sheet.messages)])
+    known = set(EMAIL.findall(evidence))
+    errors = []
+    for key, value in spec.items():
+        if key in UNCHECKED_KEYS:
+            continue
+        rendered = value if isinstance(value, str) else json.dumps(value)
+        stray = sorted(set(EMAIL.findall(rendered)) - known)
+        if stray:
+            errors.append(
+                FieldError(key, f"{', '.join(stray)} appears nowhere in the conversation")
+            )
     return errors
 
 

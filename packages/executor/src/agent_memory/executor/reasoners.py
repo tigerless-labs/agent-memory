@@ -14,17 +14,21 @@ from __future__ import annotations
 import dataclasses
 import json
 import os
+import shutil
 import urllib.error
 import urllib.request
 
+from agent_memory.core.config import EXECUTOR_ENV_VAR
+
 from .credentials import API_KEY_ENV, BASE_URL_ENV, VertexCredentials
-from .hosts import BINARIES, Host, HostSpec
+from .hosts import BINARIES, HOST_CLAUDE_CODE, Host, HostSpec
 
 CHAT_COMPLETIONS = "/chat/completions"
 DEFAULT_ENDPOINT_MODEL = "google/gemini-2.5-flash"
 DEFAULT_TIMEOUT_SECONDS = 120.0
 ROLE_USER = "user"
 EMPTY = ""
+CLAUDE_BUNDLED_ENV = "CLAUDE_CODE_EXECPATH"
 
 
 @dataclasses.dataclass
@@ -35,13 +39,21 @@ class HostReasoner:
     max_turns: int = 1
 
     def __call__(self, prompt: str) -> str:
-        result = self.host.run(prompt, tools_enabled=False, max_turns=self.max_turns)
+        result = self.host.run(
+            prompt,
+            tools_enabled=False,
+            max_turns=self.max_turns,
+            environment={EXECUTOR_ENV_VAR: "1"},
+        )
         return result.text if result.ok else EMPTY
 
     @classmethod
     def for_host(cls, name: str, model: str = EMPTY) -> HostReasoner:
         """A host is named by its dialect, not by its binary — `claude-code` runs `claude`."""
         binary, default_model = BINARIES.get(name, (name, EMPTY))
+        bundled = os.environ.get(CLAUDE_BUNDLED_ENV, EMPTY)
+        if name == HOST_CLAUDE_CODE and bundled and shutil.which(binary) is None:
+            binary = bundled
         return cls(host=Host(HostSpec(name=name, binary=binary, model=model or default_model)))
 
 

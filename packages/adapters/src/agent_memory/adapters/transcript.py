@@ -7,6 +7,9 @@ import pathlib
 
 TEXT_KEYS = ("text", "content", "summary")
 ROLE_KEYS = ("role", "type")
+PAYLOAD_KEY = "payload"
+CODEX_CONVERSATION = ("response_item", "message")
+CODEX_ROLES = ("user", "assistant")
 
 
 def items(path: pathlib.Path) -> list[str]:
@@ -33,12 +36,26 @@ def _render(entry: object) -> str:
         return entry.strip()
     if not isinstance(entry, dict):
         return ""
+    if PAYLOAD_KEY in entry:
+        return _render_payload(entry)
     role = next((str(entry[key]) for key in ROLE_KEYS if entry.get(key)), "")
     message = entry.get("message")
     body = _text(message if message is not None else entry)
     if not body:
         return ""
     return f"{role}: {body}".strip(": ").strip()
+
+
+def _render_payload(entry: dict[str, object]) -> str:
+    """A Codex rollout wraps every line; only user and assistant messages are the conversation."""
+    payload = entry[PAYLOAD_KEY]
+    if not isinstance(payload, dict):
+        return ""
+    if (entry.get("type"), payload.get("type")) != CODEX_CONVERSATION:
+        return ""
+    if payload.get("role") not in CODEX_ROLES:
+        return ""
+    return _render(payload)
 
 
 def _text(value: object) -> str:

@@ -18,10 +18,9 @@ DIALECTS: dict[str, dict[str, str]] = {
         "PreCompact": MOMENT_EVICT,
     },
     HOST_CODEX: {
-        "session_start": MOMENT_INJECT,
-        "turn_end": MOMENT_PAUSE,
-        "session_end": MOMENT_PAUSE,
-        "context_compaction": MOMENT_EVICT,
+        "SessionStart": MOMENT_INJECT,
+        "Stop": MOMENT_PAUSE,
+        "PreCompact": MOMENT_EVICT,
     },
     HOST_GENERIC: {
         MOMENT_INJECT: MOMENT_INJECT,

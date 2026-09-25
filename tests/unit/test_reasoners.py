@@ -91,3 +91,33 @@ def test_a_host_reasoner_is_named_by_dialect_and_runs_that_dialect_s_binary():
     assert reasoner.host.spec.binary == BINARIES[HOST_CLAUDE_CODE][0]
     assert reasoner.host.spec.binary != HOST_CLAUDE_CODE
     assert reasoner.host.spec.model == BINARIES[HOST_CLAUDE_CODE][1]
+
+
+def test_a_host_reasoner_marks_its_session_as_the_executor_so_hooks_stand_down():
+    from agent_memory.core.config import EXECUTOR_ENV_VAR
+
+    host = FakeHost(HostResult(text="", ok=True, seconds=0.1))
+    HostReasoner(host=host)("review this")
+    assert host.calls[0][1]["environment"][EXECUTOR_ENV_VAR]
+
+
+def test_the_default_executor_reasons_through_the_host_cli():
+    from agent_memory.core.config import ExecutorConfig
+    from agent_memory.executor import distiller
+
+    assert isinstance(distiller.distiller(ExecutorConfig()), HostReasoner)
+    chosen = distiller.distiller(ExecutorConfig(host="codex"))
+    assert chosen.host.spec.name == "codex"
+
+
+def test_an_executor_configured_for_an_endpoint_uses_it():
+    from agent_memory.core.config import ExecutorConfig
+    from agent_memory.executor import distiller
+
+    assert isinstance(distiller.distiller(ExecutorConfig(reasoner="endpoint")), EndpointReasoner)
+
+
+def test_the_claude_host_falls_back_to_the_desktop_bundled_binary(monkeypatch):
+    monkeypatch.setattr("shutil.which", lambda binary: None)
+    monkeypatch.setenv("CLAUDE_CODE_EXECPATH", "/opt/claude-desktop/claude")
+    assert HostReasoner.for_host("claude-code").host.spec.binary == "/opt/claude-desktop/claude"

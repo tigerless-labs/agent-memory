@@ -13,6 +13,7 @@ from agent_memory.core import context as context_module
 from agent_memory.core import distill as distill_module
 from agent_memory.core import migrate as migrate_module
 from agent_memory.core import pending, portability, prompts, reasoning, sessions, triggers
+from agent_memory.core.config import REASONER_ENDPOINT, REASONER_HOST
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
 from agent_memory.core.manage import Manage
 from agent_memory.core.observation import invoke as observe_invocation
@@ -20,12 +21,11 @@ from agent_memory.core.reasoning import Reasoner
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_FULL, LEVELS, Store
 from agent_memory.core.watermark import Watermark
-from agent_memory.executor import distiller, reasoners
-from agent_memory.executor.hosts import HOST_CLAUDE_CODE
+from agent_memory.executor import distiller
 
 SESSION_FLAG = "--session"
-REASON_HOST = "host"
-REASON_ENDPOINT = "endpoint"
+REASON_HOST = REASONER_HOST
+REASON_ENDPOINT = REASONER_ENDPOINT
 REASON_NONE = "none"
 EMIT_INDENT = 2
 FIELD_ERROR_KEYS = frozenset({"field", "reason"})
@@ -151,8 +151,8 @@ def _parser() -> argparse.ArgumentParser:
     still.add_argument(
         "--force", action="store_true", help="distill every backlog regardless of thresholds"
     )
-    still.add_argument("--reason", choices=(REASON_HOST, REASON_ENDPOINT), default=REASON_ENDPOINT)
-    still.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
+    still.add_argument("--reason", choices=(REASON_HOST, REASON_ENDPOINT), default=None)
+    still.add_argument("--reason-host", default=None)
     still.add_argument("--reason-model", default="")
     still.set_defaults(handler=_distill)
 
@@ -196,11 +196,11 @@ def _parser() -> argparse.ArgumentParser:
     sleeper.add_argument(
         "--reason",
         choices=(REASON_HOST, REASON_ENDPOINT, REASON_NONE),
-        default=REASON_ENDPOINT,
-        help="who rules on the open proposals: the library executor (default), an agent CLI, "
-        "or nobody",
+        default=None,
+        help="who rules on the open proposals: the configured executor (default), an agent CLI, "
+        "a model endpoint, or nobody",
     )
-    sleeper.add_argument("--reason-host", default=HOST_CLAUDE_CODE)
+    sleeper.add_argument("--reason-host", default=None)
     sleeper.add_argument("--reason-model", default="")
     sleeper.set_defaults(handler=_sleep)
 
@@ -462,14 +462,17 @@ def _sleep(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 
 def _reasoner(store: Store, args: argparse.Namespace) -> Reasoner | None:
-    if args.reason == REASON_HOST:
-        return reasoners.HostReasoner.for_host(args.reason_host, model=args.reason_model)
-    if args.reason == REASON_ENDPOINT:
-        executor = store.config.executor
-        if args.reason_model:
-            executor = dataclasses.replace(executor, model=args.reason_model)
-        return distiller.distiller(executor)
-    return None
+    if args.reason == REASON_NONE:
+        return None
+    executor = store.config.executor
+    if args.reason:
+        executor = dataclasses.replace(executor, reasoner=args.reason)
+    if args.reason_host:
+        executor = dataclasses.replace(executor, host=args.reason_host)
+    if args.reason_model:
+        model_knob = "model" if executor.reasoner == REASON_ENDPOINT else "host_model"
+        executor = dataclasses.replace(executor, **{model_knob: args.reason_model})
+    return distiller.distiller(executor)
 
 
 def _gc(store: Store, args: argparse.Namespace) -> dict[str, object]:

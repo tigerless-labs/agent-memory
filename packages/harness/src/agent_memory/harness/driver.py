@@ -13,7 +13,7 @@ import time
 import uuid
 
 from agent_memory.core import observation
-from agent_memory.core.config import Config
+from agent_memory.core.config import REASONER_ENDPOINT, Config
 from agent_memory.core.distill import Ask
 from agent_memory.executor import distiller
 from agent_memory.executor.hosts import Host
@@ -71,7 +71,11 @@ class Driver:
         self._exam_mode = exam_mode
         self._manage = manage
         self._system = system or NativeSystem(config)
-        self._ask = ask or distiller.distiller((config or Config.default()).executor)
+        self._ask = ask or distiller.distiller(
+            dataclasses.replace(
+                (config or Config.default()).executor, reasoner=REASONER_ENDPOINT
+            )
+        )
         if exam_mode == exam_module.MODE_FIXED and not self._system.supports_fixed_exam:
             raise ValueError(
                 f"the fixed exam needs a harness-side context builder, "
