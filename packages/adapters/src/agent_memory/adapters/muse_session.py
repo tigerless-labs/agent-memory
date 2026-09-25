@@ -13,6 +13,7 @@ import pathlib
 USER_KINDS = {"user", "user_message", "user_input", "prompt", "turn_input"}
 ASSISTANT_KINDS = {
     "assistant",
+    "assistant_message_committed",
     "assistant_message",
     "assistant_output",
     "final_answer",
@@ -45,6 +46,8 @@ def _conversation_item(record: object) -> str:
     if not isinstance(event, dict):
         return ""
     role = str(event.get("role") or event.get("kind") or "").lower()
+    if role == "started" and payload.get("kind") == "run" and event.get("prompt"):
+        role = "turn_input"
     if role == "run_terminal" and str(event.get("terminal") or "").lower() != "completed":
         return ""
     if role not in USER_KINDS | ASSISTANT_KINDS:
