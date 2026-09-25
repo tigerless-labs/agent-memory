@@ -17,8 +17,7 @@ def store_lock(layout: StoreLayout) -> Iterator[None]:
     timeout = layout.config.storage.lock_timeout_seconds
     poll = layout.config.storage.lock_poll_seconds
     deadline = time.monotonic() + timeout
-    handle = layout.lock_file.open("a+")
-    try:
+    with layout.lock_file.open("a+", encoding="utf-8") as handle:
         while True:
             try:
                 fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -31,5 +30,3 @@ def store_lock(layout: StoreLayout) -> Iterator[None]:
             yield
         finally:
             fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
-    finally:
-        handle.close()
