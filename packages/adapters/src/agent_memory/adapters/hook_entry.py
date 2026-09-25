@@ -139,11 +139,17 @@ def _arm(seconds: float) -> None:
     def _raise(signum: int, frame: FrameType | None) -> None:
         raise _Timeout()
 
+    # SIGALRM and setitimer are POSIX-only. On Windows the hook simply runs
+    # without a wall-clock guard rather than failing to start.
+    if not hasattr(signal, "SIGALRM"):
+        return
     signal.signal(signal.SIGALRM, _raise)
     signal.setitimer(signal.ITIMER_REAL, seconds)
 
 
 def _disarm() -> None:
+    if not hasattr(signal, "setitimer"):
+        return
     signal.setitimer(signal.ITIMER_REAL, 0)
 
 
