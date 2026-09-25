@@ -6,7 +6,9 @@ in exit code 0 and any trouble goes to the store's own log.
 
 from __future__ import annotations
 
+import argparse
 import json
+import os
 import pathlib
 import shlex
 import signal
@@ -17,6 +19,7 @@ from collections.abc import Callable, Sequence
 from types import FrameType
 
 from agent_memory.core import injection
+from agent_memory.core.config import EXECUTOR_ENV_VAR, STORE_ENV_VAR
 from agent_memory.core.store import Store
 
 from . import capture as capture_module
@@ -32,13 +35,17 @@ KEY_HOST = "host"
 KEY_ITEMS = "items"
 CLAUDE_OUTPUT_KEY = "hookSpecificOutput"
 CLAUDE_CONTEXT_KEY = "additionalContext"
+CLAUDE_EVENT_OUTPUT_KEY = "hookEventName"
 KEY_DISTILL = "distill"
 DISTILL_LAUNCHED = "launched"
 DISTILL_SKIPPED = "skipped"
 SESSION_FLAG = "--session"
-STORE_FLAG = "--store"
+REASON_HOST_FLAG = "--reason-host"
+HOST_FLAG = "--host"
+EXECUTOR_BINARY = "mem"
+PRINTED_KEYS = (CLAUDE_OUTPUT_KEY, CLAUDE_CONTEXT_KEY)
 
-Launcher = Callable[[Store, str], bool]
+Launcher = Callable[[Store, str, str], bool]
 
 
 class _Timeout(Exception):
@@ -46,13 +53,20 @@ class _Timeout(Exception):
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    """Hooks fired by the executor's own host session stand down, or distillation recurses."""
+    if os.environ.get(EXECUTOR_ENV_VAR):
+        return EXIT_OK
     store: Store | None = None
     try:
+        parser = argparse.ArgumentParser(prog="mem-hook")
+        parser.add_argument(HOST_FLAG, default=moments.HOST_CLAUDE_CODE)
+        host = parser.parse_known_args(argv)[0].host
         event = json.loads(sys.stdin.read() or "{}")
+        event.setdefault(KEY_HOST, host)
         store = Store(event.get("store"), agent=str(event.get("agent") or "hook"))
         _arm(store.config.write.hook_timeout_seconds)
         response = handle(store, event)
-        if response:
+        if any(key in response for key in PRINTED_KEYS):
             print(json.dumps(response))
     except Exception:
         _log(store, traceback.format_exc())
@@ -70,7 +84,7 @@ def handle(
     if moment == moments.MOMENT_INJECT:
         return _inject(store, host)
     if moment in (moments.MOMENT_PAUSE, moments.MOMENT_EVICT):
-        return _boundary(store, event, moment, launch or launch_distill)
+        return _boundary(store, event, host, moment, launch or launch_distill)
     return {}
 
 
@@ -78,10 +92,10 @@ def _inject(store: Store, host: str) -> dict[str, object]:
     context = injection.payload(store)
     if not context:
         return {}
-    if host == moments.HOST_CLAUDE_CODE:
+    if host in (moments.HOST_CLAUDE_CODE, moments.HOST_CODEX):
         return {
             CLAUDE_OUTPUT_KEY: {
-                KEY_EVENT_CLAUDE: "SessionStart",
+                CLAUDE_EVENT_OUTPUT_KEY: "SessionStart",
                 CLAUDE_CONTEXT_KEY: context,
             }
         }
@@ -89,7 +103,7 @@ def _inject(store: Store, host: str) -> dict[str, object]:
 
 
 def _boundary(
-    store: Store, event: dict[str, object], moment: str, launch: Launcher
+    store: Store, event: dict[str, object], host: str, moment: str, launch: Launcher
 ) -> dict[str, object]:
     session = str(event.get(KEY_SESSION) or "")
     if not session:
@@ -98,7 +112,7 @@ def _boundary(
     result = capture_module.capture(store, session, items, source=moment)
     if result.is_empty():
         return {}
-    launched = store.config.write.distill_on_boundary and launch(store, session)
+    launched = store.config.write.distill_on_boundary and launch(store, session, host)
     return {
         "moment": moment,
         "session": session,
@@ -109,14 +123,21 @@ def _boundary(
     }
 
 
-def launch_distill(store: Store, session: str) -> bool:
-    """The executor runs in its own process so the host's turn ends without waiting on it."""
+def launch_distill(store: Store, session: str, host: str) -> bool:
+    """The executor runs in its own process so the host's turn ends without waiting on it.
+
+    It reasons through the host that fired the boundary, and it is marked as the executor so
+    the hooks of its own host session do not start another distillation."""
     command = shlex.split(store.config.executor.command)
     if not command:
         return False
+    if command[0] == EXECUTOR_BINARY:
+        command[0] = _sibling(EXECUTOR_BINARY)
+    environment = {**os.environ, STORE_ENV_VAR: str(store.root), EXECUTOR_ENV_VAR: "1"}
     try:
         subprocess.Popen(
-            [*command, STORE_FLAG, str(store.root), SESSION_FLAG, session],
+            [*command, SESSION_FLAG, session, REASON_HOST_FLAG, host],
+            env=environment,
             stdin=subprocess.DEVNULL,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
@@ -125,6 +146,12 @@ def launch_distill(store: Store, session: str) -> bool:
     except OSError:
         return False
     return True
+
+
+def _sibling(binary: str) -> str:
+    """Desktop clients run hooks without the user's shell PATH; the install directory is known."""
+    candidate = pathlib.Path(sys.executable).parent / binary
+    return str(candidate) if candidate.exists() else binary
 
 
 def _items(event: dict[str, object]) -> list[str]:

@@ -75,7 +75,8 @@ def test_injection_is_truncated_at_a_line_boundary_when_it_exceeds_the_budget(se
     [
         (moments.HOST_CLAUDE_CODE, "SessionStart", moments.MOMENT_INJECT),
         (moments.HOST_CLAUDE_CODE, "PreCompact", moments.MOMENT_EVICT),
-        (moments.HOST_CODEX, "session_end", moments.MOMENT_PAUSE),
+        (moments.HOST_CODEX, "Stop", moments.MOMENT_PAUSE),
+        (moments.HOST_CODEX, "SessionStart", moments.MOMENT_INJECT),
         (moments.HOST_CLAUDE_CODE, "NotAThing", None),
     ],
 )
@@ -92,15 +93,16 @@ def test_hook_injects_memory_md_at_session_start(seeded):
     response = hook_entry.handle(
         seeded, {"host": moments.HOST_CLAUDE_CODE, "hook_event_name": "SessionStart"}
     )
-    context = response[hook_entry.CLAUDE_OUTPUT_KEY][hook_entry.CLAUDE_CONTEXT_KEY]
-    assert context == injection.payload(seeded)
+    output = response[hook_entry.CLAUDE_OUTPUT_KEY]
+    assert output[hook_entry.CLAUDE_CONTEXT_KEY] == injection.payload(seeded)
+    assert output["hookEventName"] == "SessionStart"
 
 
 @pytest.mark.parametrize(
     ("host", "event"),
     [
         (moments.HOST_CLAUDE_CODE, "Stop"),
-        (moments.HOST_CODEX, "turn_end"),
+        (moments.HOST_CODEX, "Stop"),
         (moments.HOST_GENERIC, moments.MOMENT_PAUSE),
     ],
 )
@@ -109,8 +111,8 @@ def test_every_host_hook_archives_the_increment_and_launches_the_same_executor_c
 ):
     launches = []
 
-    def launch(launched_store, session):
-        launches.append((launched_store.root, session))
+    def launch(launched_store, session, launched_host):
+        launches.append((launched_store.root, session, launched_host))
         return True
 
     response = hook_entry.handle(
@@ -126,7 +128,7 @@ def test_every_host_hook_archives_the_increment_and_launches_the_same_executor_c
     )
     assert response["pending"] == len(SEGMENTS)
     assert response[hook_entry.KEY_DISTILL] == hook_entry.DISTILL_LAUNCHED
-    assert launches == [(store.root, host)]
+    assert launches == [(store.root, host, host)]
     assert hook_entry.CLAUDE_CONTEXT_KEY not in response
     assert len(sessions.read(store.layout, host)) == len(SEGMENTS)
 
@@ -177,3 +179,104 @@ def test_setup_is_idempotent_and_leaves_foreign_settings_alone(tmp_path):
     assert once == twice
     assert twice["theme"] == "dark"
     assert set(twice["hooks"]) == set(moments.DIALECTS[moments.HOST_CLAUDE_CODE])
+
+
+def _stop_event(store, session="s"):
+    return {
+        "host": moments.HOST_CLAUDE_CODE,
+        "hook_event_name": "Stop",
+        "session_id": session,
+        "items": SEGMENTS,
+        "store": str(store.root),
+    }
+
+
+def test_the_launched_executor_call_is_one_the_cli_accepts(store, monkeypatch):
+    from agent_memory.cli.main import _parser
+    from agent_memory.core.config import EXECUTOR_ENV_VAR, STORE_ENV_VAR
+
+    launched = {}
+
+    def fake_popen(command, **kwargs):
+        launched.update(command=command, env=kwargs["env"])
+
+    monkeypatch.setattr("subprocess.Popen", fake_popen)
+    assert hook_entry.launch_distill(store, "session-x", moments.HOST_CODEX)
+    args = _parser().parse_args(launched["command"][1:])
+    assert args.session == ["session-x"]
+    assert args.reason_host == moments.HOST_CODEX
+    assert launched["env"][STORE_ENV_VAR] == str(store.root)
+    assert launched["env"][EXECUTOR_ENV_VAR]
+
+
+def test_a_hook_fired_inside_the_executor_session_does_nothing(store, monkeypatch, capsys):
+    from agent_memory.core.config import EXECUTOR_ENV_VAR
+
+    monkeypatch.setenv(EXECUTOR_ENV_VAR, "1")
+    monkeypatch.setattr("sys.stdin", io.StringIO(json.dumps(_stop_event(store))))
+    assert hook_entry.main() == hook_entry.EXIT_OK
+    assert capsys.readouterr().out == ""
+    assert sessions.read(store.layout, "s") == []
+
+
+def test_a_boundary_hook_prints_nothing_for_the_host_to_parse(store, monkeypatch, capsys):
+    monkeypatch.setattr(hook_entry, "launch_distill", lambda *_: True)
+    monkeypatch.setattr("sys.stdin", io.StringIO(json.dumps(_stop_event(store))))
+    assert hook_entry.main() == hook_entry.EXIT_OK
+    assert capsys.readouterr().out == ""
+    assert len(sessions.read(store.layout, "s")) == len(SEGMENTS)
+
+
+def test_the_hook_takes_its_host_from_the_command_line(store, monkeypatch):
+    hosts = []
+    monkeypatch.setattr(hook_entry, "launch_distill", lambda s, session, host: hosts.append(host))
+    event = {key: value for key, value in _stop_event(store).items() if key != "host"}
+    monkeypatch.setattr("sys.stdin", io.StringIO(json.dumps(event)))
+    hook_entry.main(["--host", moments.HOST_CODEX])
+    assert hosts == [moments.HOST_CODEX]
+
+
+def test_codex_rollout_transcripts_yield_the_conversation(tmp_path):
+    def item(payload):
+        return json.dumps({"type": "response_item", "payload": payload})
+
+    path = tmp_path / "rollout.jsonl"
+    path.write_text(
+        "\n".join(
+            [
+                json.dumps({"type": "session_meta", "payload": {"id": "x", "cwd": "/w"}}),
+                item(
+                    {
+                        "type": "message",
+                        "role": "user",
+                        "content": [{"type": "input_text", "text": "we deploy on Fridays"}],
+                    }
+                ),
+                item(
+                    {
+                        "type": "message",
+                        "role": "assistant",
+                        "content": [{"type": "output_text", "text": "noted"}],
+                    }
+                ),
+                json.dumps({"type": "event_msg", "payload": {"type": "token_count"}}),
+            ]
+        ),
+        encoding="utf-8",
+    )
+    assert transcript.items(path) == ["user: we deploy on Fridays", "assistant: noted"]
+
+
+@pytest.mark.parametrize("host", [moments.HOST_CLAUDE_CODE, moments.HOST_CODEX])
+def test_setup_writes_an_absolute_hook_command_and_installs_the_skill(tmp_path, host):
+    from agent_memory.core import prompts
+
+    settings = tmp_path / host / "hooks.json"
+    setup.install(host, settings)
+    hooks = json.loads(settings.read_text(encoding="utf-8"))["hooks"]
+    assert set(hooks) == set(moments.DIALECTS[host])
+    command = hooks["Stop"][0]["hooks"][0]["command"]
+    executable = command.split()[0]
+    assert executable.endswith(setup.HOOK_COMMAND) and executable.startswith("/")
+    skill = settings.parent / "skills" / "agent-memory" / "SKILL.md"
+    assert skill.read_text(encoding="utf-8") == prompts.skill()

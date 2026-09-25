@@ -9,6 +9,9 @@ import tomllib
 
 CONFIG_FILENAME = "config.toml"
 STORE_ENV_VAR = "AGENT_MEMORY_STORE"
+EXECUTOR_ENV_VAR = "AGENT_MEMORY_EXECUTOR"
+REASONER_HOST = "host"
+REASONER_ENDPOINT = "endpoint"
 DEFAULT_STORE = "~/agent-memory-store"
 LEGACY_KNOBS = {
     "index": frozenset({"raw_chunk_chars"}),
@@ -127,6 +130,9 @@ class WriteConfig:
 
 @dataclasses.dataclass
 class ExecutorConfig:
+    reasoner: str = REASONER_HOST
+    host: str = "claude-code"
+    host_model: str = ""
     model: str = "google/gemini-3.7-flash"
     endpoint: str = ""
     project: str = "tigerless-seo"

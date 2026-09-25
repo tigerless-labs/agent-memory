@@ -147,9 +147,7 @@ uv sync --all-packages
 ```
 
 That builds `mem`, `mem-mcp`, and `mem-hook` into `.venv/bin`. Inside the checkout `uv run mem`
-reaches them; put the directory on your `PATH` so your agents can too — the hook installed in
-the next section is a bare `mem-hook` command, and a host that cannot resolve it records
-nothing:
+reaches them; put the directory on your `PATH` so your shell can too:
 
 ```bash
 export PATH="$PWD/.venv/bin:$PATH"
@@ -180,9 +178,12 @@ rm -rf ~/agent-memory-store/.index && mem rebuild
 mem setup --host claude-code   # or: --host codex
 ```
 
-`setup` probes the host, appends the `mem-hook` command to its own hook dialect, and leaves the
-rest of the settings alone — SessionStart injects, Stop and SessionEnd distil, PreCompact
-evicts. Agents that speak MCP get the same core calls through `mem-mcp` (`memory_recall`,
+`setup` probes the host, appends the `mem-hook` command to its own hook dialect by absolute
+path — so desktop clients that never read your shell's `PATH` still reach it — installs the
+agent-memory skill, and leaves the rest of the settings alone. SessionStart injects, Stop and
+SessionEnd distil, PreCompact evicts. Distillation reasons through the same host's CLI in the
+background, on your existing login; point `[executor]` in `config.toml` at a model endpoint
+instead if you would rather not spend it. Codex asks you to trust new hooks once. Agents that speak MCP get the same core calls through `mem-mcp` (`memory_recall`,
 `memory_read`, `memory_trace`, `memory_record`, `memory_correct`, `memory_supersede`,
 `memory_merge`, `memory_delete`, `memory_feedback`). Anything that can run a
 shell command needs neither: the CLI is the universal fallback, and it is the wider surface —

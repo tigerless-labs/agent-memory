@@ -229,3 +229,24 @@ def test_a_near_synonym_for_a_verb_is_read_as_the_verb(store):
     assert reconcile.to_record_spec(_spec(op="Insert"), sheet)["abstract"]
     assert reconcile.to_record_spec(_spec(op="ignore"), sheet) is None
     assert reconcile.check(_spec(op="explode"), sheet)
+
+
+def test_an_email_address_the_conversation_never_mentions_is_refused(store):
+    sheet = reconcile.build(store, "boundary", _messages(store))
+    errors = reconcile.check(
+        _spec(abstract="dev@example.com runs the queue", fields={"project": "pipeline"}), sheet
+    )
+    assert "abstract" in {error.field for error in errors}
+
+
+def test_an_email_address_quoted_from_the_conversation_is_kept(store):
+    lines = [*LINES, "user: page oncall@example.com when the queue stalls"]
+    sheet = reconcile.build(store, "boundary", _messages(store, lines=lines))
+    spec = _spec(abstract="Queue stalls page oncall@example.com")
+    assert reconcile.check(spec, sheet) == []
+
+
+def test_an_unsupported_email_in_a_group_field_is_refused_too(store):
+    sheet = reconcile.build(store, "boundary", _messages(store))
+    spec = _spec(fields={"project": "pipeline", "owner": "dev@example.com"})
+    assert "fields" in {error.field for error in reconcile.check(spec, sheet)}

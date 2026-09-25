@@ -36,9 +36,9 @@ has no M, or buries it in the write path.
    by distillation must remain recoverable from `archive/`. Why: "missed by the distiller"
    must never mean "lost by the system".
 5. **The library core contains no LLM client.** Intelligence lives in the executor package,
-   which calls a model endpoint (default Gemini 3.7 Flash) for distillation and for Manage;
-   hosts only capture, trigger, inject and recall. Why: one extraction for every host, write
-   coverage that does not drift with the host model, and a core that stays testable without
+   which reasons through the host's own CLI by default, or a configured model endpoint, for
+   distillation and for Manage; hosts only capture, trigger, inject and recall. Why: zero keys
+   to install, one extraction pipeline for every host, and a core that stays testable without
    a network.
 6. **Manage never destroys information.** Every Manage operation is reversible: T0 is
    rule-only (dates, weight, links, directories), T1 is decided by the library executor and

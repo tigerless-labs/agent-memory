@@ -111,6 +111,8 @@ def test_the_distiller_hands_the_configured_project_to_the_minter():
     from agent_memory.core.config import ExecutorConfig
     from agent_memory.executor.distiller import distiller
 
-    reasoner = distiller(ExecutorConfig(project="built-in", location="global"))
+    reasoner = distiller(
+        ExecutorConfig(reasoner="endpoint", project="built-in", location="global")
+    )
     assert reasoner.credentials.project == "built-in"
     assert reasoner.credentials.location == "global"
