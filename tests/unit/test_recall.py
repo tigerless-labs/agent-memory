@@ -90,6 +90,49 @@ def test_scope_matches_a_complete_path_component(store):
     assert _names(hits) == ["active-scope-marker"]
 
 
+def test_scope_filters_matches_before_the_candidate_pool_is_truncated(store):
+    pool = store.config.recall.candidate_pool_multiplier
+    specs = [
+        {
+            "abstract": "scopeprobe scopeprobe scopeprobe",
+            "type": "decision",
+            "fields": {"project": "outside"},
+            "name": f"outside-{index}",
+        }
+        for index in range(pool + 1)
+    ]
+    specs.append(
+        {
+            "abstract": "scopeprobe",
+            "type": "decision",
+            "fields": {"project": "inside"},
+            "name": "inside-scopeprobe",
+        }
+    )
+    assert not store.record_many(specs).rejected
+
+    hits = Recall(store).recall("scopeprobe", scope="decision/inside", limit=1)
+
+    assert _names(hits) == ["inside-scopeprobe"]
+
+
+def test_scope_applies_to_historical_candidates(store, clock):
+    store.record(
+        abstract="scopehistory",
+        type="decision",
+        fields={"project": "inside"},
+        name="inside-scopehistory",
+    )
+    clock.advance(days=1)
+    store.delete("inside-scopehistory")
+
+    hits = Recall(store).recall(
+        "scopehistory", scope="decision/inside", as_of="2026-01-15T09:00:00Z"
+    )
+
+    assert _names(hits) == ["inside-scopehistory"]
+
+
 def test_l0_entries_carry_the_full_contract(seeded):
     hit = Recall(seeded).recall("E4021")[0]
     payload = hit.as_dict()

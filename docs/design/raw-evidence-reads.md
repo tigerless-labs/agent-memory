@@ -7,6 +7,8 @@ fails explicitly. An explicit historical memory remains readable with its validi
 state; evidence from it does not become current truth.
 
 Recall searches Memory only, using an explicit limit when more candidates are useful.
+Requested path scope filters Memory before a candidate limit is applied, so unrelated
+matches cannot hide a relevant scoped memory.
 Trace remains an explicit read capability bound to a selected Memory citation. Archived
 sessions stay available for audit and redistillation. Reused stores project their indexes
 before an exam so retrieval sees the same truth files that a fresh store would.

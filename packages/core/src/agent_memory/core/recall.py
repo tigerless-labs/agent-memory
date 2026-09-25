@@ -92,11 +92,16 @@ class Recall:
         if limit < 1:
             raise ValueError("limit must be positive")
         pool = limit * self._config.recall.candidate_pool_multiplier
+        scope_path = (
+            "/".join(pathlib.PurePath(scope.strip("/\\")).parts) if scope else None
+        )
         with self._database.connect() as connection:
             index = SearchIndex(connection)
-            candidates = index.match(query, pool, SURFACE_ACTIVE)
+            candidates = index.match(query, pool, SURFACE_ACTIVE, scope_path=scope_path)
             if as_of is not None:
-                candidates = candidates + index.match(query, pool, SURFACE_HISTORY)
+                candidates = candidates + index.match(
+                    query, pool, SURFACE_HISTORY, scope_path=scope_path
+                )
             eligible = self._eligible(index.rows(), scope=scope, as_of=as_of)
             if self._config.index.vector_enabled:
                 assert self._store.embedder is not None

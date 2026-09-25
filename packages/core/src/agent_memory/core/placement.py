@@ -102,7 +102,9 @@ def resolve(
         raw_group = settled[schema.group]
         group = portable_segment(raw_group, config)
         if not group:
-            raise ValidationError([FieldError(schema.group, "empty after slugging")])
+            raise ValidationError(
+                [FieldError(schema.group, "has no ASCII letters or digits to name its directory")]
+            )
         source = source_of(schema.group, config)
         if source == SOURCE_MENU and not (
             group in existing_groups or group == config.storage.default_group or create_group
@@ -125,7 +127,14 @@ def resolve(
         SEGMENT_SEPARATOR.join(settled[field] for field in schema.key_without_group), config
     )
     if not stem:
-        raise ValidationError([FieldError("name", "key fields produce an empty name")])
+        raise ValidationError(
+            [
+                FieldError(
+                    "name",
+                    "key fields have no ASCII letters or digits to name the file; pass name",
+                )
+            ]
+        )
     parts = [schema.type] + ([group] if group else []) + [stem + MEMORY_SUFFIX]
     if len(parts) > config.storage.max_depth:
         raise ValidationError([FieldError("path", "exceeds max_depth")])

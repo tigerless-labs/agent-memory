@@ -57,6 +57,13 @@ def test_invalid_write_returns_a_structured_error_and_a_distinct_exit_code(cli):
     assert any(error["field"] == "type" for error in payload["errors"])
 
 
+def test_a_rejected_write_prints_the_field_and_the_reason(cli, capsys):
+    argv = ("record", "--type", "fact", "--abstract", "重构后的部署流程记录")
+    (error,) = cli(*argv, expect=EXIT_INVALID)["errors"]
+    assert main(["--store", str(cli.root), *argv]) == EXIT_INVALID
+    assert f"{error['field']}: {error['reason']}" in capsys.readouterr().err
+
+
 def test_read_levels_are_available_from_the_command_line(cli):
     cli(
         "record",

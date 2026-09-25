@@ -84,17 +84,36 @@ class SearchIndex:
     def row(self, name: str) -> sqlite3.Row | None:
         return self._connection.execute("SELECT * FROM records WHERE name = ?", (name,)).fetchone()
 
-    def match(self, query: str, pool: int, surface: str = SURFACE_ACTIVE) -> list[Candidate]:
+    def match(
+        self,
+        query: str,
+        pool: int,
+        surface: str = SURFACE_ACTIVE,
+        *,
+        scope_path: str | None = None,
+    ) -> list[Candidate]:
         if surface not in SURFACES:
             raise ValueError(f"unknown surface {surface}")
         expression = to_match_query(query)
-        if not expression:
+        if not expression or scope_path == "":
             return []
-        rows = self._connection.execute(
-            f"SELECT name, kind, anchor, heading, bm25({surface}) AS rank FROM {surface} "
-            f"WHERE {surface} MATCH ? ORDER BY rank LIMIT ?",
-            (expression, pool),
-        ).fetchall()
+        if scope_path is None:
+            statement = (
+                f"SELECT name, kind, anchor, heading, bm25({surface}) AS rank FROM {surface} "
+                f"WHERE {surface} MATCH ? ORDER BY rank LIMIT ?"
+            )
+            parameters: tuple[object, ...] = (expression, pool)
+        else:
+            prefix = scope_path + "/"
+            statement = (
+                f"SELECT {surface}.name, kind, anchor, heading, bm25({surface}) AS rank "
+                f"FROM {surface} JOIN records ON records.name = {surface}.name "
+                f"WHERE {surface} MATCH ? "
+                "AND (records.path = ? OR substr(records.path, 1, ?) = ?) "
+                "ORDER BY rank LIMIT ?"
+            )
+            parameters = (expression, scope_path, len(prefix), prefix, pool)
+        rows = self._connection.execute(statement, parameters).fetchall()
         return [
             Candidate(
                 name=row["name"],
