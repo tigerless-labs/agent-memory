@@ -73,6 +73,8 @@ def test_exact_duplicates_are_merged_by_supersede_not_by_deletion(seeded):
         abstract=original.abstract,
         type=original.type,
         body=original.body,
+        fields=original.fields,
+        valid_from=original.valid_from,
         name="file-truth-invariant-copy",
     )
     report = Manage(seeded).sleep()
@@ -80,6 +82,111 @@ def test_exact_duplicates_are_merged_by_supersede_not_by_deletion(seeded):
     copy = seeded.find("file-truth-invariant-copy")
     assert copy is not None
     assert copy.superseded_by == "file-truth-invariant"
+
+
+@pytest.mark.parametrize("field", ["abstract", "body"])
+@pytest.mark.parametrize(
+    ("left", "right"),
+    [
+        pytest.param("缓存保存商品价格", "订单必须校验库存", id="chinese"),
+        pytest.param("Alice approves Bob", "Bob approves Alice", id="word-order"),
+        pytest.param("retry retry stop", "retry stop stop", id="repetition"),
+        pytest.param("enable read and write", "enable read or write", id="stopwords"),
+        pytest.param("set MODE=ON", "set mode=on", id="case"),
+        pytest.param("allow a-b", "allow a+b", id="punctuation"),
+        pytest.param("cache ttl", "cache  ttl", id="internal-whitespace"),
+        pytest.param("café", "cafe\u0301", id="unicode-representation"),
+    ],
+)
+def test_t0_preserves_distinct_text(store, field, left, right):
+    common = {
+        "type": "fact",
+        "fields": {"project": "shop", "subject": "policy"},
+        "abstract": "Cache policy applies here",
+        "body": "Preserve the stated rule.",
+    }
+    for name, text in (("first", left), ("second", right)):
+        store.record(name=name, **{**common, field: text})
+
+    report = Manage(store).sleep()
+
+    assert {record.name for record in store.records()} == {"first", "second"}
+    assert ACTION_DUPLICATE_MERGED not in _kinds(report)
+
+
+@pytest.mark.parametrize(
+    "difference",
+    [
+        pytest.param({"type": "decision"}, id="type"),
+        pytest.param({"fields": {"project": "billing", "subject": "policy"}}, id="project"),
+        pytest.param({"fields": {"project": "shop", "subject": "other"}}, id="subject"),
+        pytest.param(
+            {"fields": {"project": "shop", "subject": "policy", "tenant": "beta"}},
+            id="custom-field",
+        ),
+        pytest.param({"valid_from": "2025-01-01"}, id="validity"),
+        pytest.param({"author": "another-agent"}, id="author"),
+        pytest.param({"links": ["target"]}, id="links"),
+        pytest.param({"provenance": ["Independent source evidence."]}, id="provenance"),
+    ],
+)
+def test_t0_preserves_distinct_semantic_metadata(store, difference):
+    store.record(type="reference", name="target", abstract="Independent target")
+    common = {
+        "type": "fact",
+        "fields": {"project": "shop", "subject": "policy"},
+        "abstract": "Cache policy applies here",
+        "body": "Preserve the stated rule.",
+    }
+    store.record(name="first", **common)
+    store.record(name="second", **{**common, **difference})
+
+    report = Manage(store).sleep()
+
+    assert {record.name for record in store.records()} == {"target", "first", "second"}
+    assert ACTION_DUPLICATE_MERGED not in _kinds(report)
+
+
+@pytest.mark.parametrize("abstract", ["Cache policy applies here", "缓存保存商品价格"])
+def test_t0_exact_duplicates_keep_the_oldest_copy_and_are_idempotent(store, clock, abstract):
+    store.record(type="reference", name="target", abstract="Independent target")
+    store.archive.append_session("shared-source", ["user: Shared source evidence."])
+    original = store.record(
+        type="fact",
+        name="z-original",
+        fields={"project": "shop", "subject": "policy"},
+        abstract=abstract,
+        body="Keep the exact rule, including 大小写.",
+        links=["target"],
+        provenance=["sessions/shared-source#0"],
+    )
+    clock.advance(hours=1)
+    store.record(
+        type=original.type,
+        name="a-copy",
+        fields=dict(reversed(list(original.fields.items()))),
+        abstract=original.abstract,
+        body=original.body,
+        valid_from=original.valid_from,
+        links=original.links,
+        provenance=original.provenance,
+        weight=store.config.weight.ceiling,
+    )
+
+    report = Manage(store).sleep()
+
+    assert {record.name for record in store.records()} == {"target", original.name}
+    copy = store.find("a-copy")
+    assert copy.superseded_by == original.name
+    assert copy.path.exists()
+    assert copy.body == store.find(original.name).body
+    duplicates = [
+        (action.target, action.detail)
+        for action in report.actions
+        if action.kind == ACTION_DUPLICATE_MERGED
+    ]
+    assert duplicates == [(copy.name, original.name)]
+    assert ACTION_DUPLICATE_MERGED not in _kinds(Manage(store).sleep())
 
 
 def test_records_that_keep_surfacing_together_grow_links_between_them(seeded):

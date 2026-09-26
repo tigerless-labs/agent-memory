@@ -237,6 +237,75 @@ def test_a_sleep_with_nobody_reasoning_decides_nothing(cli):
     assert not cli("sleep", "--reason", "none")["decisions"]
 
 
+@pytest.mark.parametrize(
+    "contents",
+    [
+        (
+            ("缓存保存商品价格", "缓存按分钟失效。 Retention."),
+            ("订单必须校验库存", "订单提交前检查库存。 Retention."),
+        ),
+        (
+            ("Alice approves Bob", "Retention."),
+            ("Bob approves Alice", "Retention."),
+        ),
+    ],
+    ids=["chinese", "word-order"],
+)
+def test_rule_only_sleep_preserves_distinct_memories_and_projections(cli, contents):
+    names = {"distinct-a", "distinct-b"}
+    for name, (abstract, body) in zip(sorted(names), contents, strict=True):
+        cli(
+            "record", "--type", "fact", "--name", name,
+            "--abstract", abstract, "--body", body,
+            "--field", "project=dedup", "--field", "subject=retention",
+            "--valid-from", "2000-01-01",
+        )
+
+    report = cli("sleep", "--reason", "none")
+
+    assert not report["decisions"]
+    assert not any(action["kind"] == "duplicate-merged" for action in report["actions"])
+    assert {record.name for record in Store(cli.root).records()} == names
+    assert {hit["name"] for hit in cli("recall", "retention")["hits"]} == names
+    memory_index = (cli.root / "MEMORY.md").read_text(encoding="utf-8")
+    assert all(f"[{name}]" in memory_index for name in names)
+
+
+def test_rule_only_sleep_supersedes_exact_copies_and_retains_their_history(cli):
+    names = {"exact-copy-a", "exact-copy-b"}
+    for name in sorted(names):
+        cli(
+            "--agent", "dedup-test", "record", "--type", "fact", "--name", name,
+            "--abstract", "Retention requires signed receipts",
+            "--body", "Keep the signed receipts for later review.",
+            "--field", "project=dedup", "--field", "subject=retention",
+            "--valid-from", "2000-01-01",
+        )
+
+    report = cli("sleep", "--reason", "none")
+
+    assert [action for action in report["actions"] if action["kind"] == "duplicate-merged"] == [
+        {"kind": "duplicate-merged", "target": "exact-copy-b", "detail": "exact-copy-a"}
+    ]
+    records = {record.name: record for record in Store(cli.root).records(include_invalid=True)}
+    assert set(records) == names
+    assert all(record.path.is_file() for record in records.values())
+    assert records["exact-copy-a"].is_active()
+    assert not records["exact-copy-b"].is_active()
+    assert records["exact-copy-b"].superseded_by == "exact-copy-a"
+    assert {hit["name"] for hit in cli("recall", "retention")["hits"]} == {"exact-copy-a"}
+    assert {
+        hit["name"] for hit in cli("recall", "retention", "--as-of", "2001-01-01")["hits"]
+    } == names
+    memory_index = (cli.root / "MEMORY.md").read_text(encoding="utf-8")
+    assert "[exact-copy-a]" in memory_index
+    assert "[exact-copy-b]" not in memory_index
+    assert not any(
+        action["kind"] == "duplicate-merged"
+        for action in cli("sleep", "--reason", "none")["actions"]
+    )
+
+
 def test_a_plain_sleep_asks_the_library_executor(cli, monkeypatch):
     _near_duplicates(cli)
     proposal = cli("proposals")["proposals"][0]
