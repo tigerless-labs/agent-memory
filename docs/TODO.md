@@ -7,6 +7,8 @@
 
 ## Management follow-ups
 
+- Revalidate the duplicate keeper under the same writer lock as T0 invalidation; current
+  stale-write detection protects only the record being invalidated.
 - Decide explicit confirmation and host-level authorization for permanent GC, import and
   cross-store changes; CLI labels alone do not identify a human.
 - Decide preimage retention and recovery guarantees for split and in-place correction,

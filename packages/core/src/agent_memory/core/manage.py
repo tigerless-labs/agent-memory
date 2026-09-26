@@ -13,6 +13,7 @@ from __future__ import annotations
 import dataclasses
 import datetime as dt
 import hashlib
+import json
 import pathlib
 import re
 import subprocess
@@ -423,7 +424,7 @@ class Manage:
         for record in sorted(records, key=lambda item: (item.created, item.name)):
             if not record.is_active():
                 continue
-            key = _fingerprint(record)
+            key = _duplicate_key(record)
             original = seen.get(key)
             if original is None:
                 seen[key] = record
@@ -710,8 +711,21 @@ def _similarity(left: MemoryRecord, right: MemoryRecord) -> float:
     return len(first & second) / len(first | second)
 
 
-def _fingerprint(record: MemoryRecord) -> str:
-    return " ".join(sorted(_tokens(record.abstract))) + "|" + " ".join(sorted(_tokens(record.body)))
+def _duplicate_key(record: MemoryRecord) -> str:
+    return json.dumps(
+        {
+            "type": record.type,
+            "fields": record.fields,
+            "abstract": record.abstract,
+            "body": record.body,
+            "valid_from": record.valid_from or record.created,
+            "author": record.author,
+            "links": record.links,
+            "provenance": record.provenance,
+        },
+        sort_keys=True,
+        ensure_ascii=False,
+    )
 
 
 def _group_key(group: str) -> str:

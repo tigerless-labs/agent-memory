@@ -30,3 +30,10 @@ through Store. Both adapters expose these explicit operations. Sleep retains pro
 review and per-kind caps for unattended
 merge, split, supersede, and deletion decisions. File scope, links, provenance, locks,
 validation, and projection remain Core responsibilities.
+
+T0 duplicate supersession requires identical parsed abstract and body, type, all semantic
+fields, effective validity start, author, relationships and provenance. Text comparison
+preserves Unicode, case, order, repetition, punctuation and internal whitespace. Names,
+paths, weights and bookkeeping timestamps do not establish semantic identity. The oldest
+duplicate remains active, with name breaking creation-time ties; other copies retain their
+files and point to it. Similarity alone belongs to the reviewed proposal path.
