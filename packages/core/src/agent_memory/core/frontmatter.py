@@ -11,6 +11,7 @@ DELIMITER = "---"
 _TRUE = "true"
 _FALSE = "false"
 _NULLS = ("", "null", "~")
+_ESCAPE = "\\"
 
 
 def split_document(text: str) -> tuple[str | None, str]:
@@ -72,7 +73,9 @@ def _parse_scalar(value: str) -> object:
         if not inner:
             return []
         return [_parse_scalar(item) for item in _split_items(inner)]
-    if len(value) > 1 and value[0] == value[-1] and value[0] in ("'", '"'):
+    if len(value) > 1 and value[0] == value[-1] == '"':
+        return _unescape(value[1:-1])
+    if len(value) > 1 and value[0] == value[-1] == "'":
         return value[1:-1]
     lowered = value.lower()
     if lowered == _TRUE:
@@ -92,13 +95,41 @@ def _parse_scalar(value: str) -> object:
 
 
 def _split_items(inner: str) -> list[str]:
+    items = _split_items_with(inner, escapes=True)
+    if items is not None and all(_is_whole_item(item) for item in items):
+        return items
+    # Earlier renders did not escape backslashes, so a legacy item such as "C:\" reads
+    # as an unterminated quote here; fall back to the escape-unaware split they used.
+    return _split_items_with(inner, escapes=False) or []
+
+
+def _is_whole_item(item: str) -> bool:
+    if not item.startswith('"'):
+        return True
+    escaped = False
+    for index, char in enumerate(item[1:], start=1):
+        if escaped:
+            escaped = False
+        elif char == _ESCAPE:
+            escaped = True
+        elif char == '"':
+            return index == len(item) - 1
+    return False
+
+
+def _split_items_with(inner: str, *, escapes: bool) -> list[str] | None:
     items: list[str] = []
     current: list[str] = []
     quote: str | None = None
+    escaped = False
     at_value_start = True
     for char in inner:
         if quote:
-            if char == quote:
+            if escaped:
+                escaped = False
+            elif escapes and quote == '"' and char == _ESCAPE:
+                escaped = True
+            elif char == quote:
                 quote = None
             current.append(char)
             at_value_start = False
@@ -119,6 +150,8 @@ def _split_items(inner: str) -> list[str]:
         else:
             current.append(char)
             at_value_start = False
+    if escapes and quote:
+        return None
     items.append("".join(current))
     return [item for item in (item.strip() for item in items) if item]
 
@@ -133,6 +166,25 @@ def _render_scalar(value: object) -> str:
     if isinstance(value, (int, float)):
         return repr(value)
     text = str(value)
-    if text != text.strip() or any(char in text for char in ":#[]{},") or text == "":
-        return '"' + text.replace('"', '\\"') + '"'
+    if (
+        any(char in text for char in ":#[]{},")
+        or text[:1] in ("'", '"')
+        or _parse_scalar(text) != text
+    ):
+        return '"' + _escape(text) + '"'
     return text
+
+
+def _escape(text: str) -> str:
+    return text.replace(_ESCAPE, _ESCAPE + _ESCAPE).replace('"', _ESCAPE + '"')
+
+
+def _unescape(text: str) -> str:
+    chars: list[str] = []
+    index = 0
+    while index < len(text):
+        if text.startswith((_ESCAPE + _ESCAPE, _ESCAPE + '"'), index):
+            index += 1
+        chars.append(text[index])
+        index += 1
+    return "".join(chars)
