@@ -7,7 +7,6 @@ no calls. The harness owns the directory; standalone library use is silent.
 from __future__ import annotations
 
 import contextvars
-import fcntl
 import hashlib
 import json
 import os
@@ -15,6 +14,8 @@ import pathlib
 import re
 import time
 import uuid
+
+from . import portlock
 
 ENV = "AGENT_MEMORY_OBSERVATION_DIR"
 ATTEMPT_ENV = "AGENT_MEMORY_OBSERVATION_ATTEMPT"
@@ -89,7 +90,7 @@ def emit(kind: str, *, directory: str | None = None, channel: str = "tools", **d
             ).encode()
         fd = os.open(path / f"{channel}.jsonl", os.O_CREAT | os.O_APPEND | os.O_WRONLY, FILE_MODE)
         with os.fdopen(fd, "ab") as handle:
-            fcntl.flock(handle, fcntl.LOCK_EX)
+            portlock.lock_exclusive(handle, blocking=True)
             size = os.fstat(handle.fileno()).st_size
             if size >= MAX_BYTES or (path / f"{channel}.limited").exists():
                 return
