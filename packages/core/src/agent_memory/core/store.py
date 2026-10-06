@@ -30,6 +30,16 @@ from .schema import MODE_ADD_ONLY, MemorySchema, SchemaRegistry
 from .search_index import SearchIndex
 from .sessions import Message, parse_pointer, resolve
 
+
+def _normalise_newlines(payload: bytes) -> bytes:
+    """Hash basis shared with from_text: text reads translate CRLF to LF
+    (universal newlines), so source_hash covers the LF form. Comparing the
+    raw disk bytes against it rejects any file an external editor saved
+    with CRLF (win32 Notepad, a git autocrlf checkout) on its first write.
+    Normalising the comparison bytes keeps real content edits detectable
+    while accepting either newline flavour."""
+    return payload.replace(b"\r\n", b"\n")
+
 LEVEL_ABSTRACT = "abstract"
 LEVEL_OUTLINE = "outline"
 LEVEL_FULL = "full"
@@ -481,7 +491,7 @@ class Store:
         previous = record.path.read_bytes() if record.path.exists() else None
         if previous is not None and (
             record.source_hash is None
-            or hashlib.sha256(previous).hexdigest() != record.source_hash
+            or hashlib.sha256(_normalise_newlines(previous)).hexdigest() != record.source_hash
         ):
             raise ValidationError([FieldError("updated", "memory changed since it was read")])
         for excerpt in provenance or []:
