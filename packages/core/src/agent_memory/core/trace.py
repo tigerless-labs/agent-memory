@@ -78,9 +78,13 @@ def read(layout: StoreLayout, record: MemoryRecord, reference: str | None = None
     """An explicit name retains Store.read's historical access; selection cannot widen it."""
     references = list(dict.fromkeys(record.provenance))
     if reference is not None:
-        reference = reference.strip()
+        # Same normalisation as _legacy: an explicit reference may carry
+        # the win32 separator (a pre-as_posix store, or a user pasting
+        # one), and the membership gate below compares strings, so both
+        # sides are normalised and the gate decides on content.
+        reference = reference.strip().replace("\\", "/")
         requested = parse_pointer(reference)
-        if reference not in references and not (
+        if reference not in {item.replace("\\", "/") for item in references} and not (
             requested is not None
             and any(
                 cited is not None
@@ -103,6 +107,12 @@ def read(layout: StoreLayout, record: MemoryRecord, reference: str | None = None
 
 def _legacy(layout: StoreLayout, reference: str) -> str:
     """Only stored excerpt files, never arbitrary paths or synthetic numbered messages."""
+    # References written before the as_posix write fix carry the win32
+    # separator. Normalise to forward slashes BEFORE validating, so every
+    # guard below (prefix, traversal parts, suffix, control chars) still
+    # applies to the normalised form; traversal via either separator is
+    # caught by the dot-part check on the PurePosixPath decomposition.
+    reference = reference.replace("\\", "/")
     relative = pathlib.PurePosixPath(reference)
     if (
         len(relative.parts) != LEGACY_PATH_PARTS

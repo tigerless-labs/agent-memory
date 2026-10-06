@@ -291,7 +291,10 @@ class Store:
         if parse_pointer(item) is not None:
             return item.strip()
         stored = self.archive.append_provenance(name, item, source=self.agent)
-        return str(stored.relative_to(self.root))
+        # as_posix keeps stored references forward-slash on every platform;
+        # str() would embed the win32 separator and _legacy would refuse them
+        # on read (issue #55, second family).
+        return stored.relative_to(self.root).as_posix()
 
     def _reject_facts_dated_after_their_evidence(self, record: MemoryRecord) -> None:
         """A fact cannot hold from later than the conversation that stated it."""
