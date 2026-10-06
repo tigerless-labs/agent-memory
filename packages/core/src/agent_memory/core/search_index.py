@@ -105,11 +105,18 @@ class SearchIndex:
             parameters: tuple[object, ...] = (expression, pool)
         else:
             prefix = scope_path + "/"
+            # Stored paths carry the platform separator (backslashes on
+            # win32) while the scope is always forward-slash joined, so the
+            # comparison normalises the stored side. replace() is identity
+            # for POSIX paths, at the cost of a pathological POSIX filename
+            # containing a literal backslash matching as if it were a
+            # separator.
             statement = (
                 f"SELECT {surface}.name, kind, anchor, heading, bm25({surface}) AS rank "
                 f"FROM {surface} JOIN records ON records.name = {surface}.name "
                 f"WHERE {surface} MATCH ? "
-                "AND (records.path = ? OR substr(records.path, 1, ?) = ?) "
+                "AND (replace(records.path, '\\', '/') = ? "
+                "OR substr(replace(records.path, '\\', '/'), 1, ?) = ?) "
                 "ORDER BY rank LIMIT ?"
             )
             parameters = (expression, scope_path, len(prefix), prefix, pool)
