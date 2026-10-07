@@ -325,5 +325,25 @@ def test_codex_doctor_flags_disabled_hooks_read_only_sandbox_and_store_failure(
     assert "STORE_NOT_WRITABLE" in codes
     assert "HOOK_INVALID" in codes
     assert "CODEX_SANDBOX_STORE_ACCESS" in codes
+    assert "CODEX_STORE_ACCESS_REVIEW" in codes
     assert "CODEX_HOOK_TRUST_REVIEW" in codes
     assert report.status == doctor.FAILED
+
+
+def test_codex_doctor_recognizes_a_configured_external_store_root(tmp_path, monkeypatch):
+    store = Store(tmp_path / "external-store")
+    store.init()
+    target = tmp_path / "home" / ".codex" / "hooks.json"
+    setup.install(moments.HOST_CODEX, target, store.root)
+    target.with_name("config.toml").write_text(
+        "sandbox_mode = \"workspace-write\"\n"
+        "[sandbox_workspace_write]\n"
+        f"writable_roots = [{json.dumps(str(store.root))}]\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(setup, "probe", lambda _host: "codex 1.0")
+
+    report = doctor.run(store, moments.HOST_CODEX, settings_path=target)
+
+    assert "CODEX_STORE_ACCESS_CONFIGURED" in _codes(report)
+    assert report.status == doctor.READY

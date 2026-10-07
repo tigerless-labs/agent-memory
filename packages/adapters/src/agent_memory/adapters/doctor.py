@@ -305,6 +305,33 @@ def _codex_checks(target: pathlib.Path, store_root: pathlib.Path) -> list[Check]
                     required=False,
                 )
             )
+        workspace = parsed.get("sandbox_workspace_write", {})
+        raw_roots = workspace.get("writable_roots", []) if isinstance(workspace, dict) else []
+        roots = raw_roots if isinstance(raw_roots, list) else []
+        resolved_store = store_root.resolve()
+        store_allowed = any(
+            isinstance(root, str)
+            and resolved_store.is_relative_to(pathlib.Path(root).expanduser().resolve())
+            for root in roots
+        )
+        checks.append(
+            Check(
+                "CODEX_STORE_ACCESS_CONFIGURED"
+                if store_allowed
+                else "CODEX_STORE_ACCESS_REVIEW",
+                store_allowed,
+                (
+                    f"workspace-write includes Store {resolved_store}"
+                    if store_allowed
+                    else (
+                        f"agent commands that query Store {resolved_store} need --add-dir "
+                        "or sandbox_workspace_write.writable_roots; setup does not expand "
+                        "sandbox permissions automatically"
+                    )
+                ),
+                required=False,
+            )
+        )
     checks.append(
         Check(
             "CODEX_HOOK_TRUST_REVIEW",

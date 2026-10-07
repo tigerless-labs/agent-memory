@@ -209,6 +209,12 @@ user hooks remain subject to Codex's trust prompt. Setup and doctor perform a mi
 reasoner request by default; `--no-live` is available for offline inspection but deliberately
 reports `FAILED` because readiness was not proven.
 
+When the Store is outside the Codex workspace, SessionStart injection and boundary hooks still
+run, but agent-initiated CLI recall needs write access for the Store access log. Doctor reports
+`CODEX_STORE_ACCESS_REVIEW` until the Store is covered by
+`sandbox_workspace_write.writable_roots`, or Codex is launched with `--add-dir <store>`.
+Setup does not silently expand sandbox permissions.
+
 Pass `--mcp` to setup when the host should also receive the `agent-memory` stdio MCP server.
 Agents that speak MCP get the same core calls through `mem-mcp` (`memory_recall`,
 `memory_read`, `memory_trace`, `memory_record`, `memory_correct`, `memory_supersede`,
