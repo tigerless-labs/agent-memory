@@ -429,7 +429,7 @@ class Host:
     def _isolated_muse_environment(
         extra: dict[str, str], scratch: pathlib.Path
     ) -> dict[str, str]:
-        """Keep personal Muse context out while reusing only its explicit credential file."""
+        """Keep personal Muse context out while reusing credential and provider routing."""
         source = {**os.environ, **extra}
         source_home = pathlib.Path(source.get("HOME", "~")).expanduser()
         source_config = pathlib.Path(source.get("XDG_CONFIG_HOME") or source_home / ".config")
@@ -441,14 +441,43 @@ class Host:
         data = scratch / "muse-data"
         for path in (home, config, data):
             path.mkdir()
+        Host._stage_muse_routing(source_config / "muse" / "settings.json", config)
+        staged_auth = Host._stage_muse_auth(auth_path, config)
         return {
             **extra,
             "HOME": str(home),
             "XDG_CONFIG_HOME": str(config),
             "XDG_DATA_HOME": str(data),
-            "MUSE_AUTH_PATH": str(auth_path),
+            "MUSE_AUTH_PATH": str(staged_auth),
             "MUSE_NO_AUTO_UPDATE": "1",
         }
+
+    @staticmethod
+    def _stage_muse_auth(source: pathlib.Path, config_home: pathlib.Path) -> pathlib.Path:
+        if not source.is_file():
+            return source
+        target = config_home / "muse" / "auth.json"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+        target.chmod(0o600)
+        return target
+
+    @staticmethod
+    def _stage_muse_routing(source: pathlib.Path, config_home: pathlib.Path) -> None:
+        """Copy only deterministic transport fields; hooks and personal settings stay out."""
+        try:
+            parsed = json.loads(source.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return
+        if not isinstance(parsed, dict):
+            return
+        allowed = ("schema_version", "provider", "model", "endpoint_transport")
+        routing = {key: parsed[key] for key in allowed if key in parsed}
+        if not routing:
+            return
+        target = config_home / "muse" / "settings.json"
+        target.parent.mkdir(parents=True)
+        target.write_text(json.dumps(routing, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
     def _invoke(
         self,
