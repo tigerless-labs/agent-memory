@@ -22,6 +22,7 @@ import tempfile
 import time
 
 from agent_memory.core import observation
+from agent_memory.core.config import MUSE_SETTINGS_ENV_VAR
 
 from .credentials import VertexCredentials
 
@@ -269,6 +270,7 @@ class MuseCodeDialect(Dialect):
             "exec",
             "--json",
             "--no-foreign-personal-context",
+            "--disable-reminders",
             "--prompt-file",
             PROMPT_PLACEHOLDER,
             "--max-model-steps",
@@ -276,6 +278,13 @@ class MuseCodeDialect(Dialect):
             "--workspace",
             str(workspace),
         ]
+        if not tools_enabled:
+            command += [
+                "--disable-shell",
+                "--disable-web-tools",
+                "--approval-mode",
+                "never",
+            ]
         if spec.model:
             command += ["--model", spec.model]
         if spec.reasoning_effort:
@@ -429,26 +438,61 @@ class Host:
     def _isolated_muse_environment(
         extra: dict[str, str], scratch: pathlib.Path
     ) -> dict[str, str]:
-        """Keep personal Muse context out while reusing only its explicit credential file."""
+        """Keep personal Muse context out while reusing credential and provider routing."""
         source = {**os.environ, **extra}
         source_home = pathlib.Path(source.get("HOME", "~")).expanduser()
         source_config = pathlib.Path(source.get("XDG_CONFIG_HOME") or source_home / ".config")
+        configured_settings = source.get(MUSE_SETTINGS_ENV_VAR, "").strip()
+        source_settings = (
+            pathlib.Path(configured_settings).expanduser()
+            if configured_settings
+            else source_config / "muse" / "settings.json"
+        )
         auth_path = pathlib.Path(
-            source.get("MUSE_AUTH_PATH") or source_config / "muse" / "auth.json"
+            source.get("MUSE_AUTH_PATH") or source_settings.with_name("auth.json")
         ).expanduser()
         home = scratch / "muse-home"
         config = scratch / "muse-config"
         data = scratch / "muse-data"
         for path in (home, config, data):
             path.mkdir()
+        Host._stage_muse_routing(source_settings, config)
+        staged_auth = Host._stage_muse_auth(auth_path, config)
         return {
             **extra,
             "HOME": str(home),
             "XDG_CONFIG_HOME": str(config),
             "XDG_DATA_HOME": str(data),
-            "MUSE_AUTH_PATH": str(auth_path),
+            "MUSE_AUTH_PATH": str(staged_auth),
             "MUSE_NO_AUTO_UPDATE": "1",
         }
+
+    @staticmethod
+    def _stage_muse_auth(source: pathlib.Path, config_home: pathlib.Path) -> pathlib.Path:
+        if not source.is_file():
+            return source
+        target = config_home / "muse" / "auth.json"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+        target.chmod(0o600)
+        return target
+
+    @staticmethod
+    def _stage_muse_routing(source: pathlib.Path, config_home: pathlib.Path) -> None:
+        """Copy only deterministic transport fields; hooks and personal settings stay out."""
+        try:
+            parsed = json.loads(source.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return
+        if not isinstance(parsed, dict):
+            return
+        allowed = ("schema_version", "provider", "model", "endpoint_transport")
+        routing = {key: parsed[key] for key in allowed if key in parsed}
+        if not routing:
+            return
+        target = config_home / "muse" / "settings.json"
+        target.parent.mkdir(parents=True)
+        target.write_text(json.dumps(routing, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
     def _invoke(
         self,

@@ -35,12 +35,14 @@ name = "agent-memory-cli"
 version = "0.1.0"
 source = { editable = "packages/cli" }
 dependencies = [
+    { name = "agent-memory-adapters" },
     { name = "agent-memory-core" },
     { name = "agent-memory-executor" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "agent-memory-adapters", editable = "packages/adapters" },
     { name = "agent-memory-core", editable = "packages/core" },
     { name = "agent-memory-executor", editable = "packages/executor" },
 ]
