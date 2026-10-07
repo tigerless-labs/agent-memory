@@ -176,63 +176,83 @@ rm -rf ~/agent-memory-store/.index && mem rebuild
 ## Wire it into your agent
 
 ```bash
-mem setup --host claude-code   # or: --host codex / muse-code
+mem setup --host claude-code
+mem setup --host codex
+mem setup --host muse-code --provider openrouter
 ```
 
-`setup` probes the host, appends the `mem-hook` command to its own hook dialect by absolute
-path — so desktop clients that never read your shell's `PATH` still reach it — installs the
-agent-memory skill, and leaves the rest of the settings alone. SessionStart injects, Stop and
-SessionEnd distil, PreCompact evicts. Distillation reasons through the same host's CLI in the
-background, on your existing login; point `[executor]` in `config.toml` at a model endpoint
-instead if you would rather not spend it. Codex asks you to trust new hooks once. Agents that speak MCP get the same core calls through `mem-mcp` (`memory_recall`,
+All three commands use the same pipeline: probe the host, initialize or check the Store, safely
+merge host settings, install lifecycle hooks and the skill, perform provider-specific setup,
+then run preflight. A successful command ends with `status: READY`; a written configuration is
+not by itself considered ready. Re-running setup is safe and does not duplicate managed hooks,
+skills, provider routing, or MCP entries. Existing unrelated host settings are retained, and a
+conflicting setting fails closed instead of being replaced.
+
+Use a non-default Store in the usual way; setup pins its absolute path into every installed hook:
+
+```bash
+AGENT_MEMORY_STORE=/absolute/path/to/store mem setup --host codex
+```
+
+Run the same checks later, or get a precise failure layer after setup fails:
+
+```bash
+mem doctor --host claude-code
+mem doctor --host codex
+mem doctor --host muse-code --provider openrouter
+```
+
+Diagnostics distinguish host/config/Store/hook/reasoner failures and, for Muse, credential,
+proxy, authentication, model-catalog, model-availability, and live-request failures. Codex also
+reports disabled hooks, a read-only default sandbox, and the one-time hook trust review. Codex
+user hooks remain subject to Codex's trust prompt. Setup and doctor perform a minimal live
+reasoner request by default; `--no-live` is available for offline inspection but deliberately
+reports `FAILED` because readiness was not proven.
+
+Pass `--mcp` to setup when the host should also receive the `agent-memory` stdio MCP server.
+Agents that speak MCP get the same core calls through `mem-mcp` (`memory_recall`,
 `memory_read`, `memory_trace`, `memory_record`, `memory_correct`, `memory_supersede`,
 `memory_merge`, `memory_delete`, `memory_feedback`). Anything that can run a
 shell command needs neither: the CLI is the universal fallback, and it is the wider surface —
 `context`, `sleep`, and the proposal ledger have no MCP tool yet.
 
+SessionStart injects, Stop and SessionEnd distil where supported, and PreCompact evicts.
+Distillation reasons through the host that fired the boundary, using its existing login. Point
+`[executor]` in Store `config.toml` at a model endpoint instead to use an endpoint reasoner.
+
 ### Muse Code
 
-Install [Muse Code](https://dev.meta.ai/docs/muse-code), make sure `muse` is on `PATH`, then
-install the lifecycle hooks and agent-memory skill:
+Install [Muse Code](https://dev.meta.ai/docs/muse-code), make sure `muse` is on `PATH`, and make
+an OpenRouter credential available either as `OPENROUTER_API_KEY` or in Muse's credential store.
+Setup recognizes an already provisioned credential and never prints or replaces it:
 
 ```bash
-mem setup --host muse-code
+export OPENROUTER_API_KEY="..."  # omit when Muse auth is already provisioned
+mem setup --host muse-code --provider openrouter
+muse
 ```
 
-This merges `SessionStart`, `PreCompact`, `Stop`, and `SessionEnd` into
-`$XDG_CONFIG_HOME/muse/settings.json` (or `~/.config/muse/settings.json`) without replacing
-other settings, hooks, or MCP servers. It does not add per-turn writes. `SessionStart` injects
-the same bounded Memory index as other hosts; the three boundary events use the existing
-archive/distillation path. The installer checks both that `muse` is on `PATH` and that
-`muse --version` succeeds.
+The provider step configures Muse's `meta` transport to the local pproxy bridge, selects the
+Muse model, starts or reuses pproxy, validates OpenRouter authentication and model availability,
+then asks Muse to complete a minimal real request. It merges `SessionStart`, `PreCompact`,
+`Stop`, and `SessionEnd` into `$XDG_CONFIG_HOME/muse/settings.json` (or
+`~/.config/muse/settings.json`) without replacing unrelated settings.
 
-Setup installs hooks and the skill, but does not enable MCP. To expose the existing MCP tools,
-merge this server into the same settings file and start a new Muse session:
+pproxy remains a separate, pinned external dependency. Setup never silently installs system
+software. If it is missing, the FAILED report prints the exact `uv tool install` command; run it
+and repeat setup. pproxy is launched as a user process and recorded under
+`$XDG_STATE_HOME/agent-memory` (or `~/.local/state/agent-memory`). After a reboot, repeat setup
+or run doctor if the proxy is no longer reachable. Use `--mcp` to merge the MCP server too:
 
-```json
-{
-  "schema_version": 1,
-  "mcp_servers": {
-    "agent-memory": {
-      "transport": "stdio",
-      "command": "mem-mcp",
-      "args": [],
-      "mode": "optional"
-    }
-  }
-}
+```bash
+mem setup --host muse-code --provider openrouter --mcp
 ```
-
-Run `/mcp` in Muse to verify that `memory_recall`, `memory_read`, `memory_trace`,
-`memory_record`, `memory_correct`, `memory_supersede`, `memory_merge`, `memory_delete`, and
-`memory_feedback` are present. Muse passes `MUSE_SESSION_ID` to stdio servers; agent-memory
-does not yet add that value to provenance. Set `AGENT_MEMORY_STORE` in the MCP server's `env`
-entry when using a non-default store.
 
 Muse native memory and agent-memory's `AGENT_MEMORY_STORE` are separate systems. Setup does not
 read, write, copy, or synchronize Muse native memory. For attributable experiments, use a clean
 workspace with no `.agents/memory` content and isolated `HOME`, `XDG_CONFIG_HOME`, and
-`XDG_DATA_HOME`; the live preflight does this while reusing only the explicit Muse auth file.
+`XDG_DATA_HOME`; the included `tools/muse_sandbox_probe.py` does this while reusing only the
+explicit Muse auth file.
 
 Muse's default sandbox can read outside the workspace but writes only to the workspace and temp
 directories. Muse documents user hooks as outside the agent shell sandbox and MCP servers as
@@ -255,8 +275,8 @@ mem-exp interop --workspace /tmp/muse-memory-smoke \
 
 Then omit `--pairs` and pass `--hosts claude-code,codex,hermes,muse-code` for the 4×4 matrix.
 Current limitations: only the root Muse session log is captured; child/observer logs are ignored,
-setup does not install MCP automatically, and live hook/MCP/sandbox behavior must be verified on a
-machine with Muse Code installed and authenticated. A missing Muse login is reported as
+setup installs MCP only when `--mcp` is requested, and live hook/MCP/sandbox behavior must be
+verified on a machine with Muse Code installed and authenticated. A missing Muse login is reported as
 `BLOCKED_BY_MUSE_AUTH`; echo or mocked providers do not count as live E2E evidence.
 
 ## Let it sleep
