@@ -177,6 +177,27 @@ def test_muse_doctor_reports_missing_openrouter_credential(tmp_path, monkeypatch
     assert report.status == doctor.FAILED
 
 
+def test_muse_doctor_rejects_hook_without_pinned_settings(tmp_path, monkeypatch):
+    store, target = _provider_target(tmp_path)
+    configured = json.loads(target.read_text(encoding="utf-8"))
+    for entries in configured["hooks"].values():
+        command = entries[0]["hooks"][0]["command"]
+        entries[0]["hooks"][0]["command"] = command.replace(
+            f" {setup.MUSE_SETTINGS_FLAG} {target.resolve()}", ""
+        )
+    target.write_text(json.dumps(configured), encoding="utf-8")
+    monkeypatch.setattr(setup, "probe", lambda _host: "Muse 1.4")
+    monkeypatch.setattr(openrouter, "detect_credential", lambda _env=None: None)
+
+    report = doctor.run(
+        store, moments.HOST_MUSE_CODE, settings_path=target, provider=openrouter.PROVIDER
+    )
+
+    hook = _codes(report)["HOOK_INVALID"]
+    assert not hook.ok
+    assert "does not pin Muse settings" in hook.detail
+
+
 @pytest.mark.parametrize(
     ("preflight_code", "expected"),
     [

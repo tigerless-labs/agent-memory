@@ -22,6 +22,7 @@ import tempfile
 import time
 
 from agent_memory.core import observation
+from agent_memory.core.config import MUSE_SETTINGS_ENV_VAR
 
 from .credentials import VertexCredentials
 
@@ -269,6 +270,7 @@ class MuseCodeDialect(Dialect):
             "exec",
             "--json",
             "--no-foreign-personal-context",
+            "--disable-reminders",
             "--prompt-file",
             PROMPT_PLACEHOLDER,
             "--max-model-steps",
@@ -276,6 +278,13 @@ class MuseCodeDialect(Dialect):
             "--workspace",
             str(workspace),
         ]
+        if not tools_enabled:
+            command += [
+                "--disable-shell",
+                "--disable-web-tools",
+                "--approval-mode",
+                "never",
+            ]
         if spec.model:
             command += ["--model", spec.model]
         if spec.reasoning_effort:
@@ -433,15 +442,21 @@ class Host:
         source = {**os.environ, **extra}
         source_home = pathlib.Path(source.get("HOME", "~")).expanduser()
         source_config = pathlib.Path(source.get("XDG_CONFIG_HOME") or source_home / ".config")
+        configured_settings = source.get(MUSE_SETTINGS_ENV_VAR, "").strip()
+        source_settings = (
+            pathlib.Path(configured_settings).expanduser()
+            if configured_settings
+            else source_config / "muse" / "settings.json"
+        )
         auth_path = pathlib.Path(
-            source.get("MUSE_AUTH_PATH") or source_config / "muse" / "auth.json"
+            source.get("MUSE_AUTH_PATH") or source_settings.with_name("auth.json")
         ).expanduser()
         home = scratch / "muse-home"
         config = scratch / "muse-config"
         data = scratch / "muse-data"
         for path in (home, config, data):
             path.mkdir()
-        Host._stage_muse_routing(source_config / "muse" / "settings.json", config)
+        Host._stage_muse_routing(source_settings, config)
         staged_auth = Host._stage_muse_auth(auth_path, config)
         return {
             **extra,

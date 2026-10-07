@@ -19,7 +19,11 @@ from collections.abc import Callable, Sequence
 from types import FrameType
 
 from agent_memory.core import injection
-from agent_memory.core.config import EXECUTOR_ENV_VAR, STORE_ENV_VAR
+from agent_memory.core.config import (
+    EXECUTOR_ENV_VAR,
+    MUSE_SETTINGS_ENV_VAR,
+    STORE_ENV_VAR,
+)
 from agent_memory.core.store import Store
 
 from . import capture as capture_module
@@ -34,6 +38,7 @@ KEY_EVENT_GENERIC = "event"
 KEY_HOST = "host"
 KEY_ITEMS = "items"
 KEY_MUSE_DATA_HOME = "muse_data_home"
+KEY_MUSE_SETTINGS = "muse_settings"
 CLAUDE_OUTPUT_KEY = "hookSpecificOutput"
 CLAUDE_CONTEXT_KEY = "additionalContext"
 CLAUDE_EVENT_OUTPUT_KEY = "hookEventName"
@@ -45,6 +50,7 @@ REASON_HOST_FLAG = "--reason-host"
 HOST_FLAG = "--host"
 STORE_FLAG = "--store"
 MUSE_DATA_HOME_FLAG = "--muse-data-home"
+MUSE_SETTINGS_FLAG = "--muse-settings"
 EXECUTOR_BINARY = "mem"
 PRINTED_KEYS = (CLAUDE_OUTPUT_KEY, CLAUDE_CONTEXT_KEY)
 
@@ -65,12 +71,16 @@ def main(argv: Sequence[str] | None = None) -> int:
         parser.add_argument(HOST_FLAG, default=moments.HOST_CLAUDE_CODE)
         parser.add_argument(STORE_FLAG, default="")
         parser.add_argument(MUSE_DATA_HOME_FLAG, default="")
+        parser.add_argument(MUSE_SETTINGS_FLAG, default="")
         args = parser.parse_args(argv or ())
         event = normalize_event(json.loads(sys.stdin.read() or "{}"), args.host)
         if args.store:
             event["store"] = args.store
         if args.muse_data_home:
             event[KEY_MUSE_DATA_HOME] = args.muse_data_home
+        if args.muse_settings:
+            event[KEY_MUSE_SETTINGS] = args.muse_settings
+            os.environ[MUSE_SETTINGS_ENV_VAR] = args.muse_settings
         store_value = event.get("store")
         store = Store(
             str(store_value) if store_value else None,

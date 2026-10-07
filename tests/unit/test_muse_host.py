@@ -2,6 +2,7 @@
 
 import json
 import pathlib
+import shlex
 import subprocess
 
 import pytest
@@ -89,6 +90,8 @@ def test_muse_setup_preserves_settings_hooks_and_mcp_and_is_idempotent(tmp_path,
         rendered = json.dumps(twice["hooks"][event])
         assert rendered.count("mem-hook --host muse-code") == 1
         assert setup.MUSE_DATA_HOME_FLAG in rendered
+        assert setup.MUSE_SETTINGS_FLAG in rendered
+        assert str(target.resolve()) in rendered
 
 
 def test_new_muse_settings_get_required_schema_version(tmp_path):
@@ -106,6 +109,8 @@ def test_muse_setup_embeds_data_home_and_selected_store(tmp_path, monkeypatch):
     hooks = json.loads(target.read_text(encoding="utf-8"))["hooks"]
     command = hooks["Stop"][0]["hooks"][0]["command"]
     assert f"{setup.MUSE_DATA_HOME_FLAG} '{data_home}'" in command
+    parts = shlex.split(command)
+    assert parts[parts.index(setup.MUSE_SETTINGS_FLAG) + 1] == str(target.resolve())
     assert f"{setup.STORE_FLAG} '{store_root}'" in command
 
 
@@ -260,6 +265,9 @@ def test_muse_executor_uses_prompt_file_default_model_and_sandbox(tmp_path):
     assert "--no-foreign-personal-context" in command
     assert "--prompt-file" in command and "--max-model-steps" in command
     assert "--model" not in command
+    assert "--disable-reminders" in command
+    assert "--disable-shell" not in command
+    assert "--disable-web-tools" not in command
     assert "--yolo" not in command and "--disable-sandbox" not in command
     assert command[command.index("--workspace") + 1] == str(tmp_path / "run")
 
@@ -279,6 +287,11 @@ def test_muse_executor_passes_explicit_model_and_effort(tmp_path):
     )
     assert command[command.index("--model") + 1] == "explicit-model"
     assert command[command.index("--reasoning-effort") + 1] == "high"
+    assert "--disable-reminders" in command
+    assert "--disable-shell" in command
+    assert "--disable-web-tools" in command
+    assert command[command.index("--approval-mode") + 1] == "never"
+    assert "--yolo" not in command and "--disable-sandbox" not in command
 
 
 def test_muse_executor_refuses_workspace_with_native_memory(tmp_path):
@@ -410,6 +423,49 @@ def test_muse_executor_carries_only_provider_routing_into_isolation(tmp_path, mo
             "auth": "bearer",
         },
     }
+
+
+def test_muse_executor_uses_hook_pinned_settings_and_sibling_auth(tmp_path, monkeypatch):
+    pinned = tmp_path / "custom config" / "settings.json"
+    pinned.parent.mkdir(parents=True)
+    pinned.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "provider": "meta",
+                "model": "muse-spark-1.3-contributor",
+                "endpoint_transport": {
+                    "base_url": "http://127.0.0.1:8817",
+                    "auth": "bearer",
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    auth = pinned.with_name("auth.json")
+    auth.write_text('{"providers":{"meta":{"api_key":"secret"}}}', encoding="utf-8")
+    observed = {}
+
+    def run(command, **kwargs):
+        isolated_config = pathlib.Path(kwargs["env"]["XDG_CONFIG_HOME"])
+        observed["settings"] = json.loads(
+            (isolated_config / "muse" / "settings.json").read_text(encoding="utf-8")
+        )
+        observed["auth"] = pathlib.Path(kwargs["env"]["MUSE_AUTH_PATH"]).read_bytes()
+        stdout = json.dumps({"kind": "run_terminal", "terminal": "completed", "text": "ok"})
+        return subprocess.CompletedProcess(command, 0, stdout, "")
+
+    monkeypatch.setattr(hosts.subprocess, "run", run)
+    host = hosts.Host(hosts.HostSpec(name="muse-code", binary="muse", model="", attempts=1))
+    result = host.run(
+        "question",
+        workdir=tmp_path,
+        environment={"AGENT_MEMORY_MUSE_SETTINGS": str(pinned)},
+    )
+
+    assert result.ok
+    assert observed["settings"]["endpoint_transport"]["base_url"].endswith(":8817")
+    assert observed["auth"] == auth.read_bytes()
 
 
 @pytest.mark.parametrize("failure", ["error", "timeout"])

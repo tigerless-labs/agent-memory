@@ -236,6 +236,40 @@ def test_the_hook_takes_its_host_from_the_command_line(store, monkeypatch):
     assert hosts == [moments.HOST_CODEX]
 
 
+def test_muse_hook_passes_pinned_settings_to_background_distillation(store, monkeypatch):
+    from agent_memory.core.config import MUSE_SETTINGS_ENV_VAR
+
+    settings = store.root / "isolated muse" / "settings.json"
+    observed = []
+
+    def launch(*_args):
+        observed.append(hook_entry.os.environ.get(MUSE_SETTINGS_ENV_VAR))
+        return True
+
+    event = {
+        "event": "Stop",
+        "session_id": "muse-session",
+        "items": SEGMENTS,
+        "store": str(store.root),
+    }
+    monkeypatch.delenv(MUSE_SETTINGS_ENV_VAR, raising=False)
+    monkeypatch.setattr(hook_entry, "launch_distill", launch)
+    monkeypatch.setattr("sys.stdin", io.StringIO(json.dumps(event)))
+
+    assert (
+        hook_entry.main(
+            [
+                "--host",
+                moments.HOST_MUSE_CODE,
+                "--muse-settings",
+                str(settings),
+            ]
+        )
+        == hook_entry.EXIT_OK
+    )
+    assert observed == [str(settings)]
+
+
 def test_codex_rollout_transcripts_yield_the_conversation(tmp_path):
     def item(payload):
         return json.dumps({"type": "response_item", "payload": payload})

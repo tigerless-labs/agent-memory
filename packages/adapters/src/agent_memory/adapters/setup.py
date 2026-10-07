@@ -35,6 +35,7 @@ SETTINGS_FOR = {
 ALIASES = {"muse": moments.HOST_MUSE_CODE}
 MUSE_SCHEMA_VERSION = 1
 MUSE_DATA_HOME_FLAG = "--muse-data-home"
+MUSE_SETTINGS_FLAG = "--muse-settings"
 STORE_FLAG = "--store"
 MCP_SERVER = "agent-memory"
 MCP_COMMAND = "mem-mcp"
@@ -120,7 +121,12 @@ def install(
         raise ValidationError([FieldError("settings.hooks", "must be an object")])
     entry = {
         MATCHER_KEY: ANY_MATCHER,
-        HOOKS_KEY: [{"type": "command", "command": hook_command(host, store_root)}],
+        HOOKS_KEY: [
+            {
+                "type": "command",
+                "command": hook_command(host, store_root, settings_path=target),
+            }
+        ],
     }
     for event in moments.DIALECTS[host]:
         entries = hooks.get(event, [])
@@ -137,11 +143,18 @@ def install(
     return target
 
 
-def hook_command(host: str, store_root: pathlib.Path | None = None) -> str:
+def hook_command(
+    host: str,
+    store_root: pathlib.Path | None = None,
+    *,
+    settings_path: pathlib.Path | None = None,
+) -> str:
     """By absolute path: desktop clients run hooks without the user's shell PATH."""
     command = [str(pathlib.Path(sys.executable).parent / HOOK_COMMAND), HOST_FLAG, host]
     if host == moments.HOST_MUSE_CODE:
         command += [MUSE_DATA_HOME_FLAG, str(_muse_data_home())]
+        target = settings_path or default_settings_path(host)
+        command += [MUSE_SETTINGS_FLAG, str(target.expanduser().resolve())]
     if store_root is not None:
         command += [STORE_FLAG, str(pathlib.Path(store_root).resolve())]
     return shlex.join(command)

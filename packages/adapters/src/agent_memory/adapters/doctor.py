@@ -76,7 +76,7 @@ def run(
     checks.extend(_store_checks(store))
     configured = _settings(target, checks)
     if configured is not None:
-        checks.extend(_hook_checks(configured, host, store.root))
+        checks.extend(_hook_checks(configured, host, store.root, target))
     skill = setup.skill_path(host, target)
     skill_ok = skill.is_file() and skill.read_text(encoding="utf-8") == prompts.skill()
     checks.append(
@@ -162,7 +162,10 @@ def _settings(target: pathlib.Path, checks: list[Check]) -> dict[str, object] | 
 
 
 def _hook_checks(
-    configured: dict[str, object], host: str, store_root: pathlib.Path
+    configured: dict[str, object],
+    host: str,
+    store_root: pathlib.Path,
+    settings_path: pathlib.Path,
 ) -> list[Check]:
     hooks = configured.get(setup.HOOKS_KEY)
     if not isinstance(hooks, dict):
@@ -180,6 +183,14 @@ def _hook_checks(
             continue
         if expected_store not in json.dumps(managed[0]):
             failures.append(f"{event} does not pin Store {expected_store}")
+            continue
+        if host == moments.HOST_MUSE_CODE:
+            rendered = json.dumps(managed[0])
+            expected_settings = str(settings_path.resolve())
+            if setup.MUSE_SETTINGS_FLAG not in rendered or expected_settings not in rendered:
+                failures.append(
+                    f"{event} does not pin Muse settings {expected_settings}"
+                )
     return [
         Check(
             "HOOK_OK" if not failures else "HOOK_INVALID",

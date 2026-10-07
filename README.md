@@ -221,6 +221,8 @@ Agents that speak MCP get the same core calls through `mem-mcp` (`memory_recall`
 `memory_merge`, `memory_delete`, `memory_feedback`). Anything that can run a
 shell command needs neither: the CLI is the universal fallback, and it is the wider surface —
 `context`, `sleep`, and the proposal ledger have no MCP tool yet.
+Codex keeps its normal MCP approval boundary; the first tool call can still require explicit
+user approval even after setup has configured and verified the server.
 
 SessionStart injects, Stop and SessionEnd distil where supported, and PreCompact evicts.
 Distillation reasons through the host that fired the boundary, using its existing login. Point
@@ -242,7 +244,9 @@ The provider step configures Muse's `meta` transport to the local pproxy bridge,
 Muse model, starts or reuses pproxy, validates OpenRouter authentication and model availability,
 then asks Muse to complete a minimal real request. It merges `SessionStart`, `PreCompact`,
 `Stop`, and `SessionEnd` into `$XDG_CONFIG_HOME/muse/settings.json` (or
-`~/.config/muse/settings.json`) without replacing unrelated settings.
+`~/.config/muse/settings.json`) without replacing unrelated settings. Managed hooks pin that
+exact settings path as well as the Store and Muse data directory, so background distillation
+does not depend on Muse preserving the launching shell's XDG environment.
 
 pproxy remains a separate, pinned external dependency. Setup never silently installs system
 software. If it is missing, the FAILED report prints the exact `uv tool install` command; run it
@@ -282,8 +286,11 @@ mem-exp interop --workspace /tmp/muse-memory-smoke \
 Then omit `--pairs` and pass `--hosts claude-code,codex,hermes,muse-code` for the 4×4 matrix.
 Current limitations: only the root Muse session log is captured; child/observer logs are ignored,
 setup installs MCP only when `--mcp` is requested, and live hook/MCP/sandbox behavior must be
-verified on a machine with Muse Code installed and authenticated. A missing Muse login is reported as
-`BLOCKED_BY_MUSE_AUTH`; echo or mocked providers do not count as live E2E evidence.
+verified on a machine with Muse Code installed and authenticated. Muse 1.4.3 with the tested
+OpenRouter model may shorten a fully qualified MCP tool ID to `memory_recall`; Muse rejects that
+shorthand even though the configured server handshake succeeds. Lifecycle hooks and SessionStart
+injection do not depend on that optional model-driven MCP call. A missing Muse login is reported
+as `BLOCKED_BY_MUSE_AUTH`; echo or mocked providers do not count as live E2E evidence.
 
 ## Let it sleep
 
