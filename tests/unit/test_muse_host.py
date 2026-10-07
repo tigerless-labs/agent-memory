@@ -335,9 +335,16 @@ def test_muse_executor_reads_enveloped_final_answer(tmp_path):
 def test_muse_executor_isolates_personal_context_but_reuses_explicit_auth(tmp_path, monkeypatch):
     observed = {}
     auth = tmp_path / "auth.json"
+    auth.write_text('{"providers": {"meta": {"api_key": "secret"}}}', encoding="utf-8")
 
     def run(command, **kwargs):
-        observed.update(environment=kwargs["env"], command=command)
+        staged = pathlib.Path(kwargs["env"]["MUSE_AUTH_PATH"])
+        observed.update(
+            environment=kwargs["env"],
+            command=command,
+            auth_bytes=staged.read_bytes(),
+            auth_mode=staged.stat().st_mode & 0o777,
+        )
         stdout = json.dumps({"kind": "run_terminal", "terminal": "completed", "text": "ok"})
         return subprocess.CompletedProcess(command, 0, stdout, "")
 
@@ -347,10 +354,62 @@ def test_muse_executor_isolates_personal_context_but_reuses_explicit_auth(tmp_pa
 
     assert result.ok
     environment = observed["environment"]
-    assert environment["MUSE_AUTH_PATH"] == str(auth)
+    staged_auth = pathlib.Path(environment["MUSE_AUTH_PATH"])
+    assert staged_auth != auth
+    assert observed["auth_bytes"] == auth.read_bytes()
+    assert observed["auth_mode"] == 0o600
     assert environment["HOME"] != str(pathlib.Path.home())
     assert environment["XDG_CONFIG_HOME"] != str(pathlib.Path.home() / ".config")
     assert environment["MUSE_NO_AUTO_UPDATE"] == "1"
+
+
+def test_muse_executor_carries_only_provider_routing_into_isolation(tmp_path, monkeypatch):
+    source_config = tmp_path / "source-config"
+    settings = source_config / "muse" / "settings.json"
+    settings.parent.mkdir(parents=True)
+    settings.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "provider": "meta",
+                "model": "muse-spark-1.3-contributor",
+                "endpoint_transport": {
+                    "base_url": "http://127.0.0.1:8817",
+                    "auth": "bearer",
+                },
+                "theme": "private",
+                "hooks": {"Stop": []},
+                "mcp_servers": {"personal": {}},
+            }
+        ),
+        encoding="utf-8",
+    )
+    observed = {}
+
+    def run(command, **kwargs):
+        isolated = pathlib.Path(kwargs["env"]["XDG_CONFIG_HOME"]) / "muse" / "settings.json"
+        observed.update(settings=json.loads(isolated.read_text(encoding="utf-8")))
+        stdout = json.dumps({"kind": "run_terminal", "terminal": "completed", "text": "ok"})
+        return subprocess.CompletedProcess(command, 0, stdout, "")
+
+    monkeypatch.setattr(hosts.subprocess, "run", run)
+    host = hosts.Host(hosts.HostSpec(name="muse-code", binary="muse", model="", attempts=1))
+    result = host.run(
+        "question",
+        workdir=tmp_path,
+        environment={"XDG_CONFIG_HOME": str(source_config)},
+    )
+
+    assert result.ok
+    assert observed["settings"] == {
+        "schema_version": 1,
+        "provider": "meta",
+        "model": "muse-spark-1.3-contributor",
+        "endpoint_transport": {
+            "base_url": "http://127.0.0.1:8817",
+            "auth": "bearer",
+        },
+    }
 
 
 @pytest.mark.parametrize("failure", ["error", "timeout"])
