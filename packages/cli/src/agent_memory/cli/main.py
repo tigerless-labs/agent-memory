@@ -8,6 +8,7 @@ import json
 import pathlib
 import sys
 from collections.abc import Sequence
+from typing import Any
 
 from agent_memory.core import context as context_module
 from agent_memory.core import distill as distill_module
@@ -60,17 +61,38 @@ def main(argv: Sequence[str] | None = None) -> int:
     return EXIT_OK
 
 
+def _global_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--store",
+        default=argparse.SUPPRESS,
+        help="store root (defaults to AGENT_MEMORY_STORE)",
+    )
+    parser.add_argument("--agent", default=argparse.SUPPRESS, help="calling agent identity")
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        default=argparse.SUPPRESS,
+        help="machine-readable output",
+    )
+
+
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="mem", description="agent-memory")
-    parser.add_argument("--store", default=None, help="store root (defaults to AGENT_MEMORY_STORE)")
-    parser.add_argument("--agent", default="cli", help="calling agent identity")
-    parser.add_argument("--json", action="store_true", help="machine-readable output")
+    _global_options(parser)
+    # A subparser would overwrite values parsed before the subcommand with its own
+    # defaults, so the shared options suppress theirs and the main parser sets them.
+    parser.set_defaults(store=None, agent="cli", json=False)
     subparsers = parser.add_subparsers(dest="command")
 
-    initializer = subparsers.add_parser("init", help="create the store layout")
+    def subcommand(name: str, **kwargs: Any) -> argparse.ArgumentParser:
+        sub = subparsers.add_parser(name, **kwargs)
+        _global_options(sub)
+        return sub
+
+    initializer = subcommand("init", help="create the store layout")
     initializer.set_defaults(handler=_init)
 
-    writer = subparsers.add_parser("record", help="write one memory")
+    writer = subcommand("record", help="write one memory")
     writer.add_argument("--abstract", default=None)
     writer.add_argument("--type", default=None)
     writer.add_argument(
@@ -96,26 +118,26 @@ def _parser() -> argparse.ArgumentParser:
     writer.add_argument("--supersedes", default=None)
     writer.set_defaults(handler=_record)
 
-    reader = subparsers.add_parser("recall", help="retrieve an L0 list")
+    reader = subcommand("recall", help="retrieve an L0 list")
     reader.add_argument("query")
     reader.add_argument("--scope", default=None)
     reader.add_argument("--as-of", default=None)
     reader.add_argument("--limit", type=int, default=None)
     reader.set_defaults(handler=_recall)
 
-    contexter = subparsers.add_parser("context", help="recall and open the top entries in one call")
+    contexter = subcommand("context", help="recall and open the top entries in one call")
     contexter.add_argument("query")
     contexter.add_argument("--scope", default=None)
     contexter.add_argument("--as-of", default=None)
     contexter.add_argument("--limit", type=int, default=None)
     contexter.set_defaults(handler=_context)
 
-    opener = subparsers.add_parser("read", help="read one memory")
+    opener = subcommand("read", help="read one memory")
     opener.add_argument("name")
     opener.add_argument("--level", choices=LEVELS, default=LEVEL_FULL)
     opener.set_defaults(handler=_read)
 
-    corrector = subparsers.add_parser("correct", help="update or supersede one memory")
+    corrector = subcommand("correct", help="update or supersede one memory")
     corrector.add_argument("name")
     corrector.add_argument("--abstract", default=None)
     corrector.add_argument("--body", default=None)
@@ -134,21 +156,21 @@ def _parser() -> argparse.ArgumentParser:
     corrector.add_argument("--provenance", action="append", default=[])
     corrector.set_defaults(handler=_correct)
 
-    replacer = subparsers.add_parser(
+    replacer = subcommand(
         "supersede", help="replace an old memory with an existing active memory"
     )
     replacer.add_argument("old")
     replacer.add_argument("new")
     replacer.set_defaults(handler=_supersede)
 
-    merger = subparsers.add_parser("merge", help="combine memories and end their source intervals")
+    merger = subcommand("merge", help="combine memories and end their source intervals")
     merger.add_argument("names", nargs="+")
     merger.add_argument("--name", default=None)
     merger.add_argument("--abstract", required=True)
     merger.add_argument("--body", required=True)
     merger.set_defaults(handler=_merge)
 
-    still = subparsers.add_parser(
+    still = subcommand(
         "distill", help="hand the archived backlog to the library executor and apply its writes"
     )
     still.add_argument(
@@ -162,42 +184,41 @@ def _parser() -> argparse.ArgumentParser:
     still.add_argument("--reason-model", default="")
     still.set_defaults(handler=_distill)
 
-    tracer = subparsers.add_parser("trace", help="open the messages a memory cites")
+    tracer = subcommand("trace", help="open the messages a memory cites")
     tracer.add_argument("name")
     tracer.add_argument("--pointer", default=None, help="one cited reference or its subrange")
     tracer.set_defaults(handler=_trace)
 
-    remover = subparsers.add_parser("delete", help="end one memory's validity; retain its history")
+    remover = subcommand("delete", help="end one memory's validity; retain its history")
     remover.add_argument("name")
     remover.set_defaults(handler=_delete)
 
-    migrator = subparsers.add_parser(
-        "migrate", help="upgrade a four-domain store to the schema layout"
+    migrator = subcommand("migrate", help="upgrade a four-domain store to the schema layout"
     )
     migrator.set_defaults(handler=_migrate)
 
-    voter = subparsers.add_parser("feedback", help="explicit boost or penalty")
+    voter = subcommand("feedback", help="explicit boost or penalty")
     voter.add_argument("name")
     voter.add_argument("--boost", action="store_true")
     voter.add_argument("--penalize", action="store_true")
     voter.set_defaults(handler=_feedback)
 
-    rebuilder = subparsers.add_parser("rebuild", help="drop and rebuild the index")
+    rebuilder = subcommand("rebuild", help="drop and rebuild the index")
     rebuilder.set_defaults(handler=_rebuild)
 
-    inspector = subparsers.add_parser("inspect", help="store health")
+    inspector = subcommand("inspect", help="store health")
     inspector.set_defaults(handler=_inspect)
 
-    exporter = subparsers.add_parser("export", help="export the whole store")
+    exporter = subcommand("export", help="export the whole store")
     exporter.add_argument("--out", default=None)
     exporter.add_argument("--no-archive", action="store_true")
     exporter.set_defaults(handler=_export)
 
-    importer = subparsers.add_parser("import", help="import an export into this store")
+    importer = subcommand("import", help="import an export into this store")
     importer.add_argument("source")
     importer.set_defaults(handler=_import)
 
-    sleeper = subparsers.add_parser("sleep", help="run the sleep-time Manage pass")
+    sleeper = subcommand("sleep", help="run the sleep-time Manage pass")
     sleeper.add_argument("--sessions-since", type=int, default=None)
     sleeper.add_argument(
         "--reason",
@@ -210,15 +231,15 @@ def _parser() -> argparse.ArgumentParser:
     sleeper.add_argument("--reason-model", default="")
     sleeper.set_defaults(handler=_sleep)
 
-    proposer = subparsers.add_parser("proposals", help="list proposals awaiting confirmation")
+    proposer = subcommand("proposals", help="list proposals awaiting confirmation")
     proposer.set_defaults(handler=_proposals)
 
-    collector = subparsers.add_parser(
+    collector = subcommand(
         "gc", help="physically remove invalid files; the only deletion entry, human-run"
     )
     collector.set_defaults(handler=_gc)
 
-    decider = subparsers.add_parser("decide", help="confirm or refuse one proposal")
+    decider = subcommand("decide", help="confirm or refuse one proposal")
     decider.add_argument("proposal")
     verdict = decider.add_mutually_exclusive_group(required=True)
     verdict.add_argument("--accept", action="store_true")
@@ -233,10 +254,10 @@ def _parser() -> argparse.ArgumentParser:
     )
     decider.set_defaults(handler=_decide)
 
-    skiller = subparsers.add_parser("skill", help="print the agent skill text")
+    skiller = subcommand("skill", help="print the agent skill text")
     skiller.set_defaults(handler=_skill)
 
-    installer = subparsers.add_parser("setup", help="configure a host and run preflight")
+    installer = subcommand("setup", help="configure a host and run preflight")
     installer.add_argument("--host", default=None)
     installer.add_argument("--settings", default=None)
     installer.add_argument("--provider", default=None)
@@ -247,7 +268,7 @@ def _parser() -> argparse.ArgumentParser:
     )
     installer.set_defaults(handler=_setup)
 
-    doctor = subparsers.add_parser("doctor", help="diagnose host, Store and provider setup")
+    doctor = subcommand("doctor", help="diagnose host, Store and provider setup")
     doctor.add_argument("--host", required=True)
     doctor.add_argument("--settings", default=None)
     doctor.add_argument("--provider", default=None)

@@ -498,3 +498,37 @@ def test_sleep_can_be_handed_a_reasoner_whose_verdicts_reach_the_store(cli, monk
     report = cli("sleep", "--reason", "host")
     assert [decision["proposal"] for decision in report["decisions"]] == [proposal["id"]]
     assert proposal["id"] not in {open_one["id"] for open_one in cli("proposals")["proposals"]}
+
+
+def test_global_flags_are_accepted_after_the_subcommand(tmp_path, capsys):
+    root = tmp_path / "store"
+    assert main(["init", "--store", str(root)]) == EXIT_OK
+    capsys.readouterr()
+    assert main([
+        "record",
+        "--abstract",
+        "global flags work after the subcommand",
+        "--type",
+        "fact",
+        "--store",
+        str(root),
+        "--json",
+        "--agent",
+        "flag-order",
+    ]) == EXIT_OK
+    payload = json.loads(capsys.readouterr().out)
+    assert Store(root).find(payload["name"]).author == "flag-order"
+
+
+def test_global_flags_keep_working_before_the_subcommand(tmp_path, capsys):
+    root = tmp_path / "store"
+    assert main(["--store", str(root), "init"]) == EXIT_OK
+    capsys.readouterr()
+    assert main(["--store", str(root), "--json", "inspect"]) == EXIT_OK
+    assert json.loads(capsys.readouterr().out)["store"] == str(root)
+
+
+def test_global_flags_work_in_mixed_positions(tmp_path, capsys):
+    root = tmp_path / "store"
+    assert main(["--store", str(root), "init", "--json"]) == EXIT_OK
+    assert json.loads(capsys.readouterr().out)["store"] == str(root)
