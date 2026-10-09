@@ -73,3 +73,21 @@ def test_render_scalar_boolean_and_null():
 def test_split_document_with_no_closing_delimiter_returns_none_header():
     header, body = frontmatter.split_document("---\nname: test\nno closing marker\n")
     assert header is None
+
+
+def test_quoted_value_with_embedded_quotes_round_trips():
+    """Issue #49: each rewrite must not accumulate backslashes before quotes."""
+    fields = {"abstract": 'Note: he said "hi"'}
+    text = frontmatter.render(fields, "b")
+    for _ in range(3):
+        parsed, _ = frontmatter.parse(text)
+        assert parsed["abstract"] == 'Note: he said "hi"'
+        text = frontmatter.render(parsed, "b")
+
+
+def test_strings_that_look_like_other_scalars_stay_strings():
+    """Issue #49: ambiguous unquoted strings must not retype on parse."""
+    for value in ("true", "False", "null", "~", "42", "1e3", "infinity", "nan"):
+        parsed, _ = _round_trip({"slug": value}, "body")
+        assert parsed["slug"] == value
+        assert isinstance(parsed["slug"], str)

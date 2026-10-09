@@ -65,6 +65,21 @@ def _parse_mapping(lines: list[str]) -> dict[str, object]:
     return {key: value for key, value in fields.items()}
 
 
+def _unescape_quoted(content: str) -> str:
+    """Undo the escapes `_render_scalar` writes inside double quotes."""
+    out: list[str] = []
+    index = 0
+    while index < len(content):
+        char = content[index]
+        if char == "\\" and index + 1 < len(content):
+            out.append(content[index + 1])
+            index += 2
+            continue
+        out.append(char)
+        index += 1
+    return "".join(out)
+
+
 def _parse_scalar(value: str) -> object:
     value = value.strip()
     if value.startswith("[") and value.endswith("]"):
@@ -73,7 +88,8 @@ def _parse_scalar(value: str) -> object:
             return []
         return [_parse_scalar(item) for item in _split_items(inner)]
     if len(value) > 1 and value[0] == value[-1] and value[0] in ("'", '"'):
-        return value[1:-1]
+        inner = value[1:-1]
+        return _unescape_quoted(inner) if value[0] == '"' else inner
     lowered = value.lower()
     if lowered == _TRUE:
         return True
@@ -123,6 +139,25 @@ def _split_items(inner: str) -> list[str]:
     return [item for item in (item.strip() for item in items) if item]
 
 
+def _string_needs_quotes(text: str) -> bool:
+    """Quote when special chars appear, or the value would re-parse as another type."""
+    if text != text.strip() or text == "" or any(char in text for char in ':#[]{},"'):
+        return True
+    lowered = text.lower()
+    if lowered in (_TRUE, _FALSE) or lowered in _NULLS:
+        return True
+    try:
+        int(text)
+        return True
+    except ValueError:
+        pass
+    try:
+        float(text)
+        return True
+    except ValueError:
+        return False
+
+
 def _render_scalar(value: object) -> str:
     if value is None:
         return "null"
@@ -133,6 +168,6 @@ def _render_scalar(value: object) -> str:
     if isinstance(value, (int, float)):
         return repr(value)
     text = str(value)
-    if text != text.strip() or any(char in text for char in ":#[]{},") or text == "":
-        return '"' + text.replace('"', '\\"') + '"'
+    if _string_needs_quotes(text):
+        return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
     return text
