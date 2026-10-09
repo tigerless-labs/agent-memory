@@ -42,3 +42,7 @@ preserves Unicode, case, order, repetition, punctuation and internal whitespace.
 paths, weights and bookkeeping timestamps do not establish semantic identity. The oldest
 duplicate remains active, with name breaking creation-time ties; other copies retain their
 files and point to it. Similarity alone belongs to the reviewed proposal path.
+
+The injected index keeps fitting lower-priority memories when an earlier entry exceeds the remaining byte budget. Oversized entries cannot suppress the entire remaining recall surface.
+
+The root index byte budget includes its header. If a configured header cannot fit, the projection is empty rather than exceeding the budget.
