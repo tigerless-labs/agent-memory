@@ -227,6 +227,25 @@ user approval even after setup has configured and verified the server.
 SessionStart injects, Stop and SessionEnd distil where supported, and PreCompact evicts.
 Distillation reasons through the host that fired the boundary, using its existing login. Point
 `[executor]` in Store `config.toml` at a model endpoint instead to use an endpoint reasoner.
+Endpoint use is opt-in and never carries a Tigerless project or credential. A failed host,
+credential, request, or endpoint response is reported and leaves the archived backlog eligible
+for retry. Detached boundary failures are recorded in the Store's `.state/hooks.log`.
+
+To use Vertex AI, enable it in a Google Cloud project you control, grant the calling identity
+prediction access, authenticate the `gcloud` CLI, and configure that project explicitly:
+
+```toml
+[executor]
+reasoner = "endpoint"
+project = "your-google-cloud-project"
+location = "global"
+model = "google/gemini-3.7-flash"
+```
+
+`GOOGLE_CLOUD_PROJECT` and `VERTEX_LOCATION` override the Store values. Alternatively, an
+OpenAI-compatible endpoint can be selected with `endpoint` and a `GEMINI_API_KEY` supplied in
+the environment. Store configuration contains no secret, and service-account keys must not be
+committed to the repository.
 
 ### Muse Code
 
@@ -295,7 +314,7 @@ as `BLOCKED_BY_MUSE_AUTH`; echo or mocked providers do not count as live E2E evi
 ## Let it sleep
 
 ```bash
-mem sleep --reason host   # consolidate; T0 applies, T1 files a proposal
+mem sleep                 # host-backed consolidation; T0 applies, T1 files a proposal
 mem proposals             # what is waiting on you
 mem decide <id> --accept
 ```

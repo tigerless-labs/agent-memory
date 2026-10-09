@@ -164,14 +164,16 @@ def launch_distill(store: Store, session: str, host: str) -> bool:
         command[0] = _sibling(EXECUTOR_BINARY)
     environment = {**os.environ, STORE_ENV_VAR: str(store.root), EXECUTOR_ENV_VAR: "1"}
     try:
-        subprocess.Popen(
-            [*command, SESSION_FLAG, session, REASON_HOST_FLAG, host],
-            env=environment,
-            stdin=subprocess.DEVNULL,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            start_new_session=True,
-        )
+        store.layout.state_dir.mkdir(parents=True, exist_ok=True)
+        with (store.layout.state_dir / LOG_FILENAME).open("a", encoding="utf-8") as log:
+            subprocess.Popen(
+                [*command, SESSION_FLAG, session, REASON_HOST_FLAG, host],
+                env=environment,
+                stdin=subprocess.DEVNULL,
+                stdout=log,
+                stderr=log,
+                start_new_session=True,
+            )
     except OSError:
         return False
     return True

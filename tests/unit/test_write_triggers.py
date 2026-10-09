@@ -2,6 +2,7 @@
 
 import io
 import json
+import pathlib
 
 import pytest
 from agent_memory.adapters import capture as capture_module
@@ -198,7 +199,12 @@ def test_the_launched_executor_call_is_one_the_cli_accepts(store, monkeypatch):
     launched = {}
 
     def fake_popen(command, **kwargs):
-        launched.update(command=command, env=kwargs["env"])
+        launched.update(
+            command=command,
+            env=kwargs["env"],
+            stdout=kwargs["stdout"],
+            stderr=kwargs["stderr"],
+        )
 
     monkeypatch.setattr("subprocess.Popen", fake_popen)
     assert hook_entry.launch_distill(store, "session-x", moments.HOST_CODEX)
@@ -207,6 +213,9 @@ def test_the_launched_executor_call_is_one_the_cli_accepts(store, monkeypatch):
     assert args.reason_host == moments.HOST_CODEX
     assert launched["env"][STORE_ENV_VAR] == str(store.root)
     assert launched["env"][EXECUTOR_ENV_VAR]
+    expected_log = store.layout.state_dir / hook_entry.LOG_FILENAME
+    assert pathlib.Path(launched["stdout"].name) == expected_log
+    assert launched["stderr"] is launched["stdout"]
 
 
 def test_a_hook_fired_inside_the_executor_session_does_nothing(store, monkeypatch, capsys):

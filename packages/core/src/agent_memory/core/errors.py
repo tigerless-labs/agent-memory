@@ -40,3 +40,7 @@ class NotFoundError(MemoryStoreError):
 
 class LockTimeoutError(MemoryStoreError):
     code = "lock_timeout"
+
+
+class ReasonerUnavailableError(MemoryStoreError):
+    code = "reasoner_unavailable"

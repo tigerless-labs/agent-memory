@@ -19,6 +19,7 @@ import urllib.error
 import urllib.request
 
 from agent_memory.core.config import EXECUTOR_ENV_VAR
+from agent_memory.core.errors import ReasonerUnavailableError
 
 from .credentials import API_KEY_ENV, BASE_URL_ENV, VertexCredentials
 from .hosts import BINARIES, HOST_CLAUDE_CODE, Host, HostSpec
@@ -45,7 +46,11 @@ class HostReasoner:
             max_turns=self.max_turns,
             environment={EXECUTOR_ENV_VAR: "1"},
         )
-        return result.text if result.ok else EMPTY
+        if not result.ok:
+            raise ReasonerUnavailableError("host reasoner failed; run mem doctor for this host")
+        if not result.text.strip():
+            raise ReasonerUnavailableError("host reasoner returned an empty response")
+        return result.text
 
     @classmethod
     def for_host(cls, name: str, model: str = EMPTY) -> HostReasoner:
@@ -64,13 +69,27 @@ class EndpointReasoner:
     model: str = DEFAULT_ENDPOINT_MODEL
     timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS
     credentials: VertexCredentials = dataclasses.field(default_factory=VertexCredentials)
+    base_url: str = EMPTY
 
     def __call__(self, prompt: str) -> str:
-        environment = {**os.environ, **self.credentials.environment()}
-        base = environment.get(BASE_URL_ENV, EMPTY)
+        environment = dict(os.environ)
+        base = self.base_url or environment.get(BASE_URL_ENV, EMPTY)
         key = environment.get(API_KEY_ENV, EMPTY)
-        if not base or not key:
-            return EMPTY
+        if not base:
+            supplied = self.credentials.environment(preserve_api_key=False)
+            base = supplied.get(BASE_URL_ENV, EMPTY)
+            key = supplied.get(API_KEY_ENV, EMPTY)
+        elif not key:
+            supplied = self.credentials.environment()
+            key = supplied.get(API_KEY_ENV, EMPTY)
+        if not base:
+            raise ReasonerUnavailableError(
+                "endpoint reasoner requires executor.endpoint or a Google Cloud project"
+            )
+        if not key:
+            raise ReasonerUnavailableError(
+                "endpoint reasoner requires GEMINI_API_KEY or gcloud authentication"
+            )
         request = urllib.request.Request(
             base.rstrip("/") + CHAT_COMPLETIONS,
             data=json.dumps(
@@ -81,9 +100,14 @@ class EndpointReasoner:
         try:
             with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
                 payload = json.loads(response.read().decode("utf-8"))
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError):
-            return EMPTY
-        return _first_message(payload)
+        except json.JSONDecodeError as error:
+            raise ReasonerUnavailableError("endpoint returned invalid JSON") from error
+        except (urllib.error.URLError, TimeoutError, OSError) as error:
+            raise ReasonerUnavailableError("endpoint request failed") from error
+        message = _first_message(payload)
+        if not message.strip():
+            raise ReasonerUnavailableError("endpoint returned no valid message")
+        return message
 
 
 def _first_message(payload: object) -> str:

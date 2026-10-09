@@ -323,6 +323,42 @@ def test_host_reasoner_failure_prevents_ready(tmp_path, monkeypatch):
     }
 
 
+def test_doctor_accepts_an_explicit_user_vertex_project_without_a_custom_endpoint(store):
+    store.config.executor.reasoner = "endpoint"
+    store.config.executor.project = "user-project"
+
+    check = doctor._reasoner_checks(store, moments.HOST_CODEX)[0]
+
+    assert check.code == "REASONER_AVAILABLE"
+    assert check.ok
+    assert check.detail == "Vertex AI project user-project"
+
+
+def test_doctor_rejects_endpoint_opt_in_without_user_configuration(store):
+    store.config.executor.reasoner = "endpoint"
+    store.config.executor.endpoint = ""
+    store.config.executor.project = ""
+
+    check = doctor._reasoner_checks(store, moments.HOST_CODEX)[0]
+
+    assert check.code == "REASONER_UNAVAILABLE"
+    assert not check.ok
+    assert "project" in check.detail
+
+
+def test_doctor_accepts_user_owned_vertex_configuration_from_the_environment(store):
+    store.config.executor.reasoner = "endpoint"
+
+    check = doctor._reasoner_checks(
+        store,
+        moments.HOST_CODEX,
+        {"GOOGLE_CLOUD_PROJECT": "environment-project", "VERTEX_LOCATION": "global"},
+    )[0]
+
+    assert check.code == "REASONER_AVAILABLE"
+    assert check.detail == "Vertex AI project environment-project"
+
+
 def test_codex_doctor_flags_disabled_hooks_read_only_sandbox_and_store_failure(
     tmp_path, monkeypatch
 ):
