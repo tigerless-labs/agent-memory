@@ -117,9 +117,8 @@ def append(
     stamp = clock.timestamp()
     lines: list[str] = []
     for offset, item in enumerate(items):
-        message = _coerce(item, start + offset, stamp)
-        if message.text:
-            lines.append(json.dumps(message.as_dict(), ensure_ascii=False))
+        message = dataclasses.replace(_coerce(item, start + offset, stamp), index=start + offset)
+        lines.append(json.dumps(message.as_dict(), ensure_ascii=False))
     if not lines:
         return Pointer(session, start, max(start - 1, 0))
     with path.open("a", encoding="utf-8") as handle:
