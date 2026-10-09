@@ -49,3 +49,5 @@ ordinary external Stores are read-only to the agent shell. Controlled runs isola
 state while reusing only an explicit auth file. Hook and MCP writes require a live compatibility
 preflight. Results are not attributable until native memory is isolated and the tested build
 passes that preflight.
+
+The stdio adapter returns JSON-RPC parse or invalid-request errors for malformed frames and continues reading subsequent requests. An explicit null request ID receives a response, while requests without an ID retain notification behavior. Error codes and envelope rules follow https://www.jsonrpc.org/specification.
