@@ -86,6 +86,13 @@ class Driver:
         root = self._root_for(episode, arm)
         if arm.memory:
             self._system.prepare(root, fresh=self._reuse_stores is None)
+        try:
+            return self._run_prepared(root, episode, arm)
+        finally:
+            if arm.memory:
+                self._system.release(root)
+
+    def _run_prepared(self, root: pathlib.Path, episode: Episode, arm: Arm) -> RunRecord:
         workdir = self._workdir_for(episode, arm)
         phase = (
             ExperiencePhase(calls=0, seconds=0.0, blocking_seconds=0.0, failures=0)
@@ -135,8 +142,6 @@ class Driver:
         )
         if evidence_dir:
             observation.emit("exam_end", directory=str(evidence_dir), ok=answer.ok)
-        if arm.memory:
-            self._system.release(root)
         verdict = self._judge.grade(episode.question, episode.answer, answer.text)
         status = STATUS_OK if answer.ok and verdict.ok else STATUS_FAILED
         return RunRecord(
