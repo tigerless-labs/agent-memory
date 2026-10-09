@@ -112,7 +112,7 @@ def _episode(entry: dict, keep: int | None) -> Episode:
             ),
         )
         for session_id, date, turns in zip(
-            trimmed[KEY_SESSION_IDS], trimmed[KEY_DATES], trimmed[KEY_SESSIONS], strict=False
+            trimmed[KEY_SESSION_IDS], trimmed[KEY_DATES], trimmed[KEY_SESSIONS], strict=True
         )
     )
     return Episode(
