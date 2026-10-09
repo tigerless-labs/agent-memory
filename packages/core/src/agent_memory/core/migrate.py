@@ -14,7 +14,7 @@ import pathlib
 import tomllib
 
 from . import frontmatter, sessions
-from .config import CONFIG_FILENAME, Config, StorageConfig
+from .config import CONFIG_FILENAME, Config
 from .paths import ARCHIVE_DIRNAME, MEMORY_SUFFIX, SESSIONS_DIRNAME
 from .record import STATUS_ACTIVE
 from .store import Store
@@ -154,9 +154,6 @@ def _upgrade_config(root: pathlib.Path) -> None:
         for key, value in values.items():
             if hasattr(target, key):
                 setattr(target, key, value)
-    config.storage = dataclasses.replace(
-        StorageConfig(), slug_max_length=config.storage.slug_max_length
-    )
     config.save(root)
 
 
