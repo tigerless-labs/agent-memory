@@ -36,9 +36,17 @@ def test_a_host_reasoner_asks_for_no_tools():
 
 
 def test_a_failed_host_is_reported():
-    host = FakeHost(HostResult(text="usage: claude ...", ok=False, seconds=0.1, error="boom"))
-    with pytest.raises(ReasonerUnavailableError, match="host reasoner failed"):
+    host = FakeHost(
+        HostResult(
+            text="usage: claude ...",
+            ok=False,
+            seconds=0.1,
+            error="provider failed for sk-or-super-secret",
+        )
+    )
+    with pytest.raises(ReasonerUnavailableError, match="provider failed") as raised:
         HostReasoner(host=host)("review this")
+    assert "sk-or-super-secret" not in str(raised.value)
 
 
 def test_an_empty_host_reply_is_reported():
@@ -105,6 +113,18 @@ def test_a_host_reasoner_is_named_by_dialect_and_runs_that_dialect_s_binary():
     assert reasoner.host.spec.binary == BINARIES[HOST_CLAUDE_CODE][0]
     assert reasoner.host.spec.binary != HOST_CLAUDE_CODE
     assert reasoner.host.spec.model == BINARIES[HOST_CLAUDE_CODE][1]
+
+
+def test_muse_host_reasoner_uses_the_launcher_pinned_by_its_boundary_hook(monkeypatch):
+    from agent_memory.core.config import MUSE_LAUNCHER_ENV_VAR
+    from agent_memory.executor.hosts import HOST_MUSE_CODE
+
+    launcher = "/managed/bin/mem-muse"
+    monkeypatch.setenv(MUSE_LAUNCHER_ENV_VAR, launcher)
+
+    reasoner = HostReasoner.for_host(HOST_MUSE_CODE)
+
+    assert reasoner.host.spec.binary == launcher
 
 
 def test_a_host_reasoner_marks_its_session_as_the_executor_so_hooks_stand_down():

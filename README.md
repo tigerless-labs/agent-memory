@@ -295,6 +295,68 @@ one explicit experiment workspace. It never adds `--yolo` or `--disable-sandbox`
 AGENT_MEMORY_LIVE_MUSE=1 uv run python tools/muse_sandbox_probe.py
 ```
 
+#### Muse SDK / `muse serve`
+
+SDK applications do not need a manually managed backend or the persistent pproxy process used by
+the interactive setup above. From the SDK application directory, run the managed bootstrap once:
+
+```bash
+export OPENROUTER_API_KEY="..."  # preferably injected by the application's secret manager
+mem setup --host muse-code --provider openrouter --sdk
+```
+
+The command initializes the selected Store, checks Muse, Node 20+, the project-local
+`@muse-code/sdk`, the managed launcher, credential availability, and version compatibility, then
+performs one real request through the same invocation-scoped bridge used by the SDK. It prints the
+absolute `museBin` and arguments to use. It does not modify persistent Muse settings or auth, start
+a persistent pproxy, edit `package.json`, or install system software. When a dependency is absent,
+the failed check includes the exact next command; rerun bootstrap after applying it.
+Run it from the application workspace, not from a workspace nested under the system temporary
+directory: Muse requires its process-lifetime tool-output directory to live outside the workspace.
+
+`OPENROUTER_API_KEY` must be present in the environment of both bootstrap and the application
+process. In production, inject it with the application's secret manager. For a local shell, avoid
+putting the key on a command line or in shell history:
+
+```bash
+read -rsp 'OpenRouter API key: ' OPENROUTER_API_KEY
+echo
+export OPENROUTER_API_KEY
+mem setup --host muse-code --provider openrouter --sdk
+node app.mjs
+unset OPENROUTER_API_KEY
+```
+
+An existing Muse `meta` or `openrouter` credential is also recognized, so the environment variable
+can be omitted in that case. Use the bootstrap result as the SDK launch contract:
+
+```js
+import { MuseClient } from "@muse-code/sdk";
+
+const client = await MuseClient.spawn({
+  museBin: "/absolute/path/printed/by/bootstrap/mem-muse",
+  args: ["serve"],
+  env: process.env,
+  clientInfo: { name: "my_app", version: "1.0.0" },
+});
+const session = await client.startSession({ workspaceRoot: process.cwd() });
+// Send turns through session, then release the owned backend.
+await client.close();
+```
+
+`mem-muse` initializes the selected Store, creates a private invocation configuration, installs
+the lifecycle hooks and skill, enables `mem-mcp` when that optional executable is installed,
+serves the Muse model catalog through an invocation-scoped OpenRouter bridge, and starts the real
+`muse serve`. It leaves the user's Muse settings and auth file unchanged. SDK close and startup
+failure both tear down Muse, the generated credential copy, and the bridge; detached distillation
+starts a fresh hook-free `mem-muse exec`, so it neither depends on the parent backend nor recurses.
+
+The SDK requires Node 20 or newer. Pin `@muse-code/sdk` to the Muse Code CLI version because they
+ship in lockstep. Bootstrap rejects major or minor version skew. Patch skew is reported as an
+advisory warning and must still pass the live request. OpenRouter can reject an otherwise valid
+request when the selected model is unavailable for the account or region; the Store hook log
+retains that redacted upstream error and the archived session remains eligible for retry.
+
 Start with the three ordered portability mechanics before a full four-host matrix:
 
 ```bash

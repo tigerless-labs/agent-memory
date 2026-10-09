@@ -21,6 +21,8 @@ from types import FrameType
 from agent_memory.core import injection
 from agent_memory.core.config import (
     EXECUTOR_ENV_VAR,
+    MUSE_BINARY_ENV_VAR,
+    MUSE_LAUNCHER_ENV_VAR,
     MUSE_SETTINGS_ENV_VAR,
     STORE_ENV_VAR,
 )
@@ -51,6 +53,8 @@ HOST_FLAG = "--host"
 STORE_FLAG = "--store"
 MUSE_DATA_HOME_FLAG = "--muse-data-home"
 MUSE_SETTINGS_FLAG = "--muse-settings"
+MUSE_LAUNCHER_FLAG = "--muse-launcher"
+MUSE_BINARY_FLAG = "--muse-binary"
 EXECUTOR_BINARY = "mem"
 PRINTED_KEYS = (CLAUDE_OUTPUT_KEY, CLAUDE_CONTEXT_KEY)
 
@@ -72,6 +76,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         parser.add_argument(STORE_FLAG, default="")
         parser.add_argument(MUSE_DATA_HOME_FLAG, default="")
         parser.add_argument(MUSE_SETTINGS_FLAG, default="")
+        parser.add_argument(MUSE_LAUNCHER_FLAG, default="")
+        parser.add_argument(MUSE_BINARY_FLAG, default="")
         args = parser.parse_args(argv or ())
         event = normalize_event(json.loads(sys.stdin.read() or "{}"), args.host)
         if args.store:
@@ -81,6 +87,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.muse_settings:
             event[KEY_MUSE_SETTINGS] = args.muse_settings
             os.environ[MUSE_SETTINGS_ENV_VAR] = args.muse_settings
+        if args.muse_launcher:
+            os.environ[MUSE_LAUNCHER_ENV_VAR] = args.muse_launcher
+        if args.muse_binary:
+            os.environ[MUSE_BINARY_ENV_VAR] = args.muse_binary
         store_value = event.get("store")
         store = Store(
             str(store_value) if store_value else None,

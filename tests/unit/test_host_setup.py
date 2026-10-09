@@ -7,12 +7,55 @@ import pathlib
 import subprocess
 
 import pytest
-from agent_memory.adapters import doctor, host_setup, moments, openrouter, setup
+from agent_memory.adapters import doctor, host_setup, moments, muse_sdk, openrouter, setup
 from agent_memory.core import prompts
 from agent_memory.core.errors import ValidationError
 from agent_memory.core.store import Store
 
 HOSTS = (moments.HOST_CLAUDE_CODE, moments.HOST_CODEX, moments.HOST_MUSE_CODE)
+
+
+def test_sdk_setup_dispatches_to_the_isolated_muse_bootstrap(tmp_path, monkeypatch):
+    expected = {"status": doctor.READY, "mode": "sdk-managed"}
+    observed = {}
+
+    def bootstrap(store, **kwargs):
+        observed.update(store=store, **kwargs)
+        return expected
+
+    monkeypatch.setattr(muse_sdk, "run", bootstrap)
+
+    result = host_setup.run(
+        Store(tmp_path / "store"),
+        moments.HOST_MUSE_CODE,
+        provider=openrouter.PROVIDER,
+        model="meta/custom",
+        sdk=True,
+    )
+
+    assert result == expected
+    assert observed["provider"] == openrouter.PROVIDER
+    assert observed["model"] == "meta/custom"
+
+
+@pytest.mark.parametrize(
+    "kwargs",
+    [
+        {"host": moments.HOST_CODEX, "provider": openrouter.PROVIDER},
+        {"host": moments.HOST_MUSE_CODE, "provider": None},
+        {
+            "host": moments.HOST_MUSE_CODE,
+            "provider": openrouter.PROVIDER,
+            "settings_path": pathlib.Path("settings.json"),
+        },
+        {"host": moments.HOST_MUSE_CODE, "provider": openrouter.PROVIDER, "mcp": True},
+    ],
+)
+def test_sdk_setup_rejects_ambiguous_or_persistent_setup_options(tmp_path, kwargs):
+    options = dict(kwargs)
+    host = options.pop("host")
+    with pytest.raises(ValidationError, match="sdk"):
+        host_setup.run(Store(tmp_path / "store"), host, sdk=True, **options)
 
 
 @pytest.fixture(autouse=True)

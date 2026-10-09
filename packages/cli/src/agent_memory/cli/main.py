@@ -243,6 +243,11 @@ def _parser() -> argparse.ArgumentParser:
     installer.add_argument("--model", default=None)
     installer.add_argument("--mcp", action="store_true", help="also configure the stdio MCP server")
     installer.add_argument(
+        "--sdk",
+        action="store_true",
+        help="bootstrap an SDK-owned Muse backend without persistent Muse configuration",
+    )
+    installer.add_argument(
         "--no-live", action="store_true", help="skip live reasoner checks (never reports READY)"
     )
     installer.set_defaults(handler=_setup)
@@ -545,6 +550,7 @@ def _setup(store: Store, args: argparse.Namespace) -> dict[str, object]:
             model=args.model,
             mcp=args.mcp,
             live=not args.no_live,
+            sdk=args.sdk,
         )
         for host in hosts
     }
