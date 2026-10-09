@@ -17,6 +17,7 @@ from . import frontmatter, sessions
 from .config import CONFIG_FILENAME, Config, StorageConfig
 from .paths import ARCHIVE_DIRNAME, MEMORY_SUFFIX, SESSIONS_DIRNAME
 from .record import STATUS_ACTIVE
+from .schema import FACTORY
 from .store import Store
 
 LEGACY_DOMAINS = ("user", "project", "reference", "experience")
@@ -110,11 +111,23 @@ def _legacy_files(root: pathlib.Path) -> list[tuple[pathlib.Path, bool]]:
     for domain in LEGACY_DOMAINS:
         folder = root / domain
         if folder.is_dir():
-            found.extend((path, False) for path in sorted(folder.rglob("*" + MEMORY_SUFFIX)))
+            found.extend(
+                (path, False)
+                for path in sorted(folder.rglob("*" + MEMORY_SUFFIX))
+                if not _current_layout(path, domain)
+            )
     retired = root / ARCHIVE_DIRNAME / LEGACY_RETIRED_DIRNAME
     if retired.is_dir():
         found.extend((path, True) for path in sorted(retired.rglob("*" + MEMORY_SUFFIX)))
     return found
+
+
+def _current_layout(path: pathlib.Path, domain: str) -> bool:
+    fields, _ = frontmatter.parse(path.read_text(encoding="utf-8"))
+    schema = next((entry for entry in FACTORY if entry.type == domain), None)
+    return bool(
+        schema and fields.get("type") == domain and all(fields.get(key) for key in schema.key)
+    )
 
 
 def _legacy_sessions(root: pathlib.Path) -> list[pathlib.Path]:
