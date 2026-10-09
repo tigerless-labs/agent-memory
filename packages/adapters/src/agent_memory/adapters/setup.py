@@ -36,6 +36,8 @@ ALIASES = {"muse": moments.HOST_MUSE_CODE}
 MUSE_SCHEMA_VERSION = 1
 MUSE_DATA_HOME_FLAG = "--muse-data-home"
 MUSE_SETTINGS_FLAG = "--muse-settings"
+MUSE_LAUNCHER_FLAG = "--muse-launcher"
+MUSE_BINARY_FLAG = "--muse-binary"
 STORE_FLAG = "--store"
 MCP_SERVER = "agent-memory"
 MCP_COMMAND = "mem-mcp"
@@ -102,7 +104,11 @@ def install(
     *,
     provider: str | None = None,
     model: str | None = None,
+    provider_url: str | None = None,
+    muse_launcher: pathlib.Path | None = None,
+    muse_binary: pathlib.Path | None = None,
     mcp: bool = False,
+    lifecycle: bool = True,
 ) -> pathlib.Path:
     host = canonical_host(host)
     target = settings_path or default_settings_path(host)
@@ -113,27 +119,41 @@ def install(
         if provider:
             from . import openrouter
 
-            openrouter.merge_routing(settings, provider=provider, model=model)
+            openrouter.merge_routing(
+                settings,
+                provider=provider,
+                model=model,
+                **({"proxy_url": provider_url} if provider_url else {}),
+            )
         if mcp:
             _merge_json_mcp(settings, host, store_root)
-    hooks = settings.setdefault(HOOKS_KEY, {})
-    if not isinstance(hooks, dict):
-        raise ValidationError([FieldError("settings.hooks", "must be an object")])
-    entry = {
-        MATCHER_KEY: ANY_MATCHER,
-        HOOKS_KEY: [
-            {
-                "type": "command",
-                "command": hook_command(host, store_root, settings_path=target),
-            }
-        ],
-    }
-    for event in moments.DIALECTS[host]:
-        entries = hooks.get(event, [])
-        if not isinstance(entries, list):
-            raise ValidationError([FieldError(f"settings.hooks.{event}", "must be an array")])
-        kept = [existing for existing in entries if not _mentions_command(existing)]
-        hooks[event] = [*kept, entry]
+    if lifecycle:
+        hooks = settings.setdefault(HOOKS_KEY, {})
+        if not isinstance(hooks, dict):
+            raise ValidationError([FieldError("settings.hooks", "must be an object")])
+        entry = {
+            MATCHER_KEY: ANY_MATCHER,
+            HOOKS_KEY: [
+                {
+                    "type": "command",
+                    "command": hook_command(
+                        host,
+                        store_root,
+                        settings_path=target,
+                        muse_launcher=muse_launcher,
+                        muse_binary=muse_binary,
+                    ),
+                }
+            ],
+        }
+        for event in moments.DIALECTS[host]:
+            entries = hooks.get(event, [])
+            if not isinstance(entries, list):
+                raise ValidationError(
+                    [FieldError(f"settings.hooks.{event}", "must be an array")]
+                )
+            kept = [existing for existing in entries if not _mentions_command(existing)]
+            hooks[event] = [*kept, entry]
     rendered = json.dumps(settings, indent=SETTINGS_INDENT, sort_keys=True) + "\n"
     if not target.exists() or target.read_text(encoding="utf-8") != rendered:
         _atomic_write(target, rendered)
@@ -148,6 +168,8 @@ def hook_command(
     store_root: pathlib.Path | None = None,
     *,
     settings_path: pathlib.Path | None = None,
+    muse_launcher: pathlib.Path | None = None,
+    muse_binary: pathlib.Path | None = None,
 ) -> str:
     """By absolute path: desktop clients run hooks without the user's shell PATH."""
     command = [str(pathlib.Path(sys.executable).parent / HOOK_COMMAND), HOST_FLAG, host]
@@ -155,6 +177,10 @@ def hook_command(
         command += [MUSE_DATA_HOME_FLAG, str(_muse_data_home())]
         target = settings_path or default_settings_path(host)
         command += [MUSE_SETTINGS_FLAG, str(target.expanduser().resolve())]
+        if muse_launcher is not None:
+            command += [MUSE_LAUNCHER_FLAG, str(muse_launcher.expanduser().resolve())]
+        if muse_binary is not None:
+            command += [MUSE_BINARY_FLAG, str(muse_binary.expanduser().resolve())]
     if store_root is not None:
         command += [STORE_FLAG, str(pathlib.Path(store_root).resolve())]
     return shlex.join(command)

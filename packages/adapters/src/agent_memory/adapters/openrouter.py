@@ -75,7 +75,11 @@ def detect_credential(environment: dict[str, str] | None = None) -> Credential |
 
 
 def merge_routing(
-    settings: dict[str, object], *, provider: str, model: str | None = None
+    settings: dict[str, object],
+    *,
+    provider: str,
+    model: str | None = None,
+    proxy_url: str = DEFAULT_PROXY_URL,
 ) -> None:
     if provider != PROVIDER:
         raise ValidationError(
@@ -86,7 +90,7 @@ def merge_routing(
     expected: dict[str, object] = {
         "provider": MUSE_PROVIDER,
         "model": muse_model,
-        "endpoint_transport": {"base_url": DEFAULT_PROXY_URL, "auth": "bearer"},
+        "endpoint_transport": {"base_url": proxy_url, "auth": "bearer"},
     }
     for key, value in expected.items():
         existing = settings.get(key)

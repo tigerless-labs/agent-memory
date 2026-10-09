@@ -22,6 +22,15 @@ settings, hooks, and MCP servers, and are replaced atomically only after valid J
 The setup path installs lifecycle hooks and the canonical agent-memory skill; MCP remains an
 explicit use of the shared server.
 
+Muse SDK applications use the managed `mem-muse` launcher as their `museBin`. The launcher owns
+the `muse serve` process, an isolated generated configuration, and the OpenRouter compatibility
+bridge for exactly one invocation. It accepts either the existing Muse credential store or
+`OPENROUTER_API_KEY`, leaves user settings unchanged, and exposes MCP when the optional server is
+installed. SDK shutdown owns the complete process lifetime; users never start a second terminal.
+Detached Muse distillation starts through the same launcher and therefore does not depend on the
+parent backend or a persistent proxy. Executor-owned Muse sessions receive no lifecycle hooks,
+so recursion prevention remains valid even when Muse sanitizes inherited environment variables.
+
 Muse 1.4 lifecycle payloads identify the session but set `transcript_path` to null. The Muse
 adapter resolves that identifier to the root durable log under Muse's XDG data directory and
 normalizes only user and assistant conversation records. Child and observer logs remain excluded.

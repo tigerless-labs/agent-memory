@@ -295,6 +295,38 @@ one explicit experiment workspace. It never adds `--yolo` or `--disable-sandbox`
 AGENT_MEMORY_LIVE_MUSE=1 uv run python tools/muse_sandbox_probe.py
 ```
 
+#### Muse SDK / `muse serve`
+
+SDK applications do not need a manually managed backend or the persistent pproxy process used by
+the interactive setup above. Use `mem-muse` as the SDK's `museBin`; `OPENROUTER_API_KEY` alone is
+enough, and an existing Muse `meta` or `openrouter` credential is also recognized:
+
+```js
+import { MuseClient } from "@muse-code/sdk";
+
+const client = await MuseClient.spawn({
+  museBin: "mem-muse",
+  args: ["serve"],
+  env: process.env,
+  clientInfo: { name: "my_app", version: "1.0.0" },
+});
+const session = await client.startSession({ workspaceRoot: process.cwd() });
+// Send turns through session, then release the owned backend.
+await client.close();
+```
+
+`mem-muse` initializes the selected Store, creates a private invocation configuration, installs
+the lifecycle hooks and skill, enables `mem-mcp` when that optional executable is installed,
+serves the Muse model catalog through an invocation-scoped OpenRouter bridge, and starts the real
+`muse serve`. It leaves the user's Muse settings and auth file unchanged. SDK close and startup
+failure both tear down Muse, the generated credential copy, and the bridge; detached distillation
+starts a fresh hook-free `mem-muse exec`, so it neither depends on the parent backend nor recurses.
+
+The SDK requires Node 20 or newer. Pin `@muse-code/sdk` to the Muse Code CLI version because they
+ship in lockstep. OpenRouter can still reject an otherwise valid request when the selected model
+is unavailable for the account or region; the Store hook log retains that redacted upstream error
+and the archived session remains eligible for retry.
+
 Start with the three ordered portability mechanics before a full four-host matrix:
 
 ```bash
