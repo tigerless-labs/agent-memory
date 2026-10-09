@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import dataclasses
 import hashlib
+import json
 
 from .dataset import Episode
 
@@ -19,7 +21,10 @@ def stratified(episodes: list[Episode], per_stratum: int, seed: int) -> list[Epi
 
 
 def fingerprint(episodes: list[Episode]) -> str:
-    payload = "|".join(episode.id for episode in episodes)
+    payload = json.dumps(
+        [dataclasses.asdict(episode) for episode in episodes],
+        sort_keys=True, ensure_ascii=False, separators=(",", ":"),
+    )
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:FINGERPRINT_LENGTH]
 
 

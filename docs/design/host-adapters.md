@@ -49,3 +49,5 @@ ordinary external Stores are read-only to the agent shell. Controlled runs isola
 state while reusing only an explicit auth file. Hook and MCP writes require a live compatibility
 preflight. Results are not attributable until native memory is isolated and the tested build
 passes that preflight.
+
+Benchmark fingerprints include complete episode content, reference answers and evidence, preserving resume and attribution guards when a dataset changes without changing its identifiers.
