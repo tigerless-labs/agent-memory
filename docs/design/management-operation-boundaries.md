@@ -42,3 +42,5 @@ preserves Unicode, case, order, repetition, punctuation and internal whitespace.
 paths, weights and bookkeeping timestamps do not establish semantic identity. The oldest
 duplicate remains active, with name breaking creation-time ties; other copies retain their
 files and point to it. Similarity alone belongs to the reviewed proposal path.
+
+A memory validity interval cannot end before its start. Direct writes reject reversed intervals before publishing the Markdown projection and preserve the previous truth file.
