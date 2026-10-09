@@ -393,12 +393,14 @@ class Manage:
     def _add_cooccurrence_links(self, records: list[MemoryRecord]) -> list[Action]:
         with self._database.connect() as connection:
             rows = connection.execute(
-                "SELECT query, name FROM access_log WHERE query != ''"
+                "SELECT at, agent, query, name FROM access_log "
+                "WHERE query != '' AND kind = 'recall'"
             ).fetchall()
         together: dict[tuple[str, str], int] = {}
-        by_query: dict[str, set[str]] = {}
+        by_query: dict[tuple[str, str, str], set[str]] = {}
         for row in rows:
-            by_query.setdefault(str(row["query"]), set()).add(str(row["name"]))
+            key = (str(row["at"]), str(row["agent"]), str(row["query"]))
+            by_query.setdefault(key, set()).add(str(row["name"]))
         for names in by_query.values():
             for left in names:
                 for right in names:

@@ -114,10 +114,11 @@ class Recall:
             hits = hits[:limit]
             if not log:
                 return hits
+            recalled_at = self._store.clock.now().isoformat()
             AccessLog(connection).append(
                 [
                     AccessEntry(
-                        self._store.clock.now().isoformat(),
+                        recalled_at,
                         hit.name,
                         query,
                         KIND_RECALL,
