@@ -58,6 +58,21 @@ def test_invalid_write_returns_a_structured_error_and_a_distinct_exit_code(cli):
     assert any(error["field"] == "type" for error in payload["errors"])
 
 
+def test_setup_sdk_flag_reaches_the_managed_bootstrap(cli, monkeypatch):
+    observed = {}
+
+    def setup(_store, _host, **kwargs):
+        observed.update(kwargs)
+        return {"status": "READY", "mode": "sdk-managed"}
+
+    monkeypatch.setattr("agent_memory.adapters.host_setup.run", setup)
+
+    payload = cli("setup", "--host", "muse-code", "--provider", "openrouter", "--sdk")
+
+    assert payload["mode"] == "sdk-managed"
+    assert observed["sdk"] is True
+
+
 def test_a_rejected_write_prints_the_field_and_the_reason(cli, capsys):
     argv = ("record", "--type", "fact", "--abstract", "重构后的部署流程记录")
     (error,) = cli(*argv, expect=EXIT_INVALID)["errors"]

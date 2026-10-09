@@ -7,7 +7,7 @@ import pathlib
 from agent_memory.core.errors import FieldError, ValidationError
 from agent_memory.core.store import Store
 
-from . import doctor, moments, openrouter, setup
+from . import doctor, moments, muse_sdk, openrouter, setup
 
 
 def run(
@@ -19,9 +19,26 @@ def run(
     model: str | None = None,
     mcp: bool = False,
     live: bool = True,
+    sdk: bool = False,
 ) -> dict[str, object]:
     """Detect -> validate -> Store -> merge -> hooks/skill/MCP -> provider -> preflight."""
     host = setup.canonical_host(host)
+    if sdk:
+        if host != moments.HOST_MUSE_CODE or provider != openrouter.PROVIDER:
+            raise ValidationError(
+                [FieldError("sdk", "requires --host muse-code --provider openrouter")]
+            )
+        if settings_path is not None or mcp:
+            raise ValidationError(
+                [
+                    FieldError(
+                        "sdk",
+                        "uses invocation-scoped settings and automatic MCP; "
+                        "omit --settings and --mcp",
+                    )
+                ]
+            )
+        return muse_sdk.run(store, provider=provider, model=model, live=live)
     if provider and host != moments.HOST_MUSE_CODE:
         raise ValidationError(
             [FieldError("provider", "provider setup is currently supported only for muse-code")]

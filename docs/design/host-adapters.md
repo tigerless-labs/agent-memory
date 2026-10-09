@@ -30,6 +30,11 @@ installed. SDK shutdown owns the complete process lifetime; users never start a 
 Detached Muse distillation starts through the same launcher and therefore does not depend on the
 parent backend or a persistent proxy. Executor-owned Muse sessions receive no lifecycle hooks,
 so recursion prevention remains valid even when Muse sanitizes inherited environment variables.
+SDK bootstrap is a separate setup mode: it initializes the Store and verifies the managed launcher,
+Node runtime, project-local SDK, credential source, version compatibility, and live managed request.
+It returns the launch contract but does not install system or project packages, mutate persistent
+Muse configuration, or persist credentials. Patch-version skew is advisory only when the live
+managed request proves compatibility; major or minor skew fails closed.
 
 Muse 1.4 lifecycle payloads identify the session but set `transcript_path` to null. The Muse
 adapter resolves that identifier to the root durable log under Muse's XDG data directory and

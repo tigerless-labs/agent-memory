@@ -21,6 +21,9 @@ proxy, or user-settings mutation is required.
 4. Document the Node and SDK version requirements and the minimal `MuseClient.spawn` integration.
 5. Verify unit/static gates and run a live two-session SDK closure when credentials are available.
 6. Commit, publish a dedicated PR, and drive required CI checks green.
+7. Add an SDK bootstrap mode to host setup that validates the managed launcher, Node, the local
+   SDK dependency, credential source, Store, and a real managed request without changing persistent
+   Muse settings or credentials.
 
 ## Acceptance
 
@@ -28,3 +31,7 @@ The official SDK can spawn and close the managed launcher without an orphan back
 SessionStart injection and boundary capture/distillation work across two fresh sessions, generated
 state never changes Muse user configuration, credentials never appear in output, and every failure
 layer is actionable on stderr.
+
+`mem setup --host muse-code --provider openrouter --sdk` reports an absolute launcher contract that
+can be passed directly to the SDK. It fails before the live request when a required local dependency
+or credential is absent, identifies version incompatibility, and never persists or renders the key.
