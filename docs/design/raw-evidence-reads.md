@@ -15,3 +15,5 @@ before an exam so retrieval sees the same truth files that a fresh store would.
 
 Historical experiment scores remain attached to the reading policy and corpus under
 which they were measured.
+
+Raw provenance is append-only even when a clock and excerpt produce an existing filename. Concurrent or repeated evidence captures preserve earlier content and source attribution instead of rewriting it.
