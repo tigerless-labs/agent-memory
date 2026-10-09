@@ -49,3 +49,5 @@ ordinary external Stores are read-only to the agent shell. Controlled runs isola
 state while reusing only an explicit auth file. Hook and MCP writes require a live compatibility
 preflight. Results are not attributable until native memory is isolated and the tested build
 passes that preflight.
+
+Failed regrading marks the saved run failed and retains the grader error instead of publishing a valid-looking incorrect score. Existing transport-success vote interpretation is preserved.
