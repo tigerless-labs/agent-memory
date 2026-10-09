@@ -49,3 +49,5 @@ ordinary external Stores are read-only to the agent shell. Controlled runs isola
 state while reusing only an explicit auth file. Hook and MCP writes require a live compatibility
 preflight. Results are not attributable until native memory is isolated and the tested build
 passes that preflight.
+
+Replay success includes the experience phase. Failed archival or writing batches cannot be silently counted as a successful scored run even when the later host answer and grader succeed.
