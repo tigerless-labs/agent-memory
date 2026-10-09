@@ -15,3 +15,7 @@ before an exam so retrieval sees the same truth files that a fresh store would.
 
 Historical experiment scores remain attached to the reading policy and corpus under
 which they were measured.
+
+Session and pending JSONL readers separate records only at the encoded newline delimiter. Unicode separators inside JSON string values remain part of the original message and survive retries.
+
+Executor operation and management verdict parsers use the same newline-only JSONL framing, preserving Unicode separators inside model-produced strings.
