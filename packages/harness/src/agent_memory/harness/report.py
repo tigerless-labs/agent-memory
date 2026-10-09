@@ -40,9 +40,14 @@ class Report:
     by_question_type: dict[str, dict[str, float]]
     recall_fingerprints: tuple[str, ...]
     episode_fingerprints: tuple[str, ...]
+    episode_coverage_matches: bool = False
 
     def attribution_is_licensed(self) -> bool:
-        return len(self.recall_fingerprints) == 1 and len(self.episode_fingerprints) == 1
+        return (
+            len(self.recall_fingerprints) == 1
+            and len(self.episode_fingerprints) == 1
+            and self.episode_coverage_matches
+        )
 
     def label_of(self, summary: ArmSummary) -> str:
         """Arms are named by W alone until a second system makes that ambiguous."""
@@ -82,6 +87,7 @@ def summarise(records: list[dict[str, object]]) -> Report:
     report = Report(
         arms=tuple(summaries),
         by_question_type={},
+        episode_coverage_matches=_coverage_matches(records, keys),
         recall_fingerprints=tuple(sorted({str(r["recall_fingerprint"]) for r in records})),
         episode_fingerprints=tuple(sorted({str(r["episode_fingerprint"]) for r in records})),
     )
@@ -149,3 +155,20 @@ def _ratio(part: int, whole: int) -> float:
 def _mean(rows: list[dict[str, object]], key: str) -> float:
     values = [float(str(row[key])) for row in rows]
     return sum(values) / len(values) if values else 0.0
+
+
+def _coverage_matches(records: list[dict[str, object]], keys: list[tuple[str, str]]) -> bool:
+    coverages = [
+        [
+            row.get("episode_id")
+            for row in records
+            if (_system_of(row), arm_of(row)) == key
+        ]
+        for key in keys
+    ]
+    return bool(coverages) and all(
+        all(isinstance(identity, str) and identity.strip() for identity in coverage)
+        and len(coverage) == len(set(coverage))
+        and set(coverage) == set(coverages[0])
+        for coverage in coverages
+    )
