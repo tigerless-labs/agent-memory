@@ -96,7 +96,7 @@ def render(proposals: Sequence[Draft], records: Sequence[MemoryRecord]) -> str:
 
 def parse(reply: str) -> list[Verdict]:
     verdicts: list[Verdict] = []
-    for line in reply.splitlines():
+    for line in reply.split("\n"):
         stripped = line.strip()
         if not stripped or stripped.startswith(FENCE):
             continue

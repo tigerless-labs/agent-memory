@@ -84,7 +84,7 @@ def _render(opening: str, transcript: list[str], last: bool) -> str:
 def _split(reply: str) -> tuple[list[dict[str, object]], list[str]]:
     calls: list[dict[str, object]] = []
     others: list[str] = []
-    for line in reply.splitlines():
+    for line in reply.split("\n"):
         stripped = line.strip()
         if not stripped or stripped.startswith(FENCE):
             continue

@@ -34,7 +34,7 @@ class Pending:
         if not path.exists():
             return []
         specs: list[dict[str, object]] = []
-        for line in path.read_text(encoding="utf-8").splitlines():
+        for line in path.read_text(encoding="utf-8").split("\n"):
             if not line.strip():
                 continue
             try:
@@ -52,7 +52,7 @@ class Pending:
         folder.mkdir(parents=True, exist_ok=True)
         path = folder / f"{pointer.session}{PENDING_SUFFIX}"
         line = render_pointer(pointer)
-        existing = path.read_text(encoding="utf-8").splitlines() if path.exists() else []
+        existing = path.read_text(encoding="utf-8").split("\n") if path.exists() else []
         if line in existing:
             return False
         with path.open("a", encoding="utf-8") as handle:
@@ -63,7 +63,7 @@ class Pending:
         path = self._layout.pending / REDISTILL_DIRNAME / f"{session}{PENDING_SUFFIX}"
         if not path.exists():
             return []
-        found = [parse_pointer(line) for line in path.read_text(encoding="utf-8").splitlines()]
+        found = [parse_pointer(line) for line in path.read_text(encoding="utf-8").split("\n")]
         return [pointer for pointer in found if pointer is not None]
 
     def clear_redistill(self, session: str) -> None:
