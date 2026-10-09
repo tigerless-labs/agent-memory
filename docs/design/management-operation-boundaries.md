@@ -42,3 +42,5 @@ preserves Unicode, case, order, repetition, punctuation and internal whitespace.
 paths, weights and bookkeeping timestamps do not establish semantic identity. The oldest
 duplicate remains active, with name breaking creation-time ties; other copies retain their
 files and point to it. Similarity alone belongs to the reviewed proposal path.
+
+Custom memory types occupy the truth namespace exclusively. Schemas cannot reuse archive, projection, schema or report directory names and silently write knowledge outside the discoverable truth tree.
