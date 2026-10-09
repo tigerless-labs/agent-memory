@@ -26,8 +26,17 @@ class Archive:
         path = folder / f"{self._clock.stamp()}-{short}{PROVENANCE_SUFFIX}"
         header = f"# provenance: {name}\n\nrecorded_at: {self._clock.now().isoformat()}\n"
         origin = f"source: {source}\n" if source else ""
-        path.write_text(header + origin + "\n" + excerpt.strip() + "\n", encoding="utf-8")
-        return path
+        payload = header + origin + "\n" + excerpt.strip() + "\n"
+        ordinal = 0
+        original = path
+        while True:
+            try:
+                with path.open("x", encoding="utf-8") as handle:
+                    handle.write(payload)
+                return path
+            except FileExistsError:
+                ordinal += 1
+                path = original.with_name(f"{original.stem}-{ordinal}{original.suffix}")
 
     def provenance_of(self, name: str) -> list[pathlib.Path]:
         folder = self._layout.provenance / name
