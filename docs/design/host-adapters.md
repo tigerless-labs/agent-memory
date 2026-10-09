@@ -49,3 +49,5 @@ ordinary external Stores are read-only to the agent shell. Controlled runs isola
 state while reusing only an explicit auth file. Hook and MCP writes require a live compatibility
 preflight. Results are not attributable until native memory is isolated and the tested build
 passes that preflight.
+
+Capture holds the existing store writer lock across increment selection, raw append and watermark advancement. Overlapping host boundary callbacks cannot archive the same transcript increment twice.

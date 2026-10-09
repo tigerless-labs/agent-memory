@@ -5,6 +5,7 @@ from __future__ import annotations
 import dataclasses
 
 from agent_memory.core import prompts, sessions
+from agent_memory.core.locking import store_lock
 from agent_memory.core.store import Store
 from agent_memory.core.watermark import Watermark
 
@@ -29,6 +30,11 @@ class Capture:
 
 
 def capture(store: Store, session: str, items: list[str], source: str = "") -> Capture:
+    with store_lock(store.layout):
+        return _capture_locked(store, session, items, source)
+
+
+def _capture_locked(store: Store, session: str, items: list[str], source: str) -> Capture:
     watermark = Watermark(store.layout, store.clock)
     increment = watermark.increment(session, items)
     if not increment:
