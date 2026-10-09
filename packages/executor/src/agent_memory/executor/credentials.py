@@ -13,6 +13,8 @@ import os
 import subprocess
 import time
 
+from agent_memory.core.errors import ReasonerUnavailableError
+
 GCLOUD = "gcloud"
 TOKEN_COMMAND = ("auth", "print-access-token")
 ACCOUNT_ENV = "GCLOUD_ACCOUNT"
@@ -36,18 +38,15 @@ class VertexCredentials:
     project: str = ""
     location: str = ""
 
-    def environment(self) -> dict[str, str]:
-        """The environment overrides the configured project; the configured project is what
-        makes the library usable with nothing set at all."""
+    def environment(self, preserve_api_key: bool = True) -> dict[str, str]:
+        """Environment project selection overrides the Store's explicit endpoint opt-in."""
+        if preserve_api_key and os.environ.get(API_KEY_ENV):
+            return {}
         project = os.environ.get(PROJECT_ENV, "") or self.project
         location = os.environ.get(LOCATION_ENV, "") or self.location
         if not project or not location:
             return {}
-        if os.environ.get(API_KEY_ENV):
-            return {}
         token = self._token()
-        if not token:
-            return {}
         return {
             BASE_URL_ENV: VERTEX_URL.format(project=project, location=location),
             API_KEY_ENV: token,
@@ -58,9 +57,13 @@ class VertexCredentials:
         if self.token and moment - self.minted_at < REFRESH_SECONDS:
             return self.token
         minted = self._mint()
-        if minted:
-            self.token = minted
-            self.minted_at = moment
+        if not minted:
+            raise ReasonerUnavailableError(
+                "gcloud authentication failed; authenticate an identity with Vertex AI "
+                "prediction access to the configured project"
+            )
+        self.token = minted
+        self.minted_at = moment
         return self.token
 
     def _mint(self) -> str:

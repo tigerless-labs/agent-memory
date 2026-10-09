@@ -136,7 +136,7 @@ class ExecutorConfig:
     host_model: str = ""
     model: str = "google/gemini-3.7-flash"
     endpoint: str = ""
-    project: str = "tigerless-seo"
+    project: str = ""
     location: str = "global"
     timeout_seconds: float = 120.0
     command: str = "mem distill"

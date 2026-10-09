@@ -86,7 +86,7 @@ def run(
             f"installed at {skill}" if skill.is_file() else f"missing at {skill}",
         )
     )
-    checks.extend(_reasoner_checks(store, host))
+    checks.extend(_reasoner_checks(store, host, environment))
     if not (host == moments.HOST_MUSE_CODE and provider):
         checks.append(
             _live_reasoner_check(store, host)
@@ -200,11 +200,25 @@ def _hook_checks(
     ]
 
 
-def _reasoner_checks(store: Store, host: str) -> list[Check]:
+def _reasoner_checks(
+    store: Store, host: str, environment: dict[str, str] | None = None
+) -> list[Check]:
     executor = store.config.executor
     if executor.reasoner == "endpoint":
-        ok = bool(executor.endpoint)
-        detail = executor.endpoint or "executor.reasoner=endpoint but executor.endpoint is empty"
+        available = os.environ if environment is None else environment
+        endpoint = available.get("GEMINI_BASE_URL", "") or executor.endpoint
+        project = available.get("GOOGLE_CLOUD_PROJECT", "") or executor.project
+        api_key = available.get("GEMINI_API_KEY", "")
+        ok = bool(project or (endpoint and api_key))
+        if endpoint and api_key:
+            detail = "explicit model endpoint"
+        elif project:
+            detail = f"Vertex AI project {project}"
+        else:
+            detail = (
+                "executor.reasoner=endpoint requires a user-owned endpoint and API key or "
+                "a Google Cloud project"
+            )
     else:
         ok = bool(setup.BINARIES.get(host))
         detail = f"boundary distillation uses {host}"

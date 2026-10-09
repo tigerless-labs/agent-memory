@@ -1,5 +1,7 @@
 """Short-lived credentials: minted on demand, refreshed before they go stale, never logged."""
 
+import pytest
+from agent_memory.core.errors import ReasonerUnavailableError
 from agent_memory.executor import credentials
 from agent_memory.executor.credentials import VertexCredentials
 
@@ -24,9 +26,9 @@ def _configure(monkeypatch, project="a-project", location="global", preset=None)
 
 
 def test_the_endpoint_is_built_from_the_project_and_location(monkeypatch):
-    _configure(monkeypatch, project="tigerless", location="global")
+    _configure(monkeypatch, project="example-project", location="global")
     environment = Minting().environment()
-    assert "tigerless" in environment[credentials.BASE_URL_ENV]
+    assert "example-project" in environment[credentials.BASE_URL_ENV]
     assert "/locations/global/" in environment[credentials.BASE_URL_ENV]
     assert environment[credentials.API_KEY_ENV] == "token-one"
 
@@ -56,20 +58,21 @@ def test_an_explicit_key_in_the_environment_is_left_alone(monkeypatch):
     assert minter.calls == 0
 
 
-def test_no_project_means_no_credentials_rather_than_a_broken_command(monkeypatch):
+def test_no_project_leaves_host_managed_credentials_alone(monkeypatch):
     monkeypatch.delenv(credentials.PROJECT_ENV, raising=False)
     monkeypatch.delenv(credentials.LOCATION_ENV, raising=False)
     assert Minting().environment() == {}
 
 
-def test_a_failed_mint_yields_nothing_instead_of_a_half_configured_host(monkeypatch):
+def test_a_failed_mint_is_an_explicit_authentication_error(monkeypatch):
     _configure(monkeypatch)
 
     class Failing(VertexCredentials):
         def _mint(self):
             return ""
 
-    assert Failing().environment() == {}
+    with pytest.raises(ReasonerUnavailableError, match="gcloud authentication"):
+        Failing().environment()
 
 
 def test_only_hermes_carries_credentials(monkeypatch):
