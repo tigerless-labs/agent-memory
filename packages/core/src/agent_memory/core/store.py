@@ -612,7 +612,8 @@ class Store:
 
     def _scan_for(self, name: str) -> pathlib.Path | None:
         for path in self.layout.truth_files():
-            if path.stem == name:
+            record = self._at(path)
+            if record is not None and record.name == name:
                 return path
         return None
 
