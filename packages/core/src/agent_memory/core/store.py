@@ -484,6 +484,13 @@ class Store:
             or hashlib.sha256(previous).hexdigest() != record.source_hash
         ):
             raise ValidationError([FieldError("updated", "memory changed since it was read")])
+        evidence = dataclasses.replace(
+            record,
+            provenance=record.provenance + [
+                item.strip() for item in provenance or [] if parse_pointer(item) is not None
+            ],
+        )
+        self._reject_facts_dated_after_their_evidence(evidence)
         for excerpt in provenance or []:
             record.provenance.append(self._store_provenance(record.name, excerpt))
         payload = record.to_text().encode("utf-8")
