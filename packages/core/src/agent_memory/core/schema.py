@@ -102,6 +102,8 @@ def validate(schema: MemorySchema, config: Config) -> None:
     errors: list[FieldError] = []
     if not is_valid_slug(schema.type):
         errors.append(FieldError("type", "must be a kebab-case slug"))
+    if schema.type in StoreLayout(pathlib.Path("."), config).reserved_dirnames:
+        errors.append(FieldError("type", "collides with a reserved store directory"))
     if not schema.description:
         errors.append(FieldError("description", "required"))
     if not schema.key:
