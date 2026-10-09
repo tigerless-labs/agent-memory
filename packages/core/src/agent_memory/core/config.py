@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import dataclasses
+import json
 import os
 import pathlib
 import tomllib
@@ -233,8 +234,12 @@ def _render_value(value: object) -> str:
     if isinstance(value, (list, tuple)):
         return "[" + ", ".join(_render_value(item) for item in value) + "]"
     if isinstance(value, dict):
-        return "{" + ", ".join(f"{k} = {_render_value(v)}" for k, v in value.items()) + "}"
-    return '"' + str(value).replace('"', '\\"') + '"'
+        return (
+            "{"
+            + ", ".join(f"{_render_value(str(k))} = {_render_value(v)}" for k, v in value.items())
+            + "}"
+        )
+    return json.dumps(str(value), ensure_ascii=False)
 
 
 def _render_toml(config: Config) -> str:
