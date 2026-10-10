@@ -15,16 +15,16 @@ import datetime as dt
 import hashlib
 import json
 import pathlib
-import re
 import subprocess
 
-from . import reasoning, timestamp
+from . import reasoning, timestamp, tokenizer
 from . import record as record_module
 from .access_log import KIND_READ, AccessLog
 from .clock import Clock
 from .database import Database
 from .errors import FieldError, MemoryStoreError, NotFoundError, ValidationError
 from .ledger import VERDICT_ACCEPTED, VERDICT_REJECTED, Decision, DecisionLedger
+from .placement import portable_segment
 from .record import DATE_FIELDS, MemoryRecord
 from .schema import SOURCE_MENU, source_of
 from .sessions import parse_pointer
@@ -48,9 +48,14 @@ REPORT_SUFFIX = ".md"
 MERGED_SUFFIX = "-merged"
 SECTION_PREFIX = "## "
 GIT = "git"
-_WORDS = re.compile(r"[0-9a-z]+")
 _STOPWORDS = frozenset(
     {"the", "a", "an", "and", "or", "of", "to", "is", "are", "for", "in", "on", "with", "that"}
+) | frozenset(
+    {
+        "的", "了", "是", "在", "和", "与", "及", "或", "被", "把", "对", "为", "以", "之",
+        "其", "而", "并", "就", "都", "也", "还", "不", "有", "无", "中", "上", "下",
+        "这", "那", "个", "我", "你", "他", "它", "们", "到", "从", "会", "能", "要",
+    }
 )
 _PLURAL = "s"
 
@@ -470,7 +475,13 @@ class Manage:
 
     def _cluster(self, records: list[MemoryRecord]) -> list[Action]:
         """A directory holding many files that share vocabulary is a topic without a name yet;
-        naming it is a directory operation, so it happens without a ruling."""
+        naming it is a directory operation, so it happens without a ruling.
+
+        A store that names its groups itself (one directory per project, say) turns this off
+        rather than watch Manage rename settled directories after every import.
+        """
+        if not self._config.manage.cluster_enabled:
+            return []
         actions: list[Action] = []
         group_fields = self._menu_group_fields()
         by_parent: dict[pathlib.Path, list[MemoryRecord]] = {}
@@ -494,6 +505,10 @@ class Manage:
                 if len(shared) < self._config.manage.cluster_min_shared_tokens:
                     continue
                 label = "-".join(sorted(shared))[: self._config.storage.slug_max_length]
+                if not portable_segment(label, self._config):
+                    # A label like 记录-空调 cannot name a directory; skipping it beats
+                    # aborting the whole pass on a cluster that could never be placed.
+                    continue
                 movable = []
                 for name in sorted(grouped):
                     group_field = group_fields[known[name].type]
@@ -706,7 +721,7 @@ class Manage:
 
 
 def _tokens(text: str) -> set[str]:
-    return {word for word in _WORDS.findall(text.lower()) if word not in _STOPWORDS}
+    return set(tokenizer.word_tokens(text)) - _STOPWORDS
 
 
 def _similarity(left: MemoryRecord, right: MemoryRecord) -> float:
@@ -735,7 +750,7 @@ def _duplicate_key(record: MemoryRecord) -> str:
 
 
 def _group_key(group: str) -> str:
-    key = "".join(_WORDS.findall(group.lower()))
+    key = tokenizer.compact_key(group)
     return key[: -len(_PLURAL)] if key.endswith(_PLURAL) and len(key) > len(_PLURAL) else key
 
 

@@ -8,6 +8,7 @@ dependencies = []
 
 [project.optional-dependencies]
 vector = ["fastembed>=0.7,<1"]
+cjk = ["jieba>=0.42.1"]
 
 [build-system]
 requires = ["hatchling"]

@@ -94,6 +94,7 @@ class RecallConfig:
 class ManageConfig:
     trigger_min_hours: float = 24.0
     trigger_min_sessions: int = 3
+    cluster_enabled: bool = True
     cluster_min_files: int = 5
     cluster_min_shared_tokens: int = 2
     merge_proposal_similarity: float = 0.75
