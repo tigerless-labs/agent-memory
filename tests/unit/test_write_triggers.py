@@ -3,6 +3,8 @@
 import io
 import json
 import pathlib
+import shlex
+from pathlib import Path
 
 import pytest
 from agent_memory.adapters import capture as capture_module
@@ -319,7 +321,7 @@ def test_setup_writes_an_absolute_hook_command_and_installs_the_skill(tmp_path, 
     hooks = json.loads(settings.read_text(encoding="utf-8"))["hooks"]
     assert set(hooks) == set(moments.DIALECTS[host])
     command = hooks["Stop"][0]["hooks"][0]["command"]
-    executable = command.split()[0]
-    assert executable.endswith(setup.HOOK_COMMAND) and executable.startswith("/")
+    executable = shlex.split(command)[0]
+    assert executable.endswith(setup.HOOK_COMMAND) and Path(executable).is_absolute()
     skill = settings.parent / "skills" / "agent-memory" / "SKILL.md"
     assert skill.read_text(encoding="utf-8") == prompts.skill()
