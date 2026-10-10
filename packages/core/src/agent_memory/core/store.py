@@ -399,6 +399,28 @@ class Store:
     def supersede(self, old: str, new: str) -> MemoryRecord:
         return self.correct(old, supersede_with=new)
 
+    def merge_exact_duplicate(
+        self, duplicate: MemoryRecord, keeper: MemoryRecord, at: str
+    ) -> MemoryRecord | None:
+        """Invalidate ``duplicate`` into ``keeper`` under one writer lock, after
+        revalidating the keeper against the live store.
+
+        Manage picks the keeper from a snapshot taken before any lock. If the
+        keeper was deleted, superseded or otherwise invalidated between that
+        snapshot and this write, invalidating the duplicate anyway would orphan
+        its content into a dead name — both records gone while each looked
+        individually consistent. The stale-write detection in ``_write_locked``
+        cannot catch this: it only guards the file being written, here the
+        duplicate. Re-finding the keeper inside the same lock closes the
+        window; a keeper that no longer reads back active makes the merge a
+        no-op (returns ``None``) so a later pass can re-group the duplicate."""
+        with store_lock(self.layout):
+            fresh = self.find(keeper.name)
+            if fresh is None or not fresh.is_active():
+                return None
+            record_module.invalidate(duplicate, at, keeper.name)
+            return self._write_locked(duplicate)
+
     def merge(
         self, names: list[str], abstract: str, body: str, name: str | None = None
     ) -> MemoryRecord:
