@@ -2,6 +2,7 @@
 
 import io
 import json
+import pathlib
 import shlex
 from pathlib import Path
 
@@ -200,7 +201,12 @@ def test_the_launched_executor_call_is_one_the_cli_accepts(store, monkeypatch):
     launched = {}
 
     def fake_popen(command, **kwargs):
-        launched.update(command=command, env=kwargs["env"])
+        launched.update(
+            command=command,
+            env=kwargs["env"],
+            stdout=kwargs["stdout"],
+            stderr=kwargs["stderr"],
+        )
 
     monkeypatch.setattr("subprocess.Popen", fake_popen)
     assert hook_entry.launch_distill(store, "session-x", moments.HOST_CODEX)
@@ -209,6 +215,9 @@ def test_the_launched_executor_call_is_one_the_cli_accepts(store, monkeypatch):
     assert args.reason_host == moments.HOST_CODEX
     assert launched["env"][STORE_ENV_VAR] == str(store.root)
     assert launched["env"][EXECUTOR_ENV_VAR]
+    expected_log = store.layout.state_dir / hook_entry.LOG_FILENAME
+    assert pathlib.Path(launched["stdout"].name) == expected_log
+    assert launched["stderr"] is launched["stdout"]
 
 
 def test_a_hook_fired_inside_the_executor_session_does_nothing(store, monkeypatch, capsys):
@@ -236,6 +245,40 @@ def test_the_hook_takes_its_host_from_the_command_line(store, monkeypatch):
     monkeypatch.setattr("sys.stdin", io.StringIO(json.dumps(event)))
     hook_entry.main(["--host", moments.HOST_CODEX])
     assert hosts == [moments.HOST_CODEX]
+
+
+def test_muse_hook_passes_pinned_settings_to_background_distillation(store, monkeypatch):
+    from agent_memory.core.config import MUSE_SETTINGS_ENV_VAR
+
+    settings = store.root / "isolated muse" / "settings.json"
+    observed = []
+
+    def launch(*_args):
+        observed.append(hook_entry.os.environ.get(MUSE_SETTINGS_ENV_VAR))
+        return True
+
+    event = {
+        "event": "Stop",
+        "session_id": "muse-session",
+        "items": SEGMENTS,
+        "store": str(store.root),
+    }
+    monkeypatch.delenv(MUSE_SETTINGS_ENV_VAR, raising=False)
+    monkeypatch.setattr(hook_entry, "launch_distill", launch)
+    monkeypatch.setattr("sys.stdin", io.StringIO(json.dumps(event)))
+
+    assert (
+        hook_entry.main(
+            [
+                "--host",
+                moments.HOST_MUSE_CODE,
+                "--muse-settings",
+                str(settings),
+            ]
+        )
+        == hook_entry.EXIT_OK
+    )
+    assert observed == [str(settings)]
 
 
 def test_codex_rollout_transcripts_yield_the_conversation(tmp_path):

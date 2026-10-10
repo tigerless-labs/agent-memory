@@ -10,6 +10,9 @@ import tomllib
 CONFIG_FILENAME = "config.toml"
 STORE_ENV_VAR = "AGENT_MEMORY_STORE"
 EXECUTOR_ENV_VAR = "AGENT_MEMORY_EXECUTOR"
+MUSE_SETTINGS_ENV_VAR = "AGENT_MEMORY_MUSE_SETTINGS"
+MUSE_LAUNCHER_ENV_VAR = "AGENT_MEMORY_MUSE_LAUNCHER"
+MUSE_BINARY_ENV_VAR = "AGENT_MEMORY_MUSE_BINARY"
 REASONER_HOST = "host"
 REASONER_ENDPOINT = "endpoint"
 DEFAULT_STORE = "~/agent-memory-store"
@@ -135,7 +138,7 @@ class ExecutorConfig:
     host_model: str = ""
     model: str = "google/gemini-3.7-flash"
     endpoint: str = ""
-    project: str = "tigerless-seo"
+    project: str = ""
     location: str = "global"
     timeout_seconds: float = 120.0
     command: str = "mem distill"

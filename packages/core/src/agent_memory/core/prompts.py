@@ -266,6 +266,15 @@ description: Read and write the shared long-term memory store. Use before starti
 
 A shared memory store on disk. Markdown files are the truth; `mem` is the way in and out.
 
+## Host setup
+
+Use the deterministic installer for the active host: `mem setup --host claude-code`,
+`mem setup --host codex`, or `mem setup --host muse-code --provider openrouter`. If setup
+reports FAILED, run `mem doctor --host <host>` with the same provider options. Do not edit
+agent-memory-managed hooks, Store paths, provider routing, or MCP entries yourself. Ask the user
+for a credential only when doctor reports a credential-missing code; ask before replacing a
+conflicting host setting.
+
 ## Before a task
 
 ```bash

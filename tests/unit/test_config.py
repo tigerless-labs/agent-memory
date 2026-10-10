@@ -2,7 +2,7 @@ import ast
 import pathlib
 
 import pytest
-from agent_memory.core.config import CONFIG_FILENAME, Config
+from agent_memory.core.config import CONFIG_FILENAME, REASONER_HOST, Config
 
 CORE_SRC = pathlib.Path(__file__).resolve().parents[2] / "packages" / "core" / "src"
 CONFIG_MODULE = CORE_SRC / "agent_memory" / "core" / "config.py"
@@ -23,6 +23,8 @@ def test_defaults_are_complete_and_self_consistent():
     assert config.recall.default_limit > 0
     assert config.recall.recency_half_life_days > 0
     assert config.storage.max_depth >= len(("type", "file"))
+    assert config.executor.reasoner == REASONER_HOST
+    assert config.executor.project == ""
 
 
 def test_every_factory_group_field_has_a_source_that_may_name_a_directory():

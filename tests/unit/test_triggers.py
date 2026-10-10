@@ -5,6 +5,7 @@ import json
 from agent_memory.adapters import capture as capture_module
 from agent_memory.cli.main import main
 from agent_memory.core import triggers
+from agent_memory.core.errors import ReasonerUnavailableError
 from agent_memory.core.watermark import Mark, Watermark
 
 LINES = [
@@ -93,6 +94,28 @@ def test_the_distill_command_runs_the_executor_over_a_named_session(store, monke
     assert report["distilled"][0]["reason"] == triggers.REASON_BOUNDARY
     assert report["distilled"][0]["batches"][0]["written"] == ["deploy-day"]
     assert Watermark(store.layout).read("hooked").distilled == len(LINES)
+
+
+def test_a_reasoner_failure_is_reported_and_leaves_the_backlog_unsettled(
+    store, monkeypatch, capsys
+):
+    capture_module.capture(store, "retry-me", LINES)
+
+    def unavailable(_prompt):
+        raise ReasonerUnavailableError("host reasoner failed")
+
+    monkeypatch.setattr(
+        "agent_memory.executor.distiller.distiller", lambda _config: unavailable
+    )
+
+    code = main(
+        ["--store", str(store.root), "--json", "distill", "--session", "retry-me"]
+    )
+    error = json.loads(capsys.readouterr().err)
+
+    assert code == 1
+    assert error == {"code": "reasoner_unavailable", "message": "host reasoner failed"}
+    assert Watermark(store.layout).read("retry-me").distilled == 0
 
 
 def test_the_scan_distills_only_sessions_past_a_threshold_and_records_why(

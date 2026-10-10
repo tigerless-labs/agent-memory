@@ -51,6 +51,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         _emit(error.as_dict(), args.json, stream=sys.stderr)
         return EXIT_ERROR
     _emit(payload, args.json)
+    if (
+        args.command in {"setup", "doctor"}
+        and isinstance(payload, dict)
+        and payload.get("status") == "FAILED"
+    ):
+        return EXIT_ERROR
     return EXIT_OK
 
 
@@ -230,10 +236,32 @@ def _parser() -> argparse.ArgumentParser:
     skiller = subparsers.add_parser("skill", help="print the agent skill text")
     skiller.set_defaults(handler=_skill)
 
-    installer = subparsers.add_parser("setup", help="install host hooks")
+    installer = subparsers.add_parser("setup", help="configure a host and run preflight")
     installer.add_argument("--host", default=None)
     installer.add_argument("--settings", default=None)
+    installer.add_argument("--provider", default=None)
+    installer.add_argument("--model", default=None)
+    installer.add_argument("--mcp", action="store_true", help="also configure the stdio MCP server")
+    installer.add_argument(
+        "--sdk",
+        action="store_true",
+        help="bootstrap an SDK-owned Muse backend without persistent Muse configuration",
+    )
+    installer.add_argument(
+        "--no-live", action="store_true", help="skip live reasoner checks (never reports READY)"
+    )
     installer.set_defaults(handler=_setup)
+
+    doctor = subparsers.add_parser("doctor", help="diagnose host, Store and provider setup")
+    doctor.add_argument("--host", required=True)
+    doctor.add_argument("--settings", default=None)
+    doctor.add_argument("--provider", default=None)
+    doctor.add_argument("--model", default=None)
+    doctor.add_argument("--mcp", action="store_true", help="require the stdio MCP server")
+    doctor.add_argument(
+        "--no-live", action="store_true", help="skip live reasoner checks (never reports READY)"
+    )
+    doctor.set_defaults(handler=_doctor)
 
     return parser
 
@@ -506,19 +534,45 @@ def _skill(store: Store, args: argparse.Namespace) -> str:
 
 
 def _setup(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    from agent_memory.adapters import host_setup
     from agent_memory.adapters import setup as setup_module
 
     hosts = [setup_module.canonical_host(args.host)] if args.host else setup_module.detect()
     settings = pathlib.Path(args.settings) if args.settings else None
-    for host in hosts:
-        if host == "muse-code":
-            setup_module.probe(host)
-    return {
-        "installed": {
-            host: str(setup_module.install(host, settings, store.root)) for host in hosts
-        },
-        "store": str(store.root),
+    if not hosts:
+        raise ValidationError([FieldError("host", "no host detected; pass --host")])
+    reports = {
+        host: host_setup.run(
+            store,
+            host,
+            settings_path=settings,
+            provider=args.provider,
+            model=args.model,
+            mcp=args.mcp,
+            live=not args.no_live,
+            sdk=args.sdk,
+        )
+        for host in hosts
     }
+    if len(reports) == 1:
+        return next(iter(reports.values()))
+    failed = any(report["status"] == "FAILED" for report in reports.values())
+    status = "FAILED" if failed else "READY"
+    return {"status": status, "store": str(store.root), "hosts": reports}
+
+
+def _doctor(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    from agent_memory.adapters import doctor
+
+    return doctor.run(
+        store,
+        args.host,
+        settings_path=pathlib.Path(args.settings) if args.settings else None,
+        provider=args.provider,
+        model=args.model,
+        mcp=args.mcp,
+        live=not args.no_live,
+    ).as_dict()
 
 
 def _body(inline: str, from_file: str | None) -> str:

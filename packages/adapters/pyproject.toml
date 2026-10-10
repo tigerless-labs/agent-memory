@@ -8,6 +8,7 @@ dependencies = ["agent-memory-core"]
 
 [project.scripts]
 mem-hook = "agent_memory.adapters.hook_entry:cli"
+mem-muse = "agent_memory.adapters.muse_launcher:main"
 
 [build-system]
 requires = ["hatchling"]

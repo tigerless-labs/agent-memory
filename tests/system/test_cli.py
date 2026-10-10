@@ -4,6 +4,7 @@ import json
 
 import pytest
 from agent_memory.cli.main import EXIT_ERROR, EXIT_INVALID, EXIT_OK, main
+from agent_memory.core.errors import ReasonerUnavailableError
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import Store
 
@@ -55,6 +56,21 @@ def test_invalid_write_returns_a_structured_error_and_a_distinct_exit_code(cli):
     )
     assert payload["code"] == "validation_error"
     assert any(error["field"] == "type" for error in payload["errors"])
+
+
+def test_setup_sdk_flag_reaches_the_managed_bootstrap(cli, monkeypatch):
+    observed = {}
+
+    def setup(_store, _host, **kwargs):
+        observed.update(kwargs)
+        return {"status": "READY", "mode": "sdk-managed"}
+
+    monkeypatch.setattr("agent_memory.adapters.host_setup.run", setup)
+
+    payload = cli("setup", "--host", "muse-code", "--provider", "openrouter", "--sdk")
+
+    assert payload["mode"] == "sdk-managed"
+    assert observed["sdk"] is True
 
 
 def test_a_rejected_write_prints_the_field_and_the_reason(cli, capsys):
@@ -485,6 +501,21 @@ def test_a_plain_sleep_asks_the_library_executor(cli, monkeypatch):
     )
     report = cli("sleep")
     assert [decision["proposal"] for decision in report["decisions"]] == [proposal["id"]]
+
+
+def test_sleep_reports_a_reasoner_failure_instead_of_succeeding_silently(cli, monkeypatch):
+    _near_duplicates(cli)
+
+    def unavailable(_prompt):
+        raise ReasonerUnavailableError("host reasoner failed")
+
+    monkeypatch.setattr(
+        "agent_memory.executor.distiller.distiller", lambda _config: unavailable
+    )
+
+    error = cli("sleep", expect=EXIT_ERROR)
+
+    assert error == {"code": "reasoner_unavailable", "message": "host reasoner failed"}
 
 
 def test_sleep_can_be_handed_a_reasoner_whose_verdicts_reach_the_store(cli, monkeypatch):
