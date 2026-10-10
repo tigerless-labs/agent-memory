@@ -231,6 +231,9 @@ def normalize_event(event: object, host: str = "") -> dict[str, object]:
 
 
 def _arm(seconds: float) -> None:
+    if not hasattr(signal, "setitimer") or not hasattr(signal, "SIGALRM"):
+        return
+
     def _raise(signum: int, frame: FrameType | None) -> None:
         raise _Timeout()
 
@@ -239,6 +242,8 @@ def _arm(seconds: float) -> None:
 
 
 def _disarm() -> None:
+    if not hasattr(signal, "setitimer"):
+        return
     signal.setitimer(signal.ITIMER_REAL, 0)
 
 
