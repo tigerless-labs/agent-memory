@@ -72,6 +72,29 @@ def test_bad_date_is_rejected(store, config):
     assert "created" in {error.field for error in raised.value.errors}
 
 
+@pytest.mark.parametrize("break_char", ["\n", "\r"])
+def test_multiline_custom_field_is_rejected_before_it_can_corrupt(config, break_char):
+    """A custom field with an embedded line break must fail validation loudly.
+
+    Before the fix, it passed validation and was then silently truncated to
+    its first line on the next read: frontmatter.render emits the value bare,
+    and frontmatter.parse splits on line boundaries, so everything after the
+    first line was dropped without an error.
+    """
+    bad = MemoryRecord(
+        name="multiline-extra",
+        abstract="a custom field with a line break",
+        type="fact",
+        author="test",
+        created="2026-01-15",
+        updated="2026-01-15",
+        fields={"note": f"line one{break_char}line two"},
+    )
+    with pytest.raises(ValidationError) as raised:
+        record_module.validate(bad, config)
+    assert "note" in {error.field for error in raised.value.errors}
+
+
 def test_rewriting_the_same_name_is_an_update_not_a_second_file(store):
     first = store.record(abstract="Queue timeout is 30 seconds", type="fact", name="queue-timeout")
     second = store.record(abstract="Queue timeout is 60 seconds", type="fact", name="queue-timeout")
