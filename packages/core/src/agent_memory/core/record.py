@@ -100,9 +100,11 @@ class MemoryRecord:
             updated=str(raw.get("updated") or ""),
             body=body,
             valid_from=_optional_str(raw.get("valid_from")),
-            invalid_at=_optional_str(raw.get("invalid_at")) or (
+            invalid_at=_optional_str(raw.get("invalid_at"))
+            or (
                 _optional_str(raw.get("updated"))
-                if raw.get("status") in (STATUS_INVALID, "retired") else None
+                if raw.get("status") in (STATUS_INVALID, "retired")
+                else None
             ),
             superseded_by=_optional_str(raw.get("superseded_by")),
             weight=_as_float(raw.get("weight")),
@@ -141,6 +143,15 @@ def validate(record: MemoryRecord, config: Config, schema: MemorySchema | None =
         value = fields.get(field)
         if value and not timestamp.is_valid(str(value)):
             errors.append(FieldError(field, "must be an ISO 8601 day or zone-aware instant"))
+
+    start = record.valid_from or record.created
+    if (
+        record.invalid_at
+        and timestamp.is_valid(start)
+        and timestamp.is_valid(record.invalid_at)
+        and timestamp.parse(record.invalid_at) < timestamp.parse(start)
+    ):
+        errors.append(FieldError("invalid_at", "must not precede valid_from"))
 
     if record.superseded_by and not record.invalid_at:
         errors.append(FieldError("invalid_at", "a successor requires an ended validity interval"))
