@@ -42,3 +42,5 @@ preserves Unicode, case, order, repetition, punctuation and internal whitespace.
 paths, weights and bookkeeping timestamps do not establish semantic identity. The oldest
 duplicate remains active, with name breaking creation-time ties; other copies retain their
 files and point to it. Similarity alone belongs to the reviewed proposal path.
+
+Legacy configuration migration removes obsolete knobs while preserving supported storage customizations. Abstract limits, default project identity and lock timing are retained instead of being silently reset to factory defaults.
