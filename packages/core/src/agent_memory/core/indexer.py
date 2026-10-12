@@ -52,10 +52,11 @@ class Indexer:
             for relative in delta.touched:
                 path = self._layout.root / relative
                 record = self._load(path)
+                index.remove_path(relative)
                 if record is None:
+                    manifest.forget(relative)
                     unreadable.append(relative)
                     continue
-                index.remove_path(relative)
                 index.upsert(record, chunking.chunks(record, self._config), relative)
                 manifest.record(
                     relative, record.name, present[relative], self._clock.now().isoformat()
@@ -87,6 +88,8 @@ class Indexer:
             record = self._load(self._layout.root / relative)
             if record is not None:
                 vectors.upsert(relative, digest, record, chunking.chunks(record, self._config))
+            else:
+                vectors.remove_path(relative)
 
     def rebuild(self) -> IndexReport:
         self._database.drop()

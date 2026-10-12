@@ -42,3 +42,5 @@ preserves Unicode, case, order, repetition, punctuation and internal whitespace.
 paths, weights and bookkeeping timestamps do not establish semantic identity. The oldest
 duplicate remains active, with name breaking creation-time ties; other copies retain their
 files and point to it. Similarity alone belongs to the reviewed proposal path.
+
+An externally edited memory that fails validation leaves the retrieval projection immediately while its truth file remains intact. Repairing the file restores eligibility through the ordinary projection path.
