@@ -42,3 +42,5 @@ preserves Unicode, case, order, repetition, punctuation and internal whitespace.
 paths, weights and bookkeeping timestamps do not establish semantic identity. The oldest
 duplicate remains active, with name breaking creation-time ties; other copies retain their
 files and point to it. Similarity alone belongs to the reviewed proposal path.
+
+Legacy migration distinguishes current reference and experience schemas from old domain directories with the same names. Rerunning migration leaves current truth untouched and no longer reports a fully migrated store as needing migration.
