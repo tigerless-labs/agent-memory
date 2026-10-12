@@ -42,3 +42,5 @@ preserves Unicode, case, order, repetition, punctuation and internal whitespace.
 paths, weights and bookkeeping timestamps do not establish semantic identity. The oldest
 duplicate remains active, with name breaking creation-time ties; other copies retain their
 files and point to it. Similarity alone belongs to the reviewed proposal path.
+
+MCP dispatch validates the scalar and mapping types advertised by its tool catalogue before coercion or core execution. Recall limits must be positive integers, so invalid requests return validation errors without writing truth or terminating the server.
