@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import contextlib
-import fcntl
 import time
 from collections.abc import Iterator
 
+from . import portlock
 from .errors import LockTimeoutError
 from .paths import StoreLayout
 
@@ -20,7 +20,7 @@ def store_lock(layout: StoreLayout) -> Iterator[None]:
     with layout.lock_file.open("a+", encoding="utf-8") as handle:
         while True:
             try:
-                fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                portlock.lock_exclusive(handle, blocking=False)
                 break
             except BlockingIOError:
                 if time.monotonic() >= deadline:
@@ -29,4 +29,4 @@ def store_lock(layout: StoreLayout) -> Iterator[None]:
         try:
             yield
         finally:
-            fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+            portlock.unlock(handle)
