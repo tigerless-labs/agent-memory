@@ -14,15 +14,21 @@ from __future__ import annotations
 import dataclasses
 import json
 import os
+import pathlib
 import shutil
+import tempfile
 import urllib.error
 import urllib.request
+from typing import TYPE_CHECKING
 
 from agent_memory.core.config import EXECUTOR_ENV_VAR
 from agent_memory.core.errors import ReasonerUnavailableError
 
 from .credentials import API_KEY_ENV, BASE_URL_ENV, VertexCredentials
-from .hosts import BINARIES, HOST_CLAUDE_CODE, Host, HostSpec
+from .hosts import BINARIES, HOST_CLAUDE_CODE, Host, HostResult, HostSpec
+
+if TYPE_CHECKING:
+    from .app_server import CodexAppServerSession
 
 CHAT_COMPLETIONS = "/chat/completions"
 DEFAULT_ENDPOINT_MODEL = "google/gemini-2.5-flash"
@@ -69,6 +75,113 @@ class HostReasoner:
         if name == HOST_CLAUDE_CODE and bundled and shutil.which(binary) is None:
             binary = bundled
         return cls(host=Host(HostSpec(name=name, binary=binary, model=model or default_model)))
+
+
+@dataclasses.dataclass
+class HostReasonerRun:
+    """One Codex thread and its isolated local session store."""
+
+    host: Host
+    opening: str
+    _scratch: tempfile.TemporaryDirectory[str] = dataclasses.field(init=False)
+    _environment: dict[str, str] = dataclasses.field(init=False)
+    _session_id: str = dataclasses.field(default="", init=False)
+    _closed: bool = dataclasses.field(default=False, init=False)
+    results: list[HostResult] = dataclasses.field(default_factory=list, init=False)
+
+    def __post_init__(self) -> None:
+        self._scratch = tempfile.TemporaryDirectory()
+        self._environment = self.host.isolated_codex_environment(
+            {EXECUTOR_ENV_VAR: "1"}, pathlib.Path(self._scratch.name)
+        )
+
+    def step(self, prompt: str) -> str:
+        if self._closed:
+            raise ReasonerUnavailableError("reasoner session is already closed")
+        payload = prompt
+        if not self._session_id:
+            payload = self.opening + (("\n\n" + prompt) if prompt else "")
+        result = self.host.run_session(
+            payload, session_id=self._session_id, environment=self._environment
+        )
+        self.results.append(result)
+        if not self._session_id and result.session_id:
+            self._session_id = result.session_id
+        return _require_host_reply(self.host, result)
+
+    def close(self) -> None:
+        if self._closed:
+            return
+        self._closed = True
+        self._scratch.cleanup()
+
+
+@dataclasses.dataclass
+class StatefulHostReasoner:
+    """A Host reasoner whose Write rounds share one isolated Codex thread."""
+
+    host: Host
+    max_turns: int = 1
+
+    def __call__(self, prompt: str) -> str:
+        return HostReasoner(self.host, self.max_turns)(prompt)
+
+    def begin(self, opening: str) -> HostReasonerRun:
+        return HostReasonerRun(self.host, opening)
+
+    @classmethod
+    def for_host(cls, name: str, model: str = EMPTY) -> StatefulHostReasoner:
+        selected = HostReasoner.for_host(name, model)
+        return cls(selected.host)
+
+
+@dataclasses.dataclass
+class AppServerHostReasonerRun:
+    """One Codex process and ephemeral thread for one Write batch."""
+
+    host: Host
+    opening: str
+    _session: CodexAppServerSession = dataclasses.field(init=False)
+    _first: bool = dataclasses.field(default=True, init=False)
+    _closed: bool = dataclasses.field(default=False, init=False)
+    results: list[HostResult] = dataclasses.field(default_factory=list, init=False)
+
+    def __post_init__(self) -> None:
+        self._session = self.host.open_app_server()
+
+    def step(self, prompt: str) -> str:
+        if self._closed:
+            raise ReasonerUnavailableError("reasoner session is already closed")
+        payload = self.opening + (("\n\n" + prompt) if prompt else "") if self._first else prompt
+        self._first = False
+        result = self._session.step(payload)
+        self.results.append(result)
+        return _require_host_reply(self.host, result)
+
+    def close(self) -> None:
+        if self._closed:
+            return
+        self._closed = True
+        self._session.close()
+
+
+@dataclasses.dataclass
+class AppServerHostReasoner:
+    """A Codex reasoner whose Write rounds share one short-lived process."""
+
+    host: Host
+    max_turns: int = 1
+
+    def __call__(self, prompt: str) -> str:
+        return HostReasoner(self.host, self.max_turns)(prompt)
+
+    def begin(self, opening: str) -> AppServerHostReasonerRun:
+        return AppServerHostReasonerRun(self.host, opening)
+
+    @classmethod
+    def for_host(cls, name: str, model: str = EMPTY) -> AppServerHostReasoner:
+        selected = HostReasoner.for_host(name, model)
+        return cls(selected.host)
 
 
 @dataclasses.dataclass
@@ -128,3 +241,18 @@ def _first_message(payload: object) -> str:
     message = choices[0].get("message") if isinstance(choices[0], dict) else None
     content = message.get("content") if isinstance(message, dict) else None
     return content if isinstance(content, str) else EMPTY
+
+
+def _require_host_reply(host: Host, result: HostResult) -> str:
+    if not result.ok:
+        name = getattr(host, "name", "configured host")
+        detail = f": {result.error.strip()}" if result.error.strip() else ""
+        raise ReasonerUnavailableError(
+            f"host reasoner session failed for {name}{detail}; run mem doctor --host {name}"
+        )
+    if not result.text.strip():
+        name = getattr(host, "name", "configured host")
+        raise ReasonerUnavailableError(
+            f"host reasoner session returned an empty response for {name}"
+        )
+    return result.text

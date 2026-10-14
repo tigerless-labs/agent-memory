@@ -38,6 +38,20 @@ class Reasoner(Protocol):
     def __call__(self, prompt: str) -> str: ...
 
 
+class ReasonerRun(Protocol):
+    """One isolated multi-round exchange owned by the caller."""
+
+    def step(self, prompt: str) -> str: ...
+
+    def close(self) -> None: ...
+
+
+class StatefulReasoner(Protocol):
+    """A reasoner that can retain an opening across incremental steps."""
+
+    def begin(self, opening: str) -> ReasonerRun: ...
+
+
 class Draft(Protocol):
     """What a proposal looks like from here — enough to describe it, nothing to change it."""
 

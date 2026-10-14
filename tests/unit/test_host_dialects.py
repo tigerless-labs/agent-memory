@@ -1,5 +1,7 @@
 """P1 — a host is a dialect, not a branch. Adding one must not touch the driver."""
 
+import pathlib
+
 import pytest
 from agent_memory.executor import hosts
 
@@ -95,6 +97,74 @@ def test_codex_without_tools_stays_read_only(tmp_path):
     )
     assert "read-only" in command
     assert "--add-dir" not in command
+    assert "--json" in command
+
+
+def test_codex_stateful_commands_persist_then_resume_without_replaying_options(tmp_path):
+    dialect = hosts.DIALECTS[hosts.HOST_CODEX]
+    initial = dialect.stateful_command(_spec(hosts.HOST_CODEX), tmp_path / "first.txt")
+    resumed = dialect.stateful_command(
+        _spec(hosts.HOST_CODEX), tmp_path / "next.txt", "018f0000-0000-7000-8000-00000000c350"
+    )
+
+    assert initial[:2] == [hosts.HOST_CODEX, "exec"]
+    assert "--ephemeral" not in initial
+    assert "--json" in initial
+    assert "read-only" in initial
+    assert resumed[:3] == [hosts.HOST_CODEX, "exec", "resume"]
+    assert resumed[-2:] == ["018f0000-0000-7000-8000-00000000c350", "-"]
+    assert "read-only" not in resumed
+
+
+def test_codex_extracts_only_a_valid_thread_id_and_usage():
+    stdout = "\n".join(
+        [
+            '{"type":"thread.started","thread_id":"not-a-uuid"}',
+            '{"type":"thread.started","thread_id":"018f0000-0000-7000-8000-00000000c350"}',
+            '{"type":"turn.completed","usage":{"input_tokens":21,'
+            '"cached_input_tokens":13,"output_tokens":5}}',
+        ]
+    )
+
+    session, usage = hosts.DIALECTS[hosts.HOST_CODEX].session_metadata(stdout)
+
+    assert session == "018f0000-0000-7000-8000-00000000c350"
+    assert usage == {"input_tokens": 21, "cached_input_tokens": 13, "output_tokens": 5}
+
+
+def test_codex_session_home_stages_auth_without_personal_config(tmp_path, monkeypatch):
+    source = tmp_path / "source"
+    source.mkdir()
+    (source / "auth.json").write_text("credential", encoding="utf-8")
+    (source / "config.toml").write_text("personal = true", encoding="utf-8")
+    scratch = tmp_path / "scratch"
+    scratch.mkdir()
+    monkeypatch.setenv("CODEX_HOME", str(source))
+
+    environment = hosts.Host.isolated_codex_environment({"MARKER": "1"}, scratch)
+    target = pathlib.Path(environment["CODEX_HOME"])
+
+    assert (target / "auth.json").read_text(encoding="utf-8") == "credential"
+    assert not (target / "config.toml").exists()
+    assert environment["MARKER"] == "1"
+
+
+def test_codex_refuses_a_resume_that_returns_a_different_thread(tmp_path, monkeypatch):
+    host = hosts.Host(_spec(hosts.HOST_CODEX))
+    monkeypatch.setattr(
+        host,
+        "_invoke",
+        lambda *_args: hosts.HostResult(
+            "reply", True, 0.1, session_id="018f0000-0000-7000-8000-00000000c351"
+        ),
+    )
+
+    result = host.run_session(
+        "delta", session_id="018f0000-0000-7000-8000-00000000c350"
+    )
+
+    assert not result.ok
+    assert result.error == "Codex resumed a different session"
 
 
 def test_hermes_enables_only_the_toolset_that_reaches_the_mem_cli(tmp_path):
@@ -118,6 +188,17 @@ def test_codex_reads_its_answer_from_the_file_not_the_transcript(tmp_path):
         "sandbox: read-only\nsession id: abc\nuser\nquestion\ncodex\nthe final answer\ntokens used"
     )
     assert hosts.DIALECTS[hosts.HOST_CODEX].answer(noisy, answer_file) == "the final answer"
+
+
+def test_codex_stateful_json_reads_the_current_streamed_answer(tmp_path):
+    answer_file = tmp_path / "answer.txt"
+    answer_file.write_text("stale prior answer\n", encoding="utf-8")
+    stdout = (
+        '{"type":"item.completed","item":{"type":"agent_message",'
+        '"text":"current answer"}}'
+    )
+
+    assert hosts.DIALECTS[hosts.HOST_CODEX].answer(stdout, answer_file) == "current answer"
 
 
 def test_stdout_hosts_return_stdout(tmp_path):

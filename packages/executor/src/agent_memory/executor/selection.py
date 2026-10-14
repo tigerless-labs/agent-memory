@@ -40,6 +40,7 @@ def resolve(
         project=policy.project or config.project,
         location=policy.location or config.location,
         timeout_seconds=policy.timeout_seconds or config.timeout_seconds,
+        session_mode=policy.session_mode or config.session_mode,
     )
 
     selected_host = chosen.host

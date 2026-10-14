@@ -371,6 +371,10 @@ TOOL_ROUND = """## Your reply
 
 {observations}"""
 
+TOOL_OBSERVATIONS = """## What the library found
+
+{observations}"""
+
 OBSERVATION = """[{tool}]
 {text}"""
 
@@ -381,6 +385,11 @@ def format_retry(reply: str) -> str:
 
 def tool_round(reply: str, observations: str) -> str:
     return TOOL_ROUND.format(reply=reply.strip(), observations=observations.strip())
+
+
+def tool_observations(observations: str) -> str:
+    """The prior reply already lives in a stateful reasoner's session."""
+    return TOOL_OBSERVATIONS.format(observations=observations.strip())
 
 
 def observation(tool: str, text: str) -> str:

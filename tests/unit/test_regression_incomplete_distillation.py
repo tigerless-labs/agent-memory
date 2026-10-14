@@ -68,3 +68,32 @@ def test_explicit_skip_is_a_complete_output_and_advances_distillation(store):
 
     assert report.batches[0].written == ()
     assert Watermark(store.layout, store.clock).read("skip").distilled == 1
+
+
+def test_incomplete_stateful_output_does_not_advance_distillation(store):
+    class Run:
+        closed = False
+
+        def step(self, _prompt):
+            return ""
+
+        def close(self):
+            self.closed = True
+
+    class Reasoner:
+        def __init__(self):
+            self.run = Run()
+
+        def begin(self, _opening):
+            return self.run
+
+    pointer = store.archive.append_session("stateful-incomplete", ["user: Evidence"])
+    messages = sessions.resolve(store.layout, pointer)
+    store.config.write.max_rounds = 1
+    reasoner = Reasoner()
+
+    with pytest.raises(ValidationError):
+        distill.distill(store, "stateful-incomplete", messages, reasoner)
+
+    assert reasoner.run.closed
+    assert Watermark(store.layout, store.clock).read("stateful-incomplete").distilled == 0

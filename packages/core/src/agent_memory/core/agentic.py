@@ -11,10 +11,12 @@ from __future__ import annotations
 
 import dataclasses
 import json
+from collections.abc import Callable
 
 from . import prompts, reconcile
 from .config import WriteConfig
 from .errors import FieldError
+from .reasoning import ReasonerRun
 from .recall import Recall
 from .store import Store
 
@@ -43,7 +45,25 @@ class Outcome:
 def negotiate(
     store: Store, sheet: reconcile.Sheet, opening: str, ask, config: WriteConfig
 ) -> Outcome:
+    begin = getattr(ask, "begin", None)
+    run = begin(_opening(opening)) if callable(begin) else None
+    try:
+        return _negotiate(store, sheet, opening, ask, config, run)
+    finally:
+        if run is not None:
+            run.close()
+
+
+def _negotiate(
+    store: Store,
+    sheet: reconcile.Sheet,
+    opening: str,
+    ask: Callable[[str], str],
+    config: WriteConfig,
+    run: ReasonerRun | None,
+) -> Outcome:
     transcript: list[str] = []
+    incremental = ""
     budget = config.max_rounds
     extended = 0
     retried = 0
@@ -51,15 +71,18 @@ def negotiate(
     while rounds < budget:
         rounds += 1
         last = rounds >= budget
-        prompt = _render(opening, transcript, last)
-        reply = ask(prompt)
+        if run is None:
+            reply = ask(_render(opening, transcript, last))
+        else:
+            reply = run.step(_increment(incremental, last))
         calls, lines = _split(reply)
         if not calls:
             specs, errors = reconcile.parse_operations("\n".join(lines))
             if not specs and retried < FORMAT_RETRIES:
                 retried += 1
                 budget += 1
-                transcript.append(prompts.format_retry(reply))
+                incremental = prompts.format_retry(reply)
+                transcript.append(incremental)
                 continue
             if not specs and not errors:
                 errors = [FieldError("response", "executor returned no final operations")]
@@ -68,7 +91,9 @@ def negotiate(
         for call in calls:
             observation, sheet = _run(store, sheet, call, config)
             observations.append(observation)
-        transcript.append(prompts.tool_round(reply, "\n\n".join(observations)))
+        rendered_observations = "\n\n".join(observations)
+        transcript.append(prompts.tool_round(reply, rendered_observations))
+        incremental = prompts.tool_observations(rendered_observations)
         if last and extended < EXTENSION_ROUNDS:
             extended += 1
             budget += 1
@@ -82,8 +107,19 @@ def negotiate(
 
 
 def _render(opening: str, transcript: list[str], last: bool) -> str:
-    parts = [opening, prompts.TOOL_RULES]
+    parts = [_opening(opening)]
     parts.extend(transcript)
+    if last:
+        parts.append(prompts.FINAL_ROUND)
+    return "\n\n".join(parts)
+
+
+def _opening(opening: str) -> str:
+    return "\n\n".join((opening, prompts.TOOL_RULES))
+
+
+def _increment(prompt: str, last: bool) -> str:
+    parts = [prompt] if prompt else []
     if last:
         parts.append(prompts.FINAL_ROUND)
     return "\n\n".join(parts)

@@ -2,11 +2,17 @@
 
 import io
 import json
+import pathlib
 
 import pytest
 from agent_memory.core.errors import ReasonerUnavailableError
 from agent_memory.executor.hosts import HostResult
-from agent_memory.executor.reasoners import EndpointReasoner, HostReasoner
+from agent_memory.executor.reasoners import (
+    AppServerHostReasoner,
+    EndpointReasoner,
+    HostReasoner,
+    StatefulHostReasoner,
+)
 
 
 class FakeHost:
@@ -17,6 +23,50 @@ class FakeHost:
     def run(self, prompt, **kwargs):
         self.calls.append((prompt, kwargs))
         return self.result
+
+
+class FakeSessionHost:
+    name = "codex"
+
+    def __init__(self, *results):
+        self.results = list(results)
+        self.calls = []
+
+    @staticmethod
+    def isolated_codex_environment(extra, scratch):
+        home = scratch / "codex-home"
+        home.mkdir()
+        return {**extra, "CODEX_HOME": str(home)}
+
+    def run_session(self, prompt, **kwargs):
+        self.calls.append((prompt, kwargs))
+        return self.results.pop(0)
+
+
+class FakeAppServerSession:
+    def __init__(self, *results):
+        self.results = list(results)
+        self.prompts = []
+        self.closed = False
+
+    def step(self, prompt):
+        self.prompts.append(prompt)
+        return self.results.pop(0)
+
+    def close(self):
+        self.closed = True
+
+
+class FakeAppServerHost:
+    name = "codex"
+
+    def __init__(self, session):
+        self.session = session
+        self.opens = 0
+
+    def open_app_server(self):
+        self.opens += 1
+        return self.session
 
 
 def _reply(content):
@@ -45,6 +95,116 @@ def test_an_empty_host_reply_is_reported():
     host = FakeHost(HostResult(text="", ok=True, seconds=0.1))
     with pytest.raises(ReasonerUnavailableError, match="empty response"):
         HostReasoner(host=host)("review this")
+
+
+def test_a_stateful_host_sends_the_opening_once_and_reuses_the_exact_session():
+    host = FakeSessionHost(
+        HostResult("look", True, 0.1, session_id="session-a"),
+        HostResult("operation", True, 0.1, session_id="session-a"),
+    )
+    run = StatefulHostReasoner(host=host).begin("opening")
+    isolated_home = pathlib.Path(run._environment["CODEX_HOME"])
+
+    assert run.step("") == "look"
+    assert run.step("observation delta") == "operation"
+    assert host.calls[0][0] == "opening"
+    assert host.calls[0][1]["session_id"] == ""
+    assert host.calls[1][0] == "observation delta"
+    assert host.calls[1][1]["session_id"] == "session-a"
+    assert host.calls[0][1]["environment"] == host.calls[1][1]["environment"]
+    assert host.calls[0][1]["environment"]["AGENT_MEMORY_EXECUTOR"] == "1"
+    assert isolated_home.exists()
+
+    run.close()
+    assert not isolated_home.exists()
+
+
+def test_a_lost_stateful_session_fails_without_starting_over():
+    host = FakeSessionHost(
+        HostResult("look", True, 0.1, session_id="session-a"),
+        HostResult("", False, 0.1, error="session not found", session_id="session-a"),
+    )
+    run = StatefulHostReasoner(host=host).begin("opening")
+    assert run.step("") == "look"
+
+    with pytest.raises(ReasonerUnavailableError, match="session not found"):
+        run.step("observation delta")
+
+    assert len(host.calls) == 2
+    run.close()
+
+
+def test_stateful_batches_use_distinct_local_session_homes():
+    host = FakeSessionHost()
+    reasoner = StatefulHostReasoner(host=host)
+    first = reasoner.begin("first")
+    second = reasoner.begin("second")
+
+    first_home = pathlib.Path(first._environment["CODEX_HOME"])
+    second_home = pathlib.Path(second._environment["CODEX_HOME"])
+    assert first_home != second_home
+    assert first_home.exists() and second_home.exists()
+
+    first.close()
+    second.close()
+    assert not first_home.exists() and not second_home.exists()
+
+
+def test_an_app_server_run_sends_the_opening_once_and_closes_its_process():
+    session = FakeAppServerSession(
+        HostResult("look", True, 0.1, session_id="session-a"),
+        HostResult("operation", True, 0.1, session_id="session-a"),
+    )
+    host = FakeAppServerHost(session)
+    run = AppServerHostReasoner(host=host).begin("opening")
+
+    assert run.step("") == "look"
+    assert run.step("observation delta") == "operation"
+    assert session.prompts == ["opening", "observation delta"]
+    assert host.opens == 1
+
+    run.close()
+    run.close()
+    assert session.closed
+
+
+def test_an_app_server_turn_failure_fails_closed_without_another_process():
+    session = FakeAppServerSession(
+        HostResult("", False, 0.1, error="turn failed", session_id="session-a")
+    )
+    host = FakeAppServerHost(session)
+    run = AppServerHostReasoner(host=host).begin("opening")
+
+    with pytest.raises(ReasonerUnavailableError, match="turn failed"):
+        run.step("")
+
+    assert host.opens == 1
+    run.close()
+
+
+def test_app_server_batches_open_and_close_distinct_process_sessions():
+    sessions = [FakeAppServerSession(), FakeAppServerSession()]
+
+    class FactoryHost:
+        name = "codex"
+
+        def __init__(self):
+            self.opens = 0
+
+        def open_app_server(self):
+            session = sessions[self.opens]
+            self.opens += 1
+            return session
+
+    host = FactoryHost()
+    reasoner = AppServerHostReasoner(host=host)
+    first = reasoner.begin("first")
+    second = reasoner.begin("second")
+
+    assert host.opens == 2
+    first.close()
+    second.close()
+    assert all(session.closed for session in sessions)
 
 
 def test_an_endpoint_reasoner_reads_the_first_message(monkeypatch):

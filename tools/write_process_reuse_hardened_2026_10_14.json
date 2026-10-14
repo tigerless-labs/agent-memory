@@ -1,0 +1,478 @@
+{
+  "model": "gpt-5.6-sol",
+  "results": [
+    {
+      "agent_rounds": 3,
+      "batch_seconds": [
+        17.098
+      ],
+      "cached_input_tokens_by_call": [
+        0,
+        8192,
+        8320
+      ],
+      "cached_input_tokens_cumulative": 16512,
+      "cached_input_tokens_incremental_by_call": [
+        0,
+        8192,
+        8320
+      ],
+      "cli_process_starts": 1,
+      "errors": [],
+      "event_methods": {
+        "account/rateLimits/updated": 3,
+        "account/updated": 1,
+        "item/completed": 7,
+        "item/started": 7,
+        "remoteControl/status/changed": 1,
+        "thread/started": 1,
+        "thread/status/changed": 6,
+        "thread/tokenUsage/updated": 3,
+        "turn/completed": 3,
+        "turn/started": 3
+      },
+      "input_tokens_by_call": [
+        8368,
+        8451,
+        8556
+      ],
+      "input_tokens_cumulative": 25375,
+      "input_tokens_incremental_by_call": [
+        8368,
+        8451,
+        8556
+      ],
+      "item_types": {
+        "agentMessage": 6,
+        "reasoning": 2,
+        "userMessage": 6
+      },
+      "mode": "app-server",
+      "model_turn_seconds_by_call": [
+        6.954,
+        3.439,
+        3.142
+      ],
+      "native_tool_items": 0,
+      "old_superseded": true,
+      "output_tokens_by_call": [
+        32,
+        14,
+        105
+      ],
+      "pair": 1,
+      "pending": 0,
+      "prompt_chars": 6156,
+      "prompt_chars_by_call": [
+        5681,
+        149,
+        326
+      ],
+      "provenance_valid": true,
+      "read_calls": 1,
+      "reasoner_calls": 3,
+      "reasoner_seconds_by_call": [
+        6.964,
+        3.444,
+        3.147
+      ],
+      "recall_calls": 1,
+      "rejected": [],
+      "replies": [
+        "{\"look\":\"recall\",\"query\":\"agent-memory deployment window\"}",
+        "{\"look\":\"read\",\"name\":\"deployment-window\"}",
+        "{\"type\":\"fact\",\"op\":\"supersede\",\"handle\":\"deployment-window\",\"fields\":{\"project\":\"agent-memory\",\"subject\":\"deployment window Saturday\"},\"abstract\":\"The agent-memory deployment window is Saturday at 22:30 UTC\",\"body\":\"Effective 2026-10-13, the deployment window moved from Friday at 21:00 UTC to Saturday at 22:30 UTC. The rollback checklist remains unchanged.\",\"valid_from\":\"2026-10-13\",\"provenance\":[\"0\"]}"
+      ],
+      "session_home_released": true,
+      "session_ids": [
+        "01a13afe-2a29-7b22-97b1-55424553de79",
+        "01a13afe-2a29-7b22-97b1-55424553de79",
+        "01a13afe-2a29-7b22-97b1-55424553de79"
+      ],
+      "startup_seconds": 3.485,
+      "wall_seconds": 17.098,
+      "written": [
+        "deployment-window-saturday"
+      ]
+    },
+    {
+      "agent_rounds": 3,
+      "batch_seconds": [
+        19.537
+      ],
+      "cached_input_tokens_by_call": [
+        0,
+        8192,
+        8320
+      ],
+      "cached_input_tokens_cumulative": 16512,
+      "cached_input_tokens_incremental_by_call": [
+        0,
+        8192,
+        8320
+      ],
+      "cli_process_starts": 1,
+      "errors": [],
+      "event_methods": {
+        "account/rateLimits/updated": 3,
+        "account/updated": 1,
+        "item/completed": 7,
+        "item/started": 7,
+        "remoteControl/status/changed": 1,
+        "thread/started": 1,
+        "thread/status/changed": 6,
+        "thread/tokenUsage/updated": 3,
+        "turn/completed": 3,
+        "turn/started": 3
+      },
+      "input_tokens_by_call": [
+        8374,
+        8456,
+        8561
+      ],
+      "input_tokens_cumulative": 25391,
+      "input_tokens_incremental_by_call": [
+        8374,
+        8456,
+        8561
+      ],
+      "item_types": {
+        "agentMessage": 6,
+        "reasoning": 2,
+        "userMessage": 6
+      },
+      "mode": "app-server",
+      "model_turn_seconds_by_call": [
+        7.396,
+        3.937,
+        3.808
+      ],
+      "native_tool_items": 0,
+      "old_superseded": true,
+      "output_tokens_by_call": [
+        31,
+        14,
+        105
+      ],
+      "pair": 2,
+      "pending": 0,
+      "prompt_chars": 6156,
+      "prompt_chars_by_call": [
+        5681,
+        149,
+        326
+      ],
+      "provenance_valid": true,
+      "read_calls": 1,
+      "reasoner_calls": 3,
+      "reasoner_seconds_by_call": [
+        7.403,
+        3.943,
+        3.813
+      ],
+      "recall_calls": 1,
+      "rejected": [],
+      "replies": [
+        "{\"look\":\"recall\",\"query\":\"agent-memory deployment window\"}",
+        "{\"look\":\"read\",\"name\":\"deployment-window\"}",
+        "{\"type\":\"fact\",\"op\":\"supersede\",\"handle\":\"deployment-window\",\"fields\":{\"project\":\"agent-memory\",\"subject\":\"deployment window Saturday\"},\"abstract\":\"The agent-memory deployment window is Saturday at 22:30 UTC\",\"body\":\"Effective 2026-10-13, the deployment window moved from Friday at 21:00 UTC to Saturday at 22:30 UTC. The rollback checklist remains unchanged.\",\"valid_from\":\"2026-10-13\",\"provenance\":[\"0\"]}"
+      ],
+      "session_home_released": true,
+      "session_ids": [
+        "01a13afe-6cf7-7621-8671-a327214f5873",
+        "01a13afe-6cf7-7621-8671-a327214f5873",
+        "01a13afe-6cf7-7621-8671-a327214f5873"
+      ],
+      "startup_seconds": 4.298,
+      "wall_seconds": 19.537,
+      "written": [
+        "deployment-window-saturday"
+      ]
+    },
+    {
+      "agent_rounds": 3,
+      "batch_seconds": [
+        14.719
+      ],
+      "cached_input_tokens_by_call": [
+        5632,
+        8192,
+        8320
+      ],
+      "cached_input_tokens_cumulative": 22144,
+      "cached_input_tokens_incremental_by_call": [
+        5632,
+        8192,
+        8320
+      ],
+      "cli_process_starts": 1,
+      "errors": [],
+      "event_methods": {
+        "account/rateLimits/updated": 3,
+        "account/updated": 1,
+        "item/completed": 7,
+        "item/started": 7,
+        "remoteControl/status/changed": 1,
+        "thread/started": 1,
+        "thread/status/changed": 6,
+        "thread/tokenUsage/updated": 3,
+        "turn/completed": 3,
+        "turn/started": 3
+      },
+      "input_tokens_by_call": [
+        8368,
+        8450,
+        8555
+      ],
+      "input_tokens_cumulative": 25373,
+      "input_tokens_incremental_by_call": [
+        8368,
+        8450,
+        8555
+      ],
+      "item_types": {
+        "agentMessage": 6,
+        "reasoning": 2,
+        "userMessage": 6
+      },
+      "mode": "app-server",
+      "model_turn_seconds_by_call": [
+        5.736,
+        2.661,
+        2.813
+      ],
+      "native_tool_items": 0,
+      "old_superseded": true,
+      "output_tokens_by_call": [
+        31,
+        14,
+        105
+      ],
+      "pair": 3,
+      "pending": 0,
+      "prompt_chars": 6156,
+      "prompt_chars_by_call": [
+        5681,
+        149,
+        326
+      ],
+      "provenance_valid": true,
+      "read_calls": 1,
+      "reasoner_calls": 3,
+      "reasoner_seconds_by_call": [
+        5.741,
+        2.667,
+        2.818
+      ],
+      "recall_calls": 1,
+      "rejected": [],
+      "replies": [
+        "{\"look\":\"recall\",\"query\":\"agent-memory deployment window\"}",
+        "{\"look\":\"read\",\"name\":\"deployment-window\"}",
+        "{\"type\":\"fact\",\"op\":\"supersede\",\"handle\":\"deployment-window\",\"fields\":{\"project\":\"agent-memory\",\"subject\":\"deployment window Saturday\"},\"abstract\":\"The agent-memory deployment window is Saturday at 22:30 UTC\",\"body\":\"Effective 2026-10-13, the deployment window moved from Friday at 21:00 UTC to Saturday at 22:30 UTC. The rollback checklist remains unchanged.\",\"valid_from\":\"2026-10-13\",\"provenance\":[\"0\"]}"
+      ],
+      "session_home_released": true,
+      "session_ids": [
+        "01a13afe-b955-7673-ad6d-7f89578d848c",
+        "01a13afe-b955-7673-ad6d-7f89578d848c",
+        "01a13afe-b955-7673-ad6d-7f89578d848c"
+      ],
+      "startup_seconds": 3.4,
+      "wall_seconds": 14.719,
+      "written": [
+        "deployment-window-saturday"
+      ]
+    },
+    {
+      "agent_rounds": 3,
+      "batch_seconds": [
+        14.588
+      ],
+      "cached_input_tokens_by_call": [
+        5632,
+        8192,
+        8320
+      ],
+      "cached_input_tokens_cumulative": 22144,
+      "cached_input_tokens_incremental_by_call": [
+        5632,
+        8192,
+        8320
+      ],
+      "cli_process_starts": 1,
+      "errors": [],
+      "event_methods": {
+        "account/rateLimits/updated": 3,
+        "account/updated": 1,
+        "item/completed": 7,
+        "item/started": 7,
+        "remoteControl/status/changed": 1,
+        "thread/started": 1,
+        "thread/status/changed": 6,
+        "thread/tokenUsage/updated": 3,
+        "turn/completed": 3,
+        "turn/started": 3
+      },
+      "input_tokens_by_call": [
+        8374,
+        8456,
+        8561
+      ],
+      "input_tokens_cumulative": 25391,
+      "input_tokens_incremental_by_call": [
+        8374,
+        8456,
+        8561
+      ],
+      "item_types": {
+        "agentMessage": 6,
+        "reasoning": 2,
+        "userMessage": 6
+      },
+      "mode": "app-server",
+      "model_turn_seconds_by_call": [
+        5.917,
+        1.874,
+        2.784
+      ],
+      "native_tool_items": 0,
+      "old_superseded": true,
+      "output_tokens_by_call": [
+        31,
+        14,
+        105
+      ],
+      "pair": 4,
+      "pending": 0,
+      "prompt_chars": 6156,
+      "prompt_chars_by_call": [
+        5681,
+        149,
+        326
+      ],
+      "provenance_valid": true,
+      "read_calls": 1,
+      "reasoner_calls": 3,
+      "reasoner_seconds_by_call": [
+        5.923,
+        1.88,
+        2.789
+      ],
+      "recall_calls": 1,
+      "rejected": [],
+      "replies": [
+        "{\"look\":\"recall\",\"query\":\"agent-memory deployment window\"}",
+        "{\"look\":\"read\",\"name\":\"deployment-window\"}",
+        "{\"type\":\"fact\",\"op\":\"supersede\",\"handle\":\"deployment-window\",\"fields\":{\"project\":\"agent-memory\",\"subject\":\"deployment window Saturday\"},\"abstract\":\"The agent-memory deployment window is Saturday at 22:30 UTC\",\"body\":\"Effective 2026-10-13, the deployment window moved from Friday at 21:00 UTC to Saturday at 22:30 UTC. The rollback checklist remains unchanged.\",\"valid_from\":\"2026-10-13\",\"provenance\":[\"0\"]}"
+      ],
+      "session_home_released": true,
+      "session_ids": [
+        "01a13afe-f31a-7e03-af34-8e231b036eae",
+        "01a13afe-f31a-7e03-af34-8e231b036eae",
+        "01a13afe-f31a-7e03-af34-8e231b036eae"
+      ],
+      "startup_seconds": 3.9,
+      "wall_seconds": 14.588,
+      "written": [
+        "deployment-window-saturday"
+      ]
+    },
+    {
+      "agent_rounds": 3,
+      "batch_seconds": [
+        15.506
+      ],
+      "cached_input_tokens_by_call": [
+        5632,
+        8192,
+        8320
+      ],
+      "cached_input_tokens_cumulative": 22144,
+      "cached_input_tokens_incremental_by_call": [
+        5632,
+        8192,
+        8320
+      ],
+      "cli_process_starts": 1,
+      "errors": [],
+      "event_methods": {
+        "account/rateLimits/updated": 3,
+        "account/updated": 1,
+        "item/completed": 7,
+        "item/started": 7,
+        "remoteControl/status/changed": 1,
+        "thread/started": 1,
+        "thread/status/changed": 6,
+        "thread/tokenUsage/updated": 3,
+        "turn/completed": 3,
+        "turn/started": 3
+      },
+      "input_tokens_by_call": [
+        8368,
+        8450,
+        8555
+      ],
+      "input_tokens_cumulative": 25373,
+      "input_tokens_incremental_by_call": [
+        8368,
+        8450,
+        8555
+      ],
+      "item_types": {
+        "agentMessage": 6,
+        "reasoning": 2,
+        "userMessage": 6
+      },
+      "mode": "app-server",
+      "model_turn_seconds_by_call": [
+        7.054,
+        1.86,
+        3.152
+      ],
+      "native_tool_items": 0,
+      "old_superseded": true,
+      "output_tokens_by_call": [
+        31,
+        14,
+        105
+      ],
+      "pair": 5,
+      "pending": 0,
+      "prompt_chars": 6156,
+      "prompt_chars_by_call": [
+        5681,
+        149,
+        326
+      ],
+      "provenance_valid": true,
+      "read_calls": 1,
+      "reasoner_calls": 3,
+      "reasoner_seconds_by_call": [
+        7.06,
+        1.867,
+        3.158
+      ],
+      "recall_calls": 1,
+      "rejected": [],
+      "replies": [
+        "{\"look\":\"recall\",\"query\":\"agent-memory deployment window\"}",
+        "{\"look\":\"read\",\"name\":\"deployment-window\"}",
+        "{\"type\":\"fact\",\"op\":\"supersede\",\"handle\":\"deployment-window\",\"fields\":{\"project\":\"agent-memory\",\"subject\":\"deployment window Saturday\"},\"abstract\":\"The agent-memory deployment window is Saturday at 22:30 UTC\",\"body\":\"Effective 2026-10-13, the deployment window moved from Friday at 21:00 UTC to Saturday at 22:30 UTC. The rollback checklist remains unchanged.\",\"valid_from\":\"2026-10-13\",\"provenance\":[\"0\"]}"
+      ],
+      "session_home_released": true,
+      "session_ids": [
+        "01a13aff-2c3a-7ed0-ac97-8cff92cf6a76",
+        "01a13aff-2c3a-7ed0-ac97-8cff92cf6a76",
+        "01a13aff-2c3a-7ed0-ac97-8cff92cf6a76"
+      ],
+      "startup_seconds": 3.326,
+      "wall_seconds": 15.506,
+      "written": [
+        "deployment-window-saturday"
+      ]
+    }
+  ],
+  "runs": 5,
+  "scenario": "forced Recall -> Read -> SUPERSEDE",
+  "summary": {}
+}

@@ -20,11 +20,16 @@ import shutil
 import subprocess
 import tempfile
 import time
+import uuid
+from typing import TYPE_CHECKING
 
 from agent_memory.core import observation
 from agent_memory.core.config import MUSE_SETTINGS_ENV_VAR
 
 from .credentials import VertexCredentials
+
+if TYPE_CHECKING:
+    from .app_server import CodexAppServerSession
 
 HOST_CLAUDE_CODE = "claude-code"
 HOST_CODEX = "codex"
@@ -49,6 +54,10 @@ PROMPT_SEPARATOR = "\n\n"
 ERROR_EXCERPT = 400
 ANSWER_FILENAME = "answer.txt"
 PROMPT_FILENAME = "prompt.txt"
+CODEX_HOME_ENV_VAR = "CODEX_HOME"
+CODEX_AUTH_FILENAME = "auth.json"
+CODEX_THREAD_STARTED = "thread.started"
+CODEX_TURN_COMPLETED = "turn.completed"
 
 
 @dataclasses.dataclass(frozen=True)
@@ -57,6 +66,10 @@ class HostResult:
     ok: bool
     seconds: float
     error: str = ""
+    session_id: str = ""
+    input_tokens: int | None = None
+    cached_input_tokens: int | None = None
+    output_tokens: int | None = None
 
 
 @dataclasses.dataclass(frozen=True)
@@ -114,6 +127,9 @@ class Dialect:
 
     def disables_native_memory(self, rendered_command: str) -> bool:
         raise NotImplementedError
+
+    def session_metadata(self, stdout: str) -> tuple[str, dict[str, int]]:
+        return "", {}
 
     def invocation(
         self,
@@ -188,6 +204,7 @@ class CodexDialect(Dialect):
             "--ephemeral",
             "--ignore-user-config",
             "--ignore-rules",
+            "--json",
             "--output-last-message",
             str(answer_file),
         ]
@@ -202,6 +219,24 @@ class CodexDialect(Dialect):
         return (system_prompt + PROMPT_SEPARATOR + prompt) if system_prompt else prompt
 
     def answer(self, stdout: str, answer_file: pathlib.Path) -> str:
+        streamed = ""
+        for line in stdout.splitlines():
+            try:
+                event = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if not isinstance(event, dict):
+                continue
+            item = event.get("item")
+            if (
+                event.get("type") == "item.completed"
+                and isinstance(item, dict)
+                and item.get("type") == "agent_message"
+                and isinstance(item.get("text"), str)
+            ):
+                streamed = item["text"].strip()
+        if streamed:
+            return streamed
         if answer_file.exists():
             written = answer_file.read_text(encoding="utf-8").strip()
             if written:
@@ -210,6 +245,50 @@ class CodexDialect(Dialect):
 
     def disables_native_memory(self, rendered_command: str) -> bool:
         return "--ignore-user-config" in rendered_command
+
+    def stateful_command(
+        self, spec: HostSpec, answer_file: pathlib.Path, session_id: str = ""
+    ) -> list[str]:
+        common = [
+            "--model",
+            spec.model,
+            "--skip-git-repo-check",
+            "--ignore-user-config",
+            "--ignore-rules",
+            "--json",
+            "--output-last-message",
+            str(answer_file),
+        ]
+        if session_id:
+            return [spec.binary, "exec", "resume", *common, session_id, "-"]
+        return [spec.binary, "exec", *common, "--sandbox", CODEX_SANDBOX_READONLY]
+
+    def session_metadata(self, stdout: str) -> tuple[str, dict[str, int]]:
+        session_id = ""
+        usage: dict[str, int] = {}
+        for line in stdout.splitlines():
+            try:
+                event = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if not isinstance(event, dict):
+                continue
+            if event.get("type") == CODEX_THREAD_STARTED:
+                candidate = event.get("thread_id")
+                if isinstance(candidate, str):
+                    try:
+                        session_id = str(uuid.UUID(candidate))
+                    except ValueError:
+                        session_id = ""
+            if event.get("type") == CODEX_TURN_COMPLETED:
+                candidate_usage = event.get("usage")
+                if isinstance(candidate_usage, dict):
+                    usage = {
+                        key: value
+                        for key in ("input_tokens", "cached_input_tokens", "output_tokens")
+                        if isinstance((value := candidate_usage.get(key)), int)
+                    }
+        return session_id, usage
 
 
 class HermesDialect(Dialect):
@@ -399,6 +478,64 @@ class Host:
                 time.sleep(self.spec.retry_backoff_seconds * (attempt + 1))
         return last
 
+    def run_session(
+        self,
+        prompt: str,
+        *,
+        session_id: str = "",
+        environment: dict[str, str] | None = None,
+    ) -> HostResult:
+        """Run one Codex session turn without retrying a possibly accepted prompt."""
+        if self.spec.name != HOST_CODEX or not isinstance(self.dialect, CodexDialect):
+            return HostResult("", False, 0.0, "stateful sessions are unsupported for this host")
+        with tempfile.TemporaryDirectory() as scratch:
+            answer_file = pathlib.Path(scratch) / ANSWER_FILENAME
+            command = self.dialect.stateful_command(self.spec, answer_file, session_id)
+            result = self._invoke(
+                command,
+                prompt,
+                self._environment(None, environment or {}),
+                None,
+                answer_file,
+            )
+        if not result.ok:
+            return result
+        if not result.session_id:
+            return dataclasses.replace(
+                result, text="", ok=False, error="Codex returned no valid session id"
+            )
+        if session_id and result.session_id != session_id:
+            return dataclasses.replace(
+                result, text="", ok=False, error="Codex resumed a different session"
+            )
+        return result
+
+    def open_app_server(self) -> CodexAppServerSession:
+        """Start one batch-scoped Codex app-server session."""
+        if self.spec.name != HOST_CODEX:
+            raise ValueError("app-server sessions require the Codex host")
+        from .app_server import CodexAppServerSession
+
+        return CodexAppServerSession(self)
+
+    @staticmethod
+    def isolated_codex_environment(
+        extra: dict[str, str], scratch: pathlib.Path
+    ) -> dict[str, str]:
+        """Stage only Codex authentication; session data stays scoped to one reasoner run."""
+        source = {**os.environ, **extra}
+        source_home = pathlib.Path(
+            source.get(CODEX_HOME_ENV_VAR) or pathlib.Path.home() / ".codex"
+        ).expanduser()
+        target_home = scratch / "codex-home"
+        target_home.mkdir()
+        source_auth = source_home / CODEX_AUTH_FILENAME
+        if source_auth.is_file():
+            target_auth = target_home / CODEX_AUTH_FILENAME
+            shutil.copyfile(source_auth, target_auth)
+            target_auth.chmod(0o600)
+        return {**extra, CODEX_HOME_ENV_VAR: str(target_home)}
+
     def _attempt(
         self,
         prompt: str,
@@ -550,12 +687,40 @@ class Host:
         )
         if completed.returncode != 0:
             detail = (completed.stderr.strip() or completed.stdout.strip())[:ERROR_EXCERPT]
-            return HostResult("", False, elapsed, detail or "non-zero exit with no output")
+            session_id, usage = self.dialect.session_metadata(completed.stdout)
+            return HostResult(
+                "",
+                False,
+                elapsed,
+                detail or "non-zero exit with no output",
+                session_id=session_id,
+                input_tokens=usage.get("input_tokens"),
+                cached_input_tokens=usage.get("cached_input_tokens"),
+                output_tokens=usage.get("output_tokens"),
+            )
         text = self.dialect.answer(completed.stdout, answer_file)
+        session_id, usage = self.dialect.session_metadata(completed.stdout)
         if self.spec.name in (HOST_CODEX, HOST_MUSE_CODE) and not text:
             label = "Codex" if self.spec.name == HOST_CODEX else "Muse"
-            return HostResult("", False, elapsed, f"missing or empty {label} final message")
-        return HostResult(text, True, elapsed)
+            return HostResult(
+                "",
+                False,
+                elapsed,
+                f"missing or empty {label} final message",
+                session_id=session_id,
+                input_tokens=usage.get("input_tokens"),
+                cached_input_tokens=usage.get("cached_input_tokens"),
+                output_tokens=usage.get("output_tokens"),
+            )
+        return HostResult(
+            text,
+            True,
+            elapsed,
+            session_id=session_id,
+            input_tokens=usage.get("input_tokens"),
+            cached_input_tokens=usage.get("cached_input_tokens"),
+            output_tokens=usage.get("output_tokens"),
+        )
 
     def _environment(
         self, store_root: pathlib.Path | None, extra: dict[str, str]

@@ -2,6 +2,7 @@
 
 import json
 
+import pytest
 from agent_memory.core import agentic, distill, prompts, reconcile, sessions
 
 LINES = [
@@ -33,6 +34,36 @@ def _scripted(*replies):
 
     ask.prompts = []
     return ask
+
+
+class _Run:
+    def __init__(self, replies):
+        self.replies = iter(replies)
+        self.prompts = []
+        self.closed = False
+
+    def step(self, prompt):
+        self.prompts.append(prompt)
+        return next(self.replies)
+
+    def close(self):
+        self.closed = True
+
+
+class _Stateful:
+    def __init__(self, *runs):
+        self.replies = iter(runs)
+        self.openings = []
+        self.runs = []
+
+    def __call__(self, _prompt):
+        pytest.fail("stateful negotiation must use begin/step")
+
+    def begin(self, opening):
+        self.openings.append(opening)
+        run = _Run(next(self.replies))
+        self.runs.append(run)
+        return run
 
 
 def _call(tool, **fields):
@@ -147,3 +178,49 @@ def test_distill_runs_the_negotiation_and_reports_the_rounds(store):
     assert report.batches[0].rounds == 2
     assert report.batches[0].written == ("queue-timeout-30s",)
     assert not store.find(old.name).is_active()
+
+
+def test_a_stateful_reasoner_receives_the_opening_once_and_only_observation_deltas(store):
+    old = _existing(store)
+    messages = _messages(store)
+    sheet = _empty_sheet(store, messages)
+    reasoner = _Stateful([_call("recall", query="queue timeout"), _supersede(old.name)])
+
+    outcome = agentic.negotiate(store, sheet, "opening", reasoner, store.config.write)
+
+    assert outcome.rounds == 2
+    assert reasoner.openings == ["opening\n\n" + prompts.TOOL_RULES]
+    assert reasoner.runs[0].prompts[0] == ""
+    assert "[recall]" in reasoner.runs[0].prompts[1]
+    assert "opening" not in reasoner.runs[0].prompts[1]
+    assert _call("recall", query="queue timeout") not in reasoner.runs[0].prompts[1]
+    assert reasoner.runs[0].closed
+
+
+def test_a_stateful_reasoner_run_closes_when_the_reply_is_incomplete(store):
+    messages = _messages(store)
+    sheet = _empty_sheet(store, messages)
+    store.config.write.max_rounds = 1
+    reasoner = _Stateful(["", ""])
+
+    outcome = agentic.negotiate(store, sheet, "opening", reasoner, store.config.write)
+
+    assert outcome.errors
+    assert reasoner.runs[0].closed
+
+
+def test_each_distill_batch_gets_an_isolated_reasoner_run(store):
+    messages = _messages(store, lines=["user: one", "user: two"])
+    store.config.write.max_distill_input_chars = len("one")
+    reasoner = _Stateful(
+        [json.dumps({"type": "fact", "op": "skip"})],
+        [json.dumps({"type": "fact", "op": "skip"})],
+    )
+
+    report = distill.distill(store, "boundary", messages, reasoner)
+
+    assert len(report.batches) == 2
+    assert report.consumed == 2
+    assert len(reasoner.runs) == 2
+    assert all(run.closed for run in reasoner.runs)
+    assert reasoner.openings[0] != reasoner.openings[1]
