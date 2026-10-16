@@ -96,7 +96,7 @@ class Recall:
             "/".join(pathlib.PurePath(scope.strip("/\\")).parts) if scope else None
         )
         with self._database.connect() as connection:
-            index = SearchIndex(connection)
+            index = SearchIndex(connection, self._config.index.tokenizer)
             candidates = index.match(query, pool, SURFACE_ACTIVE, scope_path=scope_path)
             if as_of is not None:
                 candidates = candidates + index.match(

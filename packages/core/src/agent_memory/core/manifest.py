@@ -59,3 +59,26 @@ class Manifest:
 
     def hash_file(self, path: pathlib.Path) -> str:
         return content_hash(path.read_text(encoding="utf-8"), self._prefix_length)
+
+
+TOKENIZER_KEY = "tokenizer"
+
+
+class IndexMeta:
+    """Index-wide settings the projection was built with, so drift can force a rebuild."""
+
+    def __init__(self, connection: sqlite3.Connection):
+        self._connection = connection
+
+    def tokenizer(self) -> str | None:
+        row = self._connection.execute(
+            "SELECT value FROM index_meta WHERE key = ?", (TOKENIZER_KEY,)
+        ).fetchone()
+        return str(row["value"]) if row else None
+
+    def set_tokenizer(self, value: str) -> None:
+        self._connection.execute(
+            "INSERT INTO index_meta(key, value) VALUES(?, ?) "
+            "ON CONFLICT(key) DO UPDATE SET value=excluded.value",
+            (TOKENIZER_KEY, value),
+        )

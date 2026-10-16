@@ -132,7 +132,7 @@ def test_vector_knobs_leave_the_recall_fingerprint_alone_while_disabled():
 
 
 def test_default_recall_fingerprint_matches_memory_only_policy():
-    assert Config.default().recall_fingerprint() == "a8f591edf4e3b73b"
+    assert Config.default().recall_fingerprint() == "095bbeed229b30f0"
 
 
 def test_enabling_vector_changes_the_recall_fingerprint_and_so_does_the_model():

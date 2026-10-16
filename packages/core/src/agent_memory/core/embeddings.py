@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+import os
 from collections.abc import Sequence
 from typing import Protocol
 
 INSTALL_HINT = "pip install 'agent-memory-core[vector]'"
+OFFLINE_ENV_VAR = "AGENT_MEMORY_OFFLINE"
 
 
 class Embedder(Protocol):
@@ -23,7 +25,10 @@ class FastEmbedder:
                 "Vector capability is enabled but optional embedding dependency is unavailable; "
                 f"install it with: {INSTALL_HINT}"
             ) from error
-        self._backend = TextEmbedding(model_name=model)
+        self._backend = TextEmbedding(
+            model_name=model,
+            local_files_only=os.environ.get(OFFLINE_ENV_VAR, "") == "1",
+        )
 
     def embed_documents(self, texts: Sequence[str]) -> list[list[float]]:
         return [item.tolist() for item in self._backend.embed(list(texts))]

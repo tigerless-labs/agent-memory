@@ -59,6 +59,7 @@ class IndexConfig:
     chunk_min_chars: int = 200
     bm25_abstract_weight: float = 2.0
     bm25_body_weight: float = 1.0
+    tokenizer: str = "ascii"
     vector_enabled: bool = False
     vector_model: str = "BAAI/bge-small-en-v1.5"
 
@@ -207,6 +208,13 @@ class Config:
             raise ValueError("index.vector_enabled must be a boolean")
         if not isinstance(self.index.vector_model, str) or not self.index.vector_model.strip():
             raise ValueError("index.vector_model must be a non-empty string")
+        from .tokenization import SUPPORTED_TOKENIZERS
+
+        if self.index.tokenizer not in SUPPORTED_TOKENIZERS:
+            raise ValueError(
+                f"index.tokenizer must be one of {sorted(SUPPORTED_TOKENIZERS)}, "
+                f"got {self.index.tokenizer!r}"
+            )
 
     def save(self, store_root: pathlib.Path) -> pathlib.Path:
         path = pathlib.Path(store_root) / CONFIG_FILENAME
