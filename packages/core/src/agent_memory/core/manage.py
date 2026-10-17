@@ -21,7 +21,6 @@ import subprocess
 import tempfile
 
 from . import reasoning, timestamp
-from . import record as record_module
 from .access_log import KIND_READ, AccessLog
 from .clock import Clock
 from .database import Database
@@ -437,9 +436,11 @@ class Manage:
             if original is None:
                 seen[key] = record
                 continue
-            record_module.invalidate(record, self._clock.timestamp(), original.name)
-            self._rewrite(record)
-            actions.append(Action(ACTION_DUPLICATE_MERGED, record.name, original.name))
+            merged = self._store.merge_exact_duplicate(
+                record, original, self._clock.timestamp()
+            )
+            if merged is not None:
+                actions.append(Action(ACTION_DUPLICATE_MERGED, record.name, original.name))
         return actions
 
     def _menu_group_fields(self) -> dict[str, str]:
