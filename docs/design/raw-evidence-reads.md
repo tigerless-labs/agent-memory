@@ -15,3 +15,5 @@ before an exam so retrieval sees the same truth files that a fresh store would.
 
 Historical experiment scores remain attached to the reading policy and corpus under
 which they were measured.
+
+Truth-file fallback resolves the identity stored in frontmatter rather than assuming the filename is the identity. Explicit provenance reads survive externally renamed files and missing projection caches.
