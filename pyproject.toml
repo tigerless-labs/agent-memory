@@ -16,6 +16,7 @@ mcp = ["agent-memory-mcp"]
 executor = ["agent-memory-executor"]
 harness = ["agent-memory-harness"]
 vector = ["agent-memory-core[vector]"]
+cjk = ["agent-memory-core[cjk]"]
 
 [dependency-groups]
 dev = [
