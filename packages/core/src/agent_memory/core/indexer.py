@@ -95,7 +95,11 @@ class Indexer:
     def _present_hashes(self) -> dict[str, str]:
         present: dict[str, str] = {}
         for path in self._layout.truth_files():
-            relative = str(path.relative_to(self._layout.root))
+            # as_posix keeps index and manifest path keys forward-slash on
+            # every platform: str() embeds the win32 separator, and these keys
+            # become the records.path column that scoped recall and the
+            # provenance gate compare against (issue #55, indexer case).
+            relative = path.relative_to(self._layout.root).as_posix()
             present[relative] = content_hash(
                 path.read_text(encoding="utf-8"), self._config.index.hash_prefix_length
             )
