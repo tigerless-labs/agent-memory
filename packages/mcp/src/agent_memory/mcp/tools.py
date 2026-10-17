@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from agent_memory.core import timestamp
 from agent_memory.core.errors import FieldError, ValidationError
 from agent_memory.core.recall import Recall
 from agent_memory.core.store import LEVEL_FULL, LEVELS, Store
@@ -167,10 +168,15 @@ def _require(tool: str, arguments: dict[str, object]) -> None:
 
 
 def _recall(store: Store, arguments: dict[str, object]) -> dict[str, object]:
+    as_of = _optional(arguments, "as_of")
+    if as_of is not None and not timestamp.is_valid(as_of):
+        raise ValidationError(
+            [FieldError("as_of", "must be an ISO-8601 date or a date-time with a time zone")]
+        )
     hits = Recall(store).recall(
         str(arguments["query"]),
         scope=_optional(arguments, "scope"),
-        as_of=_optional(arguments, "as_of"),
+        as_of=as_of,
         limit=int(str(arguments["limit"])) if arguments.get("limit") else None,
     )
     return {
