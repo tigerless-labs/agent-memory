@@ -121,7 +121,7 @@ def parse_operations(reply: str) -> tuple[list[dict[str, object]], list[FieldErr
     """One JSON object per line. A line that is not one is reported, never guessed at."""
     specs: list[dict[str, object]] = []
     errors: list[FieldError] = []
-    for number, line in enumerate(reply.splitlines(), start=1):
+    for number, line in enumerate(reply.split("\n"), start=1):
         stripped = line.strip()
         if not stripped or stripped.startswith(FENCE):
             continue
