@@ -19,4 +19,4 @@ def slugify(text: str, max_length: int) -> str:
 
 
 def is_valid_slug(text: str) -> bool:
-    return bool(VALID_SLUG.match(text))
+    return bool(VALID_SLUG.fullmatch(text))
