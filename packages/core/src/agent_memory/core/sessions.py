@@ -183,7 +183,7 @@ def _coerce(item: object, index: int, stamp: str) -> Message:
         return Message(
             index=int(item.get(KEY_INDEX, index)),
             role=str(item.get(KEY_ROLE) or ""),
-            text=str(item.get(KEY_TEXT) or "").strip(),
+            text=str(item.get(KEY_TEXT) or ""),
             at=str(item.get(KEY_AT) or stamp),
         )
     role, text = split_role(str(item))

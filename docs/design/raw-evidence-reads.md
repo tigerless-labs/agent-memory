@@ -15,3 +15,5 @@ before an exam so retrieval sees the same truth files that a fresh store would.
 
 Historical experiment scores remain attached to the reading policy and corpus under
 which they were measured.
+
+Structured host messages preserve their original leading indentation and trailing whitespace in raw storage. Code excerpts and quoted text remain faithful evidence while projections retain their own formatting rules.
