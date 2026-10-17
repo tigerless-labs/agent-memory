@@ -210,7 +210,11 @@ class Store:
         )
         supersedes = str(spec.get("supersedes") or "") or None
         derived_name = not spec.get("name")
-        if supersedes and derived_name and (self.root / placed.relative_path).exists():
+        if (
+            supersedes
+            and derived_name
+            and (placed.name == supersedes or (self.root / placed.relative_path).exists())
+        ):
             placed = self._successor_placement(placed)
         target = self.root / placed.relative_path
         if self.layout.type_of(target) != schema.type:

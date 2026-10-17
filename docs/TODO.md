@@ -32,10 +32,6 @@
   with many servers their tool definitions alone overflow Haiku's context, and any memory-like
   server contaminates attribution. Decide strict MCP for harness runs and record the change in
   the experiment ledger.
-- A supersede whose new key lands in another group but keeps the subject derives the
-  predecessor's own name: successor placement checks only the target path, so the Store refuses
-  "cannot supersede itself". Gemini 2.5 Flash looped seven refusals on it and gave up
-  (OpenRouter, 2026-10-14). Successor naming should check names, not only paths.
 - An announced future effective date ("from Saturday") is refused as a valid_from later than its
   evidence; Haiku 4.5 and Gemini 2.5 Flash set one on about half their first submissions, which
   costs a turn. Decide whether the Store accepts announced effective dates; a schema description
