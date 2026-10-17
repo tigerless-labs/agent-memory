@@ -281,8 +281,24 @@ def _load_section(section: Any, values: object, path: str) -> None:
             _load_section(current, value, f"{path}.{key}")
         elif isinstance(value, dict) and not isinstance(current, dict):
             raise ValueError(f"config knob must not be a table: {path}.{key}")
-        else:
+        elif _has_declared_type(current, value):
             setattr(section, key, value)
+        else:
+            raise ValueError(f"config knob has the wrong type: {path}.{key}")
+
+
+def _has_declared_type(current: object, value: object) -> bool:
+    if isinstance(current, bool):
+        return isinstance(value, bool)
+    if isinstance(value, bool):
+        return False
+    if isinstance(current, int):
+        return isinstance(value, int)
+    if isinstance(current, float):
+        return isinstance(value, int | float)
+    if isinstance(current, str):
+        return isinstance(value, str)
+    return True
 
 
 def _render_section(lines: list[str], path: str, section: Any) -> None:
