@@ -15,3 +15,5 @@ before an exam so retrieval sees the same truth files that a fresh store would.
 
 Historical experiment scores remain attached to the reading policy and corpus under
 which they were measured.
+
+Raw session ranges include blank messages. Appending them preserves contiguous indices and keeps subsequent provenance ranges bound to their original positions.
