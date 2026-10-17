@@ -10,7 +10,7 @@ import tempfile
 
 from agent_memory.executor.hosts import Host
 
-from .metrics import STATUS_OK
+from .metrics import STATUS_FAILED, STATUS_OK
 
 VERDICT_YES = "yes"
 RUBRIC = """Decide whether a candidate answer is correct against a reference answer.
@@ -121,7 +121,9 @@ def regrade(
             str(record["expected"]),
             str(record["answer"]),
         )
-        return record | {"correct": bool(verdict.correct and verdict.ok)}
+        if not verdict.ok:
+            return record | {"correct": False, "status": STATUS_FAILED, "error": verdict.error}
+        return record | {"correct": bool(verdict.correct)}
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
         return list(pool.map(grade, records))
