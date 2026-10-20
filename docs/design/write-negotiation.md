@@ -9,8 +9,17 @@ validates what comes back, and owns every write.
 The Write toolkit is the only definition of what the reasoner may do during a batch:
 
 - **recall** searches current memory and lists matches by handle;
+- **recall with evidence** performs the same search and spends a bounded Write result budget on
+  opening the highest-ranked candidates inline;
 - **read** opens one active memory in full;
 - **submit operations** hands back the batch's operations under the operation schema.
+
+The combined lookup is experimental and absent unless `write.recall_with_evidence_enabled` is
+true. When enabled, its candidates are authorized exactly like ordinary Recall results, and the
+reasoner may follow it with more Recall or Read calls when the bounded evidence is insufficient.
+It is a Write-specific rendering rather than the ordinary Context surface: candidate handles must
+remain explicit, the server owns the character bound, and no retrieval result can authorize a
+handle that was not returned.
 
 A handle becomes nameable in update and supersede once the reconcile sheet or a tool result has
 shown it; any other handle stays refused, so steering by conversation or recalled content can at
@@ -108,3 +117,23 @@ provenance:
 This one New sample does not show a latency win: native execution was 14.267 seconds slower. It
 did perform a Recall before submitting and cost less in the observed run because later requests
 reused cached input. Tool calls, not model requests, remain the core's `rounds` metric.
+
+## Codex evidence-recall pilot
+
+A 2026-10-20 paired pilot used Codex CLI 0.162.0 with `gpt-5.6-sol`, revision `327bc511` as
+baseline and `cc4538c3` as the opt-in candidate. Four fixed synthetic cases ran through the
+isolated native MCP Host path:
+
+| Case | Baseline trace | Opt-in trace | Seconds | Tokens | Strict result |
+|---|---|---|---:|---:|---|
+| New fact | Recall → Submit | Evidence Recall → Submit | 31.611 / 28.350 | 12,763 / 12,997 | pass / pass |
+| Supersede | Recall → Submit | Evidence Recall → Submit | 92.205 / 27.868 | 7,114 / 13,360 | pass / pass |
+| Duplicate fact | Recall → Read → Submit | Evidence Recall → Submit → Submit | 38.778 / 203.053 | 13,652 / 8,345 | pass / fail |
+| Skip | Submit | Submit | 22.056 / 21.621 | 8,414 / 12,029 | pass / pass |
+| **Total** | **8 tool calls** | **8 tool calls** | **184.650 / 280.892** | **41,943 / 46,731** | **4/4 / 3/4** |
+
+The dependency-constrained model-request lower bound was 12 in both arms; Codex exposes aggregate
+tokens but not an exact request count. The candidate therefore showed no real round-trip reduction,
+raised wall time by 52.1% and tokens by 11.4%, and unnecessarily replaced the unchanged duplicate.
+The capability remains default-off; these four samples establish a failed promotion gate rather
+than a general performance estimate.

@@ -135,6 +135,8 @@ def test_a_host_distills_a_batch_through_the_toolkit_adapter(name, store, tmp_pa
     if name == hosts.HOST_HERMES:
         monkeypatch.setenv("HERMES_HOME", str(tmp_path / "hermes-root"))
     old, messages = _batch(store)
+    store.config.write.recall_with_evidence_enabled = True
+    store.config.save(store.root)
     log = tmp_path / "host-log.json"
     script = [
         [toolkit.TOOL_RECALL, {toolkit.ARG_QUERY: "queue timeout"}],
@@ -154,7 +156,12 @@ def test_a_host_distills_a_batch_through_the_toolkit_adapter(name, store, tmp_pa
     assert report.batches[0].rounds == len(script)
     assert not store.find(old.name).is_active()
     seen = json.loads(log.read_text(encoding="utf-8"))
-    assert set(seen["listed"]) == {toolkit.TOOL_RECALL, toolkit.TOOL_READ, toolkit.TOOL_SUBMIT}
+    assert set(seen["listed"]) == {
+        toolkit.TOOL_RECALL,
+        toolkit.TOOL_RECALL_WITH_EVIDENCE,
+        toolkit.TOOL_READ,
+        toolkit.TOOL_SUBMIT,
+    }
     assert all(reply["result"]["isError"] is False for reply in seen["replies"])
     assert "our queue timeout is 30 seconds" in seen["stdin"].lower()
     assert ("our queue timeout is 30 seconds" in seen["system"].lower()) == (
@@ -168,6 +175,7 @@ def test_a_host_distills_a_batch_through_the_toolkit_adapter(name, store, tmp_pa
         override = seen["argv"][seen["argv"].index("-c") + 1]
         assert json.loads(override.removeprefix("run.toolset=")) == [
             "mcp__memory__recall",
+                "mcp__memory__recall_with_evidence",
             "mcp__memory__read",
             "mcp__memory__submit_operations",
         ]
@@ -176,7 +184,7 @@ def test_a_host_distills_a_batch_through_the_toolkit_adapter(name, store, tmp_pa
         assert set(seen["settings"]["mcp_servers"]) == {hosts.HERMES_WRITE_SERVER_NAME}
         configured = seen["settings"]["mcp_servers"][hosts.HERMES_WRITE_SERVER_NAME]
         assert configured["tools"] == {
-            "include": ["recall", "read", "submit_operations"],
+            "include": ["recall", "recall_with_evidence", "read", "submit_operations"],
             "resources": False,
             "prompts": False,
         }

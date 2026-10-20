@@ -251,6 +251,10 @@ and supersede, "valid_from" when the fact holds from a date, "create_group" when
 "provenance" as a list of message ranges. A refused submission lists its reasons; submit the
 corrected full list. Use op skip when the conversation holds nothing worth keeping."""
 
+EVIDENCE_TOOL_GUIDE = """recall_with_evidence searches current memory and includes bounded body
+evidence for the highest-ranked matches. Use further recall or read calls when the combined
+evidence is insufficient."""
+
 
 @dataclasses.dataclass(frozen=True)
 class Brief:
@@ -259,8 +263,13 @@ class Brief:
     instructions: str
     material: str
 
-    def tool_system(self) -> str:
-        return "\n\n".join((self.instructions, TOOL_GUIDE))
+    def tool_system(self, recall_with_evidence: bool = False) -> str:
+        guide = (
+            "\n\n".join((TOOL_GUIDE, EVIDENCE_TOOL_GUIDE))
+            if recall_with_evidence
+            else TOOL_GUIDE
+        )
+        return "\n\n".join((self.instructions, guide))
 
     def text_protocol(self) -> str:
         return "\n\n".join((self.instructions, self.material, DISTILL_LINES))
@@ -379,6 +388,11 @@ looks is answered with what the library found, and you are asked again. A memory
 shown may be named by its handle in update and supersede, exactly like one on the reconcile
 sheet. When you have seen enough, reply with the operations only."""
 
+EVIDENCE_TOOL_RULE = """The optional
+{"look": "recall_with_evidence", "query": "<words the memory would contain>"} lookup also
+includes bounded body evidence for the highest-ranked matches. Use further recall or read calls
+when the combined evidence is insufficient."""
+
 FINAL_ROUND = """## This is the last round
 
 Reply with the operations now, one JSON object per line, and nothing else."""
@@ -403,6 +417,12 @@ OBSERVATION = """[{tool}]
 
 def format_retry(reply: str) -> str:
     return FORMAT_RETRY.format(reply=reply.strip() or "(empty)")
+
+
+def tool_rules(recall_with_evidence: bool) -> str:
+    if recall_with_evidence:
+        return "\n\n".join((TOOL_RULES, EVIDENCE_TOOL_RULE))
+    return TOOL_RULES
 
 
 def tool_round(reply: str, observations: str) -> str:

@@ -7,7 +7,12 @@ import pytest
 from agent_memory.core import toolkit
 from agent_memory.executor import hosts
 
-TOOLS = (toolkit.TOOL_RECALL, toolkit.TOOL_READ, toolkit.TOOL_SUBMIT)
+TOOLS = (
+    toolkit.TOOL_RECALL,
+    toolkit.TOOL_RECALL_WITH_EVIDENCE,
+    toolkit.TOOL_READ,
+    toolkit.TOOL_SUBMIT,
+)
 SERVER = hosts.ToolServer(
     name="memory",
     command="/venv/bin/python",
@@ -151,7 +156,8 @@ def test_muse_turns_off_unrelated_tools_and_keeps_the_sandbox(tmp_path):
 
     assert command[1] == "exec"
     assert _after(command, "-c") == (
-        'run.toolset=["mcp__memory__recall", "mcp__memory__read", '
+        'run.toolset=["mcp__memory__recall", "mcp__memory__recall_with_evidence", '
+        '"mcp__memory__read", '
         '"mcp__memory__submit_operations"]'
     )
     assert {

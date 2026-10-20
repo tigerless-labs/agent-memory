@@ -37,6 +37,7 @@ def test_defaults_are_complete_and_self_consistent():
     assert config.executor.write.reasoner == ""
     assert config.executor.write.host == ""
     assert config.executor.write.tool_mode == ""
+    assert config.write.recall_with_evidence_enabled is False
     assert config.executor.manage.reasoner == ""
     assert config.executor.manage.host == ""
 
@@ -57,6 +58,7 @@ def test_config_round_trips_through_disk(tmp_path):
     original.recall.default_limit += 1
     original.index.vector_enabled = True
     original.index.vector_model = "test/model-v2"
+    original.write.recall_with_evidence_enabled = True
     original.executor.write.reasoner = "host"
     original.executor.write.host = "muse-code"
     original.executor.write.host_provider = "openrouter"
@@ -72,6 +74,7 @@ def test_config_round_trips_through_disk(tmp_path):
     assert reloaded.recall.default_limit == original.recall.default_limit
     assert reloaded.index.vector_enabled is True
     assert reloaded.index.vector_model == "test/model-v2"
+    assert reloaded.write.recall_with_evidence_enabled is True
     assert reloaded.executor.write.host == "muse-code"
     assert reloaded.executor.write.host_provider == "openrouter"
     assert reloaded.executor.write.host_allow_data_training is True

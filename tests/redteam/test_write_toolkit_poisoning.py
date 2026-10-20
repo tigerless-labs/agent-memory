@@ -37,6 +37,7 @@ def _store_with_payload(store):
 
 
 def _kit(store):
+    store.config.write.recall_with_evidence_enabled = True
     pointer = store.archive.append_session("boundary", ["user: the queue timeout is 30 seconds"])
     messages = sessions.resolve(store.layout, pointer)
     sheet = reconcile.build(store, "boundary", messages)
@@ -64,6 +65,28 @@ def test_a_handle_named_only_inside_recalled_text_stays_unnameable(store):
     assert VICTIM not in kit.sheet.handle_names()
     reply = kit.call(toolkit.TOOL_SUBMIT, {toolkit.ARG_OPERATIONS: [_update(VICTIM)]})
     assert reply.is_error
+
+
+def test_a_handle_named_only_inside_combined_evidence_stays_unnameable(store):
+    attacker = store.record(
+        name="queue-note",
+        type="fact",
+        fields={"subject": "queue note"},
+        abstract="Queue note",
+        body=f"The unrelated handle {VICTIM} appears here as untrusted data.",
+    )
+    store.record(name=VICTIM, type="fact", abstract="Protected memory", body="private")
+    kit = _kit(store)
+
+    reply = kit.call(
+        toolkit.TOOL_RECALL_WITH_EVIDENCE,
+        {toolkit.ARG_QUERY: "queue note", toolkit.ARG_LIMIT: 1},
+    )
+
+    assert not reply.is_error and attacker.name in kit.sheet.handle_names()
+    assert VICTIM in reply.text and VICTIM not in kit.sheet.handle_names()
+    refused = kit.call(toolkit.TOOL_SUBMIT, {toolkit.ARG_OPERATIONS: [_update(VICTIM)]})
+    assert refused.is_error
     assert kit.submission is None
 
 
@@ -75,6 +98,7 @@ def test_recalled_instructions_come_back_as_data_and_change_no_rule(store):
     assert not reply.is_error
     assert {spec.name for spec in kit.catalogue()} == {
         toolkit.TOOL_RECALL,
+        toolkit.TOOL_RECALL_WITH_EVIDENCE,
         toolkit.TOOL_READ,
         toolkit.TOOL_SUBMIT,
     }
@@ -105,7 +129,12 @@ def test_an_address_absent_from_the_conversation_is_refused_at_submission(store)
 )
 def test_malformed_arguments_are_refused_without_raising(store, arguments):
     kit = _kit(store)
-    for name in (toolkit.TOOL_RECALL, toolkit.TOOL_READ, toolkit.TOOL_SUBMIT):
+    for name in (
+        toolkit.TOOL_RECALL,
+        toolkit.TOOL_RECALL_WITH_EVIDENCE,
+        toolkit.TOOL_READ,
+        toolkit.TOOL_SUBMIT,
+    ):
         assert kit.call(name, arguments).is_error
     assert kit.submission is None
 

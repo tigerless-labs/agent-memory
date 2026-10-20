@@ -25,7 +25,8 @@ def _existing(store, **overrides):
     return store.record(**{**spec, **overrides})
 
 
-def _kit(store):
+def _kit(store, *, evidence=True):
+    store.config.write.recall_with_evidence_enabled = evidence
     messages = _messages(store)
     sheet = reconcile.build(store, "boundary", messages)
     empty = reconcile.Sheet(
@@ -45,13 +46,31 @@ def _supersede(handle):
     }
 
 
-def test_the_catalogue_offers_recall_read_and_submission_with_their_schemas(store):
+def test_the_catalogue_offers_bounded_evidence_recall_when_enabled(store):
     catalogue = {spec.name: spec for spec in _kit(store).catalogue()}
-    assert set(catalogue) == {toolkit.TOOL_RECALL, toolkit.TOOL_READ, toolkit.TOOL_SUBMIT}
+    assert set(catalogue) == {
+        toolkit.TOOL_RECALL,
+        toolkit.TOOL_RECALL_WITH_EVIDENCE,
+        toolkit.TOOL_READ,
+        toolkit.TOOL_SUBMIT,
+    }
     assert catalogue[toolkit.TOOL_RECALL].schema["required"] == [toolkit.ARG_QUERY]
+    assert catalogue[toolkit.TOOL_RECALL_WITH_EVIDENCE].schema["required"] == [
+        toolkit.ARG_QUERY
+    ]
     assert catalogue[toolkit.TOOL_READ].schema["required"] == [toolkit.ARG_NAME]
     assert catalogue[toolkit.TOOL_SUBMIT].schema["required"] == [toolkit.ARG_OPERATIONS]
     assert all(spec.description for spec in catalogue.values())
+
+
+def test_the_catalogue_keeps_bounded_evidence_recall_disabled_by_default(store):
+    catalogue = {spec.name for spec in _kit(store, evidence=False).catalogue()}
+
+    assert catalogue == {toolkit.TOOL_RECALL, toolkit.TOOL_READ, toolkit.TOOL_SUBMIT}
+    reply = _kit(store, evidence=False).call(
+        toolkit.TOOL_RECALL_WITH_EVIDENCE, {toolkit.ARG_QUERY: "queue timeout"}
+    )
+    assert reply.is_error
 
 
 def test_recall_lists_matches_by_handle_and_makes_them_nameable(store):
@@ -74,6 +93,60 @@ def test_recall_honours_a_requested_limit_and_defaults_to_the_reconcile_size(sto
     assert _listed(limited.text) == 1
     default = kit.call(toolkit.TOOL_RECALL, {toolkit.ARG_QUERY: "queue timeout"})
     assert 1 < _listed(default.text) <= store.config.write.reconcile_entries
+
+
+def test_recall_with_evidence_returns_bounded_bodies_and_authorizes_only_listed_handles(store):
+    first = _existing(store, name="queue-timeout", body="First evidence " * 30)
+    second = _existing(
+        store,
+        name="queue-timeout-fallback",
+        fields={"project": "pipeline", "subject": "queue timeout fallback"},
+        abstract="Queue timeout fallback is 25 seconds",
+        body="Second evidence " * 30,
+    )
+    hidden = _existing(
+        store,
+        name="queue-timeout-hidden",
+        fields={"project": "pipeline", "subject": "queue timeout hidden"},
+        abstract="Queue timeout hidden value",
+        body="Hidden evidence " * 30,
+    )
+    kit = _kit(store)
+    store.config.write.tool_result_chars = 360
+
+    reply = kit.call(
+        toolkit.TOOL_RECALL_WITH_EVIDENCE,
+        {toolkit.ARG_QUERY: "queue timeout", toolkit.ARG_LIMIT: 2},
+    )
+
+    assert not reply.is_error
+    assert len(reply.text) <= store.config.write.tool_result_chars
+    assert "## Candidates" in reply.text and "## Evidence" in reply.text
+    assert _listed(reply.text) == 2
+    assert "evidence" in reply.text.lower()
+    all_names = {first.name, second.name, hidden.name}
+    authorized = kit.sheet.handle_names()
+    assert len(authorized) == 2
+    assert all(name in reply.text for name in authorized)
+    assert len(all_names - authorized) == 1
+
+
+def test_recall_with_evidence_refuses_a_budget_that_cannot_return_one_complete_handle(store):
+    _existing(store, name="queue-timeout")
+    kit = _kit(store)
+    store.config.write.tool_result_chars = 10
+
+    reply = kit.call(
+        toolkit.TOOL_RECALL_WITH_EVIDENCE, {toolkit.ARG_QUERY: "queue timeout"}
+    )
+
+    assert reply.is_error
+    assert not kit.sheet.handle_names()
+
+
+def test_recall_with_evidence_requires_a_query(store):
+    reply = _kit(store).call(toolkit.TOOL_RECALL_WITH_EVIDENCE, {})
+    assert reply.is_error
 
 
 def _listed(text):

@@ -76,6 +76,37 @@ def test_the_endpoint_runs_tool_calls_until_the_model_stops(monkeypatch, store):
     assert len(_answers(bodies[-1])) == 2
 
 
+def test_the_endpoint_exposes_and_runs_bounded_evidence_recall(monkeypatch, store):
+    store.config.write.recall_with_evidence_enabled = True
+    old = store.record(
+        name="queue-timeout",
+        type="fact",
+        fields={"project": "pipeline", "subject": "queue timeout"},
+        abstract="Queue timeout is 20 seconds",
+        body="Configured in infra/queue.yaml.",
+    )
+    kit = _kit(store)
+    bodies = _endpoint(
+        monkeypatch,
+        _turn(
+            (
+                toolkit.TOOL_RECALL_WITH_EVIDENCE,
+                {toolkit.ARG_QUERY: "queue timeout"},
+            )
+        ),
+        _turn((toolkit.TOOL_SUBMIT, SKIP)),
+        _turn(content="done"),
+    )
+
+    EndpointReasoner(model="a-model").converse("i", "m", kit)
+
+    offered = {tool["function"]["name"] for tool in bodies[0]["tools"]}
+    assert toolkit.TOOL_RECALL_WITH_EVIDENCE in offered
+    assert old.name in _answers(bodies[1])[0]["content"]
+    assert "infra/queue.yaml" in _answers(bodies[1])[0]["content"]
+    assert old.name in kit.sheet.handle_names()
+
+
 def test_each_tool_call_is_answered_under_its_own_id_in_order(monkeypatch, store):
     kit = _kit(store)
     bodies = _endpoint(

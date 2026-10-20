@@ -8,6 +8,8 @@ from agent_memory.mcp import server, write_session
 
 
 def _batch(store, tmp_path):
+    store.config.write.recall_with_evidence_enabled = True
+    store.config.save(store.root)
     old = store.record(
         type="fact",
         fields={"project": "pipeline", "subject": "queue timeout"},
@@ -80,6 +82,27 @@ def test_tool_calls_run_the_toolkit_and_the_record_flows_back(store, tmp_path):
     kit.absorb_directory(directory)
     assert kit.submission == [_supersede(old.name)]
     assert reconcile.check(kit.submission[0], kit.sheet) == []
+
+
+def test_bounded_evidence_and_its_authorized_handle_flow_across_mcp(store, tmp_path):
+    kit, directory, old = _batch(store, tmp_path)
+    looked, submitted = _serve(
+        directory,
+        _call(
+            1,
+            toolkit.TOOL_RECALL_WITH_EVIDENCE,
+            {toolkit.ARG_QUERY: "queue timeout"},
+        ),
+        _call(2, toolkit.TOOL_SUBMIT, {toolkit.ARG_OPERATIONS: [_supersede(old.name)]}),
+    )
+
+    evidence = looked["result"]["content"][0]["text"]
+    assert looked["result"]["isError"] is False
+    assert old.name in evidence and "infra/queue.yaml" in evidence
+    assert submitted["result"]["isError"] is False
+    kit.absorb_directory(directory)
+    assert old.name in kit.sheet.handle_names()
+    assert kit.submission == [_supersede(old.name)]
 
 
 def test_a_refused_tool_call_is_a_tool_error_not_a_protocol_error(store, tmp_path):

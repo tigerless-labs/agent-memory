@@ -16,14 +16,15 @@ import pathlib
 import tempfile
 
 from . import reconcile
-from .recall import Recall
+from .recall import Hit, Recall
 from .sessions import Message, Pointer
 from .store import Store
 
 TOOL_RECALL = "recall"
+TOOL_RECALL_WITH_EVIDENCE = "recall_with_evidence"
 TOOL_READ = "read"
 TOOL_SUBMIT = "submit_operations"
-TOOLS = (TOOL_RECALL, TOOL_READ, TOOL_SUBMIT)
+TOOLS = (TOOL_RECALL, TOOL_RECALL_WITH_EVIDENCE, TOOL_READ, TOOL_SUBMIT)
 ARG_QUERY = "query"
 ARG_LIMIT = "limit"
 ARG_NAME = "name"
@@ -31,6 +32,10 @@ ARG_OPERATIONS = "operations"
 SEED_FILENAME = "seed.json"
 RECORD_FILENAME = "record.json"
 NOTHING_FOUND = "(nothing found)"
+EVIDENCE_BUDGET_TOO_SMALL = "recall_with_evidence result budget is too small for one handle"
+CANDIDATES_HEADER = "## Candidates"
+EVIDENCE_HEADER = "## Evidence"
+TRUNCATED = "\n(truncated)"
 
 OPERATION_SCHEMA: dict[str, object] = {
     "type": "object",
@@ -88,6 +93,20 @@ CATALOGUE = (
         },
     ),
     ToolSpec(
+        TOOL_RECALL_WITH_EVIDENCE,
+        "Search current memory and include bounded body evidence for the highest-ranked "
+        "matches. Every listed handle may then be named in update and supersede. Continue with "
+        "recall or read when the evidence is insufficient.",
+        {
+            "type": "object",
+            "properties": {
+                ARG_QUERY: {"type": "string", "description": "Words the memory would contain."},
+                ARG_LIMIT: {"type": "integer", "minimum": 1},
+            },
+            "required": [ARG_QUERY],
+        },
+    ),
+    ToolSpec(
         TOOL_READ,
         "Open one active memory in full by its handle.",
         {
@@ -120,18 +139,23 @@ class WriteToolkit:
         self.calls: list[ToolCall] = []
 
     def catalogue(self) -> tuple[ToolSpec, ...]:
-        return CATALOGUE
+        if self.store.config.write.recall_with_evidence_enabled:
+            return CATALOGUE
+        return tuple(spec for spec in CATALOGUE if spec.name != TOOL_RECALL_WITH_EVIDENCE)
 
     def call(self, name: str, arguments: object) -> ToolReply:
         given = arguments if isinstance(arguments, dict) else {}
-        if name == TOOL_RECALL:
+        available = tuple(spec.name for spec in self.catalogue())
+        if name not in available:
+            reply = ToolReply(f"unknown tool; the tools are {', '.join(available)}", True)
+        elif name == TOOL_RECALL:
             reply = self._recall(given)
+        elif name == TOOL_RECALL_WITH_EVIDENCE:
+            reply = self._recall_with_evidence(given)
         elif name == TOOL_READ:
             reply = self._read(given)
         elif name == TOOL_SUBMIT:
             reply = self._submit(given)
-        else:
-            reply = ToolReply(f"unknown tool; the tools are {', '.join(TOOLS)}", True)
         self.calls.append(ToolCall(name, given, reply))
         return reply
 
@@ -142,20 +166,39 @@ class WriteToolkit:
         )
 
     def _recall(self, arguments: dict[str, object]) -> ToolReply:
-        query = arguments.get(ARG_QUERY)
-        if not isinstance(query, str) or not query.strip():
+        hits = self._recall_hits(arguments)
+        if hits is None:
             return ToolReply("recall needs a query", True)
-        limit = arguments.get(ARG_LIMIT)
-        count = limit if isinstance(limit, int) and limit > 0 else None
-        hits = Recall(self.store).recall(
-            query.strip(), limit=count or self.store.config.write.reconcile_entries, log=False
-        )
-        found = tuple(
-            reconcile.Handle(hit.name, hit.type, hit.status, hit.updated, hit.abstract)
-            for hit in hits
-        )
+        found = tuple(_handle(hit) for hit in hits)
         self._extend(found)
         return ToolReply("\n".join(handle.render() for handle in found) or NOTHING_FOUND)
+
+    def _recall_with_evidence(self, arguments: dict[str, object]) -> ToolReply:
+        hits = self._recall_hits(arguments)
+        if hits is None:
+            return ToolReply("recall_with_evidence needs a query", True)
+        if not hits:
+            return ToolReply(NOTHING_FOUND)
+        rendered, included = _bounded_evidence(
+            self.store,
+            hits,
+            self.store.config.write.tool_result_chars,
+            self.store.config.recall.context_full_text_entries,
+        )
+        if not included:
+            return ToolReply(EVIDENCE_BUDGET_TOO_SMALL, True)
+        self._extend(tuple(_handle(hit) for hit in included))
+        return ToolReply(rendered)
+
+    def _recall_hits(self, arguments: dict[str, object]) -> list[Hit] | None:
+        query = arguments.get(ARG_QUERY)
+        if not isinstance(query, str) or not query.strip():
+            return None
+        limit = arguments.get(ARG_LIMIT)
+        count = limit if isinstance(limit, int) and limit > 0 else None
+        return Recall(self.store).recall(
+            query.strip(), limit=count or self.store.config.write.reconcile_entries, log=False
+        )
 
     def _read(self, arguments: dict[str, object]) -> ToolReply:
         name = arguments.get(ARG_NAME)
@@ -295,3 +338,45 @@ def _write_json(path: pathlib.Path, payload: dict[str, object]) -> None:
     with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
         json.dump(payload, handle)
     os.replace(temporary, path)
+
+
+def _handle(hit: Hit) -> reconcile.Handle:
+    return reconcile.Handle(hit.name, hit.type, hit.status, hit.updated, hit.abstract)
+
+
+def _bounded_evidence(
+    store: Store, hits: list[Hit], budget: int, full_text_entries: int
+) -> tuple[str, list[Hit]]:
+    lines = [CANDIDATES_HEADER]
+    included: list[Hit] = []
+    for hit in hits:
+        line = _handle(hit).render()
+        candidate = "\n".join((*lines, line))
+        if len(candidate) > budget:
+            break
+        lines.append(line)
+        included.append(hit)
+    if not included:
+        return "", []
+
+    rendered = "\n".join(lines)
+    evidence_started = False
+    for hit in included[:full_text_entries]:
+        record = store.find(hit.name)
+        body = record.body.strip() if record is not None and record.is_active() else ""
+        if not body:
+            continue
+        prefix = ("\n\n" + EVIDENCE_HEADER if not evidence_started else "") + (
+            f"\n\n### {hit.name}\n"
+        )
+        remaining = budget - len(rendered) - len(prefix)
+        if remaining <= 0:
+            break
+        evidence_started = True
+        if len(body) <= remaining:
+            rendered += prefix + body
+            continue
+        if remaining > len(TRUNCATED):
+            rendered += prefix + body[: remaining - len(TRUNCATED)] + TRUNCATED
+        break
+    return rendered, included

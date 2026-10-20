@@ -20,8 +20,9 @@ from .reasoning import ToolReasoner
 from .store import Store
 
 TOOL_RECALL = toolkit.TOOL_RECALL
+TOOL_RECALL_WITH_EVIDENCE = toolkit.TOOL_RECALL_WITH_EVIDENCE
 TOOL_READ = toolkit.TOOL_READ
-TOOLS = (TOOL_RECALL, TOOL_READ)
+TOOLS = (TOOL_RECALL, TOOL_RECALL_WITH_EVIDENCE, TOOL_READ)
 KEY_TOOL = "look"
 KEY_QUERY = toolkit.ARG_QUERY
 KEY_NAME = toolkit.ARG_NAME
@@ -46,12 +47,16 @@ def negotiate(
 ) -> Outcome:
     kit = toolkit.WriteToolkit(store, sheet)
     if isinstance(ask, ToolReasoner):
-        return _converse(kit, brief, ask)
+        return _converse(kit, brief, ask, config)
     return _text_protocol(kit, brief.text_protocol(), ask, config)
 
 
-def _converse(kit: toolkit.WriteToolkit, brief: prompts.Brief, ask: ToolReasoner) -> Outcome:
-    ask.converse(brief.tool_system(), brief.material, kit)
+def _converse(
+    kit: toolkit.WriteToolkit, brief: prompts.Brief, ask: ToolReasoner, config: WriteConfig
+) -> Outcome:
+    ask.converse(
+        brief.tool_system(config.recall_with_evidence_enabled), brief.material, kit
+    )
     errors = (
         []
         if kit.submission is not None
@@ -69,7 +74,12 @@ def _text_protocol(kit: toolkit.WriteToolkit, opening: str, ask, config: WriteCo
     while rounds < budget:
         rounds += 1
         last = rounds >= budget
-        prompt = _render(opening, transcript, last)
+        prompt = _render(
+            opening,
+            transcript,
+            last,
+            prompts.tool_rules(config.recall_with_evidence_enabled),
+        )
         reply = ask(prompt)
         calls, lines = _split(reply)
         if not calls:
@@ -96,8 +106,8 @@ def _text_protocol(kit: toolkit.WriteToolkit, opening: str, ask, config: WriteCo
     )
 
 
-def _render(opening: str, transcript: list[str], last: bool) -> str:
-    parts = [opening, prompts.TOOL_RULES]
+def _render(opening: str, transcript: list[str], last: bool, tool_rules: str) -> str:
+    parts = [opening, tool_rules]
     parts.extend(transcript)
     if last:
         parts.append(prompts.FINAL_ROUND)
@@ -125,8 +135,9 @@ def _split(reply: str) -> tuple[list[dict[str, object]], list[str]]:
 
 def _look(kit: toolkit.WriteToolkit, call: dict[str, object], config: WriteConfig) -> str:
     tool = str(call.get(KEY_TOOL) or "")
-    if tool not in TOOLS:
-        return prompts.observation(tool, f"unknown tool; the tools are {', '.join(TOOLS)}")
+    available = tuple(spec.name for spec in kit.catalogue() if spec.name != toolkit.TOOL_SUBMIT)
+    if tool not in available:
+        return prompts.observation(tool, f"unknown tool; the tools are {', '.join(available)}")
     arguments = {key: value for key, value in call.items() if key != KEY_TOOL}
     return prompts.observation(tool, _clip(kit.call(tool, arguments).text, config))
 

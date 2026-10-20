@@ -23,7 +23,8 @@ submission.
 
 Hermes native Write uses a fresh profile below the active Hermes data root per batch and a
 collision-free dynamic MCP toolset named `agent-memory-write`. Its staged config contains only that stdio server and
-whitelists `recall`, `read`, and `submit_operations`; resources and prompts are disabled. The
+whitelists Recall, Read, Submit, and the experimental evidence recall only when its Store option
+is enabled; resources and prompts are disabled. The
 provider is explicit and independent of the model, so `openrouter` consumes
 `OPENROUTER_API_KEY` directly and does not construct or mint Vertex credentials. Hermes Agent
 0.22.2 is the tested minimum. Contributor-tier models additionally require the explicit
