@@ -210,3 +210,27 @@ def test_no_magic_numbers_outside_the_config_module():
         if path != CONFIG_MODULE and _numeric_literals(path)
     }
     assert offenders == {}
+
+
+@pytest.mark.parametrize(
+    "section, knob, literal",
+    [
+        ("manage", "auto_dream", '"false"'),
+        ("manage", "trigger_min_sessions", '"3"'),
+        ("manage", "trigger_min_sessions", "true"),
+        ("manage", "claim_lease_seconds", '"1800"'),
+        ("recall", "default_limit", "2.5"),
+        ("storage", "default_group", "7"),
+    ],
+)
+def test_a_knob_of_the_wrong_type_is_rejected_rather_than_stored(tmp_path, section, knob, literal):
+    (tmp_path / CONFIG_FILENAME).write_text(f"[{section}]\n{knob} = {literal}\n", encoding="utf-8")
+    with pytest.raises(ValueError, match=f"{section}.{knob}"):
+        Config.load(tmp_path)
+
+
+def test_a_whole_number_is_a_valid_value_for_a_decimal_knob(tmp_path):
+    (tmp_path / CONFIG_FILENAME).write_text(
+        "[manage]\nclaim_lease_seconds = 60\n", encoding="utf-8"
+    )
+    assert Config.load(tmp_path).manage.claim_lease_seconds == 60
