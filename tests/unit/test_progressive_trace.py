@@ -1,6 +1,7 @@
 """Memory -> bound evidence, with no raw retrieval or store mutation."""
 
 import json
+from pathlib import PureWindowsPath
 
 import pytest
 from agent_memory.cli.main import main
@@ -168,6 +169,46 @@ def test_no_provenance_and_legacy_excerpt(store, capsys):
     assert cli(store, capsys, "trace", record.name, code=1)["code"] == "not_found"
 
 
+def test_legacy_provenance_from_windows_archive_uses_portable_pointer(store, monkeypatch):
+    append = store.archive.append_provenance
+
+    class WindowsArchivePath(PureWindowsPath):
+        def relative_to(self, other):
+            # Parse the POSIX test root in the same flavor as the archive path.
+            return super().relative_to(str(other))
+
+    def append_windows_path(*args, **kwargs):
+        return WindowsArchivePath(append(*args, **kwargs))
+
+    monkeypatch.setattr(store.archive, "append_provenance", append_windows_path)
+    record = store.record(
+        type="fact",
+        fields={"subject": "legacy"},
+        abstract="Portable provenance",
+        provenance=["An old excerpt without message numbers."],
+    )
+
+    assert record.provenance[0].startswith("archive/provenance/")
+    assert "\\" not in record.provenance[0]
+    result = store.trace_evidence(record.name)
+    assert "An old excerpt without message numbers." in result.evidence[0].text
+
+
+def test_stored_windows_provenance_pointer_remains_readable(store):
+    record = store.record(
+        type="fact",
+        fields={"subject": "legacy"},
+        abstract="Old Windows provenance",
+        provenance=["An excerpt recorded on Windows."],
+    )
+    record.provenance = [record.provenance[0].replace("/", "\\")]
+    record.path.write_text(record.to_text(), encoding="utf-8")
+
+    result = store.trace_evidence(record.name, record.provenance[0])
+
+    assert "An excerpt recorded on Windows." in result.evidence[0].text
+
+
 @pytest.mark.parametrize(
     "reference",
     [
@@ -175,13 +216,19 @@ def test_no_provenance_and_legacy_excerpt(store, capsys):
         "archive/provenance/../secret.md",
         "sessions/../secret#0",
         "archive/provenance/legacy/secret.md",
+        r"..\..\secret.md",
+        r"archive\provenance\..\secret.md",
+        r"archive\provenance\legacy\secret.md",
+        r"C:\archive\provenance\legacy\secret.md",
+        r"\\server\archive\provenance\legacy\secret.md",
     ],
 )
 def test_stored_unsafe_or_symlinked_provenance_cannot_escape(store, evidence, tmp_path, reference):
     secret = tmp_path / "secret.md"
     secret.write_text("secret must not escape")
-    if reference == "archive/provenance/legacy/secret.md":
-        path = store.root / reference
+    normalized = reference.replace("\\", "/")
+    if normalized == "archive/provenance/legacy/secret.md":
+        path = store.root / normalized
         path.parent.mkdir(parents=True)
         path.symlink_to(secret)
     evidence.provenance = [reference]
