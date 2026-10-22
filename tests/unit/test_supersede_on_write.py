@@ -112,3 +112,21 @@ def test_a_successor_with_the_same_key_takes_the_next_ordinal_and_the_predecesso
     assert store.find(first.name).superseded_by == second.name
     assert store.find(second.name).superseded_by == third.name
     assert [hit.name for hit in Recall(store).recall("queue timeout")] == [third.name]
+
+
+def test_a_successor_moved_to_another_group_keeps_its_subject_and_gets_a_distinct_name(store):
+    first = store.record(
+        type="fact",
+        fields={"project": "pipeline", "subject": "queue timeout"},
+        abstract="Queue timeout is 20 seconds",
+    )
+    second = store.record(
+        type="fact",
+        fields={"project": "ingest", "subject": "queue timeout"},
+        abstract="Queue timeout moved to the ingest project and is 30 seconds",
+        supersedes=first.name,
+    )
+    assert second.name != first.name
+    assert second.path.parent != first.path.parent
+    assert store.find(first.name).superseded_by == second.name
+    assert store.find(second.name).is_active()
