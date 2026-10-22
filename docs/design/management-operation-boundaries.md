@@ -43,4 +43,6 @@ paths, weights and bookkeeping timestamps do not establish semantic identity. Th
 duplicate remains active, with name breaking creation-time ties; other copies retain their
 files and point to it. Similarity alone belongs to the reviewed proposal path.
 
+Memory identity and type identifiers match their complete slug grammar. Trailing newlines cannot create filenames whose identity changes when frontmatter is parsed.
+
 Malformed final operations or exhausted executor negotiation cannot mark an archived batch as distilled. The boundary reports validation failure before draining pending operations or publishing projection writes, preserving the raw backlog for a later retry.
