@@ -3,14 +3,13 @@
 from __future__ import annotations
 
 import dataclasses
-import re
 import sqlite3
 
 from .chunking import Chunk
 from .database import SURFACE_ACTIVE, SURFACE_HISTORY
 from .record import MemoryRecord
+from .tokenizer import query_tokens, segment
 
-_TOKENS = re.compile(r"[0-9A-Za-z_]+")
 LINK_SEPARATOR = ","
 SURFACES = (SURFACE_ACTIVE, SURFACE_HISTORY)
 
@@ -25,8 +24,8 @@ class Candidate:
 
 
 def to_match_query(query: str) -> str:
-    tokens = [token.lower() for token in _TOKENS.findall(query)]
-    return " OR ".join(f'"{token}"' for token in dict.fromkeys(tokens))
+    tokens = query_tokens(query)
+    return " OR ".join(f'"{token}"' for token in tokens)
 
 
 class SearchIndex:
@@ -59,7 +58,13 @@ class SearchIndex:
         self._connection.executemany(
             f"INSERT INTO {surface}(name, kind, anchor, heading, text) VALUES(?, ?, ?, ?, ?)",
             [
-                (record.name, chunk.kind, chunk.anchor, chunk.heading, chunk.text)
+                (
+                    record.name,
+                    chunk.kind,
+                    chunk.anchor,
+                    segment(chunk.heading),
+                    segment(chunk.text),
+                )
                 for chunk in chunks
             ],
         )

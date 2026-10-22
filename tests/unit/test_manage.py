@@ -593,3 +593,28 @@ def test_a_group_sharing_too_few_tokens_is_not_a_topic(seeded):
         "Kubernetes control plane upgrade note {index}",
     )
     assert ACTION_CLUSTERED not in _kinds(Manage(seeded).sleep())
+
+
+def test_clustering_can_be_switched_off(seeded):
+    seeded.config.manage.cluster_enabled = False
+    _flat_topic(
+        seeded,
+        seeded.config.manage.cluster_min_files,
+        "Kubernetes control plane upgrade note {index}",
+    )
+    before = {record.name: record.path for record in seeded.records()}
+    assert ACTION_CLUSTERED not in _kinds(Manage(seeded).sleep())
+    assert {record.name: record.path for record in seeded.records()} == before
+
+
+def test_a_cluster_that_cannot_name_a_directory_is_left_alone(seeded):
+    for suffix in "abcde":
+        seeded.record(
+            abstract="空调控制器说明书",
+            type="reference",
+            name=f"k{suffix}",
+            body="正文保持不变。",
+        )
+    before = {record.name: record.path for record in seeded.records()}
+    assert ACTION_CLUSTERED not in _kinds(Manage(seeded).sleep())
+    assert {record.name: record.path for record in seeded.records()} == before
