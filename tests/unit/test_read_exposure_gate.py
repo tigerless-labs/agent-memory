@@ -1,5 +1,6 @@
 """The pilot gate must catch a copied store with no retrieval cache."""
 
+import contextlib
 import importlib.util
 import json
 import sqlite3
@@ -17,7 +18,11 @@ def gate():
 def make_index(root):
     folder = root / ".index"
     folder.mkdir(parents=True)
-    with sqlite3.connect(folder / "index.db") as connection:
+    # Two contexts on purpose: the inner one ends the transaction with a commit,
+    # the outer closes the connection. The bare connection context alone only
+    # does the former, and a not-yet-collected connection locks the index file
+    # on Windows (the later unlink in this test then fails with WinError 32).
+    with contextlib.closing(sqlite3.connect(folder / "index.db")) as connection, connection:
         connection.execute("create table records (name text)")
         connection.execute("insert into records values ('museum')")
         for table in ("chunks", "raw_chunks"):
