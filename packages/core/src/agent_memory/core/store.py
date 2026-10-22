@@ -327,7 +327,7 @@ class Store:
         if parse_pointer(item) is not None:
             return item.strip()
         stored = self.archive.append_provenance(name, item, source=self.agent)
-        return str(stored.relative_to(self.root))
+        return stored.relative_to(self.root).as_posix()
 
     def _reject_facts_dated_after_their_evidence(self, record: MemoryRecord) -> None:
         """A fact cannot hold from later than the conversation that stated it."""
@@ -679,7 +679,7 @@ class Store:
     def _at(self, path: pathlib.Path | None) -> MemoryRecord | None:
         if path is None or not path.exists() or self.layout.type_of(path) is None:
             return None
-        return MemoryRecord.from_text(path.read_text(encoding="utf-8"), path)
+        return MemoryRecord.from_file(path)
 
     def _scan_for(self, name: str) -> pathlib.Path | None:
         for path in self.layout.truth_files():

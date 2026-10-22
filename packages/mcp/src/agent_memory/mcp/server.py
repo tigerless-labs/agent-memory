@@ -7,7 +7,7 @@ import sys
 from collections.abc import Callable, Sequence
 from typing import TextIO
 
-from agent_memory.core import observation
+from agent_memory.core import observation, stdio
 from agent_memory.core.errors import MemoryStoreError
 from agent_memory.core.store import Store
 
@@ -68,6 +68,7 @@ def serve_lines(
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    stdio.use_utf8()
     store = Store(agent=SERVER_NAME)
     serve(store, sys.stdin, sys.stdout)
     return 0

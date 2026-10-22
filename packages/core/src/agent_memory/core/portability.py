@@ -22,7 +22,7 @@ def export_store(store: Store, include_archive: bool = True) -> dict[str, object
     for path in _sources(store.layout, include_archive):
         payload.append(
             {
-                KEY_PATH: str(path.relative_to(store.root)),
+                KEY_PATH: path.relative_to(store.root).as_posix(),
                 KEY_TEXT: path.read_text(encoding="utf-8"),
             }
         )

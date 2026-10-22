@@ -73,11 +73,11 @@ def migrate(root: pathlib.Path) -> MigrationReport:
         domain = _legacy_domain(root, path)
         new_type: str | None = LEGACY_TYPE_MAP.get((domain, str(fields.get("type") or "")))
         if new_type is None or not fields.get("name"):
-            skipped.append(str(path.relative_to(root)))
+            skipped.append(path.relative_to(root).as_posix())
             continue
         schema = store.schemas.get(new_type)
         if schema is None or schema.group is None:
-            skipped.append(str(path.relative_to(root)))
+            skipped.append(path.relative_to(root).as_posix())
             continue
         fields["type"] = new_type
         fields[schema.group] = domain
@@ -94,12 +94,12 @@ def migrate(root: pathlib.Path) -> MigrationReport:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(frontmatter.render(fields, body), encoding="utf-8")
         path.unlink()
-        moved.append(str(target.relative_to(root)))
+        moved.append(target.relative_to(root).as_posix())
     for path in _legacy_sessions(root):
         lines = [line for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
         sessions.append(store.layout, path.stem, lines, store.clock)
         path.unlink()
-        moved.append(str(sessions.session_path(store.layout, path.stem).relative_to(root)))
+        moved.append(sessions.session_path(store.layout, path.stem).relative_to(root).as_posix())
     _remove_empty_legacy_dirs(root)
     store.rebuild_index()
     return MigrationReport(tuple(moved), tuple(invalidated), tuple(skipped))

@@ -113,6 +113,15 @@ class MemoryRecord:
             source_hash=hashlib.sha256(text.encode("utf-8")).hexdigest(),
         )
 
+    @classmethod
+    def from_file(cls, path: pathlib.Path) -> MemoryRecord:
+        """The source hash covers the bytes on disk, whatever line endings an editor left."""
+        raw = path.read_bytes()
+        text = raw.decode("utf-8").replace("\r\n", "\n").replace("\r", "\n")
+        record = cls.from_text(text, path)
+        record.source_hash = hashlib.sha256(raw).hexdigest()
+        return record
+
 
 def validate(record: MemoryRecord, config: Config, schema: MemorySchema | None = None) -> None:
     errors: list[FieldError] = []

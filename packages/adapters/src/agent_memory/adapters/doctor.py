@@ -170,7 +170,7 @@ def _hook_checks(
     hooks = configured.get(setup.HOOKS_KEY)
     if not isinstance(hooks, dict):
         return [Check("HOOK_INVALID", False, "settings.hooks is missing or not an object")]
-    expected_store = str(store_root.resolve())
+    expected_store = setup.render_command([str(store_root.resolve())])
     failures = []
     for event in moments.DIALECTS[host]:
         entries = hooks.get(event)
@@ -181,13 +181,14 @@ def _hook_checks(
         if len(managed) != 1:
             failures.append(f"{event} has {len(managed)} managed hooks")
             continue
-        if expected_store not in json.dumps(managed[0]):
+        if not _mentions(managed[0], expected_store):
             failures.append(f"{event} does not pin Store {expected_store}")
             continue
         if host == moments.HOST_MUSE_CODE:
-            rendered = json.dumps(managed[0])
-            expected_settings = str(settings_path.resolve())
-            if setup.MUSE_SETTINGS_FLAG not in rendered or expected_settings not in rendered:
+            expected_settings = setup.render_command([str(settings_path.resolve())])
+            if not _mentions(managed[0], setup.MUSE_SETTINGS_FLAG) or not _mentions(
+                managed[0], expected_settings
+            ):
                 failures.append(
                     f"{event} does not pin Muse settings {expected_settings}"
                 )
@@ -198,6 +199,10 @@ def _hook_checks(
             "all lifecycle hooks installed once" if not failures else "; ".join(failures),
         )
     ]
+
+
+def _mentions(entry: object, text: str) -> bool:
+    return json.dumps(text)[1:-1] in json.dumps(entry)
 
 
 def _reasoner_checks(

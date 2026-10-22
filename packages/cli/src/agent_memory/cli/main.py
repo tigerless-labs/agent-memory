@@ -11,7 +11,16 @@ from collections.abc import Sequence
 
 from agent_memory.core import context as context_module
 from agent_memory.core import distill as distill_module
-from agent_memory.core import dreaming, pending, portability, prompts, reasoning, sessions, triggers
+from agent_memory.core import (
+    dreaming,
+    pending,
+    portability,
+    prompts,
+    reasoning,
+    sessions,
+    stdio,
+    triggers,
+)
 from agent_memory.core import migrate as migrate_module
 from agent_memory.core.config import REASONER_ENDPOINT, REASONER_HOST, ExecutorConfig
 from agent_memory.core.errors import FieldError, MemoryStoreError, ValidationError
@@ -37,6 +46,7 @@ STDIN_MARKER = "-"
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    stdio.use_utf8()
     parser = _parser()
     args = parser.parse_args(argv)
     if not getattr(args, "handler", None):

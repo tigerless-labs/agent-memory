@@ -1,4 +1,6 @@
 import datetime as dt
+import os
+import sys
 
 import pytest
 from agent_memory.core.clock import FrozenClock
@@ -6,6 +8,17 @@ from agent_memory.core.config import Config
 from agent_memory.core.store import Store
 
 EPOCH = dt.datetime(2026, 1, 15, 9, 0, tzinfo=dt.UTC)
+WINDOWS_SYMLINK_PRIVILEGE_NOT_HELD = 1314
+
+
+@pytest.hookimpl(wrapper=True)
+def pytest_runtest_call(item):
+    try:
+        return (yield)
+    except OSError as error:
+        if getattr(error, "winerror", None) == WINDOWS_SYMLINK_PRIVILEGE_NOT_HELD:
+            pytest.skip("creating symlinks needs Developer Mode or administrator rights on Windows")
+        raise
 
 
 @pytest.fixture
@@ -55,6 +68,29 @@ def seeded(store):
     return store
 
 
+@pytest.fixture
+def python_executable():
+    """Python source installed as a command the way each platform runs one.
+
+    POSIX gets a shebang script; Windows gets the script plus a .cmd launcher beside it,
+    the same shape as npm-installed host CLIs, so the extensionless path resolves on PATHEXT."""
+
+    def install(path, source):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if os.name == "nt":
+            script = path.with_suffix(".py")
+            script.write_text(source, encoding="utf-8")
+            path.with_suffix(".cmd").write_text(
+                f'@"{sys.executable}" "{script}" %*\r\n', encoding="utf-8"
+            )
+        else:
+            path.write_text(source, encoding="utf-8")
+            path.chmod(0o755)
+        return path
+
+    return install
+
+
 FAKE_MEMCORE = """#!/usr/bin/env bash
 set -eu
 log() { if [ -n "${MEMCORE_DIR:-}" ]; then echo "$*" >> "$MEMCORE_DIR/calls.log"; fi; }
@@ -77,6 +113,9 @@ FAKE_MEMCORE_SKILL = (
 def memcore_home(tmp_path):
     """A MemCore checkout in release layout, with a shell script standing in for the binary."""
     import stat
+
+    if os.name == "nt":
+        pytest.skip("the MemCore comparison system ships a POSIX binary")
 
     home = tmp_path / "memcli"
     home.mkdir()

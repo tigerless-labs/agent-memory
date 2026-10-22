@@ -235,8 +235,8 @@ class ClaudeCodeDialect(Dialect):
             allowed,
             "--disallowedTools",
             CLAUDE_NATIVE_TOOLS,
-            "--system-prompt",
-            system_prompt,
+            "--system-prompt-file",
+            str(instructions_file),
         ]
 
     def command(
@@ -908,6 +908,7 @@ class Host:
         timeout_seconds: float | None = None,
     ) -> HostResult:
         started = time.monotonic()
+        command = [shutil.which(command[0]) or command[0], *command[1:]]
         evidence = environment.get(observation.ENV)
         attempt_id = str(time.time_ns())
 
@@ -943,6 +944,7 @@ class Host:
                     input=payload,
                     capture_output=True,
                     text=True,
+                    encoding="utf-8",
                     timeout=timeout,
                     env=environment,
                     cwd=str(workdir) if workdir else None,
@@ -1106,6 +1108,7 @@ def _run_codex_jsonl(
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
+        encoding="utf-8",
         env=environment,
         cwd=str(workdir) if workdir else None,
     )

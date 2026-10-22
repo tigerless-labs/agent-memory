@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import os
 import pathlib
+import re
 import shlex
 import shutil
 import subprocess
@@ -17,6 +18,7 @@ from agent_memory.core.errors import FieldError, ValidationError
 from . import moments
 
 HOOK_COMMAND = "mem-hook"
+WINDOWS_PLAIN_WORD = re.compile(r"[\w./:+=@-]+")
 HOST_FLAG = "--host"
 CLAUDE_SETTINGS = pathlib.Path("~/.claude/settings.json")
 CODEX_SETTINGS = pathlib.Path("~/.codex/hooks.json")
@@ -150,14 +152,32 @@ def hook_command(
     settings_path: pathlib.Path | None = None,
 ) -> str:
     """By absolute path: desktop clients run hooks without the user's shell PATH."""
-    command = [str(pathlib.Path(sys.executable).parent / HOOK_COMMAND), HOST_FLAG, host]
+    hook = pathlib.Path(sys.executable).parent / _entry_point(HOOK_COMMAND)
+    command = [str(hook), HOST_FLAG, host]
     if host == moments.HOST_MUSE_CODE:
         command += [MUSE_DATA_HOME_FLAG, str(_muse_data_home())]
         target = settings_path or default_settings_path(host)
         command += [MUSE_SETTINGS_FLAG, str(target.expanduser().resolve())]
     if store_root is not None:
         command += [STORE_FLAG, str(pathlib.Path(store_root).resolve())]
-    return shlex.join(command)
+    return render_command(command)
+
+
+def render_command(command: list[str]) -> str:
+    """Windows hosts run hooks through Git Bash, PowerShell or cmd; plain forward-slash words
+    mean the same in all three."""
+    if sys.platform != "win32":
+        return shlex.join(command)
+    return " ".join(_windows_word(part) for part in command)
+
+
+def _windows_word(part: str) -> str:
+    word = part.replace("\\", "/")
+    return word if WINDOWS_PLAIN_WORD.fullmatch(word) else f'"{word}"'
+
+
+def _entry_point(name: str) -> str:
+    return f"{name}.exe" if sys.platform == "win32" else name
 
 
 def skill_path(host: str, settings_path: pathlib.Path | None = None) -> pathlib.Path:
@@ -167,7 +187,7 @@ def skill_path(host: str, settings_path: pathlib.Path | None = None) -> pathlib.
 
 def mcp_binary() -> str:
     """Use the sibling entry point for the same reason hooks use an absolute path."""
-    return str(pathlib.Path(sys.executable).parent / MCP_COMMAND)
+    return str(pathlib.Path(sys.executable).parent / _entry_point(MCP_COMMAND))
 
 
 def _merge_json_mcp(

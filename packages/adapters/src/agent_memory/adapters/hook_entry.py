@@ -6,7 +6,9 @@ in exit code 0 and any trouble goes to the store's own log.
 
 from __future__ import annotations
 
+import _thread
 import argparse
+import contextlib
 import json
 import os
 import pathlib
@@ -14,11 +16,12 @@ import shlex
 import signal
 import subprocess
 import sys
+import threading
 import traceback
-from collections.abc import Callable, Sequence
+from collections.abc import Callable, Iterator, Sequence
 from types import FrameType
 
-from agent_memory.core import injection
+from agent_memory.core import injection, stdio
 from agent_memory.core.config import (
     EXECUTOR_ENV_VAR,
     MUSE_SETTINGS_ENV_VAR,
@@ -27,7 +30,7 @@ from agent_memory.core.config import (
 from agent_memory.core.store import Store
 
 from . import capture as capture_module
-from . import moments, muse_session, transcript
+from . import detached, moments, muse_session, transcript
 
 EXIT_OK = 0
 LOG_FILENAME = "hooks.log"
@@ -67,6 +70,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     """Hooks fired by the executor's own host session stand down, or distillation recurses."""
     if os.environ.get(EXECUTOR_ENV_VAR):
         return EXIT_OK
+    stdio.use_utf8()
     store: Store | None = None
     try:
         parser = argparse.ArgumentParser(prog="mem-hook")
@@ -88,14 +92,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             str(store_value) if store_value else None,
             agent=str(event.get("agent") or "hook"),
         )
-        _arm(store.config.write.hook_timeout_seconds)
-        response = handle(store, event)
+        with _time_bound(store.config.write.hook_timeout_seconds):
+            response = handle(store, event)
         if any(key in response for key in PRINTED_KEYS):
             print(json.dumps(response))
     except Exception:
         _log(store, traceback.format_exc())
-    finally:
-        _disarm()
     return EXIT_OK
 
 
@@ -187,7 +189,7 @@ def launch_distill(store: Store, session: str, host: str) -> bool:
     if not command:
         return False
     if command[0] == EXECUTOR_BINARY:
-        command[0] = _sibling(EXECUTOR_BINARY)
+        command[0] = detached.installed(EXECUTOR_BINARY)
     environment = {**os.environ, STORE_ENV_VAR: str(store.root), EXECUTOR_ENV_VAR: "1"}
     try:
         store.layout.state_dir.mkdir(parents=True, exist_ok=True)
@@ -198,17 +200,12 @@ def launch_distill(store: Store, session: str, host: str) -> bool:
                 stdin=subprocess.DEVNULL,
                 stdout=log,
                 stderr=log,
-                start_new_session=True,
+                **detached.options(),
             )
     except OSError:
         return False
     return True
 
-
-def _sibling(binary: str) -> str:
-    """Desktop clients run hooks without the user's shell PATH; the install directory is known."""
-    candidate = pathlib.Path(sys.executable).parent / binary
-    return str(candidate) if candidate.exists() else binary
 
 
 def _items(event: dict[str, object]) -> list[str]:
@@ -246,16 +243,32 @@ def normalize_event(event: object, host: str = "") -> dict[str, object]:
     return normalized
 
 
-def _arm(seconds: float) -> None:
-    def _raise(signum: int, frame: FrameType | None) -> None:
-        raise _Timeout()
-
-    signal.signal(signal.SIGALRM, _raise)
-    signal.setitimer(signal.ITIMER_REAL, seconds)
+def _raise_timeout(signum: int, frame: FrameType | None) -> None:
+    raise _Timeout()
 
 
-def _disarm() -> None:
-    signal.setitimer(signal.ITIMER_REAL, 0)
+@contextlib.contextmanager
+def _time_bound(seconds: float) -> Iterator[None]:
+    """The POSIX interval timer also interrupts blocking calls; elsewhere a watchdog thread does."""
+    if sys.platform != "win32":
+        previous = signal.signal(signal.SIGALRM, _raise_timeout)
+        signal.setitimer(signal.ITIMER_REAL, seconds)
+        try:
+            yield
+        finally:
+            signal.setitimer(signal.ITIMER_REAL, 0)
+            signal.signal(signal.SIGALRM, previous)
+        return
+    previous = signal.signal(signal.SIGINT, _raise_timeout)
+    watchdog = threading.Timer(seconds, _thread.interrupt_main)
+    watchdog.daemon = True
+    watchdog.start()
+    try:
+        yield
+    finally:
+        watchdog.cancel()
+        watchdog.join()
+        signal.signal(signal.SIGINT, previous)
 
 
 def _log(store: Store | None, message: str) -> None:

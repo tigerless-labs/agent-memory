@@ -193,3 +193,14 @@ def test_a_group_that_slugs_to_nothing_names_the_cause(store):
         )
     assert "topic" in {error.field for error in raised.value.errors}
     assert "ASCII" in " ".join(error.reason for error in raised.value.errors)
+
+
+def test_a_hand_edited_file_with_crlf_line_endings_can_still_be_corrected(seeded):
+    target = seeded.find("file-truth-invariant")
+    target.path.write_bytes(target.to_text().replace("\n", "\r\n").encode("utf-8"))
+    seeded.sync_index()
+
+    corrected = seeded.correct("file-truth-invariant", abstract="Markdown files are the truth")
+
+    assert corrected.abstract == "Markdown files are the truth"
+    assert seeded.find("file-truth-invariant").abstract == "Markdown files are the truth"

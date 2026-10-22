@@ -50,7 +50,7 @@ elif "--prompt-file" in argv:
 elif "--mcp-config" in argv:
     prompt = sys.stdin.read()
     server = next(iter(json.loads(after("--mcp-config"))["mcpServers"].values()))
-    system = after("--system-prompt")
+    system = open(after("--system-prompt-file"), encoding="utf-8").read()
 else:
     prompt = sys.stdin.read()
     overrides = tomllib.loads(
@@ -91,12 +91,8 @@ else:
 """
 
 
-def _fake_host(tmp_path, name):
-    binary = tmp_path / "bin" / name
-    binary.parent.mkdir(exist_ok=True)
-    binary.write_text(FAKE_HOST.format(python=sys.executable), encoding="utf-8")
-    binary.chmod(0o755)
-    return binary
+def _fake_host(install, tmp_path, name):
+    return install(tmp_path / "bin" / name, FAKE_HOST.format(python=sys.executable))
 
 
 def _reasoner(name, binary):
@@ -131,7 +127,9 @@ def _supersede(handle):
     "name",
     [hosts.HOST_CLAUDE_CODE, hosts.HOST_CODEX, hosts.HOST_HERMES, hosts.HOST_MUSE_CODE],
 )
-def test_a_host_distills_a_batch_through_the_toolkit_adapter(name, store, tmp_path, monkeypatch):
+def test_a_host_distills_a_batch_through_the_toolkit_adapter(
+    name, store, tmp_path, monkeypatch, python_executable
+):
     if name == hosts.HOST_HERMES:
         monkeypatch.setenv("HERMES_HOME", str(tmp_path / "hermes-root"))
     old, messages = _batch(store)
@@ -147,7 +145,7 @@ def test_a_host_distills_a_batch_through_the_toolkit_adapter(name, store, tmp_pa
     monkeypatch.setenv("FAKE_HOST_COUNT", str(count))
 
     report = distill.distill(
-        store, "boundary", messages, _reasoner(name, _fake_host(tmp_path, name))
+        store, "boundary", messages, _reasoner(name, _fake_host(python_executable, tmp_path, name))
     )
 
     assert report.batches[0].written == ("queue-timeout-30s",)
@@ -186,7 +184,7 @@ def test_a_host_distills_a_batch_through_the_toolkit_adapter(name, store, tmp_pa
     "name", [hosts.HOST_CODEX, hosts.HOST_HERMES, hosts.HOST_MUSE_CODE]
 )
 def test_a_host_run_without_a_submission_writes_nothing(
-    name, store, tmp_path, monkeypatch
+    name, store, tmp_path, monkeypatch, python_executable
 ):
     if name == hosts.HOST_HERMES:
         monkeypatch.setenv("HERMES_HOME", str(tmp_path / "hermes-root"))
@@ -195,7 +193,7 @@ def test_a_host_run_without_a_submission_writes_nothing(
         "FAKE_HOST_SCRIPT", json.dumps([[toolkit.TOOL_RECALL, {toolkit.ARG_QUERY: "queue"}]])
     )
     monkeypatch.setenv("FAKE_HOST_LOG", str(tmp_path / "host-log.json"))
-    reasoner = _reasoner(name, _fake_host(tmp_path, name))
+    reasoner = _reasoner(name, _fake_host(python_executable, tmp_path, name))
     before = sorted(pathlib.Path(store.root).rglob("*.md"))
     with pytest.raises(ValidationError):
         distill.distill(store, "boundary", messages, reasoner)
@@ -205,7 +203,7 @@ def test_a_host_run_without_a_submission_writes_nothing(
 
 
 def test_muse_auto_native_write_creates_a_new_memory_with_source_provenance(
-    store, tmp_path, monkeypatch
+    store, tmp_path, monkeypatch, python_executable
 ):
     pointer = store.archive.append_session(
         "muse-new", ["user: The deploy window is Friday.", "assistant: Noted."]
@@ -225,7 +223,7 @@ def test_muse_auto_native_write_creates_a_new_memory_with_source_provenance(
         json.dumps([[toolkit.TOOL_SUBMIT, {toolkit.ARG_OPERATIONS: [operation]}]]),
     )
     monkeypatch.setenv("FAKE_HOST_LOG", str(log))
-    binary = _fake_host(tmp_path, hosts.BINARIES[hosts.HOST_MUSE_CODE][0])
+    binary = _fake_host(python_executable, tmp_path, hosts.BINARIES[hosts.HOST_MUSE_CODE][0])
     monkeypatch.setenv("PATH", str(binary.parent) + os.pathsep + os.environ["PATH"])
     reasoner = executor_distiller.distiller(ExecutorConfig(host=hosts.HOST_MUSE_CODE))
     assert isinstance(reasoner, ToolHostReasoner)
@@ -244,7 +242,7 @@ def test_muse_auto_native_write_creates_a_new_memory_with_source_provenance(
 
 
 def test_muse_native_write_returns_tool_errors_to_the_same_run_then_skips(
-    store, tmp_path, monkeypatch
+    store, tmp_path, monkeypatch, python_executable
 ):
     pointer = store.archive.append_session("muse-skip", ["user: Thanks."])
     messages = sessions.resolve(store.layout, pointer)
@@ -265,7 +263,10 @@ def test_muse_native_write_returns_tool_errors_to_the_same_run_then_skips(
         store,
         "muse-skip",
         messages,
-        _reasoner(hosts.HOST_MUSE_CODE, _fake_host(tmp_path, hosts.HOST_MUSE_CODE)),
+        _reasoner(
+            hosts.HOST_MUSE_CODE,
+            _fake_host(python_executable, tmp_path, hosts.HOST_MUSE_CODE),
+        ),
     )
 
     assert report.batches[0].written == ()
