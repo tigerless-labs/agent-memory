@@ -210,7 +210,7 @@ class Store:
         )
         supersedes = str(spec.get("supersedes") or "") or None
         derived_name = not spec.get("name")
-        if supersedes and derived_name and (self.root / placed.relative_path).exists():
+        if supersedes and derived_name and self._name_is_taken(placed):
             placed = self._successor_placement(placed)
         target = self.root / placed.relative_path
         if self.layout.type_of(target) != schema.type:
@@ -300,6 +300,10 @@ class Store:
             raise
         candidate.source_hash = hashlib.sha256(payload).hexdigest()
         return candidate, snapshots
+
+    def _name_is_taken(self, placed: placement.Placement) -> bool:
+        """Names are global: a successor whose key moved can find its path free and its name not."""
+        return (self.root / placed.relative_path).exists() or self.find(placed.name) is not None
 
     def _successor_placement(self, placed: placement.Placement) -> placement.Placement:
         """A successor with the same key as its predecessor keeps the key and takes the next
