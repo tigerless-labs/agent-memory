@@ -31,3 +31,5 @@ message indices during normal operation, but this mechanism does not claim to de
 against malicious out-of-band edits to archived Session files.
 
 Structured host messages preserve their original leading indentation and trailing whitespace in raw storage. Code excerpts and quoted text remain faithful evidence while projections retain their own formatting rules.
+
+Truth-file fallback resolves the identity stored in frontmatter rather than assuming the filename is the identity. Explicit provenance reads survive externally renamed files and missing projection caches.
