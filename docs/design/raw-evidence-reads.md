@@ -31,3 +31,7 @@ message indices during normal operation, but this mechanism does not claim to de
 against malicious out-of-band edits to archived Session files.
 
 Structured host messages preserve their original leading indentation and trailing whitespace in raw storage. Code excerpts and quoted text remain faithful evidence while projections retain their own formatting rules.
+
+Session and pending JSONL readers separate records only at the encoded newline delimiter. Unicode separators inside JSON string values remain part of the original message and survive retries.
+
+Executor operation and management verdict parsers use the same newline-only JSONL framing, preserving Unicode separators inside model-produced strings.

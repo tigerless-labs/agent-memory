@@ -130,7 +130,7 @@ def append(
 def count(path: pathlib.Path) -> int:
     if not path.exists():
         return 0
-    return sum(1 for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
+    return sum(1 for line in path.read_text(encoding="utf-8").split("\n") if line.strip())
 
 
 def read(layout: StoreLayout, session: str) -> list[Message]:
@@ -141,7 +141,7 @@ def read_file(path: pathlib.Path) -> list[Message]:
     if not path.exists():
         return []
     messages: list[Message] = []
-    for position, line in enumerate(path.read_text(encoding="utf-8").splitlines()):
+    for position, line in enumerate(path.read_text(encoding="utf-8").split("\n")):
         if not line.strip():
             continue
         try:

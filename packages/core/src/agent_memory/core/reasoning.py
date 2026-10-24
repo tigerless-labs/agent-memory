@@ -335,7 +335,7 @@ def _source(record: MemoryRecord) -> ReviewSource:
 
 def parse(reply: str) -> list[Verdict]:
     verdicts: list[Verdict] = []
-    for line in reply.splitlines():
+    for line in reply.split("\n"):
         stripped = line.strip()
         if not stripped or stripped.startswith(FENCE):
             continue
