@@ -98,3 +98,5 @@ Failed regrading marks the saved run failed and retains the grader error instead
 Benchmark fingerprints include complete episode content, reference answers and evidence, preserving resume and attribution guards when a dataset changes without changing its identifiers.
 
 Benchmark attribution requires each compared arm to contain the same episode IDs exactly once. Shared corpus and retrieval fingerprints cannot license a comparison built from unpaired or duplicated episode results.
+
+Benchmark session timestamps preserve ISO instants, timezone offsets and second precision alongside the existing LongMemEval date format. Valid evidence dates no longer degrade into empty timestamps or the replay clock.
