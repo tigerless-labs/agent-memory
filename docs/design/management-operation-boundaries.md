@@ -44,3 +44,7 @@ duplicate remains active, with name breaking creation-time ties; other copies re
 files and point to it. Similarity alone belongs to the reviewed proposal path.
 
 Malformed final operations or exhausted executor negotiation cannot mark an archived batch as distilled. The boundary reports validation failure before draining pending operations or publishing projection writes, preserving the raw backlog for a later retry.
+
+The injected index keeps fitting lower-priority memories when an earlier entry exceeds the remaining byte budget. Oversized entries cannot suppress the entire remaining recall surface.
+
+The root index byte budget includes its header. If a configured header cannot fit, the projection is empty rather than exceeding the budget.
