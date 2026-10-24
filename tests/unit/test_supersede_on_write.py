@@ -112,3 +112,24 @@ def test_a_successor_with_the_same_key_takes_the_next_ordinal_and_the_predecesso
     assert store.find(first.name).superseded_by == second.name
     assert store.find(second.name).superseded_by == third.name
     assert [hit.name for hit in Recall(store).recall("queue timeout")] == [third.name]
+
+
+def test_a_successor_whose_key_moves_to_another_group_still_takes_the_next_ordinal(store):
+    from agent_memory.core.recall import Recall
+
+    first = store.record(
+        type="fact",
+        fields={"project": "pipeline", "subject": "queue timeout"},
+        abstract="Queue timeout is 20 seconds",
+    )
+    second = store.record(
+        type="fact",
+        fields={"project": "release", "subject": "queue timeout"},
+        abstract="Queue timeout is 30 seconds",
+        supersedes=first.name,
+    )
+    assert first.name == "queue-timeout"
+    assert second.name == "queue-timeout-2"
+    assert second.path.parent.name == "release"
+    assert store.find(first.name).superseded_by == second.name
+    assert [hit.name for hit in Recall(store).recall("queue timeout")] == [second.name]
