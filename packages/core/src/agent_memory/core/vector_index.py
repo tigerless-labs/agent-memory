@@ -47,6 +47,21 @@ class VectorIndex:
         embeddings = self._embedder.embed_documents([chunk.text for chunk in chunks])
         if len(embeddings) != len(chunks):
             raise ValueError("embedding backend returned an unexpected number of vectors")
+        dimensions = {len(vector) for vector in embeddings}
+        if embeddings and (len(dimensions) != 1 or 0 in dimensions):
+            raise ValueError("embedding backend returned empty or inconsistent vectors")
+        if any(not math.isfinite(value) for vector in embeddings for value in vector):
+            raise ValueError("embedding backend returned non-finite vectors")
+        packed = [_pack(vector) for vector in embeddings]
+        if any(not math.isfinite(value) for blob in packed for value in _unpack(blob)):
+            raise ValueError("embedding backend exceeds stored float precision")
+        stored = self._connection.execute(
+            "SELECT embedding FROM vector_chunks JOIN vector_files USING(path) WHERE model = ?",
+            (self._model,),
+        ).fetchall()
+        stored_dimensions = {len(_unpack(row["embedding"])) for row in stored}
+        if embeddings and stored_dimensions and stored_dimensions != dimensions:
+            raise ValueError("embedding backend changed its model dimensions")
         self.remove_path(path)
         self._connection.execute(
             "INSERT INTO vector_files(path, content_hash, model) VALUES(?, ?, ?)",
@@ -56,8 +71,8 @@ class VectorIndex:
             "INSERT INTO vector_chunks(path, chunk_index, name, kind, anchor, heading, embedding) "
             "VALUES(?, ?, ?, ?, ?, ?, ?)",
             [
-                (path, index, record.name, chunk.kind, chunk.anchor, chunk.heading, _pack(vector))
-                for index, (chunk, vector) in enumerate(zip(chunks, embeddings, strict=True))
+                (path, index, record.name, chunk.kind, chunk.anchor, chunk.heading, vector)
+                for index, (chunk, vector) in enumerate(zip(chunks, packed, strict=True))
             ],
         )
 
@@ -76,9 +91,16 @@ class VectorIndex:
         self, query: str, pool: int, eligible_names: set[str] | None = None
     ) -> list[Candidate]:
         query_vector = self._embedder.embed_query(query)
+        if not query_vector or any(not math.isfinite(value) for value in query_vector):
+            raise ValueError("embedding backend returned an invalid query vector")
         rows = self._connection.execute(
-            "SELECT name, kind, anchor, heading, embedding FROM vector_chunks"
+            "SELECT name, kind, anchor, heading, embedding "
+            "FROM vector_chunks JOIN vector_files USING(path) WHERE model = ?",
+            (self._model,),
         ).fetchall()
+        dimensions = {len(_unpack(row["embedding"])) for row in rows}
+        if dimensions and dimensions != {len(query_vector)}:
+            raise ValueError("embedding query dimensions do not match the stored model")
         candidates = [
             Candidate(
                 name=str(row["name"]),
