@@ -98,3 +98,5 @@ Failed regrading marks the saved run failed and retains the grader error instead
 Benchmark fingerprints include complete episode content, reference answers and evidence, preserving resume and attribution guards when a dataset changes without changing its identifiers.
 
 Benchmark attribution requires each compared arm to contain the same episode IDs exactly once. Shared corpus and retrieval fingerprints cannot license a comparison built from unpaired or duplicated episode results.
+
+The stdio adapter returns JSON-RPC parse or invalid-request errors for malformed frames and continues reading subsequent requests. An explicit null request ID receives a response, while requests without an ID retain notification behavior. Error codes and envelope rules follow https://www.jsonrpc.org/specification.

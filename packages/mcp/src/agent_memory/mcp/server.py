@@ -28,16 +28,21 @@ Catalogue = Callable[[], list[dict[str, object]]]
 Call = Callable[[str, dict[str, object]], dict[str, object]]
 
 
-def handle(store: Store, request: dict[str, object]) -> dict[str, object] | None:
+def handle(store: Store, request: object) -> dict[str, object] | None:
     return respond(request, tools.catalogue, lambda name, arguments: _call(store, name, arguments))
 
 
-def respond(
-    request: dict[str, object], catalogue: Catalogue, call: Call
-) -> dict[str, object] | None:
-    method = str(request.get("method") or "")
+def respond(request: object, catalogue: Catalogue, call: Call) -> dict[str, object] | None:
+    if (
+        not isinstance(request, dict)
+        or request.get("jsonrpc") != JSONRPC
+        or not isinstance(request.get("method"), str)
+        or isinstance(request.get("id"), (dict, list, bool))
+    ):
+        return _error(None, -32600, {"message": "Invalid Request"})
+    method = request["method"]
     request_id = request.get("id")
-    if request_id is None:
+    if "id" not in request:
         return None
     try:
         result = _route(method, request.get("params") or {}, catalogue, call)
@@ -55,12 +60,17 @@ def serve(store: Store, stream_in: TextIO, stream_out: TextIO) -> None:
 def serve_lines(
     stream_in: TextIO,
     stream_out: TextIO,
-    answer: Callable[[dict[str, object]], dict[str, object] | None],
+    answer: Callable[[object], dict[str, object] | None],
 ) -> None:
     for line in stream_in:
         if not line.strip():
             continue
-        response = answer(json.loads(line))
+        try:
+            request = json.loads(line)
+        except json.JSONDecodeError:
+            response: dict[str, object] | None = _error(None, -32700, {"message": "Parse error"})
+        else:
+            response = answer(request)
         if response is None:
             continue
         stream_out.write(json.dumps(response) + "\n")
