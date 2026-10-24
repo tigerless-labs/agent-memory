@@ -44,3 +44,5 @@ duplicate remains active, with name breaking creation-time ties; other copies re
 files and point to it. Similarity alone belongs to the reviewed proposal path.
 
 Malformed final operations or exhausted executor negotiation cannot mark an archived batch as distilled. The boundary reports validation failure before draining pending operations or publishing projection writes, preserving the raw backlog for a later retry.
+
+Import preflights all file entries before publishing any imported file. A malformed late entry leaves earlier truth unchanged.
