@@ -98,3 +98,5 @@ Failed regrading marks the saved run failed and retains the grader error instead
 Benchmark fingerprints include complete episode content, reference answers and evidence, preserving resume and attribution guards when a dataset changes without changing its identifiers.
 
 Benchmark attribution requires each compared arm to contain the same episode IDs exactly once. Shared corpus and retrieval fingerprints cannot license a comparison built from unpaired or duplicated episode results.
+
+Replay releases its memory-system resources in a finally boundary after preparation. Host, grading or isolation exceptions cannot leave a prepared system running after the failed episode.
