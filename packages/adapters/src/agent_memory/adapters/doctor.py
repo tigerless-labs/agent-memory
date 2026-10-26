@@ -368,19 +368,38 @@ def _mcp_check(
         )
         return Check("MCP_OK" if ok else "MCP_INVALID", ok, "Codex MCP server configuration")
     if host == moments.HOST_CLAUDE_CODE:
-        path = target.parent.parent / ".claude.json"
-        try:
-            configured = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            configured = None
         key = "mcpServers"
+        servers = _mcp_servers(target, key)
+        if servers is None:
+            servers = configured.get(key) if isinstance(configured, dict) else None
     else:
         key = "mcp_servers"
-    servers = configured.get(key) if isinstance(configured, dict) else None
+        servers = configured.get(key) if isinstance(configured, dict) else None
     server = servers.get(setup.MCP_SERVER) if isinstance(servers, dict) else None
-    rendered = json.dumps(server) if server is not None else ""
+    # ensure_ascii=False keeps a non-ASCII path readable, so a host whose
+    # install path is not plain ASCII is still matched.
+    rendered = json.dumps(server, ensure_ascii=False) if server is not None else ""
     ok = setup.mcp_binary() in rendered and str(store_root.resolve()) in rendered
     return Check("MCP_OK" if ok else "MCP_INVALID", ok, f"{setup.MCP_SERVER} stdio server")
+
+
+def _mcp_servers(target: pathlib.Path, key: str) -> dict[str, object] | None:
+    """The MCP servers a host keeps on disk, found where that host keeps them.
+
+    The installer writes one file, but the setting a host actually reads is not
+    always that one: a host may keep its MCP configuration beside its settings
+    instead of in the home directory. Look in both places before reporting the
+    server as absent.
+    """
+    for path in (target.parent / "mcp.json", target.parent.parent / ".claude.json"):
+        try:
+            found = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        servers = found.get(key) if isinstance(found, dict) else None
+        if isinstance(servers, dict) and servers:
+            return servers
+    return None
 
 
 def _codex_checks(target: pathlib.Path, store_root: pathlib.Path) -> list[Check]:
