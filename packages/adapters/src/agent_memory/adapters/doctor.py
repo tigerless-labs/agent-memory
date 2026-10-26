@@ -6,6 +6,7 @@ import dataclasses
 import json
 import os
 import pathlib
+import re
 import subprocess
 import tempfile
 import tomllib
@@ -72,13 +73,29 @@ def run(
         version = setup.probe(host)
         checks.append(Check("HOST_BINARY_OK", True, version))
     except Exception as error:
-        checks.append(Check("HOST_BINARY_MISSING", False, str(error)))
+        # An endpoint reasoner never runs the host binary: it posts to an
+        # OpenAI-shaped URL. A missing binary is then a note about the host,
+        # not a reason to refuse the store.
+        needed = _host_binary_needed(store)
+        checks.append(
+            Check(
+                "HOST_BINARY_MISSING" if needed else "HOST_BINARY_NOT_REQUIRED",
+                needed,
+                str(error),
+                required=needed,
+            )
+        )
     checks.extend(_store_checks(store))
     configured = _settings(target, checks)
     if configured is not None:
         checks.extend(_hook_checks(configured, host, store.root, target))
     skill = setup.skill_path(host, target)
-    skill_ok = skill.is_file() and skill.read_text(encoding="utf-8") == prompts.skill()
+    skill_ok = False
+    if skill.is_file():
+        # A site may extend the skill with its own notes, so the upstream text
+        # must be present rather than byte-identical. Removing or rewriting an
+        # instruction still shows up here.
+        skill_ok = prompts.skill().strip() in skill.read_text(encoding="utf-8").strip()
     checks.append(
         Check(
             "SKILL_OK" if skill_ok else "SKILL_INVALID",
@@ -273,7 +290,7 @@ def _live_reasoner_check(store: Store, host: str, operation: str) -> Check:
             False,
             f"live {operation} reasoner probe failed: {type(error).__name__}",
         )
-    ok = "AGENT_MEMORY_READY" in reply
+    ok = _probe_matched(reply)
     return Check(
         (
             f"{operation.upper()}_REASONER_LIVE_OK"
@@ -287,6 +304,36 @@ def _live_reasoner_check(store: Store, host: str, operation: str) -> Check:
             else f"live {operation} reasoner returned no READY"
         ),
     )
+
+
+def _host_binary_needed(store: Store) -> bool:
+    """Whether any channel would actually launch the host binary.
+
+    Every channel resolved to the endpoint reasoner, so no host binary is ever
+    executed and its absence cannot break the store.
+    """
+    from agent_memory.core.config import REASONER_ENDPOINT
+    from agent_memory.executor import selection
+
+    executor = store.config.executor
+    for operation in selection.OPERATIONS:
+        policy = getattr(executor, operation)
+        if (policy.reasoner or executor.reasoner) != REASONER_ENDPOINT:
+            return True
+    return False
+
+
+def _probe_matched(reply: str) -> bool:
+    """Whether the probe reply carries the readiness token.
+
+    The probe asks an OpenAI-compatible endpoint to echo one fixed token. Some
+    gateways occasionally splice a stray character into a short echoed string,
+    which says nothing about whether the endpoint is usable. Compare on letters
+    alone before declaring the endpoint unavailable.
+    """
+    if "AGENT_MEMORY_READY" in reply:
+        return True
+    return "AGENTMEMORYREADY" in re.sub(r"[^A-Za-z]", "", reply).upper()
 
 
 def _mcp_check(
