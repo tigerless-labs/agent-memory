@@ -58,5 +58,6 @@ def distiller(config: ExecutorConfig) -> EndpointReasoner | HostReasoner:
             timeout_seconds=config.timeout_seconds,
             credentials=VertexCredentials(project=config.project, location=config.location),
             base_url=config.endpoint,
+            attempts=config.attempts,
         )
     raise ReasonerUnavailableError(f"unsupported reasoner {config.reasoner!r}")
