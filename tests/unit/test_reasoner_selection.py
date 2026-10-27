@@ -10,7 +10,7 @@ from agent_memory.core.config import (
 from agent_memory.core.errors import ReasonerUnavailableError
 from agent_memory.core.reasoning import ToolReasoner
 from agent_memory.executor import distiller, selection
-from agent_memory.executor.reasoners import EndpointReasoner
+from agent_memory.executor.reasoners import EndpointReasoner, EndpointTextReasoner
 
 
 def test_default_write_uses_the_source_host_while_manage_uses_the_legacy_executor():
@@ -135,8 +135,10 @@ def test_resolved_host_and_endpoint_policies_build_only_the_selected_transport()
 
     assert isinstance(write, ToolReasoner)
     assert write.host.spec.name == "muse-code"
-    assert isinstance(manage, EndpointReasoner)
-    assert manage.base_url == "https://manage.example/v1"
+    # Manage defaults to the text (line) protocol, so an endpoint manage reasoner
+    # is the text-only view that the core parses line by line.
+    assert isinstance(manage, EndpointTextReasoner)
+    assert manage.inner.base_url == "https://manage.example/v1"
 
 
 def test_write_tool_mode_is_operation_scoped_and_muse_native_can_be_explicit():
@@ -202,9 +204,9 @@ def test_hermes_manage_contributor_model_requires_operation_scoped_consent():
     assert isinstance(distiller.distiller(configured), ToolReasoner)
 
 
-def test_endpoint_write_does_not_silently_ignore_a_host_tool_mode():
+def test_endpoint_write_text_mode_routes_through_the_line_protocol():
     executor = Config.default().executor
     executor.write = OperationExecutorConfig(reasoner="endpoint", tool_mode=TOOL_MODE_TEXT)
 
-    with pytest.raises(ReasonerUnavailableError, match="applies only to host reasoners"):
-        selection.resolve(executor, selection.WRITE)
+    reasoner = distiller.distiller(selection.resolve(executor, selection.WRITE))
+    assert isinstance(reasoner, EndpointTextReasoner)

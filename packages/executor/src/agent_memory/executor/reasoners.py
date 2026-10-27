@@ -296,6 +296,22 @@ class EndpointReasoner:
         return base, key
 
 
+@dataclasses.dataclass
+class EndpointTextReasoner:
+    """Text-only view of :class:`EndpointReasoner` for endpoints that ignore tool_choice.
+
+    ``negotiate`` treats any object lacking ``converse`` as a plain ``Reasoner`` and routes
+    it through the line protocol, where the model returns one JSON operation per line and
+    the core parses them. Flash-class endpoints (Zhipu glm-4-flash) answer in prose instead
+    of honouring a forced tool call, so the line protocol is the reliable path for them.
+    """
+
+    inner: EndpointReasoner
+
+    def __call__(self, prompt: str) -> str:
+        return self.inner(prompt)
+
+
 def _message(role: str, content: str) -> dict[str, object]:
     return {"role": role, "content": content}
 
