@@ -20,6 +20,7 @@ import pathlib
 import shutil
 import sys
 import tempfile
+import time
 import urllib.error
 import urllib.request
 
@@ -35,6 +36,7 @@ from .hosts import BINARIES, HOST_CLAUDE_CODE, Host, HostResult, HostSpec, ToolS
 CHAT_COMPLETIONS = "/chat/completions"
 DEFAULT_ENDPOINT_MODEL = "google/gemini-2.5-flash"
 DEFAULT_TIMEOUT_SECONDS = 120.0
+DEFAULT_ENDPOINT_ATTEMPTS = 3
 ROLE_SYSTEM = "system"
 ROLE_USER = "user"
 ROLE_ASSISTANT = "assistant"
@@ -187,13 +189,21 @@ class EndpointReasoner:
     timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS
     credentials: VertexCredentials = dataclasses.field(default_factory=VertexCredentials)
     base_url: str = EMPTY
+    attempts: int = DEFAULT_ENDPOINT_ATTEMPTS
 
     def __call__(self, prompt: str) -> str:
-        payload = self._post({"model": self.model, "messages": [_message(ROLE_USER, prompt)]})
-        message = _first_message(payload)
-        if not message.strip():
-            raise ReasonerUnavailableError("endpoint returned no valid message")
-        return message
+        failure: Exception | None = None
+        for attempt in range(self._tries()):
+            try:
+                payload = self._post({"model": self.model, "messages": [_message(ROLE_USER, prompt)]})
+                message = _first_message(payload)
+                if message.strip():
+                    return message
+                failure = ReasonerUnavailableError("endpoint returned no valid message")
+            except ReasonerUnavailableError as error:
+                failure = error
+            self._pause(attempt)
+        raise failure if failure else ReasonerUnavailableError("endpoint returned no valid message")
 
     def converse(self, instructions: str, material: str, toolkit: WriteToolkit) -> None:
         """The standard loop: call, run every requested tool, answer it, until no tool is asked."""
@@ -214,13 +224,40 @@ class EndpointReasoner:
         ]
         while True:
             body: dict[str, object] = {"model": self.model, "messages": messages, "tools": tools}
-            reply = _assistant(self._post(body))
+            reply = self._reply(body)
             messages.append(reply)
             calls = reply.get("tool_calls")
             if not isinstance(calls, list) or not calls:
                 return
             for call in calls:
                 messages.append(_answer(call, toolkit))
+
+    def _reply(self, body: dict[str, object]) -> dict[str, object]:
+        """One assistant turn, retried only when the request itself failed.
+
+        A dropped connection or a truncated body is worth repeating. A turn that
+        arrives with the wrong shape is a protocol mismatch, and a tool call whose
+        arguments do not parse is the model's own mistake to correct: the loop
+        answers it and lets the model try again. Neither is retried here, so the
+        conversation stays exactly as the endpoint saw it.
+        """
+        failure: Exception | None = None
+        for attempt in range(self._tries()):
+            try:
+                payload = self._post(body)
+            except ReasonerUnavailableError as error:
+                failure = error
+                self._pause(attempt)
+                continue
+            return _assistant(payload)
+        raise failure if failure else ReasonerUnavailableError("endpoint returned no valid message")
+
+    def _tries(self) -> int:
+        return max(1, self.attempts)
+
+    def _pause(self, attempt: int) -> None:
+        if attempt + 1 < self._tries():
+            time.sleep(min(2.0, 0.5 * (attempt + 1)))
 
     def _post(self, body: dict[str, object]) -> object:
         base, key = self._endpoint()
@@ -257,6 +294,22 @@ class EndpointReasoner:
                 "endpoint reasoner requires GEMINI_API_KEY or gcloud authentication"
             )
         return base, key
+
+
+@dataclasses.dataclass
+class EndpointTextReasoner:
+    """Text-only view of :class:`EndpointReasoner` for endpoints that ignore tool_choice.
+
+    ``negotiate`` treats any object lacking ``converse`` as a plain ``Reasoner`` and routes
+    it through the line protocol, where the model returns one JSON operation per line and
+    the core parses them. Flash-class endpoints (Zhipu glm-4-flash) answer in prose instead
+    of honouring a forced tool call, so the line protocol is the reliable path for them.
+    """
+
+    inner: EndpointReasoner
+
+    def __call__(self, prompt: str) -> str:
+        return self.inner(prompt)
 
 
 def _message(role: str, content: str) -> dict[str, object]:

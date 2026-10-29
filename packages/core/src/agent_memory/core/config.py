@@ -174,6 +174,7 @@ class ExecutorConfig:
     timeout_seconds: float = 120.0
     tool_mode: str = TOOL_MODE_AUTO
     command: str = "mem distill"
+    attempts: int = 3
     write: OperationExecutorConfig = dataclasses.field(default_factory=OperationExecutorConfig)
     manage: OperationExecutorConfig = dataclasses.field(default_factory=OperationExecutorConfig)
 

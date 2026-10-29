@@ -200,9 +200,24 @@ def launch_distill(store: Store, session: str, host: str) -> bool:
                 stderr=log,
                 start_new_session=True,
             )
-    except OSError:
+    except OSError as exc:
+        # A failed launch is otherwise indistinguishable from "nothing to
+        # distil": _boundary maps False to DISTILL_SKIPPED either way, and the
+        # host sees no error at all. Record the reason so the failure is
+        # visible in the hook log.
+        _log_failure(store, f"distill launch failed: {exc}")
         return False
     return True
+
+
+def _log_failure(store: Store, message: str) -> None:
+    """Append a failure line to the hook log, never raising."""
+    try:
+        store.layout.state_dir.mkdir(parents=True, exist_ok=True)
+        with (store.layout.state_dir / LOG_FILENAME).open("a", encoding="utf-8") as log:
+            log.write(f"code: launch_failed\nmessage: {message}\n")
+    except OSError:
+        pass
 
 
 def _sibling(binary: str) -> str:

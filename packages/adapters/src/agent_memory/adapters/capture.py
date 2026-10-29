@@ -9,6 +9,8 @@ from agent_memory.core.locking import file_lock
 from agent_memory.core.store import Store
 from agent_memory.core.watermark import Watermark
 
+from .redaction import redact_all
+
 SEGMENT_SEPARATOR = "\n\n"
 RECORD_HINT = (
     "mem record --type <type> --field <key>=<value> "
@@ -30,6 +32,10 @@ class Capture:
 
 
 def capture(store: Store, session: str, items: list[str], source: str = "") -> Capture:
+    # Credentials are redacted before anything is persisted. The archive is the
+    # input to distillation, so a key left in cleartext here would be read back
+    # by the distiller and written into a long-lived memory entry.
+    items = redact_all(items)
     with file_lock(store.layout.capture_lock, timeout=store.config.storage.lock_timeout_seconds):
         watermark = Watermark(store.layout, store.clock)
         increment = watermark.increment(session, items)

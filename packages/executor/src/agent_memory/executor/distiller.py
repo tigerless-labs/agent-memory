@@ -20,7 +20,7 @@ from agent_memory.core.errors import ReasonerUnavailableError
 
 from .credentials import VertexCredentials
 from .hosts import DIALECTS, HERMES_DATA_TRAINING_REQUIREMENT, HOST_HERMES
-from .reasoners import EndpointReasoner, HostReasoner, ToolHostReasoner
+from .reasoners import EndpointReasoner, EndpointTextReasoner, HostReasoner, ToolHostReasoner
 
 
 def distiller(config: ExecutorConfig) -> EndpointReasoner | HostReasoner:
@@ -53,10 +53,14 @@ def distiller(config: ExecutorConfig) -> EndpointReasoner | HostReasoner:
             allow_data_training=config.host_allow_data_training,
         )
     if config.reasoner == REASONER_ENDPOINT:
-        return EndpointReasoner(
+        endpoint = EndpointReasoner(
             model=config.model,
             timeout_seconds=config.timeout_seconds,
             credentials=VertexCredentials(project=config.project, location=config.location),
             base_url=config.endpoint,
+            attempts=config.attempts,
         )
+        if config.tool_mode == TOOL_MODE_TEXT:
+            return EndpointTextReasoner(endpoint)
+        return endpoint
     raise ReasonerUnavailableError(f"unsupported reasoner {config.reasoner!r}")

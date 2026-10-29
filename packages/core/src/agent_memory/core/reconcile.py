@@ -118,23 +118,60 @@ def build(store: Store, session: str, messages: list[Message]) -> Sheet:
 
 
 def parse_operations(reply: str) -> tuple[list[dict[str, object]], list[FieldError]]:
-    """One JSON object per line. A line that is not one is reported, never guessed at."""
+    """Extract every JSON object the reply carries.
+
+    Models may answer with one object per line, several objects inside a single
+    markdown code fence, or pretty-printed objects that span lines. Walking the
+    text with a JSON decoder accepts all of those instead of splitting lines.
+    A span that is not JSON is reported, never guessed at.
+    """
     specs: list[dict[str, object]] = []
     errors: list[FieldError] = []
-    for number, line in enumerate(reply.splitlines(), start=1):
-        stripped = line.strip()
-        if not stripped or stripped.startswith(FENCE):
-            continue
+    text, dropped = _unwrap_fences(reply)
+    decoder = json.JSONDecoder()
+    idx = 0
+    n = len(text)
+    while idx < n:
+        while idx < n and text[idx] in " \t\r\n":
+            idx += 1
+        if idx >= n:
+            break
+        line_no = text.count("\n", 0, idx) + 1 + dropped
         try:
-            payload = json.loads(stripped)
+            obj, end = decoder.raw_decode(text, idx)
         except json.JSONDecodeError:
-            errors.append(FieldError(f"line {number}", "not a JSON object"))
+            errors.append(FieldError(f"line {line_no}", "not a JSON object"))
+            nl = text.find("\n", idx)
+            idx = n if nl == -1 else nl + 1
             continue
-        if not isinstance(payload, dict):
-            errors.append(FieldError(f"line {number}", "not a JSON object"))
-            continue
-        specs.append(payload)
+        if isinstance(obj, dict):
+            specs.append(obj)
+        elif isinstance(obj, list):
+            for item in obj:
+                if isinstance(item, dict):
+                    specs.append(item)
+        else:
+            errors.append(FieldError(f"line {line_no}", "not a JSON object"))
+        idx = end
     return specs, errors
+
+
+def _unwrap_fences(text: str) -> tuple[str, int]:
+    """Drop a single surrounding markdown code fence, if the reply has one.
+
+    Returns the unwrapped text and how many leading lines were removed, so callers
+    can report line numbers against the original reply.
+    """
+    stripped = text.strip()
+    if not stripped.startswith(FENCE):
+        return stripped, 0
+    dropped = 1  # the opening fence line (``` possibly with a language tag)
+    nl = stripped.find("\n")
+    if nl != -1:
+        stripped = stripped[nl + 1 :]
+    if stripped.rstrip().endswith(FENCE):
+        stripped = stripped.rstrip()[: -len(FENCE)].rstrip()
+    return stripped, dropped
 
 
 def operation_of(spec: dict[str, object]) -> str:
