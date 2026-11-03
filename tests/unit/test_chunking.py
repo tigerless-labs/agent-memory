@@ -21,7 +21,8 @@ alembic upgrade head
 
 ## 回滚
 
-删掉新版本即可。这一段也写长一点，保证正文总长度超过 chunk_min_chars 的门槛，否则整篇会被当成一个整块。
+删掉新版本即可。这一段也写长一点，保证正文总长度超过 chunk_min_chars 的门槛，\
+否则整篇会被当成一个整块。
 """
 
 TILDE_FENCED = """## Deploy
