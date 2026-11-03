@@ -613,6 +613,13 @@ class Store:
             raise ValidationError([FieldError("updated", "memory changed since it was read")])
         if moved_from is not None and record.path != moved_from and record.path.exists():
             raise ValidationError([FieldError("path", "regroup destination already exists")])
+        evidence = dataclasses.replace(
+            record,
+            provenance=record.provenance + [
+                item.strip() for item in provenance or [] if parse_pointer(item) is not None
+            ],
+        )
+        self._reject_facts_dated_after_their_evidence(evidence)
         for excerpt in provenance or []:
             record.provenance.append(self._store_provenance(record.name, excerpt))
         record, snapshots = self._persist(_Prepared(record, record.path, moved_from, None))

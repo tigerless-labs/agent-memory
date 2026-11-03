@@ -55,6 +55,8 @@ Memory identity and type identifiers match their complete slug grammar. No rende
 
 Malformed final operations or exhausted executor negotiation cannot mark an archived batch as distilled. The boundary reports validation failure before draining pending operations or publishing projection writes, preserving the raw backlog for a later retry.
 
+Direct rewrites and corrections enforce the same evidence-date relationship as new records. A fact cannot be moved later than the conversation it cites, and rejected corrections leave truth unchanged.
+
 Automatic links count memories returned together in individual recall events. Repeating the same query can supply multiple observations, while unrelated calls sharing query text cannot manufacture cooccurrence. Recall records one shared timestamp per result batch.
 
 Legacy configuration migration removes obsolete knobs while preserving supported storage customizations. Abstract limits, default project identity and lock timing are retained instead of being silently reset to factory defaults.
