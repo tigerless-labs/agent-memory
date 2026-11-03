@@ -47,6 +47,19 @@ def test_prefixed_secrets_are_still_redacted_in_the_archive(store):
     assert "plain-token-here" not in stored
 
 
+def test_quoted_secrets_never_reach_the_archive(store):
+    capture(
+        store,
+        "quoted",
+        ['password: "hunter2"', "PASSWORD='s3cr3t'", '{"api_key": "abcd1234efgh5678"}'],
+    )
+
+    stored = archived_text(store, "quoted")
+    for secret in ("hunter2", "s3cr3t", "abcd1234efgh5678"):
+        assert secret not in stored
+    assert stored.count("[REDACTED]") == 3
+
+
 def test_hex_digests_survive_redaction(store):
     capture(store, "digest", [f"the sha256 of the artefact is {DIGEST}"])
 
