@@ -1,6 +1,7 @@
 """Muse is one more host dialect; these tests require no Muse installation or user config."""
 
 import json
+import os
 import pathlib
 import shlex
 import subprocess
@@ -87,11 +88,13 @@ def test_muse_setup_preserves_settings_hooks_and_mcp_and_is_idempotent(tmp_path,
     assert twice["hooks"]["Stop"][0] == original["hooks"]["Stop"][0]
     assert (target.parent / setup.SKILL_PATH).read_text(encoding="utf-8") == prompts.skill()
     for event in moments.DIALECTS[moments.HOST_MUSE_CODE]:
-        rendered = json.dumps(twice["hooks"][event])
-        assert rendered.count("mem-hook --host muse-code") == 1
-        assert setup.MUSE_DATA_HOME_FLAG in rendered
-        assert setup.MUSE_SETTINGS_FLAG in rendered
-        assert str(target.resolve()) in rendered
+        commands = [hook["command"] for entry in twice["hooks"][event] for hook in entry["hooks"]]
+        managed = [command for command in commands if setup.HOOK_COMMAND in command]
+        assert len(managed) == 1
+        words = shlex.split(managed[0])
+        assert words[1:3] == [setup.HOST_FLAG, moments.HOST_MUSE_CODE]
+        assert setup.MUSE_DATA_HOME_FLAG in words
+        assert pathlib.Path(words[words.index(setup.MUSE_SETTINGS_FLAG) + 1]) == target.resolve()
 
 
 def test_new_muse_settings_get_required_schema_version(tmp_path):
@@ -108,10 +111,10 @@ def test_muse_setup_embeds_data_home_and_selected_store(tmp_path, monkeypatch):
     setup.install("muse-code", target, store_root)
     hooks = json.loads(target.read_text(encoding="utf-8"))["hooks"]
     command = hooks["Stop"][0]["hooks"][0]["command"]
-    assert f"{setup.MUSE_DATA_HOME_FLAG} '{data_home}'" in command
     parts = shlex.split(command)
-    assert parts[parts.index(setup.MUSE_SETTINGS_FLAG) + 1] == str(target.resolve())
-    assert f"{setup.STORE_FLAG} '{store_root}'" in command
+    assert pathlib.Path(parts[parts.index(setup.MUSE_DATA_HOME_FLAG) + 1]) == data_home
+    assert pathlib.Path(parts[parts.index(setup.MUSE_SETTINGS_FLAG) + 1]) == target.resolve()
+    assert pathlib.Path(parts[parts.index(setup.STORE_FLAG) + 1]) == store_root.resolve()
 
 
 def test_malformed_muse_settings_fail_without_overwrite(tmp_path):
@@ -370,7 +373,7 @@ def test_muse_executor_isolates_personal_context_but_reuses_explicit_auth(tmp_pa
     staged_auth = pathlib.Path(environment["MUSE_AUTH_PATH"])
     assert staged_auth != auth
     assert observed["auth_bytes"] == auth.read_bytes()
-    assert observed["auth_mode"] == 0o600
+    assert os.name == "nt" or observed["auth_mode"] == 0o600
     assert environment["HOME"] != str(pathlib.Path.home())
     assert environment["XDG_CONFIG_HOME"] != str(pathlib.Path.home() / ".config")
     assert environment["MUSE_NO_AUTO_UPDATE"] == "1"

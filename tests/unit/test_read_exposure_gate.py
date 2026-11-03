@@ -1,5 +1,6 @@
 """The pilot gate must catch a copied store with no retrieval cache."""
 
+import contextlib
 import importlib.util
 import json
 import sqlite3
@@ -17,7 +18,7 @@ def gate():
 def make_index(root):
     folder = root / ".index"
     folder.mkdir(parents=True)
-    with sqlite3.connect(folder / "index.db") as connection:
+    with contextlib.closing(sqlite3.connect(folder / "index.db")) as connection, connection:
         connection.execute("create table records (name text)")
         connection.execute("insert into records values ('museum')")
         for table in ("chunks", "raw_chunks"):

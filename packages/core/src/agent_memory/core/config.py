@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import dataclasses
+import json
 import os
 import pathlib
 import tomllib
@@ -59,6 +60,7 @@ class IndexConfig:
     chunk_min_chars: int = 200
     bm25_abstract_weight: float = 2.0
     bm25_body_weight: float = 1.0
+    tokenizer: str = "ascii"
     vector_enabled: bool = False
     vector_model: str = "BAAI/bge-small-en-v1.5"
 
@@ -212,6 +214,13 @@ class Config:
             raise ValueError("index.vector_enabled must be a boolean")
         if not isinstance(self.index.vector_model, str) or not self.index.vector_model.strip():
             raise ValueError("index.vector_model must be a non-empty string")
+        from .tokenization import SUPPORTED_TOKENIZERS
+
+        if self.index.tokenizer not in SUPPORTED_TOKENIZERS:
+            raise ValueError(
+                f"index.tokenizer must be one of {sorted(SUPPORTED_TOKENIZERS)}, "
+                f"got {self.index.tokenizer!r}"
+            )
         if not isinstance(self.manage.review_raw_session_evidence, bool):
             raise ValueError("manage.review_raw_session_evidence must be a boolean")
 
@@ -262,8 +271,12 @@ def _render_value(value: object) -> str:
     if isinstance(value, (list, tuple)):
         return "[" + ", ".join(_render_value(item) for item in value) + "]"
     if isinstance(value, dict):
-        return "{" + ", ".join(f"{k} = {_render_value(v)}" for k, v in value.items()) + "}"
-    return '"' + str(value).replace('"', '\\"') + '"'
+        return (
+            "{"
+            + ", ".join(f"{_render_value(str(k))} = {_render_value(v)}" for k, v in value.items())
+            + "}"
+        )
+    return json.dumps(str(value), ensure_ascii=False)
 
 
 def _render_toml(config: Config) -> str:
@@ -288,8 +301,24 @@ def _load_section(section: Any, values: object, path: str) -> None:
             _load_section(current, value, f"{path}.{key}")
         elif isinstance(value, dict) and not isinstance(current, dict):
             raise ValueError(f"config knob must not be a table: {path}.{key}")
-        else:
+        elif _has_declared_type(current, value):
             setattr(section, key, value)
+        else:
+            raise ValueError(f"config knob has the wrong type: {path}.{key}")
+
+
+def _has_declared_type(current: object, value: object) -> bool:
+    if isinstance(current, bool):
+        return isinstance(value, bool)
+    if isinstance(value, bool):
+        return False
+    if isinstance(current, int):
+        return isinstance(value, int)
+    if isinstance(current, float):
+        return isinstance(value, int | float)
+    if isinstance(current, str):
+        return isinstance(value, str)
+    return True
 
 
 def _render_section(lines: list[str], path: str, section: Any) -> None:
