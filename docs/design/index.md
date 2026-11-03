@@ -14,4 +14,4 @@
   an explicit provenance read and the default retrieval policy.
 - [Management operation boundaries](management-operation-boundaries.md) defines the
   correction, relationship mutation, automatic duplicate supersession, and automatic
-  directory grouping contracts.
+  directory grouping and identity-preserving regrouping contracts.

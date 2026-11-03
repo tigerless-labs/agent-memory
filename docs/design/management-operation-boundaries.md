@@ -35,6 +35,10 @@ Automatic directory clustering, spelling-based group merging, and empty-group cl
 apply only to schema group fields whose configured source is menu. System-sourced
 groups preserve their values and paths, maintaining project ownership and event date
 boundaries. Custom schemas and field-source overrides follow the same rule.
+Regrouping preserves memory identity, content, provenance, relationships, creation
+time and validity, including for add-only schemas. It changes only the menu group,
+path and update time. Store validates the source and destination under its writer
+lock; stale sources, occupied destinations and projection failures leave truth intact.
 
 T0 duplicate supersession requires identical parsed abstract and body, type, all semantic
 fields, effective validity start, author, relationships and provenance. Text comparison

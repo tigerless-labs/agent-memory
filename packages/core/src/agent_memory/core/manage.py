@@ -560,7 +560,7 @@ class Manage:
                         continue
                     for record in self._store.records():
                         if record.type == type_name and record.fields.get(group_field) == group:
-                            self._move(record, group_field, keeper)
+                            self._move(record, keeper)
                             actions.append(
                                 Action(ACTION_GROUP_MERGED, record.name, f"{group} -> {keeper}")
                             )
@@ -603,7 +603,7 @@ class Manage:
                     movable.append((known[name], group_field))
                 for record, group_field in movable:
                     current = record.fields.get(group_field, "")
-                    self._move(record, group_field, label)
+                    known[record.name] = self._move(record, label)
                     actions.append(Action(ACTION_CLUSTERED, record.name, f"{current} -> {label}"))
                 self._prune_empty_groups()
         return actions
@@ -615,19 +615,9 @@ class Manage:
                 if not any(folder.iterdir()):
                     folder.rmdir()
 
-    def _move(self, record: MemoryRecord, group_field: str, group: str) -> MemoryRecord:
-        """A move is a write with one field changed; name, body and evidence travel intact."""
-        return self._store.record(
-            type=record.type,
-            name=record.name,
-            fields={**record.fields, group_field: group},
-            abstract=record.abstract,
-            body=record.body,
-            links=list(record.links),
-            weight=record.weight,
-            valid_from=record.valid_from,
-            author=record.author,
-            create_group=True,
+    def _move(self, record: MemoryRecord, group: str) -> MemoryRecord:
+        return self._store.regroup(
+            record.name, group, expected_source_hash=record.source_hash
         )
 
     def _group_size(self, type_name: str, group: str) -> int:

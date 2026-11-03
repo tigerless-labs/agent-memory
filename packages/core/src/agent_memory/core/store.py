@@ -26,7 +26,7 @@ from .indexer import Indexer, IndexReport
 from .locking import store_lock
 from .paths import StoreLayout
 from .record import MemoryRecord
-from .schema import MODE_ADD_ONLY, MemorySchema, SchemaRegistry
+from .schema import MODE_ADD_ONLY, SOURCE_MENU, MemorySchema, SchemaRegistry, source_of
 from .search_index import SearchIndex
 from .sessions import Message, parse_pointer, resolve
 
@@ -565,34 +565,63 @@ class Store:
         with store_lock(self.layout):
             return self._write_locked(record)
 
+    def regroup(
+        self, name: str, group: str, *, expected_source_hash: str | None = None
+    ) -> MemoryRecord:
+        with store_lock(self.layout):
+            current = self.find(name)
+            if current is None or current.path is None:
+                raise NotFoundError(f"no memory named {name}")
+            self._require_source_hash(current, expected_source_hash)
+            schema = self.schemas.require(current.type)
+            if not schema.group or source_of(schema.group, self.config) != SOURCE_MENU:
+                raise ValidationError([FieldError("group", "regrouping requires a menu group")])
+            now = self.clock.timestamp()
+            placed = placement.resolve(
+                schema,
+                {**current.fields, schema.group: group},
+                self.config,
+                self.layout.groups_of(current.type),
+                valid_from=current.valid_from,
+                now=now,
+                name=current.name,
+                create_group=True,
+            )
+            candidate = dataclasses.replace(
+                current,
+                fields={**current.fields, schema.group: placed.fields[schema.group]},
+                path=self.root / placed.relative_path,
+                updated=now,
+            )
+            return self._write_locked(candidate, moved_from=current.path)
+
     def _write_locked(
         self,
         record: MemoryRecord,
         *,
         replace_links: bool = False,
         provenance: list[str] | None = None,
+        moved_from: pathlib.Path | None = None,
     ) -> MemoryRecord:
         self._validate_write(record, replace_links=replace_links)
         assert record.path is not None
-        previous = record.path.read_bytes() if record.path.exists() else None
+        source = moved_from or record.path
+        previous = source.read_bytes() if source.exists() else None
         if previous is not None and (
             record.source_hash is None or hashlib.sha256(previous).hexdigest() != record.source_hash
         ):
             raise ValidationError([FieldError("updated", "memory changed since it was read")])
+        if moved_from is not None and record.path != moved_from and record.path.exists():
+            raise ValidationError([FieldError("path", "regroup destination already exists")])
         for excerpt in provenance or []:
             record.provenance.append(self._store_provenance(record.name, excerpt))
-        payload = record.to_text().encode("utf-8")
-        self._replace_file(record.path, payload)
+        record, snapshots = self._persist(_Prepared(record, record.path, moved_from, None))
         try:
             self._project()
         except Exception:
-            if previous is None:
-                record.path.unlink(missing_ok=True)
-            else:
-                self._replace_file(record.path, previous)
+            self._restore_files(snapshots)
             self._project()
             raise
-        record.source_hash = hashlib.sha256(payload).hexdigest()
         return record
 
     def _replace_file(self, path: pathlib.Path, payload: bytes) -> None:

@@ -7,9 +7,6 @@
 
 ## Management follow-ups
 
-- Preserve identity and provenance when regrouping menu-based add-only schemas;
-  the current move re-enters add-only naming and can replace the source file with
-  a renamed record that does not inherit its evidence.
 - Revalidate the duplicate keeper under the same writer lock as T0 invalidation; current
   stale-write detection protects only the record being invalidated.
 - Decide explicit confirmation and host-level authorization for permanent GC, import and
