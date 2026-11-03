@@ -8,6 +8,7 @@ write may land on an existing file. Everything else about a memory is uniform (A
 from __future__ import annotations
 
 import dataclasses
+import hashlib
 import pathlib
 import tomllib
 
@@ -102,6 +103,8 @@ def validate(schema: MemorySchema, config: Config) -> None:
     errors: list[FieldError] = []
     if not is_valid_slug(schema.type):
         errors.append(FieldError("type", "must be a kebab-case slug"))
+    if schema.type in StoreLayout(pathlib.Path("."), config).reserved_dirnames:
+        errors.append(FieldError("type", "collides with a reserved store directory"))
     if not schema.description:
         errors.append(FieldError("description", "required"))
     if not schema.key:
@@ -197,6 +200,7 @@ class SchemaRegistry:
         self._layout = layout
         self._config = layout.config
         self._schemas: dict[str, MemorySchema] | None = None
+        self._digests: dict[pathlib.Path, str] = {}
 
     def ensure_factory(self) -> None:
         folder = self._layout.schemas_dir
@@ -208,7 +212,9 @@ class SchemaRegistry:
         self._schemas = None
 
     def load(self) -> dict[str, MemorySchema]:
-        if self._schemas is not None:
+        files = sorted(self._layout.schemas_dir.glob("*" + SCHEMA_SUFFIX))
+        digests = {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in files}
+        if self._schemas is not None and digests == self._digests:
             return self._schemas
         found: dict[str, MemorySchema] = {}
         folder = self._layout.schemas_dir
@@ -222,6 +228,7 @@ class SchemaRegistry:
                     )
                 found[schema.type] = schema
         self._schemas = found
+        self._digests = digests
         return found
 
     def get(self, type_name: str) -> MemorySchema | None:

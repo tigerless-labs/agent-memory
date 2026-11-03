@@ -176,20 +176,12 @@ print(json.dumps({{"kind": "run_terminal", "terminal": "completed", "text": "rev
 """
 
 
-def _fake_codex(tmp_path):
-    binary = tmp_path / "bin" / "codex"
-    binary.parent.mkdir()
-    binary.write_text(FAKE_CODEX.format(python=sys.executable), encoding="utf-8")
-    binary.chmod(0o755)
-    return binary
+def _fake_codex(install, tmp_path):
+    return install(tmp_path / "bin" / "codex", FAKE_CODEX.format(python=sys.executable))
 
 
-def _fake_muse(tmp_path):
-    binary = tmp_path / "bin" / "muse"
-    binary.parent.mkdir(exist_ok=True)
-    binary.write_text(FAKE_MUSE.format(python=sys.executable), encoding="utf-8")
-    binary.chmod(0o755)
-    return binary
+def _fake_muse(install, tmp_path):
+    return install(tmp_path / "bin" / "muse", FAKE_MUSE.format(python=sys.executable))
 
 
 def _seed(store, *, provenance=False):
@@ -218,7 +210,7 @@ def _seed(store, *, provenance=False):
 
 
 def test_mem_sleep_runs_native_codex_mcp_review_then_manage_validation(
-    store, tmp_path, monkeypatch, capsys
+    store, tmp_path, monkeypatch, capsys, python_executable
 ):
     _seed(store)
     store.config.executor.manage = OperationExecutorConfig(
@@ -230,7 +222,7 @@ def test_mem_sleep_runs_native_codex_mcp_review_then_manage_validation(
     )
     store.config.save(store.root)
     log = tmp_path / "manage-host.json"
-    binary = _fake_codex(tmp_path)
+    binary = _fake_codex(python_executable, tmp_path)
     monkeypatch.setenv("PATH", str(binary.parent) + os.pathsep + os.environ["PATH"])
     monkeypatch.setenv("FAKE_MANAGE_LOG", str(log))
 
@@ -276,7 +268,7 @@ def test_mem_sleep_runs_native_codex_mcp_review_then_manage_validation(
 
 @pytest.mark.parametrize("raw_session_evidence", [False, True])
 def test_mem_sleep_runs_native_muse_tools_with_scoped_evidence(
-    store, tmp_path, monkeypatch, capsys, raw_session_evidence
+    store, tmp_path, monkeypatch, capsys, raw_session_evidence, python_executable
 ):
     _seed(store, provenance=True)
     store.config.manage.review_raw_session_evidence = raw_session_evidence
@@ -289,7 +281,7 @@ def test_mem_sleep_runs_native_muse_tools_with_scoped_evidence(
     )
     store.config.save(store.root)
     log = tmp_path / "manage-muse.json"
-    binary = _fake_muse(tmp_path)
+    binary = _fake_muse(python_executable, tmp_path)
     monkeypatch.setenv("PATH", str(binary.parent) + os.pathsep + os.environ["PATH"])
     monkeypatch.setenv("FAKE_MANAGE_LOG", str(log))
     monkeypatch.setenv("FAKE_MANAGE_MODE", "raw" if raw_session_evidence else "normal")
@@ -340,13 +332,13 @@ def test_mem_sleep_runs_native_muse_tools_with_scoped_evidence(
     ],
 )
 def test_native_muse_failure_modes_leave_store_unchanged(
-    store, tmp_path, monkeypatch, mode, error_type, match
+    store, tmp_path, monkeypatch, mode, error_type, match, python_executable
 ):
     _seed(store)
     if mode == "timeout":
         store.config.executor.manage.timeout_seconds = 0.05
     before = {record.name: record.to_text() for record in store.records()}
-    binary = _fake_muse(tmp_path)
+    binary = _fake_muse(python_executable, tmp_path)
     monkeypatch.setenv("FAKE_MANAGE_LOG", str(tmp_path / "failure.json"))
     monkeypatch.setenv("FAKE_MANAGE_MODE", mode)
     reasoner = ToolHostReasoner(

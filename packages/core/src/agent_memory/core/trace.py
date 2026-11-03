@@ -103,12 +103,11 @@ def read(layout: StoreLayout, record: MemoryRecord, reference: str | None = None
 
 def _legacy(layout: StoreLayout, reference: str) -> str:
     """Only stored excerpt files, never arbitrary paths or synthetic numbered messages."""
-    relative = pathlib.PurePosixPath(reference)
+    relative = pathlib.PurePosixPath(reference.replace("\\", "/"))
     if (
         len(relative.parts) != LEGACY_PATH_PARTS
         or relative.parts[: len(LEGACY_PREFIX)] != LEGACY_PREFIX
         or any(part in (".", "..") for part in relative.parts)
-        or "\\" in reference
         or relative.suffix != ".md"
         or any(ord(char) < ASCII_SPACE for char in reference)
     ):

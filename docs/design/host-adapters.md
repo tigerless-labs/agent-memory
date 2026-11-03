@@ -69,6 +69,15 @@ the worker; failure never falls back to another transport. On a fresh Host-backe
 successful Host setup also supplies the default Manage policy. Explicit operation policies and
 legacy endpoint configuration are preserved.
 
+Hosts run on POSIX and on native Windows with one contract. Writer, coordination and
+observation locks keep the same shared/exclusive semantics on both; on Windows they occupy a
+byte range beyond any real file content, so a held lock never blocks ordinary reads or appends.
+Every entry point exchanges UTF-8 on stdio regardless of the platform code page, so
+non-ASCII memories survive pipes. Every hook is bounded by its configured timeout and exits
+cleanly. Detached distillation and
+Dream workers outlive the hook process and, on Windows, run without a console window so their
+host subprocesses open none either. Cron scheduling remains POSIX-only.
+
 `muse-code` is the canonical Muse Code identity and `muse` is only a setup alias and binary
 name. Muse lifecycle events use the existing moments, and only root-session material enters the
 archive. Muse's native memory remains independent and is never copied, synchronized, or treated
@@ -98,3 +107,7 @@ Failed regrading marks the saved run failed and retains the grader error instead
 Benchmark fingerprints include complete episode content, reference answers and evidence, preserving resume and attribution guards when a dataset changes without changing its identifiers.
 
 Benchmark attribution requires each compared arm to contain the same episode IDs exactly once. Shared corpus and retrieval fingerprints cannot license a comparison built from unpaired or duplicated episode results.
+
+Dataset loading rejects unequal session ID, date and transcript array lengths. A malformed benchmark cannot silently discard evidence before replay and still produce an apparently valid episode.
+
+The stdio adapter returns JSON-RPC parse or invalid-request errors for malformed frames and continues reading subsequent requests. An explicit null request ID receives a response, while requests without an ID retain notification behavior. Error codes and envelope rules follow https://www.jsonrpc.org/specification.
