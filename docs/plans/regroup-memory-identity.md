@@ -20,8 +20,9 @@ Verification:
 
 - Both add-only Manage regressions and both CLI regressions failed before the fix.
 - Focused Manage, regrouping, schema and CLI checks: 144 passed.
-- Full suite: 1103 passed, 12 skipped, 90.09% coverage. One existing username-sensitive
-  path test was excluded after reproducing its failure on unchanged upstream.
+- Full suite: 1104 passed, 12 skipped, 90.09% coverage; no tests excluded.
+- Fixed the path guard to compare the full home directory rather than a username
+  substring, which incorrectly rejected ordinary source text for short usernames.
 - Ruff, mypy and diff whitespace checks passed.
 - A separate CLI process preserved five add-only memories and their trace evidence
   through Sleep, rebuild and repeated Sleep in a temporary store.

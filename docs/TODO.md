@@ -19,8 +19,6 @@
 
 ## Platform follow-ups
 
-- Make the machine-path source check compare paths rather than username substrings;
-  it fails for short usernames such as `x` even on unchanged upstream.
 - Render setup/doctor checks as code, status and detail in text mode; the recall-hit line
   renderer prints them as empty `name — abstract · path · score=None` rows on every platform.
 - Pass the Claude Code text-protocol system prompt by file as the tool posture already does;
