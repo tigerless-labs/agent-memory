@@ -10,7 +10,7 @@ from agent_memory.core.config import (
 from agent_memory.core.errors import ReasonerUnavailableError
 from agent_memory.core.reasoning import ToolReasoner
 from agent_memory.executor import distiller, selection
-from agent_memory.executor.reasoners import EndpointReasoner, EndpointTextReasoner
+from agent_memory.executor.reasoners import EndpointTextReasoner
 
 
 def test_default_write_uses_the_source_host_while_manage_uses_the_legacy_executor():

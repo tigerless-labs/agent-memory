@@ -23,7 +23,7 @@ from .hosts import DIALECTS, HERMES_DATA_TRAINING_REQUIREMENT, HOST_HERMES
 from .reasoners import EndpointReasoner, EndpointTextReasoner, HostReasoner, ToolHostReasoner
 
 
-def distiller(config: ExecutorConfig) -> EndpointReasoner | HostReasoner:
+def distiller(config: ExecutorConfig) -> EndpointReasoner | EndpointTextReasoner | HostReasoner:
     if config.reasoner == REASONER_HOST:
         dialect = DIALECTS.get(config.host)
         mode = config.tool_mode or TOOL_MODE_AUTO

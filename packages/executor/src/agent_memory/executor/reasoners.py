@@ -195,7 +195,9 @@ class EndpointReasoner:
         failure: Exception | None = None
         for attempt in range(self._tries()):
             try:
-                payload = self._post({"model": self.model, "messages": [_message(ROLE_USER, prompt)]})
+                payload = self._post(
+                    {"model": self.model, "messages": [_message(ROLE_USER, prompt)]}
+                )
                 message = _first_message(payload)
                 if message.strip():
                     return message

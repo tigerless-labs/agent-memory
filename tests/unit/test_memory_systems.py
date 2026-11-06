@@ -245,4 +245,4 @@ def test_paths_are_data_not_defaults():
 
     source = inspect.getsource(systems)
     assert "/home/" not in source
-    assert pathlib.Path.home().name not in source
+    assert str(pathlib.Path.home()) not in source

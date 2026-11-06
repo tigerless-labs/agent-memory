@@ -4,12 +4,10 @@ from __future__ import annotations
 
 import dataclasses
 
-from agent_memory.core import prompts, sessions
+from agent_memory.core import prompts, redaction, sessions
 from agent_memory.core.locking import file_lock
 from agent_memory.core.store import Store
 from agent_memory.core.watermark import Watermark
-
-from .redaction import redact_all
 
 SEGMENT_SEPARATOR = "\n\n"
 RECORD_HINT = (
@@ -32,13 +30,9 @@ class Capture:
 
 
 def capture(store: Store, session: str, items: list[str], source: str = "") -> Capture:
-    # Credentials are redacted before anything is persisted. The archive is the
-    # input to distillation, so a key left in cleartext here would be read back
-    # by the distiller and written into a long-lived memory entry.
-    items = redact_all(items)
     with file_lock(store.layout.capture_lock, timeout=store.config.storage.lock_timeout_seconds):
         watermark = Watermark(store.layout, store.clock)
-        increment = watermark.increment(session, items)
+        increment = watermark.increment(session, [redaction.redact(item) for item in items])
         if not increment:
             return Capture(session=session, increment=(), instruction="", archived="")
         appended = store.archive.append_session(session, list(increment))

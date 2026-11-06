@@ -11,6 +11,7 @@ import dataclasses
 import json
 import re
 
+from . import timestamp
 from .config import Config
 from .errors import FieldError
 from .paths import StoreLayout
@@ -265,7 +266,7 @@ def _latest_cited_time(pointers: list[Pointer], sheet: Sheet) -> str:
             for pointer in pointers
         )
     ]
-    return max(stamps) if stamps else ""
+    return max(stamps, key=timestamp.parse) if stamps else ""
 
 
 def _provenance(raw: object, sheet: Sheet) -> list[Pointer]:

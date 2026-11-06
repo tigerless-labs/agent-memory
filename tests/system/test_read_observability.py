@@ -135,7 +135,7 @@ def test_host_transcript_limits_and_failure(tmp_path, monkeypatch):
     events = [json.loads(line) for line in text.splitlines()]
     assert len({e["attempt_id"] for e in events}) == 2
     assert all(e["stdout"]["truncated"] for e in events if e["state"] == "completed")
-    assert (tmp_path / "host.jsonl").stat().st_mode & 0o777 == 0o600
+    assert os.name == "nt" or (tmp_path / "host.jsonl").stat().st_mode & 0o777 == 0o600
 
 
 def test_observation_capacity_and_io_failure_are_passive(tmp_path, monkeypatch):

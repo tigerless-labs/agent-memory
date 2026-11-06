@@ -29,7 +29,7 @@ def test_muse_preflight_stages_only_auth_in_isolated_config(tmp_path):
 
     assert staged == config_home / "muse" / "auth.json"
     assert staged.read_bytes() == source.read_bytes()
-    assert stat.S_IMODE(staged.stat().st_mode) == 0o600
+    assert os.name == "nt" or stat.S_IMODE(staged.stat().st_mode) == 0o600
 
 
 @pytest.mark.skipif(

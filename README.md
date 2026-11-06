@@ -521,6 +521,9 @@ BM25 is the low-latency baseline retrieval path. Install `agent-memory-core[vect
 in the store's `[index]` configuration. `vector_model` defaults to
 `BAAI/bge-small-en-v1.5`. The first enabled Store loads FastEmbed/ONNX and may
 need network access to download the model; disabled stores never load FastEmbed.
+Set `AGENT_MEMORY_OFFLINE=1` to load strictly from the FastEmbed cache
+(`FASTEMBED_CACHE_PATH`, default `~/.cache/fastembed_cache` on most systems) —
+useful for air-gapped hosts or caches populated from a mirror.
 
 Run `mem --store /path/to/store rebuild` to rebuild the SQLite cache from Markdown.
 The existing indexing path catches changed and deleted files, enabling vectors
@@ -537,6 +540,33 @@ a retrieval-coverage/latency trade-off. Fixed-context answer replays scored
 17/24 versus 18/24 and, on the expanded set, 28/36 versus 27/36. The existing
 answer-level experiments do not establish an end-to-end accuracy improvement,
 so vector retrieval remains optional.
+
+## CJK (Chinese) memory
+
+The default tokenizer extracts ASCII literals only, and the FTS5 unicode61
+tokenizer keeps an unsegmented CJK run as one token, so a Chinese query matches
+nothing a Chinese body wrote. Install `agent-memory-core[cjk]` (or run
+`uv sync --extra cjk` from this workspace) and set `tokenizer = "cjk"` in the
+store's `[index]` configuration:
+
+```toml
+[index]
+tokenizer = "cjk"
+vector_enabled = true
+vector_model = "BAAI/bge-small-zh-v1.5"
+```
+
+`cjk` segments chunk text with jieba before it enters the FTS5 projection and
+adds CJK words (two or more characters) to the query expression; ASCII literals
+keep their current behavior. Headings stay untouched — they are read back from
+the surface. The tokenizer the projection was built with is recorded in
+`index_meta`; changing it is detected on the next sync and the whole projection
+rebuilds, so no stale FTS rows survive a switch. For paraphrased Chinese queries
+that share no surface tokens with the memory, pair the tokenizer with the
+optional vector index and a Chinese-capable model such as
+`BAAI/bge-small-zh-v1.5`. On a 5-memory / 10-query Chinese check, ASCII-only
+recall answered 2/10, the cjk tokenizer 9/10, and cjk plus Chinese vectors
+10/10.
 
 ## Explicit raw evidence reads
 

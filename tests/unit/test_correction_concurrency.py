@@ -42,7 +42,7 @@ def _correct_body(root, started, read_started, finished):
 
 def test_independent_process_corrections_keep_both_updates_and_projection(store):
     store.record(type="fact", name="source", abstract="Old abstract", body="Old body")
-    context = multiprocessing.get_context("fork")
+    context = multiprocessing.get_context("spawn")
     read_started = context.Event()
     release_read = context.Event()
     second_started = context.Event()

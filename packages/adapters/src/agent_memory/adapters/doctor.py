@@ -80,7 +80,7 @@ def run(
         checks.append(
             Check(
                 "HOST_BINARY_MISSING" if needed else "HOST_BINARY_NOT_REQUIRED",
-                needed,
+                not needed,
                 str(error),
                 required=needed,
             )
@@ -187,7 +187,7 @@ def _hook_checks(
     hooks = configured.get(setup.HOOKS_KEY)
     if not isinstance(hooks, dict):
         return [Check("HOOK_INVALID", False, "settings.hooks is missing or not an object")]
-    expected_store = str(store_root.resolve())
+    expected_store = setup.render_command([str(store_root.resolve())])
     failures = []
     for event in moments.DIALECTS[host]:
         entries = hooks.get(event)
@@ -198,13 +198,14 @@ def _hook_checks(
         if len(managed) != 1:
             failures.append(f"{event} has {len(managed)} managed hooks")
             continue
-        if expected_store not in json.dumps(managed[0]):
+        if not _mentions(managed[0], expected_store):
             failures.append(f"{event} does not pin Store {expected_store}")
             continue
         if host == moments.HOST_MUSE_CODE:
-            rendered = json.dumps(managed[0])
-            expected_settings = str(settings_path.resolve())
-            if setup.MUSE_SETTINGS_FLAG not in rendered or expected_settings not in rendered:
+            expected_settings = setup.render_command([str(settings_path.resolve())])
+            if not _mentions(managed[0], setup.MUSE_SETTINGS_FLAG) or not _mentions(
+                managed[0], expected_settings
+            ):
                 failures.append(
                     f"{event} does not pin Muse settings {expected_settings}"
                 )
@@ -215,6 +216,10 @@ def _hook_checks(
             "all lifecycle hooks installed once" if not failures else "; ".join(failures),
         )
     ]
+
+
+def _mentions(entry: object, text: str) -> bool:
+    return json.dumps(text)[1:-1] in json.dumps(entry)
 
 
 def _reasoner_checks(
@@ -313,11 +318,9 @@ def _host_binary_needed(store: Store) -> bool:
     executed and its absence cannot break the store.
     """
     from agent_memory.core.config import REASONER_ENDPOINT
-    from agent_memory.executor import selection
 
     executor = store.config.executor
-    for operation in selection.OPERATIONS:
-        policy = getattr(executor, operation)
+    for policy in (executor.write, executor.manage):
         if (policy.reasoner or executor.reasoner) != REASONER_ENDPOINT:
             return True
     return False
@@ -371,10 +374,12 @@ def _mcp_check(
         key = "mcpServers"
         servers = _mcp_servers(target, key)
         if servers is None:
-            servers = configured.get(key) if isinstance(configured, dict) else None
+            candidate = configured.get(key) if isinstance(configured, dict) else None
+            servers = candidate if isinstance(candidate, dict) else None
     else:
         key = "mcp_servers"
-        servers = configured.get(key) if isinstance(configured, dict) else None
+        candidate = configured.get(key) if isinstance(configured, dict) else None
+        servers = candidate if isinstance(candidate, dict) else None
     server = servers.get(setup.MCP_SERVER) if isinstance(servers, dict) else None
     # ensure_ascii=False keeps a non-ASCII path readable, so a host whose
     # install path is not plain ASCII is still matched.

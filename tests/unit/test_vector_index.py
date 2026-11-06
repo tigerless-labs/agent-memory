@@ -1,6 +1,8 @@
 import builtins
 import dataclasses
 import json
+import sys
+import types
 
 import pytest
 from agent_memory.adapters import capture as capture_module
@@ -98,6 +100,27 @@ def test_enabled_store_explains_how_to_install_a_missing_backend(monkeypatch):
     monkeypatch.setattr(builtins, "__import__", missing)
     with pytest.raises(RuntimeError, match=r"enabled.*unavailable.*agent-memory-core\[vector\]"):
         FastEmbedder("fake/model")
+
+
+@pytest.mark.parametrize("value, expected", [("1", True), ("true", False), (None, False)])
+def test_offline_env_controls_fastembed_local_file_loading(monkeypatch, value, expected):
+    options = {}
+
+    class FakeTextEmbedding:
+        def __init__(self, **kwargs):
+            options.update(kwargs)
+
+    fake_fastembed = types.ModuleType("fastembed")
+    fake_fastembed.TextEmbedding = FakeTextEmbedding
+    monkeypatch.setitem(sys.modules, "fastembed", fake_fastembed)
+    if value is None:
+        monkeypatch.delenv("AGENT_MEMORY_OFFLINE", raising=False)
+    else:
+        monkeypatch.setenv("AGENT_MEMORY_OFFLINE", value)
+
+    FastEmbedder("fake/model")
+
+    assert options == {"model_name": "fake/model", "local_files_only": expected}
 
 
 def test_off_to_on_bootstraps_without_filesystem_changes(tmp_path, clock):
