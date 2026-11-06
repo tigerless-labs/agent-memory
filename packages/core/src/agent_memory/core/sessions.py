@@ -117,9 +117,8 @@ def append(
     stamp = clock.timestamp()
     lines: list[str] = []
     for offset, item in enumerate(items):
-        message = _coerce(item, start + offset, stamp)
-        if message.text:
-            lines.append(json.dumps(message.as_dict(), ensure_ascii=False))
+        message = dataclasses.replace(_coerce(item, start + offset, stamp), index=start + offset)
+        lines.append(json.dumps(message.as_dict(), ensure_ascii=False))
     if not lines:
         return Pointer(session, start, max(start - 1, 0))
     with path.open("a", encoding="utf-8") as handle:
@@ -130,7 +129,7 @@ def append(
 def count(path: pathlib.Path) -> int:
     if not path.exists():
         return 0
-    return sum(1 for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
+    return sum(1 for line in path.read_text(encoding="utf-8").split("\n") if line.strip())
 
 
 def read(layout: StoreLayout, session: str) -> list[Message]:
@@ -141,7 +140,7 @@ def read_file(path: pathlib.Path) -> list[Message]:
     if not path.exists():
         return []
     messages: list[Message] = []
-    for position, line in enumerate(path.read_text(encoding="utf-8").splitlines()):
+    for position, line in enumerate(path.read_text(encoding="utf-8").split("\n")):
         if not line.strip():
             continue
         try:

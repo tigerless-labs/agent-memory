@@ -5,6 +5,7 @@ import json
 import pytest
 from agent_memory.adapters import capture as capture_module
 from agent_memory.cli.main import EXIT_ERROR, EXIT_INVALID, EXIT_OK, main
+from agent_memory.core import schema
 from agent_memory.core.config import OperationExecutorConfig
 from agent_memory.core.errors import ReasonerUnavailableError
 from agent_memory.core.recall import Recall
@@ -408,6 +409,41 @@ def test_rule_only_sleep_keeps_similarly_spelled_projects_separate(cli):
                 hit["name"]
                 for hit in cli("recall", "retention", "--scope", f"fact/{project}")["hits"]
             } == {name}
+
+
+@pytest.mark.parametrize("operation", ["cluster", "merge"])
+def test_rule_only_sleep_preserves_add_only_identity_and_evidence(cli, operation):
+    store = Store(cli.root)
+    definition = schema.MemorySchema(
+        "note", "A sourced note", ("topic", "subject"), group="topic", mode=schema.MODE_ADD_ONLY
+    )
+    store.schemas.path_for("note").write_text(schema.render(definition), encoding="utf-8")
+    groups = (
+        ["account"] * store.config.manage.cluster_min_files
+        if operation == "cluster" else ["account", "accounts"]
+    )
+    for index, group in enumerate(groups):
+        cli(
+            "record", "--type", "note", "--name", f"cache-note-{index}",
+            "--field", f"topic={group}", "--create-group",
+            "--abstract", f"Cache latency note {index}", "--body", f"Preserve rule {index}.",
+            "--provenance", f"The operator recorded cache latency rule {index}.",
+        )
+    before = {record.name: record for record in store.records()}
+    evidence = {name: cli("trace", name) for name in before}
+
+    for command in (("sleep", "--reason", "none"), ("rebuild",), ("sleep", "--reason", "none")):
+        cli(*command)
+        after = {record.name: record for record in store.records()}
+        assert after.keys() == before.keys()
+        assert any(after[name].path != original.path for name, original in before.items())
+        for name, original in before.items():
+            moved = after[name]
+            assert (moved.body, moved.provenance, moved.created, moved.valid_from) == (
+                original.body, original.provenance, original.created, original.valid_from
+            )
+            assert cli("trace", name) == evidence[name]
+        assert {hit["name"] for hit in cli("recall", "cache latency")["hits"]} == set(before)
 
 
 @pytest.mark.parametrize(

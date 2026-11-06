@@ -12,6 +12,7 @@ import sys
 from collections.abc import Sequence
 from typing import TextIO
 
+from agent_memory.core import stdio
 from agent_memory.core.toolkit import WriteToolkit
 
 from . import server
@@ -38,6 +39,7 @@ def serve(directory: pathlib.Path, stream_in: TextIO, stream_out: TextIO) -> Non
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    stdio.use_utf8()
     arguments = list(sys.argv[1:] if argv is None else argv)
     serve(pathlib.Path(arguments[0]), sys.stdin, sys.stdout)
     return 0

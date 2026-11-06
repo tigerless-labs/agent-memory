@@ -22,7 +22,7 @@ def export_store(store: Store, include_archive: bool = True) -> dict[str, object
     for path in _sources(store.layout, include_archive):
         payload.append(
             {
-                KEY_PATH: str(path.relative_to(store.root)),
+                KEY_PATH: path.relative_to(store.root).as_posix(),
                 KEY_TEXT: path.read_text(encoding="utf-8"),
             }
         )
@@ -43,16 +43,17 @@ def import_into(store: Store, payload: dict[str, object]) -> int:
         raise ValueError(f"unsupported export format: {payload.get(KEY_VERSION)}")
     store.layout.ensure()
     files = payload.get(KEY_FILES)
-    written = 0
+    prepared: list[tuple[pathlib.Path, str]] = []
     for entry in files if isinstance(files, list) else []:
         target = (store.root / str(entry[KEY_PATH])).resolve()
         if not target.is_relative_to(store.root.resolve()):
             raise ValueError(f"path traversal refused: {entry[KEY_PATH]}")
+        prepared.append((target, str(entry[KEY_TEXT])))
+    for target, text in prepared:
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(str(entry[KEY_TEXT]), encoding="utf-8")
-        written += 1
+        target.write_text(text, encoding="utf-8")
     store.rebuild_index()
-    return written
+    return len(prepared)
 
 
 def read_import(store: Store, source: pathlib.Path) -> int:
