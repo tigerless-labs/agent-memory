@@ -48,11 +48,21 @@ class Session:
 
 def session_stamp(date: str) -> str:
     """LongMemEval writes `2023/05/20 (Sat) 02:21`; the archive wants an instant."""
+    try:
+        moment = datetime.datetime.fromisoformat(date)
+    except ValueError:
+        pass
+    else:
+        if moment.tzinfo is None:
+            moment = moment.replace(tzinfo=datetime.UTC)
+        return moment.isoformat()
     parts = date.replace("/", "-").split()
     day = parts[0] if parts else ""
     clock = next((part for part in parts[1:] if ":" in part), "00:00")
     try:
-        moment = datetime.datetime.fromisoformat(f"{day}T{clock}:00+00:00")
+        moment = datetime.datetime.fromisoformat(f"{day}T{clock}")
+        if moment.tzinfo is None:
+            moment = moment.replace(tzinfo=datetime.UTC)
     except ValueError:
         return ""
     return moment.isoformat()

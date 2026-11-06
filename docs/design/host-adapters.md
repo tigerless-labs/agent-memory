@@ -108,6 +108,8 @@ Benchmark fingerprints include complete episode content, reference answers and e
 
 Benchmark attribution requires each compared arm to contain the same episode IDs exactly once. Shared corpus and retrieval fingerprints cannot license a comparison built from unpaired or duplicated episode results.
 
+Benchmark session timestamps preserve ISO instants, timezone offsets and second precision alongside the existing LongMemEval date format. Valid evidence dates no longer degrade into empty timestamps or the replay clock.
+
 Replay releases its memory-system resources in a finally boundary after preparation. Host, grading or isolation exceptions cannot leave a prepared system running after the failed episode.
 
 Replay success includes the experience phase. Failed archival or writing batches cannot be silently counted as a successful scored run even when the later host answer and grader succeed.
