@@ -23,7 +23,6 @@ import time
 from collections.abc import Iterable
 
 from . import reasoning, timestamp
-from . import record as record_module
 from .access_log import KIND_READ, AccessLog
 from .clock import Clock
 from .database import Database
@@ -489,12 +488,14 @@ class Manage:
     def _add_cooccurrence_links(self, records: list[MemoryRecord]) -> list[Action]:
         with self._database.connect() as connection:
             rows = connection.execute(
-                "SELECT query, name FROM access_log WHERE query != ''"
+                "SELECT at, agent, query, name FROM access_log "
+                "WHERE query != '' AND kind = 'recall'"
             ).fetchall()
         together: dict[tuple[str, str], int] = {}
-        by_query: dict[str, set[str]] = {}
+        by_query: dict[tuple[str, str, str], set[str]] = {}
         for row in rows:
-            by_query.setdefault(str(row["query"]), set()).add(str(row["name"]))
+            key = (str(row["at"]), str(row["agent"]), str(row["query"]))
+            by_query.setdefault(key, set()).add(str(row["name"]))
         for names in by_query.values():
             for left in names:
                 for right in names:
@@ -526,9 +527,11 @@ class Manage:
             if original is None:
                 seen[key] = record
                 continue
-            record_module.invalidate(record, self._clock.timestamp(), original.name)
-            self._rewrite(record)
-            actions.append(Action(ACTION_DUPLICATE_MERGED, record.name, original.name))
+            merged = self._store.merge_exact_duplicate(
+                record, original, self._clock.timestamp()
+            )
+            if merged is not None:
+                actions.append(Action(ACTION_DUPLICATE_MERGED, record.name, original.name))
         return actions
 
     def _menu_group_fields(self) -> dict[str, str]:
@@ -557,7 +560,7 @@ class Manage:
                         continue
                     for record in self._store.records():
                         if record.type == type_name and record.fields.get(group_field) == group:
-                            self._move(record, group_field, keeper)
+                            self._move(record, keeper)
                             actions.append(
                                 Action(ACTION_GROUP_MERGED, record.name, f"{group} -> {keeper}")
                             )
@@ -600,7 +603,7 @@ class Manage:
                     movable.append((known[name], group_field))
                 for record, group_field in movable:
                     current = record.fields.get(group_field, "")
-                    self._move(record, group_field, label)
+                    known[record.name] = self._move(record, label)
                     actions.append(Action(ACTION_CLUSTERED, record.name, f"{current} -> {label}"))
                 self._prune_empty_groups()
         return actions
@@ -612,19 +615,9 @@ class Manage:
                 if not any(folder.iterdir()):
                     folder.rmdir()
 
-    def _move(self, record: MemoryRecord, group_field: str, group: str) -> MemoryRecord:
-        """A move is a write with one field changed; name, body and evidence travel intact."""
-        return self._store.record(
-            type=record.type,
-            name=record.name,
-            fields={**record.fields, group_field: group},
-            abstract=record.abstract,
-            body=record.body,
-            links=list(record.links),
-            weight=record.weight,
-            valid_from=record.valid_from,
-            author=record.author,
-            create_group=True,
+    def _move(self, record: MemoryRecord, group: str) -> MemoryRecord:
+        return self._store.regroup(
+            record.name, group, expected_source_hash=record.source_hash
         )
 
     def _group_size(self, type_name: str, group: str) -> int:

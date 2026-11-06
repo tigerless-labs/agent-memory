@@ -3,14 +3,18 @@
 from __future__ import annotations
 
 import dataclasses
-import re
 import sqlite3
 
 from .chunking import Chunk
 from .database import SURFACE_ACTIVE, SURFACE_HISTORY
 from .record import MemoryRecord
+from .tokenization import (
+    TOKENIZER_ASCII,
+    query_tokens,
+    segment_text,
+    validate_tokenizer,
+)
 
-_TOKENS = re.compile(r"[0-9A-Za-z_]+")
 LINK_SEPARATOR = ","
 SURFACES = (SURFACE_ACTIVE, SURFACE_HISTORY)
 
@@ -24,14 +28,16 @@ class Candidate:
     relevance: float
 
 
-def to_match_query(query: str) -> str:
-    tokens = [token.lower() for token in _TOKENS.findall(query)]
+def to_match_query(query: str, tokenizer: str = TOKENIZER_ASCII) -> str:
+    tokens = query_tokens(query, tokenizer)
     return " OR ".join(f'"{token}"' for token in dict.fromkeys(tokens))
 
 
 class SearchIndex:
-    def __init__(self, connection: sqlite3.Connection):
+    def __init__(self, connection: sqlite3.Connection, tokenizer: str = TOKENIZER_ASCII):
+        validate_tokenizer(tokenizer)
         self._connection = connection
+        self._tokenizer = tokenizer
 
     def upsert(self, record: MemoryRecord, chunks: list[Chunk], relative_path: str) -> None:
         self.remove(record.name)
@@ -59,7 +65,13 @@ class SearchIndex:
         self._connection.executemany(
             f"INSERT INTO {surface}(name, kind, anchor, heading, text) VALUES(?, ?, ?, ?, ?)",
             [
-                (record.name, chunk.kind, chunk.anchor, chunk.heading, chunk.text)
+                (
+                    record.name,
+                    chunk.kind,
+                    chunk.anchor,
+                    chunk.heading,
+                    segment_text(chunk.text, self._tokenizer),
+                )
                 for chunk in chunks
             ],
         )
@@ -94,7 +106,7 @@ class SearchIndex:
     ) -> list[Candidate]:
         if surface not in SURFACES:
             raise ValueError(f"unknown surface {surface}")
-        expression = to_match_query(query)
+        expression = to_match_query(query, self._tokenizer)
         if not expression or scope_path == "":
             return []
         if scope_path is None:

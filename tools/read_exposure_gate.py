@@ -4,6 +4,7 @@ This is an execution gate, not a statistical test. Keep its report with the pilo
 """
 
 import argparse
+import contextlib
 import json
 import re
 import sqlite3
@@ -21,7 +22,7 @@ def index_counts(root):
     db = root / ".index" / "index.db"
     if not db.is_file():
         return 0, 0
-    with sqlite3.connect(db) as connection:
+    with contextlib.closing(sqlite3.connect(db)) as connection:
         return (
             connection.execute("select count(*) from records").fetchone()[0],
             connection.execute("select count(*) from raw_chunks").fetchone()[0],
@@ -29,7 +30,7 @@ def index_counts(root):
 
 
 def probe_hits(root):
-    with sqlite3.connect(root / ".index" / "index.db") as connection:
+    with contextlib.closing(sqlite3.connect(root / ".index" / "index.db")) as connection:
         return (
             connection.execute(
                 "select count(*) from chunks where chunks match ?", (PROBE_QUERY,)

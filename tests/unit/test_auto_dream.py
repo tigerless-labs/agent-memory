@@ -6,7 +6,7 @@ import json
 import pathlib
 
 import pytest
-from agent_memory.adapters import auto_dream, capture, hook_entry, moments
+from agent_memory.adapters import auto_dream, capture, detached, hook_entry, moments
 from agent_memory.cli.main import main as cli_main
 from agent_memory.core import dreaming
 from agent_memory.core.config import OperationExecutorConfig
@@ -227,7 +227,7 @@ def test_detached_launcher_uses_manage_host_and_executor_environment(store, monk
         "--reason-model",
         "muse-test",
     ]
-    assert launched["kwargs"]["start_new_session"] is True
+    assert detached.options().items() <= launched["kwargs"].items()
     assert launched["kwargs"]["stdin"] is auto_dream.subprocess.DEVNULL
 
 

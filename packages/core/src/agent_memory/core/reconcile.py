@@ -11,6 +11,7 @@ import dataclasses
 import json
 import re
 
+from . import timestamp
 from .config import Config
 from .errors import FieldError
 from .paths import StoreLayout
@@ -121,7 +122,7 @@ def parse_operations(reply: str) -> tuple[list[dict[str, object]], list[FieldErr
     """One JSON object per line. A line that is not one is reported, never guessed at."""
     specs: list[dict[str, object]] = []
     errors: list[FieldError] = []
-    for number, line in enumerate(reply.splitlines(), start=1):
+    for number, line in enumerate(reply.split("\n"), start=1):
         stripped = line.strip()
         if not stripped or stripped.startswith(FENCE):
             continue
@@ -228,7 +229,7 @@ def _latest_cited_time(pointers: list[Pointer], sheet: Sheet) -> str:
             for pointer in pointers
         )
     ]
-    return max(stamps) if stamps else ""
+    return max(stamps, key=timestamp.parse) if stamps else ""
 
 
 def _provenance(raw: object, sheet: Sheet) -> list[Pointer]:

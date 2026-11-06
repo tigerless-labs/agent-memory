@@ -11,6 +11,7 @@ import sys
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
+import pytest
 from agent_memory.adapters import capture, cron_schedule
 from agent_memory.cli.main import EXIT_OK, main
 from agent_memory.core import dreaming
@@ -18,6 +19,8 @@ from agent_memory.core.config import OperationExecutorConfig
 from agent_memory.core.ledger import LEDGER_FILENAME
 from agent_memory.core.store import Store
 from agent_memory.core.watermark import Watermark
+
+POSIX_CRON = pytest.mark.skipif(os.name == "nt", reason="cron scheduling is POSIX-only")
 
 FAKE_CRONTAB = """#!/bin/sh
 set -eu
@@ -37,6 +40,7 @@ exit 2
 """
 
 
+@POSIX_CRON
 def test_cli_manages_one_store_block_and_preserves_unrelated_jobs(tmp_path, monkeypatch, capsys):
     store = tmp_path / "Store With Spaces"
     crontab_file = tmp_path / "user.crontab"
@@ -96,6 +100,7 @@ def test_cli_manages_one_store_block_and_preserves_unrelated_jobs(tmp_path, monk
     assert crontab_file.read_text("utf-8") == "11 2 * * * /usr/bin/unrelated\n"
 
 
+@POSIX_CRON
 def test_generated_cron_command_completes_endpoint_dream_in_an_independent_process(
     tmp_path, monkeypatch
 ):

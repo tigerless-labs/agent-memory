@@ -143,7 +143,9 @@ class Driver:
         if evidence_dir:
             observation.emit("exam_end", directory=str(evidence_dir), ok=answer.ok)
         verdict = self._judge.grade(episode.question, episode.answer, answer.text)
-        status = STATUS_OK if answer.ok and verdict.ok else STATUS_FAILED
+        status = (
+            STATUS_OK if answer.ok and verdict.ok and not phase.failures else STATUS_FAILED
+        )
         return RunRecord(
             run_id=self._run_id,
             arm=arm.name,
@@ -162,7 +164,13 @@ class Driver:
             judge_seconds=round(verdict.seconds, SECONDS_PRECISION),
             recall_fingerprint=self._system.fingerprint(),
             episode_fingerprint=self._episode_fingerprint,
-            error=answer.error or (verdict.error if not verdict.ok else ""),
+            error=(
+                answer.error or (verdict.error if not verdict.ok else "")
+                or (
+                    f"experience phase failed for {phase.failures} batches"
+                    if phase.failures else ""
+                )
+            ),
             manage=self._manage,
             system=self._system.name,
             observation_revision=observation.REVISION if evidence_dir else "",
