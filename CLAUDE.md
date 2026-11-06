@@ -15,7 +15,7 @@ has no M, or buries it in the write path.
   index, then the doc covering the area you're touching. *(Keep the index current.)*
 - **[docs/TODO.md](docs/TODO.md)** — tracked follow-ups not yet on the roadmap.
   **Keep this current in real time** (see rule below).
-- **[docs/testing.md](docs/testing.md)** — test conventions and the per-file test map.
+- **[README development instructions](README.md#develop)** and **[tests/](tests/)** — project checks and test coverage.
 - **[docs/experiments.md](docs/experiments.md)** — experiment protocol: what counts as a result,
   what licenses attribution, what every run must leave behind. *(Read before running any experiment.)*
 - **[docs/plans/](docs/plans/)** — roadmap and per-change implementation plans (working
