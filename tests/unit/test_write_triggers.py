@@ -235,6 +235,17 @@ def test_the_launched_executor_resolves_from_the_install_without_path(store, mon
     assert executable.parent == pathlib.Path(sys.executable).parent
 
 
+def test_a_failed_executor_launch_is_written_to_the_hook_log(store, monkeypatch):
+    def fail_launch(*_args, **_kwargs):
+        raise OSError("missing executable")
+
+    monkeypatch.setattr("subprocess.Popen", fail_launch)
+
+    assert not hook_entry.launch_distill(store, "session-x", moments.HOST_CLAUDE_CODE)
+    log = (store.layout.state_dir / hook_entry.LOG_FILENAME).read_text(encoding="utf-8")
+    assert "distill launch failed: missing executable" in log
+
+
 def test_a_hook_fired_inside_the_executor_session_does_nothing(store, monkeypatch, capsys):
     from agent_memory.core.config import EXECUTOR_ENV_VAR
 

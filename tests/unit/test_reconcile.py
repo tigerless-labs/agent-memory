@@ -223,6 +223,12 @@ def test_unparseable_reply_lines_are_reported_by_line_number():
     assert [error.field for error in errors] == ["line 3"]
 
 
+def test_pretty_printed_operations_inside_a_fence_are_parsed():
+    reply = '```json\n{\n  "op": "skip"\n}\n```'
+
+    assert reconcile.parse_operations(reply) == ([{"op": "skip"}], [])
+
+
 def test_a_near_synonym_for_a_verb_is_read_as_the_verb(store):
     sheet = reconcile.build(store, "boundary", _messages(store))
     assert reconcile.check(_spec(op="insert"), sheet) == []

@@ -16,6 +16,7 @@ BARE = (
     re.compile(r"\bgsk_[A-Za-z0-9]{16,}"),
     re.compile(r"\bhf_[A-Za-z0-9]{16,}"),
     re.compile(r"\bxai-[A-Za-z0-9]{16,}"),
+    re.compile(r"\b\d{6,}\.[A-Za-z0-9]{24,}"),
 )
 REDACTED = "[REDACTED]"
 

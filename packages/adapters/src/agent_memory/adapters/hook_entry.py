@@ -202,10 +202,10 @@ def launch_distill(store: Store, session: str, host: str) -> bool:
                 stderr=log,
                 **detached.options(),
             )
-    except OSError:
+    except OSError as exc:
+        _log(store, f"distill launch failed: {exc}")
         return False
     return True
-
 
 
 def _items(event: dict[str, object]) -> list[str]:
