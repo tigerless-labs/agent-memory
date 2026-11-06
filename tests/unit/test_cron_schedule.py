@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import pathlib
 import subprocess
 
@@ -9,6 +10,8 @@ import pytest
 from agent_memory.adapters import cron_schedule
 from agent_memory.core.errors import MemoryStoreError, ValidationError
 from agent_memory.core.store import Store
+
+POSIX_CRON = pytest.mark.skipif(os.name == "nt", reason="cron scheduling is POSIX-only")
 
 
 @pytest.fixture
@@ -116,6 +119,7 @@ def test_percent_is_escaped_for_crontab_before_shell_quoting(tmp_path, cron_harn
     assert r"percent\%store" in payload["command"]
 
 
+@POSIX_CRON
 def test_install_rejects_a_store_path_that_could_inject_a_crontab_line(
     tmp_path, cron_harness
 ):
@@ -170,6 +174,7 @@ def test_default_log_is_store_local(tmp_path, cron_harness):
     assert pathlib.Path(payload["log"]) == store.layout.state_dir / cron_schedule.LOG_FILENAME
 
 
+@POSIX_CRON
 def test_private_env_file_is_sourced_without_exposing_its_contents(tmp_path, cron_harness):
     _state, binary = cron_harness
     store = Store(tmp_path / "store")
@@ -191,6 +196,7 @@ def test_private_env_file_is_sourced_without_exposing_its_contents(tmp_path, cro
     assert "secret.example" not in payload["command"]
 
 
+@POSIX_CRON
 def test_env_file_invocation_exports_values_to_the_exact_due_aware_command(
     tmp_path, cron_harness
 ):

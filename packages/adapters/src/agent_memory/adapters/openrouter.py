@@ -16,6 +16,8 @@ import urllib.request
 
 from agent_memory.core.errors import FieldError, ValidationError
 
+from . import detached
+
 PROVIDER = "openrouter"
 MUSE_PROVIDER = "meta"
 DEFAULT_MODEL = "meta/muse-spark-1.3-contributor"
@@ -151,8 +153,8 @@ def ensure_proxy(
                 stdin=subprocess.DEVNULL,
                 stdout=log,
                 stderr=subprocess.STDOUT,
-                start_new_session=True,
                 text=True,
+                **detached.options(),
             )
         pid_path.write_text(f"{process.pid}\n", encoding="utf-8")
     except OSError as error:
