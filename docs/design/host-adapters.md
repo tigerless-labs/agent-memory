@@ -108,6 +108,8 @@ Benchmark fingerprints include complete episode content, reference answers and e
 
 Benchmark attribution requires each compared arm to contain the same episode IDs exactly once. Shared corpus and retrieval fingerprints cannot license a comparison built from unpaired or duplicated episode results.
 
+Replay releases its memory-system resources in a finally boundary after preparation. Host, grading or isolation exceptions cannot leave a prepared system running after the failed episode.
+
 Replay success includes the experience phase. Failed archival or writing batches cannot be silently counted as a successful scored run even when the later host answer and grader succeed.
 
 Dataset loading rejects unequal session ID, date and transcript array lengths. A malformed benchmark cannot silently discard evidence before replay and still produce an apparently valid episode.
