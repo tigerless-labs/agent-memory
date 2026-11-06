@@ -19,13 +19,15 @@ def render(records: list[MemoryRecord], config: Config, root: str = "") -> str:
     header = config.memory_md.header + "\n\n"
     lines: list[str] = []
     used = len(header.encode("utf-8"))
+    if used > config.memory_md.budget_bytes:
+        return ""
     for record in eligible:
         if len(lines) >= config.memory_md.max_lines:
             break
         line = _line(record, root)
         cost = len(line.encode("utf-8"))
         if used + cost > config.memory_md.budget_bytes:
-            break
+            continue
         lines.append(line)
         used += cost
     return header + "".join(lines)
