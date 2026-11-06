@@ -7,14 +7,14 @@ no calls. The harness owns the directory; standalone library use is silent.
 from __future__ import annotations
 
 import contextvars
-import fcntl
 import hashlib
 import json
 import os
 import pathlib
-import re
 import time
 import uuid
+
+from . import os_lock, redaction
 
 ENV = "AGENT_MEMORY_OBSERVATION_DIR"
 ATTEMPT_ENV = "AGENT_MEMORY_OBSERVATION_ATTEMPT"
@@ -29,13 +29,12 @@ HOST_EVENT_BYTES = 1024 * 1024
 TOOL_EVENT_BYTES = 65536
 LIMIT_MARKER_RESERVE = 128
 _call = contextvars.ContextVar("memory_observation_call", default="")
-_secret = re.compile(r"(?i)(bearer\s+|(?:api[_-]?key|token|password|secret)\s*[=:]\s*)[^\s,\"']+")
 
 
 def bounded(value, text_limit: int = MAX_TEXT):
     """Bound every variable-length field; retain hashes/counts for incomplete evidence."""
     if isinstance(value, str):
-        clean = _secret.sub(r"\1[REDACTED]", value)
+        clean = redaction.redact(value)
         if len(clean) <= text_limit:
             return clean
         return {
@@ -89,16 +88,20 @@ def emit(kind: str, *, directory: str | None = None, channel: str = "tools", **d
             ).encode()
         fd = os.open(path / f"{channel}.jsonl", os.O_CREAT | os.O_APPEND | os.O_WRONLY, FILE_MODE)
         with os.fdopen(fd, "ab") as handle:
-            fcntl.flock(handle, fcntl.LOCK_EX)
-            size = os.fstat(handle.fileno()).st_size
-            if size >= MAX_BYTES or (path / f"{channel}.limited").exists():
-                return
-            if size + len(encoded) > MAX_BYTES - LIMIT_MARKER_RESERVE:
-                handle.write(b'{"kind":"evidence_limit","truncated":true}\n')
-                # A separate marker prevents later small events pretending completeness.
-                (path / f"{channel}.limited").touch(mode=FILE_MODE)
-            else:
-                handle.write(encoded)
+            os_lock.acquire(handle, shared=False, blocking=True)
+            try:
+                size = os.fstat(handle.fileno()).st_size
+                if size >= MAX_BYTES or (path / f"{channel}.limited").exists():
+                    return
+                if size + len(encoded) > MAX_BYTES - LIMIT_MARKER_RESERVE:
+                    handle.write(b'{"kind":"evidence_limit","truncated":true}\n')
+                    # A separate marker prevents later small events pretending completeness.
+                    (path / f"{channel}.limited").touch(mode=FILE_MODE)
+                else:
+                    handle.write(encoded)
+            finally:
+                handle.flush()
+                os_lock.release(handle)
     except (OSError, TypeError, ValueError):
         # Observation failure must not change tool results or ranking.
         return

@@ -82,7 +82,8 @@ def test_claude_code_sees_only_the_toolkit_through_a_strict_mcp_config(tmp_path)
     assert _after(command, "--tools") == ""
     allowed = set(_after(command, "--allowedTools").split(","))
     assert allowed == {f"mcp__{SERVER.name}__{tool}" for tool in TOOLS}
-    assert _after(command, "--system-prompt") == SYSTEM
+    assert _after(command, "--system-prompt-file") == str(tmp_path / "instructions.md")
+    assert SYSTEM not in command
 
 
 def test_claude_code_runs_without_a_turn_cap_and_keeps_its_login(tmp_path):

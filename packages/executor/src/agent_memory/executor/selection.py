@@ -85,7 +85,7 @@ def resolve(
     if (
         operation == WRITE
         and chosen.reasoner == REASONER_ENDPOINT
-        and chosen.tool_mode != TOOL_MODE_AUTO
+        and chosen.tool_mode not in (TOOL_MODE_AUTO, TOOL_MODE_TEXT)
     ):
         raise ReasonerUnavailableError("write tool_mode applies only to host reasoners")
     if chosen.reasoner == REASONER_HOST and not chosen.host.strip():
