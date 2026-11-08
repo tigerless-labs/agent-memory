@@ -3,7 +3,8 @@
 Automatic Dreaming extends the file-first lifecycle rather than adding a Memory service.
 Lifecycle activity supplies opportunities to inspect durable progress. A completed boundary
 distillation may claim due work and start one detached, short-lived worker; an otherwise empty
-boundary or a later SessionStart is also a recovery and elapsed-time opportunity.
+boundary or a later SessionStart is also a recovery and elapsed-time opportunity. The same
+opportunities drain due [Write jobs](write-jobs.md).
 
 A session counts once when captured material exists, its distillation watermark has caught up,
 and no pending or redistill work remains. Hook frequency is not progress. The first Dream uses

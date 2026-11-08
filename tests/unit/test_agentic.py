@@ -227,3 +227,72 @@ def test_distill_through_a_tool_reasoner_writes_and_reports_its_calls(store):
     assert batch_line not in reasoner.instructions.lower()
     assert reasoner.instructions.split("\n", 1)[0] not in reasoner.material
     assert toolkit.TOOL_SUBMIT in reasoner.instructions
+
+
+class RecordingTrace:
+    def __init__(self):
+        self.events: list[tuple[str, tuple[object, ...]]] = []
+
+    def batch(self, *fields):
+        self.events.append(("batch", fields))
+
+    def round(self, *fields):
+        self.events.append(("round", fields))
+
+    def tool_call(self, *fields):
+        self.events.append(("tool_call", fields))
+
+    def operations(self, *fields):
+        self.events.append(("operations", fields))
+
+    def repair(self, *fields):
+        self.events.append(("repair", fields))
+
+
+def test_the_text_protocol_reports_rounds_and_tool_calls_to_the_trace(store):
+    old = _existing(store)
+    messages = _messages(store)
+    sheet = _empty_sheet(store, messages)
+    trace = RecordingTrace()
+    ask = _scripted(_call("recall", query="queue timeout"), _supersede(old.name))
+
+    agentic.negotiate(store, sheet, BRIEF, ask, store.config.write, trace=trace)
+
+    assert [name for name, _ in trace.events] == ["round", "tool_call", "round"]
+    assert trace.events[0][1] == (1,)
+    assert trace.events[1][1][0] == toolkit.TOOL_RECALL
+    assert trace.events[1][1][1] == {"query": "queue timeout"}
+    assert trace.events[2][1] == (2,)
+
+
+def test_a_tool_reasoners_calls_reach_the_trace_as_events(store):
+    old = _existing(store)
+    messages = _messages(store)
+    sheet = _empty_sheet(store, messages)
+    trace = RecordingTrace()
+    reasoner = ScriptedToolReasoner(_look("queue timeout"), _submit(_supersede(old.name)))
+
+    agentic.negotiate(store, sheet, BRIEF, reasoner, store.config.write, trace=trace)
+
+    assert [name for name, _ in trace.events] == ["tool_call", "tool_call"]
+    assert trace.events[0][1][0] == toolkit.TOOL_RECALL
+    assert trace.events[1][1][0] == toolkit.TOOL_SUBMIT
+
+
+def test_distill_reports_batches_operations_and_repairs_to_the_trace(store):
+    old = _existing(store)
+    messages = _messages(store)
+    trace = RecordingTrace()
+
+    distill.distill(store, "boundary", messages, _scripted(_supersede(old.name)), trace=trace)
+
+    kinds = [name for name, _ in trace.events]
+    assert kinds[0] == "batch"
+    pointer, chars, slots = trace.events[0][1]
+    assert pointer.startswith("sessions/boundary#")
+    assert chars > 0
+    assert slots >= 1
+    assert "operations" in kinds
+    applied = trace.events[kinds.index("operations")][1][0]
+    assert applied == ["queue-timeout-30s"]
+    assert "round" in kinds

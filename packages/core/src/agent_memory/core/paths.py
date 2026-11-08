@@ -21,6 +21,8 @@ DREAM_RUN_LOCK_FILENAME = "auto-dream-run.lock"
 MAINTENANCE_LOCK_FILENAME = "maintenance.lock"
 CAPTURE_LOCK_FILENAME = "capture.lock"
 DISTILL_LOCK_DIRNAME = "distill-locks"
+WRITE_JOBS_LOCK_FILENAME = "write-jobs.lock"
+TRACE_DIRNAME = "traces"
 MEMORY_SUFFIX = ".md"
 
 
@@ -88,6 +90,18 @@ class StoreLayout:
     @property
     def distill_locks(self) -> pathlib.Path:
         return self.state_dir / DISTILL_LOCK_DIRNAME
+
+    @property
+    def write_jobs(self) -> pathlib.Path:
+        return self.state_dir / self.config.write.jobs.jobs_dirname
+
+    @property
+    def write_job_lock(self) -> pathlib.Path:
+        return self.state_dir / WRITE_JOBS_LOCK_FILENAME
+
+    @property
+    def write_traces(self) -> pathlib.Path:
+        return self.write_jobs / TRACE_DIRNAME
 
     @property
     def watermarks(self) -> pathlib.Path:

@@ -12,6 +12,7 @@ from agent_memory.adapters import capture as capture_module
 from agent_memory.adapters import detached, hook_entry, moments, setup, transcript
 from agent_memory.core import injection, sessions, triggers
 from agent_memory.core.watermark import Watermark
+from agent_memory.core.write_jobs import STATE_QUEUED, WriteJobs
 
 SEGMENTS = ["user: we moved the deploy to Fridays", "assistant: noted", "user: and E4021 is fixed"]
 
@@ -214,7 +215,11 @@ def test_the_launched_executor_call_is_one_the_cli_accepts(store, monkeypatch):
     assert hook_entry.launch_distill(store, "session-x", moments.HOST_CODEX)
     assert detached.options().items() <= launched["kwargs"].items()
     args = _parser().parse_args(launched["command"][1:])
-    assert args.session == ["session-x"]
+    assert args.session is None
+    job = WriteJobs(store).get(args.job)
+    assert job.state == STATE_QUEUED
+    assert job.session == "session-x"
+    assert job.host == moments.HOST_CODEX
     assert args.source_host == moments.HOST_CODEX
     assert args.reason_host is None
     assert launched["env"][STORE_ENV_VAR] == str(store.root)

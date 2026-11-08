@@ -64,3 +64,58 @@ def test_a_host_binary_is_only_required_when_a_channel_would_run_it(store):
     assert not doctor._host_binary_needed(store)
     store.config.executor.reasoner = "host"
     assert doctor._host_binary_needed(store)
+
+
+def test_an_empty_queue_is_healthy(store):
+    check = doctor._write_jobs_check(store)
+    assert check.ok
+    assert check.code == "WRITE_JOBS_HEALTHY"
+    assert check.required is False
+
+
+def test_dead_failed_and_lease_expired_jobs_are_reported(store):
+    from agent_memory.core import write_jobs
+
+    queue = write_jobs.WriteJobs(store)
+    for number in range(4):
+        queue.enqueue(f"session-{number}", "codex")
+        store.clock.advance(seconds=1)
+    claimed = [queue.claim("worker").job for _ in range(3)]
+    queue.fail(claimed[0], "first failure")
+    queue.fail(claimed[1], "second failure")
+    store.clock.advance(seconds=store.config.write.jobs.lease_seconds + 1)
+
+    check = doctor._write_jobs_check(store)
+
+    assert not check.ok
+    assert check.code == "WRITE_JOBS_DEGRADED"
+    assert "2 failed" in check.detail
+    assert "expired lease" in check.detail
+
+
+def test_a_healthy_queue_reports_only_counts(store):
+    from agent_memory.core import write_jobs
+
+    queue = write_jobs.WriteJobs(store)
+    queue.enqueue("session-0", "codex")
+    queue.claim("worker")
+
+    check = doctor._write_jobs_check(store)
+
+    assert check.ok
+    assert check.code == "WRITE_JOBS_HEALTHY"
+    assert "1 running" in check.detail
+
+
+def test_quarantined_job_files_are_reported_as_degraded(store):
+    from agent_memory.core import write_jobs
+
+    queue = write_jobs.WriteJobs(store)
+    job = queue.enqueue("boundary", "codex")
+    (store.layout.write_jobs / f"{job.id}.json").write_text("{not json", encoding="utf-8")
+
+    check = doctor._write_jobs_check(store)
+
+    assert not check.ok
+    assert check.code == "WRITE_JOBS_DEGRADED"
+    assert "1 quarantined" in check.detail

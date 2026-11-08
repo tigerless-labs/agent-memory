@@ -234,3 +234,81 @@ def test_a_whole_number_is_a_valid_value_for_a_decimal_knob(tmp_path):
         "[manage]\nclaim_lease_seconds = 60\n", encoding="utf-8"
     )
     assert Config.load(tmp_path).manage.claim_lease_seconds == 60
+
+
+def test_write_jobs_knobs_round_trip(tmp_path):
+    config = Config.default()
+    config.write.jobs.lease_seconds = 900
+    config.write.jobs.heartbeat_seconds = 60
+    config.write.jobs.max_attempts = 5
+    config.write.jobs.backoff_jitter = 0.4
+    config.write.jobs.trace_bodies = True
+    config.write.jobs.trace_enabled = False
+    config.write.jobs.jobs_dirname = "elsewhere-jobs"
+    config.save(tmp_path)
+
+    restored = Config.load(tmp_path)
+
+    assert restored.write.jobs.lease_seconds == 900
+    assert restored.write.jobs.heartbeat_seconds == 60
+    assert restored.write.jobs.max_attempts == 5
+    assert restored.write.jobs.backoff_jitter == 0.4
+    assert restored.write.jobs.trace_bodies is True
+    assert restored.write.jobs.trace_enabled is False
+    assert restored.write.jobs.jobs_dirname == "elsewhere-jobs"
+    assert restored.write.jobs.trace_max_bytes == Config.default().write.jobs.trace_max_bytes
+
+
+@pytest.mark.parametrize(
+    "knob, literal",
+    [
+        ("lease_seconds", '"900"'),
+        ("heartbeat_seconds", "true"),
+        ("max_attempts", '"3"'),
+        ("backoff_base_seconds", "[]"),
+        ("backoff_jitter", '"0.25"'),
+        ("trace_enabled", '"true"'),
+        ("trace_bodies", "1"),
+        ("trace_max_bytes", '"4096"'),
+        ("error_max_chars", "2.5"),
+    ],
+)
+def test_a_write_jobs_knob_of_the_wrong_type_is_rejected(tmp_path, knob, literal):
+    (tmp_path / CONFIG_FILENAME).write_text(f"[write.jobs]\n{knob} = {literal}\n", encoding="utf-8")
+    with pytest.raises(ValueError, match=f"write.jobs.{knob}"):
+        Config.load(tmp_path)
+
+
+@pytest.mark.parametrize(
+    "knob, value",
+    [
+        ("lease_seconds", 0),
+        ("heartbeat_seconds", 0),
+        ("max_attempts", 0),
+        ("retention_days", 0),
+        ("trace_max_bytes", 0),
+        ("error_max_chars", 0),
+    ],
+)
+def test_a_non_positive_write_jobs_bound_is_rejected(tmp_path, knob, value):
+    (tmp_path / CONFIG_FILENAME).write_text(f"[write.jobs]\n{knob} = {value}\n", encoding="utf-8")
+    with pytest.raises(ValueError, match=f"write.jobs.{knob}"):
+        Config.load(tmp_path)
+
+
+def test_a_backoff_ceiling_below_its_base_is_rejected(tmp_path):
+    (tmp_path / CONFIG_FILENAME).write_text(
+        "[write.jobs]\nbackoff_base_seconds = 30\nbackoff_max_seconds = 10\n", encoding="utf-8"
+    )
+    with pytest.raises(ValueError, match="backoff_max_seconds"):
+        Config.load(tmp_path)
+
+
+@pytest.mark.parametrize("jitter", [-0.1, 1.0, 2.0])
+def test_a_backoff_jitter_outside_the_unit_interval_is_rejected(tmp_path, jitter):
+    (tmp_path / CONFIG_FILENAME).write_text(
+        f"[write.jobs]\nbackoff_jitter = {jitter}\n", encoding="utf-8"
+    )
+
+    with pytest.raises(ValueError, match="backoff_jitter"):
+        Config.load(tmp_path)

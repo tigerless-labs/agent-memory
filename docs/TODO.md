@@ -28,9 +28,7 @@
 
 ## Executor follow-ups
 
-- Persist a per-run Write trace (messages, tool calls, operations, usage), add explicit cache
-  breakpoints for endpoints that need them, a context provider per job, and a durable job queue
-  in place of the fire-and-forget launch.
+- Add explicit cache breakpoints for endpoints that need them, and a context provider per job.
 - Keep the authenticated Hermes/OpenRouter native Write matrix in the release checks; ordinary CI
   exercises the same process, stdio MCP, Store, provenance, Watermark, and fail-closed path with a
   deterministic Host.

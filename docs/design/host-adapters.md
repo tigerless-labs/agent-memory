@@ -74,8 +74,9 @@ observation locks keep the same shared/exclusive semantics on both; on Windows t
 byte range beyond any real file content, so a held lock never blocks ordinary reads or appends.
 Every entry point exchanges UTF-8 on stdio regardless of the platform code page, so
 non-ASCII memories survive pipes. Every hook is bounded by its configured timeout and exits
-cleanly. Detached distillation and
-Dream workers outlive the hook process and, on Windows, run without a console window so their
+cleanly. Detached distillation runs the Write job the boundary enqueued
+([Write jobs](write-jobs.md)); it and Dream
+workers outlive the hook process and, on Windows, run without a console window so their
 host subprocesses open none either. Cron scheduling remains POSIX-only.
 
 `muse-code` is the canonical Muse Code identity and `muse` is only a setup alias and binary

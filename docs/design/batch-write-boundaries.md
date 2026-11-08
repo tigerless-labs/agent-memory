@@ -12,6 +12,7 @@ Repeated changes to one file preserve its earliest snapshot. Missing predecessor
 retain their existing error category and also abort the batch.
 
 Archived evidence remains append-only, including evidence appended by an aborted
-batch. Recovery covers canonical files and their projections; interrupted processes
-and persistent storage failures require a separate durable recovery design. Projection
+batch. Recovery covers canonical files and their projections; interrupted distillation
+processes are recovered by the [Write jobs](write-jobs.md) queue, and persistent
+storage failures remain out of scope. Projection
 continues to discover changes made outside Store.
