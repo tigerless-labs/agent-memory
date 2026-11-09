@@ -143,6 +143,62 @@ def test_codex_jsonl_usage_is_retained_for_native_review_metrics(tmp_path, monke
     assert result.usage.output_tokens == 12
 
 
+def test_claude_structured_result_supplies_the_answer_and_review_usage(monkeypatch):
+    from agent_memory.executor import hosts
+
+    reported = {
+        "input_tokens": 40,
+        "cache_read_input_tokens": 900,
+        "cache_creation_input_tokens": 300,
+        "output_tokens": 70,
+    }
+    turns = 4
+
+    def run(command, **kwargs):
+        stdout = json.dumps(
+            {
+                "type": "result",
+                "subtype": "success",
+                "is_error": False,
+                "result": "review submitted",
+                "num_turns": turns,
+                "usage": reported,
+            }
+        )
+        return subprocess.CompletedProcess(command, 0, stdout, "")
+
+    monkeypatch.setattr(hosts.subprocess, "run", run)
+    host = hosts.Host(hosts.HostSpec(name="claude-code", binary="claude", attempts=1))
+    server = hosts.ToolServer(name="memory_review", command="python", args=(), tools=("t",))
+    result = host.converse("material", system_prompt="review", server=server)
+
+    assert result.ok and result.usage is not None
+    assert result.text == "review submitted"
+    assert result.usage.turns == turns
+    assert result.usage.input_tokens == (
+        reported["input_tokens"]
+        + reported["cache_read_input_tokens"]
+        + reported["cache_creation_input_tokens"]
+    )
+    assert result.usage.cached_input_tokens == reported["cache_read_input_tokens"]
+    assert result.usage.output_tokens == reported["output_tokens"]
+
+
+def test_claude_plain_output_keeps_its_text_and_reports_no_usage(monkeypatch):
+    from agent_memory.executor import hosts
+
+    def run(command, **kwargs):
+        return subprocess.CompletedProcess(command, 0, "  a plain answer  ", "")
+
+    monkeypatch.setattr(hosts.subprocess, "run", run)
+    host = hosts.Host(hosts.HostSpec(name="claude-code", binary="claude", attempts=1))
+    result = host.run("question")
+
+    assert result.ok
+    assert result.text == "a plain answer"
+    assert result.usage is None
+
+
 def test_codex_jsonl_trace_separates_startup_model_mcp_and_shutdown():
     from agent_memory.executor.hosts import _CodexTrace
 
