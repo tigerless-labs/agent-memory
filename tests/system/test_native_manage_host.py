@@ -10,6 +10,7 @@ from agent_memory.cli.main import main
 from agent_memory.core import sessions
 from agent_memory.core.config import OperationExecutorConfig
 from agent_memory.core.errors import ReasonerUnavailableError, ValidationError
+from agent_memory.core.ledger import LEDGER_FILENAME
 from agent_memory.core.manage import Manage
 from agent_memory.core.manage_toolkit import TOOL_LIST, TOOL_READ, TOOL_SUBMIT
 from agent_memory.core.store import Store
@@ -176,6 +177,90 @@ print(json.dumps({{"kind": "run_terminal", "terminal": "completed", "text": "rev
 """
 
 
+FAKE_CLAUDE = """#!{python}
+import json, os, subprocess, sys, time
+
+argv = sys.argv[1:]
+def after(flag):
+    return argv[argv.index(flag) + 1]
+
+mode = os.environ.get("FAKE_MANAGE_MODE", "reject")
+if mode == "timeout":
+    time.sleep(10)
+if mode == "exit":
+    print("simulated Claude failure", file=sys.stderr)
+    raise SystemExit(3)
+
+configured = json.loads(after("--mcp-config"))["mcpServers"]
+server = next(iter(configured.values()))
+system = open(after("--system-prompt-file"), encoding="utf-8").read()
+prompt = sys.stdin.read()
+child = subprocess.Popen(
+    [server["command"], *server["args"]],
+    stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True,
+)
+request_id = 0
+
+def rpc(method, params=None):
+    global request_id
+    request_id += 1
+    message = {{"jsonrpc": "2.0", "id": request_id, "method": method, "params": params or {{}}}}
+    child.stdin.write(json.dumps(message) + "\\n")
+    child.stdin.flush()
+    return json.loads(child.stdout.readline())
+
+def tool(name, arguments):
+    reply = rpc("tools/call", {{"name": name, "arguments": arguments}})
+    calls.append({{"name": name, "is_error": reply["result"]["isError"],
+                  "text": reply["result"]["content"][0]["text"]}})
+    return reply
+
+def accepted(proposal):
+    verdict = {{"proposal": proposal["id"], "verdict": "accept"}}
+    if proposal["kind"] == "merge":
+        verdict.update(abstract="Merged queue drain note", body="The drain is 20 seconds.")
+    if proposal["kind"] == "abstract-review":
+        verdict["text"] = "Queue drain timeout"
+    return verdict
+
+rpc("initialize")
+listed = [item["name"] for item in rpc("tools/list")["result"]["tools"]]
+calls = []
+menu = json.loads(tool("list_proposals", {{}})["result"]["content"][0]["text"])
+if mode in ("reject", "accept"):
+    first = menu[0]
+    tool("read_evidence", {{"proposal": "not-in-this-run", "name": first["sources"][0]["name"]}})
+    tool("read_evidence", {{"proposal": first["id"], "name": "not-a-target"}})
+    tool("read_evidence", {{
+        "proposal": first["id"], "name": first["sources"][0]["name"],
+        "pointer": "sessions/../secret#0",
+    }})
+    for proposal in menu:
+        for source in proposal["sources"]:
+            tool("read_evidence", {{"proposal": proposal["id"], "name": source["name"]}})
+    foreign = [{{"proposal": "not-in-this-run", "verdict": "reject"}}]
+    tool("submit_verdicts", {{"verdicts": foreign}})
+    if mode == "accept":
+        verdicts = [accepted(proposal) for proposal in menu]
+    else:
+        verdicts = [{{"proposal": proposal["id"], "verdict": "reject"}} for proposal in menu]
+    tool("submit_verdicts", {{"verdicts": verdicts}})
+child.stdin.close()
+child.wait()
+
+with open(os.environ["FAKE_MANAGE_LOG"], "w", encoding="utf-8") as handle:
+    json.dump({{"argv": argv, "prompt": prompt, "system": system, "listed": listed,
+               "configured": list(configured), "calls": calls,
+               "executor": os.environ.get("AGENT_MEMORY_EXECUTOR")}}, handle)
+print(json.dumps({{
+    "type": "result", "subtype": "success", "is_error": False, "result": "review submitted",
+    "num_turns": len(calls) + 1,
+    "usage": {{"input_tokens": 30, "cache_read_input_tokens": 700,
+               "cache_creation_input_tokens": 200, "output_tokens": 50}},
+}}))
+"""
+
+
 def _fake_codex(install, tmp_path):
     return install(tmp_path / "bin" / "codex", FAKE_CODEX.format(python=sys.executable))
 
@@ -183,6 +268,9 @@ def _fake_codex(install, tmp_path):
 def _fake_muse(install, tmp_path):
     return install(tmp_path / "bin" / "muse", FAKE_MUSE.format(python=sys.executable))
 
+
+def _fake_claude(install, tmp_path):
+    return install(tmp_path / "bin" / "claude", FAKE_CLAUDE.format(python=sys.executable))
 
 def _seed(store, *, provenance=False):
     first = store.archive.append_session(
@@ -358,3 +446,116 @@ def test_native_muse_failure_modes_leave_store_unchanged(
 
     assert {record.name: record.to_text() for record in store.records()} == before
     assert not list(store.layout.dream_reports.glob("*.md"))
+
+
+def _claude_manage(store, tmp_path, monkeypatch, python_executable, mode):
+    store.config.executor.manage = OperationExecutorConfig(
+        reasoner="host",
+        host="claude-code",
+        host_model="test-model",
+        tool_mode="native",
+        timeout_seconds=30.0,
+    )
+    store.config.save(store.root)
+    log = tmp_path / "manage-claude.json"
+    binary = _fake_claude(python_executable, tmp_path)
+    monkeypatch.setenv("PATH", str(binary.parent) + os.pathsep + os.environ["PATH"])
+    monkeypatch.setenv("FAKE_MANAGE_LOG", str(log))
+    monkeypatch.setenv("FAKE_MANAGE_MODE", mode)
+    return log
+
+
+@pytest.mark.parametrize("mode", ["reject", "accept"])
+def test_mem_sleep_runs_native_claude_review_through_manage_validation(
+    store, tmp_path, monkeypatch, capsys, python_executable, mode
+):
+    _seed(store, provenance=True)
+    names = ("drain-window-first", "drain-window-second")
+    log = _claude_manage(store, tmp_path, monkeypatch, python_executable, mode)
+
+    assert main(["--json", "--store", str(store.root), "sleep"]) == 0
+    payload = json.loads(capsys.readouterr().out)
+    review = payload["review"]
+    trace = json.loads(log.read_text(encoding="utf-8"))
+    calls = trace["calls"]
+
+    assert review["mode"] == "native"
+    assert review["complete"] is True
+    assert [item["name"] for item in review["tool_trace"]] == [call["name"] for call in calls]
+    assert review["agent_turns"] == len(calls) + 1
+    assert review["input_tokens"] > review["cached_input_tokens"] > 0
+    assert review["output_tokens"] > 0
+    assert set(trace["listed"]) == {TOOL_LIST, TOOL_READ, TOOL_SUBMIT}
+    assert trace["configured"] == ["memory_review"]
+    assert trace["executor"] == "1"
+    argv = trace["argv"]
+    assert "--strict-mcp-config" in argv
+    assert argv[argv.index("--tools") + 1] == ""
+    assert argv[argv.index("--output-format") + 1] == "json"
+    assert set(argv[argv.index("--allowedTools") + 1].split(",")) == {
+        f"mcp__memory_review__{tool}" for tool in (TOOL_LIST, TOOL_READ, TOOL_SUBMIT)
+    }
+    assert argv[argv.index("--model") + 1] == "test-model"
+    assert TOOL_SUBMIT in trace["system"]
+    assert "The staging drain is 20 seconds" not in trace["prompt"]
+
+    assert all(call["name"] == TOOL_READ and call["is_error"] for call in calls[1:4])
+    scoped_reads = [call for call in calls[4:] if call["name"] == TOOL_READ]
+    assert scoped_reads and not any(call["is_error"] for call in scoped_reads)
+    assert review["provenance_reads"] == []
+    submissions = [call for call in calls if call["name"] == TOOL_SUBMIT]
+    assert [call["is_error"] for call in submissions] == [True, False]
+    assert "outside this run" in submissions[0]["text"]
+
+    reopened = Store(store.root, agent="assert")
+    active = {name: reopened.find(name).is_active() for name in names}
+    verdicts = {decision["verdict"] for decision in payload["decisions"]}
+    if mode == "reject":
+        assert verdicts == {"rejected"}
+        assert all(active.values())
+    else:
+        assert verdicts == {"accepted"}
+        assert sorted(active.values()) == [False, True]
+    assert not Manage(reopened).proposals()
+    assert (store.layout.dream_reports / LEDGER_FILENAME).is_file()
+    report = pathlib.Path(payload["path"]).read_text(encoding="utf-8")
+    assert TOOL_SUBMIT in report
+
+
+@pytest.mark.parametrize(
+    ("mode", "error_type", "match"),
+    [
+        ("incomplete", ValidationError, "submitted no complete verdict set"),
+        ("exit", ReasonerUnavailableError, "simulated Claude failure"),
+        ("timeout", ReasonerUnavailableError, "timeout"),
+    ],
+)
+def test_native_claude_failure_modes_leave_store_unchanged(
+    store, tmp_path, monkeypatch, mode, error_type, match, python_executable
+):
+    _seed(store)
+    before = {record.name: record.to_text() for record in store.records(include_invalid=True)}
+    binary = _fake_claude(python_executable, tmp_path)
+    monkeypatch.setenv("FAKE_MANAGE_LOG", str(tmp_path / "failure.json"))
+    monkeypatch.setenv("FAKE_MANAGE_MODE", mode)
+    reasoner = ToolHostReasoner(
+        host=hosts.Host(
+            hosts.HostSpec(
+                name=hosts.HOST_CLAUDE_CODE,
+                binary=str(binary),
+                model="test-model",
+                timeout_seconds=0.5 if mode == "timeout" else 10.0,
+                attempts=1,
+            )
+        )
+    )
+    if mode == "timeout":
+        store.config.executor.manage.timeout_seconds = 0.5
+
+    with pytest.raises(error_type, match=match):
+        Manage(store).sleep(reasoner=reasoner)
+
+    after = {record.name: record.to_text() for record in store.records(include_invalid=True)}
+    assert after == before
+    assert not list(store.layout.dream_reports.glob("*.md"))
+    assert not (store.layout.dream_reports / LEDGER_FILENAME).exists()
