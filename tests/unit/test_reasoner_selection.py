@@ -8,7 +8,7 @@ from agent_memory.core.config import (
     OperationExecutorConfig,
 )
 from agent_memory.core.errors import ReasonerUnavailableError
-from agent_memory.core.reasoning import ToolReasoner
+from agent_memory.core.reasoning import ManageToolReasoner, ToolReasoner
 from agent_memory.executor import distiller, selection
 from agent_memory.executor.reasoners import EndpointTextReasoner
 
@@ -160,10 +160,11 @@ def test_manage_native_mode_is_explicit_and_requires_a_supported_host():
     executor = Config.default().executor
     executor.manage = OperationExecutorConfig(tool_mode=TOOL_MODE_NATIVE)
 
-    with pytest.raises(ReasonerUnavailableError, match="supports only codex, hermes, muse-code"):
-        selection.resolve(executor, selection.MANAGE)
+    default = selection.resolve(executor, selection.MANAGE)
+    assert default.host == "claude-code"
+    assert isinstance(distiller.distiller(default), ManageToolReasoner)
 
-    for host in ("codex", "hermes", "muse-code"):
+    for host in ("claude-code", "codex", "hermes", "muse-code"):
         executor.manage = OperationExecutorConfig(
             reasoner="host", host=host, tool_mode=TOOL_MODE_NATIVE
         )
@@ -179,10 +180,21 @@ def test_manage_native_mode_rejects_endpoint_and_unverified_hosts():
         selection.resolve(executor, selection.MANAGE)
 
     executor.manage = OperationExecutorConfig(
-        reasoner="host", host="claude-code", tool_mode=TOOL_MODE_NATIVE
+        reasoner="host", host="unverified-host", tool_mode=TOOL_MODE_NATIVE
     )
-    with pytest.raises(ReasonerUnavailableError, match="supports only codex, hermes, muse-code"):
+    with pytest.raises(
+        ReasonerUnavailableError, match="supports only claude-code, codex, hermes, muse-code"
+    ):
         selection.resolve(executor, selection.MANAGE)
+
+
+def test_manage_text_mode_keeps_claude_code_off_the_native_reviewer():
+    executor = Config.default().executor
+    executor.manage = OperationExecutorConfig(reasoner="host", host="claude-code")
+
+    configured = selection.resolve(executor, selection.MANAGE)
+    assert configured.tool_mode == TOOL_MODE_TEXT
+    assert not isinstance(distiller.distiller(configured), ManageToolReasoner)
 
 
 def test_hermes_manage_contributor_model_requires_operation_scoped_consent():

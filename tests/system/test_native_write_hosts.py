@@ -181,7 +181,8 @@ def test_a_host_distills_a_batch_through_the_toolkit_adapter(
 
 
 @pytest.mark.parametrize(
-    "name", [hosts.HOST_CODEX, hosts.HOST_HERMES, hosts.HOST_MUSE_CODE]
+    "name",
+    [hosts.HOST_CLAUDE_CODE, hosts.HOST_CODEX, hosts.HOST_HERMES, hosts.HOST_MUSE_CODE],
 )
 def test_a_host_run_without_a_submission_writes_nothing(
     name, store, tmp_path, monkeypatch, python_executable
@@ -241,8 +242,9 @@ def test_muse_auto_native_write_creates_a_new_memory_with_source_provenance(
     assert written.provenance == ["sessions/muse-new#0-0"]
 
 
-def test_muse_native_write_returns_tool_errors_to_the_same_run_then_skips(
-    store, tmp_path, monkeypatch, python_executable
+@pytest.mark.parametrize("name", [hosts.HOST_CLAUDE_CODE, hosts.HOST_MUSE_CODE])
+def test_native_write_returns_tool_errors_to_the_same_run_then_skips(
+    name, store, tmp_path, monkeypatch, python_executable
 ):
     pointer = store.archive.append_session("muse-skip", ["user: Thanks."])
     messages = sessions.resolve(store.layout, pointer)
@@ -263,10 +265,7 @@ def test_muse_native_write_returns_tool_errors_to_the_same_run_then_skips(
         store,
         "muse-skip",
         messages,
-        _reasoner(
-            hosts.HOST_MUSE_CODE,
-            _fake_host(python_executable, tmp_path, hosts.HOST_MUSE_CODE),
-        ),
+        _reasoner(name, _fake_host(python_executable, tmp_path, name)),
     )
 
     assert report.batches[0].written == ()
