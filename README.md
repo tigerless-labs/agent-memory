@@ -238,7 +238,7 @@ tool_mode = "auto" # supported Hosts use native tools; use "text" for compatibil
 
 [executor.manage]
 reasoner = "host"
-host = "muse-code" # native Manage supports "codex", "hermes", and "muse-code"
+host = "muse-code" # native Manage supports "claude-code", "codex", "hermes", and "muse-code"
 tool_mode = "text" # set "native" for the experimental bounded Host reviewer
 timeout_seconds = 120
 
@@ -271,13 +271,14 @@ or gcloud authentication. `tool_mode = "text"` forces the compatibility protocol
 without an accepted submission writes nothing and leaves the backlog for retry.
 
 Manage keeps the text-verdict path by default. An explicit
-`[executor.manage] tool_mode = "native"` selects the experimental Codex, Hermes, or Muse reviewer.
+`[executor.manage] tool_mode = "native"` selects the experimental Claude Code, Codex, Hermes, or
+Muse reviewer.
 It starts one isolated Host process with only `list_proposals`, `read_evidence`, and
 `submit_verdicts`; proposal summaries arrive first and bodies are opened on demand. These tools
 cannot record, correct, supersede, merge, delete, or access arbitrary paths. A complete structured
 submission returns to the existing Manage cap, open-proposal, source-hash, `decide()`, Store,
 Ledger, and Dream Report path. Missing or stale submissions fail the run without a success report
-or transport fallback. Endpoint Manage and Claude Code remain on text mode. Review tool calls,
+or transport fallback. Endpoint Manage remains on text mode. Review tool calls,
 evidence reads, wall time, and Host token/cache totals (when its output supplies them) are
 recorded in the report. For Codex JSONL runs, wall time is also divided into startup (launch to
 the first lifecycle event), MCP call intervals, shutdown (completed turn to exit), and the
