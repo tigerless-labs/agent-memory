@@ -123,6 +123,7 @@ def test_a_trace_field_pointing_outside_the_store_is_not_followed(store, tmp_pat
     job = queue.enqueue("boundary", "codex")
     lure = tmp_path / "lure.jsonl"
     lure.write_text(json.dumps({"event": "run_started", "secret": SECRET}) + "\n", encoding="utf-8")
+    original_lure = lure.read_text(encoding="utf-8")
     payload = json.loads((store.layout.write_jobs / f"{job.id}.json").read_text(encoding="utf-8"))
     payload["trace"] = str(lure)
     (store.layout.write_jobs / f"{job.id}.json").write_text(json.dumps(payload), encoding="utf-8")
@@ -133,3 +134,14 @@ def test_a_trace_field_pointing_outside_the_store_is_not_followed(store, tmp_pat
     shown = json.loads(capsys.readouterr().out)
     assert shown["trace"] == []
     assert SECRET not in json.dumps(shown)
+
+    result = write_run.run_job(
+        store,
+        job.id,
+        lambda _prompt: json.dumps({"op": "skip"}),
+        owner="worker-1",
+    )
+
+    assert result["trace"] == str(queue.trace_path(job.id))
+    assert lure.read_text(encoding="utf-8") == original_lure
+    assert queue.trace_path(job.id).is_file()

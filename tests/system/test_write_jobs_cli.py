@@ -384,7 +384,7 @@ def _drain_worker(root: str, owner: str, output) -> None:
             {
                 "op": "new",
                 "type": "fact",
-                "fields": {"project": owner, "subject": f"race-{number}"},
+                "fields": {"project": owner, "subject": f"{owner}-race-{number}"},
                 "abstract": f"Drain {owner} distilled call {number}",
                 "provenance": ["0"],
             }

@@ -406,7 +406,9 @@ class WriteJobs:
         path = self._job_path(job_id)
         if not path.is_file():
             raise NotFoundError(f"no Write job {job_id}")
-        return _job_from_payload(json.loads(path.read_text(encoding="utf-8")), path)
+        return self._with_trace_path(
+            _job_from_payload(json.loads(path.read_text(encoding="utf-8")), path)
+        )
 
     def _load_all(self) -> JobList:
         folder = self._store.layout.write_jobs
@@ -416,12 +418,19 @@ class WriteJobs:
         found: list[WriteJob] = []
         for path in sorted(folder.glob("*" + JOB_SUFFIX)):
             try:
-                found.append(_job_from_payload(json.loads(path.read_text(encoding="utf-8")), path))
+                found.append(
+                    self._with_trace_path(
+                        _job_from_payload(json.loads(path.read_text(encoding="utf-8")), path)
+                    )
+                )
             except (OSError, json.JSONDecodeError, KeyError, TypeError, ValueError):
                 quarantined = path.with_name(path.name + CORRUPT_SUFFIX)
                 os.replace(path, quarantined)
                 self._quarantined.append(quarantined.name)
         return found
+
+    def _with_trace_path(self, job: WriteJob) -> WriteJob:
+        return dataclasses.replace(job, trace=str(self.trace_path(job.id)))
 
 
 def _expired_trace(path: pathlib.Path, moment: dt.datetime, retention_days: float) -> bool:
