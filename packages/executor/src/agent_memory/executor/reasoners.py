@@ -190,6 +190,7 @@ class EndpointReasoner:
     credentials: VertexCredentials = dataclasses.field(default_factory=VertexCredentials)
     base_url: str = EMPTY
     attempts: int = DEFAULT_ENDPOINT_ATTEMPTS
+    last_usage: dict[str, object] | None = None
 
     def __call__(self, prompt: str) -> str:
         failure: Exception | None = None
@@ -198,6 +199,9 @@ class EndpointReasoner:
                 payload = self._post(
                     {"model": self.model, "messages": [_message(ROLE_USER, prompt)]}
                 )
+                seen = _usage_of(payload)
+                if seen is not None:
+                    self.last_usage = seen
                 message = _first_message(payload)
                 if message.strip():
                     return message
@@ -251,6 +255,9 @@ class EndpointReasoner:
                 failure = error
                 self._pause(attempt)
                 continue
+            seen = _usage_of(payload)
+            if seen is not None:
+                self.last_usage = seen
             return _assistant(payload)
         raise failure if failure else ReasonerUnavailableError("endpoint returned no valid message")
 
@@ -310,6 +317,10 @@ class EndpointTextReasoner:
 
     inner: EndpointReasoner
 
+    @property
+    def last_usage(self) -> dict[str, object] | None:
+        return self.inner.last_usage
+
     def __call__(self, prompt: str) -> str:
         return self.inner(prompt)
 
@@ -356,3 +367,8 @@ def _first_message(payload: object) -> str:
     message = choices[0].get("message") if isinstance(choices[0], dict) else None
     content = message.get("content") if isinstance(message, dict) else None
     return content if isinstance(content, str) else EMPTY
+
+
+def _usage_of(payload: object) -> dict[str, object] | None:
+    usage = payload.get("usage") if isinstance(payload, dict) else None
+    return usage if isinstance(usage, dict) else None

@@ -125,6 +125,22 @@ class ManageConfig:
 
 
 @dataclasses.dataclass
+class WriteJobsConfig:
+    jobs_dirname: str = "write-jobs"
+    lease_seconds: float = 1800.0
+    heartbeat_seconds: float = 300.0
+    max_attempts: int = 3
+    backoff_base_seconds: float = 30.0
+    backoff_max_seconds: float = 3600.0
+    backoff_jitter: float = 0.25
+    retention_days: float = 14.0
+    trace_enabled: bool = True
+    trace_bodies: bool = False
+    trace_max_bytes: int = 262144
+    error_max_chars: int = 1000
+
+
+@dataclasses.dataclass
 class WriteConfig:
     watermark_dirname: str = "watermarks"
     session_archive_enabled: bool = True
@@ -144,6 +160,7 @@ class WriteConfig:
     event_lane: bool = True
     max_rounds: int = 3
     tool_result_chars: int = 4000
+    jobs: WriteJobsConfig = dataclasses.field(default_factory=WriteJobsConfig)
 
 
 @dataclasses.dataclass
@@ -224,6 +241,30 @@ class Config:
             )
         if not isinstance(self.manage.review_raw_session_evidence, bool):
             raise ValueError("manage.review_raw_session_evidence must be a boolean")
+        self._validate_write_jobs()
+
+    def _validate_write_jobs(self) -> None:
+        jobs = self.write.jobs
+        bounds = (
+            ("lease_seconds", jobs.lease_seconds),
+            ("heartbeat_seconds", jobs.heartbeat_seconds),
+            ("retention_days", jobs.retention_days),
+            ("trace_max_bytes", jobs.trace_max_bytes),
+            ("error_max_chars", jobs.error_max_chars),
+        )
+        for knob, value in bounds:
+            if value <= 0:
+                raise ValueError(f"write.jobs.{knob} must be positive")
+        if jobs.max_attempts < 1:
+            raise ValueError("write.jobs.max_attempts must allow at least one attempt")
+        if jobs.backoff_base_seconds < 0:
+            raise ValueError("write.jobs.backoff_base_seconds must not be negative")
+        if jobs.backoff_max_seconds < jobs.backoff_base_seconds:
+            raise ValueError("write.jobs.backoff_max_seconds must not sit below its base")
+        if not 0 <= jobs.backoff_jitter < 1:
+            raise ValueError("write.jobs.backoff_jitter must sit in the interval [0, 1)")
+        if not jobs.jobs_dirname.strip():
+            raise ValueError("write.jobs.jobs_dirname must be a non-empty string")
 
     def save(self, store_root: pathlib.Path) -> pathlib.Path:
         path = pathlib.Path(store_root) / CONFIG_FILENAME

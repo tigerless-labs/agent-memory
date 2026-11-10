@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import dataclasses
 import json
+import os
 import pathlib
 import sys
 from collections.abc import Sequence
@@ -21,6 +22,9 @@ from agent_memory.core import (
     sessions,
     stdio,
     triggers,
+    write_jobs,
+    write_run,
+    write_trace,
 )
 from agent_memory.core import migrate as migrate_module
 from agent_memory.core.config import REASONER_ENDPOINT, REASONER_HOST, ExecutorConfig
@@ -199,7 +203,49 @@ def _parser() -> argparse.ArgumentParser:
     still.add_argument("--reason-host", default=None)
     still.add_argument("--reason-model", default="")
     still.add_argument("--auto-dream", action="store_true", help=argparse.SUPPRESS)
+    job_mode = still.add_mutually_exclusive_group()
+    job_mode.add_argument(
+        "--job",
+        default=None,
+        help="run one queued Write job to completion instead of a session backlog",
+    )
+    job_mode.add_argument(
+        "--drain",
+        action="store_true",
+        help="claim and run due Write jobs until the queue is empty",
+    )
+    still.add_argument(
+        "--max",
+        type=int,
+        default=None,
+        help="with --drain: stop after this many jobs",
+    )
     still.set_defaults(handler=_distill)
+
+    jobs = subcommand("jobs", help="inspect and administer the Write job queue")
+    jobs_actions = jobs.add_subparsers(dest="jobs_action", required=True)
+    jobs_lister = jobs_actions.add_parser("list", help="list jobs, oldest request first")
+    _global_options(jobs_lister)
+    jobs_lister.add_argument(
+        "--state", action="append", default=None, help="repeat to restrict the listing"
+    )
+    jobs_show = jobs_actions.add_parser("show", help="show one job")
+    _global_options(jobs_show)
+    jobs_show.add_argument("id")
+    jobs_show.add_argument(
+        "--trace", action="store_true", help="print the job's run trace, bounded and redacted"
+    )
+    jobs_retry = jobs_actions.add_parser(
+        "retry", help="return a dead, failed or cancelled job to the queue"
+    )
+    _global_options(jobs_retry)
+    jobs_retry.add_argument("id")
+    jobs_cancel = jobs_actions.add_parser("cancel", help="stop a queued or running job")
+    _global_options(jobs_cancel)
+    jobs_cancel.add_argument("id")
+    jobs_gc = jobs_actions.add_parser("gc", help="drop terminal jobs and expired traces")
+    _global_options(jobs_gc)
+    jobs.set_defaults(handler=_jobs)
 
     dreamer = subcommand("dream-worker", help=argparse.SUPPRESS)
     dreamer.add_argument("--claim", required=True)
@@ -403,9 +449,7 @@ def _record_batch(store: Store, source: str) -> dict[str, object]:
 
 
 def _recall(store: Store, args: argparse.Namespace) -> dict[str, object]:
-    hits = Recall(store).recall(
-        args.query, scope=args.scope, as_of=args.as_of, limit=args.limit
-    )
+    hits = Recall(store).recall(args.query, scope=args.scope, as_of=args.as_of, limit=args.limit)
     return {
         "query": args.query,
         "recall_fingerprint": store.config.recall_fingerprint(),
@@ -458,8 +502,11 @@ def _correct(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 def _supersede(store: Store, args: argparse.Namespace) -> dict[str, object]:
     replaced = store.supersede(args.old, args.new)
-    return {"name": replaced.name, "superseded_by": replaced.superseded_by,
-            "invalid_at": replaced.invalid_at}
+    return {
+        "name": replaced.name,
+        "superseded_by": replaced.superseded_by,
+        "invalid_at": replaced.invalid_at,
+    }
 
 
 def _merge(store: Store, args: argparse.Namespace) -> dict[str, object]:
@@ -468,6 +515,10 @@ def _merge(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 
 def _distill(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    if args.job:
+        return _distill_job(store, args)
+    if args.drain:
+        return _distill_drain(store, args)
     watermark = Watermark(store.layout, store.clock)
     named = list(args.session or [])
     candidates = named or sorted(set(watermark.sessions()) | set(_archived_sessions(store)))
@@ -502,26 +553,92 @@ def _distill(store: Store, args: argparse.Namespace) -> dict[str, object]:
             reports.append({"reason": reason, **report.as_dict()})
     payload: dict[str, object] = {"distilled": reports}
     if args.auto_dream:
-        from agent_memory.adapters import auto_dream
-
-        scheduled = auto_dream.launch(store, trigger_source="hook")
-        payload["auto_dream"] = {
-            "launched": scheduled.claim is not None,
-            "due": scheduled.due,
-            "trigger_source": "hook",
-            "reason": scheduled.reason,
-            "sessions_since": scheduled.sessions_since,
-            **(
-                {
-                    "claim": scheduled.claim.id,
-                    "reasoner": scheduled.claim.reasoner,
-                    "host": scheduled.claim.host,
-                }
-                if scheduled.claim
-                else {}
-            ),
-        }
+        payload["auto_dream"] = _auto_dream_payload(store)
     return payload
+
+
+def _distill_job(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    executor = _executor(store, args, selection.WRITE, source_host=args.source_host)
+    payload = write_run.run_job(
+        store,
+        args.job,
+        distiller.distiller(executor),
+        owner=_owner(args.source_host),
+        transport=_transport(executor),
+    )
+    if args.auto_dream:
+        payload["auto_dream"] = _auto_dream_payload(store)
+    return payload
+
+
+def _distill_drain(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    executor = _executor(store, args, selection.WRITE, source_host=args.source_host)
+    payload: dict[str, object] = {
+        "drained": write_run.drain(
+            store,
+            distiller.distiller(executor),
+            owner=_owner(args.source_host),
+            transport=_transport(executor),
+            limit=args.max,
+        )
+    }
+    if args.auto_dream:
+        payload["auto_dream"] = _auto_dream_payload(store)
+    return payload
+
+
+def _auto_dream_payload(store: Store) -> dict[str, object]:
+    from agent_memory.adapters import auto_dream
+
+    scheduled = auto_dream.launch(store, trigger_source="hook")
+    return {
+        "launched": scheduled.claim is not None,
+        "due": scheduled.due,
+        "trigger_source": "hook",
+        "reason": scheduled.reason,
+        "sessions_since": scheduled.sessions_since,
+        **(
+            {
+                "claim": scheduled.claim.id,
+                "reasoner": scheduled.claim.reasoner,
+                "host": scheduled.claim.host,
+            }
+            if scheduled.claim
+            else {}
+        ),
+    }
+
+
+def _jobs(store: Store, args: argparse.Namespace) -> dict[str, object]:
+    queue = write_jobs.WriteJobs(store)
+    if args.jobs_action == "list":
+        return {"jobs": [job.as_dict() for job in queue.list(args.state)]}
+    if args.jobs_action == "show":
+        job = queue.get(args.id)
+        if not args.trace:
+            return job.as_dict()
+        return {
+            "job": job.as_dict(),
+            "trace": write_trace.read(queue.trace_path(job.id), store.config.write.jobs),
+        }
+    if args.jobs_action == "retry":
+        return queue.retry(args.id).as_dict()
+    if args.jobs_action == "cancel":
+        return queue.cancel(args.id).as_dict()
+    collected = queue.gc()
+    return {"jobs": collected["jobs"], "traces": collected["traces"]}
+
+
+def _owner(source_host: str) -> str:
+    return f"{os.getpid()}@{source_host or 'cli'}"
+
+
+def _transport(executor: ExecutorConfig) -> str:
+    if executor.reasoner == REASONER_HOST:
+        return f"{REASONER_HOST}/{executor.host}"
+    if executor.reasoner == REASONER_ENDPOINT:
+        return f"{REASONER_ENDPOINT}/{executor.model}"
+    return executor.reasoner
 
 
 def _dream_worker(store: Store, args: argparse.Namespace) -> dict[str, object]:

@@ -507,6 +507,30 @@ mem decide <id> --accept
 Manage borrows its reasoning from the host CLI you point it at, writes a dream report for the
 pass, and cannot delete anything unattended.
 
+## Write jobs
+
+A boundary distillation is a durable job, not a fire-and-forget process: the hook enqueues the
+job, then spawns a worker that runs exactly it, and a crash is recovered from the queue by the
+next lifecycle event.
+
+```bash
+mem jobs list                # queued, running, failed, dead jobs
+mem jobs show <id>           # one job with its lease, attempts and trace path
+mem jobs show <id> --trace   # that run's trace, bounded and redacted
+mem jobs retry <id>          # return a dead, failed or cancelled job to the queue
+mem jobs cancel <id>
+mem jobs gc                  # drop terminal jobs and expired traces
+mem distill --drain          # claim and run every due job
+```
+
+Each run appends a JSONL trace under the job's state directory: transport, batches, rounds,
+tool-call digests, applied and rejected operations, repair rounds, usage, and finish counts.
+Strings are redacted; bodies are recorded as digests unless `write.jobs.trace_bodies` is
+enabled. Knobs live under `[write.jobs]` in `config.toml`: `jobs_dirname`, `lease_seconds`,
+`heartbeat_seconds`, `max_attempts`, `backoff_base_seconds`, `backoff_max_seconds`,
+`backoff_jitter`, `retention_days`, `trace_enabled`, `trace_bodies`, `trace_max_bytes`, and
+`error_max_chars`.
+
 ## Develop
 
 ```bash

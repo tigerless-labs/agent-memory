@@ -18,6 +18,7 @@ from .config import WriteConfig
 from .errors import FieldError
 from .reasoning import ToolReasoner
 from .store import Store
+from .write_trace import WriteTrace
 
 TOOL_RECALL = toolkit.TOOL_RECALL
 TOOL_READ = toolkit.TOOL_READ
@@ -42,12 +43,21 @@ class Outcome:
 
 
 def negotiate(
-    store: Store, sheet: reconcile.Sheet, brief: prompts.Brief, ask, config: WriteConfig
+    store: Store,
+    sheet: reconcile.Sheet,
+    brief: prompts.Brief,
+    ask,
+    config: WriteConfig,
+    trace: WriteTrace | None = None,
 ) -> Outcome:
     kit = toolkit.WriteToolkit(store, sheet)
     if isinstance(ask, ToolReasoner):
-        return _converse(kit, brief, ask)
-    return _text_protocol(kit, brief.text_protocol(), ask, config)
+        outcome = _converse(kit, brief, ask)
+        if trace is not None:
+            for call in kit.calls:
+                trace.tool_call(call.name, call.arguments)
+        return outcome
+    return _text_protocol(kit, brief.text_protocol(), ask, config, trace)
 
 
 def _converse(kit: toolkit.WriteToolkit, brief: prompts.Brief, ask: ToolReasoner) -> Outcome:
@@ -60,7 +70,13 @@ def _converse(kit: toolkit.WriteToolkit, brief: prompts.Brief, ask: ToolReasoner
     return Outcome(list(kit.submission or []), errors, kit.sheet, len(kit.calls), kit.transcript())
 
 
-def _text_protocol(kit: toolkit.WriteToolkit, opening: str, ask, config: WriteConfig) -> Outcome:
+def _text_protocol(
+    kit: toolkit.WriteToolkit,
+    opening: str,
+    ask,
+    config: WriteConfig,
+    trace: WriteTrace | None = None,
+) -> Outcome:
     transcript: list[str] = []
     budget = config.max_rounds
     extended = 0
@@ -68,6 +84,8 @@ def _text_protocol(kit: toolkit.WriteToolkit, opening: str, ask, config: WriteCo
     rounds = 0
     while rounds < budget:
         rounds += 1
+        if trace is not None:
+            trace.round(rounds)
         last = rounds >= budget
         prompt = _render(opening, transcript, last)
         reply = ask(prompt)
@@ -82,6 +100,12 @@ def _text_protocol(kit: toolkit.WriteToolkit, opening: str, ask, config: WriteCo
             if not specs and not errors:
                 errors = [FieldError("response", "executor returned no final operations")]
             return Outcome(specs, errors, kit.sheet, rounds, "\n\n".join(transcript))
+        if trace is not None:
+            for call in calls:
+                trace.tool_call(
+                    str(call.get(KEY_TOOL) or ""),
+                    {key: value for key, value in call.items() if key != KEY_TOOL},
+                )
         observations = [_look(kit, call, config) for call in calls]
         transcript.append(prompts.tool_round(reply, "\n\n".join(observations)))
         if last and extended < EXTENSION_ROUNDS:

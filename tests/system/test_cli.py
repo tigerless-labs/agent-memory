@@ -634,9 +634,10 @@ def test_global_flags_work_in_mixed_positions(tmp_path, capsys):
     assert json.loads(capsys.readouterr().out)["store"] == str(root)
 
 
-def test_global_flags_are_accepted_after_a_nested_subcommand():
+@pytest.mark.parametrize("subcommands", [("cron", "status"), ("jobs", "list")])
+def test_global_flags_are_accepted_after_a_nested_subcommand(subcommands):
     args = _parser().parse_args(
-        ["cron", "status", "--store", "/tmp/store", "--json", "--agent", "nested-flags"]
+        [*subcommands, "--store", "/tmp/store", "--json", "--agent", "nested-flags"]
     )
 
     assert args.store == "/tmp/store"
