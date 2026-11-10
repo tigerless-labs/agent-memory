@@ -48,7 +48,18 @@
   protocol (evidence: experiments/runs/native-tools-latency).
 - Haiku 4.5 sometimes closes a batch with nothing worth keeping in plain text instead of
   submitting a Skip; the batch fails closed and succeeds on a later run (observed twice in three
-  Windows runs, 2026-10-22). Decide whether a no-submission answer should count as Skip.
+  Windows runs, 2026-10-22; one Linux run submitted Skip, 2026-11-09). Decide whether a
+  no-submission answer should count as Skip; until then it stays a failure.
+- Keep the authenticated Claude Code native matrix in the release checks:
+  `AGENT_MEMORY_LIVE_CLAUDE_NATIVE=1 uv run pytest -q tests/system/test_live_claude_native_write.py
+  tests/system/test_live_claude_native_manage.py` (model override:
+  `AGENT_MEMORY_LIVE_CLAUDE_MODEL`).
+- Claude executor runs (Write and Manage) still load Claude's settings sources and instruction
+  files and persist a session transcript. Decide whether `--setting-sources` and
+  `--no-session-persistence` can tighten that without losing OAuth.
+- A supersede that omits key fields derives the successor's project and subject afresh instead of
+  inheriting the predecessor's (observed live with Claude Haiku 4.5, 2026-11-09: project aurora
+  became default). Decide whether supersede inherits identity fields.
 - Verify the Codex lifecycle hooks end to end, including the one-time hook trust review; the
   Codex Write executor is verified live, the hooks by unit tests only.
 

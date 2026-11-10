@@ -7,19 +7,25 @@ Memory, Recall, and Manage stay host-neutral.
 
 For Write negotiation, Claude Code, Codex, Hermes, and Muse run tools-only: the only tools are the Write
 toolkit's, served by the per-batch MCP adapter ([Write negotiation](write-negotiation.md)); the
-host's built-in tools, user configuration, rules and native memory are off. Claude and Codex
+host's built-in tools, user MCP servers and native memory are off. Claude and Codex
 replace their system instructions; Hermes and Muse put the same ordered material in one prompt file.
-Claude's bare mode stays unused because it drops OAuth and would break zero-key install.
+Claude's bare mode stays unused because it drops OAuth and would break zero-key install, so Claude
+still loads its settings sources and instruction files as context.
 
 Manage native review reuses the same one-process Host transport, not the Write toolkit or a
-library-side ReAct loop. It is opt-in under `[executor.manage]` for `codex` and `muse-code` and
-exposes one separately named per-run MCP server with only proposal listing, proposal-scoped
-evidence reads, and structured verdict submission. Codex runs ephemeral with user config, rules,
-built-in tools, personal memory, and filesystem writes disabled. Muse reuses its isolated
+library-side ReAct loop. It is opt-in under `[executor.manage]` for `claude-code`, `codex`,
+`hermes` and `muse-code` and exposes one separately named per-run MCP server with only proposal
+listing, proposal-scoped evidence reads, and structured verdict submission. Claude runs the posture
+of its native Write: strict MCP, no built-in tools, an allow-list of the three review tools, and a
+structured result that supplies turn and token totals. Codex runs ephemeral with user config,
+rules, built-in tools, personal memory, and filesystem writes disabled. Muse reuses its isolated
 HOME/XDG profile, staged authentication and routing, exact `run.toolset` selection, eight-step
-bound, disabled shell/web/write capabilities, and scoped OpenRouter namespace bridge. Neither
-Host receives a Store mutation tool. The MCP adapter persists the tool trace across the process
-boundary; it never applies a verdict. Manage rechecks source versions, proposal membership,
+bound, disabled shell/web/write capabilities, and scoped OpenRouter namespace bridge. No Host
+receives a Store mutation tool. Claude Code 2.1.319 with Haiku 4.5 passed the authenticated
+native Write cases (New, Recall → Read → Supersede, Skip, tool-error recovery, refused submission,
+Host timeout) and Manage cases (accepted supersede, rejected cross-service merge, refused foreign
+ids, no submission) on 2026-11-09 (evidence: experiments/runs/claude-native-parity). The MCP
+adapter persists the tool trace across the process boundary; it never applies a verdict. Manage rechecks source versions, proposal membership,
 per-kind caps, and Store rules before the existing decision path writes anything. Endpoint and
 other Host Manage reasoners retain the text protocol.
 

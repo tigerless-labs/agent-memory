@@ -5,7 +5,7 @@ import json
 import tomllib
 
 import pytest
-from agent_memory.core import toolkit
+from agent_memory.core import manage_toolkit, toolkit
 from agent_memory.executor import hosts
 
 TOOLS = (toolkit.TOOL_RECALL, toolkit.TOOL_READ, toolkit.TOOL_SUBMIT)
@@ -84,6 +84,33 @@ def test_claude_code_sees_only_the_toolkit_through_a_strict_mcp_config(tmp_path)
     assert allowed == {f"mcp__{SERVER.name}__{tool}" for tool in TOOLS}
     assert _after(command, "--system-prompt-file") == str(tmp_path / "instructions.md")
     assert SYSTEM not in command
+
+
+def test_claude_code_tool_runs_return_a_structured_result(tmp_path):
+    command = _command(hosts.HOST_CLAUDE_CODE, tmp_path)
+    assert _after(command, "--output-format") == "json"
+
+
+def test_claude_code_review_server_allows_only_the_three_review_tools(tmp_path):
+    review = dataclasses.replace(
+        SERVER,
+        name="memory_review",
+        tools=(manage_toolkit.TOOL_LIST, manage_toolkit.TOOL_READ, manage_toolkit.TOOL_SUBMIT),
+    )
+    command = hosts.DIALECTS[hosts.HOST_CLAUDE_CODE].tool_command(
+        _spec(hosts.HOST_CLAUDE_CODE),
+        system_prompt=SYSTEM,
+        instructions_file=tmp_path / "instructions.md",
+        server=review,
+        answer_file=tmp_path / "answer.txt",
+    )
+    assert set(json.loads(_after(command, "--mcp-config"))["mcpServers"]) == {"memory_review"}
+    assert set(_after(command, "--allowedTools").split(",")) == {
+        f"mcp__memory_review__{tool}" for tool in manage_toolkit.TOOLS
+    }
+    assert "--strict-mcp-config" in command
+    assert _after(command, "--tools") == ""
+    assert hosts.DIALECTS[hosts.HOST_CLAUDE_CODE].disables_native_memory(" ".join(command))
 
 
 def test_claude_code_runs_without_a_turn_cap_and_keeps_its_login(tmp_path):
