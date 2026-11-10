@@ -28,6 +28,7 @@ from agent_memory.core.config import (
     STORE_ENV_VAR,
 )
 from agent_memory.core.store import Store
+from agent_memory.core.write_jobs import WriteJobs
 
 from . import capture as capture_module
 from . import detached, moments, muse_session, transcript
@@ -48,7 +49,6 @@ CLAUDE_EVENT_OUTPUT_KEY = "hookEventName"
 KEY_DISTILL = "distill"
 DISTILL_LAUNCHED = "launched"
 DISTILL_SKIPPED = "skipped"
-SESSION_FLAG = "--session"
 SOURCE_HOST_FLAG = "--source-host"
 HOST_FLAG = "--host"
 STORE_FLAG = "--store"
@@ -56,10 +56,13 @@ MUSE_DATA_HOME_FLAG = "--muse-data-home"
 MUSE_SETTINGS_FLAG = "--muse-settings"
 EXECUTOR_BINARY = "mem"
 AUTO_DREAM_FLAG = "--auto-dream"
+JOB_FLAG = "--job"
 PRINTED_KEYS = (CLAUDE_OUTPUT_KEY, CLAUDE_CONTEXT_KEY)
+TRIGGER_SOURCE_HOOK = "hook"
 
 Launcher = Callable[[Store, str, str], bool]
 DreamLauncher = Callable[[Store, str], object]
+DrainLauncher = Callable[[Store], object]
 
 
 class _Timeout(Exception):
@@ -106,6 +109,7 @@ def handle(
     event: dict[str, object],
     launch: Launcher | None = None,
     dream_launch: DreamLauncher | None = None,
+    drain_launch: DrainLauncher | None = None,
 ) -> dict[str, object]:
     host = str(event.get(KEY_HOST) or moments.HOST_CLAUDE_CODE)
     raw_event = str(event.get(KEY_EVENT_CLAUDE) or event.get(KEY_EVENT_GENERIC) or "")
@@ -113,6 +117,7 @@ def handle(
     if moment == moments.MOMENT_INJECT:
         response = _inject(store, host)
         (dream_launch or _launch_dream)(store, host)
+        _offer_drain(store, drain_launch)
         return response
     if moment in (moments.MOMENT_PAUSE, moments.MOMENT_EVICT):
         return _boundary(
@@ -122,8 +127,15 @@ def handle(
             moment,
             launch or launch_distill,
             dream_launch or _launch_dream,
+            drain_launch,
         )
     return {}
+
+
+def _offer_drain(store: Store, drain_launch: DrainLauncher | None) -> None:
+    if WriteJobs(store).due_count() == 0:
+        return
+    (drain_launch or _launch_drain)(store)
 
 
 def _inject(store: Store, host: str) -> dict[str, object]:
@@ -154,6 +166,7 @@ def _boundary(
     moment: str,
     launch: Launcher,
     dream_launch: DreamLauncher,
+    drain_launch: DrainLauncher | None,
 ) -> dict[str, object]:
     session = str(event.get(KEY_SESSION) or "")
     if not session:
@@ -162,6 +175,7 @@ def _boundary(
     result = capture_module.capture(store, session, items, source=moment)
     if result.is_empty():
         dream_launch(store, host)
+        _offer_drain(store, drain_launch)
         return {}
     launched = store.config.write.distill_on_boundary and launch(store, session, host)
     return {
@@ -180,11 +194,24 @@ def _launch_dream(store: Store, _host: str) -> object:
     return auto_dream.launch(store, trigger_source="hook")
 
 
+def _launch_drain(store: Store) -> object:
+    from . import write_drain
+
+    return write_drain.launch(store)
+
+
 def launch_distill(store: Store, session: str, host: str) -> bool:
     """The executor runs in its own process so the host's turn ends without waiting on it.
 
-    It reasons through the host that fired the boundary, and it is marked as the executor so
-    the hooks of its own host session do not start another distillation."""
+    The request is first recorded as a Write job the queue can resume; the spawned worker
+    runs exactly that job. It reasons through the host that fired the boundary, and it is
+    marked as the executor so the hooks of its own host session do not start another
+    distillation."""
+    try:
+        job = WriteJobs(store).enqueue(session, host, trigger_source=TRIGGER_SOURCE_HOOK)
+    except OSError as exc:
+        _log(store, f"distill enqueue failed: {exc}")
+        return False
     command = shlex.split(store.config.executor.command)
     if not command:
         return False
@@ -195,7 +222,7 @@ def launch_distill(store: Store, session: str, host: str) -> bool:
         store.layout.state_dir.mkdir(parents=True, exist_ok=True)
         with (store.layout.state_dir / LOG_FILENAME).open("a", encoding="utf-8") as log:
             subprocess.Popen(
-                [*command, SESSION_FLAG, session, SOURCE_HOST_FLAG, host, AUTO_DREAM_FLAG],
+                [*command, JOB_FLAG, job.id, SOURCE_HOST_FLAG, host, AUTO_DREAM_FLAG],
                 env=environment,
                 stdin=subprocess.DEVNULL,
                 stdout=log,
@@ -220,11 +247,7 @@ def _items(event: dict[str, object]) -> list[str]:
             str(event.get(KEY_SESSION) or ""),
             data_home=pathlib.Path(str(data_home)) if data_home else None,
         )
-    found = (
-        transcript.items(pathlib.Path(str(path)), host=host)
-        if path
-        else []
-    )
+    found = transcript.items(pathlib.Path(str(path)), host=host) if path else []
     if host == moments.HOST_MUSE_CODE and found:
         final = str(event.get("last_assistant_message") or "").strip()
         rendered = f"assistant: {final}" if final else ""

@@ -11,7 +11,7 @@ import subprocess
 import tempfile
 import tomllib
 
-from agent_memory.core import prompts
+from agent_memory.core import prompts, timestamp, write_jobs
 from agent_memory.core.store import Store
 
 from . import moments, openrouter, setup
@@ -86,6 +86,7 @@ def run(
             )
         )
     checks.extend(_store_checks(store))
+    checks.append(_write_jobs_check(store))
     configured = _settings(target, checks)
     if configured is not None:
         checks.extend(_hook_checks(configured, host, store.root, target))
@@ -156,10 +157,42 @@ def _store_checks(store: Store) -> list[Check]:
             writable = True
         except OSError as error:
             detail = f"{store.root}: {error}"
-    checks.append(
-        Check("STORE_WRITABLE" if writable else "STORE_NOT_WRITABLE", writable, detail)
-    )
+    checks.append(Check("STORE_WRITABLE" if writable else "STORE_NOT_WRITABLE", writable, detail))
     return checks
+
+
+def _write_jobs_check(store: Store) -> Check:
+    """A stuck or dying Write queue is an operational warning, not a setup refusal."""
+    queue = write_jobs.WriteJobs(store)
+    now = store.clock.now()
+    queued = running = stuck = dead = failed = 0
+    for job in queue.list():
+        if job.state == write_jobs.STATE_QUEUED:
+            queued += 1
+        elif job.state == write_jobs.STATE_RUNNING:
+            running += 1
+            stuck += 1 if _lease_expired(job, now) else 0
+        elif job.state == write_jobs.STATE_DEAD:
+            dead += 1
+        elif job.state == write_jobs.STATE_FAILED:
+            failed += 1
+    quarantined = len(queue.quarantined())
+    if dead or failed or stuck or quarantined:
+        return Check(
+            "WRITE_JOBS_DEGRADED",
+            False,
+            f"{dead} dead, {failed} failed, {stuck} with an expired lease, "
+            f"{quarantined} quarantined",
+            required=False,
+        )
+    return Check("WRITE_JOBS_HEALTHY", True, f"{queued} queued, {running} running", required=False)
+
+
+def _lease_expired(job, now) -> bool:
+    try:
+        return timestamp.parse(job.lease_until) < now if job.lease_until else True
+    except ValueError:
+        return True
 
 
 def _settings(target: pathlib.Path, checks: list[Check]) -> dict[str, object] | None:
@@ -206,9 +239,7 @@ def _hook_checks(
             if not _mentions(managed[0], setup.MUSE_SETTINGS_FLAG) or not _mentions(
                 managed[0], expected_settings
             ):
-                failures.append(
-                    f"{event} does not pin Muse settings {expected_settings}"
-                )
+                failures.append(f"{event} does not pin Muse settings {expected_settings}")
     return [
         Check(
             "HOOK_OK" if not failures else "HOOK_INVALID",
@@ -445,9 +476,7 @@ def _codex_checks(target: pathlib.Path, store_root: pathlib.Path) -> list[Check]
         )
         checks.append(
             Check(
-                "CODEX_STORE_ACCESS_CONFIGURED"
-                if store_allowed
-                else "CODEX_STORE_ACCESS_REVIEW",
+                "CODEX_STORE_ACCESS_CONFIGURED" if store_allowed else "CODEX_STORE_ACCESS_REVIEW",
                 store_allowed,
                 (
                     f"workspace-write includes Store {resolved_store}"
