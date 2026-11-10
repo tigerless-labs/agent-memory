@@ -4,7 +4,7 @@ import json
 
 import pytest
 from agent_memory.adapters import capture as capture_module
-from agent_memory.cli.main import EXIT_ERROR, EXIT_INVALID, EXIT_OK, main
+from agent_memory.cli.main import EXIT_ERROR, EXIT_INVALID, EXIT_OK, _parser, main
 from agent_memory.core import schema
 from agent_memory.core.config import OperationExecutorConfig
 from agent_memory.core.errors import ReasonerUnavailableError
@@ -598,3 +598,48 @@ def test_sleep_can_be_handed_a_reasoner_whose_verdicts_reach_the_store(cli, monk
     report = cli("sleep", "--reason", "host")
     assert [decision["proposal"] for decision in report["decisions"]] == [proposal["id"]]
     assert proposal["id"] not in {open_one["id"] for open_one in cli("proposals")["proposals"]}
+
+
+def test_global_flags_are_accepted_after_the_subcommand(tmp_path, capsys):
+    root = tmp_path / "store"
+    assert main(["init", "--store", str(root)]) == EXIT_OK
+    capsys.readouterr()
+    assert main([
+        "record",
+        "--abstract",
+        "global flags work after the subcommand",
+        "--type",
+        "fact",
+        "--store",
+        str(root),
+        "--json",
+        "--agent",
+        "flag-order",
+    ]) == EXIT_OK
+    payload = json.loads(capsys.readouterr().out)
+    assert Store(root).find(payload["name"]).author == "flag-order"
+
+
+def test_global_flags_keep_working_before_the_subcommand(tmp_path, capsys):
+    root = tmp_path / "store"
+    assert main(["--store", str(root), "init"]) == EXIT_OK
+    capsys.readouterr()
+    assert main(["--store", str(root), "--json", "inspect"]) == EXIT_OK
+    assert json.loads(capsys.readouterr().out)["store"] == str(root)
+
+
+def test_global_flags_work_in_mixed_positions(tmp_path, capsys):
+    root = tmp_path / "store"
+    assert main(["--store", str(root), "init", "--json"]) == EXIT_OK
+    assert json.loads(capsys.readouterr().out)["store"] == str(root)
+
+
+@pytest.mark.parametrize("subcommands", [("cron", "status"), ("jobs", "list")])
+def test_global_flags_are_accepted_after_a_nested_subcommand(subcommands):
+    args = _parser().parse_args(
+        [*subcommands, "--store", "/tmp/store", "--json", "--agent", "nested-flags"]
+    )
+
+    assert args.store == "/tmp/store"
+    assert args.json is True
+    assert args.agent == "nested-flags"
