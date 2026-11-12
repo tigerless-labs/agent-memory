@@ -102,7 +102,14 @@ class Recall:
                 candidates = candidates + index.match(
                     query, pool, SURFACE_HISTORY, scope_path=scope_path
                 )
-            eligible = self._eligible(index.rows(), scope=scope, as_of=as_of)
+            if self._config.index.vector_enabled:
+                eligible = self._eligible(index.rows(), scope=scope, as_of=as_of)
+            else:
+                eligible = self._eligible(
+                    index.rows_for({candidate.name for candidate in candidates}),
+                    scope=scope,
+                    as_of=as_of,
+                )
             if self._config.index.vector_enabled:
                 assert self._store.embedder is not None
                 dense = VectorIndex(
