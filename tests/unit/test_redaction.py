@@ -67,6 +67,25 @@ def test_a_trailing_backslash_still_ends_a_quoted_value():
     assert redact(r'password: "C:\dir\"') == 'password: "[REDACTED]"'
 
 
-def test_an_empty_or_unterminated_quote_is_left_alone():
+def test_an_empty_quoted_value_is_left_alone():
     assert redact('password: ""') == 'password: ""'
-    assert redact('password: "unterminated') == 'password: "unterminated'
+
+
+@pytest.mark.parametrize(
+    ("line", "expected"),
+    [
+        ('password: "unterminated', 'password: "[REDACTED]'),
+        ("secret = 'truncated phrase", "secret = '[REDACTED]"),
+        ('password: "unterminated\nuser=ann', 'password: "[REDACTED]\nuser=ann'),
+    ],
+)
+def test_an_unterminated_quoted_value_is_redacted_to_the_line_end(line, expected):
+    assert redact(line) == expected
+
+
+def test_a_malformed_second_key_cannot_leave_its_value_visible():
+    cleaned = redact('api_key: "abc | secret: "xyz"')
+
+    assert "abc" not in cleaned
+    assert "xyz" not in cleaned
+    assert cleaned == 'api_key: "[REDACTED]"'
