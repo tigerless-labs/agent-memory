@@ -20,10 +20,17 @@ from agent_memory.core.errors import ReasonerUnavailableError
 
 from .credentials import VertexCredentials
 from .hosts import DIALECTS, HERMES_DATA_TRAINING_REQUIREMENT, HOST_HERMES
+from .monid import MonidReasoner
 from .reasoners import EndpointReasoner, EndpointTextReasoner, HostReasoner, ToolHostReasoner
 
 
-def distiller(config: ExecutorConfig) -> EndpointReasoner | EndpointTextReasoner | HostReasoner:
+def distiller(
+    config: ExecutorConfig,
+) -> EndpointReasoner | EndpointTextReasoner | HostReasoner | MonidReasoner:
+    if config.reasoner == "monid":
+        if config.tool_mode == TOOL_MODE_NATIVE:
+            raise ReasonerUnavailableError("monid reasoner requires text tool mode")
+        return MonidReasoner(model=config.model, timeout_seconds=config.timeout_seconds)
     if config.reasoner == REASONER_HOST:
         dialect = DIALECTS.get(config.host)
         mode = config.tool_mode or TOOL_MODE_AUTO

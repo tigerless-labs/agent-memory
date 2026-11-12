@@ -76,11 +76,11 @@ def resolve(
             raise ReasonerUnavailableError(f"{operation} reasoner host cannot be source")
         chosen = dataclasses.replace(chosen, host=explicit_host)
     if model:
-        if chosen.reasoner == REASONER_ENDPOINT:
+        if chosen.reasoner in (REASONER_ENDPOINT, "monid"):
             chosen = dataclasses.replace(chosen, model=model)
         else:
             chosen = dataclasses.replace(chosen, host_model=model)
-    if chosen.reasoner not in (REASONER_HOST, REASONER_ENDPOINT):
+    if chosen.reasoner not in (REASONER_HOST, REASONER_ENDPOINT, "monid"):
         raise ReasonerUnavailableError(f"unsupported reasoner {chosen.reasoner!r} for {operation}")
     if (
         operation == WRITE
