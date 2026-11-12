@@ -6,6 +6,7 @@ from agent_memory.core.access_log import AccessLog
 from agent_memory.core.database import Database
 from agent_memory.core.recall import Recall
 from agent_memory.core.schema import MemorySchema, render
+from agent_memory.core.search_index import SearchIndex
 from agent_memory.core.store import LEVEL_ABSTRACT, LEVEL_OUTLINE, Store
 
 
@@ -16,6 +17,21 @@ def _names(hits):
 def test_literal_tokens_such_as_error_codes_are_retrievable(seeded):
     hits = Recall(seeded).recall("E4021")
     assert "staging-deploy-e4021" in _names(hits)
+
+
+def test_recall_reads_only_the_candidate_rows(seeded, monkeypatch):
+    calls = []
+
+    def unexpected(*args, **kwargs):
+        calls.append(args)
+        raise AssertionError("recall loaded every record row")
+
+    monkeypatch.setattr(SearchIndex, "rows", unexpected)
+
+    hits = Recall(seeded).recall("E4021")
+
+    assert "staging-deploy-e4021" in _names(hits)
+    assert calls == []
 
 
 def test_paraphrase_of_the_abstract_retrieves_the_record(seeded):

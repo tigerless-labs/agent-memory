@@ -9,6 +9,9 @@ state; evidence from it does not become current truth.
 Recall searches Memory only, using an explicit limit when more candidates are useful.
 Requested path scope filters Memory before a candidate limit is applied, so unrelated
 matches cannot hide a relevant scoped memory.
+A read touches only the records its candidate set names; it does not read the whole
+projection to decide eligibility. The vector surface is the exception, because a dense
+match can surface a record the lexical candidates never named.
 Trace remains an explicit read capability bound to a selected Memory citation. Archived
 sessions stay available for audit and redistillation. Reused stores project their indexes
 before an exam so retrieval sees the same truth files that a fresh store would.

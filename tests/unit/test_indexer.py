@@ -2,11 +2,22 @@
 
 from agent_memory.core.database import Database
 from agent_memory.core.recall import Recall
-from agent_memory.core.search_index import SearchIndex
+from agent_memory.core.search_index import NAME_QUERY_CHUNK, SearchIndex
 
 
 def _names(hits):
     return {hit.name for hit in hits}
+
+
+def test_rows_for_returns_only_the_named_records(seeded):
+    with Database(seeded.layout).connect() as connection:
+        index = SearchIndex(connection)
+        rows = index.rows_for(["staging-deploy-e4021", "missing", "staging-deploy-e4021"])
+        assert {row["name"] for row in rows} == {"staging-deploy-e4021"}
+        assert index.rows_for([]) == []
+        many = [f"missing-{number}" for number in range(NAME_QUERY_CHUNK + 1)]
+        many.append("staging-deploy-e4021")
+        assert {row["name"] for row in index.rows_for(many)} == {"staging-deploy-e4021"}
 
 
 def test_touching_one_file_reindexes_only_that_file(seeded):

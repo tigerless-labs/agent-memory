@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import dataclasses
 import sqlite3
+from collections.abc import Collection
 
 from .chunking import Chunk
 from .database import SURFACE_ACTIVE, SURFACE_HISTORY
@@ -17,6 +18,7 @@ from .tokenization import (
 
 LINK_SEPARATOR = ","
 SURFACES = (SURFACE_ACTIVE, SURFACE_HISTORY)
+NAME_QUERY_CHUNK = 500
 
 
 @dataclasses.dataclass(frozen=True)
@@ -92,6 +94,22 @@ class SearchIndex:
         if include_invalid:
             return self._connection.execute("SELECT * FROM records").fetchall()
         return self._connection.execute("SELECT * FROM records WHERE invalid_at IS NULL").fetchall()
+
+    def rows_for(self, names: Collection[str]) -> list[sqlite3.Row]:
+        """The record rows named by `names`, never the whole table."""
+        ordered = sorted(set(names))
+        if not ordered:
+            return []
+        rows: list[sqlite3.Row] = []
+        for start in range(0, len(ordered), NAME_QUERY_CHUNK):
+            chunk = ordered[start : start + NAME_QUERY_CHUNK]
+            placeholders = ", ".join("?" for _ in chunk)
+            rows.extend(
+                self._connection.execute(
+                    f"SELECT * FROM records WHERE name IN ({placeholders})", chunk
+                ).fetchall()
+            )
+        return rows
 
     def row(self, name: str) -> sqlite3.Row | None:
         return self._connection.execute("SELECT * FROM records WHERE name = ?", (name,)).fetchone()
