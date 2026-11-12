@@ -112,6 +112,58 @@ def test_the_batch_path_is_the_same_write_path(store, monkeypatch):
     assert len(calls) == 1, "a batch projects once, not once per record"
 
 
+def test_a_batch_does_not_rescan_the_truth_tree_per_record(store, monkeypatch):
+    def unexpected(*args, **kwargs):
+        raise AssertionError("a batch scanned the truth tree per record")
+
+    monkeypatch.setattr(type(store), "_scan_for", unexpected)
+
+    result = store.record_many(SPECS)
+
+    assert [record.name for record in result.written] == [spec["name"] for spec in SPECS]
+
+
+def test_a_batch_still_finds_a_record_the_projection_does_not_know(store):
+    written = store.record(
+        abstract="Orchid original",
+        type="fact",
+        name="orchid",
+        fields={"project": "shop"},
+    )
+    store.layout.index_db.unlink()
+
+    result = store.record_many(
+        [
+            {
+                "abstract": "Orchid after the move",
+                "type": "fact",
+                "name": "orchid",
+                "fields": {"project": "billing"},
+            }
+        ]
+    )
+
+    assert result.written
+    moved = store.find("orchid")
+    assert moved.abstract == "Orchid after the move"
+    assert moved.path.parent.name == "billing"
+    assert moved.path != written.path
+    assert not written.path.exists()
+
+
+def test_a_batch_resolves_a_name_it_wrote_earlier(store):
+    result = store.record_many(
+        [
+            {"abstract": "First orchid note", "type": "fact", "name": "orchid"},
+            {"abstract": "Second orchid note", "type": "fact", "name": "orchid"},
+        ]
+    )
+
+    assert [record.name for record in result.written] == ["orchid", "orchid"]
+    assert len([path for path in store.layout.truth_files() if path.stem == "orchid"]) == 1
+    assert store.find("orchid").abstract == "Second orchid note"
+
+
 def test_an_empty_batch_is_not_an_error(store):
     result = store.record_many([])
     assert result.written == []

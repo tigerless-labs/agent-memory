@@ -73,6 +73,27 @@ class _Prepared:
     predecessor: MemoryRecord | None
 
 
+class _NameScan:
+    """One pass over the truth files, shared by every write in a batch."""
+
+    def __init__(self, store: Store):
+        self._store = store
+        self._paths: dict[str, pathlib.Path] | None = None
+
+    def lookup(self, name: str) -> pathlib.Path | None:
+        if self._paths is None:
+            self._paths = {}
+            for path in self._store.layout.truth_files():
+                record = self._store._at(path)
+                if record is not None:
+                    self._paths.setdefault(record.name, path)
+        return self._paths.get(name)
+
+    def remember(self, name: str, path: pathlib.Path) -> None:
+        if self._paths is not None:
+            self._paths[name] = path
+
+
 @dataclasses.dataclass(frozen=True)
 class BatchResult:
     written: list[MemoryRecord]
@@ -151,9 +172,10 @@ class Store:
             return BatchResult(written=written, rejected=rejected)
         with store_lock(self.layout):
             try:
+                names = _NameScan(self)
                 for index, spec in enumerate(specs):
                     try:
-                        record, changed = self._write_one(_known_fields(spec))
+                        record, changed = self._write_one(_known_fields(spec), names)
                         written.append(record)
                         for path, original in changed.items():
                             snapshots.setdefault(path, original)
@@ -180,14 +202,23 @@ class Store:
         return rejected
 
     def _write_one(
-        self, spec: dict[str, object]
+        self, spec: dict[str, object], names: _NameScan | None = None
     ) -> tuple[MemoryRecord, dict[pathlib.Path, bytes | None]]:
         """One malformed item is one rejection: a batch is many memories, and the rest of
         them reaching disk is what keeps a single stray key from costing a conversation."""
-        prepared = self._prepare(spec, archive_excerpts=True)
-        return self._persist(prepared)
+        prepared = self._prepare(spec, archive_excerpts=True, names=names)
+        record, changed = self._persist(prepared)
+        if names is not None:
+            names.remember(record.name, prepared.target)
+        return record, changed
 
-    def _prepare(self, spec: dict[str, object], *, archive_excerpts: bool) -> _Prepared:
+    def _prepare(
+        self,
+        spec: dict[str, object],
+        *,
+        archive_excerpts: bool,
+        names: _NameScan | None = None,
+    ) -> _Prepared:
         schema = self.schemas.require(str(spec.get("type") or ""))
         if not str(spec.get("abstract") or "").strip():
             raise ValidationError([FieldError("abstract", "required")])
@@ -215,14 +246,14 @@ class Store:
             and derived_name
             and (placed.name == supersedes or (self.root / placed.relative_path).exists())
         ):
-            placed = self._successor_placement(placed)
+            placed = self._successor_placement(placed, names)
         target = self.root / placed.relative_path
         if self.layout.type_of(target) != schema.type:
             raise ValidationError([FieldError("path", "memory must belong to this store")])
         existing = self._at(target)
         moved_from: pathlib.Path | None = None
         if existing is None:
-            elsewhere = self.find(placed.name)
+            elsewhere = self._find(placed.name, names)
             if elsewhere is not None and elsewhere.path is not None:
                 existing, moved_from = elsewhere, elsewhere.path
         if existing is not None and schema.mode == MODE_ADD_ONLY:
@@ -265,7 +296,7 @@ class Store:
         record_module.validate(candidate, self.config, schema)
         record_module.canonicalise_dates(candidate)
         self._validate_links(candidate, existing, replace_links=spec.get("links") is not None)
-        predecessor = self._predecessor(candidate, supersedes)
+        predecessor = self._predecessor(candidate, supersedes, names)
 
         for excerpt in _as_sequence(spec.get("provenance")):
             item = str(excerpt)
@@ -305,14 +336,16 @@ class Store:
         candidate.source_hash = hashlib.sha256(payload).hexdigest()
         return candidate, snapshots
 
-    def _successor_placement(self, placed: placement.Placement) -> placement.Placement:
+    def _successor_placement(
+        self, placed: placement.Placement, names: _NameScan | None = None
+    ) -> placement.Placement:
         """A successor with the same key as its predecessor keeps the key and takes the next
         free ordinal; the predecessor keeps its name, so nothing that cites it breaks."""
         ordinal = FIRST_SUCCESSOR_ORDINAL
         while True:
             name = f"{placed.name}-{ordinal}"
             path = placed.relative_path.with_name(f"{name}{placed.relative_path.suffix}")
-            if self.find(name) is None and not (self.root / path).exists():
+            if self._find(name, names) is None and not (self.root / path).exists():
                 return dataclasses.replace(placed, name=name, relative_path=path)
             ordinal += 1
 
@@ -370,12 +403,17 @@ class Store:
                 messages.extend(resolve(self.layout, pointer, strict=False))
         return messages
 
-    def _predecessor(self, candidate: MemoryRecord, supersedes: str | None) -> MemoryRecord | None:
+    def _predecessor(
+        self,
+        candidate: MemoryRecord,
+        supersedes: str | None,
+        names: _NameScan | None = None,
+    ) -> MemoryRecord | None:
         if not supersedes:
             return None
         if supersedes == candidate.name:
             raise ValidationError([FieldError("supersedes", "cannot supersede itself")])
-        found = self.find(supersedes)
+        found = self._find(supersedes, names)
         if found is None:
             raise NotFoundError(f"no memory named {supersedes}")
         if not found.is_active():
@@ -701,9 +739,17 @@ class Store:
         return ReadResult(record=current, level=level, text=text, outline=headings)
 
     def find(self, name: str) -> MemoryRecord | None:
+        return self._find(name, None)
+
+    def _find(self, name: str, names: _NameScan | None) -> MemoryRecord | None:
         with self._database.connect() as connection:
             row = SearchIndex(connection).row(name)
-        path = (self.root / str(row["path"])) if row else self._scan_for(name)
+        if row:
+            path = self.root / str(row["path"])
+        elif names is not None:
+            path = names.lookup(name)
+        else:
+            path = self._scan_for(name)
         return self._at(path) if path is not None else None
 
     def records(self, include_invalid: bool = False) -> list[MemoryRecord]:
