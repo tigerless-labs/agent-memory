@@ -9,7 +9,9 @@ import re
 # captured so the replacement can put it back and leave the line readable as config.
 PREFIXED = re.compile(
     r"(?i)(bearer\s+|(?:api[_-]?key|token|password|secret)[\"']?\s*[=:]\s*)"
-    r"(?P<quote>[\"']?)(?P<value>[^\s,\"']+)(?P=quote)"
+    r"(?:\"(?P<double>(?:\\[^\r\n]|[^\"\\\r\n])+|[^\"\r\n]+)\""
+    r"|'(?P<single>(?:\\[^\r\n]|[^'\\\r\n])+|[^'\r\n]+)'"
+    r"|(?P<value>[^\s,\"']+))"
 )
 BARE = (
     re.compile(r"\bsk-[A-Za-z0-9_-]{16,}"),
@@ -21,8 +23,13 @@ BARE = (
 REDACTED = "[REDACTED]"
 
 
+def _redact_prefixed(match: re.Match[str]) -> str:
+    quote = '"' if match["double"] is not None else "'" if match["single"] is not None else ""
+    return f"{match[1]}{quote}{REDACTED}{quote}"
+
+
 def redact(text: str) -> str:
-    cleaned = PREFIXED.sub(rf"\1\g<quote>{REDACTED}\g<quote>", text)
+    cleaned = PREFIXED.sub(_redact_prefixed, text)
     for pattern in BARE:
         cleaned = pattern.sub(REDACTED, cleaned)
     return cleaned

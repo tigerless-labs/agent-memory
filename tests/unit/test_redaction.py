@@ -34,3 +34,39 @@ def test_an_unquoted_value_is_still_redacted():
 
 def test_a_quoted_value_without_a_colon_is_not_touched():
     assert redact('the string "hunter2" appears alone') == 'the string "hunter2" appears alone'
+
+
+@pytest.mark.parametrize(
+    ("line", "secret"),
+    [
+        ('password: "correct horse battery staple"', "horse"),
+        ("PASSWORD='my secret phrase'", "secret phrase"),
+        ('{"password": "pa,ss word"}', "pa,ss"),
+        ('{"api_key": "abc,def123"}', "def123"),
+        ('secret = "it\'s a secret"', "a secret"),
+    ],
+)
+def test_a_quoted_value_with_spaces_or_commas_is_redacted_whole(line, secret):
+    cleaned = redact(line)
+
+    assert secret not in cleaned
+    assert REDACTED in cleaned
+
+
+def test_a_quoted_value_with_spaces_keeps_its_quotes_and_the_rest_of_the_line():
+    assert redact('password: "a b c" and more') == 'password: "[REDACTED]" and more'
+    assert redact('{"token": "a b", "user": "ann"}') == '{"token": "[REDACTED]", "user": "ann"}'
+
+
+def test_an_escaped_quote_does_not_end_a_quoted_value():
+    assert redact(r'{"password": "say \"hi\" now"}') == '{"password": "[REDACTED]"}'
+    assert redact(r"secret: 'it\'s a b'") == "secret: '[REDACTED]'"
+
+
+def test_a_trailing_backslash_still_ends_a_quoted_value():
+    assert redact(r'password: "C:\dir\"') == 'password: "[REDACTED]"'
+
+
+def test_an_empty_or_unterminated_quote_is_left_alone():
+    assert redact('password: ""') == 'password: ""'
+    assert redact('password: "unterminated') == 'password: "unterminated'
