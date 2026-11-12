@@ -32,6 +32,7 @@ must not retry malformed calls indefinitely.
 | Reasoner | Who runs the loop | How the tools arrive |
 |---|---|---|
 | Model endpoint | The executor | Native function calling over a structured message history |
+| Monid | The executor | Line-oriented text through DataForSEO Claude responses |
 | Claude Code, Codex | The host CLI, one headless run per batch | A per-batch stdio MCP adapter over the same toolkit |
 | Hermes | The isolated host CLI, one headless run per batch | A whitelisted per-batch stdio MCP adapter selected as the complete dynamic toolset |
 | Muse Code | The isolated host CLI, one headless run per batch | A required per-batch stdio MCP adapter selected as Muse's complete toolset |
@@ -56,6 +57,18 @@ that release added exact MCP names to `run.toolset`. Its isolated settings conta
 routing and the required batch server; Shell, Web, file writes, reminders, personal context and
 session persistence are disabled. Muse has no system-prompt replacement flag, so the same system
 instructions and batch material are placed, in that order, in its one prompt file.
+
+Monid is an explicit executor selection, independent of host and endpoint credentials.
+It uses the same text protocol; provider and transport failures stop projection through
+the existing reasoner failure boundary. Host defaults and local retrieval remain unchanged.
+
+### Monid setup
+
+Set `MONID_API_KEY`, then configure `[executor.write]` or `[executor.manage]` with
+`reasoner = "monid"`, `model = "claude-sonnet-4-0"`, and `tool_mode = "text"`.
+Prompts must fit the provider's input limit. This sends reasoning material to DataForSEO
+through Monid (one API key, pay per call).
+See [Monid docs](https://docs.monid.ai?utm_source=github&utm_medium=oss-pr&utm_campaign=tigerless-labs-agent-memory).
 
 Hermes native mode requires Hermes Agent 0.22.2. One temporary profile contains only the batch
 server, and the dynamic `agent-memory-write` toolset avoids collision with Hermes' built-in
