@@ -9,7 +9,7 @@ import os
 import pathlib
 import sys
 from collections.abc import Sequence
-from typing import Any
+from typing import Any, TextIO
 
 from agent_memory.core import context as context_module
 from agent_memory.core import distill as distill_module
@@ -921,7 +921,9 @@ def _emit(payload: object, as_json: bool, stream=None) -> None:
                 print(evidence["text"], file=stream)
         return
     for key, value in payload.items():
-        if isinstance(value, list) and value and isinstance(value[0], dict):
+        if key == "hosts" and isinstance(value, dict):
+            _emit_host_reports(value, stream)
+        elif isinstance(value, list) and value and isinstance(value[0], dict):
             print(f"{key}:", file=stream)
             for item in value:
                 print(f"  - {_line(item)}", file=stream)
@@ -929,9 +931,21 @@ def _emit(payload: object, as_json: bool, stream=None) -> None:
             print(f"{key}: {value}", file=stream)
 
 
+def _emit_host_reports(reports: dict[str, object], stream: TextIO) -> None:
+    print("hosts:", file=stream)
+    for host, report in reports.items():
+        print(f"\n{host}:", file=stream)
+        _emit(report, False, stream=stream)
+
+
 def _line(item: dict[str, object]) -> str:
     if frozenset(item) == FIELD_ERROR_KEYS:
         return f"{item['field']}: {item['reason']}"
+    if {"code", "ok", "detail"} <= item.keys():
+        status = "PASS"
+        if not item["ok"]:
+            status = "FAIL" if item.get("required", True) else "WARN"
+        return f"{item['code']}: {status} — {item['detail']}"
     name = item.get("name", "")
     abstract = item.get("abstract", "")
     path = item.get("path", "")
