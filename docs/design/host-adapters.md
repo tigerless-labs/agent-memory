@@ -90,10 +90,11 @@ name. Muse lifecycle events use the existing moments, and only root-session mate
 archive. Muse's native memory remains independent and is never copied, synchronized, or treated
 as Recall evidence.
 
-Host setup is a preserving merge. Muse settings require their schema version, retain unknown
-settings, hooks, and MCP servers, and are replaced atomically only after valid JSON is read.
-The setup path installs lifecycle hooks and the canonical agent-memory skill; MCP remains an
-explicit use of the shared server.
+Host setup preserves unknown settings, hooks and MCP servers; Muse settings retain their schema
+version and are replaced atomically after valid JSON is read. Setup installs lifecycle hooks and
+the canonical skill; MCP stays opt-in. Setup and doctor text reports show each check's code,
+pass/fail/warning state and detail, grouped by host for multi-host setup. Optional failures are
+warnings; JSON reports and readiness exit codes retain their existing contracts.
 
 Muse 1.4 lifecycle payloads identify the session but set `transcript_path` to null. The Muse
 adapter resolves that identifier to the root durable log under Muse's XDG data directory and
