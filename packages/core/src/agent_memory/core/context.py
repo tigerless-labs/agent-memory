@@ -40,8 +40,10 @@ def build(
     scope: str | None = None,
     as_of: str | None = None,
     limit: int | None = None,
+    *,
+    fields: dict[str, str] | None = None,
 ) -> Context:
-    hits = Recall(store).recall(query, scope=scope, as_of=as_of, limit=limit)
+    hits = Recall(store).recall(query, scope=scope, as_of=as_of, limit=limit, fields=fields)
     if not hits:
         return Context(text=NOTHING_FOUND, entries=0, names=())
 

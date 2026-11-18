@@ -52,6 +52,16 @@ mem context "why files instead of a database"   # both in one call, top few expa
 mem trace <name>                                 # cited raw messages, when needed
 ```
 
+Use schema fields to recall one project across memory types. Repeated fields are exact,
+case-sensitive constraints; they also combine with `--scope` and `--as-of`:
+
+```bash
+mem recall "pagination" --field project=scrapling
+mem context "pagination" --field project=scrapling
+```
+
+MCP `memory_recall` accepts the same constraints as `fields: {"project": "scrapling"}`.
+
 Index line → abstract → full file → raw material: each rung costs an order of magnitude more
 than the last, and each is a place to stop. Long files add two free rungs — the anchor that
 matched, and an outline computed at read time.

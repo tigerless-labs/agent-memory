@@ -17,3 +17,5 @@
 - [Management operation boundaries](management-operation-boundaries.md) defines the
   correction, relationship mutation, automatic duplicate supersession, and automatic
   directory grouping and identity-preserving regrouping contracts.
+
+- [Schema-field eligibility](recall-field-filters.md) defines cross-type project retrieval.

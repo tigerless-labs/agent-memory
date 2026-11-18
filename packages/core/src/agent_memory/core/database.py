@@ -42,6 +42,14 @@ SCHEMA = (
         provenance TEXT NOT NULL
     )
     """,
+    """
+    CREATE TABLE IF NOT EXISTS record_fields (
+        name TEXT NOT NULL,
+        key TEXT NOT NULL,
+        value TEXT NOT NULL,
+        PRIMARY KEY(name, key)
+    )
+    """,
     f"""
     CREATE VIRTUAL TABLE IF NOT EXISTS {SURFACE_ACTIVE} USING fts5(
         name UNINDEXED,

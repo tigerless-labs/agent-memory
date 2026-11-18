@@ -15,6 +15,7 @@ from . import observation, timestamp
 from .access_log import KIND_RECALL, AccessEntry, AccessLog
 from .config import Config
 from .database import SURFACE_ACTIVE, SURFACE_HISTORY, Database
+from .errors import FieldError, ValidationError
 from .search_index import LINK_SEPARATOR, Candidate, SearchIndex
 from .store import Store
 from .vector_index import VectorIndex
@@ -87,7 +88,20 @@ class Recall:
         as_of: str | None = None,
         limit: int | None = None,
         log: bool = True,
+        *,
+        fields: dict[str, str] | None = None,
     ) -> list[Hit]:
+        if fields is not None and (
+            not isinstance(fields, dict)
+            or any(not isinstance(key, str) or not key or not isinstance(value, str)
+                   for key, value in fields.items())
+        ):
+            raise ValidationError([FieldError("fields", "must map nonempty strings to strings")])
+        if fields:
+            with self._database.connect() as connection:
+                fields_ready = SearchIndex(connection).fields_ready()
+            if not fields_ready:
+                self._store.sync_index()
         limit = self._config.recall.default_limit if limit is None else limit
         if limit < 1:
             raise ValueError("limit must be positive")
@@ -97,12 +111,14 @@ class Recall:
         )
         with self._database.connect() as connection:
             index = SearchIndex(connection, self._config.index.tokenizer)
-            candidates = index.match(query, pool, SURFACE_ACTIVE, scope_path=scope_path)
+            candidates = index.match(
+                query, pool, SURFACE_ACTIVE, scope_path=scope_path, fields=fields
+            )
             if as_of is not None:
                 candidates = candidates + index.match(
-                    query, pool, SURFACE_HISTORY, scope_path=scope_path
+                    query, pool, SURFACE_HISTORY, scope_path=scope_path, fields=fields
                 )
-            eligible = self._eligible(index.rows(), scope=scope, as_of=as_of)
+            eligible = self._eligible(index.rows(fields=fields), scope=scope, as_of=as_of)
             if self._config.index.vector_enabled:
                 assert self._store.embedder is not None
                 dense = VectorIndex(
@@ -128,7 +144,7 @@ class Recall:
                 ]
             )
         observation.emit(
-            "recall_return", query=query, scope=scope, as_of=as_of,
+            "recall_return", query=query, scope=scope, as_of=as_of, fields=fields,
             effective_limit=limit, hits=[hit.as_dict() for hit in hits],
         )
         return hits

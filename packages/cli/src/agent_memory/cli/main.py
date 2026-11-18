@@ -138,6 +138,10 @@ def _parser() -> argparse.ArgumentParser:
     reader.add_argument("--scope", default=None)
     reader.add_argument("--as-of", default=None)
     reader.add_argument("--limit", type=int, default=None)
+    reader.add_argument(
+        "--field", action="append", default=[], metavar="KEY=VALUE",
+        help="require an exact schema-field value; repeat to require every field",
+    )
     reader.set_defaults(handler=_recall)
 
     contexter = subcommand("context", help="recall and open the top entries in one call")
@@ -145,6 +149,10 @@ def _parser() -> argparse.ArgumentParser:
     contexter.add_argument("--scope", default=None)
     contexter.add_argument("--as-of", default=None)
     contexter.add_argument("--limit", type=int, default=None)
+    contexter.add_argument(
+        "--field", action="append", default=[], metavar="KEY=VALUE",
+        help="require an exact schema-field value; repeat to require every field",
+    )
     contexter.set_defaults(handler=_context)
 
     opener = subcommand("read", help="read one memory")
@@ -449,7 +457,9 @@ def _record_batch(store: Store, source: str) -> dict[str, object]:
 
 
 def _recall(store: Store, args: argparse.Namespace) -> dict[str, object]:
-    hits = Recall(store).recall(args.query, scope=args.scope, as_of=args.as_of, limit=args.limit)
+    hits = Recall(store).recall(
+        args.query, scope=args.scope, as_of=args.as_of, limit=args.limit, fields=_fields(args.field)
+    )
     return {
         "query": args.query,
         "recall_fingerprint": store.config.recall_fingerprint(),
@@ -459,7 +469,8 @@ def _recall(store: Store, args: argparse.Namespace) -> dict[str, object]:
 
 def _context(store: Store, args: argparse.Namespace) -> dict[str, object]:
     built = context_module.build(
-        store, args.query, scope=args.scope, as_of=args.as_of, limit=args.limit
+        store, args.query, scope=args.scope, as_of=args.as_of, limit=args.limit,
+        fields=_fields(args.field),
     )
     return {
         "query": args.query,

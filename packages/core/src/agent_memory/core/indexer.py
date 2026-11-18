@@ -50,6 +50,8 @@ class Indexer:
             manifest = Manifest(connection, self._config.index.hash_prefix_length)
             index = SearchIndex(connection, self._config.index.tokenizer)
             IndexMeta(connection).set_tokenizer(self._config.index.tokenizer)
+            if not index.fields_ready():
+                connection.execute("DELETE FROM files")
             delta = manifest.diff(present)
             unreadable: list[str] = []
             reindexed: list[str] = []
@@ -72,6 +74,7 @@ class Indexer:
             if self._config.index.vector_enabled:
                 assert self._embedder is not None
                 self._sync_vectors(connection, present, self._embedder)
+            index.mark_fields_ready()
             dangling = self._dangling_links(index)
         return IndexReport(
             reindexed=tuple(reindexed),

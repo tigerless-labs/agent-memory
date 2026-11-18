@@ -26,6 +26,7 @@ SCHEMAS: dict[str, dict[str, object]] = {
             "scope": {"type": "string"},
             "as_of": {"type": "string"},
             "limit": {"type": "integer", "minimum": 1},
+            "fields": {"type": "object", "additionalProperties": {"type": "string"}},
         },
         "required": ["query"],
     },
@@ -204,6 +205,7 @@ def _recall(store: Store, arguments: dict[str, object]) -> dict[str, object]:
         scope=_optional(arguments, "scope"),
         as_of=as_of,
         limit=int(str(arguments["limit"])) if arguments.get("limit") else None,
+        fields=_string_map(arguments.get("fields")),
     )
     return {
         "query": str(arguments["query"]),
