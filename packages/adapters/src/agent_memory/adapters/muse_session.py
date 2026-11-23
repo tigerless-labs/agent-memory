@@ -50,7 +50,7 @@ def items(path: pathlib.Path) -> list[str]:
     if not path.exists() or "subagent" in path.parts:
         return []
     found: list[str] = []
-    for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+    for line in path.read_text(encoding="utf-8", errors="ignore").split("\n"):
         try:
             record = json.loads(line)
         except json.JSONDecodeError:

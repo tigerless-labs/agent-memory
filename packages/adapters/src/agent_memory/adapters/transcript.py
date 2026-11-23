@@ -20,7 +20,7 @@ def items(path: pathlib.Path, host: str = "") -> list[str]:
     if not path.exists():
         return []
     found: list[str] = []
-    for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+    for line in path.read_text(encoding="utf-8", errors="ignore").split("\n"):
         stripped = line.strip()
         if not stripped:
             continue
