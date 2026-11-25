@@ -397,8 +397,8 @@ def _mcp_check(
         rendered = result.stdout + result.stderr
         ok = (
             result.returncode == 0
-            and setup.mcp_binary() in rendered
-            and str(store_root) in rendered
+            and _json_text(setup.mcp_binary()) in rendered
+            and _json_text(str(store_root)) in rendered
         )
         return Check("MCP_OK" if ok else "MCP_INVALID", ok, "Codex MCP server configuration")
     if host == moments.HOST_CLAUDE_CODE:
@@ -415,8 +415,17 @@ def _mcp_check(
     # ensure_ascii=False keeps a non-ASCII path readable, so a host whose
     # install path is not plain ASCII is still matched.
     rendered = json.dumps(server, ensure_ascii=False) if server is not None else ""
-    ok = setup.mcp_binary() in rendered and str(store_root.resolve()) in rendered
+    # The entry is compared as JSON text, so a path is escaped the same way:
+    # a Windows backslash is written as two in the rendered text.
+    ok = (
+        _json_text(setup.mcp_binary()) in rendered
+        and _json_text(str(store_root.resolve())) in rendered
+    )
     return Check("MCP_OK" if ok else "MCP_INVALID", ok, f"{setup.MCP_SERVER} stdio server")
+
+
+def _json_text(text: str) -> str:
+    return json.dumps(text, ensure_ascii=False)[1:-1]
 
 
 def _mcp_servers(target: pathlib.Path, key: str) -> dict[str, object] | None:

@@ -119,3 +119,41 @@ def test_quarantined_job_files_are_reported_as_degraded(store):
     assert not check.ok
     assert check.code == "WRITE_JOBS_DEGRADED"
     assert "1 quarantined" in check.detail
+
+
+def test_a_backslash_path_in_the_mcp_entry_still_matches(tmp_path, monkeypatch):
+    """Windows paths hold backslashes, and the saved entry keeps each one as two."""
+    binary = r"C:\Tools\agent memory\mem-mcp.exe"
+    monkeypatch.setattr(doctor.setup, "mcp_binary", lambda: binary)
+    store = tmp_path / "store"
+    store.mkdir()
+    settings = tmp_path / "home" / ".claude" / "settings.json"
+    _write(settings, {"hooks": {}})
+    _write(
+        tmp_path / "home" / ".claude.json",
+        {
+            "mcpServers": {
+                "agent-memory": {
+                    "command": binary,
+                    "env": {"AGENT_MEMORY_STORE": str(store.resolve())},
+                }
+            }
+        },
+    )
+    check = doctor._mcp_check("claude-code", settings, store, None, None)
+    assert check.code == "MCP_OK"
+
+
+def test_a_backslash_path_in_the_codex_json_still_matches(tmp_path, monkeypatch):
+    """`codex mcp get --json` prints each Windows backslash as two."""
+    binary = r"C:\Tools\agent memory\mem-mcp.exe"
+    store = tmp_path / "store"
+    monkeypatch.setattr(doctor.setup, "mcp_binary", lambda: binary)
+    entry = {"transport": {"command": binary, "env": {"AGENT_MEMORY_STORE": str(store)}}}
+
+    def fake_run(*args, **kwargs):
+        return doctor.subprocess.CompletedProcess(args, 0, json.dumps(entry), "")
+
+    monkeypatch.setattr(doctor.subprocess, "run", fake_run)
+    check = doctor._mcp_check("codex", tmp_path / "hooks.json", store, None, {})
+    assert check.code == "MCP_OK"
